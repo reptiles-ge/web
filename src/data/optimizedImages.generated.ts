@@ -7907,6 +7907,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2027],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-dachi-1.jpg": {
+    "path": "pelophylax-ridibundus-dachi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-donsky-1.jpg": {
+    "path": "pelophylax-ridibundus-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelophylax-ridibundus-giorgi-1.jpg": {
     "path": "pelophylax-ridibundus-giorgi-1",
     "width": 960,
@@ -7914,11 +7928,39 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-jack-1.jpg": {
+    "path": "pelophylax-ridibundus-jack-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelophylax-ridibundus-lasha-1.jpg": {
     "path": "pelophylax-ridibundus-lasha-1",
     "width": 640,
     "height": 557,
     "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-marat-1.jpg": {
+    "path": "pelophylax-ridibundus-marat-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-markus-1.jpg": {
+    "path": "pelophylax-ridibundus-markus-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-nikita-1.jpg": {
+    "path": "pelophylax-ridibundus-nikita-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/pelophylax-ridibundus-vlad-1.jpg": {

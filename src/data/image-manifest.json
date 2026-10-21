@@ -95012,6 +95012,196 @@
       ],
       "updatedAt": "2026-09-09T20:14:04.464Z"
     },
+    "pelophylax-ridibundus-dachi-1.jpg": {
+      "sourceHash": "016cde49ac634b262bfa32eae11e61257ee42f4da2e0145d31887d575205127a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-dachi-1.jpg",
+      "originalSize": 306612,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5205
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5552
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6844
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7580
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15476
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18495
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21256
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32213
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37170
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 72629
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 86322
+        }
+      ],
+      "updatedAt": "2026-10-21T10:44:07.676Z"
+    },
+    "pelophylax-ridibundus-donsky-1.jpg": {
+      "sourceHash": "80d19aa05fc0c2ebdeea06660e8b781bc78feea497ddc84daeb5a2b99ff4ea7a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-donsky-1.jpg",
+      "originalSize": 767006,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12522
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20450
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18507
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29686
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43390
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67792
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 64922
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 100512
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130893
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 200208
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 320829
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470064
+        }
+      ],
+      "updatedAt": "2026-10-21T10:40:30.823Z"
+    },
     "pelophylax-ridibundus-giorgi-1.jpg": {
       "sourceHash": "6f46d82e5ece2d1c550b56491c6ea559cf722ea05673cef7f6a8449c351cf823",
       "configFingerprint": "409788ee46c653d8",
@@ -95093,6 +95283,101 @@
       ],
       "updatedAt": "2026-09-09T20:12:15.926Z"
     },
+    "pelophylax-ridibundus-jack-1.jpg": {
+      "sourceHash": "6fb9b40c7eedcdf39e3508cd15bfaffefb3c72faeb60cca762fb8bf285d33219",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-jack-1.jpg",
+      "originalSize": 387017,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8015
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11181
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15336
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24178
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 32810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 34440
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44664
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58759
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 78632
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 110615
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 156206
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:58.798Z"
+    },
     "pelophylax-ridibundus-lasha-1.jpg": {
       "sourceHash": "eca6f76f0361a2fd9e26e24a634850d3a4f49a602e3901966a179243ef51bd10",
       "configFingerprint": "409788ee46c653d8",
@@ -95145,6 +95430,291 @@
         }
       ],
       "updatedAt": "2026-09-09T20:13:22.540Z"
+    },
+    "pelophylax-ridibundus-marat-1.jpg": {
+      "sourceHash": "233f6dd2147f93eb15194804cd99f27379d104f201fd06b59bc6540699e1e68d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-marat-1.jpg",
+      "originalSize": 707292,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14274
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22334
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20117
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31480
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40585
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63844
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56988
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 87146
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 104783
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 156320
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 263450
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 350930
+        }
+      ],
+      "updatedAt": "2026-10-21T10:42:51.406Z"
+    },
+    "pelophylax-ridibundus-markus-1.jpg": {
+      "sourceHash": "1a269fbe11371463228c64b2ea8e4ad5376a776a10bf915b5ec3c5ec1dc1fe1a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-markus-1.jpg",
+      "originalSize": 497105,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24665
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35360
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34942
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 49798
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 66125
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 91944
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 85841
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 116028
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 132452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 181314
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 172600
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 237838
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:21.918Z"
+    },
+    "pelophylax-ridibundus-nikita-1.jpg": {
+      "sourceHash": "10271204dbb5cf48082e8f4bf7a4ebdb66251c4cbab681a4da527fd83af1b89c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-nikita-1.jpg",
+      "originalSize": 664120,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11915
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18112
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25410
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35937
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 52768
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51404
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73910
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 95386
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 135414
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 260810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 328832
+        }
+      ],
+      "updatedAt": "2026-10-21T10:43:27.997Z"
     },
     "pelophylax-ridibundus-vlad-1.jpg": {
       "sourceHash": "cd133ee60c55a0ab18e05c64549778579ebcc17a9595190e2bfe9c611fe391b1",
