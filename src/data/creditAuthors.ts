@@ -24,6 +24,7 @@ export type CreditAuthor = {
   kind?: CreditAuthorKind;
   links?: {
     facebook?: string;
+    inaturalist?: string;
     instagram?: string;
     researchGate?: string;
   };
@@ -481,6 +482,32 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "photographer",
     slug: "kakhaber-sukhitashvili",
   },
+  {
+    aliases: ["Arvidas M", "Arvidas Merkelis", "არვიდას მერკელისი"],
+    bio: {
+      en: "Nature photographer and amateur naturalist in Georgia. He watches wildlife mostly in Adjara and other regions of Georgia, takes field photos of animals, and documents biodiversity on iNaturalist. He pays special attention to recording species and studying their distribution in Georgia.",
+      ka: "ბუნების ფოტოგრაფი და მოყვარული ნატურალისტი საქართველოში. ძირითადად აჭარასა და საქართველოს სხვა რეგიონებში აკვირდება ველურ ბუნებას, იღებს ცხოველების საველე ფოტოებს და iNaturalist-ზე ადოკუმენტირებს ბიომრავალფეროვნებას. განსაკუთრებულ ყურადღებას უთმობს სახეობების დაფიქსირებას და მათი გავრცელების შესწავლას საქართველოში.",
+      ru: "Фотограф природы и натуралист-любитель в Грузии. Наблюдает за дикой природой в основном в Аджарии и других регионах Грузии, снимает животных в полевых условиях и документирует биоразнообразие на iNaturalist. Особое внимание уделяет фиксации видов и изучению их распространения в Грузии.",
+      tr: "Gürcistan’da doğa fotoğrafçısı ve amatör natüralist. Yaban hayatını çoğunlukla Acara’da ve Gürcistan’ın diğer bölgelerinde gözlemler, hayvanların arazi fotoğraflarını çeker ve biyoçeşitliliği iNaturalist’te belgeler. Türlerin kaydedilmesine ve Gürcistan’daki yayılışlarının incelenmesine özel önem verir.",
+    },
+    id: "arvidas-merkelis",
+    links: {
+      facebook: "https://www.facebook.com/arvidas.merkelis",
+      inaturalist: "https://www.inaturalist.org/people/arvidas",
+    },
+    name: {
+      en: "Arvidas Merkelis",
+      ka: "არვიდას მერკელისი",
+      ru: "Арвидас Меркелис",
+      tr: "Arvidas Merkelis",
+    },
+    portraitClass: "object-[50%_30%]",
+    portraitSrc:
+      "https://cdn.reptiles.ge/optimized/images/authors/arvidas-merkelis-480.webp",
+    published: true,
+    role: "photographer",
+    slug: "arvidas-merkelis",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
@@ -570,6 +597,7 @@ export function creditAuthorSameAs(author: CreditAuthor) {
   return [
     author.links?.facebook,
     author.links?.instagram,
+    author.links?.inaturalist,
     author.links?.researchGate,
   ].filter((href): href is string => Boolean(href));
 }

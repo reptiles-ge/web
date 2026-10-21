@@ -7578,6 +7578,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/optimized/images/authors/arvidas-merkelis-480.webp": {
+    "path": "optimized/images/authors/arvidas-merkelis-480",
+    "width": 480,
+    "height": 480,
+    "widths": [320, 400, 480],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/optimized/images/authors/giorgi-natsvlishvili-480.webp": {
     "path": "optimized/images/authors/giorgi-natsvlishvili-480",
     "width": 480,

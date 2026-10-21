@@ -154,6 +154,14 @@ function authorSocials(
       label: t("instagram"),
     });
   }
+  if (author.links?.inaturalist) {
+    socials.push({
+      href: author.links.inaturalist,
+      Icon: ExternalLink,
+      key: "inaturalist",
+      label: "iNaturalist",
+    });
+  }
   if (author.links?.researchGate) {
     socials.push({
       href: author.links.researchGate,
