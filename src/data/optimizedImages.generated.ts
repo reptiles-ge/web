@@ -7928,6 +7928,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-markus-1.jpg": {
+    "path": "pelophylax-ridibundus-markus-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelophylax-ridibundus-vlad-1.jpg": {
     "path": "pelophylax-ridibundus-vlad-1",
     "width": 1280,

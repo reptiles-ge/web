@@ -95241,6 +95241,101 @@
       ],
       "updatedAt": "2026-09-09T20:13:22.540Z"
     },
+    "pelophylax-ridibundus-markus-1.jpg": {
+      "sourceHash": "1a269fbe11371463228c64b2ea8e4ad5376a776a10bf915b5ec3c5ec1dc1fe1a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-markus-1.jpg",
+      "originalSize": 497105,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24665
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35360
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34942
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 49798
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 66125
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 91944
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 85841
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 116028
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 132452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 181314
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 172600
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 237838
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:21.918Z"
+    },
     "pelophylax-ridibundus-vlad-1.jpg": {
       "sourceHash": "cd133ee60c55a0ab18e05c64549778579ebcc17a9595190e2bfe9c611fe391b1",
       "configFingerprint": "409788ee46c653d8",
