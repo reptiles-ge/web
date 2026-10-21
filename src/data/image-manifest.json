@@ -94233,6 +94233,101 @@
       ],
       "updatedAt": "2026-10-21T09:40:53.013Z"
     },
+    "pelodytes-caucasicus-gocha-1.jpg": {
+      "sourceHash": "c04d17a9a30347455d03f8bdf45f63a16ac76293b9ef361f27dfa9c752f69ede",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-gocha-1.jpg",
+      "originalSize": 413407,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8515
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14062
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11711
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18896
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23142
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37698
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32194
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51520
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 57980
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88174
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 123215
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 178830
+        }
+      ],
+      "updatedAt": "2026-10-21T09:56:30.267Z"
+    },
     "pelodytes-caucasicus-zauri-1.jpg": {
       "sourceHash": "de75d5691839a8e048116eab2d4b2cb09db50d49edde87e49535b3ae02d07248",
       "configFingerprint": "a895f8e025dcc7fa",
