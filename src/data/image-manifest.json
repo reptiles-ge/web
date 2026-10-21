@@ -95012,6 +95012,101 @@
       ],
       "updatedAt": "2026-09-09T20:14:04.464Z"
     },
+    "pelophylax-ridibundus-donsky-1.jpg": {
+      "sourceHash": "80d19aa05fc0c2ebdeea06660e8b781bc78feea497ddc84daeb5a2b99ff4ea7a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-donsky-1.jpg",
+      "originalSize": 767006,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12522
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20450
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18507
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29686
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43390
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67792
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 64922
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 100512
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130893
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 200208
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 320829
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470064
+        }
+      ],
+      "updatedAt": "2026-10-21T10:40:30.823Z"
+    },
     "pelophylax-ridibundus-giorgi-1.jpg": {
       "sourceHash": "6f46d82e5ece2d1c550b56491c6ea559cf722ea05673cef7f6a8449c351cf823",
       "configFingerprint": "409788ee46c653d8",
