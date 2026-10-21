@@ -93462,6 +93462,101 @@
       ],
       "updatedAt": "2026-09-08T16:12:38.841Z"
     },
+    "pelobates-syriacus-lennart-1.jpg": {
+      "sourceHash": "7256f56d1c523e6dd8e25fd1b328d644c30cf40d8b5da91b822f05b83ca7c5ce",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-lennart-1.jpg",
+      "originalSize": 384713,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9778
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14538
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13084
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19262
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25691
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 36960
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34837
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50838
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 60332
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88674
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 136285
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 189308
+        }
+      ],
+      "updatedAt": "2026-10-21T08:53:20.045Z"
+    },
     "pelobates-syriacus-marcus-1.jpg": {
       "sourceHash": "5e533a5ef2198ff7936e9f128b25c1fbc696a7383be2f081185116543f0755c7",
       "configFingerprint": "409788ee46c653d8",
