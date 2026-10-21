@@ -95188,6 +95188,101 @@
       ],
       "updatedAt": "2026-09-09T20:12:15.926Z"
     },
+    "pelophylax-ridibundus-jack-1.jpg": {
+      "sourceHash": "6fb9b40c7eedcdf39e3508cd15bfaffefb3c72faeb60cca762fb8bf285d33219",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-jack-1.jpg",
+      "originalSize": 387017,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8015
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11181
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15336
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24178
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 32810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 34440
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44664
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58759
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 78632
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 110615
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 156206
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:58.798Z"
+    },
     "pelophylax-ridibundus-lasha-1.jpg": {
       "sourceHash": "eca6f76f0361a2fd9e26e24a634850d3a4f49a602e3901966a179243ef51bd10",
       "configFingerprint": "409788ee46c653d8",
