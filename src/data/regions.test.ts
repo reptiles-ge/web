@@ -101,6 +101,7 @@ describe("region speciesIds", () => {
     "ommatotriton-ophryticus",
     "paralaudakia-caucasia",
     "pelobates-syriacus",
+    "pelodytes-caucasicus",
     "mustela-nivalis",
     "procyon-lotor",
     "vipera-renardi",
