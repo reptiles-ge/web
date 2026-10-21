@@ -9,6 +9,14 @@ export const NEWS_SERIES = {
       tr: "Batumi Raptor Count, 2026 sonbaharı",
     },
   },
+  "caucasus-leopards": {
+    name: {
+      en: "Caucasus leopards",
+      ka: "კავკასიის ლეოპარდები",
+      ru: "Кавказские леопарды",
+      tr: "Kafkasya leoparları",
+    },
+  },
   "rioni-sturgeon": {
     name: {
       en: "Rioni sturgeon",

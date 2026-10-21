@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "leopard-aghasy-gndasar-armenia-2026",
   "sakartvelos-mghvimeebi-20-ghamuris-sakheoba",
   "rioni-117-zutkhis-mozardi-2026",
   "borjomi-kakabi-gnoli-gashveba",
