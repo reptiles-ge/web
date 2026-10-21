@@ -116917,6 +116917,291 @@
         }
       ],
       "updatedAt": "2026-08-28T22:02:36.689Z"
+    },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
+      "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg",
+      "originalSize": 1618216,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10007
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14484
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13266
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19240
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25885
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35938
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34715
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48098
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58822
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78862
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 119886
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 154930
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:10.168Z"
+    },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": {
+      "sourceHash": "d81ee6eea82682e24d8672b7bd2b326d099d8a7bb57a282a171bfeaf65337f7e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
+      "originalSize": 811117,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11944
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16804
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18713
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26516
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46891
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 68514
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 75100
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109142
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 173376
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 249782
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 440079
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 640080
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:14.339Z"
+    },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg": {
+      "sourceHash": "1fec0bf9b060ecd532b494c8505c7d469a9149bb2cb6264651faa1369439bee1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg",
+      "originalSize": 678465,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9866
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13894
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15613
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22760
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39276
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59280
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65187
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 96570
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 150977
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 214956
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 379304
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 509790
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:16.739Z"
     }
   }
 }
