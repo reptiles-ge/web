@@ -1050,9 +1050,18 @@
     "atlasCtaCount": "Атлас видов · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Директор",
+      "professor": "Профессор",
+      "ranger": "Рейнджер",
+      "researcher": "Исследователь"
+    },
     "roles": {
       "herpetologist": "Герпетолог",
-      "photographer": "Фотограф"
+      "photographer": "Фотограф",
+      "professor": "Профессор",
+      "ranger": "Рейнджер",
+      "researcher": "Исследователь"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1104,10 @@
     },
     "rolesPlural": {
       "herpetologist": "Герпетологи",
-      "photographer": "Фотографы"
+      "photographer": "Фотографы",
+      "professor": "Профессора",
+      "ranger": "Рейнджеры",
+      "researcher": "Исследователи"
     },
     "statGroups": "Групп",
     "summaryLabel": "Коротко",

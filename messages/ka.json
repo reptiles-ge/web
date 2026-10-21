@@ -1050,9 +1050,18 @@
     "atlasCtaCount": "სახეობების ატლასი · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "დირექტორი",
+      "professor": "პროფესორი",
+      "ranger": "რეინჯერი",
+      "researcher": "მკვლევარი"
+    },
     "roles": {
       "herpetologist": "ჰერპეტოლოგი",
-      "photographer": "ფოტოგრაფი"
+      "photographer": "ფოტოგრაფი",
+      "professor": "პროფესორი",
+      "ranger": "რეინჯერი",
+      "researcher": "მკვლევარი"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1104,10 @@
     },
     "rolesPlural": {
       "herpetologist": "ჰერპეტოლოგები",
-      "photographer": "ფოტოგრაფები"
+      "photographer": "ფოტოგრაფები",
+      "professor": "პროფესორები",
+      "ranger": "რეინჯერები",
+      "researcher": "მკვლევრები"
     },
     "statGroups": "ჯგუფი",
     "summaryLabel": "მოკლედ",

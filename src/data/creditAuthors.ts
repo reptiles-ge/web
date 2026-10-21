@@ -20,6 +20,7 @@ export type CreditAuthor = {
     tr?: string;
   };
   id: string;
+  jobTitle?: CreditAuthorJobTitle;
   kind?: CreditAuthorKind;
   links?: {
     facebook?: string;
@@ -46,7 +47,10 @@ export type CreditAuthor = {
 
 export type CreditAuthorKind = "page" | "person";
 
-export type CreditAuthorRole = "herpetologist" | "photographer";
+export type CreditAuthorRole =
+  "herpetologist" | "photographer" | "professor" | "ranger" | "researcher";
+
+type CreditAuthorJobTitle = "director" | "professor" | "ranger" | "researcher";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -84,6 +88,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Borjomi-Kharagauli Millî Parkı bekçisi ve yaban hayatı fotoğrafçısı. Yıllardır korunan alanda çalışmış; doğa koruma işinin yanında Gürcistan’ın yaban hayatı çeşitliliğini de belgelemiştir.",
     },
     id: "zauri-khachidze",
+    jobTitle: "ranger",
     links: {
       facebook: "https://www.facebook.com/zauri.xachidze/",
     },
@@ -96,7 +101,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_32%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
     published: true,
-    role: "photographer",
+    role: "ranger",
     slug: "zauri-khachidze",
   },
   {
@@ -122,7 +127,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_24%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "ioane-rostiashvili",
   },
   {
@@ -135,6 +140,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
     },
     id: "giorgi-iankoshvili",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.iankoshvili/",
     },
@@ -147,7 +153,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "giorgi-iankoshvili",
   },
   {
@@ -260,6 +266,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Armen Seropian, Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde çalışan Gürcü araştırmacı, entomolog ve araknologdur (örümcek uzmanı).",
     },
     id: "armen-seropian",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/armen.seropian",
     },
@@ -272,7 +279,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/armen-seropian.jpg",
     published: true,
-    role: "photographer",
+    role: "researcher",
     slug: "armen-seropian",
   },
   {
@@ -301,7 +308,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[72%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/shota-zandukeli.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "shota-zandukeli",
   },
   {
@@ -343,6 +350,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "David Tarkhnishvili, şu anda Ilia Devlet Üniversitesi profesörü olan bir Gürcü biyolog, evrimsel ekolog ve eğitimcidir. Araştırma ve bilimsel çalışmaları esas olarak Kafkasya bölgesinin biyoçeşitliliği, popülasyon genetiği ve evrimsel biyoloji ile bağlantılıdır.",
     },
     id: "david-tarkhnishvili",
+    jobTitle: "professor",
     links: {
       facebook: "https://www.facebook.com/david.tarkhnishvili",
     },
@@ -355,7 +363,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/david-tarkhnishvili.jpg",
     published: true,
-    role: "photographer",
+    role: "professor",
     slug: "david-tarkhnishvili",
   },
   {
@@ -368,6 +376,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Giorgi Sheklashvili, biyoloji alanında çalışan Gürcü bir araştırmacı, Ilia Devlet Üniversitesi (ISU) doktora öğrencisi ve Zooloji Enstitüsü araştırmacısıdır.",
     },
     id: "giorgi-sheklashvili",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.sheylashvili.39",
       researchGate:
@@ -383,7 +392,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitSrc:
       "https://cdn.reptiles.ge/images/authors/giorgi-sheklashvili.jpg",
     published: true,
-    role: "photographer",
+    role: "researcher",
     slug: "giorgi-sheklashvili",
   },
   {
@@ -438,7 +447,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[48%_12%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg",
     published: true,
-    role: "photographer",
+    role: "researcher",
     slug: "lasha-gogodze",
   },
   {
@@ -455,6 +464,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Kakhaber Sukhitashvili Gürcü bir ekolog, botanikçi ve çevre korumacıdır. 25 yılı aşkın süredir çevre alanında aktif olarak çalışmaktadır. Şu anda NatureHistorium temsilcisi ve Georgian Society of Nature Friends direktörüdür.",
     },
     id: "kakhaber-sukhitashvili",
+    jobTitle: "director",
     links: {
       facebook: "https://www.facebook.com/kakha.sukhitashvili",
     },

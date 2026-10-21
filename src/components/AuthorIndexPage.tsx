@@ -20,8 +20,11 @@ import {
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 
 const ROLE_ORDER: readonly CreditAuthorRole[] = [
-  "photographer",
   "herpetologist",
+  "professor",
+  "ranger",
+  "researcher",
+  "photographer",
 ];
 
 const EYEBROW =

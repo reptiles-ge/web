@@ -1050,9 +1050,18 @@
     "atlasCtaCount": "Tür atlası · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Direktör",
+      "professor": "Profesör",
+      "ranger": "Ranger",
+      "researcher": "Araştırmacı"
+    },
     "roles": {
       "herpetologist": "Herpetolog",
-      "photographer": "Fotoğrafçı"
+      "photographer": "Fotoğrafçı",
+      "professor": "Profesör",
+      "ranger": "Bekçi",
+      "researcher": "Araştırmacı"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1104,10 @@
     },
     "rolesPlural": {
       "herpetologist": "Herpetologlar",
-      "photographer": "Fotoğrafçılar"
+      "photographer": "Fotoğrafçılar",
+      "professor": "Profesörler",
+      "ranger": "Bekçiler",
+      "researcher": "Araştırmacılar"
     },
     "statGroups": "Grup",
     "summaryLabel": "Kısaca",

@@ -1050,9 +1050,18 @@
     "atlasCtaCount": "Species atlas · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Director",
+      "professor": "Professor",
+      "ranger": "Ranger",
+      "researcher": "Researcher"
+    },
     "roles": {
       "herpetologist": "Herpetologist",
-      "photographer": "Photographer"
+      "photographer": "Photographer",
+      "professor": "Professor",
+      "ranger": "Ranger",
+      "researcher": "Researcher"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1104,10 @@
     },
     "rolesPlural": {
       "herpetologist": "Herpetologists",
-      "photographer": "Photographers"
+      "photographer": "Photographers",
+      "professor": "Professors",
+      "ranger": "Rangers",
+      "researcher": "Researchers"
     },
     "statGroups": "Groups",
     "summaryLabel": "At a glance",

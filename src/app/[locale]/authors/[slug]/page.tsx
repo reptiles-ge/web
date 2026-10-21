@@ -126,6 +126,7 @@ export default async function AuthorRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
       description: bio,
+      jobTitle: author.jobTitle ? t(`jobTitles.${author.jobTitle}`) : undefined,
     }),
     name,
     url,
