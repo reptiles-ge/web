@@ -94,6 +94,7 @@ describe("region speciesIds", () => {
     "darevskia-praticola",
     "eirenis-modestus",
     "elaphe-urartica",
+    "emys-orbicularis",
     "eremias-velox",
     "hyla-orientalis",
     "mauremys-caspica",

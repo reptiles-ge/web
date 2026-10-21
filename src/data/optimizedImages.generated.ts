@@ -284,6 +284,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1975],
     "formats": ["avif", "webp"]
   },
+  "/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
+    "path": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": {
+    "path": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg": {
+    "path": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,

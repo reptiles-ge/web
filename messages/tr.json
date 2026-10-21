@@ -1050,9 +1050,18 @@
     "atlasCtaCount": "Tür atlası · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Direktör",
+      "professor": "Profesör",
+      "ranger": "Ranger",
+      "researcher": "Araştırmacı"
+    },
     "roles": {
       "herpetologist": "Herpetolog",
-      "photographer": "Fotoğrafçı"
+      "photographer": "Fotoğrafçı",
+      "professor": "Profesör",
+      "ranger": "Bekçi",
+      "researcher": "Araştırmacı"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1104,10 @@
     },
     "rolesPlural": {
       "herpetologist": "Herpetologlar",
-      "photographer": "Fotoğrafçılar"
+      "photographer": "Fotoğrafçılar",
+      "professor": "Profesörler",
+      "ranger": "Bekçiler",
+      "researcher": "Araştırmacılar"
     },
     "statGroups": "Grup",
     "summaryLabel": "Kısaca",
@@ -3025,7 +3037,7 @@
     "guideEyebrow": "Tatlısu",
     "guideTitle": "Göletler, göller, yavaş ırmaklar",
     "guideP1": "Bataklık ve Hazar kaplumbağası profilleri gölet, göl, yavaş ırmak ve bataklık listeler. Kabuklar kara kaplumbağalarından daha yassıdır.",
-    "guideP2": "Kırmızı yanaklı kontrol listesinde getirilmiştir ve yerli su kaplumbağalarıyla rekabet edebilir. Harita Samegrelo — Zemo Svaneti’yi (bataklık), Tiflis’i (Hazar ve kırmızı yanaklı) ve Acara’yı (kırmızı yanaklı) boyar.",
+    "guideP2": "Kırmızı yanaklı kontrol listesinde getirilmiştir ve yerli su kaplumbağalarıyla rekabet edebilir. Her kaplumbağanın Gürcistan'da nerede kaydedildiğini profilindeki harita gösterir.",
     "speciesEyebrow": "Türler",
     "speciesTitle": "{count} su kaplumbağası",
     "speciesBody": "İki yerli ve bir getirilmiş. Her profil buradan açılır.",
@@ -3037,7 +3049,7 @@
     "faq2Q": "Kırmızı yanaklı su kaplumbağasını nasıl tanırım?",
     "faq2A": "Profil onu getirilmiş olarak listeler. ID rehberi ayrıca karayı sudan ayırır. Somut işaretler profildedir.",
     "faq3Q": "Nerede bulunurlar?",
-    "faq3A": "Yaşam alanı profillerdedir. Harita Samegrelo — Zemo Svaneti, Tiflis ve Acara’yı boyar — yalnızca adlandırılmış kayıtlardan.",
+    "faq3A": "Yaşam alanı profillerdedir. Her kaplumbağanın Gürcistan'da nerede kaydedildiğini profilindeki harita gösterir.",
     "faq4Q": "Bir su kaplumbağasını gölete salabilir miyim?",
     "faq4A": "Kırmızı yanaklı profili onun getirilmiş olduğunu ve yerlilerle rekabet edebileceğini belirtir. Ev kaplumbağalarını doğaya salmayın.",
     "ctaEyebrow": "Sonraki adım",

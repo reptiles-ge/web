@@ -124,13 +124,31 @@ describe("photo contributor roles and affiliations", () => {
     }
   });
 
-  it("labels every contributor by the photos they give the atlas", () => {
-    const herpetologists = new Set(["sandro-khakhva"]);
+  it("labels each contributor with the role the owner confirmed", () => {
+    const roles: Record<string, string> = {
+      "armen-seropian": "researcher",
+      "david-tarkhnishvili": "professor",
+      "giorgi-iankoshvili": "herpetologist",
+      "giorgi-sheklashvili": "researcher",
+      "ioane-rostiashvili": "herpetologist",
+      "lasha-gogodze": "researcher",
+      "sandro-khakhva": "herpetologist",
+      "shota-zandukeli": "herpetologist",
+      "zauri-khachidze": "ranger",
+    };
     for (const author of CREDIT_AUTHORS) {
       expect(author.role, author.slug).toBe(
-        herpetologists.has(author.slug) ? "herpetologist" : "photographer",
+        roles[author.slug] ?? "photographer",
       );
-      expect(author, author.slug).not.toHaveProperty("jobTitle");
+    }
+  });
+
+  it("states every job title in the English bio", () => {
+    for (const author of CREDIT_AUTHORS) {
+      if (!author.jobTitle) continue;
+      expect(author.bio?.en.toLowerCase(), author.slug).toContain(
+        author.jobTitle,
+      );
     }
   });
 
@@ -148,9 +166,10 @@ describe("photo contributor roles and affiliations", () => {
     }
   });
 
-  it("gives affiliations to people only", () => {
+  it("gives job titles and affiliations to people only", () => {
     for (const author of CREDIT_AUTHORS) {
       if (creditAuthorKind(author) === "person") continue;
+      expect(author.jobTitle, author.slug).toBeUndefined();
       expect(author.affiliations, author.slug).toBeUndefined();
     }
   });
