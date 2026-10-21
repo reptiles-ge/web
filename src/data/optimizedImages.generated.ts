@@ -7732,6 +7732,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/pelobates-syriacus-achot-1.jpg": {
+    "path": "pelobates-syriacus-achot-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-alex-1.jpg": {
+    "path": "pelobates-syriacus-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelobates-syriacus-armen-2.jpg": {
     "path": "pelobates-syriacus-armen-2",
     "width": 2048,
@@ -7746,11 +7760,32 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pelobates-syriacus-bertogcliment-1.jpg": {
+    "path": "pelobates-syriacus-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelobates-syriacus-laura-1.jpg": {
     "path": "pelobates-syriacus-laura-1",
     "width": 1600,
     "height": 1066,
     "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-lennart-1.jpg": {
+    "path": "pelobates-syriacus-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-marcus-1.jpg": {
+    "path": "pelobates-syriacus-marcus-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/pelobates-syriacus.jpg": {
