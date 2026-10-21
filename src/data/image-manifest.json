@@ -92892,6 +92892,101 @@
       ],
       "updatedAt": "2026-08-28T21:55:51.857Z"
     },
+    "pelobates-syriacus-alex-1.jpg": {
+      "sourceHash": "990d2fdf24b1688e528f6a1fa07b4687d881d578a897013717c9e08cf7bb4d80",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-alex-1.jpg",
+      "originalSize": 364599,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6949
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9922
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9484
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13792
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20125
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28986
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28290
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41398
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52552
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74928
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 120004
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 171886
+        }
+      ],
+      "updatedAt": "2026-10-21T08:50:57.865Z"
+    },
     "pelobates-syriacus-armen-1.jpg": {
       "sourceHash": "3c1b4512c1794317f848cad142720a5790e95c08edd908df8cad06332ce3f4f0",
       "configFingerprint": "409788ee46c653d8",
