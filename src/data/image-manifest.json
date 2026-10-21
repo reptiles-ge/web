@@ -93948,6 +93948,101 @@
       ],
       "updatedAt": "2026-08-28T21:55:57.744Z"
     },
+    "pelodytes-caucasicus-bertogcliment-1.jpg": {
+      "sourceHash": "010d70e89bed7e4b17f4dd7858f0c57df71b893c89c341d853dc0454add9efb4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-bertogcliment-1.jpg",
+      "originalSize": 692897,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26840
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 43726
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38000
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 61002
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 79530
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 125926
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 109665
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 170586
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 187362
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 279770
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 259162
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 365944
+        }
+      ],
+      "updatedAt": "2026-10-21T09:41:39.000Z"
+    },
     "pelodytes-caucasicus-david-1.jpg": {
       "sourceHash": "50207b94609d94c26fff3fc9b46c7e1e640a17ea3be0dc0b1c7b02bca5c6749a",
       "configFingerprint": "409788ee46c653d8",
