@@ -95526,6 +95526,101 @@
       ],
       "updatedAt": "2026-10-21T10:41:21.918Z"
     },
+    "pelophylax-ridibundus-nikita-1.jpg": {
+      "sourceHash": "10271204dbb5cf48082e8f4bf7a4ebdb66251c4cbab681a4da527fd83af1b89c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-nikita-1.jpg",
+      "originalSize": 664120,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11915
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18112
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25410
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35937
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 52768
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51404
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73910
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 95386
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 135414
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 260810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 328832
+        }
+      ],
+      "updatedAt": "2026-10-21T10:43:27.997Z"
+    },
     "pelophylax-ridibundus-vlad-1.jpg": {
       "sourceHash": "cd133ee60c55a0ab18e05c64549778579ebcc17a9595190e2bfe9c611fe391b1",
       "configFingerprint": "409788ee46c653d8",
