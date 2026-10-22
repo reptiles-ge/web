@@ -131,6 +131,39 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     });
   });
 
+  it("keeps the global middleware in app.ts", () => {
+    for (const call of [
+      "secureHeaders(",
+      "use(noindex)",
+      "cors(",
+      "bodyLimit(",
+      "etag(",
+      ".onError(handleError)",
+    ]) {
+      expect(appSource, `${call} is missing from app.ts`).toContain(call);
+    }
+  });
+
+  it("lets the site reach the API only through src/lib/apiClient.ts", () => {
+    const siteFiles = walk(path.join(ROOT, "src"))
+      .map((full) => path.relative(ROOT, full))
+      .filter(
+        (rel) =>
+          !rel.startsWith("src/api/") &&
+          !/\.test\.tsx?$/.test(rel) &&
+          rel !== "src/lib/apiClient.ts",
+      );
+    const leaking = siteFiles.filter((rel) =>
+      /from "@\/api\/|api\.reptiles\.ge|reptiles-api/.test(
+        readFileSync(path.join(ROOT, rel), "utf8"),
+      ),
+    );
+    expect(leaking).toEqual([]);
+    expect(
+      readFileSync(path.join(ROOT, "src/lib/apiClient.ts"), "utf8"),
+    ).toMatch(/import type \{ AppType \} from "@\/api\/app"/);
+  });
+
   it("applies migrations only from the explicit db:migrate scripts", () => {
     const { scripts } = JSON.parse(
       readFileSync(path.join(ROOT, "package.json"), "utf8"),

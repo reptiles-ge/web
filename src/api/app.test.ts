@@ -16,6 +16,19 @@ describe("api app", () => {
     expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
   });
 
+  it("answers a repeated GET with 304 when the ETag matches", async () => {
+    const first = await app.request("/v1/species", {}, env);
+    const tag = first.headers.get("ETag");
+    expect(tag).toBeTruthy();
+    const second = await app.request(
+      "/v1/species",
+      { headers: { "If-None-Match": tag ?? "" } },
+      env,
+    );
+    expect(second.status).toBe(304);
+    expect(await second.text()).toBe("");
+  });
+
   it("answers unknown paths with the shared 404 shape", async () => {
     const { body, response } = await requestJson<ErrorBody>("/v1/nothing", env);
     expect(response.status).toBe(404);

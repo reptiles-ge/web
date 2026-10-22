@@ -85,14 +85,22 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Public routes are `GET` only and serve data that is already public on the site.
 - Every write or private route MUST use `requireToken` (`Authorization: Bearer <API_WRITE_TOKEN>`, constant-time compare, 401 when the secret is missing).
 - Secrets: `.dev.vars` locally (gitignored) and `wrangler secret put … --config wrangler.api.jsonc` in production. NEVER put a secret in code, config, tests, commits, PR text, or chat. Never read `process.env`; use `c.env`.
-- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS limited to `GET`/`OPTIONS`, and `bodyLimit` (16 KB). Do not remove them.
+- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS limited to `GET`/`OPTIONS`, `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
 - The D1 `database_id` in `wrangler.api.jsonc` is an identifier, not a secret. It stays in the repo.
 
 ## Caching
 
+- `etag()` runs on every response. A repeated `GET` with a matching `If-None-Match` gets `304` with no body. Keep responses deterministic (no timestamps or random values in a cacheable body) so the ETag stays stable.
 - Public `GET`: `Cache-Control: PUBLIC_CACHE` from `lib/cache.ts`.
 - Authenticated or personal responses: `NO_STORE`.
 - When D1-backed content changes, purge the affected cache entries. Do not shorten cache times as a workaround.
+
+## Calling the API from the site
+
+- The site calls the API only through `src/lib/apiClient.ts`: `createApiClient({ fetch, token })` returns a typed `hc<AppType>` client. It defaults to `https://api.reptiles.ge`; inside a Worker, pass `fetch: serviceBindingFetch(env.API)`.
+- NEVER call the API with raw `fetch("https://api.reptiles.ge/…")`, and NEVER import `@/api/…` runtime code into the site. `apiClient.ts` imports only `type { AppType }`. The guard test fails otherwise.
+- Because the client is typed from `AppType`, a changed route, query, or body breaks `pnpm typecheck` on the site side. Fix the caller; do not cast around it.
+- Routes MUST keep chained methods and an explicit status in `c.json(body, status)`, or the client loses its types.
 
 ## Types
 

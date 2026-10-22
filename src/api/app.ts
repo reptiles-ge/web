@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import { cors } from "hono/cors";
+import { etag } from "hono/etag";
 import { secureHeaders } from "hono/secure-headers";
 
 import type { ApiEnv } from "./env";
@@ -24,6 +25,7 @@ export const app = new Hono<ApiEnv>()
       },
     }),
   )
+  .use(etag())
   .route("/v1/species", species)
   .route("/v1/ratings", ratings)
   .notFound((c) => errorResponse(c, 404, "not_found", "Not found"))
