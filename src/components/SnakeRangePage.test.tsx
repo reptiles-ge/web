@@ -12,6 +12,10 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import {
+  speciesCatalogFixture,
+  speciesGroupFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };
 
@@ -23,6 +27,11 @@ vi.mock("next-intl/server", () => ({
     locale: keyof typeof messages;
     namespace: "groupHubShared" | "snakeRange";
   }) => createTranslator({ locale, messages: messages[locale], namespace }),
+}));
+
+vi.mock("@/lib/speciesCatalogApi", () => ({
+  getSpeciesCatalog: async (locale: keyof typeof messages) =>
+    speciesCatalogFixture(locale),
 }));
 
 vi.mock("@/components/ClusterPageFrame", () => ({
@@ -50,7 +59,7 @@ describe("SnakeRangePage", () => {
           guideId: "snake-range",
           heroSrc: "/images/test.jpg",
           locale,
-          species: [],
+          species: speciesGroupFixture("snake", locale),
         }),
       );
       const localized = localizeSpecies(CAUCASUS_VIPER, locale).commonName;

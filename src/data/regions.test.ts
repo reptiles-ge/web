@@ -40,7 +40,7 @@ describe("region species cards", () => {
     const cards = region!.speciesIds
       .map((id) => getSpeciesById(id))
       .filter((item) => item !== undefined)
-      .map((item) => toRegionSpeciesCard(item, "ka"));
+      .map((item) => toRegionSpeciesCard(item));
 
     expect(cards.length).toBeGreaterThan(0);
     for (const card of cards) {

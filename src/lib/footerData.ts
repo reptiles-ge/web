@@ -7,7 +7,6 @@ import {
   getAtlasStats,
   getVenomousCatalogSpecies,
 } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export type FooterData = {
@@ -29,22 +28,23 @@ type FooterSpeciesLink = {
   scientificName: string;
 };
 
-export function getFooterData(locale: AppLocale): FooterData {
+export async function getFooterData(locale: AppLocale): Promise<FooterData> {
+  const [stats, venomous] = await Promise.all([
+    getAtlasStats(locale),
+    getVenomousCatalogSpecies(locale),
+  ]);
   return {
     regions: regions.map((region) => ({
       href: regionHref(region.id),
       id: region.id,
       name: localizeRegionText(region.name, locale),
     })),
-    stats: getAtlasStats(),
-    venomous: getVenomousCatalogSpecies().map((item) => {
-      const localized = localizeSpecies(item, locale);
-      return {
-        commonName: localized.commonName,
-        href: speciesHref(item.id, locale),
-        id: item.id,
-        scientificName: localized.scientificName,
-      };
-    }),
+    stats,
+    venomous: venomous.map((item) => ({
+      commonName: item.commonName,
+      href: speciesHref(item.id, locale),
+      id: item.id,
+      scientificName: item.scientificName,
+    })),
   };
 }

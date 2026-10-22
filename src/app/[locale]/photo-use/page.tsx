@@ -63,7 +63,7 @@ export default async function PhotoUse({
   const pageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    ...pageDateFields("/photo-use", locale),
+    ...(await pageDateFields("/photo-use", locale)),
     about: organizationRef(),
     description: t("metaDescription"),
     inLanguage: locale,

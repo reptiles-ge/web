@@ -2,9 +2,6 @@ import { http } from "msw";
 
 import type { ApiBindings } from "@/api/env";
 
-import { app } from "@/api/app";
-import { createSpeciesTestDatabase } from "@/api/testing/sqliteDatabase";
-
 export const REPTILES_API_TEST_TOKEN = "test-admin-token";
 
 let env: ApiBindings | undefined;
@@ -16,6 +13,10 @@ export function resetReptilesApi() {
 export const reptilesApi = http.all(
   "https://api.reptiles.ge/*",
   async ({ request }) => {
+    const [{ app }, { createSpeciesTestDatabase }] = await Promise.all([
+      import("@/api/app"),
+      import("@/api/testing/sqliteDatabase"),
+    ]);
     env ??= {
       API_WRITE_TOKEN: REPTILES_API_TEST_TOKEN,
       DB: createSpeciesTestDatabase().db,

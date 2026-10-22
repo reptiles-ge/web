@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 
 vi.mock("@/i18n/navigation", () => ({
   getPathname: ({
@@ -55,9 +55,15 @@ const PLACEHOLDER_PAGES = [
   "/snakes/didi-gvelebi",
 ] as const;
 
-const entries = sitemap();
-const urls = entries.map((entry) => entry.url);
-const datedEntries = entries.filter((entry) => "lastModified" in entry);
+let entries: Awaited<ReturnType<typeof sitemap>>;
+let urls: string[];
+let datedEntries: typeof entries;
+
+beforeAll(async () => {
+  entries = await sitemap();
+  urls = entries.map((entry) => entry.url);
+  datedEntries = entries.filter((entry) => "lastModified" in entry);
+});
 
 describe("sitemap", () => {
   it("lists the legal pages in every locale with every hreflang alternate", () => {
@@ -74,36 +80,36 @@ describe("sitemap", () => {
     }
   });
 
-  it("dates every locale of the species atlas like its structured data", () => {
+  it("dates every locale of the species atlas like its structured data", async () => {
     for (const locale of routing.locales) {
       const url = `https://reptiles.ge${locale === "ka" ? "" : `/${locale}`}/species`;
       const entry = entries.find((item) => item.url === url);
       expect(entry?.lastModified ?? null, url).toBe(
-        pageModifiedDate("/species", locale),
+        await pageModifiedDate("/species", locale),
       );
     }
   });
 
-  it("dates hubs, regions, quizzes and contributors like their structured data", () => {
+  it("dates hubs, regions, quizzes and contributors like their structured data", async () => {
     const byUrl = new Map(entries.map((entry) => [entry.url, entry]));
     for (const locale of routing.locales) {
       const hub = byUrl.get(absoluteUrl(localePath(locale, "/snakes")));
       expect(hub?.lastModified ?? null).toBe(
-        pageModifiedDate("/snakes", locale),
+        await pageModifiedDate("/snakes", locale),
       );
       const region = byUrl.get(
         absoluteUrl(localePath(locale, regionHref("kakheti"))),
       );
       expect(region?.lastModified ?? null).toBe(
-        regionModifiedDate("kakheti", locale),
+        await regionModifiedDate("kakheti", locale),
       );
       const quiz = byUrl.get(quizPageUrl(locale, "snake"));
       expect(quiz?.lastModified ?? null).toBe(
-        quizModifiedDate("snake", locale),
+        await quizModifiedDate("snake", locale),
       );
       const author = byUrl.get(creditAuthorUrl(locale, "sandro-khakhva"));
       expect(author?.lastModified ?? null).toBe(
-        authorModifiedDate("sandro-khakhva", locale),
+        await authorModifiedDate("sandro-khakhva", locale),
       );
     }
   });

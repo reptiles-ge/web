@@ -13,10 +13,10 @@ import { pageDateFields, pageModifiedDate } from "@/lib/structuredDataDates";
 describe("page dates without git history", () => {
   it.each(routing.locales)(
     "leaves %s static pages without a modification date",
-    (locale) => {
+    async (locale) => {
       for (const path of ["/about", "/contact", "/risk-to-humans"]) {
-        expect(pageModifiedDate(path, locale), path).toBeNull();
-        expect(pageDateFields(path, locale).dateModified, path).toBe(
+        expect(await pageModifiedDate(path, locale), path).toBeNull();
+        expect((await pageDateFields(path, locale)).dateModified, path).toBe(
           sitemapPathDatePublished(path),
         );
       }

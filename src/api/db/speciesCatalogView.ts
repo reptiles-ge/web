@@ -1,6 +1,10 @@
-import type { Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import {
+  type Species,
+  SPECIES_CARD_KEYS,
+  type SpeciesSummary,
+} from "@/data/speciesTypes";
 import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
 
 import type { ApiDatabase } from "./database";
@@ -8,26 +12,6 @@ import type { ApiDatabase } from "./database";
 import { readSpeciesCatalog } from "./speciesCatalog";
 
 export type CatalogView = "card" | "full";
-
-const CARD_KEYS = [
-  "commonName",
-  "danger",
-  "description",
-  "family",
-  "genus",
-  "id",
-  "image",
-  "imageCredit",
-  "location",
-  "mobileImage",
-  "mobileImageCredit",
-  "publishedAt",
-  "scientificName",
-  "stats",
-  "updatedAt",
-] as const satisfies ReadonlyArray<keyof Species>;
-
-export type SpeciesCardFields = Pick<Species, (typeof CARD_KEYS)[number]>;
 
 export async function readLocalizedCatalog(
   db: ApiDatabase,
@@ -60,6 +44,7 @@ export async function readLocalizedCatalog(
       ].filter((peer) => !unpublished.has(peer));
       return {
         ...(view === "full" ? species : pickCard(species)),
+        ...(view === "card" ? { photoCount: species.gallery.length } : {}),
         group: meta.group,
         habitats: meta.habitats,
         lookalikes,
@@ -69,10 +54,10 @@ export async function readLocalizedCatalog(
     });
 }
 
-function pickCard(species: Species): SpeciesCardFields {
+function pickCard(species: Species): SpeciesSummary {
   const card: Partial<Record<keyof Species, unknown>> = {};
-  for (const key of CARD_KEYS) {
+  for (const key of SPECIES_CARD_KEYS) {
     if (species[key] !== undefined) card[key] = species[key];
   }
-  return card as SpeciesCardFields;
+  return card as SpeciesSummary;
 }

@@ -23,11 +23,11 @@ const GROUPS = [
 ] as const;
 
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "home.groups" }),
     getTranslations({ locale, namespace: "nav" }),
+    getAtlasStats(locale),
   ]);
-  const stats = getAtlasStats();
 
   return (
     <section className="bg-background py-11 lg:py-20" id="groups">
@@ -127,7 +127,7 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
 
 function groupCount(
   group: AnimalGroup,
-  stats: ReturnType<typeof getAtlasStats>,
+  stats: Awaited<ReturnType<typeof getAtlasStats>>,
 ) {
   switch (group) {
     case "amphibian":

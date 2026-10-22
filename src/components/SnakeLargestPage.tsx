@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -143,7 +143,7 @@ function LargestRow({
   dash: string;
   index: number;
   locale: AppLocale;
-  species: Species;
+  species: CatalogCard;
 }) {
   const size = getSpeciesSizeStat(species) ?? dash;
   return (

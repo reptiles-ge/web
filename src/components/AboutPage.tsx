@@ -247,11 +247,11 @@ async function AboutContribute({ locale }: { locale: AppLocale }) {
 }
 
 async function AboutExplore({ locale }: { locale: AppLocale }) {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "about" }),
     getTranslations({ locale, namespace: "nav" }),
+    getAtlasStats(locale),
   ]);
-  const stats = getAtlasStats();
 
   return (
     <section className={`${wrapClass} pt-14 md:pt-[120px]`}>
@@ -330,11 +330,11 @@ async function AboutExplore({ locale }: { locale: AppLocale }) {
 }
 
 async function AboutHero({ locale }: { locale: AppLocale }) {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "about" }),
     getTranslations({ locale, namespace: "nav" }),
+    getAtlasStats(locale),
   ]);
-  const stats = getAtlasStats();
   const contributors = getCreditAuthorCards().length;
   const languages = routing.locales.length;
   const statItems = [

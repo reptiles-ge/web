@@ -1,9 +1,9 @@
 import { ArrowDown, ArrowRight, ArrowUpRight, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -27,12 +27,12 @@ import { speciesHref } from "@/lib/speciesRoutes";
 
 type GroupHubHeroProps = {
   heroMobileSrc?: string;
-  heroSpecies?: Species;
+  heroSpecies?: CatalogCard;
   heroSrc: string;
   hubId: GroupHubId;
   locale: AppLocale;
   showRisk: boolean;
-  species: Species[];
+  species: CatalogCard[];
 };
 
 type HeroStat = {
@@ -351,7 +351,7 @@ function heroStats({
   tShared,
 }: {
   showRisk: boolean;
-  species: Species[];
+  species: CatalogCard[];
   t: Awaited<ReturnType<typeof getTranslations>>;
   tShared: Awaited<ReturnType<typeof getTranslations>>;
 }): HeroStat[] {
@@ -386,7 +386,7 @@ function heroStats({
   ];
 }
 
-function mappedRegionsStat(species: Species[]) {
+function mappedRegionsStat(species: CatalogCard[]) {
   const ids = new Set(species.map((item) => item.id));
   const mapped = regions.filter((region) =>
     region.speciesIds.some((id) => ids.has(id)),

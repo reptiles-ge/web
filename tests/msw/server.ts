@@ -1,6 +1,8 @@
 import { setupServer } from "msw/node";
 
-export const server = setupServer();
+import { reptilesApi } from "./reptilesApi";
+
+export const server = setupServer(reptilesApi);
 
 export function recordRequests() {
   const urls: string[] = [];

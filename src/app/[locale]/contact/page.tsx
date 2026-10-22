@@ -41,7 +41,7 @@ export default async function Contact({ params }: Props) {
   const contactJsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    ...pageDateFields("/contact", locale),
+    ...(await pageDateFields("/contact", locale)),
     description: t("metaDescription"),
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: organizationRef(),

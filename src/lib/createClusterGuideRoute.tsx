@@ -26,13 +26,11 @@ import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
 import { SpiderBitePage } from "@/components/SpiderBitePage";
 import { SpiderVenomousPage } from "@/components/SpiderVenomousPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
-import { getCatalogSpecies } from "@/data/species";
 import {
   type ClientMessagePath,
   CLUSTER_GUIDE_CLIENT_MESSAGES,
 } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
@@ -48,6 +46,7 @@ import {
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath, speciesOgImageUrl } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -105,7 +104,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: guide.messageKey });
     const title = t("metaTitle");
-    const catalog = getCatalogSpecies();
+    const catalog = await getSpeciesCatalog(locale);
     const matched = catalog.filter(guide.matches);
     const hero =
       catalog.find((item) => item.id === guide.heroSpeciesId) ?? matched[0];
@@ -150,12 +149,8 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     ]);
 
     const url = absoluteUrl(localePath(locale, guide.pathname));
-    const catalog = getCatalogSpecies();
-    const species: ReturnType<typeof localizeSpecies>[] = [];
-    for (const item of catalog) {
-      if (!guide.matches(item)) continue;
-      species.push(localizeSpecies(item, locale));
-    }
+    const catalog = await getSpeciesCatalog(locale);
+    const species = catalog.filter(guide.matches);
     const heroRaw =
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
       catalog.find(guide.matches);
@@ -171,7 +166,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
 
     const pageLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
-      dates: pageDateFields(guide.pathname, locale),
+      dates: await pageDateFields(guide.pathname, locale),
       description: t("metaDescription"),
       locale,
       ...(guide.schema === "collection"

@@ -8,7 +8,6 @@ import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getNewsCopy, getPublishedNewsArticles } from "@/data/news";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref, newsIndexHref } from "@/lib/news";
@@ -21,9 +20,9 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
     getTranslations({ locale, namespace: "news" }),
   ]);
   const [lead, ...rest] = getPublishedNewsArticles(locale);
-  const updated = getRecentlyUpdatedSpecies(4).map((species) => ({
+  const updated = (await getRecentlyUpdatedSpecies(locale)).map((species) => ({
     cover: getSpeciesCoverSrc(species),
-    species: localizeSpecies(species, locale),
+    species,
   }));
   if (!lead && updated.length === 0) return null;
   const leadCopy = lead ? getNewsCopy(lead, locale) : null;

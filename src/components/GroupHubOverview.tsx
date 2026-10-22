@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesSection } from "@/lib/clusterGuides";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import {
   GroupHubSectionHeading,
@@ -59,7 +60,7 @@ export async function GroupHubOverview({
   locale: AppLocale;
   sections: SpeciesSection[];
   showRisk: boolean;
-  species: Species[];
+  species: CatalogCard[];
 }) {
   const t = await getTranslations({ locale, namespace: hubId });
   const editable = locale === "ka" && isLocalAdminEnabled();
@@ -159,7 +160,7 @@ async function RiskPanel({
 }: {
   hubId: GroupHubId;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
 }) {
   const [tShared, tDanger] = await Promise.all([
     getTranslations({ locale, namespace: "groupHubShared" }),

@@ -3,9 +3,9 @@ import type { ComponentProps } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { CoverImage } from "@/components/CoverImage";
 import {
@@ -33,7 +33,7 @@ type GroupHubSpeciesListProps = {
   indexLink?: { href: ComponentProps<typeof Link>["href"]; label: string };
   locale: AppLocale;
   showRisk: boolean;
-  species: Species[];
+  species: CatalogCard[];
 };
 
 export async function GroupHubSpeciesList({
@@ -94,7 +94,7 @@ async function GroupHubQuizCard({
 }: {
   hubId: GroupHubId;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
 }) {
   const quiz = HUB_QUIZ[hubId];
   if (!quiz) return null;

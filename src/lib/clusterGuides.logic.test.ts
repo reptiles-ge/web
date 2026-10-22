@@ -4,7 +4,6 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { getRegionById } from "@/data/regions";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
-import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import {
   CLUSTER_GUIDE_LIST,
   CLUSTER_GUIDES,
@@ -25,6 +24,11 @@ import {
   splitHubSpecies,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+
+import {
+  speciesCatalogFixture,
+  speciesGroupFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const HUB_IDS = Object.keys(GROUP_HUBS) as GroupHubId[];
 
@@ -112,7 +116,7 @@ describe("orderSpeciesByIds", () => {
 
 describe("getViperSpecies", () => {
   it("returns only Viperidae", () => {
-    const vipers = getViperSpecies(getCatalogSpeciesByGroup("snake"));
+    const vipers = getViperSpecies(speciesGroupFixture("snake"));
     expect(vipers.length).toBeGreaterThan(0);
     for (const item of vipers) expect(item.family).toBe("Viperidae");
   });
@@ -122,7 +126,10 @@ describe("getRegionSnakeSpecies", () => {
   it("returns only snakes", () => {
     const region = getRegionById("kakheti");
     expect(region).toBeDefined();
-    for (const item of getRegionSnakeSpecies(region!)) {
+    for (const item of getRegionSnakeSpecies(
+      region!,
+      speciesCatalogFixture("ka"),
+    )) {
       expect(item.id).not.toBe("pseudopus-apodus");
     }
   });
@@ -153,10 +160,7 @@ describe("splitHubSpecies", () => {
   });
 
   it("splits snakes into venomous, racers and harmless", () => {
-    const sections = splitHubSpecies(
-      "snakes",
-      getCatalogSpeciesByGroup("snake"),
-    );
+    const sections = splitHubSpecies("snakes", speciesGroupFixture("snake"));
     expect(sections.map((section) => section.key)).toEqual([
       "venomous",
       "racers",
@@ -169,10 +173,7 @@ describe("splitHubSpecies", () => {
   });
 
   it("puts the featured lizards first and keeps Darevskia together", () => {
-    const sections = splitHubSpecies(
-      "lizards",
-      getCatalogSpeciesByGroup("lizard"),
-    );
+    const sections = splitHubSpecies("lizards", speciesGroupFixture("lizard"));
     expect(sections[0].key).toBe("featured");
     const darevskia = sections.find((section) => section.key === "darevskia");
     expect(darevskia?.items.every((item) => item.genus === "Darevskia")).toBe(
@@ -181,13 +182,12 @@ describe("splitHubSpecies", () => {
   });
 
   it("separates the introduced slider from native turtles", () => {
-    const sections = splitHubSpecies(
-      "turtles",
-      getCatalogSpeciesByGroup("turtle"),
-    );
+    const sections = splitHubSpecies("turtles", speciesGroupFixture("turtle"));
     expect(
-      sections.find((section) => section.key === "introduced")?.items,
-    ).toEqual([species("trachemys-scripta")]);
+      sections
+        .find((section) => section.key === "introduced")
+        ?.items.map((item) => item.id),
+    ).toEqual(["trachemys-scripta"]);
     expect(
       sections
         .find((section) => section.key === "native")
@@ -198,13 +198,13 @@ describe("splitHubSpecies", () => {
   it("splits amphibians into frogs and newts", () => {
     const sections = splitHubSpecies(
       "amphibians",
-      getCatalogSpeciesByGroup("amphibian"),
+      speciesGroupFixture("amphibian"),
     );
     expect(sections.map((section) => section.key)).toEqual(["frogs", "newts"]);
   });
 
   it("uses one section for hubs without sub-groups", () => {
-    const birds = getCatalogSpeciesByGroup("bird");
+    const birds = speciesGroupFixture("bird");
     expect(splitHubSpecies("birds", birds)).toEqual([
       { items: birds, key: "all" },
     ]);
@@ -291,7 +291,7 @@ describe("getSpeciesGuideLinks", () => {
 
   it("adds the largest-snakes guide exactly for the listed large snakes", () => {
     const large = new Set<string>(LARGE_SNAKE_IDS);
-    for (const item of getCatalogSpeciesByGroup("snake")) {
+    for (const item of speciesGroupFixture("snake")) {
       expect(keys(item.id).includes("largest"), item.id).toBe(
         large.has(item.id),
       );
@@ -299,7 +299,7 @@ describe("getSpeciesGuideLinks", () => {
   });
 
   it("links Darevskia to its guide but other lizards not", () => {
-    const darevskia = getCatalogSpeciesByGroup("lizard").find(
+    const darevskia = speciesGroupFixture("lizard").find(
       (item) => item.genus === "Darevskia",
     )!;
     expect(keys(darevskia.id)).toContain("lizardDarevskia");

@@ -1,5 +1,5 @@
 import { createTranslator } from "next-intl";
-import { describe, expect, it, vi } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -7,6 +7,7 @@ import { regions } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { getRegionSummary, regionSummaryFacts } from "@/lib/regionSummary";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
@@ -31,6 +32,12 @@ vi.mock("next-intl/server", () => ({
     }),
 }));
 
+let catalog: CatalogCard[];
+
+beforeAll(async () => {
+  catalog = await getSpeciesCatalog("ka");
+});
+
 function wordCount(paragraphs: string[]) {
   return paragraphs.join(" ").trim().split(/\s+/).length;
 }
@@ -39,7 +46,7 @@ describe("region summary facts", () => {
   it.each(regions.map((region) => [region.id, region] as const))(
     "%s counts match the region speciesIds",
     (_, region) => {
-      const facts = regionSummaryFacts(region);
+      const facts = regionSummaryFacts(region, catalog);
       expect(facts.total).toBe(region.speciesIds.length);
       expect(facts.groups.reduce((sum, item) => sum + item.count, 0)).toBe(
         region.speciesIds.length,
@@ -75,7 +82,7 @@ describe("region summary copy", () => {
       expect(words).toBeLessThanOrEqual(170);
       expect(text).not.toMatch(/\{|\}/);
       expect(text).toContain(String(region.speciesIds.length));
-      for (const item of regionSummaryFacts(region).venomous) {
+      for (const item of regionSummaryFacts(region, catalog).venomous) {
         expect(text).toContain(item.scientificName);
       }
     },

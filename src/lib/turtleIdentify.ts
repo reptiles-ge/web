@@ -24,7 +24,7 @@ export const TURTLE_META: Record<
   "trachemys-scripta": { kind: "water", status: "introduced" },
 };
 
-export function collectTurtleRegions(turtles: Species[]) {
+export function collectTurtleRegions(turtles: Pick<Species, "id">[]) {
   const regionMap = new Map<string, Region>();
   for (const item of turtles) {
     for (const region of getRegionsForSpecies(item.id)) {

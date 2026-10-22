@@ -66,7 +66,10 @@ export default async function LocaleLayout({ children, params }: Props) {
     localePath(locale, "/"),
     tSite("description"),
   );
-  const footerData = getFooterData(locale);
+  const [footerData, navbarData] = await Promise.all([
+    getFooterData(locale),
+    getNavbarData(locale),
+  ]);
   const SelectionContentEditor =
     locale === "ka" ? await loadSelectionContentEditor() : null;
   const editorT = SelectionContentEditor
@@ -83,7 +86,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LogoPreload />
           <AnalyticsPageContext />
           <TopGeCounter />
-          <Navbar {...getNavbarData()} />
+          <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
             {SelectionContentEditor && editorT ? (
               <SelectionContentEditor

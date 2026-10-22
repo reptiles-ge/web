@@ -1,4 +1,4 @@
-import type { Species } from "@/data/speciesTypes";
+import type { Species, SpeciesSummary } from "@/data/speciesTypes";
 
 import {
   getSpeciesActivityStat,
@@ -28,7 +28,7 @@ export type SpeciesIndexRow = SpeciesCard & {
   size: null | string;
 };
 
-export function toSpeciesCard(species: Species): SpeciesCard {
+export function toSpeciesCard(species: SpeciesSummary): SpeciesCard {
   return {
     commonName: species.commonName,
     danger: species.danger,
@@ -43,12 +43,12 @@ export function toSpeciesCard(species: Species): SpeciesCard {
   } as SpeciesCard;
 }
 
-export function toSpeciesCards(list: readonly Species[]): SpeciesCard[] {
+export function toSpeciesCards(list: readonly SpeciesSummary[]): SpeciesCard[] {
   return list.map(toSpeciesCard);
 }
 
 export function toSpeciesIndexRows(
-  list: readonly Species[],
+  list: readonly SpeciesSummary[],
 ): SpeciesIndexRow[] {
   return list.map((species) => ({
     ...toSpeciesCard(species),

@@ -100,7 +100,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     "@context": "https://schema.org",
     "@id": homeUrl,
     "@type": "WebPage",
-    ...pageDateFields("/", locale),
+    ...(await pageDateFields("/", locale)),
     description,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -118,7 +118,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <ClientMessagesProvider locale={locale} namespaces={["map"]}>
           <OptimizedImageScope>
             <MapExplorer
-              tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+              tooltipSpeciesByRegion={await getRegionTooltipPreviews(locale)}
             />
           </OptimizedImageScope>
         </ClientMessagesProvider>

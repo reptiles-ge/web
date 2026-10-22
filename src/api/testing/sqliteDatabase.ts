@@ -65,18 +65,26 @@ function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
       (sqlite.prepare(query).get(...values) ?? null) as null | T,
     run: async () => sqlite.prepare(query).run(...values),
   });
+  let queue: Promise<unknown> = Promise.resolve();
+  const transaction = async (
+    statements: Parameters<ApiDatabase["batch"]>[0],
+  ) => {
+    sqlite.exec("BEGIN");
+    try {
+      const results = [];
+      for (const entry of statements) results.push(await entry.all());
+      sqlite.exec("COMMIT");
+      return results;
+    } catch (error) {
+      sqlite.exec("ROLLBACK");
+      throw error;
+    }
+  };
   return {
-    batch: async (statements) => {
-      sqlite.exec("BEGIN");
-      try {
-        const results = [];
-        for (const entry of statements) results.push(await entry.all());
-        sqlite.exec("COMMIT");
-        return results;
-      } catch (error) {
-        sqlite.exec("ROLLBACK");
-        throw error;
-      }
+    batch: (statements) => {
+      const run = queue.then(() => transaction(statements));
+      queue = run.catch(() => undefined);
+      return run as ReturnType<ApiDatabase["batch"]>;
     },
     prepare: (query) => statement(query),
   };
