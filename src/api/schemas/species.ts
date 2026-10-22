@@ -20,3 +20,16 @@ export const speciesListQuery = z.object({
   group: z.enum(ANIMAL_GROUPS).optional(),
   locale: localeQuery,
 });
+
+export const speciesParam = z.object({
+  idOrSlug: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+    .max(100),
+});
+
+export const speciesDetailQuery = z.object({
+  locale: localeQuery,
+});

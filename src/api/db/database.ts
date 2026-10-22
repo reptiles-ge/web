@@ -1,4 +1,5 @@
 export type ApiDatabase = {
+  batch: (statements: ApiStatement[]) => Promise<Array<{ results: unknown[] }>>;
   prepare: (query: string) => ApiStatement;
 };
 

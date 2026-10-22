@@ -4,9 +4,9 @@ import { describe, expect, it, vi } from "vitest";
 import { app } from "./app";
 import { handleError } from "./lib/errors";
 import { type ErrorBody, requestJson } from "./testing/request";
-import { createTestDatabase } from "./testing/sqliteDatabase";
+import { createSpeciesTestDatabase } from "./testing/sqliteDatabase";
 
-const env = { DB: createTestDatabase().db };
+const env = { DB: createSpeciesTestDatabase().db };
 
 describe("api app", () => {
   it("sends security, noindex and CORS headers", async () => {
@@ -49,6 +49,9 @@ describe("api app", () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => {});
     const broken = {
       DB: {
+        batch: () => {
+          throw new Error("secret detail");
+        },
         prepare: () => {
           throw new Error("secret detail");
         },

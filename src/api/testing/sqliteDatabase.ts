@@ -2,15 +2,29 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
+import { speciesImportSource } from "@/lib/speciesImportSource";
+
 import type { ApiDatabase } from "../db/database";
+
+import { buildSpeciesImport } from "../db/speciesImport";
 
 const MIGRATIONS_DIR = path.resolve(
   import.meta.dirname,
   "../../../migrations/api",
 );
 
+let speciesStatements: string[] | undefined;
+
+export function createSpeciesTestDatabase() {
+  const database = createTestDatabase();
+  speciesStatements ??= buildSpeciesImport(speciesImportSource());
+  for (const statement of speciesStatements) database.sqlite.exec(statement);
+  return database;
+}
+
 export function createTestDatabase() {
   const sqlite = new DatabaseSync(":memory:");
+  sqlite.exec("PRAGMA foreign_keys = ON");
   for (const file of readdirSync(MIGRATIONS_DIR).sort()) {
     sqlite.exec(readFileSync(path.join(MIGRATIONS_DIR, file), "utf8"));
   }
@@ -27,5 +41,9 @@ function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
       (sqlite.prepare(query).get(...values) ?? null) as null | T,
     run: async () => sqlite.prepare(query).run(...values),
   });
-  return { prepare: (query) => statement(query) };
+  return {
+    batch: async (statements) =>
+      Promise.all(statements.map((entry) => entry.all())),
+    prepare: (query) => statement(query),
+  };
 }

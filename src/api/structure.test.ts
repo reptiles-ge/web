@@ -71,6 +71,16 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     expect(offenders(checkedFiles, /SELECT\s+\*/i)).toEqual([]);
   });
 
+  it("serves species from D1, never from the bundled MDX catalog", () => {
+    expect(
+      offenders(
+        sourceFiles,
+        /^import (?!type)[^;]*from "@\/(data\/species(\.generated|-en|-ru|-tr|Publish|SlugTable)?|data\/speciesSlugs\.generated|i18n\/localizeSpecies|lib\/speciesImportSource|lib\/speciesRoutes)"/m,
+        (rel) => rel.startsWith("testing/"),
+      ),
+    ).toEqual([]);
+  });
+
   it("creates Hono instances only in app.ts and routes/", () => {
     expect(
       offenders(
