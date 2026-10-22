@@ -9153,6 +9153,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1707],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-wichyanan-1.jpg": {
+    "path": "trachemys-scripta-wichyanan-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta.jpg": {
     "path": "trachemys-scripta",
     "width": 2048,
