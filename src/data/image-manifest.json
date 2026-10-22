@@ -108966,6 +108966,101 @@
       ],
       "updatedAt": "2026-08-28T21:59:36.939Z"
     },
+    "trachemys-scripta-donsky-1.jpg": {
+      "sourceHash": "cbd5f7a53d405706fcfa6b5f8afe7d98f7675383f752dfb4b9cbd7113cf23e39",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-donsky-1.jpg",
+      "originalSize": 360322,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6905
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10308
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9553
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14144
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19670
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29026
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28293
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41622
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52205
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78600
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 115207
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 167310
+        }
+      ],
+      "updatedAt": "2026-10-22T09:43:14.728Z"
+    },
     "trachemys-scripta-mobile.jpg": {
       "sourceHash": "f7e98b7b09406a07d1c49f62af5b0b8e67d2802857b29ac7ad8318dd34d39bc5",
       "configFingerprint": "a895f8e025dcc7fa",
