@@ -49,7 +49,22 @@ const SOURCE_NAME_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
   {
     label: "named organisation",
     pattern:
-      /\b(?:SABUKO|NPLG|NFA|NACRES|BirdLife|AmphibiaWeb|EPPO|NCDC|BRC|IOC|eBird|Reptile Database|Amphibian Species of the World|Mammal Species of the World)\b/,
+      /\b(?:SABUKO|NPLG|NFA|NACRES|BirdLife|AmphibiaWeb|EPPO|NCDC|BRC|IOC|eBird|Reptile Database|Amphibian Species of the World|Mammal Species of the World|Owl Pages|Peregrine Fund|Birds of the World|Avibase)\b/,
+  },
+  {
+    label: "annotated checklist",
+    pattern:
+      /\bannotated checklist\b|ანოტირებული ჩამონათვალ|[Аа]ннотированн\p{L}* чек-лист|açıklamalı kontrol listesi/u,
+  },
+  {
+    label: "checklist code",
+    pattern:
+      /\bYR-R\b|\b(?:BB|M|WV); (?:M|WV)\b|\((?:BB|M|WV|Cas|ND)\)|(?:\bcodes?|კოდი|\bкод|\bkod) [A-H]\b|\((?:A|H)\)/u,
+  },
+  {
+    label: "checklist quality grade",
+    pattern:
+      /\b(?:occurrence|data|seasonality) quality\b|(?:არსებობის|მონაცემის|მონაცემთა|სეზონურობის მონაცემის) ხარისხი|качество (?:данных|встречаемости|сезонности)|(?:veri|bulunuş|görülme|oluşum|mevsimsellik) (?:niteliği|kalitesi)/iu,
   },
   {
     label: "according to X",
