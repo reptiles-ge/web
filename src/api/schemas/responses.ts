@@ -277,7 +277,15 @@ const species = component(
 
 const catalogCard = component(
   "CatalogCard",
-  z.strictObject({ ...common, lookalikes: lookalikeIds }),
+  z.strictObject({
+    ...common,
+    lookalikes: lookalikeIds,
+    photoCount: doc(
+      z.int().min(0),
+      "Number of photos in the species gallery. The `full` view lists them in `gallery`.",
+      [8],
+    ),
+  }),
   "Species in the light `card` view of the catalog.",
 );
 

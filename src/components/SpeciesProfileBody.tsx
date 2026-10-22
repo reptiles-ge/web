@@ -9,6 +9,7 @@ import type {
   SpeciesStat,
 } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyDisclosure } from "@/components/BiologyDisclosure";
@@ -67,9 +68,9 @@ type SpeciesProfileBodyProps = {
   heroCredit?: PhotoCredit;
   linkDangerStats: boolean;
   locale: AppLocale;
-  lookalikes: Species[];
+  lookalikes: CatalogCard[];
   mobileGallery: GalleryImage[];
-  related: Species[];
+  related: CatalogCard[];
   showIdentification: boolean;
   species: Species;
 };
@@ -659,7 +660,7 @@ function SpeciesProfileIdentification({
 }: {
   identification: NonNullable<Species["identification"]>;
   locale: AppLocale;
-  lookalikes: Species[];
+  lookalikes: CatalogCard[];
   species: Species;
 }) {
   const photo =

@@ -137,7 +137,7 @@ Slices, one PR each, in this order:
 3. Home page (`Hero`, `HomeFeatured`, `HomeFresh`, `HomeGroups`).
 4. Group hubs, species indexes, cluster guides, `species` atlas, and the venomous, risk and yard pages.
 5. Regions (`regions`, `regions/[id]`, `regionSummary`, `SnakeRangePage`).
-6. Rest of the species profile (lookalike and related cards, breadcrumbs, guide feature, `speciesStaticParams`). Switch the 5 `[slug]` routes with `dynamicParams=false` to `true` with `notFound()`.
+6. **S2.6 Rest of the species profile:** lookalike and related cards come from the card catalog. `speciesRelated` is pure over a catalog you pass in, and a test proves the API cards rank exactly like the compiled catalog. `getSpeciesGuideLinks` and `getSpeciesProfileGuideLinks` take the species instead of looking it up. `speciesStaticParams` reads slugs and groups from the four card catalogs. All 9 species `[slug]` routes have `dynamicParams = true`; an unknown slug still gets `notFound()`. Still on generated data until S4: slug to id (`resolveSpeciesIdInHub`) and the canonical slug check, so a species added only through the API 404s until the slug table moves. The quiz passes the compiled catalog to `getRelatedSpecies` until step 7.
 7. Quiz (needs `full`: identification, facts, gallery).
 8. News, authors, photo-use (gallery credits: `full` or a credit lookup endpoint).
 9. Layout level (`footerData`, `navbarData`), after `cache()` dedupe is proven.

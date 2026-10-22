@@ -5,7 +5,6 @@ import type { AppLocale } from "@/i18n/routing";
 import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { getRegionSpecies, type Region } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { type GroupHubId } from "@/lib/groupHubs";
 
@@ -948,10 +947,10 @@ export function getRelatedGuideCards(
   );
 }
 
-export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
-  const species = getSpeciesById(id);
-  if (!species) return [];
-
+export function getSpeciesGuideLinks(
+  species: Pick<SpeciesSummary, "danger" | "genus" | "id">,
+): HubClusterCard[] {
+  const { id } = species;
   const group = getSpeciesAtlasMeta(id).group;
   const links: HubClusterCard[] = [];
 

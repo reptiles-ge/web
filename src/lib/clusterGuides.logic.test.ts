@@ -33,7 +33,7 @@ import {
 const HUB_IDS = Object.keys(GROUP_HUBS) as GroupHubId[];
 
 function keys(id: string) {
-  return getSpeciesGuideLinks(id).map((link) =>
+  return getSpeciesGuideLinks(species(id)).map((link) =>
     link.kind === "page" ? link.key : link.kind,
   );
 }
@@ -262,10 +262,6 @@ describe("related guide cards", () => {
 });
 
 describe("getSpeciesGuideLinks", () => {
-  it("returns nothing for an unknown species", () => {
-    expect(getSpeciesGuideLinks("no-such-species")).toEqual([]);
-  });
-
   it("links a venomous snake to the venomous, bite and yard guides", () => {
     expect(keys("macrovipera-lebetina")).toEqual(
       expect.arrayContaining([
@@ -315,13 +311,13 @@ describe("getSpeciesGuideLinks", () => {
 
   it("gives every published species at least one guide link", () => {
     for (const item of getCatalogSpecies()) {
-      expect(getSpeciesGuideLinks(item.id).length, item.id).toBeGreaterThan(0);
+      expect(getSpeciesGuideLinks(item).length, item.id).toBeGreaterThan(0);
     }
   });
 
   it("never returns duplicate links for a species", () => {
     for (const item of getCatalogSpecies()) {
-      const links = getSpeciesGuideLinks(item.id);
+      const links = getSpeciesGuideLinks(item);
       expect(dedupeGuideLinks(links), item.id).toHaveLength(links.length);
     }
   });

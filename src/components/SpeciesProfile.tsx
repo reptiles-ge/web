@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { loadSpeciesPageAnalysis } from "@/components/admin/devAdminComponents";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
@@ -34,8 +35,8 @@ import { speciesShareMessage } from "@/lib/speciesShareText";
 
 type SpeciesProfileProps = {
   locale: AppLocale;
-  lookalikes: Species[];
-  related: Species[];
+  lookalikes: CatalogCard[];
+  related: CatalogCard[];
   species: Species;
 };
 
@@ -91,7 +92,7 @@ export async function SpeciesProfile({
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "pageAnalysis" }),
   ]);
-  const guideLinks = getSpeciesProfileGuideLinks(species.id);
+  const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
   const breadcrumbs = buildSpeciesBreadcrumbs({

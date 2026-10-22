@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { speciesIdText } from "./common";
 
-export const CATALOG_MAX_LIMIT = 100;
+const CATALOG_MAX_LIMIT = 100;
 
 export const catalogQuery = z.object({
   cursor: speciesIdText.optional(),

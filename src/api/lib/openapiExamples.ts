@@ -87,7 +87,7 @@ const lookalikeIds = [
 
 export const RESPONSE_EXAMPLES = {
   catalogCard: {
-    data: [{ ...levantineViper, lookalikes: lookalikeIds }],
+    data: [{ ...levantineViper, lookalikes: lookalikeIds, photoCount: 8 }],
     locale: "en",
     nextCursor: null,
     total: 145,

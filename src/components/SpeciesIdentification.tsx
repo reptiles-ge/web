@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
@@ -21,7 +22,6 @@ import {
 import {
   type GalleryImage,
   type SpeciesIdentification as Identification,
-  type Species,
 } from "@/data/speciesTypes";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
@@ -36,7 +36,7 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 type SpeciesIdentificationProps = {
   identification: Identification;
   locale: AppLocale;
-  lookalikes?: Species[];
+  lookalikes?: CatalogCard[];
   name: string;
   photo?: GalleryImage | null;
   photoAlt?: string;
@@ -455,7 +455,7 @@ function SpeciesIdentificationLookalikes({
   differences?: Record<string, string>;
   label: string;
   locale: AppLocale;
-  lookalikes: Species[];
+  lookalikes: CatalogCard[];
   moreLabel: (count: number) => string;
   riskLabels: Record<DangerLevel, string>;
   speciesId: string;
@@ -565,7 +565,7 @@ function SpeciesLookalikeCard({
 }: {
   difference?: string;
   differenceLabel?: string;
-  item: Species;
+  item: CatalogCard;
   locale: AppLocale;
   position: number;
   riskLabels: Record<DangerLevel, string>;

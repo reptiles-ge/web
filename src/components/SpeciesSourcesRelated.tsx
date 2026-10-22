@@ -1,8 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species, SpeciesSource } from "@/data/species";
+import type { SpeciesSource } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
@@ -27,7 +28,7 @@ const featuredSourceStarts = [
 type Props = {
   locale: AppLocale;
   publishedAt?: string;
-  related: Species[];
+  related: CatalogCard[];
   sources: SpeciesSource[];
   speciesId: string;
   updatedAt?: string;
@@ -196,7 +197,7 @@ function RelatedSpeciesCard({
   position,
   riskLabels,
 }: {
-  item: Species;
+  item: CatalogCard;
   locale: AppLocale;
   position: number;
   riskLabels: Record<

@@ -1,10 +1,7 @@
-import { getRegionsForSpecies } from "@/data/regions";
-import {
-  getCatalogSpecies,
-  getSpeciesById,
-  type Species,
-} from "@/data/species";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import type { SpeciesSummary } from "@/data/speciesTypes";
+
+import { getRegionsForSpecies } from "@/data/mapRegions";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { stableHash } from "@/lib/stableHash";
@@ -24,35 +21,48 @@ const PROFILE_RELATED_OVERRIDES: Record<string, readonly string[]> = {
 const viperClusterIds = new Set<string>(VENOMOUS_VIPER_IDS);
 const racerClusterIds = new Set<string>(RACER_CLUSTER_IDS);
 
-let profileRelatedIndex: Map<string, string[]> | undefined;
+type RelatedCandidate = Pick<
+  SpeciesSummary,
+  "danger" | "family" | "genus" | "id" | "scientificName"
+>;
 
-export function getLookalikeSpecies(id: string): Species[] {
-  const items: Species[] = [];
-  for (const lookalikeId of getSpeciesLookalikes(id)) {
-    const item = getSpeciesById(lookalikeId);
-    if (item) items.push(item);
+const profileRelatedIndexes = new WeakMap<
+  readonly RelatedCandidate[],
+  Map<string, string[]>
+>();
+
+export function getLookalikeSpecies<T extends RelatedCandidate>(
+  id: string,
+  catalog: readonly T[],
+): T[] {
+  return pickByIds(getSpeciesLookalikes(id), catalog);
+}
+
+export function getProfileRelatedSpecies<T extends RelatedCandidate>(
+  id: string,
+  catalog: readonly T[],
+): T[] {
+  let index = profileRelatedIndexes.get(catalog);
+  if (!index) {
+    index = buildProfileRelatedIndex(catalog);
+    profileRelatedIndexes.set(catalog, index);
   }
-  return items;
+  return pickByIds(index.get(id) ?? [], catalog);
 }
 
-export function getProfileRelatedSpecies(id: string): Species[] {
-  profileRelatedIndex ??= buildProfileRelatedIndex();
-  return (profileRelatedIndex.get(id) ?? []).flatMap((relatedId) => {
-    const item = getSpeciesById(relatedId);
-    return item ? [item] : [];
-  });
+export function getRelatedSpecies<T extends RelatedCandidate>(
+  id: string,
+  catalog: readonly T[],
+  limit = 4,
+): T[] {
+  return rankRelatedSpecies(id, catalog, limit).map(({ item }) => item);
 }
 
-export function getRelatedSpecies(id: string, limit = 4): Species[] {
-  return rankRelatedSpecies(id, limit).map(({ item }) => item);
-}
-
-function buildProfileRelatedIndex() {
-  const catalog = getCatalogSpecies();
+function buildProfileRelatedIndex(catalog: readonly RelatedCandidate[]) {
   const index = new Map<string, string[]>();
   const inbound = new Map<string, number>();
   const count = (id: string) => inbound.set(id, (inbound.get(id) ?? 0) + 1);
-  const open: Species[] = [];
+  const open: RelatedCandidate[] = [];
 
   for (const base of catalog) {
     const lookalikes = new Set(getSpeciesLookalikes(base.id));
@@ -63,7 +73,7 @@ function buildProfileRelatedIndex() {
       index.set(base.id, [...fixed]);
       continue;
     }
-    const ranked = rankRelatedSpecies(base.id, 8).filter(
+    const ranked = rankRelatedSpecies(base.id, catalog, 8).filter(
       ({ item }) => !lookalikes.has(item.id),
     );
     const kept = ranked.slice(0, PROFILE_RELATED_LIMIT);
@@ -118,12 +128,27 @@ function buildProfileRelatedIndex() {
   return index;
 }
 
-function rankRelatedSpecies(id: string, limit: number) {
-  const base = getSpeciesById(id);
+function pickByIds<T extends RelatedCandidate>(
+  ids: readonly string[],
+  catalog: readonly T[],
+): T[] {
+  const byId = new Map(catalog.map((item) => [item.id, item]));
+  return ids.flatMap((id) => {
+    const item = byId.get(id);
+    return item ? [item] : [];
+  });
+}
+
+function rankRelatedSpecies<T extends RelatedCandidate>(
+  id: string,
+  catalog: readonly T[],
+  limit: number,
+) {
+  const base = catalog.find((item) => item.id === id);
   if (!base) return [];
 
-  const scored: Array<{ item: Species; score: number }> = [];
-  for (const item of getCatalogSpecies()) {
+  const scored: Array<{ item: T; score: number }> = [];
+  for (const item of catalog) {
     if (item.id === base.id) continue;
     scored.push({ item, score: relatedScore(base, item) });
   }
@@ -151,7 +176,10 @@ function rankRelatedSpecies(id: string, limit: number) {
   return picked;
 }
 
-function relatedScore(base: Species, candidate: Species): number {
+function relatedScore(
+  base: RelatedCandidate,
+  candidate: RelatedCandidate,
+): number {
   let score = 0;
   if (getSpeciesLookalikes(base.id).includes(candidate.id)) score += 80;
   if (candidate.genus === base.genus) score += 100;
