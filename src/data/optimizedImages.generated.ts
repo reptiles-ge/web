@@ -739,6 +739,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/araneus-diadematus-andreas-1.jpg": {
+    "path": "araneus-diadematus-andreas-1",
+    "width": 1024,
+    "height": 1009,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/araneus-diadematus-dachi-1.jpg": {
+    "path": "araneus-diadematus-dachi-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/araneus-diadematus-davit-1.jpg": {
+    "path": "araneus-diadematus-davit-1",
+    "width": 1024,
+    "height": 734,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/araneus-diadematus-giorgi-1.jpg": {
+    "path": "araneus-diadematus-giorgi-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/araneus-diadematus-gocha-1.jpg": {
+    "path": "araneus-diadematus-gocha-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-anamarija-1.jpg": {
     "path": "argiope-bruennichi-anamarija-1",
     "width": 1536,
@@ -2356,13 +2391,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-3.jpg": {
-    "path": "darevskia-daghestanica-3",
-    "width": 1366,
-    "height": 2048,
-    "widths": [400, 800, 1200, 1366],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/darevskia-daghestanica-aleksandre-1.jpg": {
     "path": "darevskia-daghestanica-aleksandre-1",
     "width": 960,
@@ -2608,20 +2636,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/darevskia-mixta-2.jpg": {
-    "path": "darevskia-mixta-2",
-    "width": 1728,
-    "height": 1296,
-    "widths": [400, 800, 1200, 1728],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-mixta-3.jpg": {
-    "path": "darevskia-mixta-3",
-    "width": 1728,
-    "height": 1296,
-    "widths": [400, 800, 1200, 1728],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-mixta-aleksey-1.jpg": {
     "path": "darevskia-mixta-aleksey-1",
     "width": 1536,
@@ -2671,13 +2685,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-mixta-mobile.jpg": {
-    "path": "darevskia-mixta-mobile",
-    "width": 2048,
-    "height": 1413,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-mixta-sergei-1.jpg": {
     "path": "darevskia-mixta-sergei-1",
     "width": 2048,
@@ -2725,13 +2732,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1365,
     "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-mixta.jpg": {
-    "path": "darevskia-mixta",
-    "width": 1728,
-    "height": 1296,
-    "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-obscura-christian-1.jpg": {
@@ -2818,13 +2818,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/darevskia-portschinskii-2.jpg": {
-    "path": "darevskia-portschinskii-2",
-    "width": 2048,
-    "height": 1709,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-portschinskii-anastasiia-1.jpg": {
     "path": "darevskia-portschinskii-anastasiia-1",
     "width": 2048,
@@ -2865,13 +2858,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-portschinskii-giorgi-5.jpg": {
-    "path": "darevskia-portschinskii-giorgi-5",
-    "width": 2048,
-    "height": 1366,
-    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-portschinskii-herbert-1.jpg": {
@@ -5651,6 +5637,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 960,
     "height": 640,
     "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-dietrich-juv-1.jpg": {
+    "path": "images/species/pernis-apivorus-dietrich-juv-1",
+    "width": 1060,
+    "height": 807,
+    "widths": [320, 400, 640, 800, 1060],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-laheyne-flight-1.jpg": {
+    "path": "images/species/pernis-apivorus-laheyne-flight-1",
+    "width": 1054,
+    "height": 1580,
+    "widths": [320, 400, 640, 800, 1054],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-morffew-1.jpg": {
+    "path": "images/species/pernis-apivorus-morffew-1",
+    "width": 2400,
+    "height": 1920,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-morffew-portrait-1.jpg": {
+    "path": "images/species/pernis-apivorus-morffew-portrait-1",
+    "width": 2400,
+    "height": 1920,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-norelius-1.jpg": {
+    "path": "images/species/pernis-apivorus-norelius-1",
+    "width": 2400,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/pernis-apivorus-sharp-flight-1.jpg": {
+    "path": "images/species/pernis-apivorus-sharp-flight-1",
+    "width": 2400,
+    "height": 1601,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/species/phasianus-colchicus-female-1.jpg": {
@@ -9144,13 +9172,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1536,
     "height": 2048,
     "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg": {
-    "path": "trachemys-scripta-mobile",
-    "width": 1707,
-    "height": 960,
-    "widths": [400, 800, 1200, 1707],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/trachemys-scripta-nikita-1.jpg": {
