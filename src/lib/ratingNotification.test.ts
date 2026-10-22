@@ -8,7 +8,7 @@ const base = {
   host: "reptiles.ge",
   locale: "ka",
   pages: undefined,
-  path: "/gvelebi/giurza",
+  pageUrl: "https://reptiles.ge/gvelebi/giurza",
   rating: 4,
   referrer: undefined,
   seconds: undefined,

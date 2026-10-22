@@ -4,10 +4,12 @@ import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { HTTPException } from "hono/http-exception";
 
 export type ApiErrorCode =
+  | "forbidden"
   | "internal_error"
   | "invalid_request"
   | "not_found"
   | "payload_too_large"
+  | "rate_limited"
   | "unauthorized";
 
 export class ApiError extends HTTPException {
@@ -69,8 +71,10 @@ export function handleError(error: Error, c: Context) {
 
 function codeForStatus(status: number): ApiErrorCode {
   if (status === 401) return "unauthorized";
+  if (status === 403) return "forbidden";
   if (status === 404) return "not_found";
   if (status === 413) return "payload_too_large";
+  if (status === 429) return "rate_limited";
   if (status >= 500) return "internal_error";
   return "invalid_request";
 }

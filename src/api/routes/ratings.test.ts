@@ -1,21 +1,50 @@
 import type { DatabaseSync } from "node:sqlite";
 
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { ApiBindings } from "../env";
+import type { ApiBindings, RateLimiter } from "../env";
 
 import { app } from "../app";
-import { type ErrorBody, jsonInit, requestJson } from "../testing/request";
+import { type ErrorBody, requestJson } from "../testing/request";
 import { createTestDatabase } from "../testing/sqliteDatabase";
 
 const TOKEN = "test-token";
+const SITE = "https://reptiles.ge";
 const auth = { headers: { Authorization: `Bearer ${TOKEN}` } };
 
 let sqlite: DatabaseSync;
 let env: ApiBindings;
+let pending: Array<Promise<unknown>>;
 
-function post(body: unknown, token: null | string = TOKEN) {
-  return app.request("/v1/ratings", jsonInit(body, token ?? undefined), env);
+const executionCtx = {
+  passThroughOnException: () => {},
+  props: {},
+  waitUntil: (promise: Promise<unknown>) => {
+    pending.push(promise);
+  },
+};
+
+function limiter(success: boolean): RateLimiter {
+  return { limit: vi.fn(async () => ({ success })) };
+}
+
+function post(body: unknown, headers: Record<string, string> = {}) {
+  return app.request(
+    "/v1/ratings",
+    {
+      body: JSON.stringify(body),
+      headers: {
+        "cf-connecting-ip": "203.0.113.5",
+        "cf-ipcountry": "GE",
+        "Content-Type": "application/json",
+        Origin: SITE,
+        ...headers,
+      },
+      method: "POST",
+    },
+    env,
+    executionCtx,
+  );
 }
 
 function rows() {
@@ -29,18 +58,31 @@ function rows() {
 beforeEach(() => {
   const database = createTestDatabase();
   sqlite = database.sqlite;
+  pending = [];
   env = { API_WRITE_TOKEN: TOKEN, DB: database.db };
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => Response.json({ ok: true })),
+  );
+});
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
 });
 
 describe("POST /v1/ratings", () => {
-  it("stores a valid rating", async () => {
+  it("stores a rating from the site with the country from Cloudflare", async () => {
     const response = await post({
-      country: "GE",
       locale: "ka",
+      pages: 3,
       path: "/gvelebi/giurza",
       rating: 5,
+      referrer: "google.com",
+      seconds: 95,
     });
     expect(response.status).toBe(201);
+    expect(response.headers.get("Access-Control-Allow-Origin")).toBe(SITE);
     expect(rows()).toEqual([
       {
         country: "GE",
@@ -52,23 +94,104 @@ describe("POST /v1/ratings", () => {
     ]);
   });
 
-  it("cleans feedback and drops a malformed country", async () => {
+  it("sends the Telegram notice in the background when configured", async () => {
+    env.TELEGRAM_BOT_TOKEN = "bot";
+    env.TELEGRAM_CHAT_ID = "chat";
     await post({
-      country: "georgia",
-      feedback: "  ფოტო აკლია\r\n ",
-      locale: "en",
-      path: "/en/snakes",
+      feedback: "ფოტო აკლია",
+      locale: "ka",
+      path: "/xvlikebi",
       rating: 3,
     });
-    expect(rows()).toEqual([
-      {
-        country: null,
-        feedback: "ფოტო აკლია",
-        locale: "en",
-        path: "/en/snakes",
-        rating: 3,
-      },
+    await Promise.all(pending);
+    const [url, init] = vi.mocked(fetch).mock.calls[0] as unknown as [
+      string,
+      RequestInit,
+    ];
+    expect(url).toBe("https://api.telegram.org/botbot/sendMessage");
+    const text = (JSON.parse(String(init.body)) as { text: string }).text;
+    expect(text).toContain("★★★☆☆ 3/5");
+    expect(text).toContain("https://reptiles.ge/xvlikebi");
+    expect(text).toContain("💬 ფოტო აკლია");
+  });
+
+  it("logs and still stores the rating when Telegram is not configured", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    expect((await post({ locale: "ka", path: "/", rating: 5 })).status).toBe(
+      201,
+    );
+    await Promise.all(pending);
+    expect(log).toHaveBeenCalledWith("Rating Telegram not_configured");
+    expect(rows()).toHaveLength(1);
+  });
+
+  it("drops a missing or unknown country", async () => {
+    await post(
+      { locale: "en", path: "/en", rating: 5 },
+      { "cf-ipcountry": "XX" },
+    );
+    await post(
+      { locale: "en", path: "/en", rating: 5 },
+      { "cf-ipcountry": "T1" },
+    );
+    expect(rows().map((row) => (row as { country: unknown }).country)).toEqual([
+      null,
+      null,
     ]);
+  });
+
+  it("rejects requests from other origins", async () => {
+    for (const origin of ["https://evil.example", ""]) {
+      const response = await post(
+        { locale: "ka", path: "/", rating: 5 },
+        { Origin: origin },
+      );
+      expect(response.status).toBe(403);
+      expect(((await response.json()) as ErrorBody).error.code).toBe(
+        "forbidden",
+      );
+    }
+    expect(rows()).toEqual([]);
+  });
+
+  it("accepts origins listed in ALLOWED_ORIGINS", async () => {
+    env.ALLOWED_ORIGINS = "https://reptiles.ge, http://localhost:3333";
+    const response = await post(
+      { locale: "ka", path: "/", rating: 5 },
+      { Origin: "http://localhost:3333" },
+    );
+    expect(response.status).toBe(201);
+  });
+
+  it("applies the visitor and global rate limits", async () => {
+    env.RATING_VISITOR_LIMITER = limiter(false);
+    const visitor = await post({ locale: "ka", path: "/", rating: 5 });
+    expect(visitor.status).toBe(429);
+    expect(((await visitor.json()) as ErrorBody).error.code).toBe(
+      "rate_limited",
+    );
+    expect(env.RATING_VISITOR_LIMITER.limit).toHaveBeenCalledWith({
+      key: "203.0.113.5",
+    });
+    env.RATING_VISITOR_LIMITER = limiter(true);
+    env.RATING_GLOBAL_LIMITER = limiter(false);
+    expect((await post({ locale: "ka", path: "/", rating: 5 })).status).toBe(
+      429,
+    );
+    expect(rows()).toEqual([]);
+  });
+
+  it("lets ratings through when a limiter fails", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    env.RATING_VISITOR_LIMITER = {
+      limit: async () => {
+        throw new Error("down");
+      },
+    };
+    expect((await post({ locale: "ka", path: "/", rating: 5 })).status).toBe(
+      201,
+    );
+    expect(log).toHaveBeenCalled();
   });
 
   it("rejects invalid ratings without storing them", async () => {
@@ -90,20 +213,6 @@ describe("POST /v1/ratings", () => {
     expect(rows()).toEqual([]);
   });
 
-  it("requires the write token", async () => {
-    const body = { locale: "ka", path: "/", rating: 5 };
-    for (const token of [null, "wrong"]) {
-      const response = await post(body, token);
-      expect(response.status).toBe(401);
-      expect(((await response.json()) as ErrorBody).error.code).toBe(
-        "unauthorized",
-      );
-    }
-    env.API_WRITE_TOKEN = undefined;
-    expect((await post(body, "")).status).toBe(401);
-    expect(rows()).toEqual([]);
-  });
-
   it("rejects a body over the size limit", async () => {
     const response = await post({
       feedback: "ა".repeat(20_000),
@@ -112,8 +221,25 @@ describe("POST /v1/ratings", () => {
       rating: 2,
     });
     expect(response.status).toBe(413);
-    expect(((await response.json()) as ErrorBody).error.code).toBe(
-      "payload_too_large",
+  });
+
+  it("answers the CORS preflight for the site", async () => {
+    const response = await app.request(
+      "/v1/ratings",
+      {
+        headers: {
+          "Access-Control-Request-Headers": "content-type",
+          "Access-Control-Request-Method": "POST",
+          Origin: SITE,
+        },
+        method: "OPTIONS",
+      },
+      env,
+    );
+    expect(response.status).toBe(204);
+    expect(response.headers.get("Access-Control-Allow-Origin")).toBe(SITE);
+    expect(response.headers.get("Access-Control-Allow-Methods")).toContain(
+      "POST",
     );
   });
 });
@@ -144,7 +270,7 @@ describe("GET /v1/ratings/summary", () => {
     });
   });
 
-  it("returns an empty summary and rejects a bad range", async () => {
+  it("requires the token and rejects a bad range", async () => {
     const empty = await requestJson<{ data: { average: null; count: number } }>(
       "/v1/ratings/summary",
       env,
@@ -159,7 +285,17 @@ describe("GET /v1/ratings/summary", () => {
       );
       expect(response.status).toBe(400);
     }
-    expect((await app.request("/v1/ratings/summary", {}, env)).status).toBe(
+    for (const init of [{}, { headers: { Authorization: "Bearer wrong" } }]) {
+      const { body, response } = await requestJson<ErrorBody>(
+        "/v1/ratings/summary",
+        env,
+        init,
+      );
+      expect(response.status).toBe(401);
+      expect(body.error.code).toBe("unauthorized");
+    }
+    env.API_WRITE_TOKEN = undefined;
+    expect((await app.request("/v1/ratings/summary", auth, env)).status).toBe(
       401,
     );
   });

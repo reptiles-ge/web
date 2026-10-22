@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -151,7 +151,8 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
         (rel) =>
           !rel.startsWith("src/api/") &&
           !/\.test\.tsx?$/.test(rel) &&
-          rel !== "src/lib/apiClient.ts",
+          rel !== "src/lib/apiClient.ts" &&
+          rel !== "src/lib/securityHeaders.ts",
       );
     const leaking = siteFiles.filter((rel) =>
       /from "@\/api\/|api\.reptiles\.ge|reptiles-api/.test(
@@ -164,12 +165,25 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     ).toMatch(/import type \{ AppType \} from "@\/api\/app"/);
   });
 
-  it("binds the site Worker to reptiles-api in both configs", () => {
-    for (const file of ["wrangler.jsonc", "wrangler.vinext.jsonc"]) {
-      expect(
-        readFileSync(path.join(ROOT, file), "utf8"),
-        `${file} is missing the API service binding`,
-      ).toMatch(/"binding": "API",\s*"service": "reptiles-api"/);
+  it("protects every write route with a token or the site origin and a rate limit", () => {
+    for (const file of routeFiles) {
+      if (!/\.(post|put|patch|delete)\(/.test(file.source)) continue;
+      const guarded =
+        file.source.includes("requireToken") ||
+        (file.source.includes("requireSiteOrigin") &&
+          /rateLimit\w+/.test(file.source));
+      expect(guarded, `${file.rel} has an unguarded write route`).toBe(true);
+    }
+  });
+
+  it("keeps rating writes in the API, not the site Worker", () => {
+    expect(existsSync(path.join(ROOT, "src/app/api/rating"))).toBe(false);
+    const apiConfig = readFileSync(
+      path.join(ROOT, "wrangler.api.jsonc"),
+      "utf8",
+    );
+    for (const name of ["RATING_VISITOR_LIMITER", "RATING_GLOBAL_LIMITER"]) {
+      expect(apiConfig).toContain(name);
     }
   });
 

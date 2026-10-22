@@ -57,23 +57,6 @@ describe("Worker fetch", () => {
     expect(baseFetch).toHaveBeenCalledWith(expect.any(Request), env, ctx);
   });
 
-  it("answers 429 to a rating over the Workers rate limit before the app runs", async () => {
-    const response = await worker.fetch(
-      new Request("https://reptiles.ge/api/rating", {
-        headers: { origin: "https://reptiles.ge" },
-        method: "POST",
-      }),
-      {
-        RATING_VISITOR_LIMITER: {
-          limit: vi.fn().mockResolvedValue({ success: false }),
-        },
-      },
-      {},
-    );
-    expect(response.status).toBe(429);
-    expect(baseFetch).not.toHaveBeenCalled();
-  });
-
   it("sets the shared cache header on the app response", async () => {
     const response = await worker.fetch(
       new Request("https://reptiles.ge/sitemap.xml"),
