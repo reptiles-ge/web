@@ -59072,7 +59072,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-22T07:00:05.370Z"
+      "updatedAt": "2026-10-22T06:50:32.743Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -59167,7 +59167,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-22T07:00:09.884Z"
+      "updatedAt": "2026-10-22T06:50:16.728Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -59262,7 +59262,7 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-22T07:00:01.200Z"
+      "updatedAt": "2026-10-22T06:50:10.819Z"
     },
     "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": {
       "sourceHash": "7c390777a77d9ae5105440e0a02f401f20d3c11432577c4948d2a231e0922265",
@@ -59642,7 +59642,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-10-22T07:00:17.099Z"
+      "updatedAt": "2026-10-22T06:50:23.251Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -59737,7 +59737,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-10-22T07:00:22.753Z"
+      "updatedAt": "2026-10-22T06:50:30.421Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -59832,7 +59832,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-10-22T07:00:19.512Z"
+      "updatedAt": "2026-10-22T06:50:30.588Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -59927,7 +59927,359 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-10-22T07:00:27.216Z"
+      "updatedAt": "2026-10-22T06:50:49.075Z"
+    },
+    "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg": {
+      "sourceHash": "aa109df431e0aa79bf2a820bda3956c7ecadbbf1628f1e9163176a774dc127b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg",
+      "originalSize": 146689,
+      "width": 1080,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 8793
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 11428
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 13108
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16418
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 26213
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 33922
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 36354
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 45228
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1080,
+          "byteSize": 59145
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1080,
+          "byteSize": 72858
+        }
+      ],
+      "updatedAt": "2026-10-22T06:50:36.430Z"
+    },
+    "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range.jpg": {
+      "sourceHash": "e5865cdf90cad66e9702bb6684061ae024061c69b7c7b17ec4f1f8add599a760",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range.jpg",
+      "originalSize": 633306,
+      "width": 1920,
+      "height": 600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 100,
+          "byteSize": 9283
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 100,
+          "byteSize": 11992
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 125,
+          "byteSize": 12120
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 125,
+          "byteSize": 16266
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 200,
+          "byteSize": 22830
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "byteSize": 32004
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 250,
+          "byteSize": 34169
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 250,
+          "byteSize": 46178
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 375,
+          "byteSize": 67954
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 375,
+          "byteSize": 93910
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 600,
+          "byteSize": 154321
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "byteSize": 218182
+        }
+      ],
+      "updatedAt": "2026-10-22T06:50:41.404Z"
+    },
+    "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading.jpg": {
+      "sourceHash": "e379db609be8ee826c7375e49e02ac1dfeb53aee61f1e41c294187ed27fa9ae0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading.jpg",
+      "originalSize": 72237,
+      "width": 880,
+      "height": 500,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 182,
+          "byteSize": 6090
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 182,
+          "byteSize": 8036
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 227,
+          "byteSize": 7972
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 227,
+          "byteSize": 10510
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 364,
+          "byteSize": 14407
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 364,
+          "byteSize": 18098
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 455,
+          "byteSize": 19132
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 455,
+          "byteSize": 23540
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-880.avif",
+          "format": "avif",
+          "width": 880,
+          "height": 500,
+          "byteSize": 21825
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading-880.webp",
+          "format": "webp",
+          "width": 880,
+          "height": 500,
+          "byteSize": 27074
+        }
+      ],
+      "updatedAt": "2026-10-22T06:50:38.774Z"
+    },
+    "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg": {
+      "sourceHash": "6e9346946f7f7c4186dd33359eef27f1e37662e8990711b89fa38e06b15ade80",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg",
+      "originalSize": 833407,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10213
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13790
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16132
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22082
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 41661
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58302
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67872
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 97228
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 163354
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 237478
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 449597
+        },
+        {
+          "key": "optimized/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 644502
+        }
+      ],
+      "updatedAt": "2026-10-22T06:50:48.449Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -59994,7 +60346,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-22T07:00:26.229Z"
+      "updatedAt": "2026-10-22T06:50:43.962Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -60089,7 +60441,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-22T07:00:27.980Z"
+      "updatedAt": "2026-10-22T06:50:50.293Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -60184,7 +60536,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-22T07:00:29.756Z"
+      "updatedAt": "2026-10-22T06:50:52.515Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -60279,7 +60631,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-22T07:00:33.496Z"
+      "updatedAt": "2026-10-22T06:50:55.714Z"
     },
     "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
       "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
@@ -60754,7 +61106,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-22T07:00:37.455Z"
+      "updatedAt": "2026-10-22T06:51:03.372Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -60849,7 +61201,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-22T07:00:38.687Z"
+      "updatedAt": "2026-10-22T06:51:04.409Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -60944,7 +61296,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-22T07:00:39.040Z"
+      "updatedAt": "2026-10-22T06:51:04.763Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -61039,7 +61391,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-22T07:00:47.469Z"
+      "updatedAt": "2026-10-22T06:51:09.362Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
