@@ -1,10 +1,10 @@
 import { type CoverTarget, isSpeciesContentId } from "@/lib/adminGalleryMdx";
-import { openCoverPullRequest } from "@/lib/adminPhotoPullRequest";
 import {
   adminErrorResponse,
   readBodyString,
   readLocalAdminJsonBody,
 } from "@/lib/adminRequest";
+import { setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -29,8 +29,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const pullRequestUrl = await openCoverPullRequest({ id, src, target });
-    return Response.json({ pullRequestUrl });
+    return Response.json(await setAdminSpeciesCover(id, { src, target }));
   } catch (error) {
     return adminErrorResponse(error, "Cover update failed");
   }

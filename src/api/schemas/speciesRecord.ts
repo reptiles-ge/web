@@ -203,3 +203,31 @@ export const speciesWriteBody = z.strictObject({
 export const speciesIdParam = z.object({
   id: z.string().regex(SLUG).max(100),
 });
+
+const actor = z.string().trim().min(1).max(100);
+const photoSrc = z.string().trim().min(1).max(500);
+
+export const photoCoverBody = z.strictObject({
+  actor,
+  coverSrc: photoSrc.optional(),
+  src: photoSrc,
+  target: z.enum(["both", "desktop", "mobile"]),
+});
+
+export const photoOrderBody = z.strictObject({
+  actor,
+  srcs: z.array(photoSrc).min(2).max(200),
+});
+
+export const photoRemoveBody = z.strictObject({ actor, src: photoSrc });
+
+export const photoCoordinatesBody = z.strictObject({
+  actor,
+  coordinates: z
+    .strictObject({
+      lat: z.number().min(-90).max(90),
+      lng: z.number().min(-180).max(180),
+    })
+    .nullable(),
+  src: photoSrc,
+});

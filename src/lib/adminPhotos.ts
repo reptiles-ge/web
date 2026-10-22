@@ -19,9 +19,10 @@ import {
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
 import {
-  openCoverPullRequest,
   openPhotoPullRequest,
+  openStandalonePhotoPullRequest,
 } from "@/lib/adminPhotoPullRequest";
+import { readAdminSpecies, setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
 import {
   type CoverCropRect,
   coverCropSuffix,
@@ -205,21 +206,20 @@ export async function cropSpeciesCover(input: {
   id: string;
   src: string;
   target: "desktop" | "mobile";
-}): Promise<{ coverSrc: string; pullRequestUrl: string }> {
-  const { gallery } = readAdminSpeciesGallery(input.id);
-  if (!gallery.some((item) => item.src === input.src)) {
+}): Promise<{ coverSrc: string; pullRequestUrl?: string }> {
+  const { record } = await readAdminSpecies(input.id);
+  if (!record.base.gallery.some((item) => item.src === input.src)) {
     throw new Error(`Unknown gallery src: ${input.src}`);
   }
   const rect = normalizeCoverCropRect(input.crop);
   if (!rect) throw new Error("ქროფი ძალიან პატარაა");
 
   if (isFullCoverCrop(rect)) {
-    const pullRequestUrl = await openCoverPullRequest({
-      id: input.id,
+    await setAdminSpeciesCover(input.id, {
       src: input.src,
       target: input.target,
     });
-    return { coverSrc: input.src, pullRequestUrl };
+    return { coverSrc: input.src };
   }
 
   const [originalKey] = galleryStorageKeys([{ src: input.src }]);
@@ -243,14 +243,17 @@ export async function cropSpeciesCover(input: {
     src: coverSrc,
     storage,
   });
-  const pullRequestUrl = await openCoverPullRequest({
-    catalog: optimized ? [optimized] : [],
+  await setAdminSpeciesCover(input.id, {
     coverSrc,
-    id: input.id,
     src: input.src,
     target: input.target,
   });
-  return { coverSrc, pullRequestUrl };
+  return {
+    coverSrc,
+    ...(optimized
+      ? { pullRequestUrl: await openStandalonePhotoPullRequest([optimized]) }
+      : {}),
+  };
 }
 
 export async function uploadStandalonePhotos(
