@@ -84,7 +84,12 @@
     "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json && pnpm run cache:warm",
     "cache:warm": "node scripts/warm-cache.mjs",
     "metadata:check": "tsx scripts/check-metadata-head.ts",
-    "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
+    "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc",
+    "dev:api": "pnpm run species:compile && wrangler dev --config wrangler.api.jsonc --port 8787",
+    "deploy:api": "pnpm run species:compile && wrangler deploy --config wrangler.api.jsonc",
+    "db:migrations:list": "wrangler d1 migrations list reptiles-db --local --config wrangler.api.jsonc",
+    "db:migrate": "wrangler d1 migrations apply reptiles-db --local --config wrangler.api.jsonc",
+    "db:migrate:remote": "wrangler d1 migrations apply reptiles-db --remote --config wrangler.api.jsonc"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
@@ -99,12 +104,14 @@
     "@bprogress/next": "^3.2.12",
     "@bprogress/react": "^1.2.7",
     "@cloudflare/workers-response-store": "1.1.0",
+    "@hono/zod-validator": "0.9.1",
     "@sentry/nextjs": "^11.6.0",
     "@vinext/cloudflare": "1.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^14.1.0",
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
+    "hono": "4.13.13",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.55.0",
     "next": "16.4.0",
