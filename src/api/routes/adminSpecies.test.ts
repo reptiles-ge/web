@@ -160,6 +160,44 @@ describe("PUT /v1/admin/species/:id", () => {
     expect((await getRecord()).body.data.record.base.overview).toBe("first");
   });
 
+  it("answers 409 when another write wins the race", async () => {
+    const { record } = (await getRecord()).body.data;
+    const real = env.DB;
+    env.DB = {
+      ...real,
+      batch: async (statements) => {
+        sqlite
+          .prepare("UPDATE species SET version = version + 1 WHERE id = ?")
+          .run(ID);
+        return real.batch(statements);
+      },
+    };
+    record.base.overview = "late";
+    const response = await put(ID, edit(record));
+    env.DB = real;
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({
+      error: { code: "version_conflict", details: { currentVersion: 2 } },
+    });
+    expect((await getRecord()).body.data.record.base.overview).not.toBe("late");
+  });
+
+  it("rethrows a failed write when the version did not move", async () => {
+    const { record } = (await getRecord()).body.data;
+    const real = env.DB;
+    env.DB = {
+      ...real,
+      batch: async () => {
+        throw new Error("disk full");
+      },
+    };
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    const response = await put(ID, edit(record));
+    env.DB = real;
+    log.mockRestore();
+    expect(response.status).toBe(500);
+  });
+
   it("rolls back the whole write when the database rejects it", async () => {
     const { record } = (await getRecord()).body.data;
     const before = structuredClone(record);

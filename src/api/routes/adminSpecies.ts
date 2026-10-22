@@ -2,7 +2,11 @@ import { Hono } from "hono";
 
 import type { ApiEnv } from "../env";
 
-import { readSpeciesRecord, writeSpeciesRecord } from "../db/speciesWrite";
+import {
+  readSpeciesRecord,
+  readSpeciesVersion,
+  writeSpeciesRecord,
+} from "../db/speciesWrite";
 import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
@@ -34,28 +38,32 @@ export const adminSpecies = new Hono<ApiEnv>()
           "Body id does not match the URL",
         );
       }
-      const current = await readSpeciesRecord(c.env.DB, id);
-      if (!current) throw new ApiError(404, "not_found", "Species not found");
-      if (current.version !== expectedVersion) {
-        throw new ApiError(
+      const conflict = (currentVersion: number) =>
+        new ApiError(
           409,
           "version_conflict",
           "Species changed since it was read",
           {
-            currentVersion: current.version,
+            currentVersion,
           },
         );
+      const current = await readSpeciesVersion(c.env.DB, id);
+      if (current === null) {
+        throw new ApiError(404, "not_found", "Species not found");
       }
-      const version = await writeSpeciesRecord(
-        c.env.DB,
-        record,
-        expectedVersion,
-        {
+      if (current !== expectedVersion) throw conflict(current);
+      let version: number;
+      try {
+        version = await writeSpeciesRecord(c.env.DB, record, expectedVersion, {
           actor,
           source,
           summary,
-        },
-      );
+        });
+      } catch (error) {
+        const now = await readSpeciesVersion(c.env.DB, id);
+        if (now !== null && now !== expectedVersion) throw conflict(now);
+        throw error;
+      }
       inBackground(c, revalidateSpeciesPages(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id, version } }, 200);

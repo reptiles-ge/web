@@ -75,12 +75,12 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 - Migration `0002_species.sql` holds the whole species catalog: `species` (taxonomy, group, danger, status, catalog order, KA slug), `species_texts` (one row per species and locale), `species_list_items` (facts and identification traits), `species_faq`, `species_stats`, `species_identification_colors`, `species_sources`, `species_habitats`, `species_lookalikes`, `species_slugs` (every public, legacy and alias slug), `species_media` (hero, mobile, gallery, audio with credits) and `species_media_overlays` (per-locale credit and order overrides).
 - Values that can grow live in lookup tables with foreign keys: `locales`, `animal_groups`, `habitats`, `danger_levels`, `photo_confidences`. Add a value with an `INSERT` in a new migration. Do not turn them into `CHECK` lists; SQLite cannot change a `CHECK` without rebuilding the table.
-- **For now MDX stays the source of truth.** D1 is a copy built by `pnpm db:import:species` (local) or `pnpm db:import:species:remote` (production, owner asks only). The import deletes and rewrites only the species tables. Re-run it after content changes. NEVER edit species rows by hand.
+- **D1 is the source of truth for species.** `pnpm db:import:species` / `db:import:species:remote` was the one-off initial copy from MDX. It deletes and rewrites only the species tables, and its first statement fails once any `species_revisions` row exists, so it can never overwrite API edits. Change content only through `PUT /v1/admin/species/:id`. NEVER edit MDX for species content and NEVER edit species rows by hand.
 - `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
 - Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
 - `GET /v1/species` and `GET /v1/species/:idOrSlug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
 - `:idOrSlug` accepts the id, the Georgian slug, or any alias in `species_slugs`, case-insensitive. Unpublished species answer 404.
-- Because the API serves the D1 copy, a content change shows in the API only after `pnpm db:import:species:remote`, and then within an hour: species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin`) for `s-maxage=3600`.
+- Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
 - `routes/species.test.ts` compares the D1 list and every published profile in all four locales with what the site renders (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
@@ -108,7 +108,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `etag()` runs on every response. A repeated `GET` with a matching `If-None-Match` gets `304` with no body. Keep responses deterministic (no timestamps or random values in a cacheable body) so the ETag stays stable.
 - Public `GET`: `Cache-Control: PUBLIC_CACHE` from `lib/cache.ts`.
 - Authenticated or personal responses: `NO_STORE`.
-- When D1-backed content changes, purge the affected cache entries. Do not shorten cache times as a workaround.
+- The Workers Cache API is per data centre: a Worker can only purge entries in the colo it runs in, so a write cannot clear every edge copy. Do not shorten cache times as a workaround. Instead, readers that need fresh data right after a write (the site's server render) send `X-Cache-Bypass: <REVALIDATE_TOKEN>`, which `edgeCache` checks with a constant-time compare. A plain `Cache-Control: no-cache` from the public never skips the cache.
 
 ## Calling the API from the site
 
@@ -146,10 +146,10 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   2. the `species` update;
   3. child deletes and parameterized inserts (≤ 99 bound values each).
 
-  A stale version answers 409 `version_conflict`. Any database error rolls everything back.
+  A stale version answers 409 `version_conflict` with `currentVersion`, both when the pre-check sees it and when a concurrent write wins the race between check and batch. Any database error rolls everything back.
 
 - `db/speciesRows.ts` is the single row builder used by both the import and the writes. Overlays point at media with a subquery, so media ids are never assigned by hand.
-- After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `Cache-Control: no-cache`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data.
+- After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `X-Cache-Bypass: <REVALIDATE_TOKEN>`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data. Without the secret the header is ignored.
 - `pnpm db:import:species*` is now a one-off. The first statement fails once any `species_revisions` row exists, so an import can never overwrite API edits.
 - Not yet on the API: the admin UI flows (photos, content-edit, AI analysis), new species creation, and field records (not in D1 yet).
 
@@ -158,7 +158,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Species profile pages render on the server from the API. `createSpeciesRoute.tsx` calls `getSpeciesProfile(id, locale)` (`src/lib/speciesProfileApi.ts`, wrapped in React `cache`) for the page and for `generateMetadata`. It fetches `ka` (for the Taxon, citations and hero) and the page locale before rendering.
 - There is **no MDX fallback**. A 404 from the API is `notFound()`, and any other error fails the render, which vinext does not cache.
 - NEVER add `loading.tsx`, `Suspense` fallbacks or client-side fetching for page content. The HTML must arrive complete, as before. Browser requests (forms such as ratings) go to `api.reptiles.ge` directly.
-- The fetch uses `next: { revalidate: 3600, tags: ["species", "species:<id>"] }`, so a page catches up with D1 within an hour. Phase 2 writes will call `revalidateTag`.
+- The fetch uses `next: { revalidate: 3600, tags: ["species", "species:<id>"] }`, so a page catches up with D1 within an hour at the latest. Every API write also calls `revalidateTag` through `/api/revalidate` (see "Species writes").
 - Still local for now: lookalike and related cards, slugs and 301s, hubs, search, sitemap (phases 3–4).
 - Tests mock the API with `tests/msw/reptilesApi.ts`, which forwards `https://api.reptiles.ge/*` to the real Hono app on a seeded SQLite database.
 
@@ -182,8 +182,8 @@ pnpm dev:api              # species:compile, then wrangler dev on :8787 (local D
 pnpm db:migrations:list   # pending migrations on the local D1
 pnpm db:migrate           # apply pending migrations to the local D1
 pnpm db:migrate:remote    # apply to production reptiles-db (owner asks only)
-pnpm db:import:species    # rebuild species tables in local D1 from MDX
-pnpm db:import:species:remote  # same on production (owner asks only)
+pnpm db:import:species    # one-off: copy MDX into an empty local D1 (refuses once API edits exist)
+pnpm db:import:species:remote  # one-off on production (done; refuses once API edits exist)
 pnpm deploy:api           # species:compile, then wrangler deploy (no migrations)
 pnpm exec vitest run src/api
 ```

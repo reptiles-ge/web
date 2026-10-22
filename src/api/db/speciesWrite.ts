@@ -63,6 +63,14 @@ export async function readSpeciesRecord(db: ApiDatabase, id: string) {
   return { record, version: row.version };
 }
 
+export async function readSpeciesVersion(db: ApiDatabase, id: string) {
+  const row = await db
+    .prepare("SELECT version FROM species WHERE id = ?")
+    .bind(id)
+    .first<{ version: number }>();
+  return row?.version ?? null;
+}
+
 export async function writeSpeciesRecord(
   db: ApiDatabase,
   record: SpeciesRecord,
