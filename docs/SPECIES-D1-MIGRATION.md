@@ -113,21 +113,22 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 ---
 
-## Phase 3 — rest of the site on the API (overview)
+## Phase 3 — everything on the API, then delete MDX (decided 2026-10-22)
 
-- Consumers of `species.generated` to move, all server-side and SSR:
-  - group hubs and species indexes;
-  - lookalike and related cards on profiles;
-  - quiz pools;
-  - region species lists;
-  - search index (`compile-search`);
-  - `sitemap.ts` and `llms.txt`;
-  - OG images;
-  - news relations;
-  - atlas stats.
-- Image derivatives catalog to D1, with the API returning AVIF/WebP variants per image. This removes the catalog PRs from 2b-a/2b-b.
-- Field-record maps (see 2b-e).
-- Add a Service Binding from the site to the API for server fetches (`hc` with `fetch: env.API.fetch`) to save the public round trip.
+**Owner decision:** the whole site reads species from the API **at runtime, server-side (SSR)**, the same way profile pages already do. There are no client loaders. Browser-side requests (forms, client search) go to `api.reptiles.ge`. Species MDX is then deleted. The remaining admin flows (2b-b, 2b-d, 2b-f) come later and may be broken in the meantime.
+
+Slices, one PR each, in this order:
+
+| Slice  | What                                                                                                                                                                                                                                                                   | Why first                                                                                                                                                             |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **S0** | Field records into D1 (13,817 records for 96 species): migration `0005`, a dedicated one-off import, a read endpoint                                                                                                                                                   | They exist only in MDX. Deleting MDX first would lose data. They stay a separate resource and are not part of `SpeciesRecord`, so a text edit never rewrites 13k rows |
+| S1     | Catalog endpoint + server loader: `GET /v1/catalog?locale` (published species as full localized `Species` + group, habitats, slug, lookalikes), and `getSpeciesCatalog(locale)` (React `cache`, `next.revalidate` + `species` tag, `X-Cache-Bypass`)                   | One fetch feeds every list consumer                                                                                                                                   |
+| S2     | Make the data layer async: `getCatalogSpecies`, `speciesAtlas`, `regions`, `speciesRelated`, … become server loaders on the catalog. Pages and server components `await` them. Client components (`HomeGroupCarousel`, `TrackedSpeciesLink`, …) get data through props | About 44 files read the compiled catalog today                                                                                                                        |
+| S3     | Build-time and edge consumers: sitemap, `llms.txt`, OG images, the search index (served at runtime from the API or a route instead of `search-index.*.generated`), occurrences maps (`compile-occurrences` → API), `contentDates`                                      | They depend on generated files                                                                                                                                        |
+| S4     | Slugs and 301s in `proxy.ts` (phase 4 below), because the edge cannot `await` the whole catalog per request                                                                                                                                                            | Needed before the generated slug table can go                                                                                                                         |
+| S5     | Delete species MDX, `compile-species` (species part), `species*.generated`, `fieldRecords.generated.json`, the MDX admin helpers and the `db:import:species*` scripts. Move tests that use the compiled catalog to MSW + `createSpeciesTestDatabase`                   | Phase 5                                                                                                                                                               |
+
+Image derivatives catalog to D1 and the Service Binding from the site to the API also fit in S1–S3.
 
 ## Phase 4 — slugs and 301s
 

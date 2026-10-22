@@ -156,3 +156,40 @@ describe("GET /v1/species/:idOrSlug", () => {
     }
   });
 });
+
+describe("GET /v1/species/:idOrSlug/field-records", () => {
+  it("returns the species' records by id or slug, and 404 for unknown species", async () => {
+    const database = createSpeciesTestDatabase();
+    database.sqlite
+      .prepare(
+        "INSERT INTO species_field_records (species_id, position, locality, lat, lng, evidence, observer) VALUES ('macrovipera-lebetina', 0, 'Vashlovani', 41.2, 46.2, 'observation', 'nika')",
+      )
+      .run();
+    const local = { DB: database.db };
+    const { body, response } = await requestJson<{
+      data: unknown[];
+      id: string;
+      total: number;
+    }>("/v1/species/giurza/field-records", local);
+    expect(response.status).toBe(200);
+    expect(body).toEqual({
+      data: [
+        {
+          evidence: "observation",
+          lat: 41.2,
+          lng: 46.2,
+          locality: "Vashlovani",
+          observer: "nika",
+        },
+      ],
+      id: "macrovipera-lebetina",
+      total: 1,
+    });
+    expect(response.headers.get("Cache-Control")).toContain("s-maxage");
+    const missing = await requestJson<ErrorBody>(
+      "/v1/species/dolichophis-caspius/field-records",
+      local,
+    );
+    expect(missing.response.status).toBe(404);
+  });
+});
