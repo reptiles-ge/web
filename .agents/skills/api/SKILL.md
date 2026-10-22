@@ -59,7 +59,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Every input MUST go through `validate(target, schema)` from `lib/validate.ts` (wraps `@hono/zod-validator`). Read it with `c.req.valid(target)`.
 - NEVER call `c.req.json()`, `c.req.query()`, `c.req.param()`, `c.req.parseBody()`, or similar in `routes/`. The guard test fails on them.
 - Schemas live in `schemas/`. If the site validates the same input, the schema lives in `src/lib` and both use it (example: `src/lib/ratingInput.ts`).
-- Locale input is `localeQuery` from `schemas/common.ts`: the four site locales, default `ka`.
+- Locale input is the `X-Locale` request header, validated with `validate("header", localeHeader)` from `schemas/common.ts`: the four site locales, default `ka`, and anything else is 400 `invalid_request`. NEVER take locale from the query string or path. Localized responses also send `Content-Language`. The site passes it through the typed client: `{ header: { "x-locale": locale } }`. Use `X-Locale`, not `Accept-Language`: browsers send `Accept-Language` on their own in many forms, and every distinct value would be a separate edge-cache entry.
 - Tests that send JSON MUST set `Content-Type: application/json`. Without it Hono validates `{}`.
 
 ## Errors
@@ -90,8 +90,8 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
 - Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
 - `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
-- `:slug` accepts only the public slug of the requested `locale` (the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
-- Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
+- `:slug` accepts only the public slug of the requested locale (`X-Locale`, the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
+- Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin, X-Locale`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
 - `routes/species.test.ts` compares the D1 list and every published profile in all four locales with what the site renders (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
@@ -115,7 +115,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ## Caching
 
-- Public D1-backed `GET` routes use `edgeCache(name)` from `lib/cache.ts`, which stores responses in the Workers Cache API keyed by URL and `Origin`. A cache hit never touches D1. Never cache an authenticated or `no-store` response.
+- Public D1-backed `GET` routes use `edgeCache(name)` from `lib/cache.ts`, which stores responses in the Workers Cache API keyed by URL, `Origin` and `X-Locale` (Hono `cache` puts each `vary` header value into the key). A cache hit never touches D1. Never cache an authenticated or `no-store` response.
 - `etag()` runs on every response. A repeated `GET` with a matching `If-None-Match` gets `304` with no body. Keep responses deterministic (no timestamps or random values in a cacheable body) so the ETag stays stable.
 - Public `GET`: `Cache-Control: PUBLIC_CACHE` from `lib/cache.ts`.
 - Authenticated or personal responses: `NO_STORE`.
@@ -167,16 +167,17 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ### Catalog (list consumers)
 
-- `GET /v1/catalog?locale&view=card|full` returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
+- `GET /v1/catalog?view=card|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
   - `card` (default, about 130–210 KB per locale) is for hubs, lists, home, cards and stats. Its fields are `commonName, danger, description, family, genus, id, image, imageCredit, location, mobileImage, mobileImageCredit, publishedAt, scientificName, stats, updatedAt`.
   - `full` (up to about 3.6 MB for KA) is only for consumers that need every text, such as search and `llms-full`. **Never** fetch `full` for a normal page render; add the field you need to `card` instead.
+- Pagination is opt-in: `limit` (1–100) and `cursor` (the `id` of the last entry on the previous page). The response always has `total` (all published species) and `nextCursor` (`null` on the last page or without `limit`). An unknown or unpublished cursor id answers 400 `invalid_request`. Without `limit` the whole catalog comes back in one response, which is what the site uses: every site consumer needs the full list, and the reader loads every row from D1 either way.
 - Site loader: `getSpeciesCatalog(locale, view?)` in `src/lib/speciesCatalogApi.ts`. It uses React `cache`, the `species` tag and `revalidate: 3600` (shared `speciesFetchOptions`), and has no MDX fallback.
 - `routes/catalog.test.ts` proves both views match the MDX-era catalog for all locales (`toStrictEqual`).
 
 ### Field records
 
 - `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
-- Public read: `GET /v1/species/:slug/field-records?locale=` (same slug rule) returns `{ data, id, total }`, edge-cached.
+- Public read: `GET /v1/species/:slug/field-records` (same slug and `X-Locale` rule) returns `{ data, id, total }`, edge-cached.
 - `pnpm db:import:field-records` / `:remote` is a one-off copy from the compiled MDX JSON. Its first statement fails once any field record exists, so it can never duplicate or overwrite rows. `db/fieldRecords.test.ts` round-trips every record 1:1.
 
 ### Drafts (AI changes need approval)

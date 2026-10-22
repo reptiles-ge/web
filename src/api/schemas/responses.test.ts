@@ -29,25 +29,26 @@ function expectValid(schema: z.ZodType, value: unknown, label: string) {
   );
 }
 
-async function getJson(url: string) {
-  const response = await app.request(url, {}, env);
+async function getJson(url: string, locale?: string) {
+  const headers: Record<string, string> = locale ? { "X-Locale": locale } : {};
+  const response = await app.request(url, { headers }, env);
   return { body: (await response.json()) as unknown, response };
 }
 
 describe("documented response schemas", () => {
   it("describe every list, profile and catalog response in every locale", async () => {
     for (const locale of locales) {
-      const { body: list } = await getJson(`/v1/species?locale=${locale}`);
+      const { body: list } = await getJson("/v1/species", locale);
       expectValid(speciesListResponse, list, `species ${locale}`);
       const { data } = list as { data: Array<{ id: string; slug: string }> };
       expect(data.length).toBeGreaterThan(100);
       for (const { id, slug } of data) {
-        const { body } = await getJson(`/v1/species/${slug}?locale=${locale}`);
+        const { body } = await getJson(`/v1/species/${slug}`, locale);
         expectValid(speciesResponse, body, `species/${id} ${locale}`);
       }
-      const card = await getJson(`/v1/catalog?locale=${locale}`);
+      const card = await getJson("/v1/catalog", locale);
       expectValid(catalogCardResponse, card.body, `catalog card ${locale}`);
-      const full = await getJson(`/v1/catalog?locale=${locale}&view=full`);
+      const full = await getJson("/v1/catalog?view=full", locale);
       expectValid(catalogFullResponse, full.body, `catalog full ${locale}`);
     }
   });
@@ -56,9 +57,7 @@ describe("documented response schemas", () => {
     const ids = Object.keys(compiledFieldRecords());
     expect(ids.length).toBeGreaterThan(0);
     for (const id of ids) {
-      const { body } = await getJson(
-        `/v1/species/${id}/field-records?locale=en`,
-      );
+      const { body } = await getJson(`/v1/species/${id}/field-records`, "en");
       expectValid(fieldRecordsResponse, body, `field-records ${id}`);
     }
   });
@@ -67,7 +66,7 @@ describe("documented response schemas", () => {
     const missing = await getJson("/v1/species/no-such-species");
     expect(missing.response.status).toBe(404);
     expect(missing.body).toEqual(RESPONSE_EXAMPLES.error);
-    const invalid = await getJson("/v1/species?locale=xx");
+    const invalid = await getJson("/v1/species", "xx");
     expect(invalid.response.status).toBe(400);
     expect(invalid.body).toEqual(RESPONSE_EXAMPLES.invalidRequest);
     expectValid(errorResponse, invalid.body, "invalid request");
@@ -103,11 +102,15 @@ describe("documented response schemas", () => {
   });
 
   it("answers a matching If-None-Match with 304 and the ETag", async () => {
-    const first = await app.request("/v1/species?locale=en", {}, env);
+    const first = await app.request(
+      "/v1/species",
+      { headers: { "X-Locale": "en" } },
+      env,
+    );
     const tag = first.headers.get("ETag") ?? "";
     const second = await app.request(
-      "/v1/species?locale=en",
-      { headers: { "If-None-Match": tag } },
+      "/v1/species",
+      { headers: { "If-None-Match": tag, "X-Locale": "en" } },
       env,
     );
     expect(second.status).toBe(304);

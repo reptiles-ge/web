@@ -4,7 +4,7 @@ import type { ApiBindings } from "../env";
 
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
-const URL = "/v1/species/testudo-graeca?locale=en";
+const URL = "/v1/species/cheiracanthium-punctorium";
 
 class MemoryCache {
   private readonly entries = new Map<string, Response>();
@@ -38,7 +38,8 @@ let sqlite: ReturnType<typeof createSpeciesTestDatabase>["sqlite"];
 
 async function overview(headers: Record<string, string> = {}) {
   const pending: Array<Promise<unknown>> = [];
-  const response = await app.request(URL, { headers }, env, {
+  const init = { headers: { "X-Locale": "en", ...headers } };
+  const response = await app.request(URL, init, env, {
     passThroughOnException: () => {},
     props: {},
     waitUntil: (promise: Promise<unknown>) => {
@@ -51,6 +52,7 @@ async function overview(headers: Record<string, string> = {}) {
 }
 
 beforeAll(async () => {
+  vi.resetModules();
   ({ app } = await import("../app"));
 });
 
@@ -66,7 +68,7 @@ describe("edgeCache", () => {
     const first = await overview();
     sqlite
       .prepare(
-        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'testudo-graeca' AND locale = 'en'",
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
       )
       .run();
     expect(await overview()).toBe(first);
@@ -74,11 +76,18 @@ describe("edgeCache", () => {
     expect(await overview({ "X-Cache-Bypass": "wrong" })).toBe(first);
   });
 
+  it("keeps a separate entry per locale header", async () => {
+    const english = await overview();
+    const georgian = await overview({ "X-Locale": "ka" });
+    expect(georgian).not.toBe(english);
+    expect(await overview()).toBe(english);
+  });
+
   it("reads D1 directly only with the bypass secret", async () => {
     await overview();
     sqlite
       .prepare(
-        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'testudo-graeca' AND locale = 'en'",
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
       )
       .run();
     expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).toBe(

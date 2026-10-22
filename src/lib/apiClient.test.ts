@@ -16,7 +16,8 @@ describe("createApiClient", () => {
       fetch: async (input, init) => app.request(input, init, env),
     });
     const response = await client.v1.species.$get({
-      query: { group: "turtle", locale: "en" },
+      header: { "x-locale": "en" },
+      query: { group: "turtle" },
     });
     expect(response.status).toBe(200);
     if (response.status !== 200) return;

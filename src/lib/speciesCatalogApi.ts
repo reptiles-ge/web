@@ -13,7 +13,7 @@ export const getSpeciesCatalog = cache(
     view: View = "card" as View,
   ) => {
     const response = await createApiClient().v1.catalog.$get(
-      { query: { locale, view } },
+      { header: { "x-locale": locale }, query: { view } },
       speciesFetchOptions(["species"]),
     );
     if (!response.ok) {

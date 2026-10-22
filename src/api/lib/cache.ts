@@ -2,6 +2,7 @@ import { cache } from "hono/cache";
 import { timingSafeEqual } from "hono/utils/buffer";
 
 import { factory } from "../factory";
+import { LOCALE_HEADER } from "../schemas/common";
 
 export const PUBLIC_CACHE = "public, max-age=300, s-maxage=3600";
 
@@ -13,7 +14,7 @@ export const edgeCache = (cacheName: string) => {
   const cached = cache({
     cacheName,
     onCacheNotAvailable: false,
-    vary: ["Origin"],
+    vary: ["Origin", LOCALE_HEADER],
     wait: false,
   });
   return factory.createMiddleware(async (c, next) => {

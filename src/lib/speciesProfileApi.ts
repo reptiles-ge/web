@@ -16,7 +16,10 @@ type SpeciesProfile = {
 export const getSpeciesProfile = cache(
   async (id: string, locale: AppLocale): Promise<null | SpeciesProfile> => {
     const response = await createApiClient().v1.species[":slug"].$get(
-      { param: { slug: getSpeciesPublicSlug(id, locale) }, query: { locale } },
+      {
+        header: { "x-locale": locale },
+        param: { slug: getSpeciesPublicSlug(id, locale) },
+      },
       speciesFetchOptions(["species", `species:${id}`]),
     );
     if (!response.ok) {

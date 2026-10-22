@@ -2,6 +2,7 @@ import { http, HttpResponse } from "msw";
 import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 
 import { reptilesApi } from "../../tests/msw/reptilesApi";
 import { recordRequests, server } from "../../tests/msw/server";
@@ -15,9 +16,12 @@ describe("getSpeciesCatalog", () => {
     const full = await getSpeciesCatalog("en", "full");
     requests.stop();
     expect(requests.urls).toEqual([
-      "https://api.reptiles.ge/v1/catalog?locale=en&view=card",
-      "https://api.reptiles.ge/v1/catalog?locale=en&view=full",
+      "https://api.reptiles.ge/v1/catalog?view=card",
+      "https://api.reptiles.ge/v1/catalog?view=full",
     ]);
+    expect(cards[0]?.commonName).toBe(
+      localizeSpecies(getCatalogSpecies()[0]!, "en").commonName,
+    );
     expect(cards.map((entry) => entry.id)).toEqual(
       getCatalogSpecies().map((entry) => entry.id),
     );

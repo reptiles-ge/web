@@ -123,8 +123,9 @@ describe("PUT /v1/admin/species/:id", () => {
     expect(after.record).toStrictEqual(record);
 
     const publicEn = await requestJson<{ data: { overview: string } }>(
-      `/v1/species/${ID}?locale=en`,
+      `/v1/species/${ID}`,
       env,
+      { headers: { "X-Locale": "en" } },
     );
     expect(publicEn.body.data.overview).toBe("New overview");
 

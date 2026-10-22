@@ -317,6 +317,17 @@ const total = doc(z.int().min(0), "Number of items in `data`.");
 
 const resolvedLocale = doc(locale, "Locale of the texts in `data`.");
 
+const catalogTotal = doc(
+  z.int().min(0),
+  "Number of published species in the whole catalog, on every page.",
+);
+
+const nextCursor = doc(
+  z.string().nullable(),
+  "Pass as `cursor` to get the next page. `null` on the last page and without `limit`.",
+  [null],
+);
+
 export const speciesListResponse = component(
   "SpeciesListResponse",
   z.strictObject({
@@ -348,7 +359,8 @@ export const catalogCardResponse = component(
   z.strictObject({
     data: z.array(catalogCard),
     locale: resolvedLocale,
-    total,
+    nextCursor,
+    total: catalogTotal,
     view: z.literal("card"),
   }),
   "Catalog in the `card` view.",
@@ -359,7 +371,8 @@ export const catalogFullResponse = component(
   z.strictObject({
     data: z.array(catalogSpecies),
     locale: resolvedLocale,
-    total,
+    nextCursor,
+    total: catalogTotal,
     view: z.literal("full"),
   }),
   "Catalog in the `full` view.",
