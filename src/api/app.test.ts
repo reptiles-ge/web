@@ -14,6 +14,14 @@ describe("api app", () => {
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex");
     expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
     expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
+    const site = await app.request(
+      "/v1/species",
+      { headers: { Origin: "https://reptiles.ge" } },
+      env,
+    );
+    expect(site.headers.get("Access-Control-Allow-Origin")).toBe(
+      "https://reptiles.ge",
+    );
   });
 
   it("answers a repeated GET with 304 when the ETag matches", async () => {
@@ -68,7 +76,9 @@ describe("api app", () => {
       [400, "invalid_request"],
       [401, "unauthorized"],
       [404, "not_found"],
+      [403, "forbidden"],
       [413, "payload_too_large"],
+      [429, "rate_limited"],
       [503, "internal_error"],
     ] as const) {
       const response = handleError(

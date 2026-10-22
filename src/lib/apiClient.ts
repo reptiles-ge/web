@@ -2,14 +2,9 @@ import { hc } from "hono/client";
 
 import type { AppType } from "@/api/app";
 
-const API_ORIGIN = "https://api.reptiles.ge";
+import { publicEnv } from "@/lib/env";
 
-export type ApiFetcher = {
-  fetch: (
-    input: Request | string | URL,
-    init?: RequestInit,
-  ) => Promise<Response>;
-};
+const API_ORIGIN = "https://api.reptiles.ge";
 
 type ApiClientOptions = {
   fetch?: typeof fetch;
@@ -17,17 +12,17 @@ type ApiClientOptions = {
   token?: string;
 };
 
+export function apiOrigin() {
+  return publicEnv().NEXT_PUBLIC_API_ORIGIN ?? API_ORIGIN;
+}
+
 export function createApiClient({
   fetch,
-  origin = API_ORIGIN,
+  origin = apiOrigin(),
   token,
 }: ApiClientOptions = {}) {
   return hc<AppType>(origin, {
     ...(fetch ? { fetch } : {}),
     ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
   });
-}
-
-export function serviceBindingFetch(binding: ApiFetcher): typeof fetch {
-  return (input, init) => binding.fetch(input, init);
 }

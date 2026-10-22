@@ -22,7 +22,9 @@ function renderRating() {
 }
 
 function sentBody() {
-  const [, init] = vi.mocked(fetch).mock.calls[0]!;
+  const [url, init] = vi.mocked(fetch).mock.calls[0]!;
+  expect(String(url)).toBe("https://api.reptiles.ge/v1/ratings");
+  expect(init?.method).toBe("POST");
   return JSON.parse(String(init?.body)) as Record<string, unknown>;
 }
 

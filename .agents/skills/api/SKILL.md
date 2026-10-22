@@ -7,7 +7,7 @@ metadata:
 
 # api
 
-The API is a separate Cloudflare Worker, `reptiles-api`, built with [Hono](https://hono.dev) on D1 (`reptiles-db`). It lives in this repo so it can import `src/data` and `src/lib`, but it builds and deploys on its own.
+The API is a separate Cloudflare Worker, `reptiles-api`, served at `https://api.reptiles.ge` (Custom Domain in `wrangler.api.jsonc`; `workers_dev` is off), built with [Hono](https://hono.dev) on D1 (`reptiles-db`). It lives in this repo so it can import `src/data` and `src/lib`, but it builds and deploys on its own.
 
 **Every rule below is mandatory.** "MUST" and "NEVER" are not suggestions. If a task seems to need a rule broken, stop and ask the owner. Do not work around it, and do not weaken `src/api/structure.test.ts` to make a change pass.
 
@@ -82,10 +82,13 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ## Auth and security
 
-- Public routes are `GET` only and serve data that is already public on the site.
-- Every write or private route MUST use `requireToken` (`Authorization: Bearer <API_WRITE_TOKEN>`, constant-time compare, 401 when the secret is missing).
+- Public `GET` routes serve data that is already public on the site.
+- A write route is one of two kinds, and the guard test checks every `.post/.put/.patch/.delete` in `routes/`:
+  - **Private** (admin, AI, internal): `requireToken` (`Authorization: Bearer <API_WRITE_TOKEN>`, constant-time compare, 401 when the secret is missing).
+  - **Public from the browser** (site forms such as ratings): `requireSiteOrigin` (Origin must be in `ALLOWED_ORIGINS`, else 403 `forbidden`) **and** a Cloudflare rate limit middleware (429 `rate_limited`, fails open when the binding errors), then Zod validation. The Origin check alone is not protection; the rate limit is.
+- NEVER put `API_WRITE_TOKEN` or any secret in browser code or a `NEXT_PUBLIC_*` variable.
 - Secrets: `.dev.vars` locally (gitignored) and `wrangler secret put … --config wrangler.api.jsonc` in production. NEVER put a secret in code, config, tests, commits, PR text, or chat. Never read `process.env`; use `c.env`.
-- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS limited to `GET`/`OPTIONS`, `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
+- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS (`GET`/`POST`/`OPTIONS`, echoes an `ALLOWED_ORIGINS` origin, `*` otherwise, preflight cached 24 h), `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
 - The D1 `database_id` in `wrangler.api.jsonc` is an identifier, not a secret. It stays in the repo.
 
 ## Caching
@@ -97,19 +100,18 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ## Calling the API from the site
 
-- The site calls the API only through `src/lib/apiClient.ts`: `createApiClient({ fetch, token })` returns a typed `hc<AppType>` client. It defaults to `https://api.reptiles.ge`; inside a Worker, pass `fetch: serviceBindingFetch(env.API)`.
+- The site calls the API only through `src/lib/apiClient.ts`: `createApiClient({ fetch?, origin?, token? })` returns a typed `hc<AppType>` client. The origin comes from `NEXT_PUBLIC_API_ORIGIN` (via `publicEnv()`), default `https://api.reptiles.ge`.
 - NEVER call the API with raw `fetch("https://api.reptiles.ge/…")`, and NEVER import `@/api/…` runtime code into the site. `apiClient.ts` imports only `type { AppType }`. The guard test fails otherwise.
 - Because the client is typed from `AppType`, a changed route, query, or body breaks `pnpm typecheck` on the site side. Fix the caller; do not cast around it.
 - Routes MUST keep chained methods and an explicit status in `c.json(body, status)`, or the client loses its types.
 
-### Site Worker → API (ratings)
+### Ratings flow
 
-- The site Worker has a Service Binding `API` → `reptiles-api` in **both** `wrangler.jsonc` and `wrangler.vinext.jsonc`. Keep them identical.
-- `src/worker.ts` wraps the app with `withRatingApiSync` (`src/lib/ratingApiSync.ts`). After `/api/rating` answers `204` (Telegram is still sent from the route), it copies the rating to `POST /v1/ratings` in `ctx.waitUntil`, so the visitor never waits for the API. Rate limits and validation still run first; the copy re-checks with `ratingInputSchema`.
-- A missing binding or token, or an API error, is logged and skipped. It never changes the site response.
-- `API_WRITE_TOKEN` MUST be the same secret on both Workers: `wrangler secret put API_WRITE_TOKEN --config wrangler.api.jsonc` and `wrangler secret put API_WRITE_TOKEN` (site).
-- Deploy order: `reptiles-api` must exist before a site deploy that carries the binding, or the site deploy fails. Deploy the API (and its secret) first.
-- Next routes MUST NOT import `cloudflare:workers` to reach bindings; `pnpm dev` runs plain Next. Read bindings in `src/worker.ts` and pass them to a `src/lib` helper, as `ratingRateLimit.ts` and `ratingApiSync.ts` do.
+- `SiteRating.tsx` posts straight to `https://api.reptiles.ge/v1/ratings` with `createApiClient()`. There is no `/api/rating` route on the site any more, and the site Worker has no rating code or bindings.
+- The API owns the whole flow: origin check, `RATING_VISITOR_LIMITER` (3/min per IP) and `RATING_GLOBAL_LIMITER` (30/min), validation with `src/lib/ratingInput.ts`, the D1 insert (country from `cf-ipcountry`, never from the body), and the Telegram notice in `c.executionCtx.waitUntil` (`inBackground`).
+- Telegram secrets live on `reptiles-api`: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (`wrangler secret put … --config wrangler.api.jsonc`). Without them the rating is still stored and the miss is logged.
+- `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
+- The site CSP `connect-src` allows `https://api.reptiles.ge` (and `http://localhost:8787` in development). Keep it in sync if the API origin changes.
 
 ## Types
 
@@ -142,6 +144,6 @@ Before a PR: `pnpm lint`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm knip`, `
 1. Schema in `schemas/{resource}.ts` (or `src/lib` if the site shares it).
 2. SQL in `db/{resource}.ts` with `bind()` and named columns. New table or index: a new migration.
 3. Route in `routes/{resource}.ts`, mounted under `/v1/` in `app.ts`.
-4. Errors through `ApiError`, cache header from `lib/cache.ts`, `requireToken` if it writes or is private.
+4. Errors through `ApiError`, cache header from `lib/cache.ts`. A write route needs `requireToken`, or `requireSiteOrigin` plus a rate limit if browsers call it.
 5. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
 6. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).

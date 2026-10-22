@@ -14,6 +14,7 @@ import {
 import { BrandText } from "@/components/BrandName";
 import { SiteRatingMascot } from "@/components/SiteRatingMascot";
 import { trackEvent } from "@/lib/analytics";
+import { createApiClient } from "@/lib/apiClient";
 import { cn } from "@/lib/cn";
 import {
   MAX_FEEDBACK_LENGTH,
@@ -130,20 +131,19 @@ export function SiteRating() {
     setPhase("thanks");
     store(RATED);
     trackEvent("site_rating", { rating });
-    void fetch("/api/rating", {
-      body: JSON.stringify({
-        feedback: text ?? undefined,
-        locale,
-        pages: pages.current,
-        path: window.location.pathname,
-        rating,
-        referrer: externalReferrer(),
-        seconds: seconds.current,
-      }),
-      headers: { "Content-Type": "application/json" },
-      keepalive: true,
-      method: "POST",
-    }).catch(() => undefined);
+    void createApiClient()
+      .v1.ratings.$post({
+        json: {
+          feedback: text ?? undefined,
+          locale,
+          pages: pages.current,
+          path: window.location.pathname,
+          rating,
+          referrer: externalReferrer(),
+          seconds: seconds.current,
+        },
+      })
+      .catch(() => undefined);
   }
 
   function dismiss() {

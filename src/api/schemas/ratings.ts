@@ -6,12 +6,9 @@ const RATING_SUMMARY_MAX_DAYS = 365;
 
 export const ratingBody = ratingInputSchema.and(
   z.object({
-    country: z
-      .string()
-      .regex(/^[A-Z]{2}$/)
-      .nullish()
-      .catch(null)
-      .transform((value) => value ?? null),
+    pages: z.unknown().optional(),
+    referrer: z.unknown().optional(),
+    seconds: z.unknown().optional(),
   }),
 );
 

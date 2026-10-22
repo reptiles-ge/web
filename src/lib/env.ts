@@ -62,6 +62,7 @@ function profileOverrides<T extends string>(
 }
 
 const publicSchema = z.object({
+  NEXT_PUBLIC_API_ORIGIN: siteUrl,
   NEXT_PUBLIC_SITE_URL: siteUrl,
   NODE_ENV: z.preprocess(
     blankToUndefined,
@@ -113,6 +114,7 @@ let publicEnvCache: undefined | { key: string; value: PublicEnv };
 
 export function publicEnv(): PublicEnv {
   const raw = {
+    NEXT_PUBLIC_API_ORIGIN: process.env.NEXT_PUBLIC_API_ORIGIN,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_ENV: process.env.VERCEL_ENV,
