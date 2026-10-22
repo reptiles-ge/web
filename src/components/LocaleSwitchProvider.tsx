@@ -4,7 +4,6 @@ import { createContext, type ReactNode, useContext } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { localeSwitchIndex } from "@/data/localeSwitchIndex.generated";
 import {
   type LocaleSpeciesHref,
   type LocaleSwitchIndex,
@@ -13,9 +12,15 @@ import {
 
 const LocaleSwitchContext = createContext<LocaleSwitchIndex | null>(null);
 
-export function LocaleSwitchProvider({ children }: { children: ReactNode }) {
+export function LocaleSwitchProvider({
+  children,
+  index,
+}: {
+  children: ReactNode;
+  index: LocaleSwitchIndex;
+}) {
   return (
-    <LocaleSwitchContext.Provider value={localeSwitchIndex}>
+    <LocaleSwitchContext.Provider value={index}>
       {children}
     </LocaleSwitchContext.Provider>
   );

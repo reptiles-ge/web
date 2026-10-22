@@ -2,14 +2,15 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage } from "@/data/species";
-import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { quizHref } from "@/lib/quizzes";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const GUIDE_KEYS = ["gyurzaBite", "bite", "venomous", "identify"] as const;
 
@@ -26,11 +27,12 @@ export async function SpeciesGuideFeature({
   speciesId: string;
   speciesName: string;
 }) {
-  const [t, tGuides] = await Promise.all([
+  const [t, tGuides, kaCatalog] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getSpeciesCatalog(routing.defaultLocale),
   ]);
-  const switchIndex = getLocaleSwitchIndex();
+  const switchIndex = getLocaleSwitchIndex(kaCatalog);
   const pageLinks = guideLinks.filter((item) => item.kind === "page");
   const guides =
     speciesId === "macrovipera-lebetina"

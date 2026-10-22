@@ -6,7 +6,9 @@ import { resolvePageContextFromIndex } from "@/lib/localeSwitch";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { liveQuizzes } from "@/lib/quizzes";
 
-const index = getLocaleSwitchIndex();
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
+const index = getLocaleSwitchIndex(speciesCatalogFixture("ka"));
 
 describe("getLocaleSwitchIndex", () => {
   it("indexes every published species by id and by its KA slug", () => {
