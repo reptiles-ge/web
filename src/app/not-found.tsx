@@ -17,6 +17,7 @@ import {
 import { routing } from "@/i18n/routing";
 import { getNavbarData } from "@/lib/navbarData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 export function generateMetadata(): Promise<Metadata> {
   return notFoundMetadata(routing.defaultLocale);
@@ -35,7 +36,7 @@ export default async function RootNotFound() {
         <LocaleSwitchProvider>
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
-          <Navbar {...await getNavbarData(locale)} />
+          <Navbar {...getNavbarData(await getSpeciesCatalog(locale))} />
           <main id="main" tabIndex={-1}>
             <NotFoundShell locale={locale} />
           </main>
