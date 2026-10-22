@@ -121,6 +121,66 @@
         "width": 1200
       }
     ],
+    "https://cdn.reptiles.ge/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
+        "width": 1200
+      }
+    ],
     "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": [
       {
         "height": 675,
@@ -338,6 +398,26 @@
         "height": 1200,
         "ratio": "1x1",
         "url": "https://cdn.reptiles.ge/schema/1x1/panthera-pardus-assaf-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/panthera-pardus-thunderjag-1.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/panthera-pardus-thunderjag-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/panthera-pardus-thunderjag-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/panthera-pardus-thunderjag-1.jpg",
         "width": 1200
       }
     ],
