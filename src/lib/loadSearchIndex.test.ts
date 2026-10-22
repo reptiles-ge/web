@@ -1,16 +1,29 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { loadSearchDocuments } from "@/lib/loadSearchIndex";
 
 describe("loadSearchDocuments", () => {
-  it("returns the requested locale index", async () => {
-    const ka = await loadSearchDocuments("ka");
-    const en = await loadSearchDocuments("en");
-    expect(ka.some((item) => item.id === "macrovipera-lebetina")).toBe(true);
-    expect(en.some((item) => item.id === "macrovipera-lebetina")).toBe(true);
-    const kaGiurza = ka.find((item) => item.id === "macrovipera-lebetina");
-    const enGiurza = en.find((item) => item.id === "macrovipera-lebetina");
-    expect(kaGiurza?.title).toBe("გიურზა");
-    expect(enGiurza?.title).toBe("Levantine viper");
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("fetches the requested locale index from the site route", async () => {
+    const fetch = vi.fn(async () =>
+      Response.json([{ id: "macrovipera-lebetina", title: "Levantine viper" }]),
+    );
+    vi.stubGlobal("fetch", fetch);
+    const documents = await loadSearchDocuments("en");
+    expect(fetch).toHaveBeenCalledWith("/api/search/en");
+    expect(documents[0]?.title).toBe("Levantine viper");
+  });
+
+  it("fails loudly when the route errors", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response(null, { status: 500 })),
+    );
+    await expect(loadSearchDocuments("ka")).rejects.toThrow(
+      "Search index answered 500",
+    );
   });
 });

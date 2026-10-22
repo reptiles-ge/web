@@ -63,7 +63,7 @@ src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
-src/data/search-index.{ka,en,ru,tr}.generated.ts gitignored
+src/app/api/search/[locale] search index JSON, built from the API catalog (static per deploy)
 src/content/news/{slug}/  ka.mdx + en.mdx (+ ru/tr) → compile → src/data/news.generated.ts (gitignored)
 src/content/guides/{id}.ts long-form guide articles (all locales) → src/data/guideArticles.ts
 src/data/news.ts           published news registry
@@ -269,7 +269,7 @@ Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/serve
 
 ## Do not
 
-- Commit or hand-edit `src/data/species.generated.ts`, `src/data/speciesSlugs.generated.ts`, or `src/data/search-index.*.generated.ts` (gitignored; `predev` / `prebuild` writes them).
+- Commit or hand-edit `src/data/species.generated.ts` or `src/data/speciesSlugs.generated.ts` (gitignored; `predev` / `prebuild` writes them).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Add `redirects()` to `next.config.ts`. Production runs on vinext, which never applies it; every 301 lives in `src/proxy.ts`.
