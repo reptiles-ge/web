@@ -1,30 +1,20 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import type { SpeciesFieldRecord } from "@/data/speciesTypes";
-
-import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
+import {
+  compiledFieldRecords,
+  createFieldRecordsTestDatabase,
+} from "../testing/sqliteDatabase";
 import {
   buildFieldRecordsImport,
   FIELD_RECORDS_IMPORT_GUARD,
   readFieldRecords,
 } from "./fieldRecords";
 
-const recordsById = JSON.parse(
-  readFileSync(
-    path.resolve(import.meta.dirname, "../../data/fieldRecords.generated.json"),
-    "utf8",
-  ),
-) as Record<string, SpeciesFieldRecord[]>;
+const recordsById = compiledFieldRecords();
 
 const statements = buildFieldRecordsImport(recordsById);
 
-function load() {
-  const database = createSpeciesTestDatabase();
-  for (const statement of statements) database.sqlite.exec(statement);
-  return database;
-}
+const load = createFieldRecordsTestDatabase;
 
 describe("field records in D1", () => {
   it("round-trips every field record of every species 1:1", async () => {
