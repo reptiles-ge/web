@@ -39,47 +39,7 @@ export type AtlasStats = {
 type DangerRanked = Pick<CatalogCard, "danger" | "family" | "scientificName">;
 
 export async function getAtlasStats(locale: AppLocale): Promise<AtlasStats> {
-  const catalog = await getSpeciesCatalog(locale);
-  const byGroup: Record<AnimalGroup, number> = {
-    amphibian: 0,
-    bird: 0,
-    insect: 0,
-    lizard: 0,
-    mammal: 0,
-    scorpion: 0,
-    snake: 0,
-    spider: 0,
-    turtle: 0,
-  };
-  let photos = 0;
-  let lastUpdated: null | string = null;
-  for (const item of catalog) {
-    byGroup[item.group] += 1;
-    photos += item.photoCount;
-    if (
-      item.updatedAt &&
-      (!lastUpdated || Date.parse(item.updatedAt) > Date.parse(lastUpdated))
-    ) {
-      lastUpdated = item.updatedAt;
-    }
-  }
-
-  return {
-    amphibians: byGroup.amphibian,
-    birds: byGroup.bird,
-    insects: byGroup.insect,
-    lastUpdated,
-    lizards: byGroup.lizard,
-    mammals: byGroup.mammal,
-    photos,
-    regions: regions.length,
-    scorpions: byGroup.scorpion,
-    snakes: byGroup.snake,
-    spiders: byGroup.spider,
-    total: catalog.length,
-    turtles: byGroup.turtle,
-    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
-  };
+  return summarizeAtlas(await getSpeciesCatalog(locale));
 }
 
 export function getCatalogByDanger<T extends DangerRanked>(
@@ -123,7 +83,11 @@ export async function getRecentlyUpdatedSpecies(locale: AppLocale, limit = 4) {
 }
 
 export async function getVenomousCatalogSpecies(locale: AppLocale) {
-  return (await getSpeciesCatalog(locale))
+  return pickVenomousSnakes(await getSpeciesCatalog(locale));
+}
+
+export function pickVenomousSnakes(catalog: readonly CatalogCard[]) {
+  return catalog
     .filter((item) => isVenomousDanger(item.danger) && item.group === "snake")
     .sort(
       (a, b) =>
@@ -131,6 +95,49 @@ export async function getVenomousCatalogSpecies(locale: AppLocale) {
           venomousDangerOrder[b.danger ?? "Harmless"] ||
         a.scientificName.localeCompare(b.scientificName),
     );
+}
+
+export function summarizeAtlas(catalog: readonly CatalogCard[]): AtlasStats {
+  const byGroup: Record<AnimalGroup, number> = {
+    amphibian: 0,
+    bird: 0,
+    insect: 0,
+    lizard: 0,
+    mammal: 0,
+    scorpion: 0,
+    snake: 0,
+    spider: 0,
+    turtle: 0,
+  };
+  let photos = 0;
+  let lastUpdated: null | string = null;
+  for (const item of catalog) {
+    byGroup[item.group] += 1;
+    photos += item.photoCount;
+    if (
+      item.updatedAt &&
+      (!lastUpdated || Date.parse(item.updatedAt) > Date.parse(lastUpdated))
+    ) {
+      lastUpdated = item.updatedAt;
+    }
+  }
+
+  return {
+    amphibians: byGroup.amphibian,
+    birds: byGroup.bird,
+    insects: byGroup.insect,
+    lastUpdated,
+    lizards: byGroup.lizard,
+    mammals: byGroup.mammal,
+    photos,
+    regions: regions.length,
+    scorpions: byGroup.scorpion,
+    snakes: byGroup.snake,
+    spiders: byGroup.spider,
+    total: catalog.length,
+    turtles: byGroup.turtle,
+    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
+  };
 }
 
 function familyRank(species: Pick<CatalogCard, "family">) {

@@ -3,10 +3,11 @@ import { describe, expect, it } from "vitest";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { getNavbarData } from "@/lib/navbarData";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 describe("getNavbarData", () => {
   it("builds one optimized image per group hub and atlas stats", async () => {
-    const data = await getNavbarData("en");
+    const data = getNavbarData(await getSpeciesCatalog("en"));
 
     expect(Object.keys(data.images).sort()).toEqual(
       Object.keys(GROUP_HUB_ILLUSTRATIONS).sort(),

@@ -1,11 +1,11 @@
 import type { NavbarData } from "@/components/NavbarMenu";
-import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
-import { getAtlasStats } from "@/data/speciesAtlas";
+import { summarizeAtlas } from "@/data/speciesAtlas";
 import { GROUP_HUB_ILLUSTRATIONS, type GroupHubId } from "@/lib/groupHubs";
 
-export async function getNavbarData(locale: AppLocale): Promise<NavbarData> {
+export function getNavbarData(catalog: readonly CatalogCard[]): NavbarData {
   const entries = Object.entries(GROUP_HUB_ILLUSTRATIONS) as Array<
     [GroupHubId, string]
   >;
@@ -22,6 +22,6 @@ export async function getNavbarData(locale: AppLocale): Promise<NavbarData> {
         },
       ]),
     ) as NavbarData["images"],
-    stats: await getAtlasStats(locale),
+    stats: summarizeAtlas(catalog),
   };
 }

@@ -22,6 +22,7 @@ import {
   speciesSeoAnchor,
   speciesSeoKeywords,
 } from "@/lib/seoKeywords";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 
 import { recordRequests, server } from "../../tests/msw/server";
@@ -141,7 +142,7 @@ describe("seoKeywords", () => {
 
 describe("getFooterData", () => {
   it("lists every region and every venomous snake", async () => {
-    const data = await getFooterData("en");
+    const data = getFooterData("en", await getSpeciesCatalog("en"));
     expect(data.regions).toHaveLength(12);
     expect(data.venomous.map((item) => item.id)).toEqual(
       (await getVenomousCatalogSpecies("en")).map((item) => item.id),

@@ -34,6 +34,7 @@ import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getNavbarData } from "@/lib/navbarData";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type Props = {
   children: ReactNode;
@@ -57,19 +58,18 @@ export default async function LocaleLayout({ children, params }: Props) {
     (await getMessages({ locale })) as ClientMessages,
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, tSite] = await Promise.all([
+  const [t, tSite, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "site" }),
+    getSpeciesCatalog(locale),
   ]);
   const siteDescription = kaMetaDescriptionOverride(
     locale,
     localePath(locale, "/"),
     tSite("description"),
   );
-  const [footerData, navbarData] = await Promise.all([
-    getFooterData(locale),
-    getNavbarData(locale),
-  ]);
+  const footerData = getFooterData(locale, catalog);
+  const navbarData = getNavbarData(catalog);
   const SelectionContentEditor =
     locale === "ka" ? await loadSelectionContentEditor() : null;
   const editorT = SelectionContentEditor
