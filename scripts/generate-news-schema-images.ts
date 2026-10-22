@@ -11,7 +11,6 @@ import {
 } from "@reptiles-ge/img-compression/storage";
 
 import { getPublishedNewsArticles } from "../src/data/news";
-import { getCatalogSpecies } from "../src/data/species";
 import {
   NEWS_SCHEMA_IMAGE_MIN_WIDTH,
   NEWS_SCHEMA_RATIOS,
@@ -20,6 +19,8 @@ import {
 import { newsHeroImage, type NewsHeroImage } from "../src/lib/newsSchemaImages";
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
+import type { PhotoCredit } from "../src/data/speciesTypes";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 const MANIFEST_PATH = path.join(
@@ -124,7 +125,17 @@ function createStorage(upload: boolean): StorageAdapter {
   return new LocalStorageAdapter({ baseUrl: "/", root });
 }
 
-function selectHeroes(options: CliOptions, manifest: Manifest) {
+function selectHeroes(
+  options: CliOptions,
+  manifest: Manifest,
+  catalog: ReadonlyArray<{
+    commonName: string;
+    id: string;
+    image: string;
+    imageCredit?: PhotoCredit;
+    scientificName: string;
+  }>,
+) {
   const articles = getPublishedNewsArticles();
   const known = new Set(articles.map((article) => article.slug));
   const unknown = options.slugs.filter((slug) => !known.has(slug));
@@ -132,7 +143,6 @@ function selectHeroes(options: CliOptions, manifest: Manifest) {
     throw new Error(`Unknown news slug(s): ${unknown.join(", ")}.`);
   }
 
-  const catalog = getCatalogSpecies();
   const heroes = new Map<string, { hero: NewsHeroImage; key: string }>();
   for (const article of articles) {
     if (options.slugs.length > 0 && !options.slugs.includes(article.slug)) {
@@ -162,7 +172,7 @@ async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
   const manifest = readManifest();
-  const heroes = selectHeroes(options, manifest);
+  const heroes = selectHeroes(options, manifest, await getSpeciesCatalog("ka"));
 
   if (heroes.length === 0) {
     console.log("Every news hero already has its schema crops. Nothing to do.");

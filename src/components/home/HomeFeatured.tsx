@@ -6,12 +6,11 @@ import type { AppLocale } from "@/i18n/routing";
 import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { filterDisplayStats } from "@/lib/speciesContent";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
@@ -22,22 +21,21 @@ const SUPPORTING = [
 ] as const;
 
 export async function HomeFeatured({ locale }: { locale: AppLocale }) {
-  const [t, tDetail, tGroups] = await Promise.all([
+  const [t, tDetail, tGroups, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "home.featured" }),
     getTranslations({ locale, namespace: "detail" }),
     getTranslations({ locale, namespace: "home.groups" }),
+    getSpeciesCatalog(locale),
   ]);
-  const base = getSpeciesById(SPOTLIGHT_ID);
-  if (!base) return null;
+  const byId = new Map(catalog.map((item) => [item.id, item]));
+  const spotlight = byId.get(SPOTLIGHT_ID);
+  if (!spotlight) return null;
 
-  const spotlight = localizeSpecies(base, locale);
   const group = getSpeciesAtlasMeta(spotlight.id).group;
   const stats = filterDisplayStats(spotlight.stats, group).slice(0, 4);
   const supporting = SUPPORTING.flatMap(({ id, image }) => {
-    const species = getSpeciesById(id);
-    return species
-      ? [{ image, species: localizeSpecies(species, locale) }]
-      : [];
+    const species = byId.get(id);
+    return species ? [{ image, species }] : [];
   });
 
   return (

@@ -1,6 +1,6 @@
-import { getCatalogSpecies } from "../src/data/species";
 import { speciesOgImageUrl } from "../src/lib/site";
 import { mapPool, printProgress } from "./scriptUtils";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 type CheckStatus = "failed" | "not_found" | "ok";
 
@@ -56,8 +56,10 @@ function parseArguments(argv: string[]): CliOptions {
   return { concurrency, json, timeoutMs };
 }
 
-function collectTargets(): SpeciesOgTarget[] {
-  return getCatalogSpecies()
+function collectTargets(
+  catalog: ReadonlyArray<{ id: string; image: string }>,
+): SpeciesOgTarget[] {
+  return catalog
     .map((item) => ({
       id: item.id,
       image: item.image,
@@ -117,7 +119,7 @@ function printMissing(item: CheckResult) {
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const targets = collectTargets();
+  const targets = collectTargets(await getSpeciesCatalog("ka"));
 
   if (targets.length === 0) {
     throw new Error("No published species found.");

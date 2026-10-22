@@ -1,8 +1,8 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
@@ -16,7 +16,7 @@ export async function SnakesInYardHero({
   heroSrc,
   locale,
 }: {
-  heroSpecies?: Species;
+  heroSpecies?: CatalogCard;
   heroSrc: string;
   locale: AppLocale;
 }) {
