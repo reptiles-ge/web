@@ -1,12 +1,13 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { getSpeciesById } from "@/data/species";
+import { routing } from "@/i18n/routing";
 import {
   FALLBACK_OG_IMAGE_URL,
   OG_IMAGE_TYPE,
   speciesOgImageUrl,
 } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { resolveSpeciesId } from "@/lib/speciesRoutes";
 
 export const speciesOgAlt = "Reptiles — Georgia";
@@ -18,7 +19,8 @@ export const speciesOgContentType = OG_IMAGE_TYPE;
 
 export async function speciesOpengraphResponse(param: string) {
   const id = resolveSpeciesId(param) ?? param;
-  const item = getSpeciesById(id);
+  const catalog = await getSpeciesCatalog(routing.defaultLocale);
+  const item = catalog.find((entry) => entry.id === id);
   const url = speciesOgImageUrl(id, item?.image);
 
   if (id === "neophron-percnopterus") {

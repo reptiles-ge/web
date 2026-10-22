@@ -10,6 +10,7 @@ import { recordRequests, server } from "../../tests/msw/server";
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0]);
 const ID = "macrovipera-lebetina";
 const SPECIES_OG = speciesOgImageUrl(ID, getSpeciesById(ID)?.image);
+const CATALOG = "https://api.reptiles.ge/v1/catalog?view=card";
 
 const image = () =>
   new HttpResponse(JPEG, { headers: { "Content-Type": "image/jpeg" } });
@@ -29,7 +30,7 @@ describe("speciesOpengraphResponse", () => {
     const requests = recordRequests();
     await speciesOpengraphResponse("giurza");
     requests.stop();
-    expect(requests.urls).toEqual([SPECIES_OG]);
+    expect(requests.urls).toEqual([CATALOG, SPECIES_OG]);
   });
 
   it("falls back to the site image when the species image is missing", async () => {
@@ -41,7 +42,7 @@ describe("speciesOpengraphResponse", () => {
     const response = await speciesOpengraphResponse(ID);
     requests.stop();
     expect(response.status).toBe(200);
-    expect(requests.urls).toEqual([SPECIES_OG, FALLBACK_OG_IMAGE_URL]);
+    expect(requests.urls).toEqual([CATALOG, SPECIES_OG, FALLBACK_OG_IMAGE_URL]);
   });
 
   it("throws when nothing can be loaded", async () => {
