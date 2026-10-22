@@ -18,6 +18,7 @@ export const getSpeciesProfile = cache(
     const response = await createApiClient().v1.species[":idOrSlug"].$get(
       { param: { idOrSlug: id }, query: { locale } },
       {
+        headers: { "Cache-Control": "no-cache" },
         init: {
           next: {
             revalidate: SPECIES_REVALIDATE_SECONDS,

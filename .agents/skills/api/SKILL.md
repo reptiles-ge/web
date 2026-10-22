@@ -125,6 +125,34 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
 - The site CSP `connect-src` allows `https://api.reptiles.ge` (and `http://localhost:8787` in development). Keep it in sync if the API origin changes.
 
+### Species writes (phase 2)
+
+- **D1 is the source of truth for species.** Change content only through `PUT /v1/admin/species/:id`. Never through MDX, never with raw SQL.
+- `GET /v1/admin/species/:id` returns `{ record, version }`. `PUT` takes `{ record, expectedVersion, actor, source: admin|ai|api, summary }`. Both need `requireToken`. Admin bodies may be up to 1 MB; every other route stays at 16 KB.
+- `schemas/speciesRecord.ts` enforces every compile-species rule:
+  - strict keys;
+  - required fields and dates;
+  - photo credits with paired lat/lng;
+  - colors from `SPECIES_COLORS`;
+  - `sourcesAreValid` (`src/lib/speciesSources.ts`, shared with the compiler);
+  - `danger` only for groups with a venom concept;
+  - a KA slug when published;
+  - faq/facts/stats/traits count parity across locales;
+  - colors equal across locales;
+  - overlay gallery srcs that exist in KA;
+  - no duplicates or self lookalikes.
+- `db/speciesWrite.ts` writes the whole record in **one D1 batch** (one transaction):
+  1. a `species_revisions` row, whose `version` comes from `(SELECT version + 1 … WHERE version = expected)`, so a stale version fails `NOT NULL` and aborts the batch;
+  2. the `species` update;
+  3. child deletes and parameterized inserts (≤ 99 bound values each).
+
+  A stale version answers 409 `version_conflict`. Any database error rolls everything back.
+
+- `db/speciesRows.ts` is the single row builder used by both the import and the writes. Overlays point at media with a subquery, so media ids are never assigned by hand.
+- After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `Cache-Control: no-cache`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data.
+- `pnpm db:import:species*` is now a one-off. The first statement fails once any `species_revisions` row exists, so an import can never overwrite API edits.
+- Not yet on the API: the admin UI flows (photos, content-edit, AI analysis), new species creation, and field records (not in D1 yet).
+
 ### Species pages (SSR from the API)
 
 - Species profile pages render on the server from the API. `createSpeciesRoute.tsx` calls `getSpeciesProfile(id, locale)` (`src/lib/speciesProfileApi.ts`, wrapped in React `cache`) for the page and for `generateMetadata`. It fetches `ka` (for the Taxon, citations and hero) and the page locale before rendering.

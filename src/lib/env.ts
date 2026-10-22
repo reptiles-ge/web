@@ -92,6 +92,7 @@ const serverSchema = z.object({
   BUNNY_STORAGE_ACCESS_KEY: optionalString,
   BUNNY_STORAGE_REGION: optionalString,
   BUNNY_STORAGE_ZONE: optionalString,
+  REVALIDATE_TOKEN: optionalString,
   TELEGRAM_BOT_TOKEN: optionalString,
   TELEGRAM_CHAT_ID: optionalString,
 });
@@ -135,6 +136,7 @@ export function serverEnv(): ServerEnv {
     BUNNY_STORAGE_ACCESS_KEY: process.env.BUNNY_STORAGE_ACCESS_KEY,
     BUNNY_STORAGE_REGION: process.env.BUNNY_STORAGE_REGION,
     BUNNY_STORAGE_ZONE: process.env.BUNNY_STORAGE_ZONE,
+    REVALIDATE_TOKEN: process.env.REVALIDATE_TOKEN,
     TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
   });

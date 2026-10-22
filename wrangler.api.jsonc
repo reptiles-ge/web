@@ -27,6 +27,12 @@
       "simple": { "limit": 30, "period": 60 },
     },
   ],
+  "services": [
+    {
+      "binding": "SITE",
+      "service": "reptiles",
+    },
+  ],
   "d1_databases": [
     {
       "binding": "DB",
