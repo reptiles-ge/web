@@ -8971,6 +8971,83 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/testudo-graeca-barbarapaisx-1.jpg": {
+    "path": "testudo-graeca-barbarapaisx-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-bertogcliment-1.jpg": {
+    "path": "testudo-graeca-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-donsky-1.jpg": {
+    "path": "testudo-graeca-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-giorgi-1.jpg": {
+    "path": "testudo-graeca-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-giorgi-2.jpg": {
+    "path": "testudo-graeca-giorgi-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nicolai-1.jpg": {
+    "path": "testudo-graeca-nicolai-1",
+    "width": 2048,
+    "height": 1542,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nikita-1.jpg": {
+    "path": "testudo-graeca-nikita-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nikita-2.jpg": {
+    "path": "testudo-graeca-nikita-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nina-1.jpg": {
+    "path": "testudo-graeca-nina-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-peter-1.jpg": {
+    "path": "testudo-graeca-peter-1",
+    "width": 1880,
+    "height": 1254,
+    "widths": [320, 400, 640, 800, 1200, 1880],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-zj-adram-1.jpg": {
+    "path": "testudo-graeca-zj-adram-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/testudo-graeca.jpg": {
     "path": "testudo-graeca",
     "width": 1920,

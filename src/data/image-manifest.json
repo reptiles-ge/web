@@ -107720,6 +107720,1051 @@
       ],
       "updatedAt": "2026-10-17T07:57:57.030Z"
     },
+    "testudo-graeca-barbarapaisx-1.jpg": {
+      "sourceHash": "bd55abef0bc7658818ddcc051fd7eb859f97257f2bd87f7d758555766a1e56f4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-barbarapaisx-1.jpg",
+      "originalSize": 623715,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 19545
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29744
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 27673
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41896
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 60688
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 86730
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 84751
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 122908
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 153740
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 218774
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 226007
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 306734
+        }
+      ],
+      "updatedAt": "2026-10-22T09:17:24.832Z"
+    },
+    "testudo-graeca-bertogcliment-1.jpg": {
+      "sourceHash": "f93d4167769d28e24dc82a7eb5035443e2a8a9f0abfe6d082ad546cfaad0c80c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-bertogcliment-1.jpg",
+      "originalSize": 828872,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 25421
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 39490
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38661
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59518
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93657
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144104
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 135804
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 213348
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 241164
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 390064
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 331688
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 529438
+        }
+      ],
+      "updatedAt": "2026-10-22T09:08:51.096Z"
+    },
+    "testudo-graeca-donsky-1.jpg": {
+      "sourceHash": "3efb173940b1ac33be0311871c93cfc3f5367751d8657d2575448924fa9a5437",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-donsky-1.jpg",
+      "originalSize": 522014,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13347
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21404
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18841
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29376
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37338
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56106
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51557
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76380
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90031
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 132890
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185307
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 270212
+        }
+      ],
+      "updatedAt": "2026-10-22T09:14:36.048Z"
+    },
+    "testudo-graeca-giorgi-1.jpg": {
+      "sourceHash": "1105ed10996db217bd7d876194702df5376ad2f1dcb60b28c99a623e787d6457",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-giorgi-1.jpg",
+      "originalSize": 541873,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9790
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13236
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13901
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18904
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31419
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45412
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44675
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67160
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85171
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130816
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 204688
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 307000
+        }
+      ],
+      "updatedAt": "2026-10-22T09:05:49.612Z"
+    },
+    "testudo-graeca-giorgi-2.jpg": {
+      "sourceHash": "dfad31db2f02374319f61545c7925ad811cb09ac5ea88bbba8302dd5db069dc3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-giorgi-2.jpg",
+      "originalSize": 906756,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 30916
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 47230
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 46042
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 70792
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 103930
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 166762
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 149976
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 238752
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 270062
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 429368
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 377450
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 588094
+        }
+      ],
+      "updatedAt": "2026-10-22T09:10:18.959Z"
+    },
+    "testudo-graeca-nicolai-1.jpg": {
+      "sourceHash": "3f47c92c1ad3197136303006c47d6791752377aad8ba62e9b311340a4bcee878",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nicolai-1.jpg",
+      "originalSize": 851029,
+      "width": 2048,
+      "height": 1542,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 17828
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 27886
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 26271
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 42468
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 62769
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 102638
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 93519
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 151782
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 168869
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 272498
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 344517
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 518066
+        }
+      ],
+      "updatedAt": "2026-10-22T09:13:42.808Z"
+    },
+    "testudo-graeca-nikita-1.jpg": {
+      "sourceHash": "45e6dc2289a5d82df1ab851eac3c5f4514df38deff7a7d696b5ea0bdf428eb08",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nikita-1.jpg",
+      "originalSize": 632112,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12463
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19688
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17614
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28304
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38529
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 61688
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56054
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 88674
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 103041
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162754
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224371
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 338796
+        }
+      ],
+      "updatedAt": "2026-10-22T09:15:28.276Z"
+    },
+    "testudo-graeca-nikita-2.jpg": {
+      "sourceHash": "b8288cd9ca5bdc8522bae56b0686260eba9ff1231558b898551ec50b2f67f6f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nikita-2.jpg",
+      "originalSize": 334072,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7092
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9782
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9753
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13316
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19591
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 28226
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 27537
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40536
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 49102
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73394
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 105759
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 154494
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:06.194Z"
+    },
+    "testudo-graeca-nina-1.jpg": {
+      "sourceHash": "764042d9da9deae99d308946d805bdde57e4ffb37437412473a4470807b9d7af",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nina-1.jpg",
+      "originalSize": 702126,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15075
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22850
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22148
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33482
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49955
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73786
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72305
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 108014
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 130219
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 184706
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 266944
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 369156
+        }
+      ],
+      "updatedAt": "2026-10-22T09:16:34.105Z"
+    },
+    "testudo-graeca-peter-1.jpg": {
+      "sourceHash": "e8f4af21b873d5fa52415c9c713acbf140fe480ca4986c78909297a82bd00238",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-peter-1.jpg",
+      "originalSize": 316055,
+      "width": 1880,
+      "height": 1254,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3944
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4536
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5243
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6264
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 10683
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12472
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 14453
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 18002
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25869
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36202
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.avif",
+          "format": "avif",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 63561
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.webp",
+          "format": "webp",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 98620
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:52.519Z"
+    },
+    "testudo-graeca-zj-adram-1.jpg": {
+      "sourceHash": "7c1f9c6564060881c4cea71cc984bcf3ea834c43f9cff859fa6d2302e31275bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-zj-adram-1.jpg",
+      "originalSize": 1054945,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17583
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29598
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26555
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44166
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65257
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 109308
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101919
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 166472
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 206360
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 329180
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 456169
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 713736
+        }
+      ],
+      "updatedAt": "2026-10-22T09:12:12.402Z"
+    },
     "testudo-graeca.jpg": {
       "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
       "configFingerprint": "a895f8e025dcc7fa",
