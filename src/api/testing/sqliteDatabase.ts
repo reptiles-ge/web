@@ -11,6 +11,7 @@ const MIGRATIONS_DIR = path.resolve(
 
 export function createTestDatabase() {
   const sqlite = new DatabaseSync(":memory:");
+  sqlite.exec("PRAGMA foreign_keys = ON");
   for (const file of readdirSync(MIGRATIONS_DIR).sort()) {
     sqlite.exec(readFileSync(path.join(MIGRATIONS_DIR, file), "utf8"));
   }

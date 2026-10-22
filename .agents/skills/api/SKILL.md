@@ -71,7 +71,14 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Do not store IP addresses, user agents, or other personal data unless the owner asks for it.
 - AI agents get read-only access to production data. Every AI write goes through the API, through validation, and lands as a draft for human approval. NEVER write to production D1 with raw SQL from an agent.
 
-## Migrations
+## Species data in D1
+
+- Migration `0002_species.sql` holds the whole species catalog: `species` (taxonomy, group, danger, status, catalog order, KA slug), `species_texts` (one row per species and locale), `species_list_items` (facts and identification traits), `species_faq`, `species_stats`, `species_identification_colors`, `species_sources`, `species_habitats`, `species_lookalikes`, `species_slugs` (every public, legacy and alias slug), `species_media` (hero, mobile, gallery, audio with credits) and `species_media_overlays` (per-locale credit and order overrides).
+- Values that can grow live in lookup tables with foreign keys: `locales`, `animal_groups`, `habitats`, `danger_levels`, `photo_confidences`. Add a value with an `INSERT` in a new migration. Do not turn them into `CHECK` lists; SQLite cannot change a `CHECK` without rebuilding the table.
+- **For now MDX stays the source of truth.** D1 is a copy built by `pnpm db:import:species` (local) or `pnpm db:import:species:remote` (production, owner asks only). The import deletes and rewrites only the species tables. Re-run it after content changes. NEVER edit species rows by hand.
+- `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
+- Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
+- Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
 - Add-only. NEVER edit, rename, or delete a migration that has been applied anywhere. Fix forward with a new one.
@@ -133,6 +140,8 @@ pnpm dev:api              # species:compile, then wrangler dev on :8787 (local D
 pnpm db:migrations:list   # pending migrations on the local D1
 pnpm db:migrate           # apply pending migrations to the local D1
 pnpm db:migrate:remote    # apply to production reptiles-db (owner asks only)
+pnpm db:import:species    # rebuild species tables in local D1 from MDX
+pnpm db:import:species:remote  # same on production (owner asks only)
 pnpm deploy:api           # species:compile, then wrangler deploy (no migrations)
 pnpm exec vitest run src/api
 ```

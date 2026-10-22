@@ -18,7 +18,7 @@ export type SpeciesHref = LocaleSpeciesHref;
 
 export { regionHref } from "@/lib/regionHref";
 
-const LOOKALIKES: Record<string, string[]> = {
+export const LOOKALIKES: Record<string, string[]> = {
   "ablepharus-pannonicus": ["ophisops-elegans", "eumeces-schneiderii"],
   "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
   "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus"],
