@@ -108385,6 +108385,101 @@
       ],
       "updatedAt": "2026-10-22T09:15:28.276Z"
     },
+    "testudo-graeca-nikita-2.jpg": {
+      "sourceHash": "b8288cd9ca5bdc8522bae56b0686260eba9ff1231558b898551ec50b2f67f6f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nikita-2.jpg",
+      "originalSize": 334072,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7092
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9782
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9753
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13316
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19591
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 28226
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 27537
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40536
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 49102
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73394
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 105759
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 154494
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:06.194Z"
+    },
     "testudo-graeca-nina-1.jpg": {
       "sourceHash": "764042d9da9deae99d308946d805bdde57e4ffb37437412473a4470807b9d7af",
       "configFingerprint": "409788ee46c653d8",
