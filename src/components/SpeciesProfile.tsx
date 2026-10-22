@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
+import { loadSpeciesPageAnalysis } from "@/components/admin/devAdminComponents";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
@@ -195,6 +195,7 @@ export async function SpeciesProfile({
   ].filter((block) => !isPlaceholderBody(block.body));
   const localAdmin = isLocalAdminEnabled();
   const editable = locale === "ka" && localAdmin;
+  const SpeciesPageAnalysis = await loadSpeciesPageAnalysis();
 
   return (
     <div className="min-h-screen bg-background **:[[id]]:scroll-mt-48">
@@ -241,7 +242,7 @@ export async function SpeciesProfile({
         showIdentification={showIdentification}
         species={species}
       />
-      {localAdmin ? (
+      {SpeciesPageAnalysis ? (
         <SpeciesPageAnalysis
           copy={{
             action: tAnalysis("action"),

@@ -17,7 +17,7 @@ import { speciesHref } from "@/lib/speciesRoutes";
 const PAGE_CARD_IMAGES: Partial<
   Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
 > = {
-  "/snakes-in-the-yard": "/images/guides/snakes-in-the-yard-cover.jpg",
+  "/snakes-in-the-yard": "https://cdn.reptiles.ge/natrix-natrix-louis-1.jpg",
   "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
 };
 

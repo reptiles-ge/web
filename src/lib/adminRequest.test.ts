@@ -117,6 +117,24 @@ describe("readLocalAdminJsonBody", () => {
     expect(await result.response?.json()).toEqual({ error: "Invalid JSON" });
   });
 
+  it("answers 404 for a cross-site request", async () => {
+    const request = new Request("http://localhost:3000/api/x", {
+      body: '{"id":"a"}',
+      headers: { "content-type": "text/plain", origin: "http://evil.test" },
+      method: "POST",
+    });
+    const result = await readLocalAdminJsonBody(request);
+    expect(result.response?.status).toBe(404);
+    expect(result.body).toBeUndefined();
+  });
+
+  it("answers 404 for a non-local host", async () => {
+    const result = await readLocalAdminJsonBody(
+      jsonRequest("{}", "http://rebound.test:3000/api/x"),
+    );
+    expect(result.response?.status).toBe(404);
+  });
+
   it("answers 404 with noindex outside local admin", async () => {
     vi.stubEnv("NODE_ENV", "production");
     const result = await readLocalAdminJsonBody(jsonRequest("{}"));
@@ -133,6 +151,7 @@ describe("readLocalAdminFormData", () => {
     form.set("id", "a");
     const request = new Request("http://localhost:3000/api/x", {
       body: form,
+      headers: { origin: "http://localhost:3000" },
       method: "POST",
     });
     const result = await readLocalAdminFormData(request);
@@ -142,12 +161,28 @@ describe("readLocalAdminFormData", () => {
   it("answers 400 for a body that is not a form", async () => {
     const request = new Request("http://localhost:3000/api/x", {
       body: "plain",
-      headers: { "content-type": "text/plain" },
+      headers: {
+        "content-type": "text/plain",
+        origin: "http://localhost:3000",
+      },
       method: "POST",
     });
     const result = await readLocalAdminFormData(request);
     expect(result.response?.status).toBe(400);
     expect(await result.response?.json()).toEqual({ error: "Invalid form" });
+  });
+
+  it("answers 404 for a cross-site form post", async () => {
+    const form = new FormData();
+    form.set("id", "a");
+    const request = new Request("http://localhost:3000/api/x", {
+      body: form,
+      headers: { origin: "http://evil.test" },
+      method: "POST",
+    });
+    const result = await readLocalAdminFormData(request);
+    expect(result.response?.status).toBe(404);
+    expect(result.form).toBeUndefined();
   });
 
   it("answers 404 outside local admin", async () => {

@@ -47,6 +47,19 @@ describe("findSourceNames", () => {
     "Lovari and co-authors",
     "Тархнишвили и соавторов",
     "Arribas ve ortak yazarları",
+    "females are typically heavier than males (Owl Pages).",
+    "Wingspan is often about 1.5–1.8 m (Peregrine Fund).",
+    "The 2024 annotated checklist of the birds of Georgia codes it YR-R.",
+    "2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს",
+    "Аннотированный чек-лист птиц Грузии 2024 года",
+    "Gürcistan kuşlarının 2024 açıklamalı kontrol listesi",
+    "It is a confirmed breeding bird and migrant (BB; M).",
+    "Seasonality is classed as high-quality (code A).",
+    "Occurrence quality is high (H), with photographs.",
+    "სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A).",
+    "Качество встречаемости высокое (H), есть фотографии.",
+    "Mevsimsellik yüksek kalite (kod A) olarak sınıflanır.",
+    "Shikra (Accipiter badius) is casual (Cas) on the checklist.",
   ])("flags %s", (text) => {
     expect(findSourceNames(text)).not.toEqual([]);
   });
@@ -62,6 +75,10 @@ describe("findSourceNames", () => {
     "Başı, kayalarda yaşayan Darevskia’ya göre daha az basıktır.",
     "Georgia’s 2026 checklist treats it as a candidate taxon.",
     "ზომის მიხედვით ძნელი გასარჩევია.",
+    "It breeds here and passes through on migration, and it is absent in winter.",
+    "In Georgia it is a breeding resident, confirmed by photographs.",
+    "In the EU it is listed in Annex II of the Birds Directive (code A376).",
+    "The 2024 checklist assigns LC globally and nationally.",
   ])("allows %s", (text) => {
     expect(findSourceNames(text)).toEqual([]);
   });

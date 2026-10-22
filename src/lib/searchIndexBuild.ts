@@ -861,7 +861,7 @@ const STATIC_PAGES: Array<
     },
   },
   {
-    heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
+    heroSpeciesId: "natrix-natrix",
     href: "/snakes-in-the-yard",
     icon: "yard",
     id: "snakes-in-yard",

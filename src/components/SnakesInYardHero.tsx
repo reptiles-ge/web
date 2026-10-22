@@ -1,16 +1,22 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { SnakeBiteCallChip } from "@/components/SnakeBiteCallChip";
+import { Link } from "@/i18n/navigation";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function SnakesInYardHero({
+  heroSpecies,
   heroSrc,
   locale,
 }: {
+  heroSpecies?: Species;
   heroSrc: string;
   locale: AppLocale;
 }) {
@@ -46,10 +52,8 @@ export async function SnakesInYardHero({
             label={tNav("breadcrumbAria")}
           />
 
-          <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
-            Reptiles
-          </p>
-          <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
+          <SnakeBiteCallChip locale={locale} />
+          <h1 className="text-balance-tight mt-4 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
             {t("title")}
           </h1>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -70,6 +74,18 @@ export async function SnakesInYardHero({
               {t("ctaMyths")}
             </a>
           </div>
+          {heroSpecies ? (
+            <Link
+              className="mt-8 inline-flex h-[38px] items-center gap-2 rounded-full border border-white/16 bg-ink/58 px-[15px] text-[12.5px] text-white/85 backdrop-blur-md transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110"
+              href={speciesHref(heroSpecies.id, locale)}
+            >
+              <span>{heroSpecies.commonName}</span>
+              <span className="text-white/60 italic">
+                {heroSpecies.scientificName}
+              </span>
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          ) : null}
         </div>
       </div>
     </section>

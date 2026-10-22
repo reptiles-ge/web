@@ -1,13 +1,9 @@
-import { hasLocale } from "next-intl";
-
-import { routing } from "@/i18n/routing";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import { createRateLimiter } from "@/lib/rateLimit";
-import { needsFeedback, normalizeFeedback } from "@/lib/ratingFeedback";
+import { ratingInputSchema } from "@/lib/ratingInput";
 import { formatRatingNotification } from "@/lib/ratingNotification";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
-const MAX_PATH_LENGTH = 300;
 const WINDOW_MS = 60_000;
 const allowVisitor = createRateLimiter({ limit: 3, windowMs: WINDOW_MS });
 const allowAll = createRateLimiter({ limit: 30, windowMs: WINDOW_MS });
@@ -38,21 +34,9 @@ export async function POST(request: Request) {
   }
   if (!body || typeof body !== "object") return invalid();
 
-  const { locale, path, rating } = body;
-  if (
-    typeof rating !== "number" ||
-    !Number.isInteger(rating) ||
-    rating < 1 ||
-    rating > 5 ||
-    typeof path !== "string" ||
-    path.length > MAX_PATH_LENGTH ||
-    !/^\/(?!\/)\S*$/.test(path) ||
-    !hasLocale(routing.locales, locale)
-  ) {
-    return invalid();
-  }
-  const feedback = normalizeFeedback(body.feedback);
-  if (needsFeedback(rating) && !feedback) return invalid();
+  const parsed = ratingInputSchema.safeParse(body);
+  if (!parsed.success) return invalid();
+  const { feedback, locale, path, rating } = parsed.data;
 
   const visitor =
     request.headers.get("cf-connecting-ip") ??

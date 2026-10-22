@@ -4,21 +4,25 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { LocalePageProps } from "@/lib/pageMetadata";
+
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
+import { getSpeciesById } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import {
   breadcrumbListLd,
   localePageUrl,
   sitePageLd,
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath } from "@/lib/site";
+import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 const PATH = "/snakes-in-the-yard";
-const HERO_IMAGE = "/images/guides/snakes-in-the-yard-cover.jpg";
+const HERO_SPECIES = "natrix-natrix";
 const WHY_IMAGE = "/images/guides/snakes-in-the-yard-why.jpg";
 
 export async function generateMetadata({
@@ -27,21 +31,11 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "snakesInYard" });
-  const title = t("metaTitle");
-  const ogImageUrl = absoluteUrl(HERO_IMAGE);
-
-  return buildPageMetadata({
-    description: t("metaDescription"),
-    indexable: true,
-    keywords: t("keywords"),
-    locale,
-    metadataTitle: { absolute: title },
-    ogImageUrl,
-    openGraphImage: { alt: title, height: 572, url: ogImageUrl, width: 1024 },
+  return speciesOgPageMetadata({
+    locale: localeParam as AppLocale,
+    namespace: "snakesInYard",
+    ogSpeciesId: HERO_SPECIES,
     pagePath: PATH,
-    title,
     type: "article",
   });
 }
@@ -63,7 +57,11 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
   const tSnakes = await getTranslations({ locale, namespace: "snakes" });
   const url = absoluteUrl(localePath(locale, PATH));
 
-  const heroSrc = HERO_IMAGE;
+  const heroSpeciesEntry = getSpeciesById(HERO_SPECIES);
+  const heroSpecies = heroSpeciesEntry
+    ? localizeSpecies(heroSpeciesEntry, locale)
+    : undefined;
+  const heroSrc = heroSpecies?.image ?? WHY_IMAGE;
   const coverSrc = WHY_IMAGE;
 
   const breadcrumbLd = breadcrumbListLd([
@@ -92,6 +90,7 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
       <JsonLd data={pageLd} />
       <SnakesInYardPage
         coverSrc={coverSrc}
+        heroSpecies={heroSpecies}
         heroSrc={heroSrc}
         locale={locale}
         publishedAt={dates.datePublished}
