@@ -9069,6 +9069,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1307],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-aleksandra-1.jpg": {
+    "path": "trachemys-scripta-aleksandra-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta-donsky-1.jpg": {
     "path": "trachemys-scripta-donsky-1",
     "width": 2048,
