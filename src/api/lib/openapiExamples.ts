@@ -89,6 +89,7 @@ export const RESPONSE_EXAMPLES = {
   catalogCard: {
     data: [{ ...levantineViper, lookalikes: lookalikeIds }],
     locale: "en",
+    nextCursor: null,
     total: 145,
     view: "card",
   },
@@ -97,6 +98,7 @@ export const RESPONSE_EXAMPLES = {
       { ...levantineViper, ...levantineViperTexts, lookalikes: lookalikeIds },
     ],
     locale: "en",
+    nextCursor: null,
     total: 145,
     view: "full",
   },
@@ -124,10 +126,10 @@ export const RESPONSE_EXAMPLES = {
       details: [
         {
           message: 'Invalid option: expected one of "ka"|"en"|"ru"|"tr"',
-          path: "locale",
+          path: "x-locale",
         },
       ],
-      message: "Invalid query",
+      message: "Invalid header",
     },
   },
   species: {

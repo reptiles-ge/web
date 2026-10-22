@@ -1,12 +1,9 @@
 import { z } from "zod";
 
 import { catalogQuery } from "../schemas/catalog";
+import { LOCALE_HEADER, localeHeader } from "../schemas/common";
 import { responseSchemas } from "../schemas/responses";
-import {
-  speciesDetailQuery,
-  speciesListQuery,
-  speciesParam,
-} from "../schemas/species";
+import { speciesListQuery, speciesParam } from "../schemas/species";
 import { PUBLIC_CACHE } from "./cache";
 import { RESPONSE_EXAMPLES } from "./openapiExamples";
 
@@ -17,6 +14,7 @@ type JsonSchema = Record<string, unknown>;
 type Operation = {
   description: string;
   errors: Array<400 | 404>;
+  header?: z.ZodObject;
   method: "get";
   operationId: string;
   param?: z.ZodObject;
@@ -35,6 +33,11 @@ const ref = (id: string) => ({ $ref: `#/components/schemas/${id}` });
 
 const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
   {
+    cursor: {
+      description:
+        "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`.",
+      example: "natrix-tessellata",
+    },
     group: {
       description: "Only species of this animal group.",
       example: "snake",
@@ -44,15 +47,20 @@ const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
         "Species id (`macrovipera-lebetina`), Georgian slug (`giurza`) or any older or alias slug. Case-insensitive.",
       example: "macrovipera-lebetina",
     },
-    locale: {
+    limit: {
       description:
-        "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
-      example: "en",
+        "Page size, 1–100. Without it the whole catalog comes back in one response.",
+      example: "40",
     },
     view: {
       description:
         "`card` (default, about 130–210 KB) has what lists and cards need. `full` adds every text field and is several MB (up to about 3.6 MB for `ka`); use it only when you need all texts at once.",
       example: "card",
+    },
+    "x-locale": {
+      description:
+        "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
+      example: "en",
     },
   };
 
@@ -64,8 +72,8 @@ It serves the same published species profiles as the site: amphibians and reptil
 ## Quick start
 
 \`\`\`bash
-curl "https://api.reptiles.ge/v1/species?locale=en&group=snake"
-curl "https://api.reptiles.ge/v1/species/giurza?locale=en"
+curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species?group=snake"
+curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
 \`\`\`
 
 No key or sign-up is needed. CORS allows every origin, so you can call it from a browser.
@@ -76,7 +84,7 @@ Every path starts with \`/v1\`. A breaking change gets a new version (\`/v2\`) i
 
 ## Locales
 
-Pass \`locale\` = \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). Georgian is the canonical text; the other locales translate it. Names, texts, stat labels and photo places come back in that locale; scientific names, ids and URLs are the same in every locale. \`updatedAt\` is the date of that locale's text. Every response echoes the \`locale\` it used.
+Send the \`${LOCALE_HEADER}\` request header: \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). There is no \`locale\` query parameter. Georgian is the canonical text; the other locales translate it. Names, texts, stat labels and photo places come back in that locale; scientific names, ids and URLs are the same in every locale. \`updatedAt\` is the date of that locale's text. Every response echoes the \`locale\` it used, in the body and in \`Content-Language\`.
 
 ## Ids and slugs
 
@@ -117,6 +125,7 @@ const OPERATIONS: Operation[] = [
     description:
       "Every published species in catalog order, in a light list form. Filter with `group`.",
     errors: [400],
+    header: localeHeader,
     method: "get",
     operationId: "listSpecies",
     path: "/v1/species",
@@ -133,11 +142,11 @@ const OPERATIONS: Operation[] = [
     description:
       "One published species profile with every text, the photo gallery, sources and lookalikes. Unpublished species answer `404`.",
     errors: [400, 404],
+    header: localeHeader,
     method: "get",
     operationId: "getSpecies",
     param: speciesParam,
     path: "/v1/species/{idOrSlug}",
-    query: speciesDetailQuery,
     success: {
       description: "Species profile.",
       examples: {
@@ -174,8 +183,9 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards; use `full` only when you need every text, for example to build a search index.",
+      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards; use `full` only when you need every text, for example to build a search index. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`. `total` always counts the whole catalog.",
     errors: [400],
+    header: localeHeader,
     method: "get",
     operationId: "getCatalog",
     path: "/v1/catalog",
@@ -308,12 +318,20 @@ function errorResponse(description: string, example: unknown) {
   };
 }
 
+function headerName(name: string) {
+  return name.replace(
+    /(^|-)([a-z])/g,
+    (_, dash, letter: string) => `${dash}${letter.toUpperCase()}`,
+  );
+}
+
 function operation(entry: Operation) {
   const errors = { 400: "BadRequest", 404: "NotFound" };
   return {
     description: entry.description,
     operationId: entry.operationId,
     parameters: [
+      ...(entry.header ? parameters(entry.header, "header") : []),
       ...(entry.param ? parameters(entry.param, "path") : []),
       ...(entry.query ? parameters(entry.query, "query") : []),
       { $ref: "#/components/parameters/IfNoneMatch" },
@@ -346,12 +364,15 @@ function operation(entry: Operation) {
   };
 }
 
-function parameters(schema: z.ZodObject, location: "path" | "query") {
+function parameters(
+  schema: z.ZodObject,
+  location: "header" | "path" | "query",
+) {
   const required = new Set((toSchema(schema).required as string[]) ?? []);
   return Object.entries(schema.shape).map(([name, field]) => ({
     ...PARAMETER_DOCS[name],
     in: location,
-    name,
+    name: location === "header" ? headerName(name) : name,
     required: location === "path" || required.has(name),
     schema: toSchema(field as z.ZodType),
   }));

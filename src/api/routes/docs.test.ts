@@ -108,12 +108,18 @@ describe("docs route", () => {
     ).toBe(true);
   });
 
-  it("marks defaulted query parameters as optional", async () => {
+  it("documents the locale as an optional header", async () => {
     const { document } = await loadDocument();
-    const locale = document.paths["/v1/catalog"]?.get?.parameters.find(
-      (p) => p.name === "locale",
-    );
-    expect(locale).toMatchObject({ in: "query", required: false });
+    const parameters = document.paths["/v1/catalog"]?.get?.parameters ?? [];
+    expect(parameters.find((p) => p.name === "X-Locale")).toMatchObject({
+      in: "header",
+      required: false,
+    });
+    expect(parameters.find((p) => p.name === "locale")).toBeUndefined();
+    expect(parameters.find((p) => p.name === "limit")).toMatchObject({
+      in: "query",
+      required: false,
+    });
   });
 
   it("answers 404 for unknown docs paths", async () => {

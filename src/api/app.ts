@@ -14,6 +14,7 @@ import { catalog } from "./routes/catalog";
 import { docs } from "./routes/docs";
 import { ratings } from "./routes/ratings";
 import { species } from "./routes/species";
+import { LOCALE_HEADER } from "./schemas/common";
 
 const MAX_BODY_BYTES = 16 * 1024;
 
@@ -30,7 +31,7 @@ export const app = new Hono<ApiEnv>()
   .use(noindex)
   .use(
     cors({
-      allowHeaders: ["Content-Type"],
+      allowHeaders: ["Content-Type", LOCALE_HEADER],
       allowMethods: ["GET", "POST", "OPTIONS"],
       maxAge: CORS_MAX_AGE,
       origin: (origin, c) =>
