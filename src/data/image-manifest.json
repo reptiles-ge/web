@@ -107720,6 +107720,101 @@
       ],
       "updatedAt": "2026-10-17T07:57:57.030Z"
     },
+    "testudo-graeca-bertogcliment-1.jpg": {
+      "sourceHash": "f93d4167769d28e24dc82a7eb5035443e2a8a9f0abfe6d082ad546cfaad0c80c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-bertogcliment-1.jpg",
+      "originalSize": 828872,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 25421
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 39490
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38661
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59518
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93657
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144104
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 135804
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 213348
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 241164
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 390064
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 331688
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 529438
+        }
+      ],
+      "updatedAt": "2026-10-22T09:08:51.096Z"
+    },
     "testudo-graeca-giorgi-1.jpg": {
       "sourceHash": "1105ed10996db217bd7d876194702df5376ad2f1dcb60b28c99a623e787d6457",
       "configFingerprint": "409788ee46c653d8",
