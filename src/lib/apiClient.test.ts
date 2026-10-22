@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { app } from "@/api/app";
-import { createTestDatabase } from "@/api/testing/sqliteDatabase";
+import { createSpeciesTestDatabase } from "@/api/testing/sqliteDatabase";
 
 import { apiOrigin, createApiClient } from "./apiClient";
 
@@ -11,7 +11,7 @@ afterEach(() => {
 
 describe("createApiClient", () => {
   it("calls typed routes", async () => {
-    const env = { DB: createTestDatabase().db };
+    const env = { DB: createSpeciesTestDatabase().db };
     const client = createApiClient({
       fetch: async (input, init) => app.request(input, init, env),
     });
