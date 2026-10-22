@@ -1,10 +1,10 @@
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
-import { openPhotoCoordinatesPullRequest } from "@/lib/adminPhotoPullRequest";
 import {
   adminErrorResponse,
   readBodyString,
   readLocalAdminJsonBody,
 } from "@/lib/adminRequest";
+import { setAdminSpeciesPhotoCoordinates } from "@/lib/adminSpeciesApi";
 import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 
 export const runtime = "nodejs";
@@ -37,15 +37,9 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-    const pullRequestUrl = await openPhotoCoordinatesPullRequest({
-      coordinates,
-      id,
-      src,
-    });
-    return Response.json({
-      credit: coordinates ? { lat: coordinates.lat, lng: coordinates.lng } : {},
-      pullRequestUrl,
-    });
+    return Response.json(
+      await setAdminSpeciesPhotoCoordinates(id, src, coordinates),
+    );
   } catch (error) {
     return adminErrorResponse(error, "Coordinates update failed");
   }

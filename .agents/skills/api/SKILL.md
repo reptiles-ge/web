@@ -151,7 +151,9 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `db/speciesRows.ts` is the single row builder used by both the import and the writes. Overlays point at media with a subquery, so media ids are never assigned by hand.
 - After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `X-Cache-Bypass: <REVALIDATE_TOKEN>`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data. Without the secret the header is ignored.
 - `pnpm db:import:species*` is now a one-off. The first statement fails once any `species_revisions` row exists, so an import can never overwrite API edits.
-- Not yet on the API: the admin UI flows (photos, content-edit, AI analysis), new species creation, and field records (not in D1 yet).
+- Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
+- The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
+- Not yet on the API: adding a photo, content-edit, AI texts and analysis, field records (not in D1 yet), and new species creation.
 
 ### Species pages (SSR from the API)
 

@@ -1,10 +1,10 @@
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
-import { openRemovePhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import {
   adminErrorResponse,
   readBodyString,
   readLocalAdminJsonBody,
 } from "@/lib/adminRequest";
+import { removeAdminSpeciesPhoto } from "@/lib/adminSpeciesApi";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,8 +23,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await openRemovePhotoPullRequest({ id, src });
-    return Response.json(result);
+    return Response.json(await removeAdminSpeciesPhoto(id, src));
   } catch (error) {
     return adminErrorResponse(error, "Remove photo failed");
   }

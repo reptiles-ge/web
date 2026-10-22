@@ -85,6 +85,7 @@ const serverSchema = z.object({
   AI_MODEL_OVERRIDES: profileOverrides<string>((value) =>
     /^claude-[a-z0-9-]+$/.test(value),
   ),
+  API_WRITE_TOKEN: optionalString,
   BUNNY_CDN_BASE_URL: z.preprocess(
     blankToUndefined,
     z.string().trim().url().optional(),
@@ -132,6 +133,7 @@ export function serverEnv(): ServerEnv {
     AI_BACKEND: process.env.AI_BACKEND,
     AI_EFFORT_OVERRIDES: process.env.AI_EFFORT_OVERRIDES,
     AI_MODEL_OVERRIDES: process.env.AI_MODEL_OVERRIDES,
+    API_WRITE_TOKEN: process.env.API_WRITE_TOKEN,
     BUNNY_CDN_BASE_URL: process.env.BUNNY_CDN_BASE_URL,
     BUNNY_STORAGE_ACCESS_KEY: process.env.BUNNY_STORAGE_ACCESS_KEY,
     BUNNY_STORAGE_REGION: process.env.BUNNY_STORAGE_REGION,

@@ -7,6 +7,7 @@ import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
+import { readAdminSpecies } from "@/lib/adminSpeciesApi";
 
 export const dynamic = "force-dynamic";
 
@@ -19,12 +20,22 @@ export default async function AdminSpeciesPage({ params }: Props) {
   const { id } = await params;
   if (!isSpeciesContentId(id)) notFound();
 
-  let species: ReturnType<typeof readAdminSpeciesGallery>;
+  let loaded: Awaited<ReturnType<typeof readAdminSpecies>>;
   try {
-    species = readAdminSpeciesGallery(id);
+    loaded = await readAdminSpecies(id);
   } catch {
     notFound();
   }
+  const { base, status } = loaded.record;
+  const species = {
+    commonName: base.commonName,
+    fieldRecords: readFieldRecords(id),
+    gallery: base.gallery,
+    image: base.image,
+    mobileImage: base.mobileImage ?? "",
+    scientificName: base.scientificName,
+    unpublished: status !== "published",
+  };
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-10">
@@ -55,4 +66,12 @@ export default async function AdminSpeciesPage({ params }: Props) {
       </div>
     </main>
   );
+}
+
+function readFieldRecords(id: string) {
+  try {
+    return readAdminSpeciesGallery(id).fieldRecords;
+  } catch {
+    return [];
+  }
 }

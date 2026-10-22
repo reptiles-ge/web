@@ -1,9 +1,6 @@
-import {
-  isSpeciesContentId,
-  readAdminSpeciesGallery,
-} from "@/lib/adminGalleryMdx";
-import { openGalleryReorderPullRequest } from "@/lib/adminPhotoPullRequest";
-import { readLocalAdminJsonBody } from "@/lib/adminRequest";
+import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import { adminErrorResponse, readLocalAdminJsonBody } from "@/lib/adminRequest";
+import { reorderAdminSpeciesPhotos } from "@/lib/adminSpeciesApi";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -22,22 +19,9 @@ export async function POST(request: Request) {
   }
 
   try {
-    const pullRequestUrl = await openGalleryReorderPullRequest({
-      id,
-      orderedSrcs: srcs,
-    });
-    return Response.json({ pullRequestUrl });
+    return Response.json(await reorderAdminSpeciesPhotos(id, srcs));
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Reorder failed";
-    if (
-      message === "No gallery changes to open a pull request for" &&
-      readAdminSpeciesGallery(id)
-        .gallery.map((item) => item.src)
-        .join("\0") === srcs.join("\0")
-    ) {
-      return Response.json({ alreadySaved: true });
-    }
-    return Response.json({ error: message }, { status: 400 });
+    return adminErrorResponse(error, "Reorder failed");
   }
 }
 

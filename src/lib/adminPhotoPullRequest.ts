@@ -4,17 +4,11 @@ import os from "node:os";
 import path from "node:path";
 
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
-import type { PhotoCoordinates } from "@/lib/photoCoordinates";
 
 import {
   appendFieldRecordToSpecies,
   appendGalleryItemToSpecies,
-  type CoverTarget,
   isSpeciesContentId,
-  removeGalleryItemFromSpecies,
-  reorderGalleryInSpecies,
-  setCoverInSpecies,
-  updateGalleryPhotoCoordinatesInSpecies,
 } from "@/lib/adminGalleryMdx";
 import {
   applyOptimizeCatalog,
@@ -25,61 +19,6 @@ const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/staging";
 const BASE_BRANCH = "staging";
 const MDX_FILES = ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"] as const;
-
-export async function openCoverPullRequest(input: {
-  catalog?: OptimizeCatalogUpdate[];
-  coverSrc?: string;
-  id: string;
-  src: string;
-  target: CoverTarget;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-
-  const catalog = input.catalog ?? [];
-  const cropped = Boolean(input.coverSrc && input.coverSrc !== input.src);
-
-  const label =
-    input.target === "both"
-      ? "desktop and mobile cover"
-      : input.target === "desktop"
-        ? "desktop cover"
-        : "mobile cover";
-
-  return withPhotoPullRequest({
-    apply: async (worktree) => {
-      setCoverInSpecies(
-        input.id,
-        input.target,
-        input.src,
-        worktree,
-        input.coverSrc ?? input.src,
-      );
-      await applyOptimizeCatalog(worktree, catalog);
-    },
-    commitBody: cropped
-      ? "Cropped cover from the local admin. The crop and its AVIF/WebP derivatives are already on the CDN; the gallery original is unchanged."
-      : "Cover photo updated from the local admin.",
-    editExistingBody: false,
-    extraFiles: optimizeCatalogFiles(catalog),
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Set ${cropped ? "cropped " : ""}${label} for \`${input.id}\` from local admin`,
-      "- Updates KA `image` / `mobileImage` (and overlay credits when those keys exist)",
-      ...(cropped
-        ? [
-            "- The crop is a separate CDN file used only as the cover; the gallery keeps the original",
-          ]
-        : []),
-      "",
-      "## Test plan",
-      "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
-    ].join("\n"),
-    title: `Set ${cropped ? "cropped " : ""}${label} for ${input.id}`,
-  });
-}
 
 export async function openFieldRecordPullRequest(input: {
   id: string;
@@ -107,85 +46,6 @@ export async function openFieldRecordPullRequest(input: {
       "- [ ] Existing gallery photo records still open the lightbox",
     ].join("\n"),
     title: `Add field record for ${input.id}`,
-  });
-}
-
-export async function openGalleryReorderPullRequest(input: {
-  id: string;
-  orderedSrcs: string[];
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (input.orderedSrcs.length < 2) {
-    throw new Error("Need at least two photos to reorder");
-  }
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      reorderGalleryInSpecies(input.id, input.orderedSrcs, worktree);
-    },
-    commitBody: "Gallery order updated from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Reorder gallery for \`${input.id}\` from local admin`,
-      "- KA `gallery` YAML order only; overlay locales still match credits by `src`",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery shows photos in the new order",
-    ].join("\n"),
-    title: `Reorder gallery for ${input.id}`,
-  });
-}
-
-export async function openPhotoCoordinatesPullRequest(input: {
-  coordinates: null | PhotoCoordinates;
-  id: string;
-  src: string;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (!input.src.trim()) {
-    throw new Error("Invalid gallery src");
-  }
-
-  const filename = input.src.split("/").at(-1) || input.src;
-  const coordinates = input.coordinates;
-  const clearing = coordinates === null;
-  const coordLabel = clearing
-    ? "clear coordinates"
-    : `set coordinates ${coordinates.lat}, ${coordinates.lng}`;
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      updateGalleryPhotoCoordinatesInSpecies(
-        input.id,
-        input.src,
-        coordinates,
-        worktree,
-      );
-    },
-    commitBody: clearing
-      ? "Photo coordinates cleared from the local admin."
-      : "Photo coordinates updated from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- ${coordLabel} on \`${filename}\` (\`${input.id}\`)`,
-      "- KA gallery credit `lat` / `lng` (and matching cover credits when the same `src`)",
-      "- Powers map link + ImageObject `GeoCoordinates` on the species page",
-      "",
-      "## Test plan",
-      "- [ ] Gallery / lightbox shows map pin link when coordinates are set",
-      "- [ ] JSON-LD ImageObject contentLocation includes GeoCoordinates",
-    ].join("\n"),
-    title: clearing
-      ? `Clear photo coordinates on ${input.id}`
-      : `Set photo coordinates on ${input.id}`,
   });
 }
 
@@ -236,48 +96,6 @@ export async function openPhotoPullRequest(input: {
     ].join("\n"),
     title: `Add gallery ${noun} for ${input.id}`,
   });
-}
-
-export async function openRemovePhotoPullRequest(input: {
-  id: string;
-  src: string;
-}): Promise<{ image: string; mobileImage: string; pullRequestUrl: string }> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (!input.src.trim()) {
-    throw new Error("Invalid gallery src");
-  }
-
-  const filename = input.src.split("/").at(-1) || input.src;
-  let covers = { image: "", mobileImage: "" };
-
-  const pullRequestUrl = await withPhotoPullRequest({
-    apply: (worktree) => {
-      const result = removeGalleryItemFromSpecies(
-        input.id,
-        input.src,
-        worktree,
-      );
-      covers = { image: result.image, mobileImage: result.mobileImage };
-    },
-    commitBody: "Gallery photo removed from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Remove \`${filename}\` from \`${input.id}\` gallery`,
-      "- KA `gallery` item and matching overlay credits by `src`",
-      "- If it was the cover, `image` / `mobileImage` move to another gallery photo",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery no longer shows the removed photo",
-      "- [ ] Hero cover is not the removed photo",
-    ].join("\n"),
-    title: `Remove gallery photo from ${input.id}`,
-  });
-
-  return { ...covers, pullRequestUrl };
 }
 
 export async function openStandalonePhotoPullRequest(

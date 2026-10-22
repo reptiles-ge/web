@@ -9,8 +9,8 @@ vi.mock("@/lib/adminGalleryMdx", async (importOriginal) => {
     await importOriginal<typeof import("@/lib/adminGalleryMdx")>();
   return {
     ...original,
+    appendFieldRecordToSpecies: vi.fn(),
     appendGalleryItemToSpecies: vi.fn(),
-    reorderGalleryInSpecies: vi.fn(),
   };
 });
 vi.mock("@/lib/imageOptimize", () => ({ applyOptimizeCatalog: vi.fn() }));
@@ -18,7 +18,7 @@ vi.mock("@/lib/imageOptimize", () => ({ applyOptimizeCatalog: vi.fn() }));
 import type { OptimizeCatalogUpdate } from "@/lib/imageOptimize";
 
 import {
-  openGalleryReorderPullRequest,
+  openFieldRecordPullRequest,
   openPhotoPullRequest,
   openStandalonePhotoPullRequest,
 } from "@/lib/adminPhotoPullRequest";
@@ -93,9 +93,9 @@ describe("photo PRs for a species on the current feature branch", () => {
       vi.fn().mockResolvedValue({ json: async () => [], ok: true }),
     );
 
-    const url = await openGalleryReorderPullRequest({
+    const url = await openFieldRecordPullRequest({
       id: "alectoris-chukar",
-      orderedSrcs: ["first.jpg", "second.jpg"],
+      record: { lat: 41.7, lng: 44.8, locality: "Tbilisi" },
     });
 
     expect(url).toBe("https://github.com/reptiles-ge/web/pull/999");
