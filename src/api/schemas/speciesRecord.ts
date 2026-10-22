@@ -16,8 +16,8 @@ const ANIMAL_GROUPS = [
   "spider",
   "turtle",
 ] as const;
-const HABITATS = ["forest", "grassland", "mountain", "wetland"] as const;
-const PHOTO_CONFIDENCE = z.enum([
+export const HABITATS = ["forest", "grassland", "mountain", "wetland"] as const;
+export const PHOTO_CONFIDENCE = z.enum([
   "georgia-field",
   "placeholder",
   "range-typical",

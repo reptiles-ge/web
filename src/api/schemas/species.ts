@@ -4,7 +4,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
 import { localeQuery } from "./common";
 
-const ANIMAL_GROUPS = [
+export const ANIMAL_GROUPS = [
   "amphibian",
   "bird",
   "insect",
