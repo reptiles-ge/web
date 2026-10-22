@@ -197,6 +197,18 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     }
   });
 
+  it("renders species profiles from the API on the server", () => {
+    const route = readFileSync(
+      path.join(ROOT, "src/lib/createSpeciesRoute.tsx"),
+      "utf8",
+    );
+    expect(route).toContain("getSpeciesProfile(");
+    expect(route).not.toMatch(/resolveSpeciesInHub|localizeSpecies\(raw/);
+    expect(
+      readFileSync(path.join(ROOT, "src/lib/speciesProfileApi.ts"), "utf8"),
+    ).not.toMatch(/^["']use client["']/m);
+  });
+
   it("applies migrations only from the explicit db:migrate scripts", () => {
     const { scripts } = JSON.parse(
       readFileSync(path.join(ROOT, "package.json"), "utf8"),
