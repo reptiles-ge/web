@@ -6,7 +6,7 @@ import {
 } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
-import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { stableHash } from "@/lib/stableHash";
 
 const PROFILE_RELATED_LIMIT = 4;

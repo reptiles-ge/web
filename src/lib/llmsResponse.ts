@@ -1,12 +1,9 @@
 import { hasLocale } from "next-intl";
 
 import { routing } from "@/i18n/routing";
-import {
-  buildLlmsFullText,
-  buildLlmsIndexText,
-  llmsTextResponseHeaders,
-} from "@/lib/llmsFiles";
+import { buildLlmsFullText, buildLlmsIndexText } from "@/lib/llmsFiles";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
+import { llmsTextResponseHeaders } from "@/lib/robotsTxt";
 import { absoluteUrl } from "@/lib/site";
 
 export type LlmsFileKind = "full" | "index";

@@ -31,29 +31,29 @@ Do not add code comments. Do not invent UI copy in one locale only.
 
 ## Read first
 
-| Task                           | Start here                                                                               |
-| ------------------------------ | ---------------------------------------------------------------------------------------- |
-| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts`                |
-| Writing style (all prose)      | `src/prompts/writing-style.md` — binding house style; AI prompts load it                 |
-| Catalog, publish, danger       | `src/data/species.ts`                                                                    |
-| Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                               |
-| Public URL / slug / lookalikes | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`, `src/lib/speciesRoutes.ts` |
-| Localized pathnames            | `src/i18n/pathnames.ts`                                                                  |
-| Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                |
-| Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                        |
-| Guide articles (bat, wasp, …)  | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`          |
-| Species page factory           | `src/lib/createSpeciesRoute.tsx`                                                         |
-| Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                                     |
-| Checklist authority            | `src/data/herpetofauna-checklist.ts`                                                     |
-| Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                             |
-| Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                  |
-| News                           | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`     |
-| 301 map                        | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                  |
-| UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
-| Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
-| Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                    |
-| Pinned / patched deps          | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                               |
-| API Worker (Hono, D1)          | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`          |
+| Task                           | Start here                                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts`                    |
+| Writing style (all prose)      | `src/prompts/writing-style.md` — binding house style; AI prompts load it                     |
+| Catalog, publish, danger       | `src/data/species.ts`                                                                        |
+| Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                                   |
+| Public URL / slug / lookalikes | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`, `src/lib/speciesLookalikes.ts` |
+| Localized pathnames            | `src/i18n/pathnames.ts`                                                                      |
+| Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                    |
+| Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                            |
+| Guide articles (bat, wasp, …)  | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`              |
+| Species page factory           | `src/lib/createSpeciesRoute.tsx`                                                             |
+| Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                                         |
+| Checklist authority            | `src/data/herpetofauna-checklist.ts`                                                         |
+| Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                 |
+| Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                      |
+| News                           | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`         |
+| 301 map                        | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                      |
+| UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                          |
+| Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                           |
+| Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                        |
+| Pinned / patched deps          | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                   |
+| API Worker (Hono, D1)          | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`              |
 
 ## Architecture
 
@@ -100,7 +100,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
 5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
-6. Lookalikes: `LOOKALIKES` in `speciesRoutes.ts` (bidirectional). **Do not** add a lookalike YAML key to MDX — compile does not read it.
+6. Lookalikes: `LOOKALIKES` in `speciesLookalikes.ts` (bidirectional). **Do not** add a lookalike YAML key to MDX — compile does not read it.
 7. Range map on a profile: only if the id is in some `regions[].speciesIds`. That is a data task, not MDX.
 
 Empty/placeholder fields are hidden by `src/lib/speciesContent.ts`. Prefer a missing field over invented size, region, IUCN category, or Red List status.

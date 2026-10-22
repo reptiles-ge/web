@@ -67,7 +67,7 @@ beforeEach(() => {
             ...["ka", "en", "ru", "tr"].map(
               (locale) => `src/content/species/${id}/${locale}.mdx`,
             ),
-            "src/lib/speciesRoutes.ts",
+            "src/lib/speciesLookalikes.ts",
             "src/lib/speciesRoutes.test.ts",
             "src/data/speciesPublish.ts",
             "src/i18n/pathnames.ts",

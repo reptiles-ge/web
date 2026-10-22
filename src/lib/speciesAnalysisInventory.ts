@@ -122,7 +122,7 @@ export const speciesAnalysisSurfaces = [
     kind: "generated",
     rule: "Related scores differ from lookalikes; changes affect reverse profiles and quiz distractors. Guide links deduplicated and limited.",
     sources: [
-      "src/lib/speciesRoutes.ts",
+      "src/lib/speciesLookalikes.ts",
       "src/lib/speciesRelated.ts",
       "src/lib/speciesGuideLinks.ts",
       "src/lib/clusterGuides.ts",
@@ -344,7 +344,7 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
       "src/data/species.ts",
       "src/data/speciesAtlasMeta.ts",
       "src/i18n/pathnames.ts",
-      "src/lib/speciesRoutes.ts",
+      "src/lib/speciesLookalikes.ts",
       "src/lib/snakeQuiz.ts",
       "src/lib/speciesGuideLinks.ts",
     ],

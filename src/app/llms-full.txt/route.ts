@@ -1,4 +1,5 @@
-import { buildLlmsFullText, llmsTextResponseHeaders } from "@/lib/llmsFiles";
+import { buildLlmsFullText } from "@/lib/llmsFiles";
+import { llmsTextResponseHeaders } from "@/lib/robotsTxt";
 
 export const dynamic = "force-static";
 

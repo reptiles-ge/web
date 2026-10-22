@@ -53,7 +53,7 @@ export async function createSuperAnalysisRunner(
   return async (stage: SuperAnalysisStage) => {
     if (SUPER_ANALYSIS_STAGES[previous.length] !== stage)
       throw new Error("Invalid Super Analysis order");
-    const registryFile = path.join(worktree, "src/lib/speciesRoutes.ts");
+    const registryFile = path.join(worktree, "src/lib/speciesLookalikes.ts");
     const [context, registry, snapshot] = await Promise.all([
       buildSpeciesAnalysisContext(id, worktree),
       fs.readFile(registryFile, "utf8"),

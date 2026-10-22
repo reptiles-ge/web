@@ -55,7 +55,7 @@ const speciesCreationSharedFiles = [
   "src/data/mapRegions.ts",
   "src/data/speciesAtlasMeta.ts",
   "src/data/speciesPublish.ts",
-  "src/lib/speciesRoutes.ts",
+  "src/lib/speciesLookalikes.ts",
   "src/lib/speciesSlugRules.ts",
 ];
 
@@ -207,7 +207,7 @@ const modeConfig = {
 const sharedFiles: Record<SpeciesAnalysisMode, string[]> = {
   analysis: [],
   links: [],
-  lookalikes: ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"],
+  lookalikes: ["src/lib/speciesLookalikes.ts", "src/lib/speciesRoutes.test.ts"],
   records: [
     "src/components/map/SpeciesRangeMap.tsx",
     "src/data/speciesRangeMaps/index.ts",
