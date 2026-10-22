@@ -27,12 +27,12 @@ importers:
       '@cloudflare/workers-response-store':
         specifier: 1.1.0
         version: 1.1.0
-      '@hono/swagger-ui':
-        specifier: 0.6.1
-        version: 0.6.1(hono@4.13.13)
       '@hono/zod-validator':
         specifier: 0.9.1
         version: 0.9.1(hono@4.13.13)(zod@4.6.6)
+      '@scalar/hono-api-reference':
+        specifier: 0.12.12
+        version: 0.12.12(hono@4.13.13)
       '@sentry/nextjs':
         specifier: ^11.6.0
         version: 11.6.0(@babel/core@7.29.7)(next@16.4.2(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@playwright/test@1.64.0)(@types/node@22.20.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(webpack@5.110.3(esbuild@0.28.2)(postcss@8.5.25))(wrangler@4.149.0(@types/node@22.20.5))
@@ -893,11 +893,6 @@ packages:
     peerDependenciesMeta:
       ts-jest:
         optional: true
-
-  '@hono/swagger-ui@0.6.1':
-    resolution: {integrity: sha512-sJTvldu1GPeEPfyeLG7gRj+W4vEuD+JDi+JjJ3TJs/DvMUtBLs0KJO5yokGegWWdy5qrbdnQGekbhgNRmPmYKQ==}
-    peerDependencies:
-      hono: '>=4.0.0'
 
   '@hono/zod-validator@0.9.1':
     resolution: {integrity: sha512-iiv6w0qrIc0arfvCtUqBWsvl4fXjzaTcQcCJTTtCnkawF9HHGE+KjEl0ox3gQJ6rKZEgE3mLExlQCF72M+mNuw==}
@@ -2602,6 +2597,32 @@ packages:
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
+
+  '@scalar/client-side-rendering@0.4.11':
+    resolution: {integrity: sha512-2k75dLAR6Ft3Yf73sdKEjOUQzZ7nmpWgNswjnGCbPO4P0iDOKBXJXmnuNVmaOpFOZl+u4HM4lay0QuyihheTmw==}
+    engines: {node: '>=22'}
+
+  '@scalar/helpers@0.16.3':
+    resolution: {integrity: sha512-He0CySU4Iv4DwyVF40EoVpvPneRQ1zqC/g1eBfR2i2G9RE/BEq/F5AiUrjIkbtTPjSbIiIL1AXMkXvBvgHVdsA==}
+    engines: {node: '>=22'}
+
+  '@scalar/hono-api-reference@0.12.12':
+    resolution: {integrity: sha512-JlOt8mo/tskQDnvriULUxnsYYKDQBp+t571bXFiaPw7oijfCL5bykwXpimket5Ukeg5PAkJm9O5i4JBAGcH17A==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      hono: ^4.12.5
+
+  '@scalar/schemas@0.13.2':
+    resolution: {integrity: sha512-T4dTbpphpDVHugS2ETd6cHOgF0FUBy58qDB6I3UviIr2HNsJQRG2RB1MX1+XQCT9md7igAzXw9lBJV12hw3NVA==}
+    engines: {node: '>=22'}
+
+  '@scalar/types@0.23.2':
+    resolution: {integrity: sha512-sya+RIpIODwcvem7SYRnPB0OdVZtQ15mSpVdPwB5qltYry7xgyp9skdc3PuxTDbyEmLuZ4ZmkSVybpaFMICZiQ==}
+    engines: {node: '>=22'}
+
+  '@scalar/validation@0.6.7':
+    resolution: {integrity: sha512-xvmeYb0LOg9B598oVA/1fs9MvnMdtWjQYG3v2Wgftewizr7tQjsdDYT1TQahlDzqRG+r+ml6zlSkPrFiCE5jHQ==}
+    engines: {node: '>=20'}
 
   '@schummar/icu-type-parser@1.21.5':
     resolution: {integrity: sha512-bXHSaW5jRTmke9Vd0h5P7BtWZG9Znqb8gSDxZnxaGSJnGwPLDPfS+3g0BKzeWqzgZPsIVZkM7m2tbo18cm5HBw==}
@@ -5098,6 +5119,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@5.1.16:
+    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+
   napi-postinstall@0.3.4:
     resolution: {integrity: sha512-PHI5f1O0EP5xJ9gQmFGMS6IZcrVvTjpXjz7Na41gTE7eE2hK11lg04CECCYEEjdc17EV4DO+fkGEtt7TpTaTiQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -6898,10 +6924,6 @@ snapshots:
       json-stable-stringify: 1.3.0
       typescript: 6.0.3
 
-  '@hono/swagger-ui@0.6.1(hono@4.13.13)':
-    dependencies:
-      hono: 4.13.13
-
   '@hono/zod-validator@0.9.1(hono@4.13.13)(zod@4.6.6)':
     dependencies:
       hono: 4.13.13
@@ -8009,6 +8031,34 @@ snapshots:
     optional: true
 
   '@rtsao/scc@1.1.0': {}
+
+  '@scalar/client-side-rendering@0.4.11':
+    dependencies:
+      '@scalar/helpers': 0.16.3
+      '@scalar/schemas': 0.13.2
+      '@scalar/types': 0.23.2
+      '@scalar/validation': 0.6.7
+
+  '@scalar/helpers@0.16.3': {}
+
+  '@scalar/hono-api-reference@0.12.12(hono@4.13.13)':
+    dependencies:
+      '@scalar/client-side-rendering': 0.4.11
+      hono: 4.13.13
+
+  '@scalar/schemas@0.13.2':
+    dependencies:
+      '@scalar/helpers': 0.16.3
+      '@scalar/validation': 0.6.7
+
+  '@scalar/types@0.23.2':
+    dependencies:
+      '@scalar/helpers': 0.16.3
+      nanoid: 5.1.16
+      type-fest: 5.10.0
+      zod: 4.6.6
+
+  '@scalar/validation@0.6.7': {}
 
   '@schummar/icu-type-parser@1.21.5': {}
 
@@ -10611,6 +10661,8 @@ snapshots:
   mute-stream@3.0.0: {}
 
   nanoid@3.3.18: {}
+
+  nanoid@5.1.16: {}
 
   napi-postinstall@0.3.4: {}
 
