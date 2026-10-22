@@ -50,6 +50,7 @@ import {
   guidePageImageUrls,
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { regionHref } from "@/lib/speciesRoutes";
 import {
   authorModifiedDate,
@@ -62,7 +63,7 @@ type SitemapEntry = MetadataRoute.Sitemap[number] & {
   datePublished?: string;
 };
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const catalog = getCatalogSpecies();
   const entries: SitemapEntry[] = [];
   const seen = new Set<string>();
@@ -74,71 +75,87 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
-  for (const locale of routing.locales) {
-    push(pageEntry(locale, "/"));
-    push(pageEntry(locale, "/contact"));
-    push(pageEntry(locale, "/about"));
-    push(pageEntry(locale, "/photo-use"));
-    for (const path of Object.values(LEGAL_PATHS)) {
-      push(pageEntry(locale, path));
-    }
-    push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
-    for (const page of newsArchivePages(locale)) {
-      const newsPage = getNewsPage(locale, page);
-      push({
+  const catalogs = await Promise.all(
+    routing.locales.map((locale) => getSpeciesCatalog(locale)),
+  );
+  const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
+  const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
+    pending.push(entry);
+
+  routing.locales.forEach((locale, index) => {
+    const cards = catalogs[index] ?? [];
+    const page = (
+      href: Parameters<typeof localePath>[1],
+      lastModified?: null | string,
+      datePublished?: string,
+    ) => pageEntry(cards, locale, href, lastModified, datePublished);
+    add(page("/"));
+    add(page("/contact"));
+    add(page("/about"));
+    add(page("/photo-use"));
+    for (const path of Object.values(LEGAL_PATHS)) add(page(path));
+    add(page("/news", newsIndexDateFields(locale).dateModified));
+    for (const newsPageNumber of newsArchivePages(locale)) {
+      const newsPage = getNewsPage(locale, newsPageNumber);
+      add({
         alternates: {
-          languages: newsArchiveAlternates(locale, page).languages,
+          languages: newsArchiveAlternates(locale, newsPageNumber).languages,
         },
         lastModified: toLastModified(
           newsPageDateModified(locale, newsPage?.articles ?? []),
         ),
-        url: newsPageUrl(locale, page),
+        url: newsPageUrl(locale, newsPageNumber),
       });
     }
     for (const article of getGuideArticles()) {
-      push({
-        ...pageEntry(locale, article.pathname),
-        images: guidePageImageUrls([article.hero.src]),
-      });
+      add(
+        page(article.pathname).then((entry) => ({
+          ...entry,
+          images: guidePageImageUrls([article.hero.src]),
+        })),
+      );
     }
-    push(pageEntry(locale, "/authors"));
-    push(pageEntry(locale, "/species"));
-    push(pageEntry(locale, "/venomous-snakes"));
-    push(pageEntry(locale, "/snakes-in-the-yard"));
-    push(pageEntry(locale, "/risk-to-humans"));
-    push(pageEntry(locale, "/dangerous-animals"));
-    push(pageEntry(locale, "/quiz"));
+    add(page("/authors"));
+    add(page("/species"));
+    add(page("/venomous-snakes"));
+    add(page("/snakes-in-the-yard"));
+    add(page("/risk-to-humans"));
+    add(page("/dangerous-animals"));
+    add(page("/quiz"));
     for (const quiz of liveQuizzes()) {
       const { languages } = quizAlternates(locale, quiz.id);
-      push({
-        alternates: { languages },
-        datePublished: sitemapQuizDatePublished(quiz.id),
-        lastModified: toLastModified(quizModifiedDate(quiz.id, locale)),
-        url: quizPageUrl(locale, quiz.id),
-      });
+      add(
+        quizModifiedDate(quiz.id, locale, cards).then((date) => ({
+          alternates: { languages },
+          datePublished: sitemapQuizDatePublished(quiz.id),
+          lastModified: toLastModified(date),
+          url: quizPageUrl(locale, quiz.id),
+        })),
+      );
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
       const images = guidePageImageUrls([guide.heroImage]);
-      push({
-        ...pageEntry(locale, guide.pathname),
-        ...(images.length > 0 ? { images } : {}),
-      });
+      add(
+        page(guide.pathname).then((entry) => ({
+          ...entry,
+          ...(images.length > 0 ? { images } : {}),
+        })),
+      );
     }
 
-    for (const hub of GROUP_HUB_LIST) {
-      push(pageEntry(locale, hub.path));
-    }
+    for (const hub of GROUP_HUB_LIST) add(page(hub.path));
 
-    push(pageEntry(locale, "/regions"));
+    add(page("/regions"));
 
     for (const region of regions) {
-      push(
-        pageEntry(
-          locale,
-          regionHref(region.id),
-          regionModifiedDate(region.id, locale),
-          sitemapRegionDatePublished(region.id),
+      add(
+        regionModifiedDate(region.id, locale, cards).then((date) =>
+          page(
+            regionHref(region.id),
+            date,
+            sitemapRegionDatePublished(region.id),
+          ),
         ),
       );
     }
@@ -146,7 +163,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const item of catalog) {
       const { languages } = speciesAlternates(locale, item.id);
       const images = speciesPageImageUrls(item);
-      push({
+      add({
         alternates: { languages },
         datePublished: item.publishedAt,
         lastModified: toLastModified(speciesUpdatedAt(item, locale)),
@@ -159,40 +176,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const photos = getCreditAuthorPhotos(author);
       const { languages } = creditAuthorAlternates(locale, author.slug);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
-      push({
-        alternates: { languages },
-        datePublished: sitemapAuthorDatePublished(author.slug),
-        lastModified: toLastModified(authorModifiedDate(author.slug, locale)),
-        url: creditAuthorUrl(locale, author.slug),
-        ...(images.length > 0 ? { images } : {}),
-      });
+      add(
+        authorModifiedDate(author.slug, locale, cards).then((date) => ({
+          alternates: { languages },
+          datePublished: sitemapAuthorDatePublished(author.slug),
+          lastModified: toLastModified(date),
+          url: creditAuthorUrl(locale, author.slug),
+          ...(images.length > 0 ? { images } : {}),
+        })),
+      );
     }
 
     for (const article of getPublishedNewsArticles(locale)) {
       const { languages } = newsArticleAlternates(locale, article.slug);
-      push({
+      add({
         alternates: { languages },
         datePublished: newsDateTime(article.publishedAt),
         lastModified: toLastModified(newsArticleModifiedDateTime(article)),
         url: newsArticleUrl(locale, article.slug),
       });
     }
-  }
+  });
 
+  for (const entry of await Promise.all(pending)) push(entry);
   return entries;
 }
 
-function pageEntry(
+async function pageEntry(
+  cards: readonly CatalogCard[],
   locale: AppLocale,
   href: Parameters<typeof localePath>[1],
-  lastModified: null | string = pageModifiedDate(String(href), locale),
+  lastModified?: null | string,
   datePublished?: string,
-): SitemapEntry {
+): Promise<SitemapEntry> {
   const { languages } = localeAlternates(locale, href);
   return {
     alternates: { languages },
     datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
-    lastModified: toLastModified(lastModified),
+    lastModified: toLastModified(
+      lastModified === undefined
+        ? await pageModifiedDate(String(href), locale, cards)
+        : lastModified,
+    ),
     url: absoluteUrl(localePath(locale, href)),
   };
 }

@@ -6,8 +6,6 @@ import {
   isHerpetofaunaGroup,
 } from "@/data/herpetofauna-checklist";
 import { getCatalogSpecies } from "@/data/species";
-import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { hubCandidateSpecies, hubFaqValues } from "@/lib/groupHubFaqValues";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
@@ -16,6 +14,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { speciesGroupFixture } from "../../tests/fixtures/speciesCatalog";
 
 const MESSAGES = { en, ka, ru, tr } as const;
 
@@ -42,10 +41,10 @@ describe("hub FAQ checklist candidates", () => {
             getHerpetofaunaChecklistStatus(id) === "candidate",
         )
         .filter((id) =>
-          getCatalogSpeciesByGroup(group).some((item) => item.id === id),
+          speciesGroupFixture(group).some((item) => item.id === id),
         )
         .sort();
-      const listed = hubCandidateSpecies(getCatalogSpeciesByGroup(group))
+      const listed = hubCandidateSpecies(speciesGroupFixture(group))
         .map((item) => item.id)
         .sort();
       expect(listed, hubId).toEqual(expected);
@@ -55,9 +54,7 @@ describe("hub FAQ checklist candidates", () => {
   it("names each candidate in the rendered list and no confirmed species", () => {
     for (const hubId of herpHubs) {
       for (const locale of routing.locales) {
-        const species = getCatalogSpeciesByGroup(GROUP_HUBS[hubId].group).map(
-          (item) => localizeSpecies(item, locale),
-        );
+        const species = speciesGroupFixture(GROUP_HUBS[hubId].group, locale);
         const { candidates } = hubFaqValues(species, locale);
         const lower = candidates.toLocaleLowerCase(locale);
         for (const item of species) {
@@ -84,7 +81,7 @@ describe("hub FAQ checklist candidates", () => {
   it("fills the candidate names from the checklist data in every locale", () => {
     for (const hubId of herpHubs) {
       const hasCandidates =
-        hubCandidateSpecies(getCatalogSpeciesByGroup(GROUP_HUBS[hubId].group))
+        hubCandidateSpecies(speciesGroupFixture(GROUP_HUBS[hubId].group))
           .length > 0;
       for (const locale of routing.locales) {
         const answer = faq1A(locale, hubId);

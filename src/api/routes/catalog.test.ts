@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { SPECIES_CARD_KEYS } from "@/data/speciesTypes";
 import { locales } from "@/i18n/locales";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
@@ -11,24 +12,6 @@ import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
 const env = { DB: createSpeciesTestDatabase().db };
-
-const CARD_KEYS = [
-  "commonName",
-  "danger",
-  "description",
-  "family",
-  "genus",
-  "id",
-  "image",
-  "imageCredit",
-  "location",
-  "mobileImage",
-  "mobileImageCredit",
-  "publishedAt",
-  "scientificName",
-  "stats",
-  "updatedAt",
-] as const;
 
 type CatalogBody = {
   data: Array<Record<string, unknown>>;
@@ -50,15 +33,16 @@ async function expected(
         view === "full"
           ? localized
           : Object.fromEntries(
-              CARD_KEYS.filter((key) => localized[key] !== undefined).map(
-                (key) => [key, localized[key]],
-              ),
+              SPECIES_CARD_KEYS.filter(
+                (key) => localized[key] !== undefined,
+              ).map((key) => [key, localized[key]]),
             );
       return {
         ...fields,
         group: speciesAtlasMeta[item.id]?.group,
         habitats: speciesAtlasMeta[item.id]?.habitats,
         lookalikes: getSpeciesLookalikes(item.id),
+        ...(view === "card" ? { photoCount: item.gallery.length } : {}),
         slug: getSpeciesPublicSlug(item.id, locale),
       };
     }),

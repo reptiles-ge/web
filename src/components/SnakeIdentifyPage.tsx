@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -44,7 +44,7 @@ export async function SnakeIdentifyPage({
   const pairs = SNAKE_LOOKALIKE_PAIRS.map((pair) => ({
     a: byId.get(pair.a),
     b: byId.get(pair.b),
-  })).filter((pair): pair is { a: Species; b: Species } =>
+  })).filter((pair): pair is { a: CatalogCard; b: CatalogCard } =>
     Boolean(pair.a && pair.b),
   );
   const giurza = byId.get("macrovipera-lebetina");

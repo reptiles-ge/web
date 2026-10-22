@@ -245,15 +245,15 @@ const CONSERVATION_LABELS = new Set([
   "კონსერვაცია",
 ]);
 
-export function getSpeciesActivityStat(species: Species) {
+export function getSpeciesActivityStat(species: Pick<Species, "stats">) {
   return getStatByLabels(species, ACTIVITY_LABELS);
 }
 
-export function getSpeciesHabitatStat(species: Species) {
+export function getSpeciesHabitatStat(species: Pick<Species, "stats">) {
   return getStatByLabels(species, HABITAT_LABELS);
 }
 
-export function getSpeciesSizeStat(species: Species) {
+export function getSpeciesSizeStat(species: Pick<Species, "stats">) {
   return getStatByLabels(species, SIZE_LABELS);
 }
 
@@ -301,7 +301,7 @@ export function isSizeStatLabel(label: string) {
   return SIZE_LABELS.has(label);
 }
 
-function getStatByLabels(species: Species, labels: Set<string>) {
+function getStatByLabels(species: Pick<Species, "stats">, labels: Set<string>) {
   const found = filterDisplayStats(species.stats).find((stat) =>
     labels.has(stat.label),
   );

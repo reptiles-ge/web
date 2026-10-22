@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -22,7 +22,6 @@ import {
   type Region,
   regions,
 } from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -44,12 +43,16 @@ export async function SnakeRangePage({
   const mappedCount = species.filter(
     (item) => getRegionsForSpecies(item.id).length > 0,
   ).length;
-  const highlightedIds: string[] = [];
-  for (const region of regions) {
-    if (getRegionSnakeSpecies(region).length > 0) {
-      highlightedIds.push(region.id);
-    }
-  }
+  const snakesByRegion = new Map(
+    regions.map((region) => [
+      region.id,
+      getRegionSnakeSpecies(region, species),
+    ]),
+  );
+  const highlightedIds = regions
+    .filter((region) => (snakesByRegion.get(region.id) ?? []).length > 0)
+    .map((region) => region.id);
+  const tooltipSpeciesByRegion = await getRegionTooltipPreviews(locale);
 
   return (
     <ClusterPageFrame
@@ -105,7 +108,7 @@ export async function SnakeRangePage({
                 highlightedIds={highlightedIds}
                 mapContext="guide"
                 selectionMode="navigate"
-                tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+                tooltipSpeciesByRegion={tooltipSpeciesByRegion}
               />
             </OptimizedImageScope>
           </div>
@@ -133,8 +136,9 @@ export async function SnakeRangePage({
                   pending={tShared("rangePending")}
                   region={region}
                   snakeCountLabel={t("snakeCount", {
-                    count: getRegionSnakeSpecies(region).length,
+                    count: snakesByRegion.get(region.id)?.length ?? 0,
                   })}
+                  snakes={snakesByRegion.get(region.id) ?? []}
                 />
               </div>
             ))}
@@ -150,13 +154,14 @@ function RegionSnakeRow({
   pending,
   region,
   snakeCountLabel,
+  snakes,
 }: {
   locale: AppLocale;
   pending: string;
   region: Region;
   snakeCountLabel: string;
+  snakes: CatalogCard[];
 }) {
-  const snakes = getRegionSnakeSpecies(region);
   const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const biome = localizeRegionText(content.biome, locale);
@@ -202,14 +207,14 @@ function SpeciesChip({
   species,
 }: {
   locale: AppLocale;
-  species: Species;
+  species: CatalogCard;
 }) {
   return (
     <Link
       className="inline-flex rounded-full border border-border bg-background px-3 py-1.5 text-[12px] text-foreground transition-colors hover:border-primary/40 hover:text-primary"
       href={speciesHref(species.id, locale)}
     >
-      {localizeSpecies(species, locale).commonName}
+      {species.commonName}
     </Link>
   );
 }

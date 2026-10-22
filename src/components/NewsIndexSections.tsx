@@ -34,11 +34,11 @@ const eyebrowClass =
   "text-[10.5px] font-semibold tracking-[0.16em] text-(--nw-muted) md:text-[11px]";
 
 export async function NewsAtlasCta({ locale }: { locale: AppLocale }) {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
+    getAtlasStats(locale),
   ]);
-  const stats = getAtlasStats();
 
   return (
     <section className={`${wrapClass} pt-12 pb-14 md:pt-24 md:pb-28`}>

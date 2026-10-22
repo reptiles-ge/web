@@ -1,16 +1,30 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
-import { describe, expect, it, vi } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
+
+import type { SpeciesListItem } from "@/data/speciesListItem";
 
 import { AtlasToolbar } from "@/components/species-atlas/AtlasToolbar";
 import { defaultAtlasFilters } from "@/data/atlasFilters";
 import { getAtlasListItems } from "@/lib/atlasList";
 
 import ka from "../../../messages/ka.json";
+import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
+
+vi.mock("@/lib/speciesCatalogApi", () => ({
+  getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
+    speciesCatalogFixture(locale),
+}));
+
+let catalog: SpeciesListItem[];
+
+beforeAll(async () => {
+  catalog = await getAtlasListItems("ka");
+});
 
 function renderToolbar(query = "") {
   const props = {
-    catalog: getAtlasListItems("ka"),
+    catalog,
     facetCount: 0,
     filters: { ...defaultAtlasFilters, query },
     onChangeSort: vi.fn(),

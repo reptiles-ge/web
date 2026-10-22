@@ -5,8 +5,8 @@ import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { getNavbarData } from "@/lib/navbarData";
 
 describe("getNavbarData", () => {
-  it("builds one optimized image per group hub and atlas stats", () => {
-    const data = getNavbarData();
+  it("builds one optimized image per group hub and atlas stats", async () => {
+    const data = await getNavbarData("en");
 
     expect(Object.keys(data.images).sort()).toEqual(
       Object.keys(GROUP_HUB_ILLUSTRATIONS).sort(),
@@ -18,6 +18,6 @@ describe("getNavbarData", () => {
         expect(source.type).toMatch(/^image\//);
       }
     }
-    expect(data.stats).toEqual(getAtlasStats());
+    expect(data.stats).toEqual(await getAtlasStats("en"));
   });
 });

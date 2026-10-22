@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
+
+import type { SpeciesListItem } from "@/data/speciesListItem";
 
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import {
@@ -11,6 +13,18 @@ import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getAtlasListItems } from "@/lib/atlasList";
 
 import ka from "../../../messages/ka.json";
+import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
+
+vi.mock("@/lib/speciesCatalogApi", () => ({
+  getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
+    speciesCatalogFixture(locale),
+}));
+
+let items: SpeciesListItem[];
+
+beforeAll(async () => {
+  items = await getAtlasListItems("ka");
+});
 
 function renderWith(node: React.ReactNode) {
   render(
@@ -21,7 +35,7 @@ function renderWith(node: React.ReactNode) {
 }
 
 function species(id: string) {
-  const item = getAtlasListItems("ka").find((entry) => entry.id === id);
+  const item = items.find((entry) => entry.id === id);
   if (!item) throw new Error(`missing ${id}`);
   return item;
 }
@@ -38,7 +52,7 @@ describe("AtlasSpeciesCard", () => {
   });
 
   it("leaves the risk out of the name when the group has no risk scale", () => {
-    const bird = getAtlasListItems("ka").find(
+    const bird = items.find(
       (entry) => getSpeciesAtlasMeta(entry.id).group === "bird",
     );
     expect(bird).toBeDefined();

@@ -42,7 +42,7 @@ export default async function About({ params }: Props) {
   const aboutJsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    ...pageDateFields("/about", locale),
+    ...(await pageDateFields("/about", locale)),
     about: organization,
     description: kaMetaDescriptionOverride(locale, path, t("metaDescription")),
     inLanguage: locale,

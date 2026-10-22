@@ -11,7 +11,7 @@ import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function AtlasSeo({ locale }: { locale: AppLocale }) {
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
-  const venomousSnakes = getAtlasListItems(locale).filter(
+  const venomousSnakes = (await getAtlasListItems(locale)).filter(
     (item) =>
       getSpeciesAtlasMeta(item.id).group === "snake" &&
       isVenomousDanger(item.danger),

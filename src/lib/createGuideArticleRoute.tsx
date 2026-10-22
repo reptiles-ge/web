@@ -91,7 +91,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
     ]);
     const copy = article.copy[locale];
     const url = absoluteUrl(localePath(locale, pathname));
-    const dates = pageDateFields(pathname, locale);
+    const dates = await pageDateFields(pathname, locale);
     const shareImage = guideShareImage(article, locale);
     const heroImage = guideImageObject(article.hero, locale);
     const breadcrumbLd = breadcrumbListLd([

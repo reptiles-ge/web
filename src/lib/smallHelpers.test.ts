@@ -140,11 +140,11 @@ describe("seoKeywords", () => {
 });
 
 describe("getFooterData", () => {
-  it("lists every region and every venomous snake", () => {
-    const data = getFooterData("en");
+  it("lists every region and every venomous snake", async () => {
+    const data = await getFooterData("en");
     expect(data.regions).toHaveLength(12);
     expect(data.venomous.map((item) => item.id)).toEqual(
-      getVenomousCatalogSpecies().map((item) => item.id),
+      (await getVenomousCatalogSpecies("en")).map((item) => item.id),
     );
     for (const region of data.regions) expect(region.name).toBeTruthy();
   });

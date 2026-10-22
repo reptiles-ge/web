@@ -96,7 +96,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const webPageJsonLd = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      ...pageDateFields(path, locale),
+      ...(await pageDateFields(path, locale)),
       description: title("metaDescription"),
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },

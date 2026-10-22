@@ -73,7 +73,7 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const dates = pageDateFields(PATH, locale);
+  const dates = await pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     dates,
     description: t("metaDescription"),

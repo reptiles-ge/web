@@ -177,7 +177,9 @@ describe("venomous snakes title", () => {
       const title = renderedTitle(
         (await venomousSnakesMetadata(localeParams(locale))).title,
       );
-      expect(title).toContain(String(getVenomousCatalogSpecies().length));
+      expect(title).toContain(
+        String((await getVenomousCatalogSpecies(locale)).length),
+      );
     },
   );
 });

@@ -80,7 +80,7 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
     })),
   );
 
-  const dates = pageDateFields(PATH, locale);
+  const dates = await pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     dates,
     description: t("metaDescription"),

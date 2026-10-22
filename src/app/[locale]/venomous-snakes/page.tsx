@@ -13,7 +13,6 @@ import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { SPECIES_GUIDE_ROW_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   breadcrumbListLd,
@@ -34,12 +33,13 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
+  const locale = localeParam as AppLocale;
   return speciesOgPageMetadata({
-    locale: localeParam as AppLocale,
+    locale,
     namespace: "venomousSnakes",
     ogSpeciesId: OG_SPECIES,
     pagePath: PATH,
-    titleValues: { count: getVenomousCatalogSpecies().length },
+    titleValues: { count: (await getVenomousCatalogSpecies(locale)).length },
   });
 }
 
@@ -60,9 +60,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
   const tSnakes = await getTranslations({ locale, namespace: "snakes" });
 
   const url = absoluteUrl(localePath(locale, PATH));
-  const venomous = getVenomousCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
-  );
+  const venomous = await getVenomousCatalogSpecies(locale);
   const heroSrc =
     venomous.find((item) => item.id === OG_SPECIES)?.image ??
     venomous[0]?.image ??
@@ -77,7 +75,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const dates = pageDateFields(PATH, locale);
+  const dates = await pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     about: { "@type": "Place", name: georgiaPlaceName(locale) },
     dates,

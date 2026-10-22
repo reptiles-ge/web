@@ -73,14 +73,17 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "speciesAtlas" });
+  const [t, catalog, recent, tooltipSpeciesByRegion, stats, dates] =
+    await Promise.all([
+      getTranslations({ locale, namespace: "speciesAtlas" }),
+      getAtlasListItems(locale),
+      getAtlasRecentItems(locale),
+      getRegionTooltipPreviews(locale),
+      getAtlasStats(locale),
+      atlasDateFields(locale),
+    ]);
   const url = absoluteUrl(localePath(locale, "/species"));
-  const catalog = getAtlasListItems(locale);
-  const recent = getAtlasRecentItems(locale);
-  const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const regionLabels = getRegionLabels(locale);
-  const stats = getAtlasStats();
-  const dates = atlasDateFields(locale);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },

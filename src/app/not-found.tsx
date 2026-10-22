@@ -35,7 +35,7 @@ export default async function RootNotFound() {
         <LocaleSwitchProvider>
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
-          <Navbar {...getNavbarData()} />
+          <Navbar {...await getNavbarData(locale)} />
           <main id="main" tabIndex={-1}>
             <NotFoundShell locale={locale} />
           </main>
