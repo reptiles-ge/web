@@ -424,7 +424,7 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     en: "European cat snake (Telescopus fallax): slender, nocturnal, vertical pupils, so often taken for a viper. Rear-fanged but not a serious danger to people.",
   },
   "trachemys-scripta": {
-    en: "Pond slider (Trachemys scripta) in Georgia: a non-native pet turtle with a red stripe behind the eye, recorded near Tbilisi and Batumi. Never release it.",
+    en: "Pond slider (Trachemys scripta) in Georgia: a non-native pet turtle with a red stripe behind the eye, breeding near Tbilisi and Batumi. Never release it.",
   },
   "turdus-merula": {
     en: "Common blackbird (Turdus merula) in Georgia: a year-round resident that nests here. Males are black with a yellow-orange bill; females are dark brown.",

@@ -45,6 +45,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
       "emys-orbicularis",
+      "trachemys-scripta",
       "accipiter-nisus",
       "dendrocopos-major",
       "erithacus-rubecula",
