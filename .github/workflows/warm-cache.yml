@@ -44,8 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
     steps:
       - uses: actions/checkout@v7
         with:
@@ -62,40 +61,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Upload missing OG images and news schema crops
+      - name: Upload missing OG images, check the news schema manifest
         run: pnpm images:warm
         env:
           BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
           BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
           BUNNY_STORAGE_REGION: ${{ vars.BUNNY_STORAGE_REGION }}
-
-      - name: Open a pull request with the updated news schema manifest
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if git diff --quiet -- src/data/newsSchemaImages.json; then
-            echo "newsSchemaImages.json is unchanged."
-            exit 0
-          fi
-          branch=bot/news-schema-images
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -C "$branch"
-          git add src/data/newsSchemaImages.json
-          git commit -m "Record new news schema crops"
-          git push --force origin "$branch"
-          if [ "$(gh pr list --head "$branch" --base staging --state open --json number --jq length)" != "0" ]; then
-            echo "A pull request for $branch is already open."
-            exit 0
-          fi
-          if ! gh pr create --base staging --head "$branch" --label content \
-            --title "Record new news schema crops" \
-            --body "The warm-cache workflow uploaded 16:9, 4:3 and 1:1 crops for new news heroes. This records them in \`src/data/newsSchemaImages.json\`, so NewsArticle JSON-LD lists them after the next deploy."; then
-            compare="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/compare/staging...$branch?expand=1"
-            echo "::warning title=Open the news schema pull request by hand::GitHub Actions may not create pull requests in this repository. $branch is pushed; open it at $compare"
-            {
-              echo "### News schema crops are waiting for a pull request"
-              echo
-              echo "\`$branch\` holds the updated \`src/data/newsSchemaImages.json\`. [Open the pull request into staging]($compare) and label it \`content\`."
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
