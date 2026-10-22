@@ -9118,6 +9118,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1571],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-ka-1.jpg": {
+    "path": "trachemys-scripta-ka-1",
+    "width": 1644,
+    "height": 1471,
+    "widths": [320, 400, 640, 800, 1200, 1644],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-kseniia-2.jpg": {
+    "path": "trachemys-scripta-kseniia-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta-marat-1.jpg": {
     "path": "trachemys-scripta-marat-1",
     "width": 2048,
@@ -9137,6 +9151,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1707,
     "height": 960,
     "widths": [400, 800, 1200, 1707],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-nikita-1.jpg": {
+    "path": "trachemys-scripta-nikita-1",
+    "width": 1840,
+    "height": 1221,
+    "widths": [320, 400, 640, 800, 1200, 1840],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-wichyanan-1.jpg": {
+    "path": "trachemys-scripta-wichyanan-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/trachemys-scripta.jpg": {

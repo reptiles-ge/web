@@ -109631,6 +109631,196 @@
       ],
       "updatedAt": "2026-10-22T09:46:19.262Z"
     },
+    "trachemys-scripta-ka-1.jpg": {
+      "sourceHash": "67efdaaeb42dac88f393916d15d505360c61532ba99c0ff7bff98420becae9e7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-ka-1.jpg",
+      "originalSize": 634886,
+      "width": 1644,
+      "height": 1471,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 286,
+          "byteSize": 16421
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 286,
+          "byteSize": 23974
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 358,
+          "byteSize": 23518
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 358,
+          "byteSize": 35002
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 573,
+          "byteSize": 48586
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 573,
+          "byteSize": 70198
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 716,
+          "byteSize": 68012
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 716,
+          "byteSize": 98684
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 136733
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 194800
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.avif",
+          "format": "avif",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 267466
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.webp",
+          "format": "webp",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 350206
+        }
+      ],
+      "updatedAt": "2026-10-22T09:52:24.612Z"
+    },
+    "trachemys-scripta-kseniia-2.jpg": {
+      "sourceHash": "dc751b5f0d9495d14773d2d2549c5becd6b1b3edaa81239b54a57766e0a87cd9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-kseniia-2.jpg",
+      "originalSize": 611894,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6724
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8050
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9444
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11204
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20048
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 22924
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29303
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 33790
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60354
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 71128
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 240662
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 250522
+        }
+      ],
+      "updatedAt": "2026-10-22T09:51:27.956Z"
+    },
     "trachemys-scripta-marat-1.jpg": {
       "sourceHash": "ac964dd58378b377ec258492a1d5cfda8f2e1b8510f085c137ef2359e0d2bee1",
       "configFingerprint": "409788ee46c653d8",
@@ -109887,6 +110077,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:59:37.344Z"
+    },
+    "trachemys-scripta-nikita-1.jpg": {
+      "sourceHash": "6deb09fdd64575acc392a30237a1593a58ccf2cbce5ffed468f7672514acc002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-nikita-1.jpg",
+      "originalSize": 320972,
+      "width": 1840,
+      "height": 1221,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5280
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7686
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 13997
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 14698
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 18832
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 20270
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 34120
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 35758
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.avif",
+          "format": "avif",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 79912
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.webp",
+          "format": "webp",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 94072
+        }
+      ],
+      "updatedAt": "2026-10-22T09:53:42.018Z"
+    },
+    "trachemys-scripta-wichyanan-1.jpg": {
+      "sourceHash": "142fb86faacab497f202d3b98b8fbcab90f14a0d7821e5ff1d4ac9d4c7de14b6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-wichyanan-1.jpg",
+      "originalSize": 467505,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9125
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11484
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12653
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16392
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25939
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34038
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36281
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48418
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63891
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83500
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142627
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185856
+        }
+      ],
+      "updatedAt": "2026-10-22T09:53:08.597Z"
     },
     "trachemys-scripta.jpg": {
       "sourceHash": "31009c2a2532200b897e3b01d84a8ef3c59a5099b94a2a7fdf8ed2e3a8d1fdf5",
