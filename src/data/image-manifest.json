@@ -109631,6 +109631,101 @@
       ],
       "updatedAt": "2026-10-22T09:46:19.262Z"
     },
+    "trachemys-scripta-ka-1.jpg": {
+      "sourceHash": "67efdaaeb42dac88f393916d15d505360c61532ba99c0ff7bff98420becae9e7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-ka-1.jpg",
+      "originalSize": 634886,
+      "width": 1644,
+      "height": 1471,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 286,
+          "byteSize": 16421
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 286,
+          "byteSize": 23974
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 358,
+          "byteSize": 23518
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 358,
+          "byteSize": 35002
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 573,
+          "byteSize": 48586
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 573,
+          "byteSize": 70198
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 716,
+          "byteSize": 68012
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 716,
+          "byteSize": 98684
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 136733
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 194800
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.avif",
+          "format": "avif",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 267466
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.webp",
+          "format": "webp",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 350206
+        }
+      ],
+      "updatedAt": "2026-10-22T09:52:24.612Z"
+    },
     "trachemys-scripta-kseniia-2.jpg": {
       "sourceHash": "dc751b5f0d9495d14773d2d2549c5becd6b1b3edaa81239b54a57766e0a87cd9",
       "configFingerprint": "409788ee46c653d8",
