@@ -17,6 +17,7 @@ import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
   creditAuthorAlternates,
   creditAuthorUrl,
+  type CreditPhotoSource,
   getCreditAuthorPhotos,
 } from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
@@ -50,7 +51,11 @@ import {
   guidePageImageUrls,
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
-import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import {
+  type CatalogCard,
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 import { regionHref } from "@/lib/speciesRoutes";
 import {
   authorModifiedDate,
@@ -75,9 +80,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
-  const catalogs = await Promise.all(
-    routing.locales.map((locale) => getSpeciesCatalog(locale)),
-  );
+  const [catalogs, creditPhotos] = await Promise.all([
+    Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
+    getCreditPhotoCatalog(),
+  ]);
   const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
     pending.push(entry);
@@ -88,7 +94,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       href: Parameters<typeof localePath>[1],
       lastModified?: null | string,
       datePublished?: string,
-    ) => pageEntry(cards, locale, href, lastModified, datePublished);
+    ) =>
+      pageEntry(
+        { cards, creditPhotos, locale },
+        href,
+        lastModified,
+        datePublished,
+      );
     add(page("/"));
     add(page("/contact"));
     add(page("/about"));
@@ -173,17 +185,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const author of getPublishedCreditAuthors()) {
-      const photos = getCreditAuthorPhotos(author);
+      const photos = getCreditAuthorPhotos(author, creditPhotos);
       const { languages } = creditAuthorAlternates(locale, author.slug);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
       add(
-        authorModifiedDate(author.slug, locale, cards).then((date) => ({
-          alternates: { languages },
-          datePublished: sitemapAuthorDatePublished(author.slug),
-          lastModified: toLastModified(date),
-          url: creditAuthorUrl(locale, author.slug),
-          ...(images.length > 0 ? { images } : {}),
-        })),
+        authorModifiedDate(author.slug, locale, cards, creditPhotos).then(
+          (date) => ({
+            alternates: { languages },
+            datePublished: sitemapAuthorDatePublished(author.slug),
+            lastModified: toLastModified(date),
+            url: creditAuthorUrl(locale, author.slug),
+            ...(images.length > 0 ? { images } : {}),
+          }),
+        ),
       );
     }
 
@@ -203,8 +217,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 }
 
 async function pageEntry(
-  cards: readonly CatalogCard[],
-  locale: AppLocale,
+  {
+    cards,
+    creditPhotos,
+    locale,
+  }: {
+    cards: readonly CatalogCard[];
+    creditPhotos: readonly CreditPhotoSource[];
+    locale: AppLocale;
+  },
   href: Parameters<typeof localePath>[1],
   lastModified?: null | string,
   datePublished?: string,
@@ -215,7 +236,7 @@ async function pageEntry(
     datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
     lastModified: toLastModified(
       lastModified === undefined
-        ? await pageModifiedDate(String(href), locale, cards)
+        ? await pageModifiedDate(String(href), locale, cards, creditPhotos)
         : lastModified,
     ),
     url: absoluteUrl(localePath(locale, href)),

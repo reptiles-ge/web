@@ -17,7 +17,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { BrandText } from "@/components/BrandName";
 import { CoverImage } from "@/components/CoverImage";
-import { creditAuthorName } from "@/data/creditAuthors";
+import {
+  creditAuthorName,
+  getPublishedCreditAuthors,
+} from "@/data/creditAuthors";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -27,6 +30,7 @@ import {
   GROUP_HUBS,
   type GroupHubId,
 } from "@/lib/groupHubs";
+import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
 const SOURCE_LINKS = [
   {
@@ -171,8 +175,11 @@ async function AboutCompany({ locale }: { locale: AppLocale }) {
 }
 
 async function AboutContribute({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "about" });
-  const authors = getCreditAuthorCards().map((card) => card.author);
+  const [t, creditPhotos] = await Promise.all([
+    getTranslations({ locale, namespace: "about" }),
+    getCreditPhotoCatalog(),
+  ]);
+  const authors = getCreditAuthorCards(creditPhotos).map((card) => card.author);
 
   return (
     <section className={`${wrapClass} py-14 md:pt-[120px] md:pb-28`}>
@@ -335,7 +342,7 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
     getTranslations({ locale, namespace: "nav" }),
     getAtlasStats(locale),
   ]);
-  const contributors = getCreditAuthorCards().length;
+  const contributors = getPublishedCreditAuthors().length;
   const languages = routing.locales.length;
   const statItems = [
     { label: t("stats.species", { count: stats.total }), value: stats.total },

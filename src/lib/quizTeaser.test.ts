@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
@@ -8,6 +8,16 @@ import {
   getSpeciesQuizTeaser,
   quizTeaserOptionIds,
 } from "@/lib/quizTeaser";
+
+vi.mock("@/lib/speciesCatalogApi", async () => {
+  const { speciesCatalogFixture } =
+    await import("../../tests/fixtures/speciesCatalog");
+  return {
+    getCreditPhotoCatalog: async () => speciesCatalogFixture("ka"),
+    getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
+      speciesCatalogFixture(locale),
+  };
+});
 
 const catalog = getCatalogSpecies();
 const byId = new Map(catalog.map((item) => [item.id, item]));

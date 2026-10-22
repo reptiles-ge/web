@@ -22,12 +22,11 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 import {
   getPhotoUseCreditExample,
+  getPhotoUseHeroPhotos,
   getPhotoUsePhotos,
   getPhotoUseShowcase,
   getPhotoUseStats,
@@ -36,6 +35,11 @@ import {
   type PhotoUsePhoto,
 } from "@/lib/photoUse";
 import { CONTACT_EMAIL } from "@/lib/site";
+import {
+  type CatalogCard,
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -60,8 +64,14 @@ const NUMBER_FORMATS = new Map<AppLocale, Intl.NumberFormat>();
 type Translate = Awaited<ReturnType<typeof getTranslations<"photoUse">>>;
 
 export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "photoUse" });
-  const photos = getPhotoUsePhotos();
+  const [t, creditPhotos, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "photoUse" }),
+    getCreditPhotoCatalog(),
+    getSpeciesCatalog(locale),
+  ]);
+  const photos = getPhotoUsePhotos(creditPhotos);
+  const showcase = getPhotoUseShowcase(getPhotoUseHeroPhotos(creditPhotos));
+  const speciesById = new Map(catalog.map((item) => [item.id, item]));
 
   return (
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
@@ -72,11 +82,21 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
         <p className="mt-4 max-w-[640px] text-[16.5px] leading-[1.55] text-(--nw-soft) md:mt-6 md:text-[19px]">
           {t("intro")}
         </p>
-        <PhotoUseShowcase locale={locale} t={t} />
+        <PhotoUseShowcase
+          locale={locale}
+          showcase={showcase}
+          speciesById={speciesById}
+          t={t}
+        />
         <PhotoUseStats locale={locale} photos={photos} t={t} />
       </section>
       <PhotoUseCards locale={locale} t={t} />
-      <PhotoUseCreditExample locale={locale} photos={photos} t={t} />
+      <PhotoUseCreditExample
+        locale={locale}
+        photos={photos}
+        speciesById={speciesById}
+        t={t}
+      />
       <PhotoUsePhotographers t={t} />
       <PhotoUseFaq t={t} />
     </div>
@@ -203,17 +223,18 @@ function PhotoUseCards({ locale, t }: { locale: AppLocale; t: Translate }) {
 function PhotoUseCreditExample({
   locale,
   photos,
+  speciesById,
   t,
 }: {
   locale: AppLocale;
   photos: PhotoUsePhoto[];
+  speciesById: ReadonlyMap<string, CatalogCard>;
   t: Translate;
 }) {
   const example = getPhotoUseCreditExample(photos);
   const photographer = example?.photo.credit?.photographer?.trim();
-  const species = example && getSpeciesById(example.photo.speciesId);
-  if (!example || !photographer || !species) return null;
-  const localized = localizeSpecies(species, locale);
+  const localized = example && speciesById.get(example.photo.speciesId);
+  if (!example || !photographer || !localized) return null;
   const source = photoCreditSourceLabel(example.sourceUrl) ?? "";
   const license = photoLicenseLabel(example.licenseUrl);
   const steps = [
@@ -418,12 +439,20 @@ function PhotoUsePicture({
   );
 }
 
-function PhotoUseShowcase({ locale, t }: { locale: AppLocale; t: Translate }) {
-  const tiles = getPhotoUseShowcase().flatMap((photo) => {
-    const species = getSpeciesById(photo.speciesId);
-    return species
-      ? [{ photo, species: localizeSpecies(species, locale) }]
-      : [];
+function PhotoUseShowcase({
+  locale,
+  showcase,
+  speciesById,
+  t,
+}: {
+  locale: AppLocale;
+  showcase: ReturnType<typeof getPhotoUseShowcase>;
+  speciesById: ReadonlyMap<string, CatalogCard>;
+  t: Translate;
+}) {
+  const tiles = showcase.flatMap((photo) => {
+    const species = speciesById.get(photo.speciesId);
+    return species ? [{ photo, species }] : [];
   });
 
   return (

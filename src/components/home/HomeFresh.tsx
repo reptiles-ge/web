@@ -12,12 +12,14 @@ import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref, newsIndexHref } from "@/lib/news";
 import { getNewsVisual } from "@/lib/newsVisual";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 
 export async function HomeFresh({ locale }: { locale: AppLocale }) {
-  const [t, tNews] = await Promise.all([
+  const [t, tNews, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "home.fresh" }),
     getTranslations({ locale, namespace: "news" }),
+    getSpeciesCatalog(locale),
   ]);
   const [lead, ...rest] = getPublishedNewsArticles(locale);
   const updated = (await getRecentlyUpdatedSpecies(locale)).map((species) => ({
@@ -26,7 +28,7 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
   }));
   if (!lead && updated.length === 0) return null;
   const leadCopy = lead ? getNewsCopy(lead, locale) : null;
-  const leadVisual = lead ? getNewsVisual(lead, locale) : null;
+  const leadVisual = lead ? getNewsVisual(lead, locale, catalog) : null;
 
   return (
     <section className="bg-background py-11 lg:py-20">

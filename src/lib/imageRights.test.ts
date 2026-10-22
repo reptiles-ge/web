@@ -20,6 +20,8 @@ import { newsImageRights } from "@/lib/newsVisual";
 import { galleryImageObject } from "@/lib/photoMeta";
 import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 type ImageObject = Record<string, unknown> & {
   acquireLicensePage?: string;
   contentUrl?: string;
@@ -337,7 +339,12 @@ describe("guide and news images", () => {
   it("license every news image", () => {
     for (const article of getPublishedNewsArticles()) {
       for (const locale of routing.locales) {
-        const rights = newsImageRights(article, locale);
+        const rights = newsImageRights(
+          article,
+          locale,
+          speciesCatalogFixture(locale),
+          speciesCatalogFixture("ka"),
+        );
         expectLicensed(rights, article.slug);
         if ("creator" in rights) expectAttributed(rights, article.slug);
       }

@@ -25,6 +25,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -42,12 +43,12 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "author" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const cards = getCreditAuthorCards();
+  const [t, tShared, creditPhotos] = await Promise.all([
+    getTranslations({ locale, namespace: "author" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getCreditPhotoCatalog(),
+  ]);
+  const cards = getCreditAuthorCards(creditPhotos);
   const url = creditAuthorIndexUrl(locale);
 
   const breadcrumbLd = {

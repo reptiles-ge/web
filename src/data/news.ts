@@ -5,7 +5,6 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { NEWS_ARTICLES } from "@/data/news.generated";
 import { getRegionById } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
@@ -142,10 +141,15 @@ export function newsRelatedRegions(article: NewsArticle) {
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 }
 
-export function newsRelatedSpecies(article: NewsArticle) {
-  return article.relatedSpeciesIds
-    .map((id) => getSpeciesById(id))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+export function newsRelatedSpecies<T extends { id: string }>(
+  article: NewsArticle,
+  catalog: readonly T[],
+) {
+  const byId = new Map(catalog.map((item) => [item.id, item]));
+  return article.relatedSpeciesIds.flatMap((id) => {
+    const item = byId.get(id);
+    return item ? [item] : [];
+  });
 }
 
 export function newsSearchKeywords(article: NewsArticle) {

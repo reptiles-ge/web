@@ -26,6 +26,8 @@ import {
 } from "@/data/news";
 import { routing } from "@/i18n/routing";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const published = getPublishedNewsArticles();
 const article = published[0];
 
@@ -91,9 +93,10 @@ describe("relations", () => {
       expect(newsRelatedRegions(item), item.slug).toHaveLength(
         item.relatedRegionIds.length,
       );
-      expect(newsRelatedSpecies(item), item.slug).toHaveLength(
-        item.relatedSpeciesIds.length,
-      );
+      expect(
+        newsRelatedSpecies(item, speciesCatalogFixture("ka")),
+        item.slug,
+      ).toHaveLength(item.relatedSpeciesIds.length);
     }
   });
 

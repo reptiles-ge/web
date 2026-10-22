@@ -1,6 +1,6 @@
 import type { CreditAuthor } from "@/data/creditAuthors";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
-import type { PhotoCredit } from "@/data/speciesTypes";
+import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -14,7 +14,6 @@ import {
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
-import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -57,6 +56,17 @@ export type CreditAuthorGroupStat = {
   photos: number;
   species: Array<{ id: string; photos: number }>;
 };
+
+export type CreditPhotoSource = Pick<
+  SpeciesPhotoFields,
+  | "gallery"
+  | "id"
+  | "image"
+  | "imageCredit"
+  | "mobileImage"
+  | "mobileImageCredit"
+  | "updatedAt"
+>;
 
 export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   return localeAlternates(locale, {
@@ -148,10 +158,12 @@ export function creditAuthorUrl(locale: AppLocale, slug: string) {
   );
 }
 
-export function getCreditAuthorCards(): CreditAuthorCard[] {
+export function getCreditAuthorCards(
+  catalog: readonly CreditPhotoSource[],
+): CreditAuthorCard[] {
   const cards = [];
   for (const author of getPublishedCreditAuthors()) {
-    const photos = getCreditAuthorPhotos(author);
+    const photos = getCreditAuthorPhotos(author, catalog);
     cards.push({
       author,
       photoCount: photos.length,
@@ -226,11 +238,12 @@ export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
 
 export function getCreditAuthorPhotos(
   author: CreditAuthor,
+  catalog: readonly CreditPhotoSource[],
 ): CreditAuthorPhoto[] {
   const aliases = new Set(author.aliases);
   const bySrc = new Map<string, CreditAuthorPhoto>();
 
-  for (const species of getCatalogSpecies()) {
+  for (const species of catalog) {
     addPhoto(
       bySrc,
       aliases,

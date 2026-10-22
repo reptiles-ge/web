@@ -289,6 +289,16 @@ const catalogCard = component(
   "Species in the light `card` view of the catalog.",
 );
 
+const catalogPhotoSpecies = component(
+  "CatalogPhotoSpecies",
+  z.strictObject({
+    ...common,
+    gallery: fullText.gallery,
+    lookalikes: lookalikeIds,
+  }),
+  "Species in the `photos` view of the catalog: the `card` fields plus the gallery with every photo credit, for credit and photo-use pages.",
+);
+
 const catalogQuizSpecies = component(
   "CatalogQuizSpecies",
   z.strictObject({
@@ -384,6 +394,18 @@ export const catalogCardResponse = component(
     view: z.literal("card"),
   }),
   "Catalog in the `card` view.",
+);
+
+export const catalogPhotosResponse = component(
+  "CatalogPhotosResponse",
+  z.strictObject({
+    data: z.array(catalogPhotoSpecies),
+    locale: resolvedLocale,
+    nextCursor,
+    total: catalogTotal,
+    view: z.literal("photos"),
+  }),
+  "Catalog in the `photos` view.",
 );
 
 export const catalogQuizResponse = component(

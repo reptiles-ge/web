@@ -20,6 +20,7 @@ import { Link } from "@/i18n/navigation";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexDateFields, newsSourceBadges } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type NewsIndexPageProps = {
   articles: NewsArticle[];
@@ -53,17 +54,23 @@ export async function NewsIndexPage({
   pageCount,
   total,
 }: NewsIndexPageProps) {
-  const [t, tNav, tShared] = await Promise.all([
+  const [t, tNav, tShared, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getSpeciesCatalog(locale),
   ]);
 
   const entries = articles.map((article) =>
-    toNewsIndexEntry(article, locale, {
-      readLabel: (minutes) => t("readTime", { minutes }),
-      topicLabel: (hub) => tNav(hub),
-    }),
+    toNewsIndexEntry(
+      article,
+      locale,
+      {
+        readLabel: (minutes) => t("readTime", { minutes }),
+        topicLabel: (hub) => tNav(hub),
+      },
+      catalog,
+    ),
   );
   const [lead, ...rest] = entries;
 

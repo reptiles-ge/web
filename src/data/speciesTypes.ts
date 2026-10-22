@@ -146,3 +146,13 @@ export type SpeciesQuizFields = Pick<
   Species,
   (typeof SPECIES_QUIZ_KEYS)[number]
 >;
+
+export const SPECIES_PHOTO_KEYS = [
+  ...SPECIES_CARD_KEYS,
+  "gallery",
+] as const satisfies ReadonlyArray<keyof Species>;
+
+export type SpeciesPhotoFields = Pick<
+  Species,
+  (typeof SPECIES_PHOTO_KEYS)[number]
+>;

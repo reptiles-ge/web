@@ -26,6 +26,8 @@ import {
 } from "@/lib/creditAuthors";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const authors = getPublishedCreditAuthors();
 
 describe("static params and urls", () => {
@@ -63,7 +65,10 @@ describe("getCreditAuthorPhotos", () => {
   it("only returns photos credited to one of the author's aliases", () => {
     for (const author of authors) {
       const aliases = new Set(author.aliases);
-      for (const photo of getCreditAuthorPhotos(author)) {
+      for (const photo of getCreditAuthorPhotos(
+        author,
+        speciesCatalogFixture("ka"),
+      )) {
         expect(
           aliases.has(photo.credit?.photographer?.trim() ?? ""),
           `${author.slug}: ${photo.src}`,
@@ -74,7 +79,10 @@ describe("getCreditAuthorPhotos", () => {
 
   it("lists every photo source at most once", () => {
     for (const author of authors) {
-      const srcs = getCreditAuthorPhotos(author).map((photo) => photo.src);
+      const srcs = getCreditAuthorPhotos(
+        author,
+        speciesCatalogFixture("ka"),
+      ).map((photo) => photo.src);
       expect(new Set(srcs).size, author.slug).toBe(srcs.length);
     }
   });
@@ -82,7 +90,10 @@ describe("getCreditAuthorPhotos", () => {
   it("only references published species", () => {
     const ids = new Set(getCatalogSpecies().map((item) => item.id));
     for (const author of authors) {
-      for (const photo of getCreditAuthorPhotos(author)) {
+      for (const photo of getCreditAuthorPhotos(
+        author,
+        speciesCatalogFixture("ka"),
+      )) {
         expect(ids.has(photo.speciesId), photo.speciesId).toBe(true);
       }
     }
@@ -90,7 +101,10 @@ describe("getCreditAuthorPhotos", () => {
 
   it("returns nothing for an author with no matching credits", () => {
     expect(
-      getCreditAuthorPhotos({ ...authors[0], aliases: ["Nobody Atall"] }),
+      getCreditAuthorPhotos(
+        { ...authors[0], aliases: ["Nobody Atall"] },
+        speciesCatalogFixture("ka"),
+      ),
     ).toEqual([]);
   });
 });
@@ -131,7 +145,7 @@ describe("getCreditAuthorHubIds", () => {
 });
 
 describe("getCreditAuthorCards", () => {
-  const cards = getCreditAuthorCards();
+  const cards = getCreditAuthorCards(speciesCatalogFixture("ka"));
 
   it("has a card for every published author", () => {
     expect(cards.map((card) => card.author.slug).sort()).toEqual(
@@ -167,7 +181,7 @@ describe("getCreditAuthorCards", () => {
 describe("getCreditAuthorGroupStats", () => {
   it("accounts for every photo and species exactly once per group", () => {
     for (const author of authors) {
-      const photos = getCreditAuthorPhotos(author);
+      const photos = getCreditAuthorPhotos(author, speciesCatalogFixture("ka"));
       const stats = getCreditAuthorGroupStats(photos);
       expect(stats.reduce((sum, stat) => sum + stat.photos, 0)).toBe(
         photos.length,
@@ -187,7 +201,9 @@ describe("getCreditAuthorGroupStats", () => {
   });
 
   it("orders groups by photo count", () => {
-    const stats = getCreditAuthorGroupStats(getCreditAuthorPhotos(authors[0]));
+    const stats = getCreditAuthorGroupStats(
+      getCreditAuthorPhotos(authors[0], speciesCatalogFixture("ka")),
+    );
     for (let index = 1; index < stats.length; index += 1) {
       expect(stats[index - 1].photos).toBeGreaterThanOrEqual(
         stats[index].photos,

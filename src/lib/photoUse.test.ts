@@ -15,6 +15,8 @@ import {
   type PhotoUsePhoto,
 } from "@/lib/photoUse";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const OTHER_AUTHOR = {
   aliases: ["Other"],
   id: "other",
@@ -26,7 +28,7 @@ const OTHER_AUTHOR = {
 };
 
 describe("photo use data", () => {
-  const photos = getPhotoUsePhotos();
+  const photos = getPhotoUsePhotos(speciesCatalogFixture("ka"));
 
   it("counts every unique gallery photo of the published catalog", () => {
     const srcs = new Set(
@@ -97,7 +99,9 @@ describe("photo use data", () => {
   });
 
   it("shows six contributor profile heroes, one per group", () => {
-    const showcase = getPhotoUseShowcase();
+    const showcase = getPhotoUseShowcase(
+      getPhotoUseHeroPhotos(speciesCatalogFixture("ka")),
+    );
     expect(showcase).toHaveLength(PHOTO_USE_SHOWCASE_SIZE);
     const groups = showcase.map((photo) => photo.group);
     expect(new Set(groups).size).toBe(groups.length);
@@ -111,11 +115,13 @@ describe("photo use data", () => {
       expect(photo.src).toBe(species?.image);
       expect(photoContributor(species?.imageCredit)?.id).toBe(photo.author.id);
     }
-    expect(getPhotoUseShowcase()).toEqual(showcase);
+    expect(
+      getPhotoUseShowcase(getPhotoUseHeroPhotos(speciesCatalogFixture("ka"))),
+    ).toEqual(showcase);
   });
 
   it("skips non-contributor heroes and reuses an author only as a fallback", () => {
-    const heroes = getPhotoUseHeroPhotos();
+    const heroes = getPhotoUseHeroPhotos(speciesCatalogFixture("ka"));
     const first = heroes.find((photo) => photo.author)!;
     const outsider = { ...first, author: undefined, src: "a" };
     const snake = { ...first, group: "snake" as const };

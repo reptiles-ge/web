@@ -14,6 +14,7 @@ import {
 import {
   catalogCardResponse,
   catalogFullResponse,
+  catalogPhotosResponse,
   catalogQuizResponse,
   errorResponse,
   fieldRecordsResponse,
@@ -51,6 +52,12 @@ describe("documented response schemas", () => {
       expectValid(catalogCardResponse, card.body, `catalog card ${locale}`);
       const full = await getJson("/v1/catalog?view=full", locale);
       expectValid(catalogFullResponse, full.body, `catalog full ${locale}`);
+      const photos = await getJson("/v1/catalog?view=photos", locale);
+      expectValid(
+        catalogPhotosResponse,
+        photos.body,
+        `catalog photos ${locale}`,
+      );
       const quiz = await getJson("/v1/catalog?view=quiz", locale);
       expectValid(catalogQuizResponse, quiz.body, `catalog quiz ${locale}`);
     }
@@ -86,6 +93,11 @@ describe("documented response schemas", () => {
     expectValid(catalogCardResponse, RESPONSE_EXAMPLES.catalogCard, "card");
     expectValid(catalogFullResponse, RESPONSE_EXAMPLES.catalogFull, "full");
     expectValid(catalogQuizResponse, RESPONSE_EXAMPLES.catalogQuiz, "quiz");
+    expectValid(
+      catalogPhotosResponse,
+      RESPONSE_EXAMPLES.catalogPhotos,
+      "photos",
+    );
     expectValid(errorResponse, RESPONSE_EXAMPLES.error, "error");
   });
 

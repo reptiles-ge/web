@@ -23,6 +23,8 @@ import {
   regionDateFields,
 } from "@/lib/structuredDataDates";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 describe("atlasDateFields", () => {
   it.each(routing.locales)(
     "dates the %s atlas by its newest species page",
@@ -101,7 +103,9 @@ describe("member-derived dates", () => {
   it("dates a contributor by the newest species carrying their photos", async () => {
     for (const author of getPublishedCreditAuthors()) {
       const ids = new Set(
-        getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author)),
+        getCreditAuthorSpeciesIds(
+          getCreditAuthorPhotos(author, speciesCatalogFixture("ka")),
+        ),
       );
       const members = getCatalogSpecies().filter((item) => ids.has(item.id));
       if (members.length === 0) continue;
