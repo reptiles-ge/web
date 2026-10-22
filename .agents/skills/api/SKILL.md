@@ -78,6 +78,10 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - **For now MDX stays the source of truth.** D1 is a copy built by `pnpm db:import:species` (local) or `pnpm db:import:species:remote` (production, owner asks only). The import deletes and rewrites only the species tables. Re-run it after content changes. NEVER edit species rows by hand.
 - `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
 - Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
+- `GET /v1/species` and `GET /v1/species/:idOrSlug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
+- `:idOrSlug` accepts the id, the Georgian slug, or any alias in `species_slugs`, case-insensitive. Unpublished species answer 404.
+- Because the API serves the D1 copy, a content change shows in the API only after `pnpm db:import:species:remote`, and then within an hour: species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin`) for `s-maxage=3600`.
+- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with what the site renders (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
@@ -100,6 +104,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ## Caching
 
+- Public D1-backed `GET` routes use `edgeCache(name)` from `lib/cache.ts`, which stores responses in the Workers Cache API keyed by URL and `Origin`. A cache hit never touches D1. Never cache an authenticated or `no-store` response.
 - `etag()` runs on every response. A repeated `GET` with a matching `If-None-Match` gets `304` with no body. Keep responses deterministic (no timestamps or random values in a cacheable body) so the ETag stays stable.
 - Public `GET`: `Cache-Control: PUBLIC_CACHE` from `lib/cache.ts`.
 - Authenticated or personal responses: `NO_STORE`.

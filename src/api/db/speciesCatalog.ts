@@ -75,7 +75,11 @@ const CREDIT_SELECT =
 
 export async function readSpeciesCatalog(
   db: ApiDatabase,
+  speciesId?: string,
 ): Promise<SpeciesCatalogData> {
+  const where = (column: string) => (speciesId ? ` WHERE ${column} = ?` : "");
+  const statement = (query: string) =>
+    speciesId ? db.prepare(query).bind(speciesId) : db.prepare(query);
   const [
     species,
     texts,
@@ -89,61 +93,64 @@ export async function readSpeciesCatalog(
     overlays,
     lookalikes,
     slugs,
-  ] = await Promise.all([
-    rows<SpeciesRow>(
-      db,
-      "SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at FROM species ORDER BY catalog_position",
-    ),
-    rows<TextRow>(
-      db,
-      "SELECT species_id, locale, common_name, overview, description, habitat, diet, behavior, conservation, location, interaction, identification_summary, identification_coloration, updated_at FROM species_texts",
-    ),
-    rows<{ kind: string; locale: string; species_id: string; text: string }>(
-      db,
-      "SELECT species_id, locale, kind, text FROM species_list_items ORDER BY species_id, locale, kind, position",
-    ),
-    rows<{
+  ] = (
+    await db.batch([
+      statement(
+        `SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at FROM species${where("id")} ORDER BY catalog_position`,
+      ),
+      statement(
+        `SELECT species_id, locale, common_name, overview, description, habitat, diet, behavior, conservation, location, interaction, identification_summary, identification_coloration, updated_at FROM species_texts${where("species_id")}`,
+      ),
+      statement(
+        `SELECT species_id, locale, kind, text FROM species_list_items${where("species_id")} ORDER BY species_id, locale, kind, position`,
+      ),
+      statement(
+        `SELECT species_id, locale, question, answer FROM species_faq${where("species_id")} ORDER BY species_id, locale, position`,
+      ),
+      statement(
+        `SELECT species_id, locale, label, value FROM species_stats${where("species_id")} ORDER BY species_id, locale, position`,
+      ),
+      statement(
+        `SELECT species_id, color FROM species_identification_colors${where("species_id")} ORDER BY species_id, position`,
+      ),
+      statement(
+        `SELECT species_id, name, url FROM species_sources${where("species_id")} ORDER BY species_id, position`,
+      ),
+      statement(
+        `SELECT species_id, habitat_id FROM species_habitats${where("species_id")} ORDER BY species_id, position`,
+      ),
+      statement(
+        `SELECT id, species_id, role, position, src, ${CREDIT_SELECT} FROM species_media${where("species_id")} ORDER BY species_id, role, position`,
+      ),
+      statement(
+        `SELECT media_id, locale, position, ${CREDIT_SELECT} FROM species_media_overlays${speciesId ? " WHERE media_id IN (SELECT id FROM species_media WHERE species_id = ?)" : ""} ORDER BY locale, position`,
+      ),
+      statement(
+        `SELECT species_id, lookalike_id FROM species_lookalikes${where("species_id")} ORDER BY species_id, position`,
+      ),
+      statement(
+        `SELECT slug, species_id FROM species_slugs${where("species_id")} ORDER BY slug`,
+      ),
+    ])
+  ).map((result) => result.results) as [
+    SpeciesRow[],
+    TextRow[],
+    Array<{ kind: string; locale: string; species_id: string; text: string }>,
+    Array<{
       answer: string;
       locale: string;
       question: string;
       species_id: string;
-    }>(
-      db,
-      "SELECT species_id, locale, question, answer FROM species_faq ORDER BY species_id, locale, position",
-    ),
-    rows<{ label: string; locale: string; species_id: string; value: string }>(
-      db,
-      "SELECT species_id, locale, label, value FROM species_stats ORDER BY species_id, locale, position",
-    ),
-    rows<{ color: string; species_id: string }>(
-      db,
-      "SELECT species_id, color FROM species_identification_colors ORDER BY species_id, position",
-    ),
-    rows<{ name: string; species_id: string; url: null | string }>(
-      db,
-      "SELECT species_id, name, url FROM species_sources ORDER BY species_id, position",
-    ),
-    rows<{ habitat_id: HabitatTag; species_id: string }>(
-      db,
-      "SELECT species_id, habitat_id FROM species_habitats ORDER BY species_id, position",
-    ),
-    rows<MediaRow>(
-      db,
-      `SELECT id, species_id, role, position, src, ${CREDIT_SELECT} FROM species_media ORDER BY species_id, role, position`,
-    ),
-    rows<OverlayRow>(
-      db,
-      `SELECT media_id, locale, position, ${CREDIT_SELECT} FROM species_media_overlays ORDER BY locale, position`,
-    ),
-    rows<{ lookalike_id: string; species_id: string }>(
-      db,
-      "SELECT species_id, lookalike_id FROM species_lookalikes ORDER BY species_id, position",
-    ),
-    rows<{ slug: string; species_id: string }>(
-      db,
-      "SELECT slug, species_id FROM species_slugs ORDER BY slug",
-    ),
-  ]);
+    }>,
+    Array<{ label: string; locale: string; species_id: string; value: string }>,
+    Array<{ color: string; species_id: string }>,
+    Array<{ name: string; species_id: string; url: null | string }>,
+    Array<{ habitat_id: HabitatTag; species_id: string }>,
+    MediaRow[],
+    OverlayRow[],
+    Array<{ lookalike_id: string; species_id: string }>,
+    Array<{ slug: string; species_id: string }>,
+  ];
 
   const textsBy = group(texts, (row) => `${row.species_id}:${row.locale}`);
   const itemsBy = group(
@@ -354,8 +361,4 @@ function localizedText(
     }),
     updatedAt: row.updated_at,
   };
-}
-
-async function rows<T>(db: ApiDatabase, query: string) {
-  return (await db.prepare(query).all<T>()).results;
 }
