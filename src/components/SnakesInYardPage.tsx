@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
@@ -28,6 +29,7 @@ import {
 
 type SnakesInYardPageProps = {
   coverSrc: string;
+  heroSpecies?: Species;
   heroSrc: string;
   locale: AppLocale;
   publishedAt: string;
@@ -38,6 +40,7 @@ const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 
 export async function SnakesInYardPage({
   coverSrc,
+  heroSpecies,
   heroSrc,
   locale,
   publishedAt,
@@ -52,7 +55,11 @@ export async function SnakesInYardPage({
   return (
     <div className="min-h-screen bg-background">
       <div>
-        <SnakesInYardHero heroSrc={heroSrc} locale={locale} />
+        <SnakesInYardHero
+          heroSpecies={heroSpecies}
+          heroSrc={heroSrc}
+          locale={locale}
+        />
         <SnakesInYardSections coverSrc={coverSrc} locale={locale} />
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
