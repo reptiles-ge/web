@@ -8,7 +8,6 @@ import {
   getPublishedNewsArticles,
 } from "../src/data/news";
 import { regions } from "../src/data/regions";
-import { getCatalogSpecies } from "../src/data/species";
 import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
 import {
@@ -30,6 +29,7 @@ import {
   speciesAlternates,
 } from "../src/lib/site";
 import { regionHref } from "../src/lib/speciesRoutes";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
 
@@ -222,8 +222,8 @@ function addRoute(input: RouteInput) {
   });
 }
 
-function addSpecies() {
-  for (const item of getCatalogSpecies()) {
+function addSpecies(catalog: ReadonlyArray<{ id: string }>) {
+  for (const item of catalog) {
     for (const locale of routing.locales) {
       const { canonical, languages } = speciesAlternates(locale, item.id);
       addRoute({
@@ -237,12 +237,12 @@ function addSpecies() {
   }
 }
 
-function main() {
+async function main() {
   addLocalizedStatic();
   addHubs();
   addGuides();
   addRegions();
-  addSpecies();
+  addSpecies(await getSpeciesCatalog(routing.defaultLocale));
   addAuthors();
   addNews();
   addQuizzes();
@@ -267,4 +267,7 @@ function normalizePath(value: string) {
   return value.replace(/\/+$/, "") || "/";
 }
 
-main();
+main().catch((error: unknown) => {
+  console.error(error);
+  process.exit(1);
+});

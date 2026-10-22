@@ -9,9 +9,7 @@ import type { LocalePageProps } from "@/lib/pageMetadata";
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
-import { getCatalogSpecies } from "@/data/species";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
@@ -22,6 +20,7 @@ import {
   sitePageLd,
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -56,11 +55,11 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "riskToHumans" });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "riskToHumans" }),
+    getSpeciesCatalog(locale),
+  ]);
   const url = absoluteUrl(localePath(locale, PATH));
-  const catalog = getCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
-  );
   const byDanger = getCatalogByDanger(catalog);
   const harmlessExamples = orderSpeciesByIds(
     byDanger.Harmless,

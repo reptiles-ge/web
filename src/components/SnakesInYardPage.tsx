@@ -1,8 +1,8 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import {
@@ -29,7 +29,7 @@ import {
 
 type SnakesInYardPageProps = {
   coverSrc: string;
-  heroSpecies?: Species;
+  heroSpecies?: CatalogCard;
   heroSrc: string;
   locale: AppLocale;
   publishedAt: string;

@@ -16,7 +16,6 @@ import {
   SpeciesAtlasFallback,
 } from "@/components/species-atlas/SpeciesAtlas";
 import { getRegionLabels, getRegionTooltipPreviews } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
@@ -36,6 +35,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { atlasDateFields } from "@/lib/structuredDataDates";
 
 export async function generateMetadata({
@@ -45,7 +45,10 @@ export async function generateMetadata({
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "speciesAtlas" });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "speciesAtlas" }),
+    getSpeciesCatalog(locale),
+  ]);
   const title = t("metaTitle");
 
   return buildPageMetadata({
@@ -53,7 +56,7 @@ export async function generateMetadata({
     locale,
     ogImageUrl: speciesOgImageUrl(
       "vipera-kaznakovi",
-      getSpeciesById("vipera-kaznakovi")?.image,
+      catalog.find((item) => item.id === "vipera-kaznakovi")?.image,
     ),
     pagePath: "/species",
     title,

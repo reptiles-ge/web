@@ -12,12 +12,7 @@ import {
   sitemapRegionDatePublished,
 } from "../src/data/pageLastModified";
 import { regions } from "../src/data/regions";
-import { getCatalogSpecies } from "../src/data/species";
-import {
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-} from "../src/data/speciesAtlas";
-import { localizeSpecies } from "../src/i18n/localizeSpecies";
+import type { AnimalGroup } from "../src/data/speciesAtlas";
 import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
 import { creditAuthorUrl } from "../src/lib/creditAuthors";
@@ -33,6 +28,7 @@ import {
   quizModifiedDate,
   regionModifiedDate,
 } from "../src/lib/structuredDataDates";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
 
@@ -589,7 +585,7 @@ function buildGscOpportunities(
 }
 
 async function buildInventory(graph: SeoGraph): Promise<InventoryItem[]> {
-  const speciesItems = speciesInventory();
+  const speciesItems = await speciesInventory();
   const byUrl = new Map(speciesItems.map((item) => [item.url, item]));
   for (const item of await hubInventory()) byUrl.set(item.url, item);
   for (const item of await guideInventory()) byUrl.set(item.url, item);
@@ -1462,11 +1458,19 @@ async function quizInventory(): Promise<InventoryItem[]> {
   );
 }
 
-function speciesInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    getCatalogSpecies().map((raw) => {
-      const item = localizeSpecies(raw, locale);
-      const group = getSpeciesAtlasMeta(raw.id).group;
+async function speciesInventory(): Promise<InventoryItem[]> {
+  const catalogs = await Promise.all(
+    routing.locales.map((locale) => getSpeciesCatalog(locale, "full")),
+  );
+  const kaById = new Map(
+    (catalogs[routing.locales.indexOf(routing.defaultLocale)] ?? []).map(
+      (entry) => [entry.id, entry],
+    ),
+  );
+  return routing.locales.flatMap((locale, index) =>
+    (catalogs[index] ?? []).map((item) => {
+      const raw = kaById.get(item.id) ?? item;
+      const group = item.group;
       const url = speciesPageUrl(locale, raw.id);
       return {
         alternates: {},
@@ -1982,7 +1986,7 @@ const INSPECTION_QUOTA: Record<InspectionFamily, Record<AppLocale, number>> = {
   species: { en: 6, ka: 14, ru: 4, tr: 3 },
 };
 
-function inspectionFamilies() {
+function inspectionFamilies(speciesIds: readonly string[]) {
   const families = new Map<string, InspectionFamily>();
   const add = (url: string, family: InspectionFamily) =>
     families.set(normalizeUrl(url), family);
@@ -2002,8 +2006,7 @@ function inspectionFamilies() {
         absoluteFromPath(localePath(locale, regionHref(region.id))),
         "region",
       );
-    for (const item of getCatalogSpecies())
-      add(speciesPageUrl(locale, item.id), "species");
+    for (const id of speciesIds) add(speciesPageUrl(locale, id), "species");
     for (const article of getPublishedNewsArticles(locale))
       add(newsArticleUrl(locale, article.slug), "news");
     for (const author of getPublishedCreditAuthors())
@@ -2020,7 +2023,9 @@ async function urlInspectionSample() {
   const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
     normalizeUrl(match[1]),
   );
-  const families = inspectionFamilies();
+  const families = inspectionFamilies(
+    (await getSpeciesCatalog(routing.defaultLocale)).map((item) => item.id),
+  );
   const buckets = new Map<string, string[]>();
   for (const url of urls) {
     const family = families.get(url) ?? "other";

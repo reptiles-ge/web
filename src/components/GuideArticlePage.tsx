@@ -18,14 +18,13 @@ import { GuideSources } from "@/components/GuideSources";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SectionNav } from "@/components/SectionNav";
 import { guideArticleSectionAnchor } from "@/data/guideArticles";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { type AppLocale } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 
@@ -53,12 +52,13 @@ export async function GuideArticlePage({
   related,
 }: GuideArticlePageProps) {
   const parent = GROUP_HUBS[article.parentHub];
-  const [t, tShared, tParent, tNews, tNav] = await Promise.all([
+  const [t, tShared, tParent, tNews, tNav, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "guideArticle" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: parent.messageKey }),
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
   ]);
   const copy = article.copy[locale];
   const parentLabel = tParent("breadcrumbCurrent");
@@ -68,10 +68,11 @@ export async function GuideArticlePage({
     index,
     section,
   }));
-  const relatedSpecies = (article.relatedSpeciesIds ?? [])
-    .map((id) => getSpeciesById(id))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-    .map((item) => localizeSpecies(item, locale));
+  const byId = new Map(catalog.map((item) => [item.id, item]));
+  const relatedSpecies = (article.relatedSpeciesIds ?? []).flatMap((id) => {
+    const item = byId.get(id);
+    return item ? [item] : [];
+  });
 
   return (
     <div className="min-h-screen bg-background">
