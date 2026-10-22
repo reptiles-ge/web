@@ -109251,6 +109251,101 @@
       ],
       "updatedAt": "2026-10-22T09:44:01.855Z"
     },
+    "trachemys-scripta-floyd-1.jpg": {
+      "sourceHash": "6ceaeb5784beff9d1d246b5ebcc4ea1ab36ddae0058c37fc0a4215a57fe2e68a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-floyd-1.jpg",
+      "originalSize": 573847,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11760
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17702
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17035
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24974
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 36201
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 52694
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 52580
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 76106
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 94972
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137798
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 196080
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 274366
+        }
+      ],
+      "updatedAt": "2026-10-22T09:47:34.126Z"
+    },
     "trachemys-scripta-gogopopo-1.jpg": {
       "sourceHash": "0c02cece1c5d1c1c6f158096e2497f7f3f6ea31b1ff7cfc77524d64eef741e87",
       "configFingerprint": "409788ee46c653d8",
