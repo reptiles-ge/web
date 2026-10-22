@@ -1,0 +1,110 @@
+import { describe, expect, it } from "vitest";
+
+import { app } from "../app";
+import { documentedOperations } from "../lib/openapi";
+import { createTestDatabase } from "../testing/sqliteDatabase";
+
+const env = { DB: createTestDatabase().db };
+
+type Document = {
+  openapi: string;
+  paths: Record<
+    string,
+    Record<
+      string,
+      {
+        parameters: Array<{ in: string; name: string; required: boolean }>;
+        requestBody?: { content: Record<string, { schema: unknown }> };
+        security: unknown[];
+      }
+    >
+  >;
+  servers: Array<{ description: string; url: string }>;
+};
+
+const appOperations = app.routes
+  .filter(
+    (route) => route.method !== "ALL" && !route.path.startsWith("/v1/docs"),
+  )
+  .map((route) => ({
+    method: route.method.toLowerCase(),
+    path: route.path.replace(/:(\w+)/g, "{$1}").replace(/\/$/, ""),
+  }));
+
+const key = (entry: { method: string; path: string }) =>
+  `${entry.method} ${entry.path}`;
+
+async function loadDocument() {
+  const response = await app.request(
+    "https://api.reptiles.ge/v1/docs/openapi.json",
+    {},
+    env,
+  );
+  return { document: (await response.json()) as Document, response };
+}
+
+describe("docs route", () => {
+  it("serves Swagger UI pointing at the spec", async () => {
+    const response = await app.request("/v1/docs", {}, env);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Content-Type")).toContain("text/html");
+    expect(response.headers.get("Cache-Control")).toBe(
+      "public, max-age=300, s-maxage=3600",
+    );
+    const html = await response.text();
+    expect(html).toContain("SwaggerUIBundle");
+    expect(html).toContain("/v1/docs/openapi.json");
+  });
+
+  it("serves an OpenAPI 3.1 document that tries requests on its own origin", async () => {
+    const { document, response } = await loadDocument();
+    expect(response.status).toBe(200);
+    expect(document.openapi).toBe("3.1.0");
+    expect(document.servers.map((server) => server.url)).toEqual([
+      "/",
+      "https://api.reptiles.ge",
+    ]);
+  });
+
+  it("documents every route the app serves, and nothing else", () => {
+    expect(documentedOperations.map(key).sort()).toEqual(
+      [...new Set(appOperations.map(key))].sort(),
+    );
+  });
+
+  it("matches path parameters, request bodies and auth to the routes", async () => {
+    const { document } = await loadDocument();
+    for (const [path, methods] of Object.entries(document.paths)) {
+      const names = [...path.matchAll(/\{(\w+)\}/g)].map((match) => match[1]);
+      for (const [method, entry] of Object.entries(methods)) {
+        const pathParams = entry.parameters.filter((p) => p.in === "path");
+        expect(pathParams.map((p) => p.name).sort(), path).toEqual(
+          names.sort(),
+        );
+        expect(pathParams.every((p) => p.required)).toBe(true);
+        if (["post", "put"].includes(method)) {
+          expect(
+            entry.requestBody?.content["application/json"]?.schema,
+            `${method} ${path}`,
+          ).toBeTruthy();
+        }
+        if (path.startsWith("/v1/admin/")) {
+          expect(entry.security).toEqual([{ bearerToken: [] }]);
+        }
+      }
+    }
+  });
+
+  it("marks defaulted query parameters as optional", async () => {
+    const { document } = await loadDocument();
+    const locale = document.paths["/v1/catalog"]?.get?.parameters.find(
+      (p) => p.name === "locale",
+    );
+    expect(locale).toMatchObject({ in: "query", required: false });
+  });
+
+  it("answers 404 for unknown docs paths", async () => {
+    const response = await app.request("/v1/docs/nothing", {}, env);
+    expect(response.status).toBe(404);
+  });
+});

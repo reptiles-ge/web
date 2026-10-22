@@ -43,6 +43,13 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - JSON keys are camelCase. Dates are ISO 8601 in UTC.
 - Non-critical side work (Telegram, analytics) MUST run in `c.executionCtx.waitUntil()`, never before the response.
 
+## OpenAPI and Swagger UI
+
+- `GET /v1/docs` serves Swagger UI (`@hono/swagger-ui`, pinned; assets load from jsDelivr). `GET /v1/docs/openapi.json` serves the OpenAPI 3.1 document. Both are public and send `PUBLIC_CACHE`.
+- The document is built in `lib/openapi.ts` from the same Zod schemas the routes validate with (`z.toJSONSchema`, input side). NEVER write a request schema by hand there; import it from `schemas/`.
+- Every route MUST have an entry in `OPERATIONS` (`lib/openapi.ts`) with its method, path, tag, auth, inputs, success status and error statuses. `routes/docs.test.ts` fails when a served route is missing, a documented one no longer exists, path params do not match, or an admin route lacks `bearerToken`.
+- Servers are `/` (whatever origin serves the page, so "Try it out" in `pnpm dev:api` hits the local Worker) and `https://api.reptiles.ge`.
+
 ## Validation
 
 - Every input MUST go through `validate(target, schema)` from `lib/validate.ts` (wraps `@hono/zod-validator`). Read it with `c.req.valid(target)`.
@@ -223,5 +230,6 @@ Before a PR: `pnpm lint`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm knip`, `
 2. SQL in `db/{resource}.ts` with `bind()` and named columns. New table or index: a new migration.
 3. Route in `routes/{resource}.ts`, mounted under `/v1/` in `app.ts`.
 4. Errors through `ApiError`, cache header from `lib/cache.ts`. A write route needs `requireToken`, or `requireSiteOrigin` plus a rate limit if browsers call it.
-5. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
-6. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).
+5. The operation in `OPERATIONS` in `lib/openapi.ts`.
+6. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
+7. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).
