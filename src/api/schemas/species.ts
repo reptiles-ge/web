@@ -22,7 +22,7 @@ export const speciesListQuery = z.object({
 });
 
 export const speciesParam = z.object({
-  idOrSlug: z
+  slug: z
     .string()
     .trim()
     .toLowerCase()

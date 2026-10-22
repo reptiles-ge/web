@@ -39,15 +39,15 @@ const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
       description: "Only species of this animal group.",
       example: "snake",
     },
-    idOrSlug: {
-      description:
-        "Species id (`macrovipera-lebetina`), Georgian slug (`giurza`) or any older or alias slug. Case-insensitive.",
-      example: "macrovipera-lebetina",
-    },
     locale: {
       description:
         "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
       example: "en",
+    },
+    slug: {
+      description:
+        "Public slug of the species in the requested `locale`: the Georgian slug for `ka` (`giurza`), the species id for `en`, `ru` and `tr` (`macrovipera-lebetina`). Case-insensitive.",
+      example: "giurza",
     },
     view: {
       description:
@@ -80,7 +80,7 @@ Pass \`locale\` = \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). Georgian is
 
 ## Ids and slugs
 
-\`id\` is the stable key of a species (for example \`macrovipera-lebetina\`). Store it rather than a slug. \`slug\` is the public URL part for the requested locale: the Georgian slug for \`ka\` (\`giurza\`), the id otherwise. \`/v1/species/{idOrSlug}\` accepts the id, the Georgian slug or an older or alias slug.
+\`id\` is the stable key of a species (for example \`macrovipera-lebetina\`). \`slug\` is the public URL part for the requested locale: the Georgian slug for \`ka\` (\`giurza\`), the id otherwise. \`/v1/species/{slug}\` accepts only that slug, in the same \`locale\`: \`/v1/species/giurza\` or \`/v1/species/macrovipera-lebetina?locale=en\`.
 
 ## Text format
 
@@ -136,7 +136,7 @@ const OPERATIONS: Operation[] = [
     method: "get",
     operationId: "getSpecies",
     param: speciesParam,
-    path: "/v1/species/{idOrSlug}",
+    path: "/v1/species/{slug}",
     query: speciesDetailQuery,
     success: {
       description: "Species profile.",
@@ -158,7 +158,8 @@ const OPERATIONS: Operation[] = [
     method: "get",
     operationId: "listFieldRecords",
     param: speciesParam,
-    path: "/v1/species/{idOrSlug}/field-records",
+    path: "/v1/species/{slug}/field-records",
+    query: speciesDetailQuery,
     success: {
       description: "Field records.",
       examples: {
@@ -248,7 +249,7 @@ export function buildOpenApiDocument() {
           error: { code: "internal_error", message: "Internal error" },
         }),
         NotFound: errorResponse(
-          "No published species with this id or slug.",
+          "No published species with this slug in the requested locale.",
           RESPONSE_EXAMPLES.error,
         ),
         NotModified: {

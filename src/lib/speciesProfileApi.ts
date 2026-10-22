@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { createApiClient } from "@/lib/apiClient";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
+import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 type SpeciesProfile = {
   group: AnimalGroup;
@@ -14,8 +15,8 @@ type SpeciesProfile = {
 
 export const getSpeciesProfile = cache(
   async (id: string, locale: AppLocale): Promise<null | SpeciesProfile> => {
-    const response = await createApiClient().v1.species[":idOrSlug"].$get(
-      { param: { idOrSlug: id }, query: { locale } },
+    const response = await createApiClient().v1.species[":slug"].$get(
+      { param: { slug: getSpeciesPublicSlug(id, locale) }, query: { locale } },
       speciesFetchOptions(["species", `species:${id}`]),
     );
     if (!response.ok) {

@@ -89,8 +89,8 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - **D1 is the source of truth for species.** `pnpm db:import:species` / `db:import:species:remote` was the one-off initial copy from MDX. It deletes and rewrites only the species tables, and its first statement fails once any `species_revisions` row exists, so it can never overwrite API edits. Change content only through `PUT /v1/admin/species/:id`. NEVER edit MDX for species content and NEVER edit species rows by hand.
 - `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
 - Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
-- `GET /v1/species` and `GET /v1/species/:idOrSlug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
-- `:idOrSlug` accepts the id, the Georgian slug, or any alias in `species_slugs`, case-insensitive. Unpublished species answer 404.
+- `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
+- `:slug` accepts only the public slug of the requested `locale` (the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
 - Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
 - `routes/species.test.ts` compares the D1 list and every published profile in all four locales with what the site renders (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
@@ -176,7 +176,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 ### Field records
 
 - `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
-- Public read: `GET /v1/species/:idOrSlug/field-records` returns `{ data, id, total }`, edge-cached.
+- Public read: `GET /v1/species/:slug/field-records?locale=` (same slug rule) returns `{ data, id, total }`, edge-cached.
 - `pnpm db:import:field-records` / `:remote` is a one-off copy from the compiled MDX JSON. Its first statement fails once any field record exists, so it can never duplicate or overwrite rows. `db/fieldRecords.test.ts` round-trips every record 1:1.
 
 ### Drafts (AI changes need approval)

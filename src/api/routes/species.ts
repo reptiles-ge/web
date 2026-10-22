@@ -26,13 +26,13 @@ export const species = new Hono<ApiEnv>()
     return c.json({ data, locale, total: data.length }, 200);
   })
   .get(
-    "/:idOrSlug",
+    "/:slug",
     validate("param", speciesParam),
     validate("query", speciesDetailQuery),
     async (c) => {
-      const { idOrSlug } = c.req.valid("param");
+      const { slug } = c.req.valid("param");
       const { locale } = c.req.valid("query");
-      const id = await findPublishedSpeciesId(c.env.DB, idOrSlug);
+      const id = await findPublishedSpeciesId(c.env.DB, slug, locale);
       const data = id ? await getSpeciesDetail(c.env.DB, id, locale) : null;
       if (!data) throw new ApiError(404, "not_found", "Species not found");
       c.header("Cache-Control", PUBLIC_CACHE);
@@ -40,12 +40,14 @@ export const species = new Hono<ApiEnv>()
     },
   )
   .get(
-    "/:idOrSlug/field-records",
+    "/:slug/field-records",
     validate("param", speciesParam),
+    validate("query", speciesDetailQuery),
     async (c) => {
       const id = await findPublishedSpeciesId(
         c.env.DB,
-        c.req.valid("param").idOrSlug,
+        c.req.valid("param").slug,
+        c.req.valid("query").locale,
       );
       if (!id) throw new ApiError(404, "not_found", "Species not found");
       const data = await readFieldRecords(c.env.DB, id);
