@@ -1,7 +1,11 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
-  entry: ["src/app/**/{layout,page,route}.local.{ts,tsx}", "src/worker.ts"],
+  entry: [
+    "src/app/**/{layout,page,route}.local.{ts,tsx}",
+    "src/worker.ts",
+    "src/api/index.ts",
+  ],
   ignoreBinaries: ["codex", "pbcopy"],
   ignoreDependencies: [
     "@cloudflare/workers-response-store",

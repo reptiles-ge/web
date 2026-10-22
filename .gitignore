@@ -67,3 +67,4 @@ cdn-unused-images.txt
 .vinext/
 .wrangler/
 progress.md
+.dev.vars*

@@ -84,7 +84,9 @@
     "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json && pnpm run cache:warm",
     "cache:warm": "node scripts/warm-cache.mjs",
     "metadata:check": "tsx scripts/check-metadata-head.ts",
-    "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
+    "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc",
+    "dev:api": "pnpm run species:compile && wrangler dev --config wrangler.api.jsonc --port 8787",
+    "deploy:api": "pnpm run species:compile && wrangler deploy --config wrangler.api.jsonc"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
@@ -105,6 +107,7 @@
     "framer-motion": "^14.1.0",
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
+    "hono": "4.13.13",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.55.0",
     "next": "16.4.0",
