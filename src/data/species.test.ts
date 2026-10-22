@@ -32,7 +32,8 @@ describe("catalog publish", () => {
 describe("lookalikes", () => {
   it("always have an identification section to be listed in", () => {
     for (const species of getCatalogSpecies()) {
-      if (getLookalikeSpecies(species.id).length === 0) continue;
+      if (getLookalikeSpecies(species.id, getCatalogSpecies()).length === 0)
+        continue;
       for (const locale of routing.locales) {
         expect(
           hasRealIdentification(

@@ -1,4 +1,4 @@
-import { type Species } from "@/data/species";
+import { getCatalogSpecies, type Species } from "@/data/species";
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
@@ -85,7 +85,9 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     imageCredit: overridePhoto?.credit ?? species.imageCredit,
     lookalikeIds: getSpeciesLookalikes(species.id),
     mobileImage,
-    relatedIds: getRelatedSpecies(species.id, 8).map((item) => item.id),
+    relatedIds: getRelatedSpecies(species.id, getCatalogSpecies(), 8).map(
+      (item) => item.id,
+    ),
     scientificName: species.scientificName,
   };
 }

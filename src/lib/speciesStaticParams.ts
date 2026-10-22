@@ -1,19 +1,14 @@
-import type { GroupHubId } from "@/lib/groupHubs";
-
-import { getCatalogSpecies } from "@/data/species";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { getSpeciesHubId, getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
+import { ANIMAL_GROUP_TO_HUB, type GroupHubId } from "@/lib/groupHubs";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
-export function speciesStaticParams(hubId: GroupHubId) {
-  const params: Array<{ locale: AppLocale; slug: string }> = [];
-  for (const item of getCatalogSpecies()) {
-    if (getSpeciesHubId(item.id) !== hubId) continue;
-    for (const locale of routing.locales) {
-      params.push({
-        locale,
-        slug: getSpeciesPublicSlug(item.id, locale),
-      });
-    }
-  }
-  return params;
+export async function speciesStaticParams(hubId: GroupHubId) {
+  const catalogs = await Promise.all(
+    routing.locales.map((locale) => getSpeciesCatalog(locale)),
+  );
+  return routing.locales.flatMap((locale: AppLocale, index) =>
+    (catalogs[index] ?? [])
+      .filter((item) => ANIMAL_GROUP_TO_HUB[item.group] === hubId)
+      .map((item) => ({ locale, slug: item.slug })),
+  );
 }

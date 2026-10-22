@@ -318,10 +318,10 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("buteo-buteo")).not.toContain("gyps-fulvus");
   });
 
-  it("resolves a public slug and lists static hub params", () => {
+  it("resolves a public slug and lists static hub params", async () => {
     expect(resolveSpeciesId("giurza")).toBe("macrovipera-lebetina");
     expect(resolveSpeciesId("not-a-species")).toBeUndefined();
-    const params = speciesStaticParams("snakes");
+    const params = await speciesStaticParams("snakes");
     expect(params).toEqual(
       expect.arrayContaining([
         { locale: "ka", slug: "giurza" },
@@ -329,7 +329,9 @@ describe("species routes", () => {
       ]),
     );
     expect(
-      speciesStaticParams("turtles").some((item) => item.slug === "giurza"),
+      (await speciesStaticParams("turtles")).some(
+        (item) => item.slug === "giurza",
+      ),
     ).toBe(false);
   });
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
@@ -14,8 +15,8 @@ describe("profile related species", () => {
     const linked = new Set<string>();
     for (const item of catalog) {
       for (const peer of [
-        ...getLookalikeSpecies(item.id),
-        ...getProfileRelatedSpecies(item.id),
+        ...getLookalikeSpecies(item.id, catalog),
+        ...getProfileRelatedSpecies(item.id, catalog),
       ]) {
         linked.add(peer.id);
       }
@@ -26,9 +27,9 @@ describe("profile related species", () => {
   it("stays within the group without repeating a lookalike", () => {
     for (const item of catalog) {
       if (item.id === "macrovipera-lebetina") continue;
-      const related = getProfileRelatedSpecies(item.id);
+      const related = getProfileRelatedSpecies(item.id, catalog);
       const lookalikes = new Set(
-        getLookalikeSpecies(item.id).map((peer) => peer.id),
+        getLookalikeSpecies(item.id, catalog).map((peer) => peer.id),
       );
       const ids = related.map((peer) => peer.id);
       expect(ids.length, item.id).toBeLessThanOrEqual(4);
@@ -49,7 +50,7 @@ describe("profile related species", () => {
     for (const item of catalog) {
       if (getSpeciesAtlasMeta(item.id).group !== "snake") continue;
       expect(
-        getProfileRelatedSpecies(item.id).map((peer) => peer.id),
+        getProfileRelatedSpecies(item.id, catalog).map((peer) => peer.id),
         item.id,
       ).not.toContain("pseudopus-apodus");
     }
@@ -57,13 +58,29 @@ describe("profile related species", () => {
 
   it("keeps the curated related lists", () => {
     expect(
-      getProfileRelatedSpecies("macrovipera-lebetina").map((peer) => peer.id),
+      getProfileRelatedSpecies("macrovipera-lebetina", catalog).map(
+        (peer) => peer.id,
+      ),
     ).toEqual([
       "vipera-transcaucasiana",
       "vipera-dinniki",
       "vipera-kaznakovi",
       "vipera-renardi",
     ]);
-    expect(getProfileRelatedSpecies("alectoris-chukar")).toEqual([]);
+    expect(getProfileRelatedSpecies("alectoris-chukar", catalog)).toEqual([]);
+  });
+
+  it("ranks the API catalog cards like the compiled catalog", async () => {
+    const cards = await getSpeciesCatalog("en");
+    const ids = (items: readonly { id: string }[]) =>
+      items.map((item) => item.id);
+    for (const item of catalog) {
+      expect(ids(getProfileRelatedSpecies(item.id, cards)), item.id).toEqual(
+        ids(getProfileRelatedSpecies(item.id, catalog)),
+      );
+      expect(ids(getLookalikeSpecies(item.id, cards)), item.id).toEqual(
+        ids(getLookalikeSpecies(item.id, catalog)),
+      );
+    }
   });
 });

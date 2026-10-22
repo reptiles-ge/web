@@ -15,7 +15,6 @@ import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
@@ -43,6 +42,7 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import {
   getSpeciesHeroSources,
   isPlaceholderBody,
@@ -215,12 +215,13 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       notFound();
     }
     const { item, raw } = loaded;
-    const { lookalikes, related } = localizedSpeciesRelations(raw, locale);
-    const tProfile = await getTranslations({ locale, namespace: "profile" });
-    const tHubs = await getTranslations({
-      locale,
-      namespace: "groupHubShared",
-    });
+    const [catalog, tProfile, tHubs] = await Promise.all([
+      getSpeciesCatalog(locale),
+      getTranslations({ locale, namespace: "profile" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+    ]);
+    const lookalikes = getLookalikeSpecies(raw.id, catalog);
+    const related = getProfileRelatedSpecies(raw.id, catalog);
     const parent = getSpeciesParentHub(item);
     const groupLabel = parent.hubId
       ? tHubs(`hubs.${parent.hubId}`)
@@ -294,17 +295,6 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
   ]);
   if (!base || !localized) return null;
   return { group: localized.group, item: localized.species, raw: base.species };
-}
-
-function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
-  return {
-    lookalikes: getLookalikeSpecies(raw.id).map((entry) =>
-      localizeSpecies(entry, locale),
-    ),
-    related: getProfileRelatedSpecies(raw.id).map((entry) =>
-      localizeSpecies(entry, locale),
-    ),
-  };
 }
 
 function sourceCreativeWork(source: SpeciesSource) {
