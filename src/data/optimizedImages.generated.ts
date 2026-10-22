@@ -5037,6 +5037,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": {
+    "path": "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live",
+    "width": 1975,
+    "height": 1441,
+    "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile.jpg": {
+    "path": "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile",
+    "width": 1892,
+    "height": 2670,
+    "widths": [320, 400, 640, 800, 1200, 1892],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map.jpg": {
+    "path": "images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map",
+    "width": 1975,
+    "height": 1804,
+    "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg": {
     "path": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement",
     "width": 1080,
