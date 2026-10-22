@@ -1,0 +1,24 @@
+import { cache } from "react";
+
+import type { AppLocale } from "@/i18n/routing";
+
+import { createApiClient } from "@/lib/apiClient";
+import { speciesFetchOptions } from "@/lib/speciesApiFetch";
+
+type CatalogView = "card" | "full";
+
+export const getSpeciesCatalog = cache(
+  async <View extends CatalogView = "card">(
+    locale: AppLocale,
+    view: View = "card" as View,
+  ) => {
+    const response = await createApiClient().v1.catalog.$get(
+      { query: { locale, view } },
+      speciesFetchOptions(["species"]),
+    );
+    if (!response.ok) {
+      throw new Error(`Species catalog API answered ${response.status}`);
+    }
+    return (await response.json()).data;
+  },
+);

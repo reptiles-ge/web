@@ -154,6 +154,14 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
 - The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
 
+### Catalog (list consumers)
+
+- `GET /v1/catalog?locale&view=card|full` returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
+  - `card` (default, about 130–210 KB per locale) is for hubs, lists, home, cards and stats. Its fields are `commonName, danger, description, family, genus, id, image, imageCredit, location, mobileImage, mobileImageCredit, publishedAt, scientificName, stats, updatedAt`.
+  - `full` (up to about 3.6 MB for KA) is only for consumers that need every text, such as search and `llms-full`. **Never** fetch `full` for a normal page render; add the field you need to `card` instead.
+- Site loader: `getSpeciesCatalog(locale, view?)` in `src/lib/speciesCatalogApi.ts`. It uses React `cache`, the `species` tag and `revalidate: 3600` (shared `speciesFetchOptions`), and has no MDX fallback.
+- `routes/catalog.test.ts` proves both views match the MDX-era catalog for all locales (`toStrictEqual`).
+
 ### Field records
 
 - `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
