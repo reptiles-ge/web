@@ -59072,7 +59072,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-19T10:58:31.620Z"
+      "updatedAt": "2026-10-22T07:00:05.370Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -59167,7 +59167,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-19T10:58:33.177Z"
+      "updatedAt": "2026-10-22T07:00:09.884Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -59262,7 +59262,292 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-19T10:58:34.204Z"
+      "updatedAt": "2026-10-22T07:00:01.200Z"
+    },
+    "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": {
+      "sourceHash": "7c390777a77d9ae5105440e0a02f401f20d3c11432577c4948d2a231e0922265",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg",
+      "originalSize": 1033099,
+      "width": 1975,
+      "height": 1441,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 234,
+          "byteSize": 12515
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 234,
+          "byteSize": 16246
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 292,
+          "byteSize": 16245
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 292,
+          "byteSize": 21244
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 467,
+          "byteSize": 29672
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 467,
+          "byteSize": 36940
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 584,
+          "byteSize": 40619
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 584,
+          "byteSize": 51194
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 876,
+          "byteSize": 69067
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 876,
+          "byteSize": 84826
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-1975.avif",
+          "format": "avif",
+          "width": 1975,
+          "height": 1441,
+          "byteSize": 121641
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live-1975.webp",
+          "format": "webp",
+          "width": 1975,
+          "height": 1441,
+          "byteSize": 147848
+        }
+      ],
+      "updatedAt": "2026-10-22T07:00:06.367Z"
+    },
+    "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile.jpg": {
+      "sourceHash": "ae475d0455ca75d8f71f682944b62970715b8513e98100e96d5f72057cf80f21",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile.jpg",
+      "originalSize": 2399272,
+      "width": 1892,
+      "height": 2670,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 451,
+          "byteSize": 22162
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 451,
+          "byteSize": 29614
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 564,
+          "byteSize": 31114
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 564,
+          "byteSize": 42290
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 903,
+          "byteSize": 60279
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 903,
+          "byteSize": 87786
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1129,
+          "byteSize": 83502
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1129,
+          "byteSize": 123188
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1693,
+          "byteSize": 141140
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1693,
+          "byteSize": 213240
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-1892.avif",
+          "format": "avif",
+          "width": 1892,
+          "height": 2670,
+          "byteSize": 245470
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-lazareviensis-female-juvenile-1892.webp",
+          "format": "webp",
+          "width": 1892,
+          "height": 2670,
+          "byteSize": 375512
+        }
+      ],
+      "updatedAt": "2026-10-22T07:00:13.085Z"
+    },
+    "images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map.jpg": {
+      "sourceHash": "5d6f59c98db02383d79f90d9fc173aad264df2e0815b23dadf6c5d15b7b543d6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map.jpg",
+      "originalSize": 1921524,
+      "width": 1975,
+      "height": 1804,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 293,
+          "byteSize": 18450
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 293,
+          "byteSize": 21820
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 366,
+          "byteSize": 25154
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 366,
+          "byteSize": 29924
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 585,
+          "byteSize": 50620
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 585,
+          "byteSize": 62062
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 731,
+          "byteSize": 72936
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 731,
+          "byteSize": 92994
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1096,
+          "byteSize": 135980
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1096,
+          "byteSize": 179158
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-1975.avif",
+          "format": "avif",
+          "width": 1975,
+          "height": 1804,
+          "byteSize": 277994
+        },
+        {
+          "key": "optimized/images/news/caucasirella-akhali-gvari-kavkasia/synurella-clade-distribution-map-1975.webp",
+          "format": "webp",
+          "width": 1975,
+          "height": 1804,
+          "byteSize": 370916
+        }
+      ],
+      "updatedAt": "2026-10-22T07:00:17.749Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": {
       "sourceHash": "cdaea14369ed4cf94723dd86486bdb37a2487b0579a5ca9c14b65cc290a1b2dc",
@@ -59357,7 +59642,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-10-19T10:58:39.743Z"
+      "updatedAt": "2026-10-22T07:00:17.099Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -59452,7 +59737,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-10-19T10:58:42.238Z"
+      "updatedAt": "2026-10-22T07:00:22.753Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -59547,7 +59832,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-10-19T10:58:40.774Z"
+      "updatedAt": "2026-10-22T07:00:19.512Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -59642,7 +59927,7 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-10-19T10:58:43.378Z"
+      "updatedAt": "2026-10-22T07:00:27.216Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -59709,7 +59994,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-19T10:58:44.044Z"
+      "updatedAt": "2026-10-22T07:00:26.229Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -59804,7 +60089,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-19T10:58:45.721Z"
+      "updatedAt": "2026-10-22T07:00:27.980Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -59899,7 +60184,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-19T10:58:47.281Z"
+      "updatedAt": "2026-10-22T07:00:29.756Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -59994,7 +60279,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-19T10:58:48.139Z"
+      "updatedAt": "2026-10-22T07:00:33.496Z"
     },
     "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
       "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
@@ -60469,7 +60754,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-19T10:58:53.901Z"
+      "updatedAt": "2026-10-22T07:00:37.455Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -60564,7 +60849,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-19T10:58:52.968Z"
+      "updatedAt": "2026-10-22T07:00:38.687Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -60659,7 +60944,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-19T10:58:55.295Z"
+      "updatedAt": "2026-10-22T07:00:39.040Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -60754,7 +61039,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-19T10:58:55.834Z"
+      "updatedAt": "2026-10-22T07:00:47.469Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",

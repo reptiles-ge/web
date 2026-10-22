@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "caucasirella-akhali-gvari-kavkasia",
   "schendyla-megobroba-new-centipede-tbilisi-2026",
   "leopard-aghasy-gndasar-armenia-2026",
   "sakartvelos-mghvimeebi-20-ghamuris-sakheoba",
