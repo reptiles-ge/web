@@ -38,7 +38,7 @@ export function readBodyString(body: unknown, key: string) {
 export async function readLocalAdminFormData(
   request: Request,
 ): Promise<AdminParsed<"form", FormData>> {
-  if (!isLocalAdminEnabled())
+  if (!isLocalAdminOriginRequest(request))
     return { response: localAdminForbiddenResponse() };
   try {
     return { form: await request.formData() };
@@ -50,7 +50,7 @@ export async function readLocalAdminFormData(
 export async function readLocalAdminJsonBody(
   request: Request,
 ): Promise<AdminParsed<"body", unknown>> {
-  if (!isLocalAdminEnabled())
+  if (!isLocalAdminOriginRequest(request))
     return { response: localAdminForbiddenResponse() };
   try {
     return { body: await request.json() };

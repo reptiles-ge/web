@@ -9,7 +9,7 @@ import {
 import { notFound } from "next/navigation";
 
 import { RootDocument } from "@/app/RootDocument";
-import { SelectionContentEditor } from "@/components/admin/SelectionContentEditor";
+import { loadSelectionContentEditor } from "@/components/admin/devAdminComponents";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -29,7 +29,6 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getNavbarData } from "@/lib/navbarData";
@@ -68,10 +67,11 @@ export default async function LocaleLayout({ children, params }: Props) {
     tSite("description"),
   );
   const footerData = getFooterData(locale);
-  const editorT =
-    locale === "ka" && isLocalAdminEnabled()
-      ? await getTranslations({ locale, namespace: "contentEditor" })
-      : null;
+  const SelectionContentEditor =
+    locale === "ka" ? await loadSelectionContentEditor() : null;
+  const editorT = SelectionContentEditor
+    ? await getTranslations({ locale, namespace: "contentEditor" })
+    : null;
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
@@ -85,7 +85,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <TopGeCounter />
           <Navbar {...getNavbarData()} />
           <main id="main" tabIndex={-1}>
-            {editorT ? (
+            {SelectionContentEditor && editorT ? (
               <SelectionContentEditor
                 copy={{
                   action: editorT("action"),

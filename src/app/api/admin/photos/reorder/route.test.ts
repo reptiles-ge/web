@@ -25,6 +25,7 @@ describe("photo reorder route", () => {
           id: "alectoris-chukar",
           srcs: ["first.jpg", "second.jpg"],
         }),
+        headers: { origin: "http://localhost" },
         method: "POST",
       }),
     );
