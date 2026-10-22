@@ -131,6 +131,23 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     });
   });
 
+  it("applies migrations only from the explicit db:migrate scripts", () => {
+    const { scripts } = JSON.parse(
+      readFileSync(path.join(ROOT, "package.json"), "utf8"),
+    ) as { scripts: Record<string, string> };
+    const appliers = Object.entries(scripts)
+      .filter(([, command]) => /migrations apply|db:migrate/.test(command))
+      .map(([name]) => name);
+    expect(appliers.sort()).toEqual(["db:migrate", "db:migrate:remote"]);
+    expect(scripts["db:migrate"]).toContain("--local");
+    expect(scripts["db:migrate:remote"]).toContain("--remote");
+    const automated = [".github/workflows", "scripts"]
+      .flatMap((dir) => walk(path.join(ROOT, dir)))
+      .filter((file) => /migrations apply/.test(readFileSync(file, "utf8")))
+      .map((file) => path.relative(ROOT, file));
+    expect(automated).toEqual([]);
+  });
+
   it("pins Hono packages to exact versions", () => {
     const pkg = JSON.parse(
       readFileSync(path.join(ROOT, "package.json"), "utf8"),

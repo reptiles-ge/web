@@ -75,9 +75,10 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
 - Add-only. NEVER edit, rename, or delete a migration that has been applied anywhere. Fix forward with a new one.
-- Tests run every migration on Node's SQLite (`testing/sqliteDatabase.ts`), so a broken migration fails CI.
-- Apply locally first: `pnpm exec wrangler d1 migrations apply reptiles-db --local --config wrangler.api.jsonc`.
-- Apply to production (`--remote`) only when the owner asks, by hand. NEVER from CI or a deploy script.
+- Migrations run **only** when a person runs a script on purpose. NEVER apply them from `dev`, `dev:api`, `build`, `deploy:api`, a `pre*`/`post*` hook, `scripts/`, CI, or app code. The guard test fails if anything other than `db:migrate` and `db:migrate:remote` applies migrations.
+- Local: `pnpm db:migrations:list`, then `pnpm db:migrate`.
+- Production: `pnpm db:migrate:remote`, only when the owner asks, by hand, after the change is merged.
+- Tests run every migration on an in-memory Node SQLite (`testing/sqliteDatabase.ts`). That never touches the local or remote D1, and a broken migration fails CI.
 
 ## Auth and security
 
@@ -109,8 +110,11 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 ## Commands
 
 ```bash
-pnpm dev:api        # species:compile, then wrangler dev on :8787 (local D1)
-pnpm deploy:api     # species:compile, then wrangler deploy --config wrangler.api.jsonc
+pnpm dev:api              # species:compile, then wrangler dev on :8787 (local D1, no migrations)
+pnpm db:migrations:list   # pending migrations on the local D1
+pnpm db:migrate           # apply pending migrations to the local D1
+pnpm db:migrate:remote    # apply to production reptiles-db (owner asks only)
+pnpm deploy:api           # species:compile, then wrangler deploy (no migrations)
 pnpm exec vitest run src/api
 ```
 
@@ -123,4 +127,4 @@ Before a PR: `pnpm lint`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm knip`, `
 3. Route in `routes/{resource}.ts`, mounted under `/v1/` in `app.ts`.
 4. Errors through `ApiError`, cache header from `lib/cache.ts`, `requireToken` if it writes or is private.
 5. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
-6. Run the checks above. Apply any new migration locally only.
+6. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).

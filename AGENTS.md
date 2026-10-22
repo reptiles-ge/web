@@ -179,7 +179,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 - Layout: `app.ts` mounts one sub-app per resource from `routes/` under `/v1/`; SQL only in `db/`; input only through `validate()` and Zod schemas; errors only through `ApiError` / `lib/errors.ts`.
 - `src/api/structure.test.ts` fails on any break of that layout. Do not weaken it.
-- Migrations are add-only (`migrations/api/NNNN_name.sql`). Apply `--remote` only when the owner asks, never from CI.
+- Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 
 ## Quiz
@@ -247,6 +247,8 @@ pnpm i18n:check           # locale key parity + ICU argument check (KA is the so
 pnpm i18n:usage           # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
 pnpm test:coverage        # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
 pnpm cpd                  # jscpd copy-paste scan, fails on any clone (threshold 0)
+pnpm dev:api              # API Worker on :8787 (local D1; never applies migrations)
+pnpm db:migrate           # apply API migrations to the local D1 (by hand only)
 ```
 
 `pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if the generated catalog is missing).
