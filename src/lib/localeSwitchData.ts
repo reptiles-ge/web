@@ -1,23 +1,23 @@
+import type { CatalogCard } from "@/data/speciesCatalogTypes";
 import type { LocaleSwitchIndex, LocaleSwitchQuiz } from "@/lib/localeSwitch";
 
-import { getCatalogSpecies } from "@/data/species";
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
-import { GROUP_HUBS } from "@/lib/groupHubs";
+import { ANIMAL_GROUP_TO_HUB, GROUP_HUBS } from "@/lib/groupHubs";
 import { liveQuizzes } from "@/lib/quizzes";
-import { getSpeciesHubId, getSpeciesPublicSlug } from "@/lib/speciesRoutes";
 
-export function getLocaleSwitchIndex(): LocaleSwitchIndex {
+export function getLocaleSwitchIndex(
+  kaCatalog: readonly Pick<CatalogCard, "group" | "id" | "slug">[],
+): LocaleSwitchIndex {
   const groupById: LocaleSwitchIndex["groupById"] = {};
   const hubById: LocaleSwitchIndex["hubById"] = {};
   const idBySlug: LocaleSwitchIndex["idBySlug"] = {};
   const kaSlugById: LocaleSwitchIndex["kaSlugById"] = {};
 
-  for (const species of getCatalogSpecies()) {
+  for (const species of kaCatalog) {
     const id = species.id;
-    const kaSlug = getSpeciesPublicSlug(id, "ka");
-    groupById[id] = speciesAtlasMeta[id]?.group ?? "snake";
-    hubById[id] = getSpeciesHubId(id);
+    const kaSlug = species.slug;
+    groupById[id] = species.group;
+    hubById[id] = ANIMAL_GROUP_TO_HUB[species.group];
     idBySlug[id] = id;
     idBySlug[kaSlug] = id;
     kaSlugById[id] = kaSlug;

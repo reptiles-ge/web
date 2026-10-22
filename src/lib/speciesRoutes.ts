@@ -7,11 +7,7 @@ export type SpeciesHref = LocaleSpeciesHref;
 
 export { regionHref } from "@/lib/regionHref";
 
-export {
-  getSpeciesHubId,
-  getSpeciesPublicSlug,
-  resolveSpeciesId,
-} from "@/lib/speciesSlugTable";
+export { getSpeciesPublicSlug, resolveSpeciesId } from "@/lib/speciesSlugTable";
 
 export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
   const hub = getSpeciesHubId(id);

@@ -146,13 +146,12 @@ Route files are thin. They call a factory in `src/lib/`:
 
 `pnpm compile` (run automatically by `predev`, `prebuild`, and `pretest`) writes these gitignored files. **Never edit or commit them.**
 
-| Output                                             | Source                                | Script                 |
-| -------------------------------------------------- | ------------------------------------- | ---------------------- |
-| `src/data/news.generated.ts`                       | `src/content/news/*/*.mdx`            | `pnpm news:compile`    |
-| `src/data/species.generated.ts`                    | `src/content/species/*/*.mdx`         | `pnpm species:compile` |
-| `src/data/speciesSlugs.generated.ts`               | MDX and slug rules (used by the edge) | `pnpm species:compile` |
-| `src/data/releaseVersion.generated.ts`             | Latest Git tag (shown in the footer)  | `pnpm species:compile` |
-| `src/data/search-index.{ka,en,ru,tr}.generated.ts` | Species catalog, guides, and news     | `pnpm search:compile`  |
+| Output                                 | Source                                | Script                 |
+| -------------------------------------- | ------------------------------------- | ---------------------- |
+| `src/data/news.generated.ts`           | `src/content/news/*/*.mdx`            | `pnpm news:compile`    |
+| `src/data/species.generated.ts`        | `src/content/species/*/*.mdx`         | `pnpm species:compile` |
+| `src/data/speciesSlugs.generated.ts`   | MDX and slug rules (used by the edge) | `pnpm species:compile` |
+| `src/data/releaseVersion.generated.ts` | Latest Git tag (shown in the footer)  | `pnpm species:compile` |
 
 Two generated files are tracked in Git. Do not edit them by hand; regenerate them and commit the result.
 
@@ -317,9 +316,8 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 | `pnpm build`             | Next.js production build                                                |
 | `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                  |
 | `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler       |
-| `pnpm compile`           | `species:compile`, `search:compile`, and `map:compile`                  |
+| `pnpm compile`           | `news:compile`, `species:compile`, and `map:compile`                    |
 | `pnpm species:compile`   | MDX to catalog, slug table, occurrences, and release version            |
-| `pnpm search:compile`    | Per-locale search indexes                                               |
 | `pnpm map:compile`       | Georgia SVG to map paths                                                |
 | `pnpm lint` / `lint:fix` | ESLint                                                                  |
 | `pnpm typecheck`         | TypeScript                                                              |

@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { searchDocuments as kaIndex } from "@/data/search-index.ka.generated";
-import { searchDocuments as ruIndex } from "@/data/search-index.ru.generated";
+import { buildSearchIndex } from "@/lib/searchIndexBuild";
 import { flattenGroups, searchIndex } from "@/lib/siteSearch";
+
+import { searchCatalogsFixture } from "../../tests/fixtures/speciesCatalog";
+
+const kaIndex = buildSearchIndex("ka", searchCatalogsFixture());
+const ruIndex = buildSearchIndex("ru", searchCatalogsFixture());
 
 describe("search scoring", () => {
   const index = kaIndex;

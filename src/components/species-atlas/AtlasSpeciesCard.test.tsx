@@ -11,6 +11,7 @@ import {
 } from "@/components/species-atlas/AtlasSpeciesCard";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getAtlasListItems } from "@/lib/atlasList";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 import ka from "../../../messages/ka.json";
 import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
@@ -29,7 +30,11 @@ beforeAll(async () => {
 function renderWith(node: React.ReactNode) {
   render(
     <NextIntlClientProvider locale="ka" messages={ka}>
-      <LocaleSwitchProvider>{node}</LocaleSwitchProvider>
+      <LocaleSwitchProvider
+        index={getLocaleSwitchIndex(speciesCatalogFixture("ka"))}
+      >
+        {node}
+      </LocaleSwitchProvider>
     </NextIntlClientProvider>,
   );
 }

@@ -12,6 +12,18 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const fixtures = new Map<AppLocale, Array<CatalogCard & CatalogFullSpecies>>();
 
+export function searchCatalogsFixture(): Record<
+  AppLocale,
+  Array<CatalogCard & CatalogFullSpecies>
+> {
+  return {
+    en: speciesCatalogFixture("en"),
+    ka: speciesCatalogFixture("ka"),
+    ru: speciesCatalogFixture("ru"),
+    tr: speciesCatalogFixture("tr"),
+  };
+}
+
 export function speciesCatalogFixture(
   locale: AppLocale,
 ): Array<CatalogCard & CatalogFullSpecies> {

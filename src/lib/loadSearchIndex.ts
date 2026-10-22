@@ -4,14 +4,9 @@ import type { SearchDocument } from "@/lib/siteSearch";
 export async function loadSearchDocuments(
   locale: AppLocale,
 ): Promise<SearchDocument[]> {
-  switch (locale) {
-    case "en":
-      return (await import("@/data/search-index.en.generated")).searchDocuments;
-    case "ru":
-      return (await import("@/data/search-index.ru.generated")).searchDocuments;
-    case "tr":
-      return (await import("@/data/search-index.tr.generated")).searchDocuments;
-    default:
-      return (await import("@/data/search-index.ka.generated")).searchDocuments;
+  const response = await fetch(`/api/search/${locale}`);
+  if (!response.ok) {
+    throw new Error(`Search index answered ${response.status}`);
   }
+  return (await response.json()) as SearchDocument[];
 }
