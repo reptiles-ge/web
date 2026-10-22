@@ -1,11 +1,8 @@
 import { z } from "zod";
 
 import { catalogQuery } from "../schemas/catalog";
-import {
-  speciesDetailQuery,
-  speciesListQuery,
-  speciesParam,
-} from "../schemas/species";
+import { localeHeader } from "../schemas/common";
+import { speciesListQuery, speciesParam } from "../schemas/species";
 import { type ApiErrorCode } from "./errors";
 
 type JsonSchema = Record<string, unknown>;
@@ -15,6 +12,7 @@ type Method = "delete" | "get" | "patch" | "post" | "put";
 type Operation = {
   description?: string;
   errors: number[];
+  header?: z.ZodObject;
   method: Method;
   param?: z.ZodObject;
   path: string;
@@ -69,6 +67,7 @@ const OPERATIONS: Operation[] = [
     description:
       "Every published species, localized. Edge-cached for an hour; filter by animal group.",
     errors: [400],
+    header: localeHeader,
     method: "get",
     path: "/v1/species",
     query: speciesListQuery,
@@ -84,10 +83,10 @@ const OPERATIONS: Operation[] = [
     description:
       "Accepts the species id, the Georgian slug, or any alias slug, case-insensitive. Unpublished species answer 404.",
     errors: [400, 404],
+    header: localeHeader,
     method: "get",
     param: speciesParam,
     path: "/v1/species/{idOrSlug}",
-    query: speciesDetailQuery,
     success: {
       description: "Species profile",
       schema: envelope(item, { locale }),
@@ -112,8 +111,9 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Every published species in catalog order. `card` is the light view for lists; `full` carries every text and is several MB.",
+      "Every published species in catalog order. `card` is the light view for lists; `full` carries every text and is several MB. Pagination is optional: pass `limit`, then the previous page's `nextCursor` as `cursor`. Without `limit` the whole catalog comes back.",
     errors: [400],
+    header: localeHeader,
     method: "get",
     path: "/v1/catalog",
     query: catalogQuery,
@@ -121,6 +121,10 @@ const OPERATIONS: Operation[] = [
       description: "Localized catalog",
       schema: listEnvelope({
         locale,
+        nextCursor: {
+          description: "Cursor for the next page; null on the last page.",
+          type: ["string", "null"],
+        },
         view: { enum: ["card", "full"], type: "string" },
       }),
       status: 200,
@@ -206,6 +210,7 @@ function operation(entry: Operation) {
       .join("")}`,
     parameters: [
       ...(entry.param ? parameters(entry.param, "path") : []),
+      ...(entry.header ? parameters(entry.header, "header") : []),
       ...(entry.query ? parameters(entry.query, "query") : []),
     ],
     responses: {
@@ -227,7 +232,10 @@ function operation(entry: Operation) {
   };
 }
 
-function parameters(schema: z.ZodObject, location: "path" | "query") {
+function parameters(
+  schema: z.ZodObject,
+  location: "header" | "path" | "query",
+) {
   const required = new Set((toSchema(schema).required as string[]) ?? []);
   return Object.entries(schema.shape).map(([name, field]) => ({
     in: location,

@@ -51,8 +51,9 @@ describe("GET /v1/species", () => {
   it("matches the MDX catalog in every locale", async () => {
     for (const locale of locales) {
       const { body, response } = await requestJson<ListBody>(
-        `/v1/species?locale=${locale}`,
+        "/v1/species",
         env,
+        { headers: { "X-Locale": locale } },
       );
       expect(response.status).toBe(200);
       expect(body.locale).toBe(locale);
@@ -72,8 +73,13 @@ describe("GET /v1/species", () => {
   });
 
   it("rejects an unknown locale or group", async () => {
-    for (const url of ["/v1/species?locale=de", "/v1/species?group=fish"]) {
-      const { body, response } = await requestJson<ErrorBody>(url, env);
+    for (const [url, headers] of [
+      ["/v1/species", { "X-Locale": "de" }],
+      ["/v1/species?group=fish", {}],
+    ] as const) {
+      const { body, response } = await requestJson<ErrorBody>(url, env, {
+        headers,
+      });
       expect(response.status).toBe(400);
       expect(body.error.code).toBe("invalid_request");
     }
@@ -85,8 +91,9 @@ describe("GET /v1/species/:idOrSlug", () => {
     for (const item of getCatalogSpecies()) {
       for (const locale of locales) {
         const { body, response } = await requestJson<DetailBody>(
-          `/v1/species/${item.id}?locale=${locale}`,
+          `/v1/species/${item.id}`,
           env,
+          { headers: { "X-Locale": locale } },
         );
         expect(response.status).toBe(200);
         const { group, habitats, lookalikes, slug, ...profile } = body.data;
@@ -105,8 +112,9 @@ describe("GET /v1/species/:idOrSlug", () => {
 
   it("names lookalikes in the requested locale", async () => {
     const { body } = await requestJson<DetailBody>(
-      "/v1/species/anguis-colchica?locale=en",
+      "/v1/species/anguis-colchica",
       env,
+      { headers: { "X-Locale": "en" } },
     );
     const peer = body.data.lookalikes.find(
       (entry) => entry.id === "pseudopus-apodus",
@@ -146,11 +154,13 @@ describe("GET /v1/species/:idOrSlug", () => {
   });
 
   it("rejects a malformed slug or locale", async () => {
-    for (const url of [
-      "/v1/species/bad_slug!",
-      "/v1/species/giurza?locale=de",
-    ]) {
-      const { body, response } = await requestJson<ErrorBody>(url, env);
+    for (const [url, headers] of [
+      ["/v1/species/bad_slug!", {}],
+      ["/v1/species/giurza", { "X-Locale": "de" }],
+    ] as const) {
+      const { body, response } = await requestJson<ErrorBody>(url, env, {
+        headers,
+      });
       expect(response.status).toBe(400);
       expect(body.error.code).toBe("invalid_request");
     }

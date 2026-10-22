@@ -36,7 +36,7 @@ describe("getSpeciesProfile", () => {
     const profile = await getSpeciesProfile("macrovipera-lebetina", "en");
     requests.stop();
     expect(requests.urls).toEqual([
-      "https://api.reptiles.ge/v1/species/macrovipera-lebetina?locale=en",
+      "https://api.reptiles.ge/v1/species/macrovipera-lebetina",
     ]);
     expect(profile?.group).toBe("snake");
     expect(profile?.species).toStrictEqual(
