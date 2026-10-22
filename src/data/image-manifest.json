@@ -107720,6 +107720,1051 @@
       ],
       "updatedAt": "2026-10-17T07:57:57.030Z"
     },
+    "testudo-graeca-barbarapaisx-1.jpg": {
+      "sourceHash": "bd55abef0bc7658818ddcc051fd7eb859f97257f2bd87f7d758555766a1e56f4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-barbarapaisx-1.jpg",
+      "originalSize": 623715,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 19545
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29744
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 27673
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41896
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 60688
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 86730
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 84751
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 122908
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 153740
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 218774
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 226007
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 306734
+        }
+      ],
+      "updatedAt": "2026-10-22T09:17:24.832Z"
+    },
+    "testudo-graeca-bertogcliment-1.jpg": {
+      "sourceHash": "f93d4167769d28e24dc82a7eb5035443e2a8a9f0abfe6d082ad546cfaad0c80c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-bertogcliment-1.jpg",
+      "originalSize": 828872,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 25421
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 39490
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38661
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59518
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93657
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144104
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 135804
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 213348
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 241164
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 390064
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 331688
+        },
+        {
+          "key": "optimized/testudo-graeca-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 529438
+        }
+      ],
+      "updatedAt": "2026-10-22T09:08:51.096Z"
+    },
+    "testudo-graeca-donsky-1.jpg": {
+      "sourceHash": "3efb173940b1ac33be0311871c93cfc3f5367751d8657d2575448924fa9a5437",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-donsky-1.jpg",
+      "originalSize": 522014,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13347
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21404
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18841
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29376
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37338
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56106
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51557
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76380
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90031
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 132890
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185307
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 270212
+        }
+      ],
+      "updatedAt": "2026-10-22T09:14:36.048Z"
+    },
+    "testudo-graeca-giorgi-1.jpg": {
+      "sourceHash": "1105ed10996db217bd7d876194702df5376ad2f1dcb60b28c99a623e787d6457",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-giorgi-1.jpg",
+      "originalSize": 541873,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9790
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13236
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13901
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18904
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31419
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45412
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44675
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67160
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85171
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130816
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 204688
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 307000
+        }
+      ],
+      "updatedAt": "2026-10-22T09:05:49.612Z"
+    },
+    "testudo-graeca-giorgi-2.jpg": {
+      "sourceHash": "dfad31db2f02374319f61545c7925ad811cb09ac5ea88bbba8302dd5db069dc3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-giorgi-2.jpg",
+      "originalSize": 906756,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 30916
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 47230
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 46042
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 70792
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 103930
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 166762
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 149976
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 238752
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 270062
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 429368
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 377450
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 588094
+        }
+      ],
+      "updatedAt": "2026-10-22T09:10:18.959Z"
+    },
+    "testudo-graeca-nicolai-1.jpg": {
+      "sourceHash": "3f47c92c1ad3197136303006c47d6791752377aad8ba62e9b311340a4bcee878",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nicolai-1.jpg",
+      "originalSize": 851029,
+      "width": 2048,
+      "height": 1542,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 17828
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 27886
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 26271
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 42468
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 62769
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 102638
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 93519
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 151782
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 168869
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 272498
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 344517
+        },
+        {
+          "key": "optimized/testudo-graeca-nicolai-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 518066
+        }
+      ],
+      "updatedAt": "2026-10-22T09:13:42.808Z"
+    },
+    "testudo-graeca-nikita-1.jpg": {
+      "sourceHash": "45e6dc2289a5d82df1ab851eac3c5f4514df38deff7a7d696b5ea0bdf428eb08",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nikita-1.jpg",
+      "originalSize": 632112,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12463
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19688
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17614
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28304
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38529
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 61688
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56054
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 88674
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 103041
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162754
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224371
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 338796
+        }
+      ],
+      "updatedAt": "2026-10-22T09:15:28.276Z"
+    },
+    "testudo-graeca-nikita-2.jpg": {
+      "sourceHash": "b8288cd9ca5bdc8522bae56b0686260eba9ff1231558b898551ec50b2f67f6f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nikita-2.jpg",
+      "originalSize": 334072,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7092
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9782
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9753
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13316
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19591
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 28226
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 27537
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40536
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 49102
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73394
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 105759
+        },
+        {
+          "key": "optimized/testudo-graeca-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 154494
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:06.194Z"
+    },
+    "testudo-graeca-nina-1.jpg": {
+      "sourceHash": "764042d9da9deae99d308946d805bdde57e4ffb37437412473a4470807b9d7af",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nina-1.jpg",
+      "originalSize": 702126,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15075
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22850
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22148
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33482
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49955
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73786
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72305
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 108014
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 130219
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 184706
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 266944
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 369156
+        }
+      ],
+      "updatedAt": "2026-10-22T09:16:34.105Z"
+    },
+    "testudo-graeca-peter-1.jpg": {
+      "sourceHash": "e8f4af21b873d5fa52415c9c713acbf140fe480ca4986c78909297a82bd00238",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-peter-1.jpg",
+      "originalSize": 316055,
+      "width": 1880,
+      "height": 1254,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3944
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4536
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5243
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6264
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 10683
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12472
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 14453
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 18002
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25869
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36202
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.avif",
+          "format": "avif",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 63561
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.webp",
+          "format": "webp",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 98620
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:52.519Z"
+    },
+    "testudo-graeca-zj-adram-1.jpg": {
+      "sourceHash": "7c1f9c6564060881c4cea71cc984bcf3ea834c43f9cff859fa6d2302e31275bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-zj-adram-1.jpg",
+      "originalSize": 1054945,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17583
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29598
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26555
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44166
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65257
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 109308
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101919
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 166472
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 206360
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 329180
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 456169
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 713736
+        }
+      ],
+      "updatedAt": "2026-10-22T09:12:12.402Z"
+    },
     "testudo-graeca.jpg": {
       "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -107921,6 +108966,1051 @@
       ],
       "updatedAt": "2026-08-28T21:59:36.939Z"
     },
+    "trachemys-scripta-aleksandra-1.jpg": {
+      "sourceHash": "9795317095bcc5ac529fc488cde07496583e60e52ed2e09cf41e23cf3c00eddf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-aleksandra-1.jpg",
+      "originalSize": 865258,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 27085
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 39770
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 40350
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59132
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 97793
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 146066
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 144680
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 216578
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 269797
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 399004
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 379886
+        },
+        {
+          "key": "optimized/trachemys-scripta-aleksandra-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 544538
+        }
+      ],
+      "updatedAt": "2026-10-22T09:45:34.303Z"
+    },
+    "trachemys-scripta-axel-1.jpg": {
+      "sourceHash": "03136c234265b9e1846235110ac8a627fd73f1ada159e43661e3a4f945747f34",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-axel-1.jpg",
+      "originalSize": 494236,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-axel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12686
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18810
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17292
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25310
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31602
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46664
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42355
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 62950
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 70826
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 100852
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 145776
+        },
+        {
+          "key": "optimized/trachemys-scripta-axel-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 199036
+        }
+      ],
+      "updatedAt": "2026-10-22T09:49:38.928Z"
+    },
+    "trachemys-scripta-donsky-1.jpg": {
+      "sourceHash": "cbd5f7a53d405706fcfa6b5f8afe7d98f7675383f752dfb4b9cbd7113cf23e39",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-donsky-1.jpg",
+      "originalSize": 360322,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6905
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10308
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9553
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14144
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19670
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29026
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28293
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41622
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52205
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78600
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 115207
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 167310
+        }
+      ],
+      "updatedAt": "2026-10-22T09:43:14.728Z"
+    },
+    "trachemys-scripta-donsky-2.jpg": {
+      "sourceHash": "e98948ba7b094b538dd44145a5175fe9046e7a2b67edcf78ccd3f20833f1a50e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-donsky-2.jpg",
+      "originalSize": 346356,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6650
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8574
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9015
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12082
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19015
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26306
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27605
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38256
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51891
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73322
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 120456
+        },
+        {
+          "key": "optimized/trachemys-scripta-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 165802
+        }
+      ],
+      "updatedAt": "2026-10-22T09:48:04.780Z"
+    },
+    "trachemys-scripta-fedotova-1.jpg": {
+      "sourceHash": "414c23766432c051cfe7936067f7eead38cf7b0589a132a6e89efb0bd7444e40",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-fedotova-1.jpg",
+      "originalSize": 608019,
+      "width": 2046,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 321,
+          "byteSize": 13218
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 321,
+          "byteSize": 18286
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 401,
+          "byteSize": 17628
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 401,
+          "byteSize": 24806
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 641,
+          "byteSize": 34303
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 641,
+          "byteSize": 48992
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 801,
+          "byteSize": 46689
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 801,
+          "byteSize": 66940
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1201,
+          "byteSize": 80874
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1201,
+          "byteSize": 116294
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-2046.avif",
+          "format": "avif",
+          "width": 2046,
+          "height": 2048,
+          "byteSize": 176453
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-2046.webp",
+          "format": "webp",
+          "width": 2046,
+          "height": 2048,
+          "byteSize": 253060
+        }
+      ],
+      "updatedAt": "2026-10-22T09:44:01.855Z"
+    },
+    "trachemys-scripta-floyd-1.jpg": {
+      "sourceHash": "6ceaeb5784beff9d1d246b5ebcc4ea1ab36ddae0058c37fc0a4215a57fe2e68a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-floyd-1.jpg",
+      "originalSize": 573847,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11760
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17702
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17035
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24974
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 36201
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 52694
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 52580
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 76106
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 94972
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137798
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 196080
+        },
+        {
+          "key": "optimized/trachemys-scripta-floyd-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 274366
+        }
+      ],
+      "updatedAt": "2026-10-22T09:47:34.126Z"
+    },
+    "trachemys-scripta-gogopopo-1.jpg": {
+      "sourceHash": "0c02cece1c5d1c1c6f158096e2497f7f3f6ea31b1ff7cfc77524d64eef741e87",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-gogopopo-1.jpg",
+      "originalSize": 269967,
+      "width": 1571,
+      "height": 1047,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11942
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17760
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16667
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25178
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32976
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50604
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44826
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68528
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82316
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118424
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1571.avif",
+          "format": "avif",
+          "width": 1571,
+          "height": 1047,
+          "byteSize": 132006
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1571.webp",
+          "format": "webp",
+          "width": 1571,
+          "height": 1047,
+          "byteSize": 169454
+        }
+      ],
+      "updatedAt": "2026-10-22T09:46:19.262Z"
+    },
+    "trachemys-scripta-ka-1.jpg": {
+      "sourceHash": "67efdaaeb42dac88f393916d15d505360c61532ba99c0ff7bff98420becae9e7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-ka-1.jpg",
+      "originalSize": 634886,
+      "width": 1644,
+      "height": 1471,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 286,
+          "byteSize": 16421
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 286,
+          "byteSize": 23974
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 358,
+          "byteSize": 23518
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 358,
+          "byteSize": 35002
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 573,
+          "byteSize": 48586
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 573,
+          "byteSize": 70198
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 716,
+          "byteSize": 68012
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 716,
+          "byteSize": 98684
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 136733
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1074,
+          "byteSize": 194800
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.avif",
+          "format": "avif",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 267466
+        },
+        {
+          "key": "optimized/trachemys-scripta-ka-1-1644.webp",
+          "format": "webp",
+          "width": 1644,
+          "height": 1471,
+          "byteSize": 350206
+        }
+      ],
+      "updatedAt": "2026-10-22T09:52:24.612Z"
+    },
+    "trachemys-scripta-kseniia-2.jpg": {
+      "sourceHash": "dc751b5f0d9495d14773d2d2549c5becd6b1b3edaa81239b54a57766e0a87cd9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-kseniia-2.jpg",
+      "originalSize": 611894,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6724
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8050
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9444
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11204
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20048
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 22924
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29303
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 33790
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60354
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 71128
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 240662
+        },
+        {
+          "key": "optimized/trachemys-scripta-kseniia-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 250522
+        }
+      ],
+      "updatedAt": "2026-10-22T09:51:27.956Z"
+    },
+    "trachemys-scripta-marat-1.jpg": {
+      "sourceHash": "ac964dd58378b377ec258492a1d5cfda8f2e1b8510f085c137ef2359e0d2bee1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-marat-1.jpg",
+      "originalSize": 605203,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-marat-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11379
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14950
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16032
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21216
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 32995
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 42346
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46887
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 58602
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 87569
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 109096
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 234809
+        },
+        {
+          "key": "optimized/trachemys-scripta-marat-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 267148
+        }
+      ],
+      "updatedAt": "2026-10-22T09:44:43.921Z"
+    },
+    "trachemys-scripta-maxim-1.jpg": {
+      "sourceHash": "ac1b61b473a21df5eeda4703660b9c9a204780086039332c01e63334d674cdbb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-maxim-1.jpg",
+      "originalSize": 532893,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 25046
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35224
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34273
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 48286
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 67191
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 90166
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 90254
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 115442
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 147525
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 185374
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 196661
+        },
+        {
+          "key": "optimized/trachemys-scripta-maxim-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 252080
+        }
+      ],
+      "updatedAt": "2026-10-22T09:46:57.761Z"
+    },
     "trachemys-scripta-mobile.jpg": {
       "sourceHash": "f7e98b7b09406a07d1c49f62af5b0b8e67d2802857b29ac7ad8318dd34d39bc5",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -107987,6 +110077,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:59:37.344Z"
+    },
+    "trachemys-scripta-nikita-1.jpg": {
+      "sourceHash": "6deb09fdd64575acc392a30237a1593a58ccf2cbce5ffed468f7672514acc002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-nikita-1.jpg",
+      "originalSize": 320972,
+      "width": 1840,
+      "height": 1221,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5280
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7686
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 13997
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 14698
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 18832
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 20270
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 34120
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 35758
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.avif",
+          "format": "avif",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 79912
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.webp",
+          "format": "webp",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 94072
+        }
+      ],
+      "updatedAt": "2026-10-22T09:53:42.018Z"
+    },
+    "trachemys-scripta-wichyanan-1.jpg": {
+      "sourceHash": "142fb86faacab497f202d3b98b8fbcab90f14a0d7821e5ff1d4ac9d4c7de14b6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-wichyanan-1.jpg",
+      "originalSize": 467505,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9125
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11484
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12653
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16392
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25939
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34038
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36281
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48418
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63891
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83500
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142627
+        },
+        {
+          "key": "optimized/trachemys-scripta-wichyanan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185856
+        }
+      ],
+      "updatedAt": "2026-10-22T09:53:08.597Z"
     },
     "trachemys-scripta.jpg": {
       "sourceHash": "31009c2a2532200b897e3b01d84a8ef3c59a5099b94a2a7fdf8ed2e3a8d1fdf5",
