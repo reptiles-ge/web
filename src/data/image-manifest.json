@@ -107720,6 +107720,101 @@
       ],
       "updatedAt": "2026-10-17T07:57:57.030Z"
     },
+    "testudo-graeca-giorgi-1.jpg": {
+      "sourceHash": "1105ed10996db217bd7d876194702df5376ad2f1dcb60b28c99a623e787d6457",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-giorgi-1.jpg",
+      "originalSize": 541873,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9790
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13236
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13901
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18904
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31419
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45412
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44675
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67160
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85171
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130816
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 204688
+        },
+        {
+          "key": "optimized/testudo-graeca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 307000
+        }
+      ],
+      "updatedAt": "2026-10-22T09:05:49.612Z"
+    },
     "testudo-graeca.jpg": {
       "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
       "configFingerprint": "a895f8e025dcc7fa",
