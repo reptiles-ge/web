@@ -1,135 +1,213 @@
 import { z } from "zod";
 
 import { catalogQuery } from "../schemas/catalog";
-import { localeHeader } from "../schemas/common";
+import { LOCALE_HEADER, localeHeader } from "../schemas/common";
+import { responseSchemas } from "../schemas/responses";
 import { speciesListQuery, speciesParam } from "../schemas/species";
-import { type ApiErrorCode } from "./errors";
+import { PUBLIC_CACHE } from "./cache";
+import { RESPONSE_EXAMPLES } from "./openapiExamples";
+
+type Example = { summary?: string; value: unknown };
 
 type JsonSchema = Record<string, unknown>;
 
-type Method = "delete" | "get" | "patch" | "post" | "put";
-
 type Operation = {
-  description?: string;
-  errors: number[];
+  description: string;
+  errors: Array<400 | 404>;
   header?: z.ZodObject;
-  method: Method;
+  method: "get";
+  operationId: string;
   param?: z.ZodObject;
   path: string;
   query?: z.ZodObject;
-  success: { description: string; schema?: JsonSchema; status: number };
+  success: {
+    description: string;
+    examples: Record<string, Example>;
+    schema: JsonSchema;
+  };
   summary: string;
   tag: "Catalog" | "Species";
 };
 
-const ERROR_CODES = [
-  "forbidden",
-  "internal_error",
-  "invalid_request",
-  "not_found",
-  "payload_too_large",
-  "rate_limited",
-  "unauthorized",
-  "version_conflict",
-] as const satisfies readonly ApiErrorCode[];
+const ref = (id: string) => ({ $ref: `#/components/schemas/${id}` });
 
-const ERROR_DESCRIPTIONS: Record<number, string> = {
-  400: "Invalid request",
-  404: "Not found",
-};
+const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
+  {
+    cursor: {
+      description:
+        "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`.",
+      example: "natrix-tessellata",
+    },
+    group: {
+      description: "Only species of this animal group.",
+      example: "snake",
+    },
+    idOrSlug: {
+      description:
+        "Species id (`macrovipera-lebetina`), Georgian slug (`giurza`) or any older or alias slug. Case-insensitive.",
+      example: "macrovipera-lebetina",
+    },
+    limit: {
+      description:
+        "Page size, 1–100. Without it the whole catalog comes back in one response.",
+      example: "40",
+    },
+    view: {
+      description:
+        "`card` (default, about 130–210 KB) has what lists and cards need. `full` adds every text field and is several MB (up to about 3.6 MB for `ka`); use it only when you need all texts at once.",
+      example: "card",
+    },
+    "x-locale": {
+      description:
+        "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
+      example: "en",
+    },
+  };
 
-const LOCALE_NOTE = "Resolved locale of the response.";
+const DESCRIPTION = `
+Open, read-only JSON API of [reptiles.ge](https://reptiles.ge), the atlas of animals of Georgia (the country in the Caucasus).
 
-const object = (
-  properties: JsonSchema,
-  required = Object.keys(properties),
-) => ({
-  properties,
-  required,
-  type: "object",
-});
+It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna.
 
-const item = { additionalProperties: true, type: "object" };
+## Quick start
 
-const envelope = (data: JsonSchema, extra: JsonSchema = {}) =>
-  object({ data, ...extra });
+\`\`\`bash
+curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species?group=snake"
+curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
+\`\`\`
 
-const listEnvelope = (extra: JsonSchema = {}) =>
-  envelope(
-    { items: item, type: "array" },
-    { total: { type: "integer" }, ...extra },
-  );
+No key or sign-up is needed. CORS allows every origin, so you can call it from a browser.
 
-const locale = { description: LOCALE_NOTE, type: "string" };
+## Versioning
+
+Every path starts with \`/v1\`. A breaking change gets a new version (\`/v2\`) instead of changing \`/v1\`. Within \`/v1\`, new fields may be added: ignore fields you do not know.
+
+## Locales
+
+Send the \`${LOCALE_HEADER}\` request header: \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). There is no \`locale\` query parameter. Georgian is the canonical text; the other locales translate it. Names, texts, stat labels and photo places come back in that locale; scientific names, ids and URLs are the same in every locale. \`updatedAt\` is the date of that locale's text. Every response echoes the \`locale\` it used, in the body and in \`Content-Language\`.
+
+## Ids and slugs
+
+\`id\` is the stable key of a species (for example \`macrovipera-lebetina\`). Store it rather than a slug. \`slug\` is the public URL part for the requested locale: the Georgian slug for \`ka\` (\`giurza\`), the id otherwise. \`/v1/species/{idOrSlug}\` accepts the id, the Georgian slug or an older or alias slug.
+
+## Text format
+
+Text fields are plain text, not HTML:
+
+- Paragraphs are separated by \`\\n\`.
+- Links are inline Markdown, \`[label](target)\`. A target is one of:
+  - a species id, such as \`[Dinnik’s viper](vipera-dinniki)\`: link it to that species (\`/v1/species/vipera-dinniki\`);
+  - a site path starting with \`/\`, such as \`[Kakheti](/regions/kakheti)\`: a page on reptiles.ge, in its English form (\`https://reptiles.ge/en/regions/kakheti\`);
+  - an absolute \`https://\` URL.
+- There is no other Markdown.
+
+An empty string, an empty array or a missing optional field means the atlas has published nothing there. It does not mean "none" or "absent": do not fill it in or read it as a negative answer.
+
+## Images, audio and credits
+
+Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`.
+
+## Caching
+
+Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at the edge, so a change can take up to an hour to appear. Successful responses have an \`ETag\`: send it back in \`If-None-Match\` and you get \`304 Not Modified\` with an empty body when nothing changed. Prefer \`/v1/species\` or the \`card\` catalog over the multi-megabyte \`full\` catalog.
+
+## Errors
+
+Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`.
+
+## About the content
+
+This is a scientific atlas. Each profile lists its sources in \`sources\`. The \`danger\` level is an educational risk label, not medical advice; in an emergency in Georgia call **112**.
+`.trim();
 
 const OPERATIONS: Operation[] = [
   {
     description:
-      "Every published species, localized. Edge-cached for an hour; filter by animal group.",
+      "Every published species in catalog order, in a light list form. Filter with `group`.",
     errors: [400],
     header: localeHeader,
     method: "get",
+    operationId: "listSpecies",
     path: "/v1/species",
     query: speciesListQuery,
     success: {
-      description: "Published species",
-      schema: listEnvelope({ locale }),
-      status: 200,
+      description: "Published species.",
+      examples: { snakes: { value: RESPONSE_EXAMPLES.speciesList } },
+      schema: ref("SpeciesListResponse"),
     },
-    summary: "List published species",
+    summary: "List species",
     tag: "Species",
   },
   {
     description:
-      "Accepts the species id, the Georgian slug, or any alias slug, case-insensitive. Unpublished species answer 404.",
+      "One published species profile with every text, the photo gallery, sources and lookalikes. Unpublished species answer `404`.",
     errors: [400, 404],
     header: localeHeader,
     method: "get",
+    operationId: "getSpecies",
     param: speciesParam,
     path: "/v1/species/{idOrSlug}",
     success: {
-      description: "Species profile",
-      schema: envelope(item, { locale }),
-      status: 200,
+      description: "Species profile.",
+      examples: {
+        levantineViper: {
+          summary: "Levantine viper, shortened",
+          value: RESPONSE_EXAMPLES.species,
+        },
+      },
+      schema: ref("SpeciesResponse"),
     },
-    summary: "Get a species profile",
-    tag: "Species",
-  },
-  {
-    description: "Observation, literature and specimen locations.",
-    errors: [400, 404],
-    method: "get",
-    param: speciesParam,
-    path: "/v1/species/{idOrSlug}/field-records",
-    success: {
-      description: "Field records of the species",
-      schema: listEnvelope({ id: { type: "string" } }),
-      status: 200,
-    },
-    summary: "List field records of a species",
+    summary: "Get a species",
     tag: "Species",
   },
   {
     description:
-      "Every published species in catalog order. `card` is the light view for lists; `full` carries every text and is several MB. Pagination is optional: pass `limit`, then the previous page's `nextCursor` as `cursor`. Without `limit` the whole catalog comes back.",
+      "Dated locations where the species was recorded in Georgia: observations (mostly iNaturalist), literature and specimens. Not every species has records; then `data` is empty.",
+    errors: [400, 404],
+    method: "get",
+    operationId: "listFieldRecords",
+    param: speciesParam,
+    path: "/v1/species/{idOrSlug}/field-records",
+    success: {
+      description: "Field records.",
+      examples: {
+        levantineViper: {
+          summary: "One record, shortened",
+          value: RESPONSE_EXAMPLES.fieldRecords,
+        },
+      },
+      schema: ref("FieldRecordsResponse"),
+    },
+    summary: "List field records",
+    tag: "Species",
+  },
+  {
+    description:
+      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards; use `full` only when you need every text, for example to build a search index. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`. `total` always counts the whole catalog.",
     errors: [400],
     header: localeHeader,
     method: "get",
+    operationId: "getCatalog",
     path: "/v1/catalog",
     query: catalogQuery,
     success: {
-      description: "Localized catalog",
-      schema: listEnvelope({
-        locale,
-        nextCursor: {
-          description: "Cursor for the next page; null on the last page.",
-          type: ["string", "null"],
+      description: "Catalog in the requested view.",
+      examples: {
+        card: {
+          summary: "card view, one species shown",
+          value: RESPONSE_EXAMPLES.catalogCard,
         },
-        view: { enum: ["card", "full"], type: "string" },
-      }),
-      status: 200,
+        full: {
+          summary: "full view, one species shown and shortened",
+          value: RESPONSE_EXAMPLES.catalogFull,
+        },
+      },
+      schema: {
+        discriminator: { propertyName: "view" },
+        oneOf: [ref("CatalogCardResponse"), ref("CatalogFullResponse")],
+      },
     },
-    summary: "Get the species catalog",
+    summary: "Get the catalog",
     tag: "Catalog",
   },
 ];
@@ -149,83 +227,137 @@ export function buildOpenApiDocument() {
       [entry.method]: operation(entry),
     };
   }
-  const errorSchema = { $ref: "#/components/schemas/Error" };
   return {
     components: {
-      responses: Object.fromEntries(
-        Object.entries({ ...ERROR_DESCRIPTIONS, 500: "Internal error" }).map(
-          ([status, description]) => [
-            `Error${status}`,
-            {
-              content: { "application/json": { schema: errorSchema } },
-              description,
-            },
-          ],
-        ),
-      ),
-      schemas: {
-        Error: object({
-          error: object(
-            {
-              code: { enum: ERROR_CODES, type: "string" },
-              details: {},
-              message: { type: "string" },
-            },
-            ["code", "message"],
-          ),
-        }),
+      headers: {
+        CacheControl: {
+          description: "Caching policy of the response.",
+          schema: { example: PUBLIC_CACHE, type: "string" },
+        },
+        ETag: {
+          description: "Version of the response. Send it in `If-None-Match`.",
+          schema: { type: "string" },
+        },
       },
+      parameters: {
+        IfNoneMatch: {
+          description:
+            "An `ETag` from an earlier response. When it still matches, the API answers `304` with an empty body.",
+          in: "header",
+          name: "If-None-Match",
+          required: false,
+          schema: { type: "string" },
+        },
+      },
+      responses: {
+        BadRequest: errorResponse(
+          "Invalid query or path parameter.",
+          RESPONSE_EXAMPLES.invalidRequest,
+        ),
+        InternalError: errorResponse("Unexpected server error.", {
+          error: { code: "internal_error", message: "Internal error" },
+        }),
+        NotFound: errorResponse(
+          "No published species with this id or slug.",
+          RESPONSE_EXAMPLES.error,
+        ),
+        NotModified: {
+          description: "The `If-None-Match` ETag still matches. Empty body.",
+          headers: { ETag: { $ref: "#/components/headers/ETag" } },
+        },
+      },
+      schemas: componentSchemas(),
+    },
+    externalDocs: {
+      description: "reptiles.ge, the atlas these data come from",
+      url: "https://reptiles.ge/en",
     },
     info: {
-      description:
-        "Public read API of the reptiles.ge atlas of animals of Georgia. Every error has the shape `{ error: { code, message, details? } }`.",
+      contact: { name: "reptiles.ge", url: "https://reptiles.ge/en/contact" },
+      description: DESCRIPTION,
       title: "reptiles.ge API",
       version: "1",
     },
     openapi: "3.1.0",
     paths,
+    security: [],
     servers: [
       { description: "This server", url: "/" },
       { description: "Production", url: "https://api.reptiles.ge" },
     ],
     tags: [
-      { description: "Published species profiles", name: "Species" },
-      { description: "Localized species catalog", name: "Catalog" },
+      {
+        description: "Published species profiles and their field records.",
+        name: "Species",
+      },
+      {
+        description: "All published species in one response.",
+        name: "Catalog",
+      },
     ],
   };
 }
 
-function operation(entry: Operation) {
-  const content = (schema: JsonSchema) => ({
-    "application/json": { schema },
+function componentSchemas() {
+  const { schemas } = z.toJSONSchema(responseSchemas, {
+    io: "output",
+    uri: (id) => `#/components/schemas/${id}`,
   });
+  return Object.fromEntries(
+    Object.entries(schemas).map(([id, schema]) => {
+      const { $id: _id, $schema: _schema, ...rest } = schema;
+      return [id, rest];
+    }),
+  );
+}
+
+function errorResponse(description: string, example: unknown) {
   return {
-    ...(entry.description ? { description: entry.description } : {}),
-    operationId: `${entry.method}${entry.path
-      .replace(/^\/v1/, "")
-      .replace(/[{}]/g, "")
-      .split(/[/-]/)
-      .filter(Boolean)
-      .map((part) => part[0]?.toUpperCase() + part.slice(1))
-      .join("")}`,
+    content: { "application/json": { example, schema: ref("Error") } },
+    description,
+  };
+}
+
+function headerName(name: string) {
+  return name.replace(
+    /(^|-)([a-z])/g,
+    (_, dash, letter: string) => `${dash}${letter.toUpperCase()}`,
+  );
+}
+
+function operation(entry: Operation) {
+  const errors = { 400: "BadRequest", 404: "NotFound" };
+  return {
+    description: entry.description,
+    operationId: entry.operationId,
     parameters: [
-      ...(entry.param ? parameters(entry.param, "path") : []),
       ...(entry.header ? parameters(entry.header, "header") : []),
+      ...(entry.param ? parameters(entry.param, "path") : []),
       ...(entry.query ? parameters(entry.query, "query") : []),
+      { $ref: "#/components/parameters/IfNoneMatch" },
     ],
     responses: {
-      [entry.success.status]: {
+      200: {
+        content: {
+          "application/json": {
+            examples: entry.success.examples,
+            schema: entry.success.schema,
+          },
+        },
         description: entry.success.description,
-        ...(entry.success.schema
-          ? { content: content(entry.success.schema) }
-          : {}),
+        headers: {
+          "Cache-Control": { $ref: "#/components/headers/CacheControl" },
+          ETag: { $ref: "#/components/headers/ETag" },
+        },
       },
+      304: { $ref: "#/components/responses/NotModified" },
       ...Object.fromEntries(
-        [...entry.errors, 500].map((status) => [
+        entry.errors.map((status) => [
           status,
-          { $ref: `#/components/responses/Error${status}` },
+          { $ref: `#/components/responses/${errors[status]}` },
         ]),
       ),
+      500: { $ref: "#/components/responses/InternalError" },
     },
     summary: entry.summary,
     tags: [entry.tag],
@@ -238,8 +370,9 @@ function parameters(
 ) {
   const required = new Set((toSchema(schema).required as string[]) ?? []);
   return Object.entries(schema.shape).map(([name, field]) => ({
+    ...PARAMETER_DOCS[name],
     in: location,
-    name,
+    name: location === "header" ? headerName(name) : name,
     required: location === "path" || required.has(name),
     schema: toSchema(field as z.ZodType),
   }));

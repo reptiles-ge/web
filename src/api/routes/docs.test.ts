@@ -20,6 +20,7 @@ type Document = {
       }
     >
   >;
+  security: unknown[];
   servers: Array<{ description: string; url: string }>;
 };
 
@@ -66,6 +67,7 @@ describe("docs route", () => {
     const { document, response } = await loadDocument();
     expect(response.status).toBe(200);
     expect(document.openapi).toBe("3.1.0");
+    expect(document.security).toEqual([]);
     expect(document.servers.map((server) => server.url)).toEqual([
       "/",
       "https://api.reptiles.ge",
@@ -109,7 +111,7 @@ describe("docs route", () => {
   it("documents the locale as an optional header", async () => {
     const { document } = await loadDocument();
     const parameters = document.paths["/v1/catalog"]?.get?.parameters ?? [];
-    expect(parameters.find((p) => p.name === "x-locale")).toMatchObject({
+    expect(parameters.find((p) => p.name === "X-Locale")).toMatchObject({
       in: "header",
       required: false,
     });

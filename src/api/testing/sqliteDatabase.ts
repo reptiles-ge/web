@@ -2,10 +2,13 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
+import type { SpeciesFieldRecord } from "@/data/speciesTypes";
+
 import { speciesImportSource } from "@/lib/speciesImportSource";
 
 import type { ApiDatabase } from "../db/database";
 
+import { buildFieldRecordsImport } from "../db/fieldRecords";
 import { buildSpeciesImport } from "../db/speciesImport";
 
 const MIGRATIONS_DIR = path.resolve(
@@ -13,7 +16,28 @@ const MIGRATIONS_DIR = path.resolve(
   "../../../migrations/api",
 );
 
+const FIELD_RECORDS_FILE = path.resolve(
+  import.meta.dirname,
+  "../../data/fieldRecords.generated.json",
+);
+
 let speciesStatements: string[] | undefined;
+let fieldRecords: Record<string, SpeciesFieldRecord[]> | undefined;
+
+export function compiledFieldRecords() {
+  fieldRecords ??= JSON.parse(
+    readFileSync(FIELD_RECORDS_FILE, "utf8"),
+  ) as Record<string, SpeciesFieldRecord[]>;
+  return fieldRecords;
+}
+
+export function createFieldRecordsTestDatabase() {
+  const database = createSpeciesTestDatabase();
+  for (const statement of buildFieldRecordsImport(compiledFieldRecords())) {
+    database.sqlite.exec(statement);
+  }
+  return database;
+}
 
 export function createSpeciesTestDatabase() {
   const database = createTestDatabase();
