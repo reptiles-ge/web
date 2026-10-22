@@ -107815,6 +107815,101 @@
       ],
       "updatedAt": "2026-10-22T09:08:51.096Z"
     },
+    "testudo-graeca-donsky-1.jpg": {
+      "sourceHash": "3efb173940b1ac33be0311871c93cfc3f5367751d8657d2575448924fa9a5437",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-donsky-1.jpg",
+      "originalSize": 522014,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13347
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21404
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18841
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29376
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37338
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56106
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51557
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76380
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90031
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 132890
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185307
+        },
+        {
+          "key": "optimized/testudo-graeca-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 270212
+        }
+      ],
+      "updatedAt": "2026-10-22T09:14:36.048Z"
+    },
     "testudo-graeca-giorgi-1.jpg": {
       "sourceHash": "1105ed10996db217bd7d876194702df5376ad2f1dcb60b28c99a623e787d6457",
       "configFingerprint": "409788ee46c653d8",
