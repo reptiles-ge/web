@@ -53,6 +53,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
 | Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                    |
 | Pinned / patched deps          | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                               |
+| API Worker (Hono, D1)          | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`          |
 
 ## Architecture
 
@@ -171,6 +172,15 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - The `summary` renders as an "In short" (მოკლედ) box after the last section. Never render it under the H1 (owner decision, enforced by the guard test).
 - Every guide needs a 1200×630 JPEG share image: `pnpm images:og-guides --guide <id>` renders it from the hero with `@reptiles-ge/img-compression` (`--upload` sends it to the CDN).
 - `src/proxy.ts` and client components import `guideArticlePaths.ts` only, never the registry with copy.
+
+## API
+
+The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/api/` with its own `wrangler.api.jsonc`. **Before adding or editing anything in `src/api/`, `migrations/api/`, or `wrangler.api.jsonc`, read `.agents/skills/api/SKILL.md`.** Its rules are binding.
+
+- Layout: `app.ts` mounts one sub-app per resource from `routes/` under `/v1/`; SQL only in `db/`; input only through `validate()` and Zod schemas; errors only through `ApiError` / `lib/errors.ts`.
+- `src/api/structure.test.ts` fails on any break of that layout. Do not weaken it.
+- Migrations are add-only (`migrations/api/NNNN_name.sql`). Apply `--remote` only when the owner asks, never from CI.
+- Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 
 ## Quiz
 

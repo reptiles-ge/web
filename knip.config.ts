@@ -5,6 +5,7 @@ const config: KnipConfig = {
     "src/app/**/{layout,page,route}.local.{ts,tsx}",
     "src/worker.ts",
     "src/api/index.ts",
+    "src/api/app.ts",
   ],
   ignoreBinaries: ["codex", "pbcopy"],
   ignoreDependencies: [
