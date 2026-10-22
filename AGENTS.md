@@ -179,6 +179,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 - Layout: `app.ts` mounts one sub-app per resource from `routes/` under `/v1/`; SQL only in `db/`; input only through `validate()` and Zod schemas; errors only through `ApiError` / `lib/errors.ts`.
 - `src/api/structure.test.ts` fails on any break of that layout. Do not weaken it.
+- Species profile pages load their content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`), with no MDX fallback and no client loaders. See the skill for what is still local.
 - The whole species catalog is copied into D1 (`0002_species.sql`) with `pnpm db:import:species`. MDX is still the source of truth; D1 is rebuilt from it, and a round-trip test requires a 1:1 match.
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.

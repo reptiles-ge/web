@@ -13,7 +13,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -57,16 +56,17 @@ import {
   speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
+import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
 import {
   getSpeciesPublicSlug,
-  resolveSpeciesInHub,
   speciesHref,
   speciesStaticParams,
 } from "@/lib/speciesRoutes";
+import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -122,17 +122,17 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
-    const raw = resolveSpeciesInHub(hubId, slug);
+    const id = resolveSpeciesIdInHub(hubId, slug);
+    const loaded = id ? await loadSpeciesPage(id, locale) : null;
 
-    if (!raw) {
+    if (!loaded) {
       return {
         robots: null,
         title: t("notFound"),
       };
     }
 
-    const item = localizeSpecies(raw, locale);
-    const group = getSpeciesAtlasMeta(raw.id).group;
+    const { group, item, raw } = loaded;
     const title = speciesPageMetaTitle(
       raw.id,
       locale,
@@ -203,19 +203,21 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const raw = resolveSpeciesInHub(hubId, slug);
-    if (!raw) {
+    const id = resolveSpeciesIdInHub(hubId, slug);
+    if (!id) {
       notFound();
     }
 
-    const expectedSlug = getSpeciesPublicSlug(raw.id, locale);
+    const expectedSlug = getSpeciesPublicSlug(id, locale);
     if (slug !== expectedSlug) {
-      permanentRedirect(
-        getPathname({ href: speciesHref(raw.id, locale), locale }),
-      );
+      permanentRedirect(getPathname({ href: speciesHref(id, locale), locale }));
     }
 
-    const item = localizeSpecies(raw, locale);
+    const loaded = await loadSpeciesPage(id, locale);
+    if (!loaded) {
+      notFound();
+    }
+    const { item, raw } = loaded;
     const { lookalikes, related } = localizedSpeciesRelations(raw, locale);
     const tProfile = await getTranslations({ locale, namespace: "profile" });
     const tHubs = await getTranslations({
@@ -286,6 +288,15 @@ function epithetStem(epithet: string) {
 
 function isTaxonSameAsUrl(url: string) {
   return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
+}
+
+async function loadSpeciesPage(id: string, locale: AppLocale) {
+  const [base, localized] = await Promise.all([
+    getSpeciesProfile(id, "ka"),
+    getSpeciesProfile(id, locale),
+  ]);
+  if (!base || !localized) return null;
+  return { group: localized.group, item: localized.species, raw: base.species };
 }
 
 function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
