@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Phone } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
@@ -18,6 +18,7 @@ import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import {
   HUB_EMERGENCY_GUIDES,
   HUB_FEATURED_GUIDE,
+  HUB_HERO_GUIDES,
   HUB_HERO_IMAGE_SIZES,
   HUB_QUIZ,
 } from "@/lib/groupHubLayout";
@@ -164,6 +165,7 @@ export async function GroupHubHero({
               </a>
               <HeroSecondaryCta hubId={hubId} locale={locale} />
             </div>
+            <HeroGuideLinks hubId={hubId} locale={locale} />
           </div>
 
           {heroSpecies ? (
@@ -240,6 +242,50 @@ async function GroupHubEmergencyStrip({
         </nav>
       </div>
     </section>
+  );
+}
+
+async function HeroGuideLinks({
+  hubId,
+  locale,
+}: {
+  hubId: GroupHubId;
+  locale: AppLocale;
+}) {
+  const keys = HUB_HERO_GUIDES[hubId];
+  if (!keys) return null;
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
+  const links = keys.flatMap((key) => {
+    const card = HUB_CLUSTER_CARDS[hubId].find((entry) => entry.key === key);
+    return card?.kind === "page" ? [card] : [];
+  });
+
+  return (
+    <ul className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:mt-4 lg:gap-3">
+      {links.map((card) => (
+        <li key={card.key}>
+          <Link
+            className="flex min-h-[60px] items-center justify-between gap-3 rounded-[18px] border border-white/16 bg-white/6 px-4 py-3 transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110"
+            href={card.href}
+          >
+            <span className="flex flex-col">
+              <span className="text-[11px] tracking-[0.12em] text-white/60 uppercase">
+                {tShared(
+                  `cluster.${card.key}.eyebrow` as "cluster.yard.eyebrow",
+                )}
+              </span>
+              <span className="mt-0.5 text-[15px] leading-tight font-medium text-white">
+                {tShared(`cluster.${card.key}.title` as "cluster.yard.title")}
+              </span>
+            </span>
+            <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }
 

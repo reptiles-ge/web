@@ -9,7 +9,8 @@ import { type localePath, speciesOgImageUrl } from "@/lib/site";
 
 type SpeciesOgPageMetadataInput = {
   locale: AppLocale;
-  namespace: "dangerousAnimals" | "riskToHumans" | "venomousSnakes";
+  namespace:
+    "dangerousAnimals" | "riskToHumans" | "snakesInYard" | "venomousSnakes";
   ogSpeciesId: string;
   pagePath: Parameters<typeof localePath>[1];
   titleValues?: Record<string, number>;

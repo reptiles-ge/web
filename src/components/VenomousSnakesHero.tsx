@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClusterStat } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { SnakeBiteCallChip } from "@/components/SnakeBiteCallChip";
 import { Link } from "@/i18n/navigation";
 
 type VenomousSnakesHeroProps = {
@@ -78,10 +79,8 @@ export async function VenomousSnakesHero({
               </ol>
             </nav>
 
-            <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
-              Reptiles
-            </p>
-            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
+            <SnakeBiteCallChip locale={locale} />
+            <h1 className="text-balance-tight mt-4 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">

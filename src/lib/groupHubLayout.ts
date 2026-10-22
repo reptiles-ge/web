@@ -28,8 +28,12 @@ export const HUB_FEATURED_GUIDE: Partial<Record<GroupHubId, HubFeaturedGuide>> =
 export const HUB_EMERGENCY_GUIDES: Partial<
   Record<GroupHubId, readonly string[]>
 > = {
-  snakes: ["bite", "gyurzaBite", "yard"],
+  snakes: ["bite", "gyurzaBite"],
   spiders: ["spiderBite", "spiderVenomous"],
+};
+
+export const HUB_HERO_GUIDES: Partial<Record<GroupHubId, readonly string[]>> = {
+  snakes: ["venomous", "yard"],
 };
 
 export const EMERGENCY_GUIDE_KEYS: ReadonlySet<string> = new Set([
