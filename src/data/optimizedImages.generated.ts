@@ -5037,6 +5037,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg": {
+    "path": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement",
+    "width": 1080,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range.jpg": {
+    "path": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-range",
+    "width": 1920,
+    "height": 600,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading.jpg": {
+    "path": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/parliament-egrisi-third-reading",
+    "width": 880,
+    "height": 500,
+    "widths": [320, 400, 640, 800, 880],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda.jpg": {
+    "path": "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/tsiv-gombori-range-zemo-kanda",
+    "width": 1920,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
     "path": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis",
     "width": 2048,
