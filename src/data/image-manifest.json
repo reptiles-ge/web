@@ -4463,6 +4463,397 @@
       ],
       "updatedAt": "2026-09-26T20:19:06.136Z"
     },
+    "araneus-diadematus-andreas-1.jpg": {
+      "sourceHash": "390cb65fbb4a313b80fa22b2f391da7497b83fb9f1355b50d3aff7414dccb043",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-andreas-1.jpg",
+      "originalSize": 212134,
+      "width": 1024,
+      "height": 1009,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 315,
+          "byteSize": 12081
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 315,
+          "byteSize": 17278
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 394,
+          "byteSize": 16727
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 394,
+          "byteSize": 23386
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 631,
+          "byteSize": 32928
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 631,
+          "byteSize": 45100
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 788,
+          "byteSize": 46121
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 788,
+          "byteSize": 60970
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1009,
+          "byteSize": 68578
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1009,
+          "byteSize": 89356
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:13.601Z"
+    },
+    "araneus-diadematus-dachi-1.jpg": {
+      "sourceHash": "60fc6da841a0deb97c22a90a3a95ee880be31219459f987c89c425b4bd2a31e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-dachi-1.jpg",
+      "originalSize": 64262,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 7172
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 8074
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 9569
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 11092
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 18202
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 21090
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 20528
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 23460
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:11.473Z"
+    },
+    "araneus-diadematus-davit-1.jpg": {
+      "sourceHash": "ca53e1082331bd07e4c01ec8da7329e15fcc749c7d8cd18577d8751798606caf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-davit-1.jpg",
+      "originalSize": 79576,
+      "width": 1024,
+      "height": 734,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 229,
+          "byteSize": 4594
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 229,
+          "byteSize": 5502
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 287,
+          "byteSize": 6489
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 287,
+          "byteSize": 7700
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 459,
+          "byteSize": 13772
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 459,
+          "byteSize": 15872
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 573,
+          "byteSize": 19348
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 573,
+          "byteSize": 21938
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 734,
+          "byteSize": 28664
+        },
+        {
+          "key": "optimized/araneus-diadematus-davit-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 734,
+          "byteSize": 31802
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:11.817Z"
+    },
+    "araneus-diadematus-giorgi-1.jpg": {
+      "sourceHash": "917b0da1ea851fe0bc16c0b4d3ce0f5c152136240337ace1e412ec1104a8d98d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-giorgi-1.jpg",
+      "originalSize": 74779,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2627
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2940
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3676
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4122
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 7996
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8774
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 11904
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 12436
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 19676
+        },
+        {
+          "key": "optimized/araneus-diadematus-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 19120
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:14.304Z"
+    },
+    "araneus-diadematus-gocha-1.jpg": {
+      "sourceHash": "9a9aea53c8d09f41745ae015b3c20e8d064616ad6eb92858af8df16e0bd806a4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-gocha-1.jpg",
+      "originalSize": 106833,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6070
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8116
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8467
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11088
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16569
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22508
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 22747
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32248
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 35387
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 48664
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:19.183Z"
+    },
     "argiope-bruennichi-anamarija-1.jpg": {
       "sourceHash": "8105e8a7052c82fdff29d8a2efb645190bacd82199880d425b48a782bdb281fe",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -67187,6 +67578,548 @@
         }
       ],
       "updatedAt": "2026-08-29T06:40:37.362Z"
+    },
+    "images/species/pernis-apivorus-dietrich-juv-1.jpg": {
+      "sourceHash": "e5f7b9b8a941a232fed28b775aa7a3349a317abf1d365910d6c37fad9830613d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-dietrich-juv-1.jpg",
+      "originalSize": 851649,
+      "width": 1060,
+      "height": 807,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 243,
+          "byteSize": 18006
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 243,
+          "byteSize": 26962
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 305,
+          "byteSize": 27177
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 305,
+          "byteSize": 40194
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 487,
+          "byteSize": 59647
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 487,
+          "byteSize": 92080
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 609,
+          "byteSize": 85561
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 609,
+          "byteSize": 130074
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-1060.avif",
+          "format": "avif",
+          "width": 1060,
+          "height": 807,
+          "byteSize": 112256
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-dietrich-juv-1-1060.webp",
+          "format": "webp",
+          "width": 1060,
+          "height": 807,
+          "byteSize": 180568
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:19.997Z"
+    },
+    "images/species/pernis-apivorus-laheyne-flight-1.jpg": {
+      "sourceHash": "38f191ec0a32e209d58d0fadf79b1208455eca56805f5d5f5c4f2aa09dcd1f9d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-laheyne-flight-1.jpg",
+      "originalSize": 1801982,
+      "width": 1054,
+      "height": 1580,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 11913
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 15538
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 15509
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 21014
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 959,
+          "byteSize": 28009
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 959,
+          "byteSize": 39336
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1199,
+          "byteSize": 37358
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1199,
+          "byteSize": 54018
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-1054.avif",
+          "format": "avif",
+          "width": 1054,
+          "height": 1580,
+          "byteSize": 55993
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-laheyne-flight-1-1054.webp",
+          "format": "webp",
+          "width": 1054,
+          "height": 1580,
+          "byteSize": 82362
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:21.099Z"
+    },
+    "images/species/pernis-apivorus-morffew-1.jpg": {
+      "sourceHash": "757e76f72a03cbcc28f2ef5e1040e6f77b02023648f25249402ce2faba8549b9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-morffew-1.jpg",
+      "originalSize": 2454657,
+      "width": 2400,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 256,
+          "byteSize": 11059
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 256,
+          "byteSize": 15992
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 14946
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 22156
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 512,
+          "byteSize": 30151
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 512,
+          "byteSize": 45276
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 43039
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 63232
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 82170
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 122682
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 323487
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 481276
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:27.097Z"
+    },
+    "images/species/pernis-apivorus-morffew-portrait-1.jpg": {
+      "sourceHash": "65bcb68f0ca5237b9c77593d0b61e3d369e79657ce4f0c169be717f8764aee24",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-morffew-portrait-1.jpg",
+      "originalSize": 2635929,
+      "width": 2400,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 256,
+          "byteSize": 9190
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 256,
+          "byteSize": 12288
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 12805
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 17946
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 512,
+          "byteSize": 27848
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 512,
+          "byteSize": 40048
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 40482
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 59714
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 84086
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 135082
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 458217
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-morffew-portrait-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 703266
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:33.048Z"
+    },
+    "images/species/pernis-apivorus-norelius-1.jpg": {
+      "sourceHash": "d7d9633c4d93893dd4251b048f4cf141cf975ab2aae11036b50dae66d30c0fb0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-norelius-1.jpg",
+      "originalSize": 2976405,
+      "width": 2400,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13608
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 22212
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 19447
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 31302
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 43531
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 69956
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 64446
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 101420
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 118125
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 192972
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 482431
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-norelius-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 804150
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:33.334Z"
+    },
+    "images/species/pernis-apivorus-sharp-flight-1.jpg": {
+      "sourceHash": "e76037eeb55aaba22c33c3894e63335a8b3879263c00ff5c2a9e7dcf76982b3d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/pernis-apivorus-sharp-flight-1.jpg",
+      "originalSize": 4179979,
+      "width": 2400,
+      "height": 1601,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2122
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2090
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2548
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2618
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 4015
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 4678
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 5186
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 6266
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 8189
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 10468
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 23125
+        },
+        {
+          "key": "optimized/images/species/pernis-apivorus-sharp-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 30730
+        }
+      ],
+      "updatedAt": "2026-10-22T11:40:28.691Z"
     },
     "images/species/phasianus-colchicus-female-1.jpg": {
       "sourceHash": "d3d33c05bba736b1f47cb82d39a3864b575d1c711e272584f09cb1c96505dbf8",
