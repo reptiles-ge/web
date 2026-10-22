@@ -8971,6 +8971,83 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/testudo-graeca-barbarapaisx-1.jpg": {
+    "path": "testudo-graeca-barbarapaisx-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-bertogcliment-1.jpg": {
+    "path": "testudo-graeca-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-donsky-1.jpg": {
+    "path": "testudo-graeca-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-giorgi-1.jpg": {
+    "path": "testudo-graeca-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-giorgi-2.jpg": {
+    "path": "testudo-graeca-giorgi-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nicolai-1.jpg": {
+    "path": "testudo-graeca-nicolai-1",
+    "width": 2048,
+    "height": 1542,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nikita-1.jpg": {
+    "path": "testudo-graeca-nikita-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nikita-2.jpg": {
+    "path": "testudo-graeca-nikita-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-nina-1.jpg": {
+    "path": "testudo-graeca-nina-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-peter-1.jpg": {
+    "path": "testudo-graeca-peter-1",
+    "width": 1880,
+    "height": 1254,
+    "widths": [320, 400, 640, 800, 1200, 1880],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-zj-adram-1.jpg": {
+    "path": "testudo-graeca-zj-adram-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/testudo-graeca.jpg": {
     "path": "testudo-graeca",
     "width": 1920,
@@ -8992,11 +9069,102 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1307],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-aleksandra-1.jpg": {
+    "path": "trachemys-scripta-aleksandra-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-axel-1.jpg": {
+    "path": "trachemys-scripta-axel-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-donsky-1.jpg": {
+    "path": "trachemys-scripta-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-donsky-2.jpg": {
+    "path": "trachemys-scripta-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-fedotova-1.jpg": {
+    "path": "trachemys-scripta-fedotova-1",
+    "width": 2046,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2046],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-floyd-1.jpg": {
+    "path": "trachemys-scripta-floyd-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-gogopopo-1.jpg": {
+    "path": "trachemys-scripta-gogopopo-1",
+    "width": 1571,
+    "height": 1047,
+    "widths": [320, 400, 640, 800, 1200, 1571],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-ka-1.jpg": {
+    "path": "trachemys-scripta-ka-1",
+    "width": 1644,
+    "height": 1471,
+    "widths": [320, 400, 640, 800, 1200, 1644],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-kseniia-2.jpg": {
+    "path": "trachemys-scripta-kseniia-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-marat-1.jpg": {
+    "path": "trachemys-scripta-marat-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-maxim-1.jpg": {
+    "path": "trachemys-scripta-maxim-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg": {
     "path": "trachemys-scripta-mobile",
     "width": 1707,
     "height": 960,
     "widths": [400, 800, 1200, 1707],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-nikita-1.jpg": {
+    "path": "trachemys-scripta-nikita-1",
+    "width": 1840,
+    "height": 1221,
+    "widths": [320, 400, 640, 800, 1200, 1840],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-wichyanan-1.jpg": {
+    "path": "trachemys-scripta-wichyanan-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/trachemys-scripta.jpg": {

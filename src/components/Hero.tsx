@@ -65,7 +65,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
         <div className="absolute inset-x-0 bottom-0 hidden h-[250px] bg-linear-to-t from-ink/90 to-transparent lg:block" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-end px-6 pb-7 lg:items-center lg:px-[60px] lg:pb-0">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-end px-6 pb-7 has-aria-expanded:z-30 lg:items-center lg:px-[60px] lg:pb-0">
         <div className="w-full max-w-[620px] lg:pt-6">
           <p className="flex items-center gap-2.5 text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
             <span className="size-1.5 rounded-full bg-[#6fad88]" />

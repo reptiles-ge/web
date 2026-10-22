@@ -82,6 +82,8 @@ import { rangeMap as pseudopusApodus } from "@/data/speciesRangeMaps/pseudopus-a
 import { rangeMap as steatodaPaykulliana } from "@/data/speciesRangeMaps/steatoda-paykulliana";
 import { rangeMap as streptopeliaTurtur } from "@/data/speciesRangeMaps/streptopelia-turtur";
 import { rangeMap as telescopusFallax } from "@/data/speciesRangeMaps/telescopus-fallax";
+import { rangeMap as testudoGraeca } from "@/data/speciesRangeMaps/testudo-graeca";
+import { rangeMap as trachemysScripta } from "@/data/speciesRangeMaps/trachemys-scripta";
 import { rangeMap as turdusMerula } from "@/data/speciesRangeMaps/turdus-merula";
 import { rangeMap as tytoAlba } from "@/data/speciesRangeMaps/tyto-alba";
 import { rangeMap as ursusArctos } from "@/data/speciesRangeMaps/ursus-arctos";
@@ -182,6 +184,8 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "steatoda-paykulliana": steatodaPaykulliana,
   "streptopelia-turtur": streptopeliaTurtur,
   "telescopus-fallax": telescopusFallax,
+  "testudo-graeca": testudoGraeca,
+  "trachemys-scripta": trachemysScripta,
   "turdus-merula": turdusMerula,
   "tyto-alba": tytoAlba,
   "ursus-arctos": ursusArctos,
