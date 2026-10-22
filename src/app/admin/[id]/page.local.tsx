@@ -1,13 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AdminSpeciesDrafts } from "@/components/admin/AdminSpeciesDrafts";
 import { AdminSpeciesEditor } from "@/components/admin/AdminSpeciesEditor";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
-import { readAdminSpecies } from "@/lib/adminSpeciesApi";
+import {
+  listAdminSpeciesDrafts,
+  readAdminSpecies,
+} from "@/lib/adminSpeciesApi";
+import { diffSpeciesRecords } from "@/lib/speciesDraftDiff";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +32,15 @@ export default async function AdminSpeciesPage({ params }: Props) {
     notFound();
   }
   const { base, status } = loaded.record;
+  const drafts = (await listAdminSpeciesDrafts(id)).map((draft) => ({
+    actor: draft.actor,
+    baseVersion: draft.baseVersion,
+    changes: diffSpeciesRecords(loaded.record, draft.record),
+    createdAt: draft.createdAt,
+    id: draft.id,
+    source: draft.source,
+    summary: draft.summary,
+  }));
   const species = {
     commonName: base.commonName,
     fieldRecords: readFieldRecords(id),
@@ -52,6 +66,13 @@ export default async function AdminSpeciesPage({ params }: Props) {
         <em>{species.scientificName}</em>
         {species.unpublished ? " · unpublished" : ""}
       </p>
+      <div className="mt-10">
+        <AdminSpeciesDrafts
+          currentVersion={loaded.version}
+          drafts={drafts}
+          id={id}
+        />
+      </div>
       <div className="mt-10">
         <AdminSpeciesEditor
           commonName={species.commonName}

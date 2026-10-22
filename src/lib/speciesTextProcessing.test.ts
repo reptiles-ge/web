@@ -8,6 +8,7 @@ import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
   getSpeciesTextFields,
+  mdxSpeciesTextSource,
   rewriteSpeciesTexts,
 } from "@/lib/speciesTextProcessing";
 
@@ -105,7 +106,9 @@ describe("page-aware species text rewrite", () => {
         return four("This atlas lists a large viper. It is dangerous.");
       return four(input.selected);
     });
-    const { notes, updates } = await rewriteSpeciesTexts("test-species", cwd);
+    const { notes, updates } = await rewriteSpeciesTexts(
+      await mdxSpeciesTextSource("test-species", cwd),
+    );
     const first = calls.find((call) => call.field === "overview")!;
     expect(first).toMatchObject({
       commonName: "გიურზა",
@@ -135,7 +138,9 @@ describe("page-aware species text rewrite", () => {
           : "It lives on dry slopes. It hides under stones.",
       ),
     );
-    const { notes, updates } = await rewriteSpeciesTexts("test-species", cwd);
+    const { notes, updates } = await rewriteSpeciesTexts(
+      await mdxSpeciesTextSource("test-species", cwd),
+    );
     expect(updates).toEqual([]);
     expect(notes).toEqual([
       "overview: რიცხვი დაიკარგა ან შეიცვალა, ველი უცვლელად დარჩა",
@@ -148,7 +153,9 @@ describe("page-aware species text rewrite", () => {
           : input.selected,
       ),
     );
-    const deduped = await rewriteSpeciesTexts("test-species", cwd);
+    const deduped = await rewriteSpeciesTexts(
+      await mdxSpeciesTextSource("test-species", cwd),
+    );
     expect(deduped.updates.map(({ field }) => field)).toEqual([
       "overview",
       "habitat",
@@ -172,7 +179,9 @@ describe("page-aware species text rewrite", () => {
         return four("The viper lives up to 1500 m. It is dangerous to people.");
       return four(input.selected);
     });
-    const { notes, updates } = await rewriteSpeciesTexts("test-species", cwd);
+    const { notes, updates } = await rewriteSpeciesTexts(
+      await mdxSpeciesTextSource("test-species", cwd),
+    );
     expect(calls.map(({ field }) => field)).toEqual([
       "habitat",
       "overview",
@@ -209,7 +218,7 @@ describe("page-aware species text rewrite", () => {
       calls.push(input);
       return four(input.selected);
     });
-    await rewriteSpeciesTexts("test-species", cwd);
+    await rewriteSpeciesTexts(await mdxSpeciesTextSource("test-species", cwd));
     expect(calls[0].speciesNames).toEqual([
       {
         en: "Spotted Whip Snake",

@@ -231,3 +231,18 @@ export const photoCoordinatesBody = z.strictObject({
     .nullable(),
   src: photoSrc,
 });
+
+export const draftCreateBody = z.strictObject({
+  actor,
+  baseVersion: z.int().min(1),
+  record: speciesRecordSchema,
+  source: z.enum(["admin", "ai", "api"]),
+  summary: z.string().trim().min(1).max(500),
+});
+
+export const draftDecisionBody = z.strictObject({ actor });
+
+export const draftParam = z.object({
+  draftId: z.coerce.number().int().min(1),
+  id: z.string().regex(SLUG).max(100),
+});

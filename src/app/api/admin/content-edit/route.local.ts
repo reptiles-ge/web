@@ -9,6 +9,7 @@ import {
 } from "@/lib/contentEditor";
 import { transformWithAgent } from "@/lib/contentEditorAgent";
 import { createEditorPullRequest } from "@/lib/contentEditorPullRequest";
+import { proposeSpeciesEdit } from "@/lib/contentEditorSpecies";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 
 export const runtime = "nodejs";
@@ -26,6 +27,22 @@ export async function POST(request: Request) {
     if (text.length > 30000)
       return Response.json({ error: "request" }, { status: 413 });
     const input = editorRequestSchema.parse(JSON.parse(text));
+    if (input.kind === "species") {
+      phase = "codex";
+      const { reviewUrl } = await proposeSpeciesEdit(input);
+      console.info(
+        "content-editor",
+        JSON.stringify({
+          durationMs: Date.now() - started,
+          operationId,
+          phase: "draft",
+        }),
+      );
+      return Response.json(
+        { reviewUrl },
+        { headers: { "X-Robots-Tag": "noindex" } },
+      );
+    }
     const target = await resolveEditorTarget(input);
     const selection = verifyEditorSelection(target.source, input);
     console.info(

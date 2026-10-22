@@ -37,57 +37,12 @@ type OpenPullRequest = {
   url: string;
 };
 
-export class StaleSpeciesContentError extends Error {}
-
-export async function assertSpeciesTextSourceCurrent(id: string) {
-  const { base, existing } = await pullRequestTarget("species", id);
-  const remoteBranch = existing?.headRefName ?? base;
-  await run("git", [
-    "fetch",
-    "origin",
-    base,
-    ...(existing ? [remoteBranch] : []),
-  ]);
-  const differences = await Promise.all(
-    ["ka", "en", "ru", "tr"].map(async (locale) => {
-      const file = `src/content/species/${id}/${locale}.mdx`;
-      const [local, remote] = await Promise.all([
-        fs.readFile(path.join(root, file), "utf8"),
-        exec("git", ["show", `origin/${remoteBranch}:${file}`], {
-          cwd: root,
-          encoding: "utf8",
-          maxBuffer: 1024 * 1024,
-          timeout: 180000,
-        }).then(({ stdout }) => stdout),
-      ]);
-      return local !== remote;
-    }),
-  );
-  if (differences.some(Boolean))
-    throw new StaleSpeciesContentError(
-      "Species content differs from the PR target branch",
-    );
-}
-
 export async function createEditorPullRequest(
   input: EditorRequest,
   result: EditorResult,
   operationId: string,
 ) {
   return enqueue([{ ...input, result, selection: input }], operationId, false);
-}
-
-export async function createSpeciesTextsPullRequest(
-  id: string,
-  updates: Array<{ field: string; result: EditorResult; source: string }>,
-  operationId: string,
-) {
-  if (!updates.length) throw new Error("No species texts to edit");
-  return enqueue(
-    updates.map((update) => ({ ...update, id, kind: "species" })),
-    operationId,
-    true,
-  );
 }
 
 export function findSpeciesPullRequest(

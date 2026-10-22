@@ -32,6 +32,37 @@ const newsFrontmatterField = /^(?:title|dek|lead)$/;
 const regionField =
   /^(?:name|description|overview|biome|habitats\.\d+|faq\.\d+\.(?:question|answer))$/;
 
+export function draftReviewUrl(id: string, draftId: number) {
+  return `/admin/${id}#draft-${draftId}`;
+}
+
+export function finalizeEditorValues(
+  result: EditorResult,
+  original: (locale: (typeof locales)[number]) => string,
+) {
+  const values = { ...result };
+  for (const locale of locales) {
+    const before = original(locale);
+    if (locale !== "ka" && before) {
+      values[locale] = restoreInlineLinkTargets(
+        before,
+        values[locale],
+        values.ka,
+      );
+    } else {
+      assertInlineLinksPreserved(before || values.ka, values[locale]);
+    }
+  }
+  return values;
+}
+
+export function isSpeciesEditorField(field: string) {
+  return (
+    editorFields.some((candidate) => candidate === field) ||
+    speciesField.test(field)
+  );
+}
+
 export async function resolveEditorTarget(
   input: Partial<Pick<EditorRequest, "end" | "renderedText" | "start">> &
     Pick<EditorRequest, "field" | "id" | "kind">,
@@ -40,10 +71,7 @@ export async function resolveEditorTarget(
   let files: string[];
   let field = input.field;
   if (input.kind === "species") {
-    if (
-      !editorFields.some((candidate) => candidate === field) &&
-      !speciesField.test(field)
-    )
+    if (!isSpeciesEditorField(field))
       throw new Error("Unsupported species field");
     files = locales.map(
       (locale) => `src/content/species/${input.id}/${locale}.mdx`,
@@ -133,24 +161,16 @@ export async function resolveEditorTarget(
     originals,
     source,
     updated(result: EditorResult) {
-      const values = { ...result };
-      for (const [index, locale] of locales.entries()) {
-        const original = read(
+      const values = finalizeEditorValues(result, (locale) =>
+        read(
           originals[
-            input.kind === "guide" || input.kind === "region" ? 0 : index
+            input.kind === "guide" || input.kind === "region"
+              ? 0
+              : locales.indexOf(locale)
           ],
           locale,
-        );
-        if (locale !== "ka" && original) {
-          values[locale] = restoreInlineLinkTargets(
-            original,
-            values[locale],
-            values.ka,
-          );
-        } else {
-          assertInlineLinksPreserved(original || values.ka, values[locale]);
-        }
-      }
+        ),
+      );
       if (input.kind === "species") {
         if (
           field === "commonName" &&

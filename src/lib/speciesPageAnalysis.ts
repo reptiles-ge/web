@@ -25,6 +25,7 @@ import {
   type SuperAnalysisStage,
 } from "@/lib/speciesSuperAnalysisSchema";
 import {
+  mdxSpeciesTextSource,
   rewriteSpeciesTexts,
   speciesTextsReport,
 } from "@/lib/speciesTextProcessing";
@@ -663,7 +664,9 @@ async function changedFiles(worktree: string) {
 }
 
 async function processWorkflowTexts(id: string, worktree: string) {
-  const { notes, updates } = await rewriteSpeciesTexts(id, worktree);
+  const { notes, updates } = await rewriteSpeciesTexts(
+    await mdxSpeciesTextSource(id, worktree),
+  );
   for (const { field, result } of updates) {
     const target = await resolveEditorTarget(
       { field, id, kind: "species" },
