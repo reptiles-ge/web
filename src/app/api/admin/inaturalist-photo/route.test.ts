@@ -33,7 +33,7 @@ const ORIGINAL =
 function request(url: string) {
   return new Request("http://localhost/api/admin/inaturalist-photo", {
     body: JSON.stringify({ url }),
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", origin: "http://localhost" },
     method: "POST",
   });
 }

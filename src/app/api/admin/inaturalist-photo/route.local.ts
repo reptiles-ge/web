@@ -1,7 +1,5 @@
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
+import { localAdminForbiddenResponse } from "@/lib/adminAccess";
+import { isLocalAdminOriginRequest } from "@/lib/adminRequest";
 import { normalizePhotoCoordinates } from "@/lib/photoCoordinates";
 
 export const runtime = "nodejs";
@@ -32,7 +30,7 @@ type INaturalistPhoto = {
 };
 
 export async function POST(request: Request) {
-  if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
+  if (!isLocalAdminOriginRequest(request)) return localAdminForbiddenResponse();
 
   let url: string;
   try {

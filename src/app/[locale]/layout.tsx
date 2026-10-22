@@ -9,7 +9,6 @@ import {
 import { notFound } from "next/navigation";
 
 import { RootDocument } from "@/app/RootDocument";
-import { SelectionContentEditor } from "@/components/admin/SelectionContentEditor";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -68,10 +67,16 @@ export default async function LocaleLayout({ children, params }: Props) {
     tSite("description"),
   );
   const footerData = getFooterData(locale);
-  const editorT =
-    locale === "ka" && isLocalAdminEnabled()
-      ? await getTranslations({ locale, namespace: "contentEditor" })
+  const SelectionContentEditor =
+    process.env.NODE_ENV !== "production" &&
+    locale === "ka" &&
+    isLocalAdminEnabled()
+      ? (await import("@/components/admin/SelectionContentEditor"))
+          .SelectionContentEditor
       : null;
+  const editorT = SelectionContentEditor
+    ? await getTranslations({ locale, namespace: "contentEditor" })
+    : null;
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
@@ -85,7 +90,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <TopGeCounter />
           <Navbar {...getNavbarData()} />
           <main id="main" tabIndex={-1}>
-            {editorT ? (
+            {SelectionContentEditor && editorT ? (
               <SelectionContentEditor
                 copy={{
                   action: editorT("action"),
