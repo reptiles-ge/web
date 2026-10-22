@@ -2,6 +2,7 @@ import { Hono } from "hono";
 
 import type { ApiEnv } from "../env";
 
+import { readFieldRecords } from "../db/fieldRecords";
 import {
   findPublishedSpeciesId,
   getSpeciesDetail,
@@ -36,5 +37,19 @@ export const species = new Hono<ApiEnv>()
       if (!data) throw new ApiError(404, "not_found", "Species not found");
       c.header("Cache-Control", PUBLIC_CACHE);
       return c.json({ data, locale }, 200);
+    },
+  )
+  .get(
+    "/:idOrSlug/field-records",
+    validate("param", speciesParam),
+    async (c) => {
+      const id = await findPublishedSpeciesId(
+        c.env.DB,
+        c.req.valid("param").idOrSlug,
+      );
+      if (!id) throw new ApiError(404, "not_found", "Species not found");
+      const data = await readFieldRecords(c.env.DB, id);
+      c.header("Cache-Control", PUBLIC_CACHE);
+      return c.json({ data, id, total: data.length }, 200);
     },
   );

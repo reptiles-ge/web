@@ -154,6 +154,12 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
 - The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
 
+### Field records
+
+- `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
+- Public read: `GET /v1/species/:idOrSlug/field-records` returns `{ data, id, total }`, edge-cached.
+- `pnpm db:import:field-records` / `:remote` is a one-off copy from the compiled MDX JSON. Its first statement fails once any field record exists, so it can never duplicate or overwrite rows. `db/fieldRecords.test.ts` round-trips every record 1:1.
+
 ### Drafts (AI changes need approval)
 
 - Migration `0004_species_drafts.sql` adds `species_drafts`: a full proposed record, plus its `base_version`, `source`, `actor`, `summary` and a `status` of pending, approved or rejected.

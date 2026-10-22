@@ -91,7 +91,9 @@
     "db:migrate": "wrangler d1 migrations apply reptiles-db --local --config wrangler.api.jsonc",
     "db:migrate:remote": "wrangler d1 migrations apply reptiles-db --remote --config wrangler.api.jsonc",
     "db:import:species": "pnpm run species:compile && tsx scripts/export-species-sql.ts && wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file .wrangler/species-import.sql",
-    "db:import:species:remote": "pnpm run species:compile && tsx scripts/export-species-sql.ts && wrangler d1 execute reptiles-db --remote --config wrangler.api.jsonc --file .wrangler/species-import.sql"
+    "db:import:species:remote": "pnpm run species:compile && tsx scripts/export-species-sql.ts && wrangler d1 execute reptiles-db --remote --config wrangler.api.jsonc --file .wrangler/species-import.sql",
+    "db:import:field-records": "pnpm run species:compile && tsx scripts/export-field-records-sql.ts && wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file .wrangler/field-records-import.sql",
+    "db:import:field-records:remote": "pnpm run species:compile && tsx scripts/export-field-records-sql.ts && wrangler d1 execute reptiles-db --remote --config wrangler.api.jsonc --file .wrangler/field-records-import.sql"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
