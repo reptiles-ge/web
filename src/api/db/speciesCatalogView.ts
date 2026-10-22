@@ -3,6 +3,7 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   type Species,
   SPECIES_CARD_KEYS,
+  SPECIES_PHOTO_KEYS,
   SPECIES_QUIZ_KEYS,
 } from "@/data/speciesTypes";
 import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
@@ -11,10 +12,11 @@ import type { ApiDatabase } from "./database";
 
 import { readSpeciesCatalog } from "./speciesCatalog";
 
-export type CatalogView = "card" | "full" | "quiz";
+export type CatalogView = "card" | "full" | "photos" | "quiz";
 
 const VIEW_KEYS = {
   card: SPECIES_CARD_KEYS,
+  photos: SPECIES_PHOTO_KEYS,
   quiz: SPECIES_QUIZ_KEYS,
 } as const;
 

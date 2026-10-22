@@ -30,6 +30,16 @@ import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
 
+vi.mock("@/lib/speciesCatalogApi", async () => {
+  const { speciesCatalogFixture } =
+    await import("../../tests/fixtures/speciesCatalog");
+  return {
+    getCreditPhotoCatalog: async () => speciesCatalogFixture("ka"),
+    getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
+      speciesCatalogFixture(locale),
+  };
+});
+
 const messages = { en, ka, ru, tr };
 
 vi.mock("@/i18n/navigation", async () => {

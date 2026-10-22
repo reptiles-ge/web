@@ -10,6 +10,7 @@ import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref } from "@/lib/news";
 import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type NewsArticleCardProps = {
   article: NewsArticle;
@@ -24,14 +25,17 @@ export async function NewsArticleCard({
   prefetch,
   variant = "grid",
 }: NewsArticleCardProps) {
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tNav, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
+  ]);
   const title = newsLocalizedTitle(article, locale);
   const dek = newsLocalizedDek(article, locale);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const hub = newsCategoryHub(article);
   const category = hub ? tNav(hub) : null;
-  const visual = getNewsVisual(article, locale);
+  const visual = getNewsVisual(article, locale, catalog);
   const featured = variant === "featured";
   const Heading = featured ? "h2" : "h3";
 

@@ -20,6 +20,8 @@ import {
 } from "@/lib/news";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const article = getPublishedNewsArticles()[0];
 
 describe("news urls", () => {
@@ -86,14 +88,19 @@ describe("newsOgImageUrl", () => {
   });
 
   it("returns an absolute URL for a real article", () => {
-    expect(newsOgImageUrl(article)).toMatch(/^https:\/\//);
+    expect(newsOgImageUrl(article, speciesCatalogFixture("ka"))).toMatch(
+      /^https:\/\//,
+    );
   });
 });
 
 describe("newsOgImageDimensions", () => {
   it("sizes the schema image of every published article", () => {
     for (const item of getPublishedNewsArticles()) {
-      const { height, width } = newsOgImageDimensions(item);
+      const { height, width } = newsOgImageDimensions(
+        item,
+        speciesCatalogFixture("ka"),
+      );
       expect(width, item.slug).toBeGreaterThan(0);
       expect(height, item.slug).toBeGreaterThan(0);
     }

@@ -13,12 +13,11 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getCreditAuthorGroupStats } from "@/lib/creditAuthors";
 import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const TILE_SIZES = "(max-width: 1023px) 50vw, 330px";
@@ -31,15 +30,16 @@ export async function AuthorGallery({
   photos: CreditAuthorPhoto[];
 }) {
   if (photos.length === 0) return null;
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
   ]);
+  const byId = new Map(catalog.map((item) => [item.id, item]));
 
   const slides = photos.flatMap((photo) => {
-    const species = getSpeciesById(photo.speciesId);
-    if (!species) return [];
-    const localized = localizeSpecies(species, locale);
+    const localized = byId.get(photo.speciesId);
+    if (!localized) return [];
     const entry = optimizedEntry(photo.src);
     const href = speciesHref(photo.speciesId, locale);
     return [

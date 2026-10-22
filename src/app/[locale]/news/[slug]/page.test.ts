@@ -12,6 +12,7 @@ import en from "../../../../../messages/en.json";
 import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
+import { speciesCatalogFixture } from "../../../../../tests/fixtures/speciesCatalog";
 import NewsArticleRoute, { generateMetadata } from "./page";
 
 const messages = { en, ka, ru, tr };
@@ -43,7 +44,14 @@ describe("news article JSON-LD", () => {
     async (locale) => {
       const articleLd = await articleJsonLd(locale);
       expect(articleLd["@type"]).toBe("NewsArticle");
-      expect(articleLd.image).toEqual(newsSchemaImages(article, locale));
+      expect(articleLd.image).toEqual(
+        newsSchemaImages(
+          article,
+          locale,
+          speciesCatalogFixture(locale),
+          speciesCatalogFixture("ka"),
+        ),
+      );
       expect(Array.isArray(articleLd.image)).toBe(true);
     },
   );

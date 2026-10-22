@@ -29,9 +29,7 @@ import {
 import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { hasPhotoCredit } from "@/data/speciesMedia";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
@@ -47,10 +45,12 @@ import {
   getNewsVisual,
   localizeNewsPhoto,
   newsCategoryHub,
+  type NewsSpecies,
   type NewsVisual,
 } from "@/lib/newsVisual";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 import { slugify } from "@/lib/slugify";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
@@ -96,12 +96,13 @@ export async function NewsArticlePage({
   const copy = getNewsCopy(article, locale);
   if (!copy) return null;
   const editable = locale === "ka" && isLocalAdminEnabled();
-  const [t, facts, atlasLinks] = await Promise.all([
+  const [t, facts, atlasLinks, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     newsFacts(article, locale),
     newsAtlasLinks(article, locale),
+    getSpeciesCatalog(locale),
   ]);
-  const visual = getNewsVisual(article, locale);
+  const visual = getNewsVisual(article, locale, catalog);
   const tocItems = copy.sections.flatMap((section) => {
     const id = slugify(section.heading);
     return id ? [{ id, label: section.heading }] : [];
@@ -486,13 +487,14 @@ async function newsAtlasLinks(
   article: NewsArticle,
   locale: AppLocale,
 ): Promise<AtlasLink[]> {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
   ]);
+  const byId = new Map(catalog.map((item) => [item.id, item]));
   return [
-    ...newsRelatedSpecies(article).map((item) => {
-      const species = localizeSpecies(item, locale);
+    ...newsRelatedSpecies(article, catalog).map((species) => {
       return {
         href: speciesHref(species.id, locale),
         image: isPlaceholderMedia(species.image) ? null : species.image,
@@ -509,7 +511,7 @@ async function newsAtlasLinks(
       title: localizeRegionText(region.name, locale),
     })),
     ...newsRelatedHubs(article).map((item) => {
-      const hero = getSpeciesById(item.heroSpeciesId);
+      const hero = byId.get(item.heroSpeciesId);
       return {
         href: item.path,
         image: hero && !isPlaceholderMedia(hero.image) ? hero.image : null,
@@ -574,18 +576,20 @@ function NewsAtlasLinks({
 
 function NewsContinueCard({
   article,
+  catalog,
   dark = false,
   eyebrow,
   footer,
   locale,
 }: {
   article: NewsArticle;
+  catalog: readonly NewsSpecies[];
   dark?: boolean;
   eyebrow: null | string;
   footer: string;
   locale: AppLocale;
 }) {
-  const visual = getNewsVisual(article, locale);
+  const visual = getNewsVisual(article, locale, catalog);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   return (
     <Link
@@ -648,9 +652,10 @@ async function NewsContinueReading({
   article: NewsArticle;
   locale: AppLocale;
 }) {
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
   ]);
   const { next, related } = pickContinueReading(article, locale);
   const relatedHubId = related ? newsCategoryHub(related) : undefined;
@@ -687,6 +692,7 @@ async function NewsContinueReading({
           <li>
             <NewsContinueCard
               article={related}
+              catalog={catalog}
               eyebrow={relatedHubId ? tNav(relatedHubId) : null}
               footer={t("readTime", {
                 minutes: newsReadMinutes(related, locale),
@@ -699,6 +705,7 @@ async function NewsContinueReading({
           <li>
             <NewsContinueCard
               article={next}
+              catalog={catalog}
               dark
               eyebrow={t("nextArticle")}
               footer={t("read")}

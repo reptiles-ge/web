@@ -26,13 +26,18 @@ import {
 import { getRegionById, getRegionSpecies, regions } from "@/data/regions";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
+  type CreditPhotoSource,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { liveQuizzes } from "@/lib/quizzes";
-import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import {
+  type CatalogCard,
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 
 type DateFields = { dateModified: string; datePublished: string };
 
@@ -53,11 +58,16 @@ export async function authorModifiedDate(
   slug: string,
   locale: AppLocale,
   catalog?: readonly CatalogCard[],
+  creditPhotos?: readonly CreditPhotoSource[],
 ) {
   return latestDate([
     sitemapAuthorLastModified(slug),
     messagesDate(AUTHOR_MESSAGE_NAMESPACES, locale),
-    authorMembersDate(slug, catalog ?? (await getSpeciesCatalog(locale))),
+    authorMembersDate(
+      slug,
+      catalog ?? (await getSpeciesCatalog(locale)),
+      creditPhotos ?? (await getCreditPhotoCatalog()),
+    ),
   ]);
 }
 
@@ -91,13 +101,20 @@ export async function pageModifiedDate(
   path: string,
   locale: AppLocale,
   catalog?: readonly CatalogCard[],
+  creditPhotos?: readonly CreditPhotoSource[],
 ) {
   return latestDate([
     sitemapPathLastModified(path),
     guideArticleModifiedAt[path],
     pageFileModifiedAt[path],
     messagesDate(namespacesByPath().get(path) ?? [], locale),
-    pageMembersDate(path, catalog ?? (await getSpeciesCatalog(locale))),
+    pageMembersDate(
+      path,
+      catalog ?? (await getSpeciesCatalog(locale)),
+      path === "/authors"
+        ? (creditPhotos ?? (await getCreditPhotoCatalog()))
+        : [],
+    ),
   ]);
 }
 
@@ -139,10 +156,16 @@ export async function regionModifiedDate(
   ]);
 }
 
-function authorMembersDate(slug: string, catalog: readonly CatalogCard[]) {
+function authorMembersDate(
+  slug: string,
+  catalog: readonly CatalogCard[],
+  creditPhotos: readonly CreditPhotoSource[],
+) {
   const author = getPublishedCreditAuthorBySlug(slug);
   if (!author) return null;
-  const ids = new Set(getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author)));
+  const ids = new Set(
+    getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author, creditPhotos)),
+  );
   return speciesDate(catalog.filter((item) => ids.has(item.id)));
 }
 
@@ -192,7 +215,11 @@ function namespacesByPath() {
   return map;
 }
 
-function pageMembersDate(path: string, catalog: readonly CatalogCard[]) {
+function pageMembersDate(
+  path: string,
+  catalog: readonly CatalogCard[],
+  creditPhotos: readonly CreditPhotoSource[],
+) {
   if (path === "/regions") {
     return latestDate(
       regions.map((region) => regionMembersDate(region.id, catalog)),
@@ -201,7 +228,7 @@ function pageMembersDate(path: string, catalog: readonly CatalogCard[]) {
   if (path === "/authors") {
     return latestDate(
       getPublishedCreditAuthors().map((author) =>
-        authorMembersDate(author.slug, catalog),
+        authorMembersDate(author.slug, catalog, creditPhotos),
       ),
     );
   }

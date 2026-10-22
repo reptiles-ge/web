@@ -11,6 +11,7 @@ import {
 } from "@reptiles-ge/img-compression/storage";
 
 import { getPublishedNewsArticles } from "../src/data/news";
+import { getCatalogSpecies } from "../src/data/species";
 import {
   NEWS_SCHEMA_IMAGE_MIN_WIDTH,
   NEWS_SCHEMA_RATIOS,
@@ -131,12 +132,13 @@ function selectHeroes(options: CliOptions, manifest: Manifest) {
     throw new Error(`Unknown news slug(s): ${unknown.join(", ")}.`);
   }
 
+  const catalog = getCatalogSpecies();
   const heroes = new Map<string, { hero: NewsHeroImage; key: string }>();
   for (const article of articles) {
     if (options.slugs.length > 0 && !options.slugs.includes(article.slug)) {
       continue;
     }
-    const hero = newsHeroImage(article);
+    const hero = newsHeroImage(article, catalog);
     if (!hero) {
       console.log(`${article.slug}: hero size unknown, skipped.`);
       continue;

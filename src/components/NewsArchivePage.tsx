@@ -11,6 +11,7 @@ import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
 import { groupNewsByMonth } from "@/lib/newsMonthGroups";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
@@ -24,10 +25,11 @@ export async function NewsArchivePage({
   locale: AppLocale;
   newsPage: NewsPage;
 }) {
-  const [t, tNav, tShared] = await Promise.all([
+  const [t, tNav, tShared, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getSpeciesCatalog(locale),
   ]);
   const { articles, first, last, page, pageCount, total } = newsPage;
   const newest = articles[0];
@@ -37,10 +39,15 @@ export async function NewsArchivePage({
   const items = articles.map((article) => {
     const monthKey = article.publishedAt.slice(0, 7);
     monthLabels[monthKey] ??= formatContentMonth(article.publishedAt, locale);
-    const entry = toNewsIndexEntry(article, locale, {
-      readLabel: (minutes) => t("readTime", { minutes }),
-      topicLabel: (hub) => tNav(hub),
-    });
+    const entry = toNewsIndexEntry(
+      article,
+      locale,
+      {
+        readLabel: (minutes) => t("readTime", { minutes }),
+        topicLabel: (hub) => tNav(hub),
+      },
+      catalog,
+    );
     return { card: <NewsListCard entry={entry} />, id: article.id, monthKey };
   });
 

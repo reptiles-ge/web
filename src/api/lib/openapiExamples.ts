@@ -102,6 +102,19 @@ export const RESPONSE_EXAMPLES = {
     total: 145,
     view: "full",
   },
+  catalogPhotos: {
+    data: [
+      {
+        ...levantineViper,
+        gallery: levantineViperTexts.gallery,
+        lookalikes: lookalikeIds,
+      },
+    ],
+    locale: "en",
+    nextCursor: null,
+    total: 145,
+    view: "photos",
+  },
   catalogQuiz: {
     data: [
       {

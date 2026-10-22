@@ -18,6 +18,7 @@ import {
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
+import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
 const ROLE_ORDER: readonly CreditAuthorRole[] = [
   "herpetologist",
@@ -39,15 +40,18 @@ export async function AuthorIndexPage({
   cards: CreditAuthorCard[];
   locale: AppLocale;
 }) {
-  const [t, tShared, tNav] = await Promise.all([
+  const [t, tShared, tNav, creditPhotos] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "nav" }),
+    getCreditPhotoCatalog(),
   ]);
   const photoTotal = cards.reduce((sum, card) => sum + card.photoCount, 0);
   const speciesTotal = new Set(
     cards.flatMap((card) =>
-      getCreditAuthorSpeciesIds(getCreditAuthorPhotos(card.author)),
+      getCreditAuthorSpeciesIds(
+        getCreditAuthorPhotos(card.author, creditPhotos),
+      ),
     ),
   ).size;
   const roles = ROLE_ORDER.filter((role) =>

@@ -17,9 +17,10 @@ import {
   HOME_CONTRIBUTOR_LIMIT,
 } from "@/lib/creditAuthors";
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
+import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
 export async function HomeContributors({ locale }: { locale: AppLocale }) {
-  const all = getCreditAuthorCards();
+  const all = getCreditAuthorCards(await getCreditPhotoCatalog());
   if (all.length === 0) return null;
   const cards = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
   const [t, tAuthor] = await Promise.all([

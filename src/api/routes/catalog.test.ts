@@ -2,7 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { SPECIES_CARD_KEYS, SPECIES_QUIZ_KEYS } from "@/data/speciesTypes";
+import {
+  SPECIES_CARD_KEYS,
+  SPECIES_PHOTO_KEYS,
+  SPECIES_QUIZ_KEYS,
+} from "@/data/speciesTypes";
 import { locales } from "@/i18n/locales";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
@@ -21,9 +25,15 @@ type CatalogBody = {
   view: string;
 };
 
+const VIEW_KEYS = {
+  card: SPECIES_CARD_KEYS,
+  photos: SPECIES_PHOTO_KEYS,
+  quiz: SPECIES_QUIZ_KEYS,
+} as const;
+
 async function expected(
   locale: (typeof locales)[number],
-  view: "card" | "full" | "quiz",
+  view: "card" | "full" | "photos" | "quiz",
 ) {
   return Promise.all(
     getCatalogSpecies().map(async (item) => {
@@ -34,7 +44,7 @@ async function expected(
         view === "full"
           ? localized
           : Object.fromEntries(
-              (view === "quiz" ? SPECIES_QUIZ_KEYS : SPECIES_CARD_KEYS)
+              VIEW_KEYS[view]
                 .filter((key) => localized[key] !== undefined)
                 .map((key) => [key, localized[key]]),
             );
@@ -53,7 +63,7 @@ async function expected(
 describe("GET /v1/catalog", () => {
   it("matches the site catalog in every locale and view", async () => {
     for (const locale of locales) {
-      for (const view of ["card", "full", "quiz"] as const) {
+      for (const view of ["card", "full", "photos", "quiz"] as const) {
         const { body, response } = await requestJson<CatalogBody>(
           `/v1/catalog?view=${view}`,
           env,
