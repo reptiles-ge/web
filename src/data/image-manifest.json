@@ -109061,6 +109061,101 @@
       ],
       "updatedAt": "2026-10-22T09:43:14.728Z"
     },
+    "trachemys-scripta-fedotova-1.jpg": {
+      "sourceHash": "414c23766432c051cfe7936067f7eead38cf7b0589a132a6e89efb0bd7444e40",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-fedotova-1.jpg",
+      "originalSize": 608019,
+      "width": 2046,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 321,
+          "byteSize": 13218
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 321,
+          "byteSize": 18286
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 401,
+          "byteSize": 17628
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 401,
+          "byteSize": 24806
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 641,
+          "byteSize": 34303
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 641,
+          "byteSize": 48992
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 801,
+          "byteSize": 46689
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 801,
+          "byteSize": 66940
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1201,
+          "byteSize": 80874
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1201,
+          "byteSize": 116294
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-2046.avif",
+          "format": "avif",
+          "width": 2046,
+          "height": 2048,
+          "byteSize": 176453
+        },
+        {
+          "key": "optimized/trachemys-scripta-fedotova-1-2046.webp",
+          "format": "webp",
+          "width": 2046,
+          "height": 2048,
+          "byteSize": 253060
+        }
+      ],
+      "updatedAt": "2026-10-22T09:44:01.855Z"
+    },
     "trachemys-scripta-mobile.jpg": {
       "sourceHash": "f7e98b7b09406a07d1c49f62af5b0b8e67d2802857b29ac7ad8318dd34d39bc5",
       "configFingerprint": "a895f8e025dcc7fa",

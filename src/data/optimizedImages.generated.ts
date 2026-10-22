@@ -9076,6 +9076,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-fedotova-1.jpg": {
+    "path": "trachemys-scripta-fedotova-1",
+    "width": 2046,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2046],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg": {
     "path": "trachemys-scripta-mobile",
     "width": 1707,
