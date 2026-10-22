@@ -86,12 +86,12 @@ describe("GET /v1/species", () => {
   });
 });
 
-describe("GET /v1/species/:idOrSlug", () => {
+describe("GET /v1/species/:slug", () => {
   it("matches every published profile in every locale", async () => {
     for (const item of getCatalogSpecies()) {
       for (const locale of locales) {
         const { body, response } = await requestJson<DetailBody>(
-          `/v1/species/${item.id}`,
+          `/v1/species/${getSpeciesPublicSlug(item.id, locale)}`,
           env,
           { headers: { "X-Locale": locale } },
         );
@@ -127,18 +127,37 @@ describe("GET /v1/species/:idOrSlug", () => {
     });
   });
 
-  it("resolves Georgian slugs, aliases and upper case", async () => {
-    for (const [path, id] of [
-      ["giurza", "macrovipera-lebetina"],
-      ["GIURZA", "macrovipera-lebetina"],
-      ["goshawk", "accipiter-gentilis"],
+  it("resolves the locale's public slug in any case", async () => {
+    for (const [slug, locale] of [
+      ["giurza", "ka"],
+      ["GIURZA", "ka"],
+      ["macrovipera-lebetina", "en"],
+      ["macrovipera-lebetina", "tr"],
     ] as const) {
       const { body, response } = await requestJson<DetailBody>(
-        `/v1/species/${path}`,
+        `/v1/species/${slug}`,
         env,
+        { headers: { "X-Locale": locale } },
       );
-      expect(response.status, path).toBe(200);
-      expect(body.data.id).toBe(id);
+      expect(response.status, `${slug} ${locale}`).toBe(200);
+      expect(body.data.id).toBe("macrovipera-lebetina");
+    }
+  });
+
+  it("refuses ids in Georgian, Georgian slugs elsewhere and aliases", async () => {
+    for (const [slug, locale] of [
+      ["macrovipera-lebetina", "ka"],
+      ["giurza", "en"],
+      ["goshawk", "ka"],
+      ["accipiter-gentilis", "ka"],
+    ] as const) {
+      const { body, response } = await requestJson<ErrorBody>(
+        `/v1/species/${slug}`,
+        env,
+        { headers: { "X-Locale": locale } },
+      );
+      expect(response.status, `${slug} ${locale}`).toBe(404);
+      expect(body.error.code).toBe("not_found");
     }
   });
 
@@ -167,8 +186,8 @@ describe("GET /v1/species/:idOrSlug", () => {
   });
 });
 
-describe("GET /v1/species/:idOrSlug/field-records", () => {
-  it("returns the species' records by id or slug, and 404 for unknown species", async () => {
+describe("GET /v1/species/:slug/field-records", () => {
+  it("returns the species' records by the locale's slug, and 404 otherwise", async () => {
     const database = createSpeciesTestDatabase();
     database.sqlite
       .prepare(
@@ -201,5 +220,22 @@ describe("GET /v1/species/:idOrSlug/field-records", () => {
       local,
     );
     expect(missing.response.status).toBe(404);
+    const english = await requestJson<{ id: string }>(
+      "/v1/species/macrovipera-lebetina/field-records",
+      local,
+      { headers: { "X-Locale": "en" } },
+    );
+    expect(english.body.id).toBe("macrovipera-lebetina");
+    for (const [slug, locale] of [
+      ["macrovipera-lebetina", "ka"],
+      ["giurza", "en"],
+    ] as const) {
+      const wrong = await requestJson<ErrorBody>(
+        `/v1/species/${slug}/field-records`,
+        local,
+        { headers: { "X-Locale": locale } },
+      );
+      expect(wrong.response.status, `${slug} ${locale}`).toBe(404);
+    }
   });
 });

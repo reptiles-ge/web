@@ -33,7 +33,7 @@ const text = (description: string) =>
 
 const speciesId = doc(
   z.string(),
-  "Stable species id, lowercase and hyphenated. It is based on a scientific name but can differ from the current `scientificName`; never parse it. Use it to call `/v1/species/{idOrSlug}`.",
+  "Stable species id, lowercase and hyphenated. It is based on a scientific name but can differ from the current `scientificName`; never parse it.",
   ["macrovipera-lebetina"],
 );
 

@@ -27,13 +27,14 @@ type LookalikeRow = {
 
 export async function findPublishedSpeciesId(
   db: ApiDatabase,
-  idOrSlug: string,
+  slug: string,
+  locale: AppLocale,
 ) {
   const row = await db
     .prepare(
-      "SELECT id FROM species WHERE status = 'published' AND (id = ? OR id = (SELECT species_id FROM species_slugs WHERE slug = ?))",
+      `SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "COALESCE(slug_ka, id)" : "id"} = ?`,
     )
-    .bind(idOrSlug, idOrSlug)
+    .bind(slug)
     .first<{ id: string }>();
   return row?.id ?? null;
 }

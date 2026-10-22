@@ -42,15 +42,15 @@ const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
       description: "Only species of this animal group.",
       example: "snake",
     },
-    idOrSlug: {
-      description:
-        "Species id (`macrovipera-lebetina`), Georgian slug (`giurza`) or any older or alias slug. Case-insensitive.",
-      example: "macrovipera-lebetina",
-    },
     limit: {
       description:
         "Page size, 1–100. Without it the whole catalog comes back in one response.",
       example: "40",
+    },
+    slug: {
+      description:
+        "Public slug of the species in the requested locale (`X-Locale`): the Georgian slug for `ka` (`giurza`), the species id for `en`, `ru` and `tr` (`macrovipera-lebetina`). Case-insensitive.",
+      example: "giurza",
     },
     view: {
       description:
@@ -88,7 +88,7 @@ Send the \`${LOCALE_HEADER}\` request header: \`ka\`, \`en\`, \`ru\` or \`tr\` (
 
 ## Ids and slugs
 
-\`id\` is the stable key of a species (for example \`macrovipera-lebetina\`). Store it rather than a slug. \`slug\` is the public URL part for the requested locale: the Georgian slug for \`ka\` (\`giurza\`), the id otherwise. \`/v1/species/{idOrSlug}\` accepts the id, the Georgian slug or an older or alias slug.
+\`id\` is the stable key of a species (for example \`macrovipera-lebetina\`). \`slug\` is the public URL part for the requested locale: the Georgian slug for \`ka\` (\`giurza\`), the id otherwise. \`/v1/species/{slug}\` accepts only that slug, for the same \`${LOCALE_HEADER}\`: \`/v1/species/giurza\`, or \`/v1/species/macrovipera-lebetina\` with \`${LOCALE_HEADER}: en\`.
 
 ## Text format
 
@@ -146,7 +146,7 @@ const OPERATIONS: Operation[] = [
     method: "get",
     operationId: "getSpecies",
     param: speciesParam,
-    path: "/v1/species/{idOrSlug}",
+    path: "/v1/species/{slug}",
     success: {
       description: "Species profile.",
       examples: {
@@ -164,10 +164,11 @@ const OPERATIONS: Operation[] = [
     description:
       "Dated locations where the species was recorded in Georgia: observations (mostly iNaturalist), literature and specimens. Not every species has records; then `data` is empty.",
     errors: [400, 404],
+    header: localeHeader,
     method: "get",
     operationId: "listFieldRecords",
     param: speciesParam,
-    path: "/v1/species/{idOrSlug}/field-records",
+    path: "/v1/species/{slug}/field-records",
     success: {
       description: "Field records.",
       examples: {
@@ -258,7 +259,7 @@ export function buildOpenApiDocument() {
           error: { code: "internal_error", message: "Internal error" },
         }),
         NotFound: errorResponse(
-          "No published species with this id or slug.",
+          "No published species with this slug in the requested locale.",
           RESPONSE_EXAMPLES.error,
         ),
         NotModified: {

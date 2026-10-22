@@ -40,10 +40,10 @@ describe("documented response schemas", () => {
     for (const locale of locales) {
       const { body: list } = await getJson("/v1/species", locale);
       expectValid(speciesListResponse, list, `species ${locale}`);
-      const { data } = list as { data: Array<{ id: string }> };
+      const { data } = list as { data: Array<{ id: string; slug: string }> };
       expect(data.length).toBeGreaterThan(100);
-      for (const { id } of data) {
-        const { body } = await getJson(`/v1/species/${id}`, locale);
+      for (const { id, slug } of data) {
+        const { body } = await getJson(`/v1/species/${slug}`, locale);
         expectValid(speciesResponse, body, `species/${id} ${locale}`);
       }
       const card = await getJson("/v1/catalog", locale);
@@ -57,7 +57,7 @@ describe("documented response schemas", () => {
     const ids = Object.keys(compiledFieldRecords());
     expect(ids.length).toBeGreaterThan(0);
     for (const id of ids) {
-      const { body } = await getJson(`/v1/species/${id}/field-records`);
+      const { body } = await getJson(`/v1/species/${id}/field-records`, "en");
       expectValid(fieldRecordsResponse, body, `field-records ${id}`);
     }
   });

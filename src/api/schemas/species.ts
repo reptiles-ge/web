@@ -21,5 +21,5 @@ export const speciesListQuery = z.object({
 });
 
 export const speciesParam = z.object({
-  idOrSlug: speciesIdText,
+  slug: speciesIdText,
 });

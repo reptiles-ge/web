@@ -4,7 +4,7 @@ import type { ApiBindings } from "../env";
 
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
-const URL = "/v1/species/testudo-graeca";
+const URL = "/v1/species/cheiracanthium-punctorium";
 
 class MemoryCache {
   private readonly entries = new Map<string, Response>();
@@ -68,7 +68,7 @@ describe("edgeCache", () => {
     const first = await overview();
     sqlite
       .prepare(
-        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'testudo-graeca' AND locale = 'en'",
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
       )
       .run();
     expect(await overview()).toBe(first);
@@ -87,7 +87,7 @@ describe("edgeCache", () => {
     await overview();
     sqlite
       .prepare(
-        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'testudo-graeca' AND locale = 'en'",
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
       )
       .run();
     expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).toBe(
