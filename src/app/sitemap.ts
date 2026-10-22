@@ -10,8 +10,6 @@ import {
   sitemapRegionDatePublished,
 } from "@/data/pageLastModified";
 import { regions } from "@/data/regions";
-import { getCatalogSpecies } from "@/data/species";
-import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
@@ -69,7 +67,6 @@ type SitemapEntry = MetadataRoute.Sitemap[number] & {
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const catalog = getCatalogSpecies();
   const entries: SitemapEntry[] = [];
   const seen = new Set<string>();
 
@@ -84,6 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
     getCreditPhotoCatalog(),
   ]);
+  const photosById = new Map(creditPhotos.map((item) => [item.id, item]));
   const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
     pending.push(entry);
@@ -172,13 +170,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       );
     }
 
-    for (const item of catalog) {
+    for (const item of cards) {
       const { languages } = speciesAlternates(locale, item.id);
-      const images = speciesPageImageUrls(item);
+      const photos = photosById.get(item.id);
+      const images = photos ? speciesPageImageUrls(photos) : [];
       add({
         alternates: { languages },
         datePublished: item.publishedAt,
-        lastModified: toLastModified(speciesUpdatedAt(item, locale)),
+        lastModified: toLastModified(item.updatedAt),
         url: speciesPageUrl(locale, item.id),
         ...(images.length > 0 ? { images } : {}),
       });
