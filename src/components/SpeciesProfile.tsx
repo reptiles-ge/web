@@ -283,7 +283,6 @@ export async function SpeciesProfile({
             textsNoChanges: tAnalysis("textsNoChanges"),
             textsProcessing: tAnalysis("textsProcessing"),
             textsReport: tAnalysis("textsReport"),
-            textsStale: tAnalysis("textsStale"),
             workflowDescription: tAnalysis("workflowDescription"),
             workflowError: tAnalysis("workflowError"),
             workflowProcessing: tAnalysis("workflowProcessing"),

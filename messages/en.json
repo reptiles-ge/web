@@ -31,7 +31,6 @@
     "textsError": "Text editing could not finish. See the local terminal for details.",
     "textsNoChanges": "Texts were processed, but nothing changed and no PR was created.",
     "textsReport": "AI-edited texts",
-    "textsStale": "Species text differs from the PR target branch. Update this branch and reload the page, then try again.",
     "runWorkflow": "Run workflow",
     "configureWorkflow": "Configure workflow",
     "workflowTitle": "Page workflow",

@@ -153,7 +153,18 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `pnpm db:import:species*` is now a one-off. The first statement fails once any `species_revisions` row exists, so an import can never overwrite API edits.
 - Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
 - The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
-- Not yet on the API: adding a photo, content-edit, AI texts and analysis, field records (not in D1 yet), and new species creation.
+
+### Drafts (AI changes need approval)
+
+- Migration `0004_species_drafts.sql` adds `species_drafts`: a full proposed record, plus its `base_version`, `source`, `actor`, `summary` and a `status` of pending, approved or rejected.
+- Endpoints, all token-only:
+  - `POST /v1/admin/species/:id/drafts` validates the record and needs `baseVersion` to equal the current version (409 otherwise).
+  - `GET /v1/admin/species/:id/drafts` lists the pending drafts.
+  - `POST …/drafts/:draftId/approve` saves through the normal versioned path. The revision keeps the draft's `source`/`summary`, the approver becomes the `actor`, and the draft is marked approved **in the same batch**. A draft whose base version is no longer current answers 409 and stays pending.
+  - `POST …/drafts/:draftId/reject`.
+- **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. The selection editor (`src/lib/contentEditorSpecies.ts`) and AI page texts (`processSpeciesTexts`) build the draft record from the API record (`src/lib/speciesRecordFields.ts`) and return `reviewUrl` (`/admin/:id#draft-N`).
+- The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
+- Not yet on the API: adding a photo, AI analysis/workflow (it still edits MDX in a worktree), field records (not in D1 yet), and new species creation.
 
 ### Species pages (SSR from the API)
 

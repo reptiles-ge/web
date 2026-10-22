@@ -50,7 +50,6 @@ type Copy = {
   textsNoChanges: string;
   textsProcessing: string;
   textsReport: string;
-  textsStale: string;
   workflowDescription: string;
   workflowError: string;
   workflowProcessing: string;
@@ -161,18 +160,13 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       error?: string;
       pullRequestUrl?: null | string;
       report?: string;
+      reviewUrl?: string;
     };
     if (!response.ok)
-      throw new Error(
-        mode === "texts" && result.error === "stale"
-          ? copy.textsStale
-          : mode === "texts"
-            ? copy.textsError
-            : copy.error,
-      );
+      throw new Error(mode === "texts" ? copy.textsError : copy.error);
     return {
       mode,
-      pullRequestUrl: result.pullRequestUrl,
+      pullRequestUrl: result.reviewUrl ?? result.pullRequestUrl,
       report: result.report ?? "",
     };
   }

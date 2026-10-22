@@ -76,6 +76,7 @@ export async function writeSpeciesRecord(
   record: SpeciesRecord,
   expectedVersion: number,
   revision: SpeciesRevision,
+  alsoRun: Array<ReturnType<ApiDatabase["prepare"]>> = [],
 ) {
   const id = record.base.id;
   const rows = speciesRecordRows(record);
@@ -108,6 +109,7 @@ export async function writeSpeciesRecord(
         ({ sql, values }) => db.prepare(sql).bind(...values),
       ),
     ),
+    ...alsoRun,
   ];
   await db.batch(statements);
   return expectedVersion + 1;

@@ -5,9 +5,51 @@ import { serverEnv } from "@/lib/env";
 
 const ACTOR = "local-admin";
 
+const AI_ACTOR = "local-admin-ai";
+
+export type AdminSpeciesRecord = Awaited<
+  ReturnType<typeof readAdminSpecies>
+>["record"];
+
+export async function approveAdminSpeciesDraft(id: string, draftId: number) {
+  return unwrap(
+    await species().drafts[":draftId"].approve.$post({
+      json: { actor: ACTOR },
+      param: { draftId: String(draftId), id },
+    }),
+  );
+}
+
+export async function listAdminSpeciesDrafts(id: string) {
+  return unwrap(
+    await species().drafts.$get({ param: { id } }, { headers: noStore() }),
+  );
+}
+
+export async function proposeAdminSpeciesDraft(
+  id: string,
+  input: { baseVersion: number; record: AdminSpeciesRecord; summary: string },
+) {
+  return unwrap(
+    await species().drafts.$post({
+      json: { actor: AI_ACTOR, source: "ai", ...input },
+      param: { id },
+    }),
+  );
+}
+
 export async function readAdminSpecies(id: string) {
   return unwrap(
     await species().$get({ param: { id } }, { headers: noStore() }),
+  );
+}
+
+export async function rejectAdminSpeciesDraft(id: string, draftId: number) {
+  return unwrap(
+    await species().drafts[":draftId"].reject.$post({
+      json: { actor: ACTOR },
+      param: { draftId: String(draftId), id },
+    }),
   );
 }
 

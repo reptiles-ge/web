@@ -6,6 +6,12 @@ import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
 
 import {
+  decideDraftStatement,
+  insertDraft,
+  listPendingDrafts,
+  readDraft,
+} from "../db/speciesDrafts";
+import {
   readSpeciesRecord,
   readSpeciesVersion,
   type SpeciesRevision,
@@ -24,6 +30,9 @@ import {
 import { validate } from "../lib/validate";
 import { requireToken } from "../middleware/requireToken";
 import {
+  draftCreateBody,
+  draftDecisionBody,
+  draftParam,
   photoCoordinatesBody,
   photoCoverBody,
   photoOrderBody,
@@ -133,6 +142,87 @@ export const adminSpecies = new Hono<ApiEnv>()
       );
       return c.json({ data: { credit: result ?? {}, version } }, 200);
     },
+  )
+  .post(
+    "/:id/drafts",
+    validate("param", speciesIdParam),
+    validate("json", draftCreateBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { actor, baseVersion, record, source, summary } =
+        c.req.valid("json");
+      if (record.base.id !== id) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "Body id does not match the URL",
+        );
+      }
+      const current = await readSpeciesVersion(c.env.DB, id);
+      if (current === null) {
+        throw new ApiError(404, "not_found", "Species not found");
+      }
+      if (current !== baseVersion) throw versionConflict(current);
+      const draftId = await insertDraft(c.env.DB, {
+        actor,
+        baseVersion,
+        record,
+        source,
+        summary,
+      });
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { draftId } }, 201);
+    },
+  )
+  .get("/:id/drafts", validate("param", speciesIdParam), async (c) => {
+    const drafts = await listPendingDrafts(c.env.DB, c.req.valid("param").id);
+    c.header("Cache-Control", NO_STORE);
+    return c.json({ data: drafts }, 200);
+  })
+  .post(
+    "/:id/drafts/:draftId/approve",
+    validate("param", draftParam),
+    validate("json", draftDecisionBody),
+    async (c) => {
+      const draft = await pendingDraft(c, c.req.valid("param"));
+      const checked = speciesRecordSchema.safeParse(draft.record);
+      if (!checked.success) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "The draft breaks a content rule",
+          checked.error.issues,
+        );
+      }
+      const current = await readSpeciesVersion(c.env.DB, draft.speciesId);
+      if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
+      const { actor } = c.req.valid("json");
+      const version = await save(
+        c,
+        draft.record,
+        draft.baseVersion,
+        { actor, source: draft.source, summary: draft.summary },
+        [decideDraftStatement(c.env.DB, draft.id, "approved", actor)],
+      );
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { status: "approved" as const, version } }, 200);
+    },
+  )
+  .post(
+    "/:id/drafts/:draftId/reject",
+    validate("param", draftParam),
+    validate("json", draftDecisionBody),
+    async (c) => {
+      const draft = await pendingDraft(c, c.req.valid("param"));
+      await decideDraftStatement(
+        c.env.DB,
+        draft.id,
+        "rejected",
+        c.req.valid("json").actor,
+      ).run();
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { status: "rejected" as const } }, 200);
+    },
   );
 
 async function change<T>(
@@ -171,11 +261,30 @@ function covers(record: SpeciesRecord) {
   };
 }
 
+async function pendingDraft(
+  c: Context<ApiEnv>,
+  { draftId, id }: { draftId: number; id: string },
+) {
+  const draft = await readDraft(c.env.DB, draftId);
+  if (!draft || draft.speciesId !== id) {
+    throw new ApiError(404, "not_found", "Draft not found");
+  }
+  if (draft.status !== "pending") {
+    throw new ApiError(
+      400,
+      "invalid_request",
+      `Draft is already ${draft.status}`,
+    );
+  }
+  return draft;
+}
+
 async function save(
   c: Context<ApiEnv>,
   record: SpeciesRecord,
   expectedVersion: number,
   revision: SpeciesRevision,
+  alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
 ) {
   const id = record.base.id;
   let version: number;
@@ -185,6 +294,7 @@ async function save(
       record,
       expectedVersion,
       revision,
+      alsoRun,
     );
   } catch (error) {
     const now = await readSpeciesVersion(c.env.DB, id);
