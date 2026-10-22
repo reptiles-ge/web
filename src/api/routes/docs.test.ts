@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import { app } from "../app";
-import { documentedOperations } from "../lib/openapi";
+import {
+  documentedOperations,
+  UNDOCUMENTED_PATH_PREFIXES,
+} from "../lib/openapi";
 import { createTestDatabase } from "../testing/sqliteDatabase";
 
 const env = { DB: createTestDatabase().db };
@@ -14,8 +17,6 @@ type Document = {
       string,
       {
         parameters: Array<{ in: string; name: string; required: boolean }>;
-        requestBody?: { content: Record<string, { schema: unknown }> };
-        security: unknown[];
       }
     >
   >;
@@ -24,7 +25,12 @@ type Document = {
 
 const appOperations = app.routes
   .filter(
-    (route) => route.method !== "ALL" && !route.path.startsWith("/v1/docs"),
+    (route) =>
+      route.method !== "ALL" &&
+      !route.path.startsWith("/v1/docs") &&
+      !UNDOCUMENTED_PATH_PREFIXES.some((prefix) =>
+        route.path.startsWith(prefix),
+      ),
   )
   .map((route) => ({
     method: route.method.toLowerCase(),
@@ -72,27 +78,32 @@ describe("docs route", () => {
     );
   });
 
-  it("matches path parameters, request bodies and auth to the routes", async () => {
+  it("matches path parameters to the routes", async () => {
     const { document } = await loadDocument();
     for (const [path, methods] of Object.entries(document.paths)) {
       const names = [...path.matchAll(/\{(\w+)\}/g)].map((match) => match[1]);
-      for (const [method, entry] of Object.entries(methods)) {
+      for (const entry of Object.values(methods)) {
         const pathParams = entry.parameters.filter((p) => p.in === "path");
         expect(pathParams.map((p) => p.name).sort(), path).toEqual(
           names.sort(),
         );
         expect(pathParams.every((p) => p.required)).toBe(true);
-        if (["post", "put"].includes(method)) {
-          expect(
-            entry.requestBody?.content["application/json"]?.schema,
-            `${method} ${path}`,
-          ).toBeTruthy();
-        }
-        if (path.startsWith("/v1/admin/")) {
-          expect(entry.security).toEqual([{ bearerToken: [] }]);
-        }
       }
     }
+  });
+
+  it("keeps admin and ratings routes out of the public spec", async () => {
+    const { document } = await loadDocument();
+    const raw = JSON.stringify(document);
+    expect(raw).not.toMatch(/\/v1\/(admin|ratings)|bearerToken/);
+    expect(
+      Object.values(document.paths).flatMap((methods) => Object.keys(methods)),
+    ).toEqual(expect.arrayContaining(["get"]));
+    expect(
+      Object.values(document.paths).every((methods) =>
+        Object.keys(methods).every((method) => method === "get"),
+      ),
+    ).toBe(true);
   });
 
   it("marks defaulted query parameters as optional", async () => {

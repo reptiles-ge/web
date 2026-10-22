@@ -1,23 +1,11 @@
 import { z } from "zod";
 
 import { catalogQuery } from "../schemas/catalog";
-import { ratingBody, ratingSummaryQuery } from "../schemas/ratings";
 import {
   speciesDetailQuery,
   speciesListQuery,
   speciesParam,
 } from "../schemas/species";
-import {
-  draftCreateBody,
-  draftDecisionBody,
-  draftParam,
-  photoCoordinatesBody,
-  photoCoverBody,
-  photoOrderBody,
-  photoRemoveBody,
-  speciesIdParam,
-  speciesWriteBody,
-} from "../schemas/speciesRecord";
 import { type ApiErrorCode } from "./errors";
 
 type JsonSchema = Record<string, unknown>;
@@ -25,8 +13,6 @@ type JsonSchema = Record<string, unknown>;
 type Method = "delete" | "get" | "patch" | "post" | "put";
 
 type Operation = {
-  auth?: "site" | "token";
-  body?: z.ZodType;
   description?: string;
   errors: number[];
   method: Method;
@@ -35,7 +21,7 @@ type Operation = {
   query?: z.ZodObject;
   success: { description: string; schema?: JsonSchema; status: number };
   summary: string;
-  tag: "Admin" | "Catalog" | "Ratings" | "Species";
+  tag: "Catalog" | "Species";
 };
 
 const ERROR_CODES = [
@@ -51,12 +37,7 @@ const ERROR_CODES = [
 
 const ERROR_DESCRIPTIONS: Record<number, string> = {
   400: "Invalid request",
-  401: "Missing or wrong bearer token",
-  403: "Origin not allowed",
   404: "Not found",
-  409: "Version conflict",
-  413: "Request body too large",
-  429: "Rate limited",
 };
 
 const LOCALE_NOTE = "Resolved locale of the response.";
@@ -82,8 +63,6 @@ const listEnvelope = (extra: JsonSchema = {}) =>
   );
 
 const locale = { description: LOCALE_NOTE, type: "string" };
-
-const version = { type: "integer" };
 
 const OPERATIONS: Operation[] = [
   {
@@ -149,195 +128,9 @@ const OPERATIONS: Operation[] = [
     summary: "Get the species catalog",
     tag: "Catalog",
   },
-  {
-    auth: "site",
-    body: ratingBody,
-    description:
-      "Posted by the site rating form. Needs an allowed `Origin` and is rate-limited.",
-    errors: [400, 403, 413, 429],
-    method: "post",
-    path: "/v1/ratings",
-    success: { description: "Rating stored", status: 201 },
-    summary: "Submit a site rating",
-    tag: "Ratings",
-  },
-  {
-    auth: "token",
-    errors: [400, 401],
-    method: "get",
-    path: "/v1/ratings/summary",
-    query: ratingSummaryQuery,
-    success: {
-      description: "Rating counts since the start of the window",
-      schema: envelope(
-        object({
-          average: { type: ["number", "null"] },
-          byRating: {
-            additionalProperties: { type: "integer" },
-            type: "object",
-          },
-          count: { type: "integer" },
-          since: { format: "date-time", type: "string" },
-        }),
-      ),
-      status: 200,
-    },
-    summary: "Summarise ratings",
-    tag: "Ratings",
-  },
-  {
-    auth: "token",
-    errors: [400, 401, 404],
-    method: "get",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}",
-    success: {
-      description: "Full species record and its version",
-      schema: envelope(object({ record: item, version })),
-      status: 200,
-    },
-    summary: "Read a species record",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: speciesWriteBody,
-    description:
-      "Replaces the whole record in one transaction, adds a revision and revalidates the site. A stale `expectedVersion` answers 409.",
-    errors: [400, 401, 404, 409, 413],
-    method: "put",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}",
-    success: {
-      description: "Saved",
-      schema: envelope(object({ id: { type: "string" }, version })),
-      status: 200,
-    },
-    summary: "Save a species record",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: photoCoverBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/photos/cover",
-    success: {
-      description: "Cover set",
-      schema: envelope({ ...item, properties: { version } }),
-      status: 200,
-    },
-    summary: "Set the cover photo",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: photoOrderBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/photos/order",
-    success: {
-      description: "Gallery reordered",
-      schema: envelope(object({ version })),
-      status: 200,
-    },
-    summary: "Reorder the gallery",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: photoRemoveBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/photos/remove",
-    success: {
-      description: "Photo removed",
-      schema: envelope({ ...item, properties: { version } }),
-      status: 200,
-    },
-    summary: "Remove a photo",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: photoCoordinatesBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/photos/coordinates",
-    success: {
-      description: "Photo coordinates saved",
-      schema: envelope(object({ credit: item, version })),
-      status: 200,
-    },
-    summary: "Set photo coordinates",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: draftCreateBody,
-    description:
-      "Every AI change lands here for human approval. `baseVersion` must equal the current version.",
-    errors: [400, 401, 404, 409, 413],
-    method: "post",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/drafts",
-    success: {
-      description: "Draft created",
-      schema: envelope(object({ draftId: { type: "integer" } })),
-      status: 201,
-    },
-    summary: "Propose a draft",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    errors: [400, 401],
-    method: "get",
-    param: speciesIdParam,
-    path: "/v1/admin/species/{id}/drafts",
-    success: {
-      description: "Pending drafts",
-      schema: envelope({ items: item, type: "array" }),
-      status: 200,
-    },
-    summary: "List pending drafts",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: draftDecisionBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: draftParam,
-    path: "/v1/admin/species/{id}/drafts/{draftId}/approve",
-    success: {
-      description: "Draft approved and saved",
-      schema: envelope(object({ status: { const: "approved" }, version })),
-      status: 200,
-    },
-    summary: "Approve a draft",
-    tag: "Admin",
-  },
-  {
-    auth: "token",
-    body: draftDecisionBody,
-    errors: [400, 401, 404, 409],
-    method: "post",
-    param: draftParam,
-    path: "/v1/admin/species/{id}/drafts/{draftId}/reject",
-    success: {
-      description: "Draft rejected",
-      schema: envelope(object({ status: { const: "rejected" } })),
-      status: 200,
-    },
-    summary: "Reject a draft",
-    tag: "Admin",
-  },
 ];
+
+export const UNDOCUMENTED_PATH_PREFIXES = ["/v1/admin/", "/v1/ratings"];
 
 export const documentedOperations = OPERATIONS.map(({ method, path }) => ({
   method,
@@ -378,17 +171,10 @@ export function buildOpenApiDocument() {
           ),
         }),
       },
-      securitySchemes: {
-        bearerToken: {
-          description: "API_WRITE_TOKEN for admin and internal routes.",
-          scheme: "bearer",
-          type: "http",
-        },
-      },
     },
     info: {
       description:
-        "Public read API and token-protected admin API of the reptiles.ge atlas of animals of Georgia. Every error has the shape `{ error: { code, message, details? } }`.",
+        "Public read API of the reptiles.ge atlas of animals of Georgia. Every error has the shape `{ error: { code, message, details? } }`.",
       title: "reptiles.ge API",
       version: "1",
     },
@@ -401,17 +187,11 @@ export function buildOpenApiDocument() {
     tags: [
       { description: "Published species profiles", name: "Species" },
       { description: "Localized species catalog", name: "Catalog" },
-      { description: "Site ratings", name: "Ratings" },
-      { description: "Token-only species editing", name: "Admin" },
     ],
   };
 }
 
 function operation(entry: Operation) {
-  const security = {
-    site: [],
-    token: [{ bearerToken: [] }],
-  };
   const content = (schema: JsonSchema) => ({
     "application/json": { schema },
   });
@@ -428,14 +208,6 @@ function operation(entry: Operation) {
       ...(entry.param ? parameters(entry.param, "path") : []),
       ...(entry.query ? parameters(entry.query, "query") : []),
     ],
-    ...(entry.body
-      ? {
-          requestBody: {
-            content: content(toSchema(entry.body)),
-            required: true,
-          },
-        }
-      : {}),
     responses: {
       [entry.success.status]: {
         description: entry.success.description,
@@ -450,7 +222,6 @@ function operation(entry: Operation) {
         ]),
       ),
     },
-    security: entry.auth ? security[entry.auth] : [],
     summary: entry.summary,
     tags: [entry.tag],
   };
