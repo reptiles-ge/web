@@ -109251,6 +109251,101 @@
       ],
       "updatedAt": "2026-10-22T09:44:01.855Z"
     },
+    "trachemys-scripta-gogopopo-1.jpg": {
+      "sourceHash": "0c02cece1c5d1c1c6f158096e2497f7f3f6ea31b1ff7cfc77524d64eef741e87",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-gogopopo-1.jpg",
+      "originalSize": 269967,
+      "width": 1571,
+      "height": 1047,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11942
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17760
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16667
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25178
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32976
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50604
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44826
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68528
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82316
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118424
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1571.avif",
+          "format": "avif",
+          "width": 1571,
+          "height": 1047,
+          "byteSize": 132006
+        },
+        {
+          "key": "optimized/trachemys-scripta-gogopopo-1-1571.webp",
+          "format": "webp",
+          "width": 1571,
+          "height": 1047,
+          "byteSize": 169454
+        }
+      ],
+      "updatedAt": "2026-10-22T09:46:19.262Z"
+    },
     "trachemys-scripta-marat-1.jpg": {
       "sourceHash": "ac964dd58378b377ec258492a1d5cfda8f2e1b8510f085c137ef2359e0d2bee1",
       "configFingerprint": "409788ee46c653d8",
