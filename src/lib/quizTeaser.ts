@@ -1,8 +1,10 @@
-import type { PhotoCredit } from "@/data/speciesTypes";
+import type {
+  PhotoCredit,
+  SpeciesQuizFields,
+  SpeciesSummary,
+} from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import {
   getLizardQuizCatalog,
@@ -14,6 +16,7 @@ import {
   QUIZ_OPTION_COUNT,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuizEngine";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { stableHash } from "@/lib/stableHash";
 
 export type QuizTeaser = {
@@ -34,29 +37,31 @@ export type QuizTeaserOption = {
   scientificName: string;
 };
 
-export function getQuizTeaserId(speciesId: string): null | QuizTeaserId {
-  const species = getSpeciesById(speciesId);
-  if (!species) return null;
+export function getQuizTeaserId(
+  species: Pick<SpeciesSummary, "genus" | "id">,
+): null | QuizTeaserId {
   if (isSnakeSpecies(species)) return "snake";
   if (isLizardSpecies(species)) return "lizard";
   return null;
 }
 
-export function getSpeciesQuizTeaser(
+export async function getSpeciesQuizTeaser(
   speciesId: string,
   locale: AppLocale,
-): null | QuizTeaser {
-  const quizId = getQuizTeaserId(speciesId);
+): Promise<null | QuizTeaser> {
+  const catalog = await getSpeciesCatalog(locale, "quiz");
+  const byId = new Map(catalog.map((item) => [item.id, item]));
+  const species = byId.get(speciesId);
+  const quizId = species ? getQuizTeaserId(species) : null;
   if (!quizId) return null;
 
-  const optionIds = quizTeaserOptionIds(speciesId, quizId);
+  const optionIds = quizTeaserOptionIds(speciesId, quizId, catalog);
   if (!optionIds) return null;
 
   const options: QuizTeaserOption[] = [];
   for (const id of optionIds.options) {
-    const raw = getSpeciesById(id);
-    if (!raw) return null;
-    const item = localizeSpecies(raw, locale);
+    const item = byId.get(id);
+    if (!item) return null;
     options.push({
       commonName: item.commonName,
       id,
@@ -64,9 +69,9 @@ export function getSpeciesQuizTeaser(
     });
   }
 
-  const correctRaw = getSpeciesById(optionIds.correctId);
-  if (!correctRaw) return null;
-  const correct = toSnakeQuizSpecies(localizeSpecies(correctRaw, locale));
+  const correctItem = byId.get(optionIds.correctId);
+  if (!correctItem) return null;
+  const correct = toSnakeQuizSpecies(correctItem, catalog);
 
   return {
     correctId: correct.id,
@@ -79,8 +84,12 @@ export function getSpeciesQuizTeaser(
   };
 }
 
-export function quizTeaserOptionIds(speciesId: string, quizId: QuizTeaserId) {
-  const pool = getQuizPool(quizId);
+export function quizTeaserOptionIds(
+  speciesId: string,
+  quizId: QuizTeaserId,
+  catalog: readonly SpeciesQuizFields[],
+) {
+  const pool = getQuizPool(quizId, catalog);
   if (pool.length < QUIZ_OPTION_COUNT) return null;
 
   const correctId = pickCorrectId(speciesId, pool);
@@ -107,18 +116,27 @@ export function quizTeaserOptionIds(speciesId: string, quizId: QuizTeaserId) {
   };
 }
 
-const quizPools = new Map<QuizTeaserId, SnakeQuizSpecies[]>();
+const quizPools = new WeakMap<
+  readonly SpeciesQuizFields[],
+  Map<QuizTeaserId, SnakeQuizSpecies[]>
+>();
 
-function getQuizPool(quizId: QuizTeaserId) {
-  const cached = quizPools.get(quizId);
+function getQuizPool(
+  quizId: QuizTeaserId,
+  catalog: readonly SpeciesQuizFields[],
+) {
+  let pools = quizPools.get(catalog);
+  if (!pools) {
+    pools = new Map();
+    quizPools.set(catalog, pools);
+  }
+  const cached = pools.get(quizId);
   if (cached) return cached;
-
-  const catalog = getCatalogSpecies();
   const pool =
     quizId === "snake"
       ? getSnakeQuizCatalog(catalog)
       : getLizardQuizCatalog(catalog);
-  quizPools.set(quizId, pool);
+  pools.set(quizId, pool);
   return pool;
 }
 

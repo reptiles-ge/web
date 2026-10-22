@@ -3,6 +3,7 @@ import { cache } from "react";
 import type {
   CatalogCard,
   CatalogFullSpecies,
+  CatalogQuizSpecies,
 } from "@/data/speciesCatalogTypes";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -13,9 +14,11 @@ export type { CatalogCard };
 
 type CatalogEntries<View extends CatalogView> = View extends "full"
   ? CatalogFullSpecies[]
-  : CatalogCard[];
+  : View extends "quiz"
+    ? CatalogQuizSpecies[]
+    : CatalogCard[];
 
-type CatalogView = "card" | "full";
+type CatalogView = "card" | "full" | "quiz";
 
 export const getSpeciesCatalog = cache(
   async <View extends CatalogView = "card">(

@@ -9,9 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { QuizLanding } from "@/components/QuizLanding";
 import { QuizPlayer } from "@/components/QuizPlayer";
-import { getCatalogSpecies } from "@/data/species";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
@@ -26,6 +24,7 @@ import {
   siteEntityId,
 } from "@/lib/site";
 import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { quizDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -121,9 +120,7 @@ export default async function QuizSlugRoute({ params }: Props) {
     getTranslations({ locale, namespace: "quizzes" }),
   ]);
   const url = quizPageUrl(locale, quiz.id);
-  const catalog = getCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
-  );
+  const catalog = await getSpeciesCatalog(locale, "quiz");
   const pool =
     quiz.generator === "lizard"
       ? getLizardQuizCatalog(catalog)

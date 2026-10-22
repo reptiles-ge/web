@@ -109,7 +109,7 @@ Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a cre
 
 ## Caching
 
-Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at the edge, so a change can take up to an hour to appear. Successful responses have an \`ETag\`: send it back in \`If-None-Match\` and you get \`304 Not Modified\` with an empty body when nothing changed. Prefer \`/v1/species\` or the \`card\` catalog over the multi-megabyte \`full\` catalog.
+Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at the edge, so a change can take up to an hour to appear. Successful responses have an \`ETag\`: send it back in \`If-None-Match\` and you get \`304 Not Modified\` with an empty body when nothing changed. Prefer \`/v1/species\`, the \`card\` or the \`quiz\` catalog over the multi-megabyte \`full\` catalog.
 
 ## Errors
 
@@ -184,7 +184,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards; use `full` only when you need every text, for example to build a search index. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`. `total` always counts the whole catalog.",
+      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards, `quiz` for identification quizzes (the card fields plus identification, facts and gallery), and `full` only when you need every text, for example to build a search index. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`. `total` always counts the whole catalog.",
     errors: [400],
     header: localeHeader,
     method: "get",
@@ -202,10 +202,18 @@ const OPERATIONS: Operation[] = [
           summary: "full view, one species shown and shortened",
           value: RESPONSE_EXAMPLES.catalogFull,
         },
+        quiz: {
+          summary: "quiz view, one species shown and shortened",
+          value: RESPONSE_EXAMPLES.catalogQuiz,
+        },
       },
       schema: {
         discriminator: { propertyName: "view" },
-        oneOf: [ref("CatalogCardResponse"), ref("CatalogFullResponse")],
+        oneOf: [
+          ref("CatalogCardResponse"),
+          ref("CatalogFullResponse"),
+          ref("CatalogQuizResponse"),
+        ],
       },
     },
     summary: "Get the catalog",
