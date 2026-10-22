@@ -9069,6 +9069,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1307],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/trachemys-scripta-aleksandra-1.jpg": {
+    "path": "trachemys-scripta-aleksandra-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-axel-1.jpg": {
+    "path": "trachemys-scripta-axel-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-donsky-1.jpg": {
+    "path": "trachemys-scripta-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-donsky-2.jpg": {
+    "path": "trachemys-scripta-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-fedotova-1.jpg": {
+    "path": "trachemys-scripta-fedotova-1",
+    "width": 2046,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2046],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-floyd-1.jpg": {
+    "path": "trachemys-scripta-floyd-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-gogopopo-1.jpg": {
+    "path": "trachemys-scripta-gogopopo-1",
+    "width": 1571,
+    "height": 1047,
+    "widths": [320, 400, 640, 800, 1200, 1571],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-marat-1.jpg": {
+    "path": "trachemys-scripta-marat-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-maxim-1.jpg": {
+    "path": "trachemys-scripta-maxim-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg": {
     "path": "trachemys-scripta-mobile",
     "width": 1707,
