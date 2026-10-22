@@ -9034,6 +9034,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/testudo-graeca-peter-1.jpg": {
+    "path": "testudo-graeca-peter-1",
+    "width": 1880,
+    "height": 1254,
+    "widths": [320, 400, 640, 800, 1200, 1880],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/testudo-graeca-zj-adram-1.jpg": {
     "path": "testudo-graeca-zj-adram-1",
     "width": 2048,

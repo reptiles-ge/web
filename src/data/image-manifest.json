@@ -108575,6 +108575,101 @@
       ],
       "updatedAt": "2026-10-22T09:16:34.105Z"
     },
+    "testudo-graeca-peter-1.jpg": {
+      "sourceHash": "e8f4af21b873d5fa52415c9c713acbf140fe480ca4986c78909297a82bd00238",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-peter-1.jpg",
+      "originalSize": 316055,
+      "width": 1880,
+      "height": 1254,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3944
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4536
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5243
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6264
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 10683
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12472
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 14453
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 18002
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25869
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36202
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.avif",
+          "format": "avif",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 63561
+        },
+        {
+          "key": "optimized/testudo-graeca-peter-1-1880.webp",
+          "format": "webp",
+          "width": 1880,
+          "height": 1254,
+          "byteSize": 98620
+        }
+      ],
+      "updatedAt": "2026-10-22T09:18:52.519Z"
+    },
     "testudo-graeca-zj-adram-1.jpg": {
       "sourceHash": "7c1f9c6564060881c4cea71cc984bcf3ea834c43f9cff859fa6d2302e31275bc",
       "configFingerprint": "409788ee46c653d8",
