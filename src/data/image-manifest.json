@@ -107720,6 +107720,101 @@
       ],
       "updatedAt": "2026-10-17T07:57:57.030Z"
     },
+    "testudo-graeca-barbarapaisx-1.jpg": {
+      "sourceHash": "bd55abef0bc7658818ddcc051fd7eb859f97257f2bd87f7d758555766a1e56f4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-barbarapaisx-1.jpg",
+      "originalSize": 623715,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 19545
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29744
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 27673
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41896
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 60688
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 86730
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 84751
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 122908
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 153740
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 218774
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 226007
+        },
+        {
+          "key": "optimized/testudo-graeca-barbarapaisx-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 306734
+        }
+      ],
+      "updatedAt": "2026-10-22T09:17:24.832Z"
+    },
     "testudo-graeca-bertogcliment-1.jpg": {
       "sourceHash": "f93d4167769d28e24dc82a7eb5035443e2a8a9f0abfe6d082ad546cfaad0c80c",
       "configFingerprint": "409788ee46c653d8",
