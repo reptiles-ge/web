@@ -42,8 +42,18 @@ function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
     run: async () => sqlite.prepare(query).run(...values),
   });
   return {
-    batch: async (statements) =>
-      Promise.all(statements.map((entry) => entry.all())),
+    batch: async (statements) => {
+      sqlite.exec("BEGIN");
+      try {
+        const results = [];
+        for (const entry of statements) results.push(await entry.all());
+        sqlite.exec("COMMIT");
+        return results;
+      } catch (error) {
+        sqlite.exec("ROLLBACK");
+        throw error;
+      }
+    },
     prepare: (query) => statement(query),
   };
 }

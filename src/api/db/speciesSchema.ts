@@ -69,7 +69,6 @@ export const SPECIES_TABLES = [
   },
   {
     columns: [
-      "id",
       "species_id",
       "role",
       "position",
@@ -98,3 +97,5 @@ export const SPECIES_TABLES = [
     name: "species_slugs",
   },
 ] as const;
+
+export type SpeciesTable = (typeof SPECIES_TABLES)[number]["name"];

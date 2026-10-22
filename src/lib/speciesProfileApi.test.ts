@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -8,7 +8,28 @@ import { reptilesApi } from "../../tests/msw/reptilesApi";
 import { recordRequests, server } from "../../tests/msw/server";
 import { getSpeciesProfile } from "./speciesProfileApi";
 
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
+
 describe("getSpeciesProfile", () => {
+  it("sends the cache bypass secret only when it is configured", async () => {
+    const seen: Array<null | string> = [];
+    server.use(
+      http.get("https://api.reptiles.ge/v1/species/:id", ({ request }) => {
+        seen.push(request.headers.get("X-Cache-Bypass"));
+        return HttpResponse.json(
+          { error: { code: "not_found" } },
+          { status: 404 },
+        );
+      }),
+    );
+    await getSpeciesProfile("testudo-graeca", "ka");
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    await getSpeciesProfile("testudo-graeca", "en");
+    expect(seen).toEqual([null, "fresh-secret"]);
+  });
+
   it("loads the localized profile from api.reptiles.ge", async () => {
     server.use(reptilesApi);
     const requests = recordRequests();
@@ -19,11 +40,9 @@ describe("getSpeciesProfile", () => {
     ]);
     expect(profile?.group).toBe("snake");
     expect(profile?.species).toStrictEqual(
-      JSON.parse(
-        JSON.stringify(
-          localizeSpecies(getSpeciesById("macrovipera-lebetina")!, "en"),
-        ),
-      ),
+      await Response.json(
+        localizeSpecies(getSpeciesById("macrovipera-lebetina")!, "en"),
+      ).json(),
     );
   });
 

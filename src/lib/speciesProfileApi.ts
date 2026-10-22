@@ -5,6 +5,7 @@ import type { Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { createApiClient } from "@/lib/apiClient";
+import { serverEnv } from "@/lib/env";
 
 const SPECIES_REVALIDATE_SECONDS = 3600;
 
@@ -18,6 +19,7 @@ export const getSpeciesProfile = cache(
     const response = await createApiClient().v1.species[":idOrSlug"].$get(
       { param: { idOrSlug: id }, query: { locale } },
       {
+        headers: cacheBypassHeaders(),
         init: {
           next: {
             revalidate: SPECIES_REVALIDATE_SECONDS,
@@ -42,3 +44,8 @@ export const getSpeciesProfile = cache(
     return { group, species: species as Species };
   },
 );
+
+function cacheBypassHeaders(): Record<string, string> {
+  const token = serverEnv().REVALIDATE_TOKEN;
+  return token ? { "X-Cache-Bypass": token } : {};
+}

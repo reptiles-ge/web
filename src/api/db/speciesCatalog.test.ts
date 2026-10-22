@@ -4,7 +4,7 @@ import { speciesImportSource } from "@/lib/speciesImportSource";
 
 import { createTestDatabase } from "../testing/sqliteDatabase";
 import { readSpeciesCatalog } from "./speciesCatalog";
-import { buildSpeciesImport } from "./speciesImport";
+import { buildSpeciesImport, IMPORT_GUARD } from "./speciesImport";
 
 const source = speciesImportSource();
 const statements = buildSpeciesImport(source);
@@ -85,6 +85,17 @@ describe("species in D1", () => {
         ...statements.map((statement) => encoder.encode(statement).length),
       ),
     ).toBeLessThan(100_000);
-    expect(statements[0]).toBe("DELETE FROM species_slugs;");
+    expect(statements[0]).toBe(IMPORT_GUARD);
+    expect(statements[1]).toBe("DELETE FROM species_slugs;");
+  });
+
+  it("refuses to import over edits made through the API", () => {
+    const { sqlite } = load();
+    sqlite
+      .prepare(
+        "INSERT INTO species_revisions (species_id, version, actor, source, summary) VALUES ('macrovipera-lebetina', 2, 'admin', 'admin', 'Edited')",
+      )
+      .run();
+    expect(() => sqlite.exec(IMPORT_GUARD)).toThrow();
   });
 });

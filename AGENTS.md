@@ -179,8 +179,9 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 - Layout: `app.ts` mounts one sub-app per resource from `routes/` under `/v1/`; SQL only in `db/`; input only through `validate()` and Zod schemas; errors only through `ApiError` / `lib/errors.ts`.
 - `src/api/structure.test.ts` fails on any break of that layout. Do not weaken it.
+- Species content is written only through `PUT /v1/admin/species/:id` (validated, versioned, revisioned, revalidates the site). The MDX import refuses to run once API edits exist.
 - Species profile pages load their content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`), with no MDX fallback and no client loaders. See the skill for what is still local.
-- The whole species catalog is copied into D1 (`0002_species.sql`) with `pnpm db:import:species`. MDX is still the source of truth; D1 is rebuilt from it, and a round-trip test requires a 1:1 match.
+- D1 is the source of truth for species (`0002_species.sql`). `pnpm db:import:species` was the one-off initial copy from MDX (a round-trip test proves it was 1:1); it refuses to run once API edits exist. Species MDX files are no longer edited.
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.

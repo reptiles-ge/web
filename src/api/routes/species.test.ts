@@ -91,7 +91,7 @@ describe("GET /v1/species/:idOrSlug", () => {
         expect(response.status).toBe(200);
         const { group, habitats, lookalikes, slug, ...profile } = body.data;
         expect(profile).toStrictEqual(
-          JSON.parse(JSON.stringify(localizeSpecies(item, locale))),
+          await Response.json(localizeSpecies(item, locale)).json(),
         );
         expect(group).toBe(speciesAtlasMeta[item.id]?.group);
         expect(habitats).toStrictEqual(speciesAtlasMeta[item.id]?.habitats);
