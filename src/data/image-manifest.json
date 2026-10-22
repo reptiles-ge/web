@@ -108290,6 +108290,101 @@
       ],
       "updatedAt": "2026-10-22T09:15:28.276Z"
     },
+    "testudo-graeca-nina-1.jpg": {
+      "sourceHash": "764042d9da9deae99d308946d805bdde57e4ffb37437412473a4470807b9d7af",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-nina-1.jpg",
+      "originalSize": 702126,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15075
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22850
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22148
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33482
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49955
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73786
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72305
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 108014
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 130219
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 184706
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 266944
+        },
+        {
+          "key": "optimized/testudo-graeca-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 369156
+        }
+      ],
+      "updatedAt": "2026-10-22T09:16:34.105Z"
+    },
     "testudo-graeca-zj-adram-1.jpg": {
       "sourceHash": "7c1f9c6564060881c4cea71cc984bcf3ea834c43f9cff859fa6d2302e31275bc",
       "configFingerprint": "409788ee46c653d8",
