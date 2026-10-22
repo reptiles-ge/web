@@ -51,7 +51,7 @@ async function loadDocument() {
 }
 
 describe("docs route", () => {
-  it("serves Swagger UI pointing at the spec", async () => {
+  it("serves the Scalar API reference pointing at the spec", async () => {
     const response = await app.request("/v1/docs", {}, env);
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("text/html");
@@ -59,7 +59,9 @@ describe("docs route", () => {
       "public, max-age=300, s-maxage=3600",
     );
     const html = await response.text();
-    expect(html).toContain("SwaggerUIBundle");
+    expect(html).toContain(
+      "https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.74.0/",
+    );
     expect(html).toContain("/v1/docs/openapi.json");
   });
 

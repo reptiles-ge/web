@@ -43,16 +43,16 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - JSON keys are camelCase. Dates are ISO 8601 in UTC.
 - Non-critical side work (Telegram, analytics) MUST run in `c.executionCtx.waitUntil()`, never before the response.
 
-## OpenAPI and Swagger UI
+## OpenAPI and Scalar
 
-- `GET /v1/docs` serves Swagger UI (`@hono/swagger-ui`, pinned; assets load from jsDelivr). `GET /v1/docs/openapi.json` serves the OpenAPI 3.1 document. Both are public and send `PUBLIC_CACHE`.
+- `GET /v1/docs` serves the Scalar API reference (`@scalar/hono-api-reference`, pinned; the `@scalar/api-reference` bundle loads from jsDelivr at the exact version in `SCALAR_CDN`). `GET /v1/docs/openapi.json` serves the OpenAPI 3.1 document. Both are public and send `PUBLIC_CACHE`.
 - The document is built in `lib/openapi.ts` from the same Zod schemas the routes validate with (`z.toJSONSchema`, input side). NEVER write a request schema by hand there; import it from `schemas/`.
 - The spec is public-only. Admin (`/v1/admin/…`) and ratings (`/v1/ratings…`) routes are listed in `UNDOCUMENTED_PATH_PREFIXES` and MUST NOT appear in it, along with any token scheme.
 - Every other route MUST have an entry in `OPERATIONS` (`lib/openapi.ts`) with its method, path, tag, inputs, success status and error statuses. `routes/docs.test.ts` fails when a public route is missing, a documented one no longer exists, path params do not match, or an admin or ratings path leaks into the spec.
 - Responses are typed: `schemas/responses.ts` holds strict Zod schemas for every public response, registered as named components (`responseSchemas`), with a `description` (and `examples` where useful) on every field. `schemas/responses.test.ts` parses every real response (all species, all four locales, every catalog view, all field records) against them, so a new or renamed field fails until the schema and its description are updated. Descriptions follow the content rules: state only what the data shows, never invent meaning.
 - Examples live in `lib/openapiExamples.ts`. They use real atlas values, shortened to whole sentences and the first array items. The test checks them against the schemas, and the `400`/`404` examples against the real responses.
 - The developer guide is `DESCRIPTION` in `lib/openapi.ts` (quick start, versioning, locales, ids and slugs, text format, credits, caching, errors). The docs are public and open source: keep it accurate when behaviour changes.
-- Servers are `/` (whatever origin serves the page, so "Try it out" in `pnpm dev:api` hits the local Worker) and `https://api.reptiles.ge`.
+- Servers are `/` (whatever origin serves the page, so "Test Request" in `pnpm dev:api` hits the local Worker) and `https://api.reptiles.ge`.
 
 ## Validation
 
