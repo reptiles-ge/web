@@ -4,7 +4,7 @@ import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { locales } from "@/i18n/locales";
 import { localizeSpecies, speciesUpdatedAt } from "@/i18n/localizeSpecies";
-import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import { type ErrorBody, requestJson } from "../testing/request";

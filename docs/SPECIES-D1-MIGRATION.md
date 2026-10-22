@@ -85,7 +85,7 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 **Today** (all in `src/lib/speciesPageAnalysis.ts`, `speciesSuperAnalysis*.ts`)
 
 - `/api/admin/species-analysis` (modes `analysis|links|lookalikes|records`) and `/api/admin/species-workflow` run an AI CLI with **workspace-write in a git worktree**. They commit and open a PR.
-  - lookalikes mode edits `LOOKALIKES` in `src/lib/speciesRoutes.ts`.
+  - lookalikes mode edits `LOOKALIKES` in `src/lib/speciesLookalikes.ts`.
   - records mode also edits range maps (`src/data/speciesRangeMaps/{id}.ts`), `mapRegions.ts` and components.
 - `/api/admin/species-super-analysis` runs background jobs with stages analysis → lookalikes → links → texts. The AI returns structured JSON (`superAnalysisResultSchema`). The app applies edits with `applyAnalysisEdits`, validates them heavily (`validateSuperAnalysisResult`: coverage, evidence, numbers, scientific names, links, colors, conservation codes), re-serializes the frontmatter, commits per stage and opens a draft PR.
 - The texts step of the workflow already uses `mdxSpeciesTextSource` on the worktree.
@@ -102,7 +102,7 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 ## 2b-f — New species creation
 
-**Today:** `/api/admin/species-create` validates the input (`validateSpeciesCreationInput`: Latin binomial, derived id) and only returns a Codex prompt. A human then creates 4 MDX files and registers the species in `speciesPublish.ts`, `speciesAtlasMeta.ts`, `herpetofauna-checklist.ts`, `mapRegions.ts`, `speciesRoutes.ts` and `speciesSlugRules.ts`.
+**Today:** `/api/admin/species-create` validates the input (`validateSpeciesCreationInput`: Latin binomial, derived id) and only returns a Codex prompt. A human then creates 4 MDX files and registers the species in `speciesPublish.ts`, `speciesAtlasMeta.ts`, `herpetofauna-checklist.ts`, `mapRegions.ts`, `speciesLookalikes.ts` and `speciesSlugRules.ts`.
 
 **Target**
 
@@ -127,6 +127,25 @@ Slices, one PR each, in this order:
 | S3        | Build-time and edge consumers: sitemap, `llms.txt`, OG images, the search index (served at runtime from the API or a route instead of `search-index.*.generated`), occurrences maps (`compile-occurrences` → API), `contentDates`                                      | They depend on generated files                                                                                                                                        |
 | S4        | Slugs and 301s in `proxy.ts` (phase 4 below), because the edge cannot `await` the whole catalog per request                                                                                                                                                            | Needed before the generated slug table can go                                                                                                                         |
 | S5        | Delete species MDX, `compile-species` (species part), `species*.generated`, `fieldRecords.generated.json`, the MDX admin helpers and the `db:import:species*` scripts. Move tests that use the compiled catalog to MSW + `createSpeciesTestDatabase`                   | Phase 5                                                                                                                                                               |
+
+### S2 sub-slices (from the dependency map, 2026-10-22)
+
+`lib/speciesRoutes.ts` (pure slug helpers mixed with catalog code) and `lib/llmsFiles.ts` (robots/headers mixed with catalog builders) make about 250 modules transitively load the compiled catalog, layouts and `not-found` included. Splitting them first shrinks the real consumer list.
+
+1. **S2.1 Decouple, no behaviour change:** split `speciesRoutes.ts` into slug helpers, lookalikes (`LOOKALIKES` + `getSpeciesLookalikes`) and `speciesStaticParams`. Delete the dead `resolveSpecies`/`resolveSpeciesInHub`. Split `llmsFiles.ts` (robots/headers vs builders).
+2. **Async core libs** on `getSpeciesCatalog(locale, "card")`: `speciesAtlas`, `regions`, `speciesRelated`, `clusterGuides`, `atlasList`, `structuredDataDates`. **Blocker:** `getAtlasStats().photos` counts gallery photos. Add a photo count to the card view; do not fetch `full` on every page.
+3. Home page (`Hero`, `HomeFeatured`, `HomeFresh`, `HomeGroups`).
+4. Group hubs, species indexes, cluster guides, `species` atlas, and the venomous, risk and yard pages.
+5. Regions (`regions`, `regions/[id]`, `regionSummary`, `SnakeRangePage`).
+6. Rest of the species profile (lookalike and related cards, breadcrumbs, guide feature, `speciesStaticParams`). Switch the 5 `[slug]` routes with `dynamicParams=false` to `true` with `notFound()`.
+7. Quiz (needs `full`: identification, facts, gallery).
+8. News, authors, photo-use (gallery credits: `full` or a credit lookup endpoint).
+9. Layout level (`footerData`, `navbarData`), after `cache()` dedupe is proven.
+10. SEO outputs: sitemap (per-locale `updatedAt`), `llms.txt`/`llms-full.txt` (`full`), species OG images.
+11. Search index and locale-switch index (client-loaded build artifacts; serve from a route or the API, pass the index as a prop).
+12. Scripts and admin (`compile-occurrences`, `optimize-images`, SEO scripts, `speciesAnalysisInventory`).
+
+Hard spots: `src/proxy.ts` stays on the generated slug table until S4. Build-time static params need the API to be reachable during `next build`. `tsx` scripts can't use React `cache` or `next` fetch options.
 
 Image derivatives catalog to D1 and the Service Binding from the site to the API also fit in S1–S3.
 

@@ -1,14 +1,13 @@
 import { describe, expect, it } from "vitest";
 
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import {
-  getSpeciesLookalikes,
   getSpeciesPublicSlug,
-  resolveSpecies,
   resolveSpeciesId,
-  resolveSpeciesInHub,
   speciesHref,
-  speciesStaticParams,
 } from "@/lib/speciesRoutes";
+import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
 describe("species routes", () => {
   it("uses KA slug overrides for public URLs", () => {
@@ -28,14 +27,14 @@ describe("species routes", () => {
     expect(resolveSpeciesId("macrovipera-lebetina")).toBe(
       "macrovipera-lebetina",
     );
-    expect(resolveSpeciesInHub("snakes", "giurza")?.id).toBe(
+    expect(resolveSpeciesIdInHub("snakes", "giurza")).toBe(
       "macrovipera-lebetina",
     );
   });
 
   it("does not resolve a reserved hub slug as a species", () => {
-    expect(resolveSpeciesInHub("snakes", "saxeoebebi")).toBeUndefined();
-    expect(resolveSpeciesInHub("spiders", "saxeoebebi")).toBeUndefined();
+    expect(resolveSpeciesIdInHub("snakes", "saxeoebebi")).toBeUndefined();
+    expect(resolveSpeciesIdInHub("spiders", "saxeoebebi")).toBeUndefined();
   });
 
   it("builds hub-scoped hrefs", () => {
@@ -320,8 +319,8 @@ describe("species routes", () => {
   });
 
   it("resolves a public slug and lists static hub params", () => {
-    expect(resolveSpecies("giurza")?.id).toBe("macrovipera-lebetina");
-    expect(resolveSpecies("not-a-species")).toBeUndefined();
+    expect(resolveSpeciesId("giurza")).toBe("macrovipera-lebetina");
+    expect(resolveSpeciesId("not-a-species")).toBeUndefined();
     const params = speciesStaticParams("snakes");
     expect(params).toEqual(
       expect.arrayContaining([

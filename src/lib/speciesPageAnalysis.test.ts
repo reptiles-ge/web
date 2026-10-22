@@ -93,7 +93,7 @@ describe("species page analysis file scope", () => {
     const files = [
       "src/content/species/natrix-natrix/ka.mdx",
       "src/lib/speciesRoutes.test.ts",
-      "src/lib/speciesRoutes.ts",
+      "src/lib/speciesLookalikes.ts",
     ];
     expect(
       selectSpeciesAnalysisFiles(files, "natrix-natrix", "lookalikes"),

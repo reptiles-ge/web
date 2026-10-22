@@ -3,13 +3,9 @@ import { describe, expect, it } from "vitest";
 import { getCatalogSpecies } from "@/data/species";
 import { speciesEn } from "@/data/species-en";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import {
-  AI_CITATION_USER_AGENTS,
-  buildLlmsFullText,
-  buildLlmsIndexText,
-  buildRobotsTxt,
-} from "@/lib/llmsFiles";
+import { buildLlmsFullText, buildLlmsIndexText } from "@/lib/llmsFiles";
 import { llmsLinkHeader } from "@/lib/llmsPaths";
+import { AI_CITATION_USER_AGENTS, buildRobotsTxt } from "@/lib/robotsTxt";
 
 const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
 const DEEP_GROUPS = new Set([

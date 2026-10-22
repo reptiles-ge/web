@@ -13,7 +13,7 @@ import {
   unpublishedSpeciesIds,
 } from "@/data/speciesPublish";
 import { idByAnySlug, kaSlugById } from "@/data/speciesSlugs.generated";
-import { LOOKALIKES } from "@/lib/speciesRoutes";
+import { LOOKALIKES } from "@/lib/speciesLookalikes";
 
 export type SpeciesCatalogData = {
   atlasMeta: Record<string, { group: AnimalGroup; habitats: HabitatTag[] }>;

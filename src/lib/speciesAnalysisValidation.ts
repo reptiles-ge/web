@@ -676,7 +676,7 @@ function analysisItemChecks(
 
 function lookalikeObject(source: string) {
   const file = ts.createSourceFile(
-    "speciesRoutes.ts",
+    "speciesLookalikes.ts",
     source,
     ts.ScriptTarget.Latest,
     true,

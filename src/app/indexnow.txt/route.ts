@@ -1,5 +1,5 @@
 import { INDEXNOW_KEY } from "@/lib/indexNow";
-import { llmsTextResponseHeaders } from "@/lib/llmsFiles";
+import { llmsTextResponseHeaders } from "@/lib/robotsTxt";
 
 export const dynamic = "force-static";
 

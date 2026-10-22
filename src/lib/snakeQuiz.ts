@@ -2,9 +2,9 @@ import { type Species } from "@/data/species";
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
-import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
 export { QUIZ_LENGTH, type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 

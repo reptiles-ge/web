@@ -4,7 +4,7 @@
 
 ეტაპი 0. კონტექსტი
 
-- წაიკითხე AGENTS.md, სამიზნე სახეობის ოთხივე MDX (ka/en/ru/tr), src/lib/speciesRoutes.ts (LOOKALIKES და getSpeciesLookalikes()), src/lib/speciesRelated.ts და შესაბამისი ტესტები.
+- წაიკითხე AGENTS.md, სამიზნე სახეობის ოთხივე MDX (ka/en/ru/tr), src/lib/speciesLookalikes.ts (LOOKALIKES და getSpeciesLookalikes()), src/lib/speciesRelated.ts და შესაბამისი ტესტები.
 - იპოვე, საიდან იღებს პროექტი სახეობების სრულ სიას. გზა არ გამოიცნო, კოდით დაადგინე.
 - დაადგინე, როგორ იყენებს ქვიზი lookalikes-ს: სჭირდება თუ არა მინიმალური რაოდენობა, მუშაობს თუ არა ცარიელ სიასთან, აქვს თუ არა მნიშვნელობა რიგს.
 
@@ -53,7 +53,7 @@
 
 შეზღუდვები
 
-- შეცვალე მხოლოდ: src/lib/speciesRoutes.ts, საჭიროებისას src/lib/speciesRoutes.test.ts, სამიზნის ka/en/ru/tr.mdx.
+- შეცვალე მხოლოდ: src/lib/speciesLookalikes.ts, საჭიროებისას src/lib/speciesRoutes.test.ts, სამიზნის ka/en/ru/tr.mdx.
 - არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები.
 - თუ დასაბუთებული ცვლილება არ აღმოჩნდა, ფაილები უცვლელი დატოვე და ეს პირდაპირ თქვი. ცარიელი ცვლილება არ შექმნა.
 

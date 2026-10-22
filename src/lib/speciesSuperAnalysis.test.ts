@@ -63,7 +63,7 @@ beforeEach(async () => {
       fixture(locale),
     );
   await fs.writeFile(
-    path.join(worktree, "src/lib/speciesRoutes.ts"),
+    path.join(worktree, "src/lib/speciesLookalikes.ts"),
     'const LOOKALIKES: Record<string, string[]> = {"test-species": []};',
   );
   vi.mocked(buildSpeciesAnalysisContext).mockImplementation(async () => {

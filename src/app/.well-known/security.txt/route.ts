@@ -1,4 +1,4 @@
-import { llmsTextResponseHeaders } from "@/lib/llmsFiles";
+import { llmsTextResponseHeaders } from "@/lib/robotsTxt";
 import { buildSecurityTxt } from "@/lib/securityTxt";
 
 export const dynamic = "force-static";

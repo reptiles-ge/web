@@ -183,7 +183,7 @@ All user-facing copy must ship in **all four locales** in the same change. Never
 2. Run `pnpm species:compile`. It validates the frontmatter with Zod (`scripts/speciesFrontmatter.ts`).
 3. For a new species, register the id in `src/data/speciesPublish.ts` and add its group and habitat tags to `speciesAtlasMeta` in `src/data/speciesAtlasMeta.ts`. Without that entry, grouping breaks.
 4. The KA slug is derived from the common name. Override it in `src/lib/speciesSlugRules.ts` only when needed.
-5. Lookalikes go in `LOOKALIKES` in `src/lib/speciesRoutes.ts` (in both directions), not in MDX.
+5. Lookalikes go in `LOOKALIKES` in `src/lib/speciesLookalikes.ts` (in both directions), not in MDX.
 6. A range map appears only if the id is in some `regions[].speciesIds` in `src/data/regions.ts`, and that requires a source (see [Content integrity](#content-integrity)).
 
 Reference profiles: `macrovipera-lebetina`, `paralaudakia-caucasia`, `pseudopus-apodus`.

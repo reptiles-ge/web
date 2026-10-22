@@ -34,6 +34,6 @@ export function getSpeciesById(id: string) {
   return species.find((item) => item.id === id);
 }
 
-export function isPublishedSpeciesId(id: string) {
+function isPublishedSpeciesId(id: string) {
   return !unpublishedSpeciesIds.has(id);
 }

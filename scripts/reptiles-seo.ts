@@ -22,7 +22,7 @@ import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
 import { creditAuthorUrl } from "../src/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "../src/lib/groupHubs";
-import { buildRobotsTxt } from "../src/lib/llmsFiles";
+import { buildRobotsTxt } from "../src/lib/robotsTxt";
 import { newsArticleUrl } from "../src/lib/news";
 import { liveQuizzes } from "../src/lib/quizzes";
 import { localePath, quizPageUrl, speciesPageUrl } from "../src/lib/site";

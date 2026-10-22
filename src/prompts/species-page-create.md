@@ -33,7 +33,7 @@ Reptiles.ge ვითარდება როგორც საქართვ
 - გამოქვეყნების registry: `src/data/speciesPublish.ts`
 - atlas group და habitat tags: `src/data/speciesAtlasMeta.ts`
 - ქართული slug-ის წესები მხოლოდ საჭიროებისას: `src/lib/speciesSlugRules.ts`
-- რეალური lookalike კავშირები მხოლოდ საჭიროებისას: `src/lib/speciesRoutes.ts`
+- რეალური lookalike კავშირები მხოლოდ საჭიროებისას: `src/lib/speciesLookalikes.ts`
 - ადმინისტრაციული რეგიონები მხოლოდ პირდაპირი, სანდო მტკიცებულებისას: `src/data/mapRegions.ts`
 - amphibian/reptile checklist მხოლოდ შესაბამისი ავტორიტეტული checklist evidence-ისას: `src/data/herpetofauna-checklist.ts`
 

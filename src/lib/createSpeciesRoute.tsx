@@ -61,13 +61,10 @@ import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
-import {
-  getSpeciesPublicSlug,
-  speciesHref,
-  speciesStaticParams,
-} from "@/lib/speciesRoutes";
+import { getSpeciesPublicSlug, speciesHref } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
+import { speciesStaticParams } from "@/lib/speciesStaticParams";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
