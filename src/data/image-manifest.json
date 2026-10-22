@@ -108005,6 +108005,101 @@
       ],
       "updatedAt": "2026-10-22T09:10:18.959Z"
     },
+    "testudo-graeca-zj-adram-1.jpg": {
+      "sourceHash": "7c1f9c6564060881c4cea71cc984bcf3ea834c43f9cff859fa6d2302e31275bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "testudo-graeca-zj-adram-1.jpg",
+      "originalSize": 1054945,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17583
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29598
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26555
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44166
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65257
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 109308
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101919
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 166472
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 206360
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 329180
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 456169
+        },
+        {
+          "key": "optimized/testudo-graeca-zj-adram-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 713736
+        }
+      ],
+      "updatedAt": "2026-10-22T09:12:12.402Z"
+    },
     "testudo-graeca.jpg": {
       "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
       "configFingerprint": "a895f8e025dcc7fa",
