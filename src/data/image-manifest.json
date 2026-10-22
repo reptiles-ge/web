@@ -110078,6 +110078,101 @@
       ],
       "updatedAt": "2026-08-28T21:59:37.344Z"
     },
+    "trachemys-scripta-nikita-1.jpg": {
+      "sourceHash": "6deb09fdd64575acc392a30237a1593a58ccf2cbce5ffed468f7672514acc002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "trachemys-scripta-nikita-1.jpg",
+      "originalSize": 320972,
+      "width": 1840,
+      "height": 1221,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5280
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7240
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 7686
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 13997
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 14698
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 18832
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 20270
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 34120
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 796,
+          "byteSize": 35758
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.avif",
+          "format": "avif",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 79912
+        },
+        {
+          "key": "optimized/trachemys-scripta-nikita-1-1840.webp",
+          "format": "webp",
+          "width": 1840,
+          "height": 1221,
+          "byteSize": 94072
+        }
+      ],
+      "updatedAt": "2026-10-22T09:53:42.018Z"
+    },
     "trachemys-scripta-wichyanan-1.jpg": {
       "sourceHash": "142fb86faacab497f202d3b98b8fbcab90f14a0d7821e5ff1d4ac9d4c7de14b6",
       "configFingerprint": "409788ee46c653d8",
