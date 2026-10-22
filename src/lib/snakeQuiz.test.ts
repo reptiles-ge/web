@@ -63,6 +63,7 @@ describe("quiz hint", () => {
         },
         stats: [{ label: "Местообитание", value: "Wet meadows" }],
       }),
+      getCatalogSpecies(),
     ).hint;
     expect(hint).toBe("Wet meadows");
   });
@@ -75,6 +76,7 @@ describe("quiz hint", () => {
           identification: { ...base.identification!, traits: [] },
           stats: [{ label, value: "Riverbanks" }],
         }),
+        getCatalogSpecies(),
       ).hint;
       expect(hint).toBe("Riverbanks");
     },

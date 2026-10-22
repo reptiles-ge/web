@@ -25,7 +25,7 @@ export async function SpeciesProfileQuiz({
 }: SpeciesProfileQuizProps) {
   if (!SPECIES_QUIZ_TEASER_ENABLED) return null;
 
-  const teaser = getSpeciesQuizTeaser(species.id, locale);
+  const teaser = await getSpeciesQuizTeaser(species.id, locale);
   if (!teaser) return null;
 
   const snake = teaser.quizId === "snake";

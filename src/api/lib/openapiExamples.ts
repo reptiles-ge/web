@@ -102,6 +102,21 @@ export const RESPONSE_EXAMPLES = {
     total: 145,
     view: "full",
   },
+  catalogQuiz: {
+    data: [
+      {
+        ...levantineViper,
+        facts: levantineViperTexts.facts,
+        gallery: levantineViperTexts.gallery,
+        identification: levantineViperTexts.identification,
+        lookalikes: lookalikeIds,
+      },
+    ],
+    locale: "en",
+    nextCursor: null,
+    total: 145,
+    view: "quiz",
+  },
   error: {
     error: { code: "not_found", message: "Species not found" },
   },
