@@ -154,7 +154,8 @@ export const speciesRecordSchema = z
       }
     }
     const gallerySrcs = ka.gallery.map((image) => image.src);
-    if (new Set(gallerySrcs).size !== gallerySrcs.length) {
+    const gallerySrcSet = new Set(gallerySrcs);
+    if (gallerySrcSet.size !== gallerySrcs.length) {
       issue(["base", "gallery"], "Duplicate gallery src");
     }
     for (const locale of TRANSLATION_LOCALES) {
@@ -181,7 +182,7 @@ export const speciesRecordSchema = z
         issue(path("identification"), "colors must match Georgian");
       }
       for (const [index, image] of (other.gallery ?? []).entries()) {
-        if (!gallerySrcs.includes(image.src)) {
+        if (!gallerySrcSet.has(image.src)) {
           issue(
             [...path("gallery"), index],
             `${image.src} is not in the Georgian gallery`,

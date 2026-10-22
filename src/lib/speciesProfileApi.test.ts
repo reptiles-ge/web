@@ -19,11 +19,9 @@ describe("getSpeciesProfile", () => {
     ]);
     expect(profile?.group).toBe("snake");
     expect(profile?.species).toStrictEqual(
-      JSON.parse(
-        JSON.stringify(
-          localizeSpecies(getSpeciesById("macrovipera-lebetina")!, "en"),
-        ),
-      ),
+      await Response.json(
+        localizeSpecies(getSpeciesById("macrovipera-lebetina")!, "en"),
+      ).json(),
     );
   });
 
