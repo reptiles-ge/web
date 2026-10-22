@@ -1,26 +1,20 @@
-import { describe, expect, it } from "vitest";
-
-import type { ApiBindings } from "@/api/env";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { app } from "@/api/app";
 import { createTestDatabase } from "@/api/testing/sqliteDatabase";
 
-import { createApiClient, serviceBindingFetch } from "./apiClient";
+import { apiOrigin, createApiClient } from "./apiClient";
 
-const TOKEN = "test-token";
-
-function clientFor(env: ApiBindings, token?: string) {
-  return createApiClient({
-    fetch: serviceBindingFetch({
-      fetch: async (input, init) => app.request(input, init, env),
-    }),
-    token,
-  });
-}
+afterEach(() => {
+  vi.unstubAllEnvs();
+});
 
 describe("createApiClient", () => {
-  it("calls typed routes through a service binding", async () => {
-    const client = clientFor({ DB: createTestDatabase().db });
+  it("calls typed routes", async () => {
+    const env = { DB: createTestDatabase().db };
+    const client = createApiClient({
+      fetch: async (input, init) => app.request(input, init, env),
+    });
     const response = await client.v1.species.$get({
       query: { group: "turtle", locale: "en" },
     });
@@ -31,22 +25,27 @@ describe("createApiClient", () => {
     expect(body.data.every((item) => item.group === "turtle")).toBe(true);
   });
 
-  it("sends the write token", async () => {
-    const database = createTestDatabase();
-    const env = { API_WRITE_TOKEN: TOKEN, DB: database.db };
-    const rating = { json: { locale: "ka" as const, path: "/", rating: 5 } };
-    expect((await clientFor(env).v1.ratings.$post(rating)).status).toBe(401);
-    expect((await clientFor(env, TOKEN).v1.ratings.$post(rating)).status).toBe(
-      201,
+  it("sends a bearer token when given one", async () => {
+    const fetch = vi.fn(async () => new Response(null));
+    await createApiClient({ fetch, token: "secret" }).v1.ratings.summary.$get({
+      query: {},
+    });
+    const [, init] = fetch.mock.calls[0] as unknown as [string, RequestInit];
+    expect(new Headers(init.headers).get("Authorization")).toBe(
+      "Bearer secret",
     );
-    expect(
-      database.sqlite.prepare("SELECT COUNT(*) AS n FROM site_ratings").get(),
-    ).toEqual({ n: 1 });
   });
 
-  it("targets api.reptiles.ge by default", () => {
+  it("targets api.reptiles.ge unless NEXT_PUBLIC_API_ORIGIN is set", () => {
+    expect(apiOrigin()).toBe("https://api.reptiles.ge");
     expect(createApiClient().v1.species.$url().href).toBe(
       "https://api.reptiles.ge/v1/species",
+    );
+    vi.stubEnv("NEXT_PUBLIC_API_ORIGIN", "localhost:8787/");
+    expect(apiOrigin()).toBe("https://localhost:8787");
+    vi.stubEnv("NEXT_PUBLIC_API_ORIGIN", "http://localhost:8787");
+    expect(createApiClient().v1.species.$url().href).toBe(
+      "http://localhost:8787/v1/species",
     );
   });
 });

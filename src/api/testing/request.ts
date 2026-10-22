@@ -6,17 +6,6 @@ export type ErrorBody = {
   error: { code: string; details?: unknown; message: string };
 };
 
-export function jsonInit(body: unknown, token?: string): RequestInit {
-  return {
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    method: "POST",
-  };
-}
-
 export async function requestJson<T>(
   url: string,
   env: ApiBindings,

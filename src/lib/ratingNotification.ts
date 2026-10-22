@@ -1,7 +1,5 @@
 import type { AppLocale } from "@/i18n/routing";
 
-import { absoluteUrl } from "@/lib/site";
-
 const MAX_SECONDS = 24 * 60 * 60;
 const MAX_PAGES = 999;
 const MAX_REFERRER_LENGTH = 100;
@@ -41,7 +39,7 @@ type RatingNotification = {
   host: string;
   locale: AppLocale;
   pages: unknown;
-  path: string;
+  pageUrl: string;
   rating: number;
   referrer: unknown;
   seconds: unknown;
@@ -55,7 +53,7 @@ export function formatRatingNotification({
   host,
   locale,
   pages,
-  path,
+  pageUrl,
   rating,
   referrer,
   seconds,
@@ -71,7 +69,7 @@ export function formatRatingNotification({
 
   return [
     `${"★".repeat(rating)}${"☆".repeat(5 - rating)} ${rating}/5`,
-    absoluteUrl(path),
+    pageUrl,
     `🌐 ${locale}${browserLanguage ? ` · browser ${browserLanguage}` : ""}`,
     place ? `📍 ${place}` : "",
     device ? `📱 ${device}` : "",

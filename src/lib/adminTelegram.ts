@@ -1,4 +1,5 @@
 import { serverEnv } from "@/lib/env";
+import { sendTelegramMessage } from "@/lib/telegram";
 
 export function formatAdminWorkflowProgress(value: unknown) {
   if (value === undefined) return "";
@@ -20,24 +21,10 @@ export function formatAdminWorkflowProgress(value: unknown) {
 
 export async function notifyAdminTelegram(message: string) {
   const { TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId } = serverEnv();
-  if (!token || !chatId) {
+  const status = await sendTelegramMessage({ chatId, token }, message);
+  if (status === "not_configured") {
     console.error("Admin Telegram is not configured");
-    return;
-  }
-  try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${token}/sendMessage`,
-      {
-        body: JSON.stringify({ chat_id: chatId, text: message }),
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-        signal: AbortSignal.timeout(10000),
-      },
-    );
-    const result = (await response.json()) as { ok?: boolean };
-    if (!response.ok || !result.ok)
-      console.error("Admin Telegram notification failed");
-  } catch {
+  } else if (status === "failed") {
     console.error("Admin Telegram notification failed");
   }
 }
