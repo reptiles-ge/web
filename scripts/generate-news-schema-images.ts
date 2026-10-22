@@ -28,6 +28,7 @@ const MANIFEST_PATH = path.join(
 const MAX_BYTES = 600_000;
 
 type CliOptions = {
+  check: boolean;
   force: boolean;
   slugs: string[];
   upload: boolean;
@@ -40,6 +41,7 @@ type Manifest = {
 
 function parseArguments(argv: string[]): CliOptions {
   const slugs: string[] = [];
+  let check = false;
   let force = false;
   let upload = false;
 
@@ -47,6 +49,9 @@ function parseArguments(argv: string[]): CliOptions {
     const argument = argv[index];
     switch (argument) {
       case "--":
+        break;
+      case "--check":
+        check = true;
         break;
       case "--force":
         force = true;
@@ -71,7 +76,11 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  return { force, slugs, upload };
+  if (check && upload) {
+    throw new Error("--check and --upload cannot be combined.");
+  }
+
+  return { check, force, slugs, upload };
 }
 
 function readManifest(): Manifest {
@@ -151,13 +160,24 @@ async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
   const manifest = readManifest();
-  const storage = createStorage(options.upload);
   const heroes = selectHeroes(options, manifest);
 
   if (heroes.length === 0) {
     console.log("Every news hero already has its schema crops. Nothing to do.");
     return;
   }
+
+  if (options.check) {
+    for (const { hero } of heroes) console.error(`Missing crops: ${hero.src}`);
+    throw new Error(
+      [
+        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} news hero(es).`,
+        "Fix the image manifest locally: run `pnpm images:news-schema --upload` and commit the updated manifest.",
+      ].join("\n"),
+    );
+  }
+
+  const storage = createStorage(options.upload);
 
   for (const { hero, key } of heroes) {
     const source = await readSource(hero);

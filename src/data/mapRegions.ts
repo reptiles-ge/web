@@ -474,6 +474,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
       "emys-orbicularis",
+      "testudo-graeca",
       "lacerta-media",
       "accipiter-nisus",
       "dendrocopos-major",
