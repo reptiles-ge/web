@@ -21,6 +21,9 @@ const LATIN_LOCALES = ["en", "ru", "tr"] as const;
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    agentUpgrade: "security",
+  },
   async headers() {
     const security = securityHeaders(isDevelopment);
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
