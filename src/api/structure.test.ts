@@ -164,6 +164,15 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     ).toMatch(/import type \{ AppType \} from "@\/api\/app"/);
   });
 
+  it("binds the site Worker to reptiles-api in both configs", () => {
+    for (const file of ["wrangler.jsonc", "wrangler.vinext.jsonc"]) {
+      expect(
+        readFileSync(path.join(ROOT, file), "utf8"),
+        `${file} is missing the API service binding`,
+      ).toMatch(/"binding": "API",\s*"service": "reptiles-api"/);
+    }
+  });
+
   it("applies migrations only from the explicit db:migrate scripts", () => {
     const { scripts } = JSON.parse(
       readFileSync(path.join(ROOT, "package.json"), "utf8"),

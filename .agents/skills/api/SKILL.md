@@ -102,6 +102,15 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Because the client is typed from `AppType`, a changed route, query, or body breaks `pnpm typecheck` on the site side. Fix the caller; do not cast around it.
 - Routes MUST keep chained methods and an explicit status in `c.json(body, status)`, or the client loses its types.
 
+### Site Worker → API (ratings)
+
+- The site Worker has a Service Binding `API` → `reptiles-api` in **both** `wrangler.jsonc` and `wrangler.vinext.jsonc`. Keep them identical.
+- `src/worker.ts` wraps the app with `withRatingApiSync` (`src/lib/ratingApiSync.ts`). After `/api/rating` answers `204` (Telegram is still sent from the route), it copies the rating to `POST /v1/ratings` in `ctx.waitUntil`, so the visitor never waits for the API. Rate limits and validation still run first; the copy re-checks with `ratingInputSchema`.
+- A missing binding or token, or an API error, is logged and skipped. It never changes the site response.
+- `API_WRITE_TOKEN` MUST be the same secret on both Workers: `wrangler secret put API_WRITE_TOKEN --config wrangler.api.jsonc` and `wrangler secret put API_WRITE_TOKEN` (site).
+- Deploy order: `reptiles-api` must exist before a site deploy that carries the binding, or the site deploy fails. Deploy the API (and its secret) first.
+- Next routes MUST NOT import `cloudflare:workers` to reach bindings; `pnpm dev` runs plain Next. Read bindings in `src/worker.ts` and pass them to a `src/lib` helper, as `ratingRateLimit.ts` and `ratingApiSync.ts` do.
+
 ## Types
 
 - Bindings are typed by hand in `env.ts` (same approach as `src/lib/ratingRateLimit.ts`). Do not add `@cloudflare/workers-types` or a generated `worker-configuration.d.ts`; they clash with the Next DOM types.

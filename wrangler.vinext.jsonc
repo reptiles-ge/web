@@ -35,6 +35,10 @@
   ],
   "services": [
     {
+      "binding": "API",
+      "service": "reptiles-api",
+    },
+    {
       "binding": "RESPONSE_STORE",
       "service": "reptiles-response-store",
       "entrypoint": "ResponseStoreService",
