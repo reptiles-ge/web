@@ -9,6 +9,7 @@ import {
 import { notFound } from "next/navigation";
 
 import { RootDocument } from "@/app/RootDocument";
+import { loadSelectionContentEditor } from "@/components/admin/devAdminComponents";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -28,7 +29,6 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getNavbarData } from "@/lib/navbarData";
@@ -68,12 +68,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   );
   const footerData = getFooterData(locale);
   const SelectionContentEditor =
-    process.env.NODE_ENV !== "production" &&
-    locale === "ka" &&
-    isLocalAdminEnabled()
-      ? (await import("@/components/admin/SelectionContentEditor"))
-          .SelectionContentEditor
-      : null;
+    locale === "ka" ? await loadSelectionContentEditor() : null;
   const editorT = SelectionContentEditor
     ? await getTranslations({ locale, namespace: "contentEditor" })
     : null;

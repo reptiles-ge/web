@@ -4,6 +4,7 @@ import path from "node:path";
 const DIST = path.resolve("dist");
 const CHECKS = [
   { label: "admin page route", pattern: /pattern:`\/admin(?:[/`])/ },
+  { label: "dev page route", pattern: /pattern:`\/dev(?:[/`])/ },
   { label: "dev-only API route", pattern: /pattern:`\/api\/(?:admin|dev)\// },
   { label: "admin API path", pattern: /\/api\/admin\// },
   { label: "dev API path", pattern: /\/api\/dev\// },
