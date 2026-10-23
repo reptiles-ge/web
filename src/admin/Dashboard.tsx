@@ -1,8 +1,16 @@
 import { Button, Layout, Menu, Space, Typography } from "antd";
 import { useState } from "react";
 
+import { RatingsPage } from "./RatingsPage";
 import { type AdminUser, signOut } from "./session";
 import { SpeciesPage } from "./SpeciesPage";
+
+type Section = "ratings" | "species";
+
+const SECTIONS: Array<{ key: Section; label: string }> = [
+  { key: "species", label: "Species" },
+  { key: "ratings", label: "Ratings" },
+];
 
 export function Dashboard({
   onSignedOut,
@@ -12,6 +20,7 @@ export function Dashboard({
   user: AdminUser;
 }) {
   const [pending, setPending] = useState(false);
+  const [section, setSection] = useState<Section>("species");
 
   async function logout() {
     setPending(true);
@@ -30,9 +39,10 @@ export function Dashboard({
           reptiles.ge admin
         </Typography.Title>
         <Menu
-          items={[{ key: "species", label: "Species" }]}
+          items={SECTIONS}
           mode="inline"
-          selectedKeys={["species"]}
+          onClick={({ key }) => setSection(key as Section)}
+          selectedKeys={[section]}
         />
       </Layout.Sider>
       <Layout>
@@ -63,7 +73,11 @@ export function Dashboard({
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          <SpeciesPage onSessionExpired={onSignedOut} />
+          {section === "ratings" ? (
+            <RatingsPage onSessionExpired={onSignedOut} />
+          ) : (
+            <SpeciesPage onSessionExpired={onSignedOut} />
+          )}
         </Layout.Content>
       </Layout>
     </Layout>

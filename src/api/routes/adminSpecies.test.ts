@@ -8,8 +8,11 @@ import type { ApiBindings } from "../env";
 import { app } from "../app";
 import { readSpeciesCatalog } from "../db/speciesCatalog";
 import { readSpeciesRecord } from "../db/speciesWrite";
-import { hashSessionToken } from "../lib/sessions";
 import { speciesRecordSchema } from "../schemas/speciesRecord";
+import {
+  ADMIN_SESSION_COOKIE,
+  adminSessionHeaders,
+} from "../testing/adminSession";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -325,8 +328,6 @@ describe("PUT /v1/admin/species/:id", () => {
 });
 
 describe("GET /v1/admin/species", () => {
-  const COOKIE = "__Host-reptiles_admin_session";
-
   type ListBody = {
     data: Array<{
       commonName: { en: null | string; ka: string };
@@ -341,27 +342,8 @@ describe("GET /v1/admin/species", () => {
     total: number;
   };
 
-  async function signIn(role = "admin", expiresInMs = 60_000) {
-    if (role !== "admin") {
-      sqlite.prepare("INSERT INTO user_roles (id) VALUES (?)").run(role);
-    }
-    const userId = crypto.randomUUID();
-    sqlite
-      .prepare(
-        "INSERT INTO users (id, email, name, role_id, password_hash) VALUES (?, ?, ?, ?, 'x')",
-      )
-      .run(userId, `${userId}@reptiles.ge`, "Admin", role);
-    const token = crypto.randomUUID();
-    sqlite
-      .prepare(
-        "INSERT INTO user_sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)",
-      )
-      .run(
-        await hashSessionToken(token),
-        userId,
-        new Date(Date.now() + expiresInMs).toISOString(),
-      );
-    return { Cookie: `${COOKIE}=${token}` };
+  function signIn(role?: string, expiresInMs?: number) {
+    return adminSessionHeaders(sqlite, role, expiresInMs);
   }
 
   function list(headers: Record<string, string> = {}) {
@@ -420,7 +402,7 @@ describe("GET /v1/admin/species", () => {
     const cases: Array<[Record<string, string>, number]> = [
       [{}, 401],
       [{ Authorization: "Bearer wrong" }, 401],
-      [{ Cookie: `${COOKIE}=made-up` }, 401],
+      [{ Cookie: `${ADMIN_SESSION_COOKIE}=made-up` }, 401],
       [await signIn("admin", -1000), 401],
       [await signIn("editor"), 403],
     ];
