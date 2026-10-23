@@ -1,12 +1,11 @@
 import type { AppLocale } from "@/i18n/routing";
-import type { CatalogCard } from "@/lib/speciesCatalogApi";
 import type { SpeciesHref } from "@/lib/speciesRoutes";
 
 import { localizeRegionText, regions } from "@/data/regions";
 import {
   type AtlasStats,
-  pickVenomousSnakes,
-  summarizeAtlas,
+  getAtlasStats,
+  getVenomousCatalogSpecies,
 } from "@/data/speciesAtlas";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
@@ -29,18 +28,19 @@ type FooterSpeciesLink = {
   scientificName: string;
 };
 
-export function getFooterData(
-  locale: AppLocale,
-  catalog: readonly CatalogCard[],
-): FooterData {
+export async function getFooterData(locale: AppLocale): Promise<FooterData> {
+  const [stats, venomous] = await Promise.all([
+    getAtlasStats(locale),
+    getVenomousCatalogSpecies(locale),
+  ]);
   return {
     regions: regions.map((region) => ({
       href: regionHref(region.id),
       id: region.id,
       name: localizeRegionText(region.name, locale),
     })),
-    stats: summarizeAtlas(catalog),
-    venomous: pickVenomousSnakes(catalog).map((item) => ({
+    stats,
+    venomous: venomous.map((item) => ({
       commonName: item.commonName,
       href: speciesHref(item.id, locale),
       id: item.id,
