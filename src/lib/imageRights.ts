@@ -2,12 +2,12 @@ import type { GuideArticleImage } from "@/data/guideArticleTypes";
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  creditAuthorKind,
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
 import { photoLicenses } from "@/data/photoLicenses";
+import {
+  type ContributorDirectory,
+  creditContributor,
+  NO_CONTRIBUTORS,
+} from "@/lib/contributorCredits";
 import { creditAuthorPersonId, creditAuthorUrl } from "@/lib/creditAuthors";
 import {
   absoluteUrl,
@@ -49,24 +49,27 @@ export function guideImageRights(image: GuideArticleImage, locale: AppLocale) {
     };
   }
   if (image.src.includes("/external/"))
-    return photoRights(image.src, undefined, locale);
+    return photoRights(image.src, undefined, locale, NO_CONTRIBUTORS);
   return siteImageRights(locale);
 }
 
-export function photoContributor(credit: PhotoCredit | undefined) {
-  const photographer = credit?.photographer?.trim();
-  return photographer
-    ? getPublishedCreditAuthorByName(photographer)
-    : undefined;
+export function photoContributor(
+  credit: PhotoCredit | undefined,
+  contributors: ContributorDirectory,
+) {
+  return creditContributor(contributors, credit);
 }
 
 export function photoRights(
   src: string,
   credit: PhotoCredit | undefined,
   locale: AppLocale,
+  contributors: ContributorDirectory,
 ) {
-  const creator = credit ? photoCreator(credit, locale) : undefined;
-  if (creator && photoContributor(credit)) {
+  const creator = credit
+    ? photoCreator(credit, locale, contributors)
+    : undefined;
+  if (creator && photoContributor(credit, contributors)) {
     return {
       acquireLicensePage: photoUsePageUrl(locale),
       copyrightHolder: organizationRef(),
@@ -98,8 +101,9 @@ export function photoRights(
 export function photoRightsCategory(
   src: string,
   credit: PhotoCredit | undefined,
+  contributors: ContributorDirectory,
 ): PhotoRightsCategory {
-  if (photoContributor(credit)) return "contributor";
+  if (photoContributor(credit, contributors)) return "contributor";
   if (photoLicenses[src]?.license) return "open";
   return credit?.photographer?.trim() ? "permission" : "unknown";
 }
@@ -123,10 +127,11 @@ export function siteImageRights(locale: AppLocale) {
 function photoCreator(
   credit: PhotoCredit,
   locale: AppLocale,
+  contributors: ContributorDirectory,
 ): Creator | undefined {
   const photographer = credit.photographer?.trim();
   if (!photographer) return undefined;
-  const author = photoContributor(credit);
+  const author = photoContributor(credit, contributors);
   if (!author) {
     return {
       "@type": "Person",
@@ -134,13 +139,13 @@ function photoCreator(
       ...(credit.url ? { url: credit.url } : {}),
     };
   }
-  const url = creditAuthorUrl(locale, author.slug);
-  const name = creditAuthorName(author, locale);
-  if (creditAuthorKind(author) !== "person") {
+  const url = creditAuthorUrl(locale, author.id);
+  const name = author.name;
+  if (author.kind !== "person") {
     return { "@type": "Organization", name, url };
   }
   return {
-    "@id": creditAuthorPersonId(locale, author.slug),
+    "@id": creditAuthorPersonId(locale, author.id),
     "@type": "Person",
     name,
     url,

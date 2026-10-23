@@ -1,6 +1,7 @@
 import type { NewsIndexEntry } from "@/components/NewsIndexCards";
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import {
   newsLocalizedDek,
@@ -26,9 +27,10 @@ export function toNewsIndexEntry(
   locale: AppLocale,
   labels: NewsIndexEntryLabels,
   catalog: readonly NewsSpecies[],
+  contributors: ContributorDirectory,
 ): NewsIndexEntry {
   const hub = newsCategoryHub(article);
-  const visual = getNewsVisual(article, locale, catalog);
+  const visual = getNewsVisual(article, locale, catalog, contributors);
   const minutes = newsReadMinutes(article, locale);
   return {
     alt: visual?.alt ?? "",

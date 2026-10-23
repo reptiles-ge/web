@@ -5,6 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { loadSpeciesPageAnalysis } from "@/components/admin/devAdminComponents";
+import { ContributorsProvider } from "@/components/ContributorsProvider";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
@@ -14,6 +15,7 @@ import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
@@ -86,13 +88,15 @@ export async function SpeciesProfile({
   related,
   species,
 }: SpeciesProfileProps) {
-  const [t, tHubs, tDanger, tAnalysis, fieldRecords] = await Promise.all([
-    getTranslations({ locale, namespace: "profile" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
-    getTranslations({ locale, namespace: "danger" }),
-    getTranslations({ locale, namespace: "pageAnalysis" }),
-    getSpeciesFieldRecords(species.id),
-  ]);
+  const [t, tHubs, tDanger, tAnalysis, fieldRecords, contributors] =
+    await Promise.all([
+      getTranslations({ locale, namespace: "profile" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+      getTranslations({ locale, namespace: "danger" }),
+      getTranslations({ locale, namespace: "pageAnalysis" }),
+      getSpeciesFieldRecords(species.id),
+      getContributorDirectory(locale),
+    ]);
   const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
@@ -143,13 +147,13 @@ export async function SpeciesProfile({
     species.commonName,
     species.scientificName,
     heroCredit,
-    locale,
+    contributors,
   );
   const mobileImageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     mobileHeroCredit,
-    locale,
+    contributors,
   );
   const group = getSpeciesAtlasMeta(species.id).group;
   const displayStats = filterDisplayStats(species.stats, group);
@@ -200,100 +204,102 @@ export async function SpeciesProfile({
   const SpeciesPageAnalysis = await loadSpeciesPageAnalysis();
 
   return (
-    <div className="min-h-screen bg-background **:[[id]]:scroll-mt-48">
-      <SpeciesViewTracker
-        galleryCount={gallery.length}
-        group={group}
-        hasIdentification={showIdentification}
-        hasRange={hasRange}
-        scientificName={species.scientificName}
-        speciesId={species.id}
-      />
-      <SpeciesProfileHero
-        breadcrumbs={breadcrumbs}
-        desktopHeroSrc={desktopHeroSrc}
-        emergency={emergency}
-        galleryCount={gallery.length}
-        galleryPreview={gallery.slice(0, 5).map((photo) => photo.src)}
-        group={group}
-        heroDesktopSources={heroDesktopSources}
-        heroPrimarySources={heroPrimarySources}
-        imageAlt={imageAlt}
-        locale={locale}
-        mobileGallery={mobileGallery}
-        mobileHeroSrc={mobileSlideSrc}
-        mobileImageAlt={mobileImageAlt}
-        shareText={shareText}
-        species={species}
-      />
-      <SpeciesProfileBody
-        biologyBlocks={biologyBlocks}
-        biologyTitle={biologyCopy?.biologyTitle}
-        dangerValue={dangerValue}
-        displayStats={displayStats}
-        editable={editable}
-        fieldRecords={fieldRecords}
-        gallery={gallery}
-        guideLinks={guideLinks}
-        hasRange={hasRange}
-        heroCredit={mobileHeroCredit}
-        linkDangerStats={linkDangerStats}
-        locale={locale}
-        lookalikes={lookalikes}
-        mobileGallery={mobileGallery}
-        related={related}
-        showIdentification={showIdentification}
-        species={species}
-      />
-      {SpeciesPageAnalysis ? (
-        <SpeciesPageAnalysis
-          copy={{
-            action: tAnalysis("action"),
-            superAction: tAnalysis("superAction"),
-            superCompleted: tAnalysis("superCompleted"),
-            superDescription: tAnalysis("superDescription"),
-            superFailed: tAnalysis("superFailed"),
-            superPending: tAnalysis("superPending"),
-            superReconnecting: tAnalysis("superReconnecting"),
-            superResume: tAnalysis("superResume"),
-            superRunning: tAnalysis("superRunning"),
-            superValidation: tAnalysis("superValidation"),
-
-            addStep: tAnalysis("addStep"),
-            availableSteps: tAnalysis("availableSteps"),
-            closeWorkflow: tAnalysis("closeWorkflow"),
-            configureWorkflow: tAnalysis("configureWorkflow"),
-            emptyWorkflow: tAnalysis("emptyWorkflow"),
-            error: tAnalysis("error"),
-            linksAction: tAnalysis("linksAction"),
-            linksProcessing: tAnalysis("linksProcessing"),
-            lookalikesAction: tAnalysis("lookalikesAction"),
-            lookalikesProcessing: tAnalysis("lookalikesProcessing"),
-            moveDown: tAnalysis("moveDown"),
-            moveUp: tAnalysis("moveUp"),
-            noChanges: tAnalysis("noChanges"),
-            openPr: tAnalysis("openPr"),
-            processing: tAnalysis("processing"),
-            recordsAction: tAnalysis("recordsAction"),
-            recordsProcessing: tAnalysis("recordsProcessing"),
-            removeStep: tAnalysis("removeStep"),
-            report: tAnalysis("report"),
-            runWorkflow: tAnalysis("runWorkflow"),
-            sameBranch: tAnalysis("sameBranch"),
-            sameBranchHint: tAnalysis("sameBranchHint"),
-            textsAction: tAnalysis("textsAction"),
-            textsError: tAnalysis("textsError"),
-            textsNoChanges: tAnalysis("textsNoChanges"),
-            textsProcessing: tAnalysis("textsProcessing"),
-            textsReport: tAnalysis("textsReport"),
-            workflowDescription: tAnalysis("workflowDescription"),
-            workflowError: tAnalysis("workflowError"),
-            workflowProcessing: tAnalysis("workflowProcessing"),
-            workflowTitle: tAnalysis("workflowTitle"),
-          }}
-          id={species.id}
+    <ContributorsProvider directory={contributors}>
+      <div className="min-h-screen bg-background **:[[id]]:scroll-mt-48">
+        <SpeciesViewTracker
+          galleryCount={gallery.length}
+          group={group}
+          hasIdentification={showIdentification}
+          hasRange={hasRange}
+          scientificName={species.scientificName}
+          speciesId={species.id}
         />
-      ) : null}
-    </div>
+        <SpeciesProfileHero
+          breadcrumbs={breadcrumbs}
+          desktopHeroSrc={desktopHeroSrc}
+          emergency={emergency}
+          galleryCount={gallery.length}
+          galleryPreview={gallery.slice(0, 5).map((photo) => photo.src)}
+          group={group}
+          heroDesktopSources={heroDesktopSources}
+          heroPrimarySources={heroPrimarySources}
+          imageAlt={imageAlt}
+          locale={locale}
+          mobileGallery={mobileGallery}
+          mobileHeroSrc={mobileSlideSrc}
+          mobileImageAlt={mobileImageAlt}
+          shareText={shareText}
+          species={species}
+        />
+        <SpeciesProfileBody
+          biologyBlocks={biologyBlocks}
+          biologyTitle={biologyCopy?.biologyTitle}
+          dangerValue={dangerValue}
+          displayStats={displayStats}
+          editable={editable}
+          fieldRecords={fieldRecords}
+          gallery={gallery}
+          guideLinks={guideLinks}
+          hasRange={hasRange}
+          heroCredit={mobileHeroCredit}
+          linkDangerStats={linkDangerStats}
+          locale={locale}
+          lookalikes={lookalikes}
+          mobileGallery={mobileGallery}
+          related={related}
+          showIdentification={showIdentification}
+          species={species}
+        />
+        {SpeciesPageAnalysis ? (
+          <SpeciesPageAnalysis
+            copy={{
+              action: tAnalysis("action"),
+              superAction: tAnalysis("superAction"),
+              superCompleted: tAnalysis("superCompleted"),
+              superDescription: tAnalysis("superDescription"),
+              superFailed: tAnalysis("superFailed"),
+              superPending: tAnalysis("superPending"),
+              superReconnecting: tAnalysis("superReconnecting"),
+              superResume: tAnalysis("superResume"),
+              superRunning: tAnalysis("superRunning"),
+              superValidation: tAnalysis("superValidation"),
+
+              addStep: tAnalysis("addStep"),
+              availableSteps: tAnalysis("availableSteps"),
+              closeWorkflow: tAnalysis("closeWorkflow"),
+              configureWorkflow: tAnalysis("configureWorkflow"),
+              emptyWorkflow: tAnalysis("emptyWorkflow"),
+              error: tAnalysis("error"),
+              linksAction: tAnalysis("linksAction"),
+              linksProcessing: tAnalysis("linksProcessing"),
+              lookalikesAction: tAnalysis("lookalikesAction"),
+              lookalikesProcessing: tAnalysis("lookalikesProcessing"),
+              moveDown: tAnalysis("moveDown"),
+              moveUp: tAnalysis("moveUp"),
+              noChanges: tAnalysis("noChanges"),
+              openPr: tAnalysis("openPr"),
+              processing: tAnalysis("processing"),
+              recordsAction: tAnalysis("recordsAction"),
+              recordsProcessing: tAnalysis("recordsProcessing"),
+              removeStep: tAnalysis("removeStep"),
+              report: tAnalysis("report"),
+              runWorkflow: tAnalysis("runWorkflow"),
+              sameBranch: tAnalysis("sameBranch"),
+              sameBranchHint: tAnalysis("sameBranchHint"),
+              textsAction: tAnalysis("textsAction"),
+              textsError: tAnalysis("textsError"),
+              textsNoChanges: tAnalysis("textsNoChanges"),
+              textsProcessing: tAnalysis("textsProcessing"),
+              textsReport: tAnalysis("textsReport"),
+              workflowDescription: tAnalysis("workflowDescription"),
+              workflowError: tAnalysis("workflowError"),
+              workflowProcessing: tAnalysis("workflowProcessing"),
+              workflowTitle: tAnalysis("workflowTitle"),
+            }}
+            id={species.id}
+          />
+        ) : null}
+      </div>
+    </ContributorsProvider>
   );
 }

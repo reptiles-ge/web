@@ -12,8 +12,8 @@ import {
   ContactTopicPicker,
 } from "@/components/ContactTopicPicker";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { Link } from "@/i18n/navigation";
+import { getContributors } from "@/lib/authorsApi";
 import { CONTACT_EMAIL, ORGANIZATION_SAME_AS } from "@/lib/site";
 
 const TOPICS = [
@@ -175,8 +175,11 @@ async function ContactShortcuts({ locale }: { locale: AppLocale }) {
 }
 
 async function ContactTopics({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "contact" });
-  const contributors = getPublishedCreditAuthors().length;
+  const [t, authors] = await Promise.all([
+    getTranslations({ locale, namespace: "contact" }),
+    getContributors(locale),
+  ]);
+  const contributors = authors.length;
   const topics: ContactTopic[] = TOPICS.map(({ id, items }) => {
     const title = t(`topics.${id}.title`);
     return {

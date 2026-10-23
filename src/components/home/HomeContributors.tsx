@@ -5,13 +5,9 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
-import {
-  creditAuthorBio,
-  creditAuthorHref,
-  creditAuthorIndexHref,
-  creditAuthorName,
-} from "@/data/creditAuthors";
+import { creditAuthorHref, creditAuthorIndexHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
+import { getContributors } from "@/lib/authorsApi";
 import {
   getCreditAuthorCards,
   HOME_CONTRIBUTOR_LIMIT,
@@ -20,7 +16,11 @@ import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
 export async function HomeContributors({ locale }: { locale: AppLocale }) {
-  const all = getCreditAuthorCards(await getCreditPhotoCatalog());
+  const [contributors, creditPhotos] = await Promise.all([
+    getContributors(locale),
+    getCreditPhotoCatalog(),
+  ]);
+  const all = getCreditAuthorCards(contributors, creditPhotos);
   if (all.length === 0) return null;
   const cards = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
   const [t, tAuthor] = await Promise.all([
@@ -39,13 +39,13 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
 
         <ul className="mt-6 grid gap-3 lg:mt-11 lg:grid-cols-2 lg:gap-6">
           {cards.map((card) => {
-            const name = creditAuthorName(card.author, locale);
-            const bio = creditAuthorBio(card.author, locale);
+            const name = card.author.name;
+            const bio = card.author.bio;
             return (
               <li key={card.author.id}>
                 <Link
                   className="group flex h-full gap-4 rounded-[26px] bg-card p-5 shadow-[0_16px_40px_rgba(14,20,17,0.06)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:gap-[22px] lg:rounded-[32px] lg:p-[30px]"
-                  href={creditAuthorHref(card.author.slug)}
+                  href={creditAuthorHref(card.author.id)}
                 >
                   <span className="relative size-16 shrink-0 overflow-hidden rounded-full bg-ink ring-4 ring-surface lg:size-[84px]">
                     <CoverImage

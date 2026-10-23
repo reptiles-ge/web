@@ -46,7 +46,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Regions + map IDs             | `src/data/regions.ts` — **never infer** `speciesIds`                                        |
 | Checklist authority           | `src/data/herpetofauna-checklist.ts`                                                        |
 | Quiz registry                 | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                |
-| Contributors                  | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                     |
+| Contributors                  | `src/lib/authorsApi.ts` (`/v1/authors`), `src/lib/creditAuthors.ts`                         |
 | News                          | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`        |
 | 301 map                       | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                     |
 | UI strings                    | `messages/ka.json` + `messages/en.json` (same keys)                                         |
@@ -182,7 +182,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Species content is written only through `PUT /v1/admin/species/:id` and approved drafts (validated, versioned, revisioned, revalidates the site).
 - Every species page and list loads its content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`, `speciesCatalogApi.ts`, `speciesFieldRecordsApi.ts`), with no client loaders.
 - D1 is the source of truth for species (`0002_species.sql`, `0005_species_field_records.sql`). Species MDX was deleted in S5.
-- Photo authors live in D1 too (`0006_authors.sql`): every photographer is an `authors` row, `is_contributor` marks the ones with a contributor page, and photos link to them through `author_aliases`. The site still reads contributors from `src/data/creditAuthors.ts` until the authors site slice.
+- Photo authors live in D1 too (`0006_authors.sql`): every photographer is an `authors` row, `is_contributor` marks the ones with a contributor page, and photos link to them through `author_aliases`. The site reads contributors from `/v1/authors` (`getContributors(locale)` in `src/lib/authorsApi.ts`) and links a photo credit to a contributor page by its `authorId` (`creditContributor` in `src/lib/contributorCredits.ts`). There is no contributor list in code; add or edit one through the admin API.
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.

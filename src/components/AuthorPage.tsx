@@ -1,7 +1,7 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { CreditAuthor } from "@/data/creditAuthors";
+import type { ContributorProfile } from "@/data/authors";
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
@@ -16,11 +16,7 @@ import {
 } from "@/components/AuthorPageParts";
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
-import {
-  creditAuthorBio,
-  creditAuthorIndexHref,
-  creditAuthorName,
-} from "@/data/creditAuthors";
+import { creditAuthorIndexHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
 import {
   getCreditAuthorFieldSummary,
@@ -37,7 +33,7 @@ export async function AuthorPage({
   photos,
   relatedNews,
 }: {
-  author: CreditAuthor;
+  author: ContributorProfile;
   locale: AppLocale;
   photos: CreditAuthorPhoto[];
   relatedNews: NewsArticle[];
@@ -46,8 +42,8 @@ export async function AuthorPage({
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "nav" }),
   ]);
-  const name = creditAuthorName(author, locale);
-  const bio = creditAuthorBio(author, locale);
+  const name = author.name;
+  const bio = author.bio;
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const groups = getCreditAuthorGroupStats(photos);
 
@@ -134,7 +130,7 @@ export async function AuthorPage({
 }
 
 function authorSocials(
-  author: CreditAuthor,
+  author: ContributorProfile,
   t: Awaited<ReturnType<typeof getTranslations>>,
 ): AuthorSocial[] {
   const socials: AuthorSocial[] = [];

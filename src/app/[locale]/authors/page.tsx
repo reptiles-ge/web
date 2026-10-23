@@ -6,9 +6,9 @@ import { notFound } from "next/navigation";
 
 import { AuthorIndexPage } from "@/components/AuthorIndexPage";
 import { JsonLd } from "@/components/JsonLd";
-import { creditAuthorName } from "@/data/creditAuthors";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getContributors } from "@/lib/authorsApi";
 import {
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
@@ -43,12 +43,13 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const [t, tShared, creditPhotos] = await Promise.all([
+  const [t, tShared, creditPhotos, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getCreditPhotoCatalog(),
+    getContributors(locale),
   ]);
-  const cards = getCreditAuthorCards(creditPhotos);
+  const cards = getCreditAuthorCards(contributors, creditPhotos);
   const url = creditAuthorIndexUrl(locale);
 
   const breadcrumbLd = {
@@ -81,9 +82,9 @@ export default async function AuthorIndexRoute({ params }: Props) {
       "@type": "ItemList",
       itemListElement: cards.map((card, index) => ({
         "@type": "ListItem",
-        name: creditAuthorName(card.author, locale),
+        name: card.author.name,
         position: index + 1,
-        url: creditAuthorUrl(locale, card.author.slug),
+        url: creditAuthorUrl(locale, card.author.id),
       })),
       numberOfItems: cards.length,
     },

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { NO_CONTRIBUTORS } from "@/lib/contributorCredits";
 import {
   speciesFallbackDescriptionKey,
   speciesImageAlt,
@@ -10,6 +11,8 @@ import {
   speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
+
+import { contributorDirectoryFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("speciesTitleIntentKey", () => {
   it.each([
@@ -180,18 +183,30 @@ describe("alt text", () => {
 
   it("builds photo alt, preferring the credited place and adding the photographer", () => {
     expect(
-      speciesPhotoAlt("Viper", "Vipera x", {
-        location: " Kakheti ",
-        photographer: "Jane",
-      }),
+      speciesPhotoAlt(
+        "Viper",
+        "Vipera x",
+        {
+          location: " Kakheti ",
+          photographer: "Jane",
+        },
+        NO_CONTRIBUTORS,
+      ),
     ).toBe("Viper (Vipera x) — Kakheti — Jane");
   });
 
   it("names no place when the photo credit has none", () => {
-    expect(speciesPhotoAlt("Viper", "Vipera x")).toBe("Viper (Vipera x)");
-    expect(speciesPhotoAlt("Viper", "Vipera x", { photographer: "Jane" })).toBe(
-      "Viper (Vipera x) — Jane",
-    );
+    expect(
+      speciesPhotoAlt("Viper", "Vipera x", undefined, NO_CONTRIBUTORS),
+    ).toBe("Viper (Vipera x)");
+    expect(
+      speciesPhotoAlt(
+        "Viper",
+        "Vipera x",
+        { photographer: "Jane" },
+        NO_CONTRIBUTORS,
+      ),
+    ).toBe("Viper (Vipera x) — Jane");
   });
 });
 
@@ -204,7 +219,7 @@ describe("speciesPhotoAlt photographer names", () => {
         {
           photographer: "ზაური ხაჩიძე",
         },
-        "en",
+        contributorDirectoryFixture("en"),
       ),
     ).toBe("Mantis (Mantis religiosa) — Zauri Khachidze");
   });

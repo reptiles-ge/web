@@ -2,6 +2,7 @@ import { render } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
+import { ContributorsProvider } from "@/components/ContributorsProvider";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 
 import en from "../../messages/en.json";
@@ -54,5 +55,45 @@ describe("PhotoCreditCaption lightbox license note", () => {
 
   it("shows nothing for an uncredited photo without place or date", () => {
     expect(caption({ credit: {} }).innerHTML).toBe("");
+  });
+});
+
+describe("PhotoCreditCaption contributor link", () => {
+  const directory = {
+    byAlias: { "ზაური ხაჩიძე": "zauri-khachidze" },
+    byId: {
+      "zauri-khachidze": { kind: "person" as const, name: "Zauri Khachidze" },
+    },
+  };
+
+  function linked(credit: Parameters<typeof PhotoCreditCaption>[0]["credit"]) {
+    return render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <ContributorsProvider directory={directory}>
+          <PhotoCreditCaption credit={credit} variant="lightbox" />
+        </ContributorsProvider>
+      </NextIntlClientProvider>,
+    ).container;
+  }
+
+  it("links a credit to its contributor by author id", () => {
+    const container = linked({
+      authorId: "zauri-khachidze",
+      photographer: "Zauri Khachidze",
+    });
+    expect(container.querySelector("a")?.textContent).toBe("Zauri Khachidze");
+  });
+
+  it("links a credit without an author id by its spelling, in the page locale", () => {
+    const container = linked({ photographer: "ზაური ხაჩიძე" });
+    expect(container.querySelector("a")?.textContent).toBe("Zauri Khachidze");
+  });
+
+  it("does not link someone who has no contributor page", () => {
+    expect(
+      linked({ authorId: "someone", photographer: "Someone" }).querySelector(
+        "a",
+      ),
+    ).toBeNull();
   });
 });

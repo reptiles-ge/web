@@ -3,10 +3,21 @@ import { describe, expect, it } from "vitest";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 import { flattenGroups, searchIndex } from "@/lib/siteSearch";
 
-import { searchCatalogsFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  searchCatalogsFixture,
+  searchContributorsFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
-const kaIndex = buildSearchIndex("ka", searchCatalogsFixture());
-const ruIndex = buildSearchIndex("ru", searchCatalogsFixture());
+const kaIndex = buildSearchIndex(
+  "ka",
+  searchCatalogsFixture(),
+  searchContributorsFixture(),
+);
+const ruIndex = buildSearchIndex(
+  "ru",
+  searchCatalogsFixture(),
+  searchContributorsFixture(),
+);
 
 describe("search scoring", () => {
   const index = kaIndex;

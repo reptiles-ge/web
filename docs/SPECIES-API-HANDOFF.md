@@ -28,7 +28,9 @@ Species content lives in D1 (`reptiles-db`) and is served by the `reptiles-api` 
 | S5a    | Committed SQL test seed; tests off the compiled catalog                               | #1521 |
 | S5b    | Species MDX deleted; MDX-only admin flows answer 503                                  | #1522 |
 | L1     | Lookalikes read from the API catalog; `LOOKALIKES` in code deleted                    | #1525 |
-| A1     | `authors` in D1 (`is_contributor`), photo `author_id`, `/v1/authors` API              | —     |
+| A1     | `authors` in D1 (`is_contributor`), photo `author_id`, `/v1/authors` API              | #1526 |
+| A2a    | `authorId` on credits, credit names localized from D1, `CREDIT_PEOPLE` deleted        | #1527 |
+| A2b    | Site reads contributors from `/v1/authors`; `src/data/creditAuthors.ts` deleted       | —     |
 
 S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 

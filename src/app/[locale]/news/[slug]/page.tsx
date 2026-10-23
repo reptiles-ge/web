@@ -16,6 +16,7 @@ import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import {
   newsArticleAlternates,
   newsArticleUrl,
@@ -117,13 +118,15 @@ export default async function NewsArticleRoute({ params }: Props) {
     notFound();
   }
 
-  const [t, tNav, tShared, catalog, creditPhotos] = await Promise.all([
-    getTranslations({ locale, namespace: "news" }),
-    getTranslations({ locale, namespace: "nav" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
-    getSpeciesCatalog(locale),
-    getCreditPhotoCatalog(),
-  ]);
+  const [t, tNav, tShared, catalog, creditPhotos, contributors] =
+    await Promise.all([
+      getTranslations({ locale, namespace: "news" }),
+      getTranslations({ locale, namespace: "nav" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+      getSpeciesCatalog(locale),
+      getCreditPhotoCatalog(),
+      getContributorDirectory(locale),
+    ]);
   const url = newsArticleUrl(locale, article.slug);
   const published = newsDateTime(article.publishedAt);
   const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
@@ -189,7 +192,13 @@ export default async function NewsArticleRoute({ params }: Props) {
     datePublished: published,
     description: copy.metaDescription,
     headline: copy.title,
-    image: newsSchemaImages(article, locale, catalog, creditPhotos),
+    image: newsSchemaImages(
+      article,
+      locale,
+      catalog,
+      creditPhotos,
+      contributors,
+    ),
     inLanguage: locale,
     isPartOf: article.series
       ? [

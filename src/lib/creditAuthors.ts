@@ -1,18 +1,14 @@
-import type { CreditAuthor } from "@/data/creditAuthors";
+import type { AuthorProfile, ContributorProfile } from "@/data/authors";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
-  creditAuthorAffiliationNames,
+  authorAffiliationNames,
+  authorSameAs,
   creditAuthorHref,
   creditAuthorIndexHref,
-  creditAuthorKind,
-  creditAuthorName,
-  creditAuthorSameAs,
-  getPublishedCreditAuthorBySlug,
-  getPublishedCreditAuthors,
-} from "@/data/creditAuthors";
+} from "@/data/authors";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
@@ -45,7 +41,7 @@ export const HOME_CONTRIBUTOR_LIMIT = 2;
 const HOME_CONTRIBUTOR_PREVIEW_COUNT = 4;
 
 export type CreditAuthorCard = {
-  author: CreditAuthor;
+  author: ContributorProfile;
   photoCount: number;
   preview: CreditAuthorPhoto[];
   speciesCount: number;
@@ -76,17 +72,15 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
 }
 
 export function creditAuthorEntityJsonLd(
-  author: CreditAuthor,
+  author: AuthorProfile,
   locale: AppLocale,
   { description, jobTitle }: { description?: string; jobTitle?: string },
 ) {
-  const isPerson = creditAuthorKind(author) === "person";
-  const affiliations = isPerson
-    ? creditAuthorAffiliationNames(author, locale)
-    : [];
-  const sameAs = creditAuthorSameAs(author);
+  const isPerson = author.kind === "person";
+  const affiliations = isPerson ? authorAffiliationNames(author, locale) : [];
+  const sameAs = authorSameAs(author);
   return {
-    ...(isPerson ? { "@id": creditAuthorPersonId(locale, author.slug) } : {}),
+    ...(isPerson ? { "@id": creditAuthorPersonId(locale, author.id) } : {}),
     "@type": isPerson ? "Person" : "Thing",
     ...(affiliations.length > 0
       ? {
@@ -99,9 +93,9 @@ export function creditAuthorEntityJsonLd(
     description,
     image: creditAuthorPortraitImage(author).url,
     ...(isPerson && jobTitle ? { jobTitle } : {}),
-    name: creditAuthorName(author, locale),
+    name: author.name,
     ...(sameAs.length > 0 ? { sameAs } : {}),
-    url: creditAuthorUrl(locale, author.slug),
+    url: creditAuthorUrl(locale, author.id),
   };
 }
 
@@ -118,32 +112,33 @@ export function creditAuthorIndexUrl(locale: AppLocale) {
   );
 }
 
-export function creditAuthorPageSchemaType(author: CreditAuthor) {
-  return creditAuthorKind(author) === "person"
-    ? "ProfilePage"
-    : "CollectionPage";
+export function creditAuthorPageSchemaType(author: AuthorProfile) {
+  return author.kind === "person" ? "ProfilePage" : "CollectionPage";
 }
 
 export function creditAuthorPersonId(locale: AppLocale, slug: string) {
   return `${creditAuthorUrl(locale, slug)}#person`;
 }
 
-export function creditAuthorPortraitImage(author: CreditAuthor) {
-  const entry = optimizedEntry(author.portraitSrc);
+export function creditAuthorPortraitImage(author: AuthorProfile) {
+  const src = author.portraitSrc ?? "";
+  const entry = optimizedEntry(src);
   if (!entry?.formats.includes("webp")) {
     return {
-      type: author.portraitSrc.endsWith(".webp") ? "image/webp" : "image/jpeg",
-      url: author.portraitSrc,
+      type: src.endsWith(".webp") ? "image/webp" : "image/jpeg",
+      url: src,
     };
   }
-  return { type: "image/webp", url: optimizedImgSrc(author.portraitSrc) };
+  return { type: "image/webp", url: optimizedImgSrc(src) };
 }
 
-export function creditAuthorStaticParams() {
+export function creditAuthorStaticParams(
+  contributors: readonly Pick<AuthorProfile, "id">[],
+) {
   const params: Array<{ locale: AppLocale; slug: string }> = [];
-  for (const author of getPublishedCreditAuthors()) {
+  for (const author of contributors) {
     for (const locale of routing.locales) {
-      params.push({ locale, slug: author.slug });
+      params.push({ locale, slug: author.id });
     }
   }
   return params;
@@ -159,10 +154,11 @@ export function creditAuthorUrl(locale: AppLocale, slug: string) {
 }
 
 export function getCreditAuthorCards(
+  contributors: readonly ContributorProfile[],
   catalog: readonly CreditPhotoSource[],
 ): CreditAuthorCard[] {
   const cards = [];
-  for (const author of getPublishedCreditAuthors()) {
+  for (const author of contributors) {
     const photos = getCreditAuthorPhotos(author, catalog);
     cards.push({
       author,
@@ -173,7 +169,7 @@ export function getCreditAuthorCards(
   }
   return cards.sort((a, b) => {
     if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
-    return a.author.slug.localeCompare(b.author.slug);
+    return a.author.id.localeCompare(b.author.id);
   });
 }
 
@@ -237,16 +233,15 @@ export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
 }
 
 export function getCreditAuthorPhotos(
-  author: CreditAuthor,
+  author: Pick<AuthorProfile, "id">,
   catalog: readonly CreditPhotoSource[],
 ): CreditAuthorPhoto[] {
-  const aliases = new Set(author.aliases);
   const bySrc = new Map<string, CreditAuthorPhoto>();
 
   for (const species of catalog) {
     addPhoto(
       bySrc,
-      aliases,
+      author.id,
       species.id,
       species.updatedAt,
       species.image,
@@ -254,7 +249,7 @@ export function getCreditAuthorPhotos(
     );
     addPhoto(
       bySrc,
-      aliases,
+      author.id,
       species.id,
       species.updatedAt,
       species.mobileImage,
@@ -263,7 +258,7 @@ export function getCreditAuthorPhotos(
     for (const item of species.gallery) {
       addPhoto(
         bySrc,
-        aliases,
+        author.id,
         species.id,
         species.updatedAt,
         item.src,
@@ -286,21 +281,16 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
   return ids;
 }
 
-export function resolvePublishedCreditAuthor(slug: string) {
-  return getPublishedCreditAuthorBySlug(slug);
-}
-
 function addPhoto(
   bySrc: Map<string, CreditAuthorPhoto>,
-  aliases: Set<string>,
+  authorId: string,
   speciesId: string,
   updatedAt: string,
   src: string | undefined,
   credit: PhotoCredit | undefined,
 ) {
   if (!src || bySrc.has(src) || isCoverCrop(src)) return;
-  const name = credit?.photographer?.trim();
-  if (!name || !aliases.has(name)) return;
+  if (credit?.authorId !== authorId) return;
   bySrc.set(src, { credit, speciesId, src, updatedAt });
 }
 

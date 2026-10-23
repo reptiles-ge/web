@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 
+import type { ContributorProfile } from "@/data/authors";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type {
   CatalogCard,
@@ -7,6 +8,8 @@ import type {
 } from "@/data/speciesCatalogTypes";
 import type { Species, SpeciesFieldRecord } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
+
+import { contributorDirectory } from "@/lib/contributorCredits";
 
 import { speciesFixtureFile } from "./speciesFixtureFiles";
 
@@ -28,6 +31,16 @@ let fieldRecords: Record<string, SpeciesFieldRecord[]> | undefined;
 
 export function catalogSpeciesFixture(): Species[] {
   return speciesCatalogFixture("ka").map(bareSpecies);
+}
+
+export function contributorDirectoryFixture(locale: AppLocale = "ka") {
+  return contributorDirectory(contributorsFixture(locale));
+}
+
+export function contributorsFixture(
+  locale: AppLocale = "ka",
+): ContributorProfile[] {
+  return readFixture<ContributorProfile[]>(`contributors-${locale}`);
 }
 
 export function fieldRecordsFixture() {
@@ -61,6 +74,18 @@ export function searchCatalogsFixture(): Record<AppLocale, SpeciesFixture[]> {
     ka: speciesCatalogFixture("ka"),
     ru: speciesCatalogFixture("ru"),
     tr: speciesCatalogFixture("tr"),
+  };
+}
+
+export function searchContributorsFixture(): Record<
+  AppLocale,
+  ContributorProfile[]
+> {
+  return {
+    en: contributorsFixture("en"),
+    ka: contributorsFixture("ka"),
+    ru: contributorsFixture("ru"),
+    tr: contributorsFixture("tr"),
   };
 }
 

@@ -9,7 +9,6 @@ import { generateMetadata as authorsMetadata } from "@/app/[locale]/authors/page
 import { generateMetadata as contactMetadata } from "@/app/[locale]/contact/page";
 import { generateMetadata as newsMetadata } from "@/app/[locale]/news/page";
 import { generateMetadata as homeMetadata } from "@/app/[locale]/page";
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { createGroupHubRoute } from "@/lib/createGroupHubRoute";
@@ -20,6 +19,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };
 
@@ -160,7 +160,7 @@ describe("group hub metadata", () => {
 });
 
 describe("branded page titles", () => {
-  const author = getPublishedCreditAuthors()[0];
+  const author = contributorsFixture()[0];
   const pages: Array<
     [string, (locale: Locale) => Metadata | Promise<Metadata>]
   > = [
@@ -181,7 +181,7 @@ describe("branded page titles", () => {
       "contributor profile",
       (locale) =>
         authorMetadata({
-          params: Promise.resolve({ locale, slug: author.slug }),
+          params: Promise.resolve({ locale, slug: author.id }),
         }),
     ],
     ["news", (locale) => newsMetadata({ params: Promise.resolve({ locale }) })],

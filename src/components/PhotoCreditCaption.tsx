@@ -6,15 +6,13 @@ import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  creditAuthorHref,
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
+import { useContributorDirectory } from "@/components/ContributorsProvider";
+import { creditAuthorHref } from "@/data/authors";
 import { type PhotoCredit } from "@/data/speciesTypes";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { creditContributor } from "@/lib/contributorCredits";
 import { formatPhotoDate } from "@/lib/formatDate";
 import { hasPhotoCoordinates, photoMapUrl } from "@/lib/photoCoordinates";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
@@ -175,15 +173,15 @@ function PhotoCreditName({
   credit: PhotoCredit;
   speciesId?: string;
 }) {
-  const locale = useLocale() as AppLocale;
+  const contributors = useContributorDirectory();
   const raw = credit.photographer?.trim();
   if (!raw) return null;
-  const author = getPublishedCreditAuthorByName(raw);
-  const name = author ? creditAuthorName(author, locale) : raw;
+  const author = creditContributor(contributors, credit);
+  const name = author ? author.name : raw;
   const label = author ? (
     <Link
       className="inline-flex min-h-6 items-center underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-      href={creditAuthorHref(author.slug)}
+      href={creditAuthorHref(author.id)}
       onClick={(event) => event.stopPropagation()}
     >
       {name}

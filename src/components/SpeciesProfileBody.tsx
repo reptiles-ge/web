@@ -10,6 +10,7 @@ import type {
   SpeciesStat,
 } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -35,6 +36,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
@@ -149,7 +151,10 @@ export async function SpeciesProfileBody({
   showIdentification,
   species,
 }: SpeciesProfileBodyProps) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const [t, contributors] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getContributorDirectory(locale),
+  ]);
   const riskLevel = getSpeciesRiskChip(species)?.level;
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
   const naturalHistoryBlocks = biologyBlocks.filter(
@@ -218,6 +223,7 @@ export async function SpeciesProfileBody({
 
       {showIdentification && species.identification ? (
         <SpeciesProfileIdentification
+          contributors={contributors}
           identification={species.identification}
           locale={locale}
           lookalikes={lookalikes}
@@ -658,11 +664,13 @@ async function SpeciesProfileBiology({
 }
 
 function SpeciesProfileIdentification({
+  contributors,
   identification,
   locale,
   lookalikes,
   species,
 }: {
+  contributors: ContributorDirectory;
   identification: NonNullable<Species["identification"]>;
   locale: AppLocale;
   lookalikes: CatalogCard[];
@@ -688,7 +696,7 @@ function SpeciesProfileIdentification({
         species.commonName,
         species.scientificName,
         photo?.credit,
-        locale,
+        contributors,
       )}
       speciesId={species.id}
     />

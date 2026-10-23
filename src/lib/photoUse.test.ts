@@ -16,21 +16,17 @@ import {
 
 import {
   catalogSpeciesFixture,
+  contributorDirectoryFixture,
+  contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-const OTHER_AUTHOR = {
-  aliases: ["Other"],
-  id: "other",
-  name: { en: "Other", ka: "Other" },
-  portraitSrc: "",
-  published: true,
-  role: "photographer" as const,
-  slug: "other",
-};
+const contributors = contributorDirectoryFixture();
+
+const OTHER_AUTHOR = { id: "other", kind: "person" as const, name: "Other" };
 
 describe("photo use data", () => {
-  const photos = getPhotoUsePhotos(speciesCatalogFixture("ka"));
+  const photos = getPhotoUsePhotos(speciesCatalogFixture("ka"), contributors);
 
   it("counts every unique gallery photo of the published catalog", () => {
     const srcs = new Set(
@@ -46,12 +42,14 @@ describe("photo use data", () => {
     const stats = getPhotoUseStats(photos);
     expect(stats.photos).toBe(photos.length);
     expect(stats.contributors).toBe(
-      photos.filter((photo) => photoContributor(photo.credit)).length,
+      photos.filter((photo) => photoContributor(photo.credit, contributors))
+        .length,
     );
     expect(stats.open).toBe(
       photos.filter(
         (photo) =>
-          !photoContributor(photo.credit) && photoLicenses[photo.src]?.license,
+          !photoContributor(photo.credit, contributors) &&
+          photoLicenses[photo.src]?.license,
       ).length,
     );
     expect(stats.photographers).toBeGreaterThan(0);
@@ -91,7 +89,9 @@ describe("photo use data", () => {
 
   it("merges a contributor's aliases into one author", () => {
     const base = photos.find((photo) => photo.author)!;
-    const alias = base.author!.aliases.at(-1)!;
+    const alias = contributorsFixture()
+      .find((author) => author.id === base.author!.id)!
+      .aliases.at(-1)!;
     const sample: PhotoUsePhoto[] = [
       base,
       { ...base, credit: { photographer: alias }, src: `${base.src}#2` },
@@ -102,7 +102,7 @@ describe("photo use data", () => {
 
   it("shows six contributor profile heroes, one per group", () => {
     const showcase = getPhotoUseShowcase(
-      getPhotoUseHeroPhotos(speciesCatalogFixture("ka")),
+      getPhotoUseHeroPhotos(speciesCatalogFixture("ka"), contributors),
     );
     expect(showcase).toHaveLength(PHOTO_USE_SHOWCASE_SIZE);
     const groups = showcase.map((photo) => photo.group);
@@ -115,15 +115,22 @@ describe("photo use data", () => {
         (item) => item.id === photo.speciesId,
       );
       expect(photo.src).toBe(species?.image);
-      expect(photoContributor(species?.imageCredit)?.id).toBe(photo.author.id);
+      expect(photoContributor(species?.imageCredit, contributors)?.id).toBe(
+        photo.author.id,
+      );
     }
     expect(
-      getPhotoUseShowcase(getPhotoUseHeroPhotos(speciesCatalogFixture("ka"))),
+      getPhotoUseShowcase(
+        getPhotoUseHeroPhotos(speciesCatalogFixture("ka"), contributors),
+      ),
     ).toEqual(showcase);
   });
 
   it("skips non-contributor heroes and reuses an author only as a fallback", () => {
-    const heroes = getPhotoUseHeroPhotos(speciesCatalogFixture("ka"));
+    const heroes = getPhotoUseHeroPhotos(
+      speciesCatalogFixture("ka"),
+      contributors,
+    );
     const first = heroes.find((photo) => photo.author)!;
     const outsider = { ...first, author: undefined, src: "a" };
     const snake = { ...first, group: "snake" as const };
@@ -141,9 +148,12 @@ describe("photo use data", () => {
   it("explains a credit with another author's source link and CC license", () => {
     const example = getPhotoUseCreditExample(photos)!;
     expect(example.photo.credit?.photographer).toBeTruthy();
-    expect(photoContributor(example.photo.credit)).toBeUndefined();
     expect(
-      photoRights(example.photo.src, example.photo.credit, "en").license,
+      photoContributor(example.photo.credit, contributors),
+    ).toBeUndefined();
+    expect(
+      photoRights(example.photo.src, example.photo.credit, "en", contributors)
+        .license,
     ).toBe(example.licenseUrl);
     expect(example.sourceUrl).toBe(example.photo.credit?.url);
     expect(photoLicenses[example.photo.src].license).toBe(example.licenseUrl);

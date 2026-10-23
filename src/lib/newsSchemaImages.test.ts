@@ -9,7 +9,12 @@ import { newsOgImageUrl } from "@/lib/news";
 import { newsHeroImage, newsSchemaImages } from "@/lib/newsSchemaImages";
 import { newsImageRights } from "@/lib/newsVisual";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  contributorDirectoryFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 
 const crops = vi.hoisted(() => new Map<string, NewsSchemaCrop[]>());
 
@@ -104,6 +109,7 @@ describe("newsSchemaImages", () => {
           locale,
           speciesCatalogFixture(locale),
           speciesCatalogFixture("ka"),
+          contributors,
         );
         expect(first, article.slug).toMatchObject({
           "@type": "ImageObject",
@@ -114,6 +120,7 @@ describe("newsSchemaImages", () => {
             locale,
             speciesCatalogFixture(locale),
             speciesCatalogFixture("ka"),
+            contributors,
           ),
         });
       }
@@ -127,6 +134,7 @@ describe("newsSchemaImages", () => {
         "ka",
         speciesCatalogFixture("ka"),
         speciesCatalogFixture("ka"),
+        contributors,
       );
       const urls = images.map((image) => image.url);
       expect(new Set(urls).size, article.slug).toBe(urls.length);
@@ -148,6 +156,7 @@ describe("newsSchemaImages", () => {
         "en",
         speciesCatalogFixture("en"),
         speciesCatalogFixture("ka"),
+        contributors,
       ).map((image) => image.url),
     ).toEqual([
       newsOgImageUrl(wide, speciesCatalogFixture("ka")),
@@ -168,6 +177,7 @@ describe("newsSchemaImages", () => {
         "en",
         speciesCatalogFixture("en"),
         speciesCatalogFixture("ka"),
+        contributors,
       ),
     ).toHaveLength(1);
   });
@@ -185,6 +195,7 @@ describe("newsSchemaImages", () => {
         "en",
         speciesCatalogFixture("en"),
         speciesCatalogFixture("ka"),
+        contributors,
       ),
     ).toHaveLength(1);
   });
@@ -215,6 +226,7 @@ describe("newsSchemaImages", () => {
       "ru",
       speciesCatalogFixture("ru"),
       speciesCatalogFixture("ka"),
+      contributors,
     );
     expect(images.map((image) => [image.width, image.height])).toEqual([
       [1200, 630],
@@ -230,6 +242,7 @@ describe("newsSchemaImages", () => {
           "ru",
           speciesCatalogFixture("ru"),
           speciesCatalogFixture("ka"),
+          contributors,
         ),
       );
     }

@@ -1,7 +1,12 @@
 import { hasLocale } from "next-intl";
 
 import { routing } from "@/i18n/routing";
-import { buildSearchIndex, type SearchCatalogs } from "@/lib/searchIndexBuild";
+import { getContributors } from "@/lib/authorsApi";
+import {
+  buildSearchIndex,
+  type SearchCatalogs,
+  type SearchContributors,
+} from "@/lib/searchIndexBuild";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
@@ -20,14 +25,17 @@ export async function GET(
   if (!hasLocale(routing.locales, locale)) {
     return new Response(null, { headers: noindex, status: 404 });
   }
-  const lists = await Promise.all(
-    routing.locales.map((item) => getSpeciesCatalog(item)),
-  );
+  const [lists, authorLists] = await Promise.all([
+    Promise.all(routing.locales.map((item) => getSpeciesCatalog(item))),
+    Promise.all(routing.locales.map((item) => getContributors(item))),
+  ]);
   const catalogs = {} as SearchCatalogs;
+  const contributors = {} as SearchContributors;
   for (const [index, item] of routing.locales.entries()) {
     catalogs[item] = lists[index] ?? [];
+    contributors[item] = authorLists[index] ?? [];
   }
-  return Response.json(buildSearchIndex(locale, catalogs), {
+  return Response.json(buildSearchIndex(locale, catalogs, contributors), {
     headers: noindex,
   });
 }

@@ -1,4 +1,4 @@
-import type { CreditAuthor } from "@/data/creditAuthors";
+import type { AuthorProfile } from "@/data/authors";
 import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -62,7 +62,7 @@ export function getPublishedNewsArticlesInSeries(
 }
 
 export function getPublishedNewsForCreditAuthor(
-  author: CreditAuthor,
+  author: Pick<AuthorProfile, "aliases" | "id">,
   locale?: AppLocale,
 ) {
   return getPublishedNewsArticles(locale).filter((article) =>
@@ -178,12 +178,11 @@ export function newsSourceOrgName(name: string) {
   return name.split(/\s[—-]\s/)[0]?.trim() || name;
 }
 
-function newsMentionsCreditAuthor(article: NewsArticle, author: CreditAuthor) {
-  const aliases = new Set([
-    author.slug,
-    ...author.aliases,
-    ...Object.values(author.name),
-  ]);
+function newsMentionsCreditAuthor(
+  article: NewsArticle,
+  author: Pick<AuthorProfile, "aliases" | "id">,
+) {
+  const aliases = new Set([author.id, ...author.aliases]);
   const haystack = [
     ...article.sources.flatMap((source) => [
       ...newsSourceNames(source),

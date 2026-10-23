@@ -5,6 +5,7 @@ import type {
   SpeciesSummary,
 } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { newsRelatedRegions, newsRelatedSpecies } from "@/data/news";
@@ -55,6 +56,7 @@ export function getNewsVisual(
   article: NewsArticle,
   locale: AppLocale,
   catalog: readonly NewsSpecies[],
+  contributors: ContributorDirectory,
 ): NewsVisual | null {
   if (article.image) {
     return localizeNewsPhoto(article.image, locale);
@@ -67,7 +69,7 @@ export function getNewsVisual(
         item.commonName,
         item.scientificName,
         item.imageCredit,
-        locale,
+        contributors,
       ),
       credit: item.imageCredit,
       fromAtlas: true,
@@ -112,13 +114,15 @@ export function newsImageRights(
   locale: AppLocale,
   catalog: readonly NewsSpecies[],
   photos: readonly AtlasPhotoSource[],
+  contributors: ContributorDirectory,
 ) {
-  const visual = getNewsVisual(article, locale, catalog);
+  const visual = getNewsVisual(article, locale, catalog, contributors);
   if (!visual) return siteImageRights(locale);
   return photoRights(
     visual.src,
     visual.credit ?? atlasPhotoCredit(visual.src, photos),
     locale,
+    contributors,
   );
 }
 

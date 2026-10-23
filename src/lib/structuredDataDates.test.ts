@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getRegionSpecies, regions } from "@/data/regions";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
@@ -24,6 +23,7 @@ import {
 
 import {
   catalogSpeciesFixture,
+  contributorsFixture,
   fixtureUpdatedAt,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
@@ -104,7 +104,7 @@ describe("member-derived dates", () => {
   );
 
   it("dates a contributor by the newest species carrying their photos", async () => {
-    for (const author of getPublishedCreditAuthors()) {
+    for (const author of contributorsFixture()) {
       const ids = new Set(
         getCreditAuthorSpeciesIds(
           getCreditAuthorPhotos(author, speciesCatalogFixture("ka")),
@@ -116,9 +116,9 @@ describe("member-derived dates", () => {
       if (members.length === 0) continue;
       expect(
         Date.parse(
-          (await await authorDateFields(author.slug, "en")).dateModified,
+          (await await authorDateFields(author.id, "en")).dateModified,
         ),
-        author.slug,
+        author.id,
       ).toBeGreaterThanOrEqual(newest(members, "en"));
     }
   });

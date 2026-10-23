@@ -7,6 +7,7 @@ import { NewsListCard } from "@/components/NewsIndexCards";
 import { NewsMonthSection } from "@/components/NewsMonthSection";
 import { NewsPagination } from "@/components/NewsPagination";
 import { Link } from "@/i18n/navigation";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
@@ -25,11 +26,12 @@ export async function NewsArchivePage({
   locale: AppLocale;
   newsPage: NewsPage;
 }) {
-  const [t, tNav, tShared, catalog] = await Promise.all([
+  const [t, tNav, tShared, catalog, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
   ]);
   const { articles, first, last, page, pageCount, total } = newsPage;
   const newest = articles[0];
@@ -47,6 +49,7 @@ export async function NewsArchivePage({
         topicLabel: (hub) => tNav(hub),
       },
       catalog,
+      contributors,
     );
     return { card: <NewsListCard entry={entry} />, id: article.id, monthKey };
   });
