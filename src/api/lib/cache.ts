@@ -1,4 +1,3 @@
-import { cache } from "hono/cache";
 import { timingSafeEqual } from "hono/utils/buffer";
 
 import { factory } from "../factory";
@@ -10,20 +9,60 @@ export const NO_STORE = "no-store";
 
 const CACHE_BYPASS_HEADER = "X-Cache-Bypass";
 
-export const edgeCache = (cacheName: string) => {
-  const cached = cache({
-    cacheName,
-    onCacheNotAvailable: false,
-    vary: ["Origin", LOCALE_HEADER],
-    wait: false,
-  });
-  return factory.createMiddleware(async (c, next) => {
-    const bypass = c.req.header(CACHE_BYPASS_HEADER);
-    const token = c.env.REVALIDATE_TOKEN;
-    if (bypass && token && (await timingSafeEqual(bypass, token))) {
+const VARY = ["origin", LOCALE_HEADER.toLowerCase()];
+
+const UNCACHEABLE = /(?:^|,\s*)(?:private|no-(?:store|cache))(?:\s*(?:=|,|$))/i;
+
+export const edgeCache = (cacheName: string) =>
+  factory.createMiddleware(async (c, next) => {
+    if (
+      !globalThis.caches ||
+      c.req.method !== "GET" ||
+      c.req.raw.headers.has("Authorization")
+    ) {
       await next();
       return;
     }
-    return cached(c, next);
+    const key = cacheKey(c.req.raw);
+    const store = await caches.open(cacheName);
+    const refresh = await canBypass(
+      c.req.header(CACHE_BYPASS_HEADER),
+      c.env.REVALIDATE_TOKEN,
+    );
+    if (!refresh) {
+      const hit = await store.match(key);
+      if (hit) return new Response(hit.body, hit);
+    }
+    await next();
+    if (c.res.status !== 200) return;
+    const vary = new Set([...parseVary(c.res.headers.get("Vary")), ...VARY]);
+    c.header("Vary", [...vary].join(", "));
+    if (
+      UNCACHEABLE.test(c.res.headers.get("Cache-Control") ?? "") ||
+      c.res.headers.has("Set-Cookie")
+    ) {
+      return;
+    }
+    const put = store.put(key, c.res.clone());
+    if (refresh) await put;
+    else c.executionCtx.waitUntil(put);
   });
-};
+
+function cacheKey(request: Request) {
+  const url = new URL(request.url);
+  for (const name of VARY) {
+    url.searchParams.append(`__vary_${name}`, request.headers.get(name) ?? "");
+  }
+  return url.href;
+}
+
+async function canBypass(header: string | undefined, token?: string) {
+  return Boolean(header && token && (await timingSafeEqual(header, token)));
+}
+
+function parseVary(vary: null | string) {
+  return (vary ?? "")
+    .split(",")
+    .map((name) => name.trim().toLowerCase())
+    .filter(Boolean);
+}

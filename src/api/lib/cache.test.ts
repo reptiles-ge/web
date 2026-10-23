@@ -83,7 +83,7 @@ describe("edgeCache", () => {
     expect(await overview()).toBe(english);
   });
 
-  it("reads D1 directly only with the bypass secret", async () => {
+  it("reads D1 and refreshes the entry only with the bypass secret", async () => {
     await overview();
     sqlite
       .prepare(
@@ -93,8 +93,14 @@ describe("edgeCache", () => {
     expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).toBe(
       "changed",
     );
+    expect(await overview()).toBe("changed");
+    sqlite
+      .prepare(
+        "UPDATE species_texts SET overview = 'later' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
+      )
+      .run();
     env.REVALIDATE_TOKEN = undefined;
-    expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).not.toBe(
+    expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).toBe(
       "changed",
     );
   });

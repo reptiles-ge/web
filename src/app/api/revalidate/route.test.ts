@@ -1,9 +1,14 @@
 import { revalidateTag } from "next/cache";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
+
 import { POST } from "./route";
 
 vi.mock("next/cache", () => ({ revalidateTag: vi.fn() }));
+vi.mock("@/lib/speciesApiRefresh", () => ({
+  refreshSpeciesApiCache: vi.fn(),
+}));
 
 function request(body: unknown, token?: string) {
   return new Request("https://reptiles.ge/api/revalidate", {
@@ -34,6 +39,13 @@ describe("POST /api/revalidate", () => {
       "species:macrovipera-lebetina",
       "max",
     );
+    expect(refreshSpeciesApiCache).toHaveBeenCalledWith([
+      "species",
+      "species:macrovipera-lebetina",
+    ]);
+    expect(
+      vi.mocked(refreshSpeciesApiCache).mock.invocationCallOrder[0],
+    ).toBeLessThan(vi.mocked(revalidateTag).mock.invocationCallOrder[0]!);
   });
 
   it("rejects a missing or wrong token, and a missing secret", async () => {
@@ -45,6 +57,7 @@ describe("POST /api/revalidate", () => {
     vi.stubEnv("REVALIDATE_TOKEN", "");
     expect((await POST(request({ tags: ["species"] }, ""))).status).toBe(401);
     expect(revalidateTag).not.toHaveBeenCalled();
+    expect(refreshSpeciesApiCache).not.toHaveBeenCalled();
   });
 
   it("only accepts species tags", async () => {
