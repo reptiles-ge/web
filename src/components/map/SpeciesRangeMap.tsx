@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
 
@@ -28,6 +29,8 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
   editable?: boolean;
+  fieldRecords: SpeciesFieldRecord[];
+  gallery: GalleryImage[];
   habitatDetails?: string;
   locale: AppLocale;
   speciesId: string;
@@ -41,6 +44,8 @@ const STATIC_HATCH_ID = "range-hatch-static";
 
 export async function SpeciesRangeMap({
   editable,
+  fieldRecords,
+  gallery,
   habitatDetails,
   locale,
   speciesId,
@@ -53,7 +58,13 @@ export async function SpeciesRangeMap({
   const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];
   const interactiveRangeCopy = interactiveRangeConfig?.copy[locale];
   const interactiveRangeSummary = interactiveRangeCopy
-    ? getOccurrenceSummary(speciesId, locale)
+    ? getOccurrenceSummary({
+        fieldRecords,
+        gallery,
+        locale,
+        speciesId,
+        speciesName,
+      })
     : null;
 
   if (

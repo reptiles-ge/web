@@ -266,11 +266,6 @@ export function occurrenceStatusForCount(
   return count < confirmedRecordThreshold ? "recorded-only" : "confirmed";
 }
 
-export function regionName(id: RegionPathId, locale: AppLocale) {
-  const region = getRegionById(id);
-  return region ? localizeRegionText(region.name, locale) : id;
-}
-
 function fieldRecordAuthor(record: SpeciesFieldRecord) {
   const name = record.observerName?.trim();
   const handle = record.observer?.trim();
@@ -497,6 +492,11 @@ function regionIdForPoint(lng: number, lat: number) {
   return HALYOMORPHA_RANGE_GEOJSON.features.find((feature) =>
     pointInFeature(lng, lat, feature.geometry.coordinates),
   )?.properties.id;
+}
+
+function regionName(id: RegionPathId, locale: AppLocale) {
+  const region = getRegionById(id);
+  return region ? localizeRegionText(region.name, locale) : id;
 }
 
 function sourceKey(url: string) {

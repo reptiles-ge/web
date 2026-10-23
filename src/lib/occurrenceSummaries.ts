@@ -1,36 +1,38 @@
+import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  occurrenceSummaries,
-  speciesIdsWithFieldRecords,
-} from "@/data/occurrenceSummaries.generated";
+import { HALYOMORPHA_RANGE_GEOJSON } from "@/data/halyomorphaRangeRegions";
 import {
   confirmedRecordThresholdForSpecies,
+  getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
-  regionName,
+  getHalyomorphaRegionRecords,
 } from "@/lib/halyomorphaOccurrences";
 
-const speciesWithFieldRecords = new Set(speciesIdsWithFieldRecords);
+type OccurrenceInput = {
+  fieldRecords: SpeciesFieldRecord[];
+  gallery: GalleryImage[];
+  locale: AppLocale;
+  speciesName: string;
+};
 
-export function getOccurrenceSummary(speciesId: string, locale: AppLocale) {
-  const entry = occurrenceSummaries[speciesId];
-  const summary = entry ? (entry.locales?.[locale] ?? entry.base) : undefined;
-  if (!summary) {
-    return getHalyomorphaOccurrenceSummary(
-      [],
-      locale,
-      confirmedRecordThresholdForSpecies(speciesId),
-    );
-  }
-  return {
-    ...summary,
-    recordsByRegion: summary.recordsByRegion.map((region) => ({
-      ...region,
-      name: regionName(region.id, locale),
-    })),
-  };
+export function getOccurrenceSummary({
+  speciesId,
+  ...input
+}: OccurrenceInput & { speciesId: string }) {
+  const records =
+    input.fieldRecords.length > 0 ? getHalyomorphaFieldRecords(input) : [];
+  return getHalyomorphaOccurrenceSummary(
+    records,
+    input.locale,
+    confirmedRecordThresholdForSpecies(speciesId),
+  );
 }
 
-export function hasFieldRecords(speciesId: string) {
-  return speciesWithFieldRecords.has(speciesId);
+export function getRegionOccurrenceRecords(input: OccurrenceInput) {
+  if (input.fieldRecords.length === 0) return [];
+  const records = getHalyomorphaFieldRecords(input);
+  return HALYOMORPHA_RANGE_GEOJSON.features.flatMap((feature) =>
+    getHalyomorphaRegionRecords(records, feature.properties.id),
+  );
 }
