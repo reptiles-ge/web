@@ -1221,7 +1221,7 @@
     "filterClose": "დახურვა",
     "filterClear": "გასუფთავება",
     "resultsCount": "{count, plural, =0 {სახეობა ვერ მოიძებნა} one {<strong>#</strong> სახეობა} other {<strong>#</strong> სახეობა}}",
-    "showingCount": "ნაჩვენებია {shown} / {total}",
+    "showingRange": "ნაჩვენებია {first}–{last} / {total}",
     "resetFilters": "ყველას ჩვენება",
     "filters": {
       "type": "ტიპი",
@@ -1325,7 +1325,10 @@
       "list": "სია"
     },
     "columnSpecies": "სახეობა",
-    "showMore": "მეტის ჩვენება",
+    "paginationLabel": "ატლასის გვერდები",
+    "pageNumber": "გვერდი {page}",
+    "previousPage": "წინა",
+    "nextPage": "შემდეგი",
     "illustration": "ილუსტრაცია",
     "removeFilter": "მოხსნა: {label}",
     "filterShowResults": "{count, plural, =0 {სახეობა ვერ მოიძებნა} one {ნახე # სახეობა} other {ნახე # სახეობა}}",

@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
@@ -8,15 +7,13 @@ import type { AtlasRegionLabel, AtlasView } from "@/data/atlasFilters";
 import type { AtlasIndexItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
+import { AtlasPagination } from "@/components/species-atlas/AtlasPagination";
 import { useAtlasPhotoLoader } from "@/components/species-atlas/AtlasPhotos";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
 } from "@/components/species-atlas/AtlasSpeciesCard";
-import {
-  initialAtlasVisibleCount,
-  nextAtlasVisibleCount,
-} from "@/lib/atlasInfiniteScroll";
+import { atlasPageCount, atlasPageRange } from "@/lib/atlasPages";
 import { cn } from "@/lib/cn";
 
 type AtlasSpeciesGridProps = {
@@ -39,22 +36,24 @@ export function AtlasSpeciesGrid({
   );
   const regionNames = (item: AtlasIndexItem) =>
     item.regionIds.map((id) => labelById.get(id) ?? id);
-  const [visibleCount, setVisibleCount] = useState(() =>
-    initialAtlasVisibleCount(species.length),
-  );
+  const [requestedPage, setRequestedPage] = useState(1);
   const [seenSpecies, setSeenSpecies] = useState(species);
 
   if (species !== seenSpecies) {
     setSeenSpecies(species);
-    setVisibleCount(initialAtlasVisibleCount(species.length));
+    setRequestedPage(1);
   }
 
-  const visible = species.slice(0, visibleCount);
+  const { first, last, page } = atlasPageRange(requestedPage, species.length);
+  const visible = species.slice(first - 1, last);
   useAtlasPhotoLoader(visible);
-  const hasMore = visibleCount < species.length;
-  const progress = species.length
-    ? Math.round((visible.length / species.length) * 100)
-    : 0;
+
+  function goToPage(next: number) {
+    setRequestedPage(next);
+    document
+      .getElementById("explorer")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <>
@@ -67,7 +66,7 @@ export function AtlasSpeciesGrid({
         {visible.map((item, index) => (
           <li key={item.id}>
             <AtlasSpeciesCard
-              index={index}
+              index={first - 1 + index}
               locale={locale}
               regionNames={regionNames(item)}
               species={item}
@@ -94,7 +93,7 @@ export function AtlasSpeciesGrid({
             {visible.map((item, index) => (
               <li key={item.id}>
                 <AtlasSpeciesRow
-                  index={index}
+                  index={first - 1 + index}
                   locale={locale}
                   regionNames={regionNames(item)}
                   species={item}
@@ -105,37 +104,14 @@ export function AtlasSpeciesGrid({
         </div>
       ) : null}
 
-      {hasMore ? (
-        <div className="mt-[22px] flex flex-col items-center gap-2.5 lg:mt-8 lg:gap-3">
-          <div
-            aria-hidden="true"
-            className="h-1 w-[180px] overflow-hidden rounded-full bg-secondary lg:w-[220px]"
-          >
-            <div
-              className="h-full bg-primary"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <p className="text-[12.5px] text-muted-foreground lg:text-[13px]">
-            {t("showingCount", {
-              shown: visible.length,
-              total: species.length,
-            })}
-          </p>
-          <button
-            className="inline-flex h-[52px] w-full items-center justify-center gap-2.5 rounded-full border border-border bg-card px-7 text-[15px] font-medium text-foreground transition-transform hover:-translate-y-0.5 motion-reduce:transition-none sm:w-auto lg:h-[54px]"
-            onClick={() =>
-              setVisibleCount((loaded) =>
-                nextAtlasVisibleCount(loaded, species.length),
-              )
-            }
-            type="button"
-          >
-            {t("showMore")}
-            <ChevronDown aria-hidden="true" className="size-4" />
-          </button>
-        </div>
-      ) : null}
+      <AtlasPagination
+        current={page}
+        first={first}
+        last={last}
+        onChange={goToPage}
+        pageCount={atlasPageCount(species.length)}
+        total={species.length}
+      />
     </>
   );
 }

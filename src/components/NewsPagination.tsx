@@ -4,7 +4,8 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { Link } from "@/i18n/navigation";
-import { newsPageHref, newsPaginationPages } from "@/lib/newsPages";
+import { newsPageHref } from "@/lib/newsPages";
+import { paginationPages } from "@/lib/paginationPages";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
@@ -25,7 +26,7 @@ export async function NewsPagination({
   if (pageCount <= 1) return null;
   const t = await getTranslations({ locale, namespace: "news" });
   const pageLabel = (page: number) => t("pageNumber", { page });
-  const pages = newsPaginationPages(current, pageCount);
+  const pages = paginationPages(current, pageCount);
 
   return (
     <nav

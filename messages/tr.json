@@ -1221,7 +1221,7 @@
     "filterClose": "Kapat",
     "filterClear": "Temizle",
     "resultsCount": "{count, plural, =0 {Eşleşen tür yok} one {<strong>#</strong> tür} other {<strong>#</strong> tür}}",
-    "showingCount": "{total} içinden {shown} gösteriliyor",
+    "showingRange": "{total} içinden {first}–{last} gösteriliyor",
     "resetFilters": "Tümünü göster",
     "filters": {
       "type": "Tür",
@@ -1325,7 +1325,10 @@
       "list": "Liste"
     },
     "columnSpecies": "Tür",
-    "showMore": "Daha fazla göster",
+    "paginationLabel": "Atlas sayfaları",
+    "pageNumber": "Sayfa {page}",
+    "previousPage": "Önceki",
+    "nextPage": "Sonraki",
     "illustration": "İllüstrasyon",
     "removeFilter": "Kaldır: {label}",
     "filterShowResults": "{count, plural, =0 {Tür bulunamadı} one {# türü göster} other {# türü göster}}",
