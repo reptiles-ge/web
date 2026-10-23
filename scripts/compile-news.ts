@@ -1,23 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 
-import type { NewsArticle, NewsPhoto } from "../src/data/newsTypes";
+import type { NewsArticle } from "../src/data/newsTypes";
 import type { AppLocale } from "../src/i18n/routing";
 
 import { newsSlugs } from "../src/data/newsPublish";
 import { optimizedImages } from "../src/data/optimizedImages.generated";
+import { locales } from "../src/i18n/locales";
 import { checkNewsHeroes, type NewsHeroInput } from "../src/lib/newsHeroImage";
-import { newsBodyStart, parseNewsBody } from "../src/lib/newsMdx";
-import { newsSlugIssue } from "../src/lib/newsSlug";
 import {
-  newsKaFrontmatterSchema,
-  newsTranslationFrontmatterSchema,
-} from "./newsFrontmatter";
+  newsArticleFromMdx,
+  type NewsMdxFile,
+} from "../src/lib/newsMdxArticle";
+import { newsSlugIssue } from "../src/lib/newsSlug";
 
 const contentRoot = path.join(process.cwd(), "src/content/news");
 const outFile = path.join(process.cwd(), "src/data/news.generated.ts");
-const translationLocales = ["en", "ru", "tr"] as const;
 
 const errors: string[] = [];
 const heroes: NewsHeroInput[] = [];
@@ -36,105 +34,29 @@ for (const slug of newsSlugs) {
   if (issue) errors.push(`${slug}: ${issue}`);
 }
 
-function readLocale(slug: string, locale: AppLocale) {
-  const file = path.join(contentRoot, slug, `${locale}.mdx`);
-  if (!fs.existsSync(file)) return undefined;
-  const raw = fs.readFileSync(file, "utf8");
-  const start = newsBodyStart(raw);
-  return {
-    data: matter(raw).data,
-    file,
-    sections: parseNewsBody(raw.slice(start), start).sections,
-  };
-}
-
-function compileArticle(slug: string): NewsArticle | undefined {
-  const ka = readLocale(slug, "ka");
-  if (!ka) {
-    errors.push(`${slug}: missing ka.mdx`);
-    return undefined;
+function readFiles(slug: string) {
+  const files: Partial<Record<AppLocale, NewsMdxFile>> = {};
+  for (const locale of locales) {
+    const file = path.join(contentRoot, slug, `${locale}.mdx`);
+    if (fs.existsSync(file))
+      files[locale] = { path: file, raw: fs.readFileSync(file, "utf8") };
   }
-  const parsed = newsKaFrontmatterSchema.safeParse(ka.data);
-  if (!parsed.success) {
-    errors.push(`${ka.file}: ${parsed.error.message}`);
-    return undefined;
-  }
-  const fm = parsed.data;
-  if (fm.slug !== slug)
-    errors.push(`${ka.file}: folder/slug mismatch: ${slug} vs ${fm.slug}`);
-  heroes.push({
-    exception: fm.heroImageException,
-    image: fm.image,
-    publishedAt: fm.publishedAt,
-    slug,
-  });
-
-  const toPhoto = ({ alt, ...photo }: typeof fm.image & {}): NewsPhoto => ({
-    ...photo,
-    alt: { ka: alt },
-  });
-  const image = fm.image && toPhoto(fm.image);
-  const gallery = fm.gallery?.map(toPhoto);
-  const photos = new Map(
-    [...(image ? [image] : []), ...(gallery ?? [])].map((photo) => [
-      photo.src,
-      photo,
-    ]),
-  );
-
-  const copy: NewsArticle["copy"] = {
-    ka: {
-      dek: fm.dek,
-      lead: fm.lead,
-      metaDescription: fm.metaDescription,
-      metaTitle: fm.metaTitle,
-      sections: ka.sections,
-      title: fm.title,
-    },
-  } as NewsArticle["copy"];
-
-  for (const locale of translationLocales) {
-    const translation = readLocale(slug, locale);
-    if (!translation) continue;
-    const result = newsTranslationFrontmatterSchema.safeParse(translation.data);
-    if (!result.success) {
-      errors.push(`${translation.file}: ${result.error.message}`);
-      continue;
-    }
-    const { gallery: altGallery, image: altImage, ...text } = result.data;
-    for (const overlay of [
-      ...(altImage ? [altImage] : []),
-      ...(altGallery ?? []),
-    ]) {
-      const photo = photos.get(overlay.src);
-      if (photo) photo.alt[locale] = overlay.alt;
-      else errors.push(`${translation.file}: no ka photo for ${overlay.src}`);
-    }
-    copy[locale] = { ...text, sections: translation.sections };
-  }
-
-  return {
-    copy,
-    ...(gallery ? { gallery } : {}),
-    id: slug,
-    ...(image ? { image } : {}),
-    publishedAt: fm.publishedAt,
-    relatedHubIds: fm.relatedHubIds,
-    relatedRegionIds: fm.relatedRegionIds,
-    relatedSpeciesIds: fm.relatedSpeciesIds,
-    ...(fm.series ? { series: fm.series } : {}),
-    slug,
-    sources: fm.sources,
-    status: fm.status,
-    ...(fm.updatedAt ? { updatedAt: fm.updatedAt } : {}),
-  };
+  return files;
 }
 
 const articles: NewsArticle[] = [];
 for (const slug of newsSlugs) {
   try {
-    const article = compileArticle(slug);
-    if (article) articles.push(article);
+    const result = newsArticleFromMdx(slug, readFiles(slug));
+    errors.push(...result.errors);
+    if (!result.article) continue;
+    articles.push(result.article);
+    heroes.push({
+      exception: result.heroImageException,
+      image: result.article.image,
+      publishedAt: result.article.publishedAt,
+      slug,
+    });
   } catch (error) {
     errors.push(`${slug}: ${(error as Error).message}`);
   }

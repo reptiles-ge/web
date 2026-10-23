@@ -1,7 +1,7 @@
 import { z } from "zod/v4";
 
-import { newsSeriesIds } from "../src/data/newsSeries";
-import { GROUP_HUBS, type GroupHubId } from "../src/lib/groupHubs";
+import { newsSeriesIds } from "@/data/newsSeries";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 
 const nonempty = z.string().trim().min(1);
 
