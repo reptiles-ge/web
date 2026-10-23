@@ -7396,6 +7396,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-brc-station-2-team.jpg": {
+    "path": "news-batumi-2026-end-brc-station-2-team",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-brc-team-final-group.jpg": {
+    "path": "news-batumi-2026-end-brc-team-final-group",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-cordes-greater-spotted-eagle.jpg": {
+    "path": "news-batumi-2026-end-cordes-greater-spotted-eagle",
+    "width": 2300,
+    "height": 1320,
+    "widths": [320, 400, 640, 800, 1200, 2300],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-cordes-short-toed-eagle.jpg": {
+    "path": "news-batumi-2026-end-cordes-short-toed-eagle",
+    "width": 1920,
+    "height": 1045,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-cordes-sparrowhawk.jpg": {
+    "path": "news-batumi-2026-end-cordes-sparrowhawk",
+    "width": 2400,
+    "height": 1456,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-shoshitashvili-camp-binoculars.jpg": {
+    "path": "news-batumi-2026-end-shoshitashvili-camp-binoculars",
+    "width": 1920,
+    "height": 1295,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-2026-end-shoshitashvili-camp-scope.jpg": {
+    "path": "news-batumi-2026-end-shoshitashvili-camp-scope",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-black-kites.jpg": {
     "path": "news-batumi-239735-hoekstra-black-kites",
     "width": 2000,
