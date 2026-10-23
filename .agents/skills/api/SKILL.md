@@ -191,6 +191,13 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Public: `GET /v1/authors` (`?contributor=true`) and `GET /v1/authors/:id`, edge-cached, localized by `X-Locale` with the Georgian name as fallback. Admin (token): `GET` and `PUT /v1/admin/authors/:id` (whole record; an alias owned by another author is a 400).
 - The site reads contributors only from these endpoints (`src/lib/authorsApi.ts`: `getContributors(locale)`, `getContributorDirectory(locale)`). Contributor pages, credit links, photo alt text, image rights JSON-LD, search, the sitemap and photo-use all take that data; client components read the directory from `ContributorsProvider`. A credit links to a contributor by `authorId`, or by its spelling when it has none (news MDX credits).
 
+### News (phase 1a, not served yet)
+
+- Migration `0008_news.sql` adds `news_articles`, `news_texts`, `news_sections` (blocks as a JSON array), `news_media` + `news_media_alts`, `news_sources`, `news_hubs`, `news_regions`, `news_species` and the `news_series` lookup. `docs/NEWS-D1-MIGRATION.md` is the plan.
+- `db/newsRows.ts` is the single row builder (`NewsRecord = { article: NewsArticle, position }`); `db/news.ts` reads (`readNewsRecords`). `news.test.ts` requires the import of `news.generated.ts` to read back `toStrictEqual`.
+- `news_media.author_id` is derived like `species_media.author_id`: `RELINK_MEDIA_AUTHORS` includes `RELINK_NEWS_MEDIA_AUTHORS`.
+- `db:import:news` is a one-off with a guard (`news_import_runs`): it fails when `news_articles` has rows. News MDX is still the live source until the site reads from the API (phase 3).
+
 ### Drafts (AI changes need approval)
 
 - Migration `0004_species_drafts.sql` adds `species_drafts`: a full proposed record, plus its `base_version`, `source`, `actor`, `summary` and a `status` of pending, approved or rejected.
