@@ -1,9 +1,8 @@
-import type { SpeciesQuizFields } from "@/data/speciesTypes";
+import type { CatalogQuizSpecies } from "@/data/speciesCatalogTypes";
 
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 
@@ -35,7 +34,7 @@ const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
 };
 
 export function getLizardQuizCatalog(
-  catalog: readonly SpeciesQuizFields[],
+  catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies[] {
   return catalog
     .filter((item) => isLizardSpecies(item) && Boolean(item.image))
@@ -43,7 +42,7 @@ export function getLizardQuizCatalog(
 }
 
 export function getSnakeQuizCatalog(
-  catalog: readonly SpeciesQuizFields[],
+  catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies[] {
   return catalog
     .filter((item) => isSnakeSpecies(item) && Boolean(item.image))
@@ -51,8 +50,8 @@ export function getSnakeQuizCatalog(
 }
 
 export function toSnakeQuizSpecies(
-  species: SpeciesQuizFields,
-  catalog: readonly SpeciesQuizFields[],
+  species: CatalogQuizSpecies,
+  catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies {
   const explanation = stripSpeciesInlineLinks(
     species.identification?.summary?.trim() ||
@@ -83,7 +82,7 @@ export function toSnakeQuizSpecies(
       species.location,
     ),
     imageCredit: overridePhoto?.credit ?? species.imageCredit,
-    lookalikeIds: getSpeciesLookalikes(species.id),
+    lookalikeIds: species.lookalikes,
     mobileImage,
     relatedIds: getRelatedSpecies(species.id, catalog, 8).map(
       (item) => item.id,
@@ -94,7 +93,7 @@ export function toSnakeQuizSpecies(
 
 const HABITAT_LABEL = /ჰაბიტატი|habitat|местообитание|yaşam alanı/i;
 
-function buildQuizHint(species: SpeciesQuizFields) {
+function buildQuizHint(species: CatalogQuizSpecies) {
   const all = species.identification?.traits ?? [];
   const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
   const preferred =
@@ -119,7 +118,7 @@ function buildQuizHint(species: SpeciesQuizFields) {
   return species.location;
 }
 
-function spoilsAnswer(text: string, species: SpeciesQuizFields) {
+function spoilsAnswer(text: string, species: CatalogQuizSpecies) {
   const haystack = stripSpeciesInlineLinks(text).toLowerCase();
   for (const item of [
     species.commonName,

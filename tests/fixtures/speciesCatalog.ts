@@ -49,6 +49,12 @@ export function localizedFixture(
   return item;
 }
 
+export function lookalikesFixture(id: string): string[] {
+  return (
+    speciesCatalogFixture("ka").find((item) => item.id === id)?.lookalikes ?? []
+  );
+}
+
 export function searchCatalogsFixture(): Record<AppLocale, SpeciesFixture[]> {
   return {
     en: speciesCatalogFixture("en"),

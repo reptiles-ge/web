@@ -26,7 +26,8 @@ Species content lives in D1 (`reptiles-db`) and is served by the `reptiles-api` 
 | S2.12b | Occurrence summaries and map records from the D1 field-records endpoint               | #1514 |
 | S4     | Slug table built from the API card catalog at build time (owner chose option B)       | #1517 |
 | S5a    | Committed SQL test seed; tests off the compiled catalog                               | #1521 |
-| S5b    | Species MDX deleted; MDX-only admin flows answer 503                                  | —     |
+| S5b    | Species MDX deleted; MDX-only admin flows answer 503                                  | #1522 |
+| L1     | Lookalikes read from the API catalog; `LOOKALIKES` in code deleted                    | —     |
 
 S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 

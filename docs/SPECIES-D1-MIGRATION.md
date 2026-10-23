@@ -102,7 +102,7 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 ## 2b-f — New species creation
 
-**Today:** `/api/admin/species-create` validates the input (`validateSpeciesCreationInput`: Latin binomial, derived id) and only returns a Codex prompt. A human then creates 4 MDX files and registers the species in `speciesPublish.ts`, `speciesAtlasMeta.ts`, `herpetofauna-checklist.ts`, `mapRegions.ts`, `speciesLookalikes.ts` and `speciesSlugRules.ts`.
+**Today:** `/api/admin/species-create` validates the input (`validateSpeciesCreationInput`: Latin binomial, derived id) and only returns a Codex prompt. A human then creates 4 MDX files and registers the species in `speciesPublish.ts`, `speciesAtlasMeta.ts`, `herpetofauna-checklist.ts`, `mapRegions.ts` and `speciesSlugRules.ts`. Lookalikes are now part of the D1 record, so they need no code edit.
 
 **Target**
 

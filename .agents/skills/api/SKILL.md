@@ -92,7 +92,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import site species modules (`speciesPublish`, `speciesSlugTable`, `speciesSlugs.generated`, `speciesRoutes`); the guard test fails if it does, and the Worker stays small (about 190 KB gzip). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
 - `:slug` accepts only the public slug of the requested locale (`X-Locale`, the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
 - Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin, X-Locale`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
-- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
+- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
@@ -166,7 +166,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ### Catalog (list consumers)
 
-- `GET /v1/catalog?view=card|photos|quiz|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
+- `GET /v1/catalog?view=card|photos|quiz|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids: the species' own list first, then reverse links ordered by id, unpublished peers left out). The site reads lookalikes only from this field; there is no list in code. It is edge-cached and supports `X-Cache-Bypass`.
   - `card` (default, about 130–210 KB per locale) is for hubs, lists, home, cards and stats. Its fields are `SPECIES_CARD_KEYS` (`commonName, danger, description, family, genus, id, image, imageCredit, location, mobileImage, mobileImageCredit, publishedAt, scientificName, stats, updatedAt`) plus `photoCount`.
   - `photos` (about 0.47–0.59 MB per locale) is the card fields plus `gallery` (`SPECIES_PHOTO_KEYS`), for photo credits: contributor pages, photo-use, news image rights. Credit matching uses the KA view (`getCreditPhotoCatalog()`), because translations localize photographer names.
   - `quiz` (about 0.8–1.4 MB per locale) is the card fields plus `facts`, `gallery` and `identification` (`SPECIES_QUIZ_KEYS`), for the identification quizzes.

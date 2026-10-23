@@ -1,4 +1,5 @@
 import type { Species } from "@/data/species";
+import type { CatalogFullSpecies } from "@/data/speciesCatalogTypes";
 
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles, newsSourceName } from "@/data/news";
@@ -10,18 +11,17 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
 import { absoluteUrl } from "@/lib/site";
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 
 export type LlmsSpecies = {
-  base: readonly Species[];
+  base: readonly CatalogFullSpecies[];
   ids: ReadonlySet<string>;
   localized: (item: Species, locale: AppLocale) => Species;
 };
 
 export function createLlmsSpecies(
-  catalogs: Partial<Record<AppLocale, readonly Species[]>>,
+  catalogs: Partial<Record<AppLocale, readonly CatalogFullSpecies[]>>,
 ): LlmsSpecies {
   const base = catalogs[routing.defaultLocale] ?? [];
   const byLocale = new Map(
@@ -477,9 +477,9 @@ function comparisonOnlyLookalikes(item: Species, catalog: LlmsSpecies) {
     ])
     .join("\n");
   const byId = new Map(catalog.base.map((peer) => [peer.id, peer]));
-  return getSpeciesLookalikes(item.id)
+  return (byId.get(item.id)?.lookalikes ?? [])
     .map((id) => byId.get(id))
-    .filter((peer): peer is Species => Boolean(peer))
+    .filter((peer): peer is CatalogFullSpecies => Boolean(peer))
     .filter(
       (peer) =>
         !prose.includes(`](${peer.id})`) &&

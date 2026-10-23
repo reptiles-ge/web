@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import {
   getSpeciesPublicSlug,
   resolveSpeciesId,
@@ -8,6 +7,8 @@ import {
 } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
+
+import { lookalikesFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("species routes", () => {
   it("uses KA slug overrides for public URLs", () => {
@@ -58,47 +59,47 @@ describe("species routes", () => {
       ["lycosa-singoriensis", "argiope-bruennichi"],
     ] as const;
     for (const [a, b] of pairs) {
-      expect(getSpeciesLookalikes(a), `${a} -> ${b}`).toContain(b);
-      expect(getSpeciesLookalikes(b), `${b} -> ${a}`).toContain(a);
+      expect(lookalikesFixture(a), `${a} -> ${b}`).toContain(b);
+      expect(lookalikesFixture(b), `${b} -> ${a}`).toContain(a);
     }
-    expect(getSpeciesLookalikes("lycosa-singoriensis")).not.toContain(
+    expect(lookalikesFixture("lycosa-singoriensis")).not.toContain(
       "latrodectus-tredecimguttatus",
     );
-    expect(getSpeciesLookalikes("lutra-lutra")).toEqual([]);
+    expect(lookalikesFixture("lutra-lutra")).toEqual([]);
   });
 
   it("keeps giurza lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("macrovipera-lebetina")).toEqual([
+    expect(lookalikesFixture("macrovipera-lebetina")).toEqual([
       "elaphe-urartica",
       "hemorrhois-ravergieri",
       "vipera-transcaucasiana",
     ]);
     for (const id of ["elaphe-urartica", "hemorrhois-ravergieri"]) {
-      expect(getSpeciesLookalikes(id)).toContain("macrovipera-lebetina");
+      expect(lookalikesFixture(id)).toContain("macrovipera-lebetina");
     }
     for (const id of [
       "malpolon-insignitus",
       "dolichophis-schmidti",
       "elaphe-dione",
     ]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("macrovipera-lebetina");
+      expect(lookalikesFixture(id)).not.toContain("macrovipera-lebetina");
     }
   });
 
   it("keeps red-bellied racer lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("dolichophis-schmidti")).toEqual([
+    expect(lookalikesFixture("dolichophis-schmidti")).toEqual([
       "malpolon-insignitus",
       "platyceps-najadum",
       "hemorrhois-ravergieri",
       "elaphe-urartica",
     ]);
-    expect(getSpeciesLookalikes("elaphe-dione")).not.toContain(
+    expect(lookalikesFixture("elaphe-dione")).not.toContain(
       "dolichophis-schmidti",
     );
   });
 
   it("keeps Urartian ratsnake lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("elaphe-urartica")).toEqual([
+    expect(lookalikesFixture("elaphe-urartica")).toEqual([
       "elaphe-dione",
       "dolichophis-schmidti",
       "hemorrhois-ravergieri",
@@ -107,7 +108,7 @@ describe("species routes", () => {
   });
 
   it("keeps Dahl's whip snake lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("platyceps-najadum")).toEqual([
+    expect(lookalikesFixture("platyceps-najadum")).toEqual([
       "hemorrhois-ravergieri",
       "dolichophis-schmidti",
       "elaphe-dione",
@@ -116,7 +117,7 @@ describe("species routes", () => {
   });
 
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
-    expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
+    expect(lookalikesFixture("coronella-austriaca")).toEqual([
       "vipera-transcaucasiana",
       "zamenis-hohenackeri",
       "vipera-kaznakovi",
@@ -124,151 +125,141 @@ describe("species routes", () => {
   });
 
   it("keeps dice snake lookalikes to supported water-snake comparisons", () => {
-    expect(getSpeciesLookalikes("natrix-tessellata")).toEqual([
-      "natrix-natrix",
-    ]);
-    expect(getSpeciesLookalikes("vipera-kaznakovi")).not.toContain(
+    expect(lookalikesFixture("natrix-tessellata")).toEqual(["natrix-natrix"]);
+    expect(lookalikesFixture("vipera-kaznakovi")).not.toContain(
       "natrix-tessellata",
     );
-    expect(getSpeciesLookalikes("pseudopus-apodus")).not.toContain(
+    expect(lookalikesFixture("pseudopus-apodus")).not.toContain(
       "natrix-tessellata",
     );
   });
 
   it("limits Caspian turtle lookalikes to visually confusable water turtles", () => {
-    expect(getSpeciesLookalikes("mauremys-caspica")).toEqual([
+    expect(lookalikesFixture("mauremys-caspica")).toEqual([
       "emys-orbicularis",
       "trachemys-scripta",
     ]);
     for (const id of ["emys-orbicularis", "trachemys-scripta"]) {
-      expect(getSpeciesLookalikes(id)).toContain("mauremys-caspica");
+      expect(lookalikesFixture(id)).toContain("mauremys-caspica");
     }
-    expect(getSpeciesLookalikes("testudo-graeca")).not.toContain(
+    expect(lookalikesFixture("testudo-graeca")).not.toContain(
       "mauremys-caspica",
     );
   });
 
   it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("vipera-darevskii")).toEqual([
+    expect(lookalikesFixture("vipera-darevskii")).toEqual([
       "vipera-dinniki",
       "vipera-transcaucasiana",
     ]);
-    expect(getSpeciesLookalikes("vipera-dinniki")).toContain(
-      "vipera-darevskii",
-    );
-    expect(getSpeciesLookalikes("vipera-transcaucasiana")).toContain(
+    expect(lookalikesFixture("vipera-dinniki")).toContain("vipera-darevskii");
+    expect(lookalikesFixture("vipera-transcaucasiana")).toContain(
       "vipera-darevskii",
     );
   });
 
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
-    expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
+    expect(lookalikesFixture("zamenis-hohenackeri")).toEqual([
       "elaphe-dione",
       "coronella-austriaca",
       "hemorrhois-ravergieri",
       "vipera-transcaucasiana",
     ]);
-    expect(getSpeciesLookalikes("zamenis-longissimus")).not.toContain(
+    expect(lookalikesFixture("zamenis-longissimus")).not.toContain(
       "zamenis-hohenackeri",
     );
-    expect(getSpeciesLookalikes("elaphe-urartica")).not.toContain(
+    expect(lookalikesFixture("elaphe-urartica")).not.toContain(
       "zamenis-hohenackeri",
     );
   });
 
   it("keeps glass lizard lookalikes to supported visual comparisons", () => {
-    expect(getSpeciesLookalikes("pseudopus-apodus")).toEqual([
-      "anguis-colchica",
-    ]);
-    expect(getSpeciesLookalikes("natrix-natrix")).not.toContain(
+    expect(lookalikesFixture("pseudopus-apodus")).toEqual(["anguis-colchica"]);
+    expect(lookalikesFixture("natrix-natrix")).not.toContain(
       "pseudopus-apodus",
     );
   });
 
   it("keeps the Caucasian agama comparison to the visually confusable gecko", () => {
-    expect(getSpeciesLookalikes("paralaudakia-caucasia")).toEqual([
+    expect(lookalikesFixture("paralaudakia-caucasia")).toEqual([
       "tenuidactylus-caspius",
     ]);
-    expect(getSpeciesLookalikes("tenuidactylus-caspius")).toContain(
+    expect(lookalikesFixture("tenuidactylus-caspius")).toContain(
       "paralaudakia-caucasia",
     );
     for (const id of ["darevskia-portschinskii", "eumeces-schneiderii"]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("paralaudakia-caucasia");
+      expect(lookalikesFixture(id)).not.toContain("paralaudakia-caucasia");
     }
   });
 
   it("keeps grass snake lookalikes to supported field-confusion candidates", () => {
-    expect(getSpeciesLookalikes("natrix-natrix")).toEqual([
+    expect(lookalikesFixture("natrix-natrix")).toEqual([
       "natrix-tessellata",
       "vipera-kaznakovi",
       "zamenis-longissimus",
     ]);
-    expect(getSpeciesLookalikes("anguis-colchica")).not.toContain(
-      "natrix-natrix",
-    );
+    expect(lookalikesFixture("anguis-colchica")).not.toContain("natrix-natrix");
   });
 
   it("keeps the mottled scorpion comparison to the visual match", () => {
-    expect(getSpeciesLookalikes("mesobuthus-eupeus")).toEqual([
+    expect(lookalikesFixture("mesobuthus-eupeus")).toEqual([
       "olivierus-caucasicus",
     ]);
-    expect(getSpeciesLookalikes("olivierus-caucasicus")).toContain(
+    expect(lookalikesFixture("olivierus-caucasicus")).toContain(
       "mesobuthus-eupeus",
     );
     for (const id of ["euscorpius-italicus", "euscorpius-mingrelicus"]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("mesobuthus-eupeus");
+      expect(lookalikesFixture(id)).not.toContain("mesobuthus-eupeus");
     }
   });
 
   it("keeps brown bear lookalikes empty without supported visual confusion", () => {
-    expect(getSpeciesLookalikes("ursus-arctos")).toEqual([]);
-    expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
-    expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
+    expect(lookalikesFixture("ursus-arctos")).toEqual([]);
+    expect(lookalikesFixture("canis-lupus")).not.toContain("ursus-arctos");
+    expect(lookalikesFixture("sus-scrofa")).not.toContain("ursus-arctos");
   });
 
   it("does not pair least weasel and Caucasian badger as visual lookalikes", () => {
-    expect(getSpeciesLookalikes("mustela-nivalis")).toEqual([]);
-    expect(getSpeciesLookalikes("meles-canescens")).not.toContain(
+    expect(lookalikesFixture("mustela-nivalis")).toEqual([]);
+    expect(lookalikesFixture("meles-canescens")).not.toContain(
       "mustela-nivalis",
     );
   });
 
   it("keeps Rock Dove paired with woodpigeon but not turtle dove", () => {
-    expect(getSpeciesLookalikes("columba-livia")).toEqual(["columba-palumbus"]);
-    expect(getSpeciesLookalikes("streptopelia-turtur")).toEqual([
+    expect(lookalikesFixture("columba-livia")).toEqual(["columba-palumbus"]);
+    expect(lookalikesFixture("streptopelia-turtur")).toEqual([
       "columba-palumbus",
     ]);
-    expect(getSpeciesLookalikes("columba-palumbus")).toEqual([
+    expect(lookalikesFixture("columba-palumbus")).toEqual([
       "columba-livia",
       "streptopelia-turtur",
     ]);
   });
 
   it("does not pair green and great spotted woodpeckers as visual lookalikes", () => {
-    expect(getSpeciesLookalikes("picus-viridis")).toEqual([]);
-    expect(getSpeciesLookalikes("dendrocopos-major")).not.toContain(
+    expect(lookalikesFixture("picus-viridis")).toEqual([]);
+    expect(lookalikesFixture("dendrocopos-major")).not.toContain(
       "picus-viridis",
     );
   });
 
   it("leaves Eurasian jay lookalikes empty without supported visual confusion", () => {
-    expect(getSpeciesLookalikes("garrulus-glandarius")).toEqual([]);
-    expect(getSpeciesLookalikes("pica-pica")).not.toContain(
-      "garrulus-glandarius",
-    );
-    expect(getSpeciesLookalikes("corvus-corax")).not.toContain(
+    expect(lookalikesFixture("garrulus-glandarius")).toEqual([]);
+    expect(lookalikesFixture("pica-pica")).not.toContain("garrulus-glandarius");
+    expect(lookalikesFixture("corvus-corax")).not.toContain(
       "garrulus-glandarius",
     );
   });
 
   it("keeps sparrowhawk lookalikes to supported flight comparisons", () => {
     const peers = ["accipiter-gentilis", "falco-peregrinus", "cuculus-canorus"];
-    expect(getSpeciesLookalikes("accipiter-nisus")).toEqual(peers);
+    expect(lookalikesFixture("accipiter-nisus")).toEqual(peers);
     for (const id of peers) {
-      expect(getSpeciesLookalikes(id)).toContain("accipiter-nisus");
+      expect(lookalikesFixture(id)).toContain("accipiter-nisus");
     }
     for (const id of ["buteo-buteo", "pernis-apivorus"]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("accipiter-nisus");
+      expect(lookalikesFixture(id)).not.toContain("accipiter-nisus");
     }
   });
 
@@ -279,43 +270,41 @@ describe("species routes", () => {
       "gypaetus-barbatus",
       "gyps-fulvus",
     ];
-    expect(getSpeciesLookalikes("aquila-chrysaetos")).toEqual(peers);
+    expect(lookalikesFixture("aquila-chrysaetos")).toEqual(peers);
     for (const id of peers) {
-      expect(getSpeciesLookalikes(id)).toContain("aquila-chrysaetos");
+      expect(lookalikesFixture(id)).toContain("aquila-chrysaetos");
     }
     for (const id of ["falco-peregrinus", "milvus-migrans"]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("aquila-chrysaetos");
+      expect(lookalikesFixture(id)).not.toContain("aquila-chrysaetos");
     }
   });
 
   it("limits cinereous vulture lookalikes to visual flight matches", () => {
-    expect(getSpeciesLookalikes("aegypius-monachus")).toEqual([
+    expect(lookalikesFixture("aegypius-monachus")).toEqual([
       "aquila-chrysaetos",
       "gyps-fulvus",
     ]);
-    expect(getSpeciesLookalikes("buteo-buteo")).not.toContain(
-      "aegypius-monachus",
-    );
+    expect(lookalikesFixture("buteo-buteo")).not.toContain("aegypius-monachus");
   });
 
   it("keeps bearded vulture lookalikes to supported flight comparisons", () => {
     const peers = ["gyps-fulvus", "aquila-chrysaetos"];
-    expect(getSpeciesLookalikes("gypaetus-barbatus")).toEqual(peers);
+    expect(lookalikesFixture("gypaetus-barbatus")).toEqual(peers);
     for (const id of peers) {
-      expect(getSpeciesLookalikes(id)).toContain("gypaetus-barbatus");
+      expect(lookalikesFixture(id)).toContain("gypaetus-barbatus");
     }
-    expect(getSpeciesLookalikes("aegypius-monachus")).not.toContain(
+    expect(lookalikesFixture("aegypius-monachus")).not.toContain(
       "gypaetus-barbatus",
     );
   });
 
   it("limits griffon vulture lookalikes to supported visual comparisons", () => {
-    expect(getSpeciesLookalikes("gyps-fulvus")).toEqual([
+    expect(lookalikesFixture("gyps-fulvus")).toEqual([
       "aegypius-monachus",
       "aquila-chrysaetos",
       "gypaetus-barbatus",
     ]);
-    expect(getSpeciesLookalikes("buteo-buteo")).not.toContain("gyps-fulvus");
+    expect(lookalikesFixture("buteo-buteo")).not.toContain("gyps-fulvus");
   });
 
   it("resolves a public slug and lists static hub params", async () => {
@@ -336,13 +325,13 @@ describe("species routes", () => {
   });
 
   it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
-    expect(getSpeciesLookalikes("mertensiella-caucasica")).toEqual([]);
+    expect(lookalikesFixture("mertensiella-caucasica")).toEqual([]);
     for (const id of [
       "lissotriton-lantzi",
       "ommatotriton-ophryticus",
       "triturus-karelinii",
     ]) {
-      expect(getSpeciesLookalikes(id)).not.toContain("mertensiella-caucasica");
+      expect(lookalikesFixture(id)).not.toContain("mertensiella-caucasica");
     }
   });
 });
