@@ -12,8 +12,9 @@ import {
   featuredSpeciesIds,
   unpublishedSpeciesIds,
 } from "@/data/speciesPublish";
-import { idByAnySlug, kaSlugById } from "@/data/speciesSlugs.generated";
+import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { LOOKALIKES } from "@/lib/speciesLookalikes";
+import { buildSpeciesSlugMaps } from "@/lib/speciesSlugRules";
 
 export type SpeciesCatalogData = {
   atlasMeta: Record<string, { group: AnimalGroup; habitats: HabitatTag[] }>;
@@ -32,6 +33,18 @@ export function speciesImportSource(): SpeciesCatalogData {
   const order = new Map<string, number>(
     featuredSpeciesIds.map((id, index) => [id, index]),
   );
+  const commonNames = new Map(
+    species.map((item) => [item.id, item.commonName]),
+  );
+  const { idByAnySlug, kaSlugById } = buildSpeciesSlugMaps(
+    featuredSpeciesIds
+      .filter((id) => !unpublishedSpeciesIds.has(id))
+      .map((id) => ({
+        commonName: commonNames.get(id) ?? id,
+        hub: ANIMAL_GROUP_TO_HUB[speciesAtlasMeta[id].group],
+        id,
+      })),
+  );
   return {
     atlasMeta: Object.fromEntries(
       featuredSpeciesIds.map((id) => {
@@ -41,8 +54,8 @@ export function speciesImportSource(): SpeciesCatalogData {
       }),
     ),
     catalogIds: [...featuredSpeciesIds],
-    idByAnySlug: { ...idByAnySlug },
-    kaSlugById: { ...kaSlugById },
+    idByAnySlug,
+    kaSlugById,
     lookalikes: Object.fromEntries(
       Object.entries(LOOKALIKES).map(([id, peers]) => [id, [...peers]]),
     ),

@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { buildSpeciesSlugMaps } from "@/lib/speciesSlugRules";
+import {
+  buildPublishedSlugMaps,
+  buildSpeciesSlugMaps,
+} from "@/lib/speciesSlugRules";
 
 describe("species slug rules", () => {
   it("uses KA slug overrides", () => {
@@ -56,5 +59,18 @@ describe("species slug rules", () => {
       },
     ]);
     expect(maps.kaSlugById["fake-reserved"]).toBe("species-reserved");
+  });
+
+  it("takes published slugs as given and adds the aliases", () => {
+    const maps = buildPublishedSlugMaps([
+      { hub: "snakes", id: "macrovipera-lebetina", slug: "giurza-axali" },
+    ]);
+    expect(maps.kaSlugById["macrovipera-lebetina"]).toBe("giurza-axali");
+    expect(maps.hubById["macrovipera-lebetina"]).toBe("snakes");
+    expect(maps.idByAnySlug["giurza-axali"]).toBe("macrovipera-lebetina");
+    expect(maps.idByAnySlug["macrovipera-lebetina"]).toBe(
+      "macrovipera-lebetina",
+    );
+    expect(maps.idByAnySlug.raccoon).toBe("procyon-lotor");
   });
 });

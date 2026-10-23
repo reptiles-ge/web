@@ -15,19 +15,19 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 ## When to use what
 
-| Goal                                           | Run                                   |
-| ---------------------------------------------- | ------------------------------------- |
-| MDX → catalog (new/changed species)            | `pnpm species:compile`                |
-| Refresh search indexes                         | `pnpm search:compile` (species first) |
-| Refresh Georgia map paths                      | `pnpm map:compile`                    |
-| Refresh Wikidata / GBIF / iNaturalist IDs      | `pnpm taxon:ids`                      |
-| Spot broken CDN image URLs                     | `pnpm images:check`                   |
-| Are species OG images live?                    | `pnpm images:check-og`                |
-| Upload missing OG images (species + guides)    | `pnpm images:og-missing`              |
-| AVIF/WebP + OG optimize on Bunny               | `pnpm images:optimize …`              |
-| Regenerate only `optimizedImages.generated.ts` | `pnpm images:emit`                    |
-| Unused files under `public/images`             | `pnpm images:unused`                  |
-| Unused photos on BunnyCDN                      | `pnpm images:cdn-unused`              |
+| Goal                                           | Run                      |
+| ---------------------------------------------- | ------------------------ |
+| MDX → catalog (new/changed species)            | `pnpm species:compile`   |
+| Refresh the slug table from the API            | `pnpm slugs:compile`     |
+| Refresh Georgia map paths                      | `pnpm map:compile`       |
+| Refresh Wikidata / GBIF / iNaturalist IDs      | `pnpm taxon:ids`         |
+| Spot broken CDN image URLs                     | `pnpm images:check`      |
+| Are species OG images live?                    | `pnpm images:check-og`   |
+| Upload missing OG images (species + guides)    | `pnpm images:og-missing` |
+| AVIF/WebP + OG optimize on Bunny               | `pnpm images:optimize …` |
+| Regenerate only `optimizedImages.generated.ts` | `pnpm images:emit`       |
+| Unused files under `public/images`             | `pnpm images:unused`     |
+| Unused photos on BunnyCDN                      | `pnpm images:cdn-unused` |
 
 `pnpm dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
 
@@ -42,13 +42,12 @@ These outputs are **gitignored** — do not hand-edit or commit them.
 Reads `src/content/species/{id}/{ka,en,ru,tr}.mdx` and writes:
 
 - `src/data/species.generated.ts`
-- `src/data/speciesSlugs.generated.ts`
 
-Validates frontmatter via `speciesFrontmatter.ts` (Zod). Run this first after MDX or slug changes.
+Validates frontmatter via `speciesFrontmatter.ts` (Zod). Run this first after MDX changes.
 
-### `compile-search.ts` → `pnpm search:compile`
+### `compile-species-slugs.ts` → `pnpm slugs:compile`
 
-Requires an existing `species.generated.ts`. Writes `src/data/search-index.{ka,en,ru,tr}.generated.ts`.
+Reads the published KA card catalog from the species API (`api.reptiles.ge`, or `NEXT_PUBLIC_API_ORIGIN`) and writes `src/data/speciesSlugs.generated.ts`: hub per id, KA slug per id, and every id, slug and `KA_SLUG_ALIASES` alias to its id. `compile` (`predev` / `prebuild`) runs it, so a slug change or a new species in D1 reaches `src/proxy.ts` on the next deploy.
 
 ### `compile-georgia-map.ts` → `pnpm map:compile`
 
@@ -152,7 +151,7 @@ Notes:
 
 ```bash
 pnpm species:compile
-pnpm search:compile
+pnpm slugs:compile
 ```
 
 **New gallery photos after CDN upload**
