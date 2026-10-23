@@ -1,9 +1,11 @@
 import type { ApiDatabase } from "./db/database";
+import type { SessionUser } from "./db/users";
 
 export type ApiBindings = {
   ALLOWED_ORIGINS?: string;
   API_WRITE_TOKEN?: string;
   DB: ApiDatabase;
+  LOGIN_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;
   RATING_VISITOR_LIMITER?: RateLimiter;
   REVALIDATE_TOKEN?: string;
@@ -14,6 +16,7 @@ export type ApiBindings = {
 
 export type ApiEnv = {
   Bindings: ApiBindings;
+  Variables: { user?: SessionUser };
 };
 
 export type RateLimiter = {
