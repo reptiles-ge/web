@@ -1,6 +1,12 @@
 import { type GroupHubId, RESERVED_HUB_SLUGS } from "@/lib/groupHubs";
 import { kaToSlug } from "@/lib/slugify";
 
+export type PublishedSlugRow = {
+  hub: GroupHubId;
+  id: string;
+  slug: string;
+};
+
 export type SpeciesSlugMaps = {
   hubById: Record<string, GroupHubId>;
   idByAnySlug: Record<string, string>;
@@ -315,19 +321,18 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "ursus-arctos": ["datvi", "mura-dathvi"],
 };
 
-export function buildSpeciesSlugMaps(rows: SpeciesSlugRow[]): SpeciesSlugMaps {
+export function buildPublishedSlugMaps(
+  rows: PublishedSlugRow[],
+): SpeciesSlugMaps {
   const hubById: Record<string, GroupHubId> = {};
   const idByAnySlug: Record<string, string> = {};
   const kaSlugById: Record<string, string> = {};
-  const takenSlugs = new Set<string>();
 
   for (const row of rows) {
-    const slug = uniqueKaSlug(row.id, row.commonName, row.hub, takenSlugs);
-    takenSlugs.add(slug);
     hubById[row.id] = row.hub;
-    kaSlugById[row.id] = slug;
+    kaSlugById[row.id] = row.slug;
     idByAnySlug[row.id] = row.id;
-    idByAnySlug[slug] = row.id;
+    idByAnySlug[row.slug] = row.id;
   }
 
   for (const [id, aliases] of Object.entries(KA_SLUG_ALIASES)) {
@@ -337,6 +342,17 @@ export function buildSpeciesSlugMaps(rows: SpeciesSlugRow[]): SpeciesSlugMaps {
   }
 
   return { hubById, idByAnySlug, kaSlugById };
+}
+
+export function buildSpeciesSlugMaps(rows: SpeciesSlugRow[]): SpeciesSlugMaps {
+  const takenSlugs = new Set<string>();
+  return buildPublishedSlugMaps(
+    rows.map((row) => {
+      const slug = uniqueKaSlug(row.id, row.commonName, row.hub, takenSlugs);
+      takenSlugs.add(slug);
+      return { hub: row.hub, id: row.id, slug };
+    }),
+  );
 }
 
 function uniqueKaSlug(

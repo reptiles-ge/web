@@ -23,7 +23,8 @@ Species content lives in D1 (`reptiles-db`) and is served by the `reptiles-api` 
 | S2.10  | `llms.txt`, `llms-full.txt`, species OG images, sitemap species entries               | #1506 |
 | S2.11  | Search index route `/api/search/{locale}`, locale-switch index as a prop              | #1507 |
 | S2.12a | Leftover pages and the manual scripts on the API                                      | #1508 |
-| S2.12b | Occurrence summaries and map records from the D1 field-records endpoint               | —     |
+| S2.12b | Occurrence summaries and map records from the D1 field-records endpoint               | #1514 |
+| S4     | Slug table built from the API card catalog at build time (owner chose option B)       | —     |
 
 S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 
@@ -42,24 +43,14 @@ S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 - **Process:** follow `docs/RELEASING.md`. The PR from `staging` to `main` gets the `skip-changelog` label.
 - **After merge:** open the live site and check a profile, a hub, search, the language switcher and `/sitemap.xml`.
 
-### 2. S4 — slugs and 301s
+### 2. S4 — slugs and 301s (done, build-time)
 
-**Today:** these still use the generated slug table (`src/data/speciesSlugs.generated.ts`, via `speciesSlugTable.ts`):
+The owner chose a build-time table over a KV snapshot (2026-10-23). `scripts/compile-species-slugs.ts` (`pnpm slugs:compile`, part of `compile`) builds `src/data/speciesSlugs.generated.ts` from `getSpeciesCatalog("ka")` (`slug`, `group`) plus `KA_SLUG_ALIASES`. `src/proxy.ts`, `createSpeciesRoute`, `speciesRoutes`, `llmsFiles`, the OG route and the profile loader keep reading it through `speciesSlugTable.ts`.
 
-- `src/proxy.ts` (301s);
-- `resolveSpeciesIdInHub` and the canonical-slug redirect in `createSpeciesRoute.tsx`;
-- `getSpeciesPublicSlug` and `speciesHref` in `speciesRoutes.ts`;
-- the OG route (`resolveSpeciesId`).
-
-So a species added only through the API returns 404.
-
-**Target** (from the plan):
-
-- Serve slug resolution from D1 (`species_slugs`) through a small snapshot the edge can read without querying D1 on every request. A KV snapshot, refreshed on every species write, is the planned option.
-- `speciesHref` on the server can also use the card `slug`.
-- Client components already get slugs from the locale-switch index prop.
-
-**Decision for the owner:** the storage choice for the edge snapshot (KV or something else). This adds a binding to `wrangler.jsonc` / `wrangler.api.jsonc`. Propose before building.
+- A new species or a slug change in D1 needs a deploy before its URL resolves.
+- Aliases still live in `KA_SLUG_ALIASES` (code); `species_slugs` in D1 holds them too but no public endpoint exposes them.
+- The MDX import (`speciesImportSource`) computes its own slugs from MDX, so the test database no longer reads the generated table.
+- A KV snapshot refreshed on writes remains the option if deploy-time slugs become a problem.
 
 ### 3. S5 — delete species MDX
 
@@ -67,7 +58,7 @@ So a species added only through the API returns 404.
 
 - `src/content/species/*`;
 - the species part of `scripts/compile-species.ts`;
-- `src/data/species.generated.ts`, `speciesSlugs.generated.ts` and `fieldRecords.generated.json`;
+- `src/data/species.generated.ts` and `fieldRecords.generated.json`;
 - `src/data/species-en.ts`, `species-ru.ts`, `species-tr.ts` and `src/i18n/localizeSpecies.ts`;
 - `getCatalogSpecies` / `getSpeciesById` in `src/data/species.ts`;
 - the `db:import:species*` scripts and `src/lib/speciesImportSource.ts`.

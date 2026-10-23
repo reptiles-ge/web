@@ -62,7 +62,7 @@ src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
-src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
+src/data/speciesSlugs.generated.ts gitignored (Edge slug table, from the API)
 src/app/api/search/[locale] search index JSON, built from the API catalog (static per deploy)
 src/content/news/{slug}/  ka.mdx + en.mdx (+ ru/tr) → compile → src/data/news.generated.ts (gitignored)
 src/content/guides/{id}.ts long-form guide articles (all locales) → src/data/guideArticles.ts
@@ -96,7 +96,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 ## Species content pipeline
 
 1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit. Translation frontmatter is strict: only `id`, `scientificName`, `dateModified`, text fields, `identification`, and credit overlays (`imageCredit`, `mobileImageCredit`, `gallery`). Compile fails on any other key, a missing locale file, an unregistered folder, an overlay `src` not in the KA gallery, mismatched `identification.colors`, or a `faq` / `facts` / `stats` / `identification.traits` count that differs from KA.
-2. `pnpm species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts` and `src/data/speciesSlugs.generated.ts`.
+2. `pnpm species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts`. `pnpm slugs:compile` (also in `compile`) writes gitignored `src/data/speciesSlugs.generated.ts` from the API card catalog, so slug changes reach `src/proxy.ts` on the next deploy.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
 5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.

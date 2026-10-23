@@ -157,7 +157,7 @@ Image derivatives catalog to D1 and the Service Binding from the site to the API
 
 ## Phase 4 — slugs and 301s
 
-`src/proxy.ts` uses `speciesSlugs.generated`. Serve slug resolution from D1 (`species_slugs`) through a KV snapshot updated on writes, so the edge does not query D1 per request.
+`src/proxy.ts` uses `speciesSlugs.generated`. **Done as a build-time table (owner decision, 2026-10-23):** `pnpm slugs:compile` builds it from the API card catalog (`slug`, `group`) plus `KA_SLUG_ALIASES`, so slug changes need a deploy. The output is identical to the MDX-built table. A KV snapshot updated on writes stays the follow-up if that becomes a problem.
 
 ## Phase 5 — delete MDX
 
