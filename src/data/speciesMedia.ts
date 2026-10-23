@@ -35,6 +35,7 @@ export function overlayPhotoCredit(
   extra?: PhotoCredit,
 ): PhotoCredit | undefined {
   const photographer = extra?.photographer ?? base?.photographer;
+  const authorId = extra?.photographer ? extra.authorId : base?.authorId;
   const url = extra?.url ?? base?.url;
   const location = extra?.location ?? base?.location;
   const date = extra?.date ?? base?.date;
@@ -42,6 +43,7 @@ export function overlayPhotoCredit(
   const lng = base?.lng ?? extra?.lng;
   const photoConfidence = extra?.photoConfidence ?? base?.photoConfidence;
   const merged: PhotoCredit = {
+    ...(authorId ? { authorId } : {}),
     ...(photographer ? { photographer } : {}),
     ...(url ? { url } : {}),
     ...(location ? { location } : {}),

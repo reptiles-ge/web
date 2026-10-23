@@ -3,6 +3,12 @@ import { z } from "zod";
 import { locales } from "@/i18n/locales";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
+import {
+  AFFILIATIONS,
+  AUTHOR_JOB_TITLES,
+  AUTHOR_KINDS,
+  AUTHOR_ROLES,
+} from "./authors";
 import { ANIMAL_GROUPS } from "./species";
 import { HABITATS, PHOTO_CONFIDENCE } from "./speciesRecord";
 
@@ -81,6 +87,11 @@ const imageUrl = doc(z.string(), "Absolute image URL.", [
 const photoCredit = component(
   "PhotoCredit",
   z.strictObject({
+    authorId: doc(
+      z.string(),
+      "Id of the author this credit belongs to, in `/v1/authors`. Set whenever `photographer` is known to the atlas.",
+      ["zauri-khachidze"],
+    ).optional(),
     date: doc(
       z.string(),
       "When the photo was taken, as published: `YYYY-MM-DD`, `YYYY-MM`, or a localized day and month.",
@@ -430,6 +441,118 @@ export const catalogFullResponse = component(
     view: z.literal("full"),
   }),
   "Catalog in the `full` view.",
+);
+
+const authorId = doc(
+  z.string(),
+  "Stable author id, lowercase and hyphenated. For a contributor it is also the slug of their page on reptiles.ge.",
+  ["sandro-khakhva"],
+);
+
+const authorName = doc(
+  z.string(),
+  "Name in the requested locale, or the Georgian name when there is no translation.",
+  ["Sandro Khakhva"],
+);
+
+const authorKind = doc(
+  z.enum(AUTHOR_KINDS),
+  "`person`, or `page` for a project or organisation page.",
+);
+
+const authorRole = doc(
+  z.enum(AUTHOR_ROLES).nullable(),
+  "Main role shown on the contributor page. `null` for authors who are only credited on photos.",
+);
+
+const isContributor = doc(
+  z.boolean(),
+  "`true` when the author has a contributor page on reptiles.ge. Other authors are only credited on photos.",
+);
+
+const authorPhotoCount = doc(
+  z.int().min(0),
+  "Number of distinct photos of published species credited to this author.",
+);
+
+const authorSummary = component(
+  "AuthorSummary",
+  z.strictObject({
+    id: authorId,
+    isContributor,
+    kind: authorKind,
+    name: authorName,
+    photoCount: authorPhotoCount,
+    role: authorRole,
+  }),
+  "An author credited on atlas photos.",
+);
+
+const authorProfile = component(
+  "Author",
+  z.strictObject({
+    affiliations: doc(
+      z.array(z.enum(AFFILIATIONS)),
+      "Ids of the institutions the author is affiliated with, in display order.",
+    ),
+    aliases: doc(
+      z.array(z.string()),
+      "Every spelling of the author's name that appears in photo credits (`credit.photographer`), in any locale.",
+      [["Sandro Khakhva", "სანდრო ხახვა"]],
+    ),
+    bio: doc(
+      z.string(),
+      "Short biography in plain text, in the requested locale or Georgian.",
+    ).optional(),
+    id: authorId,
+    isContributor,
+    jobTitle: doc(
+      z.enum(AUTHOR_JOB_TITLES).nullable(),
+      "Job title, when the contributor page shows one.",
+    ),
+    kind: authorKind,
+    links: doc(
+      z.strictObject({
+        facebook: z.string().optional(),
+        inaturalist: z.string().optional(),
+        instagram: z.string().optional(),
+        researchGate: z.string().optional(),
+      }),
+      "Public profile links. Empty when there are none.",
+    ),
+    metaDescription: doc(
+      z.string(),
+      "Short page description for search results, in the requested locale.",
+    ).optional(),
+    name: authorName,
+    photoCount: authorPhotoCount,
+    portraitClass: doc(
+      z.string().nullable(),
+      "CSS `object-position` hint used to crop the portrait on reptiles.ge.",
+    ),
+    portraitSrc: doc(
+      z.string().nullable(),
+      "Portrait image URL. Set for contributors.",
+    ),
+    role: authorRole,
+  }),
+  "An author's profile.",
+);
+
+export const authorListResponse = component(
+  "AuthorListResponse",
+  z.strictObject({
+    data: z.array(authorSummary),
+    locale: resolvedLocale,
+    total,
+  }),
+  "Authors ordered by id.",
+);
+
+export const authorResponse = component(
+  "AuthorResponse",
+  z.strictObject({ data: authorProfile, locale: resolvedLocale }),
+  "One author's profile.",
 );
 
 export const errorResponse = component(

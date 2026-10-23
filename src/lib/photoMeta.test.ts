@@ -3,7 +3,12 @@ import { describe, expect, it } from "vitest";
 import { optimizedEntry } from "@/data/optimizedImages";
 import { galleryImageObject, galleryImageObjects } from "@/lib/photoMeta";
 
-import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  contributorDirectoryFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 
 describe("galleryImageObject", () => {
   it("points published photographers at their author page", () => {
@@ -17,6 +22,7 @@ describe("galleryImageObject", () => {
         scientificName: "Vipera kaznakovi",
       },
       "ka",
+      contributors,
     );
 
     expect(data).toEqual(
@@ -51,6 +57,7 @@ describe("galleryImageObject", () => {
         scientificName: "Buteo buteo",
       },
       "ka",
+      contributors,
     );
 
     expect(data.creditText).toBe("ველურ ბუნებასთან ახლოს");
@@ -82,6 +89,7 @@ describe("galleryImageObject", () => {
         scientificName: "Vipera kaznakovi",
       },
       "ka",
+      contributors,
     );
 
     expect(data.contentLocation).toEqual({
@@ -119,6 +127,7 @@ describe("galleryImageObjects", () => {
         scientificName: "Vipera kaznakovi",
       },
       "ka",
+      contributors,
     );
 
     expect(objects.map((item) => item.contentUrl)).toEqual([
@@ -146,7 +155,7 @@ describe("species photo JSON-LD URLs", () => {
     for (const species of catalogSpeciesFixture()) {
       for (const photo of species.gallery) {
         if (!optimizedEntry(photo.src)) continue;
-        const data = galleryImageObject(photo, species, "ka");
+        const data = galleryImageObject(photo, species, "ka", contributors);
         expect(data.contentUrl, photo.src).toMatch(
           /^https:\/\/cdn\.reptiles\.ge\/optimized\/.+-\d+\.(webp|avif)$/,
         );

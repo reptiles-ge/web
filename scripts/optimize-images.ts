@@ -19,7 +19,6 @@ import {
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
-import { CREDIT_AUTHORS } from "../src/data/creditAuthors";
 import {
   georgiaRegionPaths,
   type RegionPathId,
@@ -31,6 +30,7 @@ import type { OptimizedImageEntry } from "../src/data/optimizedImages";
 import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
 import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
 import { compactAsset, formatGeneratedImages } from "../src/lib/imageOptimize";
+import { getContributors } from "../src/lib/authorsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
@@ -208,7 +208,10 @@ function toStorageKey(src: string): string | null {
   return null;
 }
 
-function collectSources(species: CatalogPhotoSpecies[]): Map<string, string> {
+function collectSources(
+  species: CatalogPhotoSpecies[],
+  portraits: readonly string[],
+): Map<string, string> {
   const byKey = new Map<string, string>();
 
   const add = (src: string | undefined) => {
@@ -219,7 +222,7 @@ function collectSources(species: CatalogPhotoSpecies[]): Map<string, string> {
 
   for (const src of Object.values(siteImages)) add(src);
   for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
-  for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
+  for (const src of portraits) add(src);
   for (const id of Object.keys(georgiaRegionPaths) as RegionPathId[]) {
     add(getRegionHeroImage(id));
   }
@@ -239,6 +242,7 @@ function collectSources(species: CatalogPhotoSpecies[]): Map<string, string> {
 
 function collectTargets(
   species: CatalogPhotoSpecies[],
+  portraits: readonly string[],
   ids: string[],
   imageSources: string[],
   regionId: RegionPathId | undefined,
@@ -265,7 +269,7 @@ function collectTargets(
     const siteImageSources = new Set([
       ...Object.values(siteImages),
       ...Object.values(GROUP_HUB_ILLUSTRATIONS),
-      ...CREDIT_AUTHORS.map((author) => author.portraitSrc),
+      ...portraits,
     ]);
     for (const src of imageSources) {
       if (!siteImageSources.has(src)) {
@@ -293,7 +297,7 @@ function collectTargets(
       }
     }
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
-    for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
+    for (const src of portraits) add(src);
     for (const id of Object.keys(georgiaRegionPaths) as RegionPathId[]) {
       add(getRegionHeroImage(id));
     }
@@ -485,8 +489,12 @@ async function run() {
   const storage: StorageAdapter = createBunnyStorageContext().storage;
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
-  const species = await getSpeciesCatalog("ka", "photos");
-  const byKey = collectSources(species);
+  const [species, contributors] = await Promise.all([
+    getSpeciesCatalog("ka", "photos"),
+    getContributors("ka"),
+  ]);
+  const portraits = contributors.map((author) => author.portraitSrc);
+  const byKey = collectSources(species, portraits);
 
   if (options.emitOnly) {
     const current = await loadManifest(
@@ -500,6 +508,7 @@ async function run() {
 
   const discovered = collectTargets(
     species,
+    portraits,
     options.speciesIds,
     options.imageSources,
     options.regionId,

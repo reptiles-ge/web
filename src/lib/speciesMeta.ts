@@ -2,8 +2,11 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { creditAuthorName, getCreditAuthorByName } from "@/data/creditAuthors";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import {
+  type ContributorDirectory,
+  creditContributor,
+} from "@/lib/contributorCredits";
 import {
   metaDescriptionLimit,
   sentenceMetaDescription,
@@ -489,16 +492,15 @@ export function speciesPageMetaTitle(
 export function speciesPhotoAlt(
   commonName: string,
   scientificName: string,
-  credit?: PhotoCredit,
-  locale?: AppLocale,
+  credit: PhotoCredit | undefined,
+  contributors: ContributorDirectory,
 ) {
   const place = credit?.location?.trim();
   const parts = [`${commonName} (${scientificName})`];
   if (place) parts.push(place);
   if (credit?.photographer) {
-    const author = locale ? getCreditAuthorByName(credit.photographer) : null;
     parts.push(
-      author && locale ? creditAuthorName(author, locale) : credit.photographer,
+      creditContributor(contributors, credit)?.name ?? credit.photographer,
     );
   }
   return parts.join(" — ");

@@ -3,7 +3,6 @@ import type { SpeciesSummary } from "@/data/speciesTypes";
 import { getRegionsForSpecies } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { stableHash } from "@/lib/stableHash";
 
 const PROFILE_RELATED_LIMIT = 4;
@@ -24,7 +23,7 @@ const racerClusterIds = new Set<string>(RACER_CLUSTER_IDS);
 type RelatedCandidate = Pick<
   SpeciesSummary,
   "danger" | "family" | "genus" | "id" | "scientificName"
->;
+> & { lookalikes: readonly string[] };
 
 const profileRelatedIndexes = new WeakMap<
   readonly RelatedCandidate[],
@@ -35,7 +34,10 @@ export function getLookalikeSpecies<T extends RelatedCandidate>(
   id: string,
   catalog: readonly T[],
 ): T[] {
-  return pickByIds(getSpeciesLookalikes(id), catalog);
+  return pickByIds(
+    catalog.find((item) => item.id === id)?.lookalikes ?? [],
+    catalog,
+  );
 }
 
 export function getProfileRelatedSpecies<T extends RelatedCandidate>(
@@ -65,7 +67,7 @@ function buildProfileRelatedIndex(catalog: readonly RelatedCandidate[]) {
   const open: RelatedCandidate[] = [];
 
   for (const base of catalog) {
-    const lookalikes = new Set(getSpeciesLookalikes(base.id));
+    const lookalikes = new Set(base.lookalikes);
     for (const id of lookalikes) count(id);
     const fixed = PROFILE_RELATED_OVERRIDES[base.id];
     if (fixed) {
@@ -92,7 +94,7 @@ function buildProfileRelatedIndex(catalog: readonly RelatedCandidate[]) {
     const taken = new Set([
       base.id,
       ...(index.get(base.id) ?? []),
-      ...getSpeciesLookalikes(base.id),
+      ...base.lookalikes,
     ]);
     const group = getSpeciesAtlasMeta(base.id).group;
     const habitats = new Set(getSpeciesAtlasMeta(base.id).habitats);
@@ -181,7 +183,7 @@ function relatedScore(
   candidate: RelatedCandidate,
 ): number {
   let score = 0;
-  if (getSpeciesLookalikes(base.id).includes(candidate.id)) score += 80;
+  if (base.lookalikes.includes(candidate.id)) score += 80;
   if (candidate.genus === base.genus) score += 100;
   if (candidate.family === base.family) score += 40;
   if (candidate.danger === base.danger) score += 10;

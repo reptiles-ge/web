@@ -9,13 +9,13 @@ import {
 import { generateLizardQuiz } from "@/lib/snakeQuizEngine";
 
 import {
-  catalogSpeciesFixture,
+  speciesCatalogFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
 describe("quiz catalogs", () => {
   it("keeps the glass lizard out of the snake pool and in the lizard pool", () => {
-    const catalog = catalogSpeciesFixture();
+    const catalog = speciesCatalogFixture("ka");
     const snakes = getSnakeQuizCatalog(catalog);
     const lizards = getLizardQuizCatalog(catalog);
     expect(snakes.some((item) => item.id === "pseudopus-apodus")).toBe(false);
@@ -26,7 +26,7 @@ describe("quiz catalogs", () => {
   });
 
   it("does not collapse Darevskia into one option", () => {
-    const lizards = getLizardQuizCatalog(catalogSpeciesFixture());
+    const lizards = getLizardQuizCatalog(speciesCatalogFixture("ka"));
     const darevskia = lizards.filter((item) =>
       isDarevskiaSpecies(speciesFixture(item.id)!),
     );
@@ -37,7 +37,7 @@ describe("quiz catalogs", () => {
   });
 
   it("builds a lizard round from lizards only", () => {
-    const lizards = getLizardQuizCatalog(catalogSpeciesFixture());
+    const lizards = getLizardQuizCatalog(speciesCatalogFixture("ka"));
     const round = generateLizardQuiz(lizards, { rng: () => 0.2 });
     expect(round.length).toBe(10);
     const lizardIds = new Set(lizards.map((item) => item.id));
@@ -51,7 +51,9 @@ describe("quiz catalogs", () => {
 });
 
 describe("quiz hint", () => {
-  const base = speciesFixture("natrix-natrix")!;
+  const base = speciesCatalogFixture("ka").find(
+    (item) => item.id === "natrix-natrix",
+  )!;
   const species = (overrides: Partial<typeof base>) => ({
     ...base,
     id: "hint-test",
@@ -67,7 +69,7 @@ describe("quiz hint", () => {
         },
         stats: [{ label: "Местообитание", value: "Wet meadows" }],
       }),
-      catalogSpeciesFixture(),
+      speciesCatalogFixture("ka"),
     ).hint;
     expect(hint).toBe("Wet meadows");
   });
@@ -80,7 +82,7 @@ describe("quiz hint", () => {
           identification: { ...base.identification!, traits: [] },
           stats: [{ label, value: "Riverbanks" }],
         }),
-        catalogSpeciesFixture(),
+        speciesCatalogFixture("ka"),
       ).hint;
       expect(hint).toBe("Riverbanks");
     },

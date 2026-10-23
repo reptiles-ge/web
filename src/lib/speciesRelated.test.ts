@@ -7,9 +7,9 @@ import {
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
 
-import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
-const catalog = catalogSpeciesFixture();
+const catalog = speciesCatalogFixture("ka");
 
 describe("profile related species", () => {
   it("links every published species from another profile", () => {

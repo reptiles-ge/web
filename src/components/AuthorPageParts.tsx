@@ -3,7 +3,7 @@ import type { ComponentType } from "react";
 import { ArrowUpRight, CalendarDays, Images, MapPin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { CreditAuthor } from "@/data/creditAuthors";
+import type { ContributorProfile } from "@/data/authors";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorGroupStat } from "@/lib/creditAuthors";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -50,7 +50,7 @@ export async function AuthorIdentity({
   photos,
   socials,
 }: {
-  author: CreditAuthor;
+  author: ContributorProfile;
   bio?: string;
   locale: AppLocale;
   name: string;

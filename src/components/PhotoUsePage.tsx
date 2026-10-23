@@ -11,11 +11,12 @@ import {
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import { BrandText } from "@/components/BrandName";
 import { ContactMailto } from "@/components/ContactMailto";
 import { PhotoPermissionNotes } from "@/components/PhotoPermissionNotes";
-import { creditAuthorHref, creditAuthorName } from "@/data/creditAuthors";
+import { creditAuthorHref } from "@/data/authors";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -23,6 +24,7 @@ import {
 } from "@/data/optimizedImages";
 import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
 import { Link } from "@/i18n/navigation";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 import {
   getPhotoUseCreditExample,
@@ -64,13 +66,16 @@ const NUMBER_FORMATS = new Map<AppLocale, Intl.NumberFormat>();
 type Translate = Awaited<ReturnType<typeof getTranslations<"photoUse">>>;
 
 export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
-  const [t, creditPhotos, catalog] = await Promise.all([
+  const [t, creditPhotos, catalog, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "photoUse" }),
     getCreditPhotoCatalog(),
     getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
   ]);
-  const photos = getPhotoUsePhotos(creditPhotos);
-  const showcase = getPhotoUseShowcase(getPhotoUseHeroPhotos(creditPhotos));
+  const photos = getPhotoUsePhotos(creditPhotos, contributors);
+  const showcase = getPhotoUseShowcase(
+    getPhotoUseHeroPhotos(creditPhotos, contributors),
+  );
   const speciesById = new Map(catalog.map((item) => [item.id, item]));
 
   return (
@@ -83,6 +88,7 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
           {t("intro")}
         </p>
         <PhotoUseShowcase
+          contributors={contributors}
           locale={locale}
           showcase={showcase}
           speciesById={speciesById}
@@ -92,6 +98,7 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
       </section>
       <PhotoUseCards locale={locale} t={t} />
       <PhotoUseCreditExample
+        contributors={contributors}
         locale={locale}
         photos={photos}
         speciesById={speciesById}
@@ -221,11 +228,13 @@ function PhotoUseCards({ locale, t }: { locale: AppLocale; t: Translate }) {
 }
 
 function PhotoUseCreditExample({
+  contributors,
   locale,
   photos,
   speciesById,
   t,
 }: {
+  contributors: ContributorDirectory;
   locale: AppLocale;
   photos: PhotoUsePhoto[];
   speciesById: ReadonlyMap<string, CatalogCard>;
@@ -258,7 +267,7 @@ function PhotoUseCreditExample({
                 localized.commonName,
                 localized.scientificName,
                 example.photo.credit,
-                locale,
+                contributors,
               )}
               sizes={EXAMPLE_SIZES}
               src={example.photo.src}
@@ -440,11 +449,13 @@ function PhotoUsePicture({
 }
 
 function PhotoUseShowcase({
+  contributors,
   locale,
   showcase,
   speciesById,
   t,
 }: {
+  contributors: ContributorDirectory;
   locale: AppLocale;
   showcase: ReturnType<typeof getPhotoUseShowcase>;
   speciesById: ReadonlyMap<string, CatalogCard>;
@@ -476,7 +487,7 @@ function PhotoUseShowcase({
                     species.commonName,
                     species.scientificName,
                     photo.credit,
-                    locale,
+                    contributors,
                   )}
                   eager={index < EAGER_TILES}
                   sizes={TILE_SIZES}
@@ -495,12 +506,12 @@ function PhotoUseShowcase({
                     author: (chunks) => (
                       <Link
                         className={`${linkClass} text-(--nw-soft)`}
-                        href={creditAuthorHref(photo.author.slug)}
+                        href={creditAuthorHref(photo.author.id)}
                       >
                         {chunks}
                       </Link>
                     ),
-                    name: creditAuthorName(photo.author, locale),
+                    name: photo.author.name,
                   })}
                 </span>
               </figcaption>

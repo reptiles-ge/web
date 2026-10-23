@@ -33,6 +33,7 @@ const url = z.url();
 
 const credit = z
   .strictObject({
+    authorId: z.string().optional(),
     date: z.string().optional(),
     lat: z.number().min(-90).max(90).optional(),
     lng: z.number().min(-180).max(180).optional(),

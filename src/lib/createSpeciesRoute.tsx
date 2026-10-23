@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound, permanentRedirect } from "next/navigation";
 
 import type { Species } from "@/data/species";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
@@ -17,6 +18,7 @@ import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { photoRights } from "@/lib/imageRights";
@@ -215,10 +217,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       notFound();
     }
     const { item, raw } = loaded;
-    const [catalog, tProfile, tHubs] = await Promise.all([
+    const [catalog, tProfile, tHubs, contributors] = await Promise.all([
       getSpeciesCatalog(locale),
       getTranslations({ locale, namespace: "profile" }),
       getTranslations({ locale, namespace: "groupHubShared" }),
+      getContributorDirectory(locale),
     ]);
     const lookalikes = getLookalikeSpecies(raw.id, catalog);
     const related = getProfileRelatedSpecies(raw.id, catalog);
@@ -238,6 +241,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const structuredData = speciesStructuredData({
       breadcrumbCrumbs,
+      contributors,
       galleryTitle: tProfile("galleryTitle"),
       item,
       locale,
@@ -374,6 +378,7 @@ function speciesSameAs(raw: Species) {
 
 function speciesStructuredData({
   breadcrumbCrumbs,
+  contributors,
   galleryTitle,
   item,
   locale,
@@ -382,6 +387,7 @@ function speciesStructuredData({
   raw,
 }: {
   breadcrumbCrumbs: ReturnType<typeof buildSpeciesBreadcrumbs>;
+  contributors: ContributorDirectory;
   galleryTitle: string;
   item: Species;
   locale: AppLocale;
@@ -393,6 +399,7 @@ function speciesStructuredData({
     getSpeciesHeroSources(item).gallery,
     item,
     locale,
+    contributors,
   ).map((photo, index) => ({
     "@id": `${pageUrl}#photo-${index + 1}`,
     ...photo,
@@ -409,8 +416,8 @@ function speciesStructuredData({
     name: `${item.commonName} (${item.scientificName})`,
     url: ogImage,
     ...(ogImage === speciesOgImageUrl(item.id)
-      ? photoRights(ogImage, undefined, locale)
-      : photoRights(item.image, item.imageCredit, locale)),
+      ? photoRights(ogImage, undefined, locale, contributors)
+      : photoRights(item.image, item.imageCredit, locale, contributors)),
   };
   const jsonLd = {
     "@context": "https://schema.org",

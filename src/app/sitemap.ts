@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import {
@@ -11,6 +10,7 @@ import {
 } from "@/data/pageLastModified";
 import { regions } from "@/data/regions";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getContributors } from "@/lib/authorsApi";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
   creditAuthorAlternates,
@@ -77,9 +77,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
-  const [catalogs, creditPhotos] = await Promise.all([
+  const [catalogs, creditPhotos, contributors] = await Promise.all([
     Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
     getCreditPhotoCatalog(),
+    getContributors(routing.defaultLocale),
   ]);
   const photosById = new Map(creditPhotos.map((item) => [item.id, item]));
   const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
@@ -183,17 +184,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
-    for (const author of getPublishedCreditAuthors()) {
+    for (const author of contributors) {
       const photos = getCreditAuthorPhotos(author, creditPhotos);
-      const { languages } = creditAuthorAlternates(locale, author.slug);
+      const { languages } = creditAuthorAlternates(locale, author.id);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
       add(
-        authorModifiedDate(author.slug, locale, cards, creditPhotos).then(
+        authorModifiedDate(author.id, locale, cards, creditPhotos).then(
           (date) => ({
             alternates: { languages },
-            datePublished: sitemapAuthorDatePublished(author.slug),
+            datePublished: sitemapAuthorDatePublished(author.id),
             lastModified: toLastModified(date),
-            url: creditAuthorUrl(locale, author.slug),
+            url: creditAuthorUrl(locale, author.id),
             ...(images.length > 0 ? { images } : {}),
           }),
         ),

@@ -92,7 +92,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import site species modules (`speciesPublish`, `speciesSlugTable`, `speciesSlugs.generated`, `speciesRoutes`); the guard test fails if it does, and the Worker stays small (about 190 KB gzip). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
 - `:slug` accepts only the public slug of the requested locale (`X-Locale`, the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
 - Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin, X-Locale`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
-- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
+- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
@@ -166,7 +166,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ### Catalog (list consumers)
 
-- `GET /v1/catalog?view=card|photos|quiz|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
+- `GET /v1/catalog?view=card|photos|quiz|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids: the species' own list first, then reverse links ordered by id, unpublished peers left out). The site reads lookalikes only from this field; there is no list in code. It is edge-cached and supports `X-Cache-Bypass`.
   - `card` (default, about 130–210 KB per locale) is for hubs, lists, home, cards and stats. Its fields are `SPECIES_CARD_KEYS` (`commonName, danger, description, family, genus, id, image, imageCredit, location, mobileImage, mobileImageCredit, publishedAt, scientificName, stats, updatedAt`) plus `photoCount`.
   - `photos` (about 0.47–0.59 MB per locale) is the card fields plus `gallery` (`SPECIES_PHOTO_KEYS`), for photo credits: contributor pages, photo-use, news image rights. Credit matching uses the KA view (`getCreditPhotoCatalog()`), because translations localize photographer names.
   - `quiz` (about 0.8–1.4 MB per locale) is the card fields plus `facts`, `gallery` and `identification` (`SPECIES_QUIZ_KEYS`), for the identification quizzes.
@@ -180,6 +180,16 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
 - Public read: `GET /v1/species/:slug/field-records` (same slug and `X-Locale` rule) returns `{ data, id, total }`, edge-cached.
 - They were copied once from MDX. The site reads them through `getSpeciesFieldRecords(id)` (`src/lib/speciesFieldRecordsApi.ts`) for the profile map, and through `/api/occurrences/{id}/{locale}` for the map's records.
+
+### Authors
+
+- Migration `0006_authors.sql` adds `authors` (id = contributor page slug, `kind`, `role`, `job_title`, **`is_contributor`**, portrait, links), `author_texts` (name, bio and meta description per locale; `ka` required), `author_aliases` (every spelling used in photo credits) and `author_affiliations`, with lookup tables for kinds, roles, job titles and affiliations. `species_media` and `species_media_overlays` gain a nullable `author_id`.
+- `is_contributor = 1` means the author has a contributor page on reptiles.ge. Everyone else credited on a photo is an author too, with `is_contributor = 0`.
+- `author_id` is derived, never sent by clients: it is the `author_aliases` owner of the row's `credit_person`. Every species write relinks that species in the same batch (`relinkSpeciesAuthors`), and every author write relinks all photos (`RELINK_MEDIA_AUTHORS`). The credit text itself is unchanged.
+- `0007_authors_backfill.sql` was a one-off backfill from the contributor registry, the old credit-name translations and the photo credits. Its generator was deleted once it was applied; new authors and aliases go through `PUT /v1/admin/authors/:id`.
+- Every photo credit in API responses carries `authorId`. Outside Georgian, `photographer` is the author's name in that locale (`author_texts`) when there is one, looked up by the credit text through `author_aliases` (`readCreditPersonNames`, passed to `applySpeciesTranslation`); otherwise the credit text is kept. Place names are still localized in code (`creditNames.ts`).
+- Public: `GET /v1/authors` (`?contributor=true`) and `GET /v1/authors/:id`, edge-cached, localized by `X-Locale` with the Georgian name as fallback. Admin (token): `GET` and `PUT /v1/admin/authors/:id` (whole record; an alias owned by another author is a 400).
+- The site reads contributors only from these endpoints (`src/lib/authorsApi.ts`: `getContributors(locale)`, `getContributorDirectory(locale)`). Contributor pages, credit links, photo alt text, image rights JSON-LD, search, the sitemap and photo-use all take that data; client components read the directory from `ContributorsProvider`. A credit links to a contributor by `authorId`, or by its spelling when it has none (news MDX credits).
 
 ### Drafts (AI changes need approval)
 

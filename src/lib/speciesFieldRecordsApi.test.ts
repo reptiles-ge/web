@@ -30,7 +30,7 @@ describe("getSpeciesFieldRecords", () => {
     expect(await getSpeciesFieldRecords("dolichophis-caspius")).toEqual([]);
   });
 
-  it("sends the cache bypass secret when it is configured", async () => {
+  it("never sends the cache bypass secret on a read", async () => {
     const seen: Array<null | string> = [];
     server.use(
       http.get(
@@ -41,10 +41,9 @@ describe("getSpeciesFieldRecords", () => {
         },
       ),
     );
-    await getSpeciesFieldRecords("natrix-natrix");
     vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
     await getSpeciesFieldRecords("natrix-natrix");
-    expect(seen).toEqual([null, "fresh-secret"]);
+    expect(seen).toEqual([null]);
   });
 
   it("fails loudly when the API errors", async () => {

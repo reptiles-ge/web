@@ -17,6 +17,7 @@ import {
 import { NewsPagination } from "@/components/NewsPagination";
 import { newsSourceName } from "@/data/news";
 import { Link } from "@/i18n/navigation";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexDateFields, newsSourceBadges } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
@@ -54,11 +55,12 @@ export async function NewsIndexPage({
   pageCount,
   total,
 }: NewsIndexPageProps) {
-  const [t, tNav, tShared, catalog] = await Promise.all([
+  const [t, tNav, tShared, catalog, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
   ]);
 
   const entries = articles.map((article) =>
@@ -70,6 +72,7 @@ export async function NewsIndexPage({
         topicLabel: (hub) => tNav(hub),
       },
       catalog,
+      contributors,
     ),
   );
   const [lead, ...rest] = entries;

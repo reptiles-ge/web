@@ -14,7 +14,7 @@ afterEach(() => {
 });
 
 describe("getSpeciesProfile", () => {
-  it("sends the cache bypass secret only when it is configured", async () => {
+  it("never sends the cache bypass secret on a read", async () => {
     const seen: Array<null | string> = [];
     server.use(
       http.get("https://api.reptiles.ge/v1/species/:slug", ({ request }) => {
@@ -25,10 +25,9 @@ describe("getSpeciesProfile", () => {
         );
       }),
     );
-    await getSpeciesProfile("testudo-graeca", "ka");
     vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
     await getSpeciesProfile("testudo-graeca", "en");
-    expect(seen).toEqual([null, "fresh-secret"]);
+    expect(seen).toEqual([null]);
   });
 
   it("loads the localized profile from api.reptiles.ge", async () => {

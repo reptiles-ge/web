@@ -2,6 +2,7 @@ import { revalidateTag } from "next/cache";
 import { z } from "zod";
 
 import { serverEnv } from "@/lib/env";
+import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
       { headers: noindex, status: 400 },
     );
   }
+  await refreshSpeciesApiCache(parsed.data.tags);
   for (const tag of parsed.data.tags) revalidateTag(tag, "max");
   return new Response(null, { headers: noindex, status: 204 });
 }

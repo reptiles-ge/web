@@ -1,8 +1,5 @@
-import type {
-  PhotoCredit,
-  SpeciesQuizFields,
-  SpeciesSummary,
-} from "@/data/speciesTypes";
+import type { CatalogQuizSpecies } from "@/data/speciesCatalogTypes";
+import type { PhotoCredit, SpeciesSummary } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
@@ -87,7 +84,7 @@ export async function getSpeciesQuizTeaser(
 export function quizTeaserOptionIds(
   speciesId: string,
   quizId: QuizTeaserId,
-  catalog: readonly SpeciesQuizFields[],
+  catalog: readonly CatalogQuizSpecies[],
 ) {
   const pool = getQuizPool(quizId, catalog);
   if (pool.length < QUIZ_OPTION_COUNT) return null;
@@ -117,13 +114,13 @@ export function quizTeaserOptionIds(
 }
 
 const quizPools = new WeakMap<
-  readonly SpeciesQuizFields[],
+  readonly CatalogQuizSpecies[],
   Map<QuizTeaserId, SnakeQuizSpecies[]>
 >();
 
 function getQuizPool(
   quizId: QuizTeaserId,
-  catalog: readonly SpeciesQuizFields[],
+  catalog: readonly CatalogQuizSpecies[],
 ) {
   let pools = quizPools.get(catalog);
   if (!pools) {

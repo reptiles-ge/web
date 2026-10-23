@@ -2,7 +2,6 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { getPublishedCreditAuthors } from "../src/data/creditAuthors";
 import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
@@ -15,6 +14,7 @@ import { regions } from "../src/data/regions";
 import type { AnimalGroup } from "../src/data/speciesAtlas";
 import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
+import { getContributors } from "../src/lib/authorsApi";
 import { creditAuthorUrl } from "../src/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "../src/lib/groupHubs";
 import { buildRobotsTxt } from "../src/lib/robotsTxt";
@@ -1372,29 +1372,35 @@ function newsInventory(): InventoryItem[] {
 }
 
 async function authorInventory(): Promise<InventoryItem[]> {
+  const lists = await Promise.all(
+    routing.locales.map(async (locale) => ({
+      authors: await getContributors(locale),
+      locale,
+    })),
+  );
   return Promise.all(
-    routing.locales.flatMap((locale) =>
-      getPublishedCreditAuthors().map(async (author) => {
-        const name = author.name[locale] ?? author.name.ka;
+    lists.flatMap(({ authors, locale }) =>
+      authors.map(async (author) => {
+        const name = author.name;
         return {
           alternates: {},
           canonicalUrl: "",
           description: null,
           group: null,
           h1: name,
-          id: author.slug,
+          id: author.id,
           inSitemap: true,
           indexable: true,
           internalLinksIn: null,
           internalLinksOut: null,
-          datePublished: sitemapAuthorDatePublished(author.slug),
-          lastModified: await authorModifiedDate(author.slug, locale),
+          datePublished: sitemapAuthorDatePublished(author.id),
+          lastModified: await authorModifiedDate(author.id, locale),
           locale,
           pageType: "author",
-          path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
+          path: new URL(creditAuthorUrl(locale, author.id)).pathname,
           schemaTypes: ["ProfilePage", "BreadcrumbList"],
           title: name,
-          url: normalizeUrl(creditAuthorUrl(locale, author.slug)),
+          url: normalizeUrl(creditAuthorUrl(locale, author.id)),
         };
       }),
     ),
@@ -1986,7 +1992,10 @@ const INSPECTION_QUOTA: Record<InspectionFamily, Record<AppLocale, number>> = {
   species: { en: 6, ka: 14, ru: 4, tr: 3 },
 };
 
-function inspectionFamilies(speciesIds: readonly string[]) {
+function inspectionFamilies(
+  speciesIds: readonly string[],
+  authorIds: readonly string[],
+) {
   const families = new Map<string, InspectionFamily>();
   const add = (url: string, family: InspectionFamily) =>
     families.set(normalizeUrl(url), family);
@@ -2009,8 +2018,7 @@ function inspectionFamilies(speciesIds: readonly string[]) {
     for (const id of speciesIds) add(speciesPageUrl(locale, id), "species");
     for (const article of getPublishedNewsArticles(locale))
       add(newsArticleUrl(locale, article.slug), "news");
-    for (const author of getPublishedCreditAuthors())
-      add(creditAuthorUrl(locale, author.slug), "author");
+    for (const id of authorIds) add(creditAuthorUrl(locale, id), "author");
     for (const quiz of liveQuizzes()) add(quizPageUrl(locale, quiz.id), "quiz");
   }
   return families;
@@ -2025,6 +2033,7 @@ async function urlInspectionSample() {
   );
   const families = inspectionFamilies(
     (await getSpeciesCatalog(routing.defaultLocale)).map((item) => item.id),
+    (await getContributors(routing.defaultLocale)).map((author) => author.id),
   );
   const buckets = new Map<string, string[]>();
   for (const url of urls) {

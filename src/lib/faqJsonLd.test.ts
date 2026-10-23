@@ -29,8 +29,11 @@ import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
 import {
   catalogSpeciesFixture,
+  contributorDirectoryFixture,
   localizedFixture,
 } from "../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 
 vi.mock("@/lib/speciesCatalogApi", async () => {
   const { speciesCatalogFixture } =
@@ -208,6 +211,7 @@ describe("FAQPage generators", () => {
         const pages = (
           speciesStructuredData({
             breadcrumbCrumbs: [{ name: item.commonName }],
+            contributors,
             galleryTitle: "gallery",
             item,
             locale,
@@ -230,6 +234,7 @@ describe("FAQPage generators", () => {
       const page = (
         speciesStructuredData({
           breadcrumbCrumbs: [{ name: item.commonName }],
+          contributors,
           galleryTitle: "gallery",
           item,
           locale,

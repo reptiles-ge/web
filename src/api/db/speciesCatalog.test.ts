@@ -4,6 +4,7 @@ import {
   createSpeciesTestDatabase,
   createTestDatabase,
 } from "../testing/sqliteDatabase";
+import { RELINK_MEDIA_AUTHORS } from "./authors";
 import { readSpeciesCatalog, type SpeciesCatalogData } from "./speciesCatalog";
 import { speciesRecordRows } from "./speciesRows";
 import { SPECIES_TABLES } from "./speciesSchema";
@@ -47,6 +48,7 @@ describe("species in D1", () => {
         fresh.sqlite.exec(statement);
       }
     }
+    for (const statement of RELINK_MEDIA_AUTHORS) fresh.sqlite.exec(statement);
     expect(await readSpeciesCatalog(fresh.db)).toStrictEqual(source);
   });
 

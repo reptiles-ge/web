@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import type { NewsArticle } from "@/data/news";
 import type { NewsSectionBlock } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -32,6 +33,7 @@ import { localizeRegionText } from "@/data/regions";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import {
@@ -96,13 +98,14 @@ export async function NewsArticlePage({
   const copy = getNewsCopy(article, locale);
   if (!copy) return null;
   const editable = locale === "ka" && isLocalAdminEnabled();
-  const [t, facts, atlasLinks, catalog] = await Promise.all([
+  const [t, facts, atlasLinks, catalog, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     newsFacts(article, locale),
     newsAtlasLinks(article, locale),
     getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
   ]);
-  const visual = getNewsVisual(article, locale, catalog);
+  const visual = getNewsVisual(article, locale, catalog, contributors);
   const tocItems = copy.sections.flatMap((section) => {
     const id = slugify(section.heading);
     return id ? [{ id, label: section.heading }] : [];
@@ -577,6 +580,7 @@ function NewsAtlasLinks({
 function NewsContinueCard({
   article,
   catalog,
+  contributors,
   dark = false,
   eyebrow,
   footer,
@@ -584,12 +588,13 @@ function NewsContinueCard({
 }: {
   article: NewsArticle;
   catalog: readonly NewsSpecies[];
+  contributors: ContributorDirectory;
   dark?: boolean;
   eyebrow: null | string;
   footer: string;
   locale: AppLocale;
 }) {
-  const visual = getNewsVisual(article, locale, catalog);
+  const visual = getNewsVisual(article, locale, catalog, contributors);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   return (
     <Link
@@ -652,10 +657,11 @@ async function NewsContinueReading({
   article: NewsArticle;
   locale: AppLocale;
 }) {
-  const [t, tNav, catalog] = await Promise.all([
+  const [t, tNav, catalog, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
   ]);
   const { next, related } = pickContinueReading(article, locale);
   const relatedHubId = related ? newsCategoryHub(related) : undefined;
@@ -693,6 +699,7 @@ async function NewsContinueReading({
             <NewsContinueCard
               article={related}
               catalog={catalog}
+              contributors={contributors}
               eyebrow={relatedHubId ? tNav(relatedHubId) : null}
               footer={t("readTime", {
                 minutes: newsReadMinutes(related, locale),
@@ -706,6 +713,7 @@ async function NewsContinueReading({
             <NewsContinueCard
               article={next}
               catalog={catalog}
+              contributors={contributors}
               dark
               eyebrow={t("nextArticle")}
               footer={t("read")}

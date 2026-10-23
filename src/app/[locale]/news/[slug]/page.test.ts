@@ -12,7 +12,12 @@ import en from "../../../../../messages/en.json";
 import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
-import { speciesCatalogFixture } from "../../../../../tests/fixtures/speciesCatalog";
+import {
+  contributorDirectoryFixture,
+  speciesCatalogFixture,
+} from "../../../../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 import NewsArticleRoute, { generateMetadata } from "./page";
 
 const messages = { en, ka, ru, tr };
@@ -50,6 +55,7 @@ describe("news article JSON-LD", () => {
           locale,
           speciesCatalogFixture(locale),
           speciesCatalogFixture("ka"),
+          contributors,
         ),
       );
       expect(Array.isArray(articleLd.image)).toBe(true);

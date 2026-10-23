@@ -9,6 +9,7 @@ export type GalleryImage = {
 };
 
 export type PhotoCredit = {
+  authorId?: string;
   date?: string;
   lat?: number;
   lng?: number;

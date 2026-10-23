@@ -1,5 +1,6 @@
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
+import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import {
   NEWS_SCHEMA_IMAGE_MIN_WIDTH,
@@ -52,8 +53,15 @@ export function newsSchemaImages(
   locale: AppLocale,
   catalog: readonly NewsSpecies[],
   photos: readonly AtlasPhotoSource[],
+  contributors: ContributorDirectory,
 ) {
-  const rights = newsImageRights(article, locale, catalog, photos);
+  const rights = newsImageRights(
+    article,
+    locale,
+    catalog,
+    photos,
+    contributors,
+  );
   const ogImage = newsOgImageUrl(article, catalog);
   const images = [
     imageObject(ogImage, newsOgImageDimensions(article, catalog), rights),

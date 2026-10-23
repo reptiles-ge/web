@@ -7,12 +7,12 @@ import {
   SPECIES_QUIZ_KEYS,
 } from "@/data/speciesTypes";
 import { locales } from "@/i18n/locales";
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import {
   catalogSpeciesFixture,
   localizedFixture,
+  lookalikesFixture,
 } from "../../../tests/fixtures/speciesCatalog";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
@@ -54,7 +54,7 @@ async function expected(
         ...fields,
         group: speciesAtlasMeta[item.id]?.group,
         habitats: speciesAtlasMeta[item.id]?.habitats,
-        lookalikes: getSpeciesLookalikes(item.id),
+        lookalikes: lookalikesFixture(item.id),
         ...(view === "card" ? { photoCount: item.gallery.length } : {}),
         slug: getSpeciesPublicSlug(item.id, locale),
       };

@@ -5,9 +5,12 @@ import { getSpeciesHeroSources } from "@/lib/speciesContent";
 
 import {
   catalogSpeciesFixture,
+  contributorDirectoryFixture,
   localizedFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 
 const CHEIRACANTHIUM_URL =
   "https://reptiles.ge/en/spiders/cheiracanthium-punctorium";
@@ -70,6 +73,7 @@ describe("species structured data", () => {
       const shown = getSpeciesHeroSources(localized).gallery.length;
       const gallery = speciesStructuredData({
         breadcrumbCrumbs: [{ name: localized.commonName }],
+        contributors,
         galleryTitle: "gallery",
         item: localized,
         locale: "ka",
@@ -91,6 +95,7 @@ describe("species structured data", () => {
       const localized = localizedFixture(raw!, locale);
       const jsonLd = speciesStructuredData({
         breadcrumbCrumbs: [{ name: localized.commonName }],
+        contributors,
         galleryTitle: "gallery",
         item: localized,
         locale,
@@ -119,6 +124,7 @@ describe("species structured data", () => {
     const pageUrl = "https://reptiles.ge/gvelebi/giurza";
     const jsonLd = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
+      contributors,
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",
@@ -191,6 +197,7 @@ describe("species structured data", () => {
         { href: "/species", name: "Species" },
         { name: localized.commonName },
       ],
+      contributors,
       galleryTitle: "gallery",
       item: localized,
       locale: "en",
@@ -247,6 +254,7 @@ describe("species structured data", () => {
         { href: "/species", name: "სახეობები" },
         { name: localized.commonName },
       ],
+      contributors,
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",
@@ -283,6 +291,7 @@ describe("species structured data", () => {
     const localized = localizedFixture(raw, "en");
     const article = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
+      contributors,
       galleryTitle: "gallery",
       item: localized,
       locale: "en",
@@ -325,6 +334,7 @@ describe("species structured data", () => {
         const localized = localizedFixture(raw, locale);
         const article = speciesStructuredData({
           breadcrumbCrumbs: [{ name: localized.commonName }],
+          contributors,
           galleryTitle: "gallery",
           item: localized,
           locale,
@@ -356,6 +366,7 @@ describe("species structured data", () => {
     const localized = localizedFixture(raw!, "ka");
     const faq = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
+      contributors,
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",

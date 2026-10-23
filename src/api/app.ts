@@ -9,7 +9,9 @@ import type { ApiEnv } from "./env";
 import { ApiError, errorResponse, handleError } from "./lib/errors";
 import { allowedOrigins } from "./lib/origins";
 import { noindex } from "./middleware/noindex";
+import { adminAuthors } from "./routes/adminAuthors";
 import { adminSpecies } from "./routes/adminSpecies";
+import { authors } from "./routes/authors";
 import { catalog } from "./routes/catalog";
 import { docs } from "./routes/docs";
 import { ratings } from "./routes/ratings";
@@ -47,7 +49,9 @@ export const app = new Hono<ApiEnv>()
   .use(etag())
   .route("/v1/species", species)
   .route("/v1/catalog", catalog)
+  .route("/v1/authors", authors)
   .route("/v1/ratings", ratings)
+  .route("/v1/admin/authors", adminAuthors)
   .route("/v1/admin/species", adminSpecies)
   .route("/v1/docs", docs)
   .notFound((c) => errorResponse(c, 404, "not_found", "Not found"))

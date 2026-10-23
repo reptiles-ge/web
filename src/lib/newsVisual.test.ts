@@ -8,7 +8,10 @@ import {
   newsCategoryHub,
 } from "@/lib/newsVisual";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  contributorDirectoryFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const articles = getPublishedNewsArticles();
 const bare = {
@@ -82,7 +85,14 @@ describe("getNewsImageSrc", () => {
 
 describe("getNewsVisual", () => {
   it("returns null for an article with no image or relations", () => {
-    expect(getNewsVisual(bare, "en", speciesCatalogFixture("en"))).toBeNull();
+    expect(
+      getNewsVisual(
+        bare,
+        "en",
+        speciesCatalogFixture("en"),
+        contributorDirectoryFixture("en"),
+      ),
+    ).toBeNull();
   });
 
   it("uses the article image when present", () => {
@@ -90,6 +100,7 @@ describe("getNewsVisual", () => {
       { ...bare, image: { alt: { ka: "ალტ" }, src: "/own.jpg" } } as never,
       "ka",
       speciesCatalogFixture("ka"),
+      contributorDirectoryFixture("ka"),
     );
     expect(visual).toMatchObject({ alt: "ალტ", src: "/own.jpg" });
   });
@@ -99,6 +110,7 @@ describe("getNewsVisual", () => {
       { ...bare, relatedSpeciesIds: ["macrovipera-lebetina"] } as never,
       "en",
       speciesCatalogFixture("en"),
+      contributorDirectoryFixture("en"),
     );
     expect(visual?.fromAtlas).toBe(true);
     expect(visual?.alt).toContain("Macrovipera");
@@ -109,6 +121,7 @@ describe("getNewsVisual", () => {
       { ...bare, relatedRegionIds: ["kakheti"] } as never,
       "en",
       speciesCatalogFixture("en"),
+      contributorDirectoryFixture("en"),
     );
     expect(visual?.fromAtlas).toBe(true);
     expect(visual?.alt).toBeTruthy();

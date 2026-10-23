@@ -17,13 +17,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { BrandText } from "@/components/BrandName";
 import { CoverImage } from "@/components/CoverImage";
-import {
-  creditAuthorName,
-  getPublishedCreditAuthors,
-} from "@/data/creditAuthors";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { getContributors } from "@/lib/authorsApi";
 import { getCreditAuthorCards } from "@/lib/creditAuthors";
 import {
   GROUP_HUB_ILLUSTRATIONS,
@@ -175,11 +172,14 @@ async function AboutCompany({ locale }: { locale: AppLocale }) {
 }
 
 async function AboutContribute({ locale }: { locale: AppLocale }) {
-  const [t, creditPhotos] = await Promise.all([
+  const [t, creditPhotos, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "about" }),
     getCreditPhotoCatalog(),
+    getContributors(locale),
   ]);
-  const authors = getCreditAuthorCards(creditPhotos).map((card) => card.author);
+  const authors = getCreditAuthorCards(contributors, creditPhotos).map(
+    (card) => card.author,
+  );
 
   return (
     <section className={`${wrapClass} py-14 md:pt-[120px] md:pb-28`}>
@@ -214,7 +214,7 @@ async function AboutContribute({ locale }: { locale: AppLocale }) {
                     index > 0 ? "-ml-2.5 md:-ml-3" : ""
                   } ${index >= AVATAR_LIMIT.mobile ? "max-md:hidden" : ""}`}
                   key={author.id}
-                  title={creditAuthorName(author, locale)}
+                  title={author.name}
                 >
                   <CoverImage
                     alt=""
@@ -337,12 +337,13 @@ async function AboutExplore({ locale }: { locale: AppLocale }) {
 }
 
 async function AboutHero({ locale }: { locale: AppLocale }) {
-  const [t, tNav, stats] = await Promise.all([
+  const [t, tNav, stats, authors] = await Promise.all([
     getTranslations({ locale, namespace: "about" }),
     getTranslations({ locale, namespace: "nav" }),
     getAtlasStats(locale),
+    getContributors(locale),
   ]);
-  const contributors = getPublishedCreditAuthors().length;
+  const contributors = authors.length;
   const languages = routing.locales.length;
   const statItems = [
     { label: t("stats.species", { count: stats.total }), value: stats.total },

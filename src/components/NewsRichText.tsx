@@ -2,7 +2,7 @@ import type { NewsMark } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { creditAuthorHref } from "@/data/creditAuthors";
+import { creditAuthorHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { GROUP_HUBS } from "@/lib/groupHubs";

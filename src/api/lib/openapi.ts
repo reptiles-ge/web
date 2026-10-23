@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { authorListQuery, authorParam } from "../schemas/authors";
 import { catalogQuery } from "../schemas/catalog";
 import { LOCALE_HEADER, localeHeader } from "../schemas/common";
 import { responseSchemas } from "../schemas/responses";
@@ -26,7 +27,7 @@ type Operation = {
     schema: JsonSchema;
   };
   summary: string;
-  tag: "Catalog" | "Species";
+  tag: "Authors" | "Catalog" | "Species";
 };
 
 const ref = (id: string) => ({ $ref: `#/components/schemas/${id}` });
@@ -105,7 +106,7 @@ An empty string, an empty array or a missing optional field means the atlas has 
 
 ## Images, audio and credits
 
-Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`.
+Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`.
 
 ## Caching
 
@@ -224,6 +225,50 @@ const OPERATIONS: Operation[] = [
     summary: "Get the catalog",
     tag: "Catalog",
   },
+  {
+    description:
+      "Everyone credited on atlas photos, ordered by id. Pass `contributor=true` for only the contributors who have a page on reptiles.ge. `name` is localized; a photo credit's `photographer` text matches one of an author's `aliases`.",
+    errors: [400],
+    header: localeHeader,
+    method: "get",
+    operationId: "listAuthors",
+    path: "/v1/authors",
+    query: authorListQuery,
+    success: {
+      description: "Authors.",
+      examples: {
+        contributors: {
+          summary: "contributor=true, one author shown",
+          value: RESPONSE_EXAMPLES.authorList,
+        },
+      },
+      schema: ref("AuthorListResponse"),
+    },
+    summary: "List authors",
+    tag: "Authors",
+  },
+  {
+    description:
+      "One author's profile: localized name and biography, role, links, affiliations, the name spellings used in photo credits, and how many photos of published species they are credited on.",
+    errors: [400, 404],
+    header: localeHeader,
+    method: "get",
+    operationId: "getAuthor",
+    param: authorParam,
+    path: "/v1/authors/{id}",
+    success: {
+      description: "Author profile.",
+      examples: {
+        sandroKhakhva: {
+          summary: "A contributor",
+          value: RESPONSE_EXAMPLES.author,
+        },
+      },
+      schema: ref("AuthorResponse"),
+    },
+    summary: "Get an author",
+    tag: "Authors",
+  },
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = ["/v1/admin/", "/v1/ratings"];
@@ -307,6 +352,10 @@ export function buildOpenApiDocument() {
       {
         description: "All published species in one response.",
         name: "Catalog",
+      },
+      {
+        description: "Photographers and contributors credited on atlas photos.",
+        name: "Authors",
       },
     ],
   };

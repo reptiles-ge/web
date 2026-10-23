@@ -1,17 +1,14 @@
 "use client";
 
 import { Camera, Check } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import type { PhotoCredit } from "@/data/speciesTypes";
-import type { AppLocale } from "@/i18n/routing";
 
+import { useContributorDirectory } from "@/components/ContributorsProvider";
 import { MOBILE_HERO_PHOTO_CHANGE_EVENT } from "@/components/SpeciesMobileHeroCarousel";
-import {
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
+import { creditContributor } from "@/lib/contributorCredits";
 
 export function SpeciesMobileHeroCredit({
   credits,
@@ -21,7 +18,7 @@ export function SpeciesMobileHeroCredit({
   speciesId: string;
 }) {
   const t = useTranslations("profile");
-  const locale = useLocale() as AppLocale;
+  const contributors = useContributorDirectory();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -39,7 +36,7 @@ export function SpeciesMobileHeroCredit({
   const credit = credits[index];
   const photographer = credit?.photographer?.trim();
   if (!credit || !photographer) return null;
-  const author = getPublishedCreditAuthorByName(photographer);
+  const author = creditContributor(contributors, credit);
 
   return (
     <p
@@ -48,10 +45,7 @@ export function SpeciesMobileHeroCredit({
     >
       <Camera aria-hidden="true" className="size-3.5 shrink-0" />
       <span className="min-w-0 flex-1 truncate">
-        {[
-          author ? creditAuthorName(author, locale) : photographer,
-          credit.location,
-        ]
+        {[author ? author.name : photographer, credit.location]
           .filter(Boolean)
           .join(" · ")}
       </span>

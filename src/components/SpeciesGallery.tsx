@@ -9,18 +9,16 @@ import {
   GalleryOpenButton,
   SpeciesGalleryLightbox,
 } from "@/components/SpeciesGalleryLightbox";
-import {
-  creditAuthorHref,
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
+import { creditAuthorHref } from "@/data/authors";
 import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
+import { creditContributor } from "@/lib/contributorCredits";
 import { photoRightsCategory } from "@/lib/imageRights";
 import {
   GALLERY_LIGHTBOX_SIZES,
@@ -50,7 +48,10 @@ export async function SpeciesGallery({
   scientificName,
   speciesId,
 }: SpeciesGalleryProps) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const [t, contributors] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getContributorDirectory(locale),
+  ]);
   const photos = images.filter((item) => Boolean(item.src));
   const visiblePhotos = photos.slice(0, 5);
   const hasMore = photos.length > 5;
@@ -66,7 +67,7 @@ export async function SpeciesGallery({
   const listPhotographers =
     speciesId === "macrovipera-lebetina" ||
     photographers.some((photographer) =>
-      Boolean(getPublishedCreditAuthorByName(photographer)),
+      Boolean(creditContributor(contributors, { photographer })),
     );
 
   if (photos.length === 0) return null;
@@ -76,14 +77,15 @@ export async function SpeciesGallery({
   const slides = photos.map((photo) => {
     const entry = optimizedEntry(photo.src);
     return {
-      alt: speciesPhotoAlt(name, scientificName, photo.credit, locale),
+      alt: speciesPhotoAlt(name, scientificName, photo.credit, contributors),
       credit: photo.credit,
       height: entry?.height,
       photoConfidence: photo.photoConfidence,
       sources: pictureSources(photo.src, { sizes: GALLERY_LIGHTBOX_SIZES }),
       src: optimizedImgSrc(photo.src, 1200),
       usedWithPermission:
-        photoRightsCategory(photo.src, photo.credit) === "permission",
+        photoRightsCategory(photo.src, photo.credit, contributors) ===
+        "permission",
       width: entry?.width,
     };
   });
@@ -161,12 +163,8 @@ export async function SpeciesGallery({
                   ? featuredSizes
                   : thumbSizes;
               const photographer = photo.credit?.photographer?.trim();
-              const author = photographer
-                ? getPublishedCreditAuthorByName(photographer)
-                : undefined;
-              const creditName = author
-                ? creditAuthorName(author, locale)
-                : photographer;
+              const author = creditContributor(contributors, photo.credit);
+              const creditName = author ? author.name : photographer;
               const creditLocation = photo.credit?.location?.trim();
               return (
                 <div
@@ -218,7 +216,7 @@ export async function SpeciesGallery({
                         author ? (
                           <Link
                             className="pointer-events-auto rounded-sm underline decoration-white/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                            href={creditAuthorHref(author.slug)}
+                            href={creditAuthorHref(author.id)}
                           >
                             {creditName}
                           </Link>
@@ -237,17 +235,17 @@ export async function SpeciesGallery({
           {listPhotographers ? (
             <p className="mt-5 text-[12px] leading-relaxed text-white/65">
               {photographers.map((photographer, index) => {
-                const author = getPublishedCreditAuthorByName(photographer);
-                const label = author
-                  ? creditAuthorName(author, locale)
-                  : photographer;
+                const author = creditContributor(contributors, {
+                  photographer,
+                });
+                const label = author ? author.name : photographer;
                 return (
                   <span key={photographer}>
                     {index > 0 ? " · " : null}
                     {author ? (
                       <Link
                         className="underline decoration-white/35 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
-                        href={creditAuthorHref(author.slug)}
+                        href={creditAuthorHref(author.id)}
                       >
                         {label}
                       </Link>
