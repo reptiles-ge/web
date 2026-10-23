@@ -4,15 +4,16 @@ Status as of 2026-10-23. Nothing is built yet. Binding API rules are in `.agents
 
 ## Where things stand
 
-| Phase | What                                                                                                  | State     |
-| ----- | ----------------------------------------------------------------------------------------------------- | --------- |
-| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3 |
-| 1     | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ⏳        |
-| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ⏳        |
-| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳        |
-| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳        |
-| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳        |
-| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳        |
+| Phase | What                                                                                                  | State                                   |
+| ----- | ----------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                               |
+| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production |
+| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ⏳                                      |
+| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ⏳                                      |
+| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳                                      |
+| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                      |
+| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳                                      |
+| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                      |
 
 Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can each be split into several PRs. Exception: the create path of `news:import` (`POST /v1/admin/news` + the script) must ship **before** phase 3 switches the site to the API. From then on the site no longer reads MDX, so an article written in MDX reaches the site only through the import. Until phase 3, new articles are added both ways: MDX on `main` as today, and `news:import` into D1.
 
@@ -42,6 +43,17 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 ---
 
 ## Phase 1 — schema, import, round-trip
+
+### 1a — done (code only)
+
+- `migrations/api/0008_news.sql`: `news_series` (ids only; names stay in `NEWS_SERIES` for now), `news_articles`, `news_texts`, `news_sections` (blocks as a JSON array, checked with `json_valid`), `news_media` + `news_media_alts`, `news_sources`, `news_hubs`, `news_regions`, `news_species` (FK to `species`), and `news_import_runs` for the guard.
+- `src/api/db/newsSchema.ts` (columns), `newsRows.ts` (`newsRecordRows`, `buildNewsImport`, guard) and `news.ts` (`readNewsRecords(db, id?)`). A `NewsRecord` is `{ article: NewsArticle, position }`, the same `NewsArticle` shape the site uses today.
+- `news.test.ts`: the import of `news.generated.ts` reads back `toStrictEqual` for all 31 articles in all four locales (with `authorId` removed, since the compiled data has none), a read → rows → read round trip, a single-article read, author linking (`RELINK_NEWS_MEDIA_AUTHORS` in `db/authors.ts`, also part of `RELINK_MEDIA_AUTHORS`, so every author write relinks news photos too), row counts, the import guard, and the SQL checks.
+- `pnpm db:import:news` / `db:import:news:remote` (`scripts/export-news-sql.ts`): 43 statements. The guard makes a second run fail. Checked on local D1: 31 articles, 610 sections, 21 photos linked to authors.
+- Phase 0 items 2 and 3 were built the recommended way (parsed JSON body, series lookup table). Both can still change before the production import.
+- **Production:** `pnpm db:migrate:remote`, then `pnpm db:import:news:remote`, by hand, only when the owner says so. Until phase 3 nothing reads these tables, so MDX stays the live source and an article added in MDX after the import needs the per-article import (phase 5) or a re-import into an emptied table.
+
+### Original plan
 
 **Migration `0008_news.sql`** (number may shift):
 

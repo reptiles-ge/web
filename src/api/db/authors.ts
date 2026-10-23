@@ -33,9 +33,13 @@ const AUTHOR_TABLES = [
   },
 ] as const;
 
+export const RELINK_NEWS_MEDIA_AUTHORS =
+  "UPDATE news_media SET author_id = (SELECT author_id FROM author_aliases WHERE alias = news_media.credit_person);";
+
 export const RELINK_MEDIA_AUTHORS = [
   "UPDATE species_media SET author_id = (SELECT author_id FROM author_aliases WHERE alias = species_media.credit_person);",
   "UPDATE species_media_overlays SET author_id = (SELECT author_id FROM author_aliases WHERE alias = species_media_overlays.credit_person);",
+  RELINK_NEWS_MEDIA_AUTHORS,
 ];
 
 const RELINK_SPECIES_MEDIA =
