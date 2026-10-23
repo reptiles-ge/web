@@ -10,6 +10,8 @@ import { buildOpenApiDocument } from "../lib/openapi";
 import { RESPONSE_EXAMPLES } from "../lib/openapiExamples";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 import {
+  authorListResponse,
+  authorResponse,
   catalogCardResponse,
   catalogFullResponse,
   catalogPhotosResponse,
@@ -58,6 +60,33 @@ describe("documented response schemas", () => {
       );
       const quiz = await getJson("/v1/catalog?view=quiz", locale);
       expectValid(catalogQuizResponse, quiz.body, `catalog quiz ${locale}`);
+    }
+  });
+
+  it("describe every author list and profile", async () => {
+    for (const locale of locales) {
+      const { body: list } = await getJson("/v1/authors", locale);
+      expectValid(authorListResponse, list, `authors ${locale}`);
+      const contributors = await getJson(
+        "/v1/authors?contributor=true",
+        locale,
+      );
+      expectValid(
+        authorListResponse,
+        contributors.body,
+        `contributors ${locale}`,
+      );
+      for (const { id } of (
+        contributors.body as { data: Array<{ id: string }> }
+      ).data) {
+        const { body } = await getJson(`/v1/authors/${id}`, locale);
+        expectValid(authorResponse, body, `authors/${id} ${locale}`);
+      }
+    }
+    const { body } = await getJson("/v1/authors");
+    for (const { id } of (body as { data: Array<{ id: string }> }).data) {
+      const profile = await getJson(`/v1/authors/${id}`);
+      expectValid(authorResponse, profile.body, `authors/${id}`);
     }
   });
 

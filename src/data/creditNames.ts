@@ -1256,7 +1256,7 @@ const CREDIT_PLACES: Record<string, CreditNameTranslation> = {
   ჰუნავირი: { en: "Hunawihr", ru: "Унавир", tr: "Hunawihr" },
 };
 
-const CREDIT_PEOPLE: Record<string, CreditNameTranslation> = {
+export const CREDIT_PEOPLE: Record<string, CreditNameTranslation> = {
   "ალექსანდრე აბულაძე": {
     en: "Alexander Abuladze",
     ru: "Александр Абуладзе",

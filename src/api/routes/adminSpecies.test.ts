@@ -79,6 +79,25 @@ beforeEach(() => {
   };
 });
 
+describe("photo authors", () => {
+  it("keeps every photo linked to its author after a record write", async () => {
+    const linked = () =>
+      sqlite
+        .prepare(
+          "SELECT id, author_id FROM species_media WHERE species_id = ? AND credit_person IS NOT NULL ORDER BY role, position",
+        )
+        .all(ID) as Array<{ author_id: null | string }>;
+    const before = linked();
+    expect(before.length).toBeGreaterThan(0);
+    expect(before.every((row) => row.author_id)).toBe(true);
+    const { body } = await getRecord();
+    expect((await put(ID, edit(body.data.record))).status).toBe(200);
+    expect(linked().map((row) => row.author_id)).toEqual(
+      before.map((row) => row.author_id),
+    );
+  });
+});
+
 describe("species record validation", () => {
   it("accepts every species in the catalog as it is today", async () => {
     for (const id of (await readSpeciesCatalog(env.DB)).catalogIds) {
