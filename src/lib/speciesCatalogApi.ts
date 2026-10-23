@@ -1,5 +1,6 @@
 import { cache } from "react";
 
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type {
   CatalogCard,
   CatalogFullSpecies,
@@ -23,6 +24,8 @@ type CatalogEntries<View extends CatalogView> = View extends "full"
 
 type CatalogView = "card" | "full" | "photos" | "quiz";
 
+const VENOMOUS_SNAKE_LIMIT = 20;
+
 export const getSpeciesCatalog = cache(
   async <View extends CatalogView = "card">(
     locale: AppLocale,
@@ -36,6 +39,53 @@ export const getSpeciesCatalog = cache(
       throw new Error(`Species catalog API answered ${response.status}`);
     }
     return (await response.json()).data as CatalogEntries<View>;
+  },
+);
+
+export type CatalogCounts = {
+  groups: Record<AnimalGroup, number>;
+  lastUpdated: null | string;
+  photos: number;
+  total: number;
+  venomous: number;
+};
+
+export const getSpeciesCatalogCounts = cache(
+  async (locale: AppLocale): Promise<CatalogCounts> => {
+    const response = await createApiClient().v1.catalog.$get(
+      { header: { "x-locale": locale }, query: { limit: "1", view: "card" } },
+      speciesFetchOptions(["species"]),
+    );
+    if (!response.ok) {
+      throw new Error(`Species catalog API answered ${response.status}`);
+    }
+    const { facets, stats, total } = await response.json();
+    return {
+      groups: facets.group as Record<AnimalGroup, number>,
+      total,
+      ...stats,
+    };
+  },
+);
+
+export const getVenomousSnakeCards = cache(
+  async (locale: AppLocale): Promise<CatalogCard[]> => {
+    const response = await createApiClient().v1.catalog.$get(
+      {
+        header: { "x-locale": locale },
+        query: {
+          danger: "venomous",
+          group: "snake",
+          limit: String(VENOMOUS_SNAKE_LIMIT),
+          view: "card",
+        },
+      },
+      speciesFetchOptions(["species"]),
+    );
+    if (!response.ok) {
+      throw new Error(`Species catalog API answered ${response.status}`);
+    }
+    return (await response.json()).data as CatalogCard[];
   },
 );
 

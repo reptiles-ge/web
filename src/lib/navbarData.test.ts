@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { getAtlasStats } from "@/data/speciesAtlas";
+import { getAtlasStats, summarizeAtlas } from "@/data/speciesAtlas";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { getNavbarData } from "@/lib/navbarData";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 describe("getNavbarData", () => {
   it("builds one optimized image per group hub and atlas stats", async () => {
-    const data = getNavbarData(await getSpeciesCatalog("en"));
+    const data = getNavbarData(await getAtlasStats("en"));
 
     expect(Object.keys(data.images).sort()).toEqual(
       Object.keys(GROUP_HUB_ILLUSTRATIONS).sort(),
@@ -19,6 +19,6 @@ describe("getNavbarData", () => {
         expect(source.type).toMatch(/^image\//);
       }
     }
-    expect(data.stats).toEqual(await getAtlasStats("en"));
+    expect(data.stats).toEqual(summarizeAtlas(await getSpeciesCatalog("en")));
   });
 });

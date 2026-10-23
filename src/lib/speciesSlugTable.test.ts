@@ -3,9 +3,12 @@ import { describe, expect, it } from "vitest";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
+  publishedSpeciesSlugRows,
   resolveSpeciesId,
   resolveSpeciesIdInHub,
 } from "@/lib/speciesSlugTable";
+
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("species slug table", () => {
   it("uses KA slug overrides for public URLs", () => {
@@ -44,5 +47,18 @@ describe("species slug table", () => {
   it("maps published ids to hubs", () => {
     expect(getSpeciesHubId("macrovipera-lebetina")).toBe("snakes");
     expect(getSpeciesHubId("paralaudakia-caucasia")).toBe("lizards");
+  });
+
+  it("lists the KA slug and group of every published species", () => {
+    const rows = new Map(
+      publishedSpeciesSlugRows().map((row) => [row.id, row]),
+    );
+    for (const item of speciesCatalogFixture("ka")) {
+      expect(rows.get(item.id), item.id).toEqual({
+        group: item.group,
+        id: item.id,
+        slug: item.slug,
+      });
+    }
   });
 });

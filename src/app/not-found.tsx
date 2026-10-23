@@ -9,6 +9,7 @@ import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NotFoundShell } from "@/components/NotFoundShell";
 import { SkipLink } from "@/components/SkipLink";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   type ClientMessages,
   NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
@@ -18,7 +19,7 @@ import { routing } from "@/i18n/routing";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { getNavbarData } from "@/lib/navbarData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 export function generateMetadata(): Promise<Metadata> {
   return notFoundMetadata(routing.defaultLocale);
@@ -30,17 +31,19 @@ export default async function RootNotFound() {
     (await getMessages({ locale })) as ClientMessages,
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, catalog] = await Promise.all([
+  const [t, stats] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
-    getSpeciesCatalog(locale),
+    getAtlasStats(locale),
   ]);
   return (
     <RootDocument locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider index={getLocaleSwitchIndex(catalog)}>
+        <LocaleSwitchProvider
+          index={getLocaleSwitchIndex(publishedSpeciesSlugRows())}
+        >
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
-          <Navbar {...getNavbarData(catalog)} />
+          <Navbar {...getNavbarData(stats)} />
           <main id="main" tabIndex={-1}>
             <NotFoundShell locale={locale} />
           </main>
