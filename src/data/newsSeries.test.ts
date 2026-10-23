@@ -7,8 +7,7 @@ import {
 } from "@/data/news";
 import { NEWS_SERIES, newsSeriesIds, newsSeriesName } from "@/data/newsSeries";
 import { routing } from "@/i18n/routing";
-
-import { newsKaFrontmatterSchema } from "../../scripts/newsFrontmatter";
+import { newsKaFrontmatterSchema } from "@/lib/newsFrontmatter";
 
 const frontmatter = {
   dek: "Dek",
