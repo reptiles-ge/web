@@ -4,7 +4,6 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   getNewsArticleLocales,
   getNewsCopy,
-  getPublishedNewsArticleBySlug,
   getPublishedNewsArticles,
   type NewsArticle,
   newsSourceName,
@@ -22,19 +21,19 @@ import {
 } from "@/lib/site";
 import { parseToSiteDateTime } from "@/lib/siteTime";
 
-export function newsArticleAlternates(locale: AppLocale, slug: string) {
-  const article = getPublishedNewsArticleBySlug(slug);
-  if (!article) return localeAlternates(locale, newsArticleHref(slug));
-
+export function newsArticleAlternates(
+  locale: AppLocale,
+  article: Pick<NewsArticle, "copy" | "slug">,
+) {
   const languages: Record<string, string> = {
-    "x-default": newsArticleUrl("ka", slug),
+    "x-default": newsArticleUrl("ka", article.slug),
   };
   for (const loc of getNewsArticleLocales(article)) {
-    languages[loc] = newsArticleUrl(loc, slug);
+    languages[loc] = newsArticleUrl(loc, article.slug);
   }
 
   return {
-    canonical: newsArticleUrl(locale, slug),
+    canonical: newsArticleUrl(locale, article.slug),
     languages,
   };
 }
@@ -163,15 +162,6 @@ export function newsSourceBadges(
     .sort((a, b) => b.count - a.count || a.order - b.order)
     .slice(0, limit)
     .map((badge) => badge.label);
-}
-
-export function publishedNewsStaticParams() {
-  return getPublishedNewsArticles().flatMap((article) =>
-    getNewsArticleLocales(article).map((locale) => ({
-      locale,
-      slug: article.slug,
-    })),
-  );
 }
 
 const NEWS_SOURCE_BADGE_LIMIT = 4;

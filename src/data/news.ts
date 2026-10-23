@@ -26,7 +26,7 @@ export function getAllNewsArticles() {
   return NEWS_ARTICLES;
 }
 
-export function getNewsArticleLocales(article: NewsArticle) {
+export function getNewsArticleLocales(article: Pick<NewsArticle, "copy">) {
   return Object.keys(article.copy) as AppLocale[];
 }
 

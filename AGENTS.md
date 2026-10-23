@@ -212,7 +212,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 ## News
 
-- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly.
+- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly. The article page (`/news/{slug}`) already reads D1 through `src/lib/newsApi.ts` (`getNewsArticle`), so a new article needs its D1 rows to get a page; see `docs/NEWS-D1-MIGRATION.md`.
 - New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first.
 - KA frontmatter owns the shared data: `slug`, `status`, `publishedAt`, `updatedAt`, `related{Hub,Region,Species}Ids`, `sources`, `image`, `gallery` (src, `alt`, credit, size, `plate`, `fromAtlas`). Every locale has `title`, `dek`, `lead`, `metaTitle`, `metaDescription`. `en`/`ru`/`tr` translate the text and give only `{ src, alt }` for `image` / `gallery` (matched by `src`). Do not copy the photo list.
 - Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the compile.

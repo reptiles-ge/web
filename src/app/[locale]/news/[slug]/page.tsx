@@ -6,12 +6,7 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/JsonLd";
 import { NewsArticlePage } from "@/components/NewsArticlePage";
-import {
-  getNewsCopy,
-  getPublishedNewsArticleBySlug,
-  newsRelatedSpecies,
-  newsSourceName,
-} from "@/data/news";
+import { getNewsCopy, newsRelatedSpecies, newsSourceName } from "@/data/news";
 import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
@@ -23,8 +18,8 @@ import {
   newsDateTime,
   newsIndexUrl,
   newsOgImageUrl,
-  publishedNewsStaticParams,
 } from "@/lib/news";
+import { getNewsArticle, getNewsList } from "@/lib/newsApi";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
@@ -44,7 +39,7 @@ type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
@@ -56,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const locale = localeParam as AppLocale;
-  const article = getPublishedNewsArticleBySlug(slug);
+  const article = await getNewsArticle(slug);
   const copy = article ? getNewsCopy(article, locale) : undefined;
   if (!article || !copy) {
     const t = await getTranslations({ locale, namespace: "news" });
@@ -73,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const published = newsDateTime(article.publishedAt);
 
   return {
-    alternates: newsArticleAlternates(locale, article.slug),
+    alternates: newsArticleAlternates(locale, article),
     description,
     openGraph: {
       description,
@@ -99,8 +94,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  return publishedNewsStaticParams();
+export async function generateStaticParams() {
+  const lists = await Promise.all(
+    routing.locales.map(
+      async (locale) => [locale, await getNewsList(locale)] as const,
+    ),
+  );
+  return lists.flatMap(([locale, items]) =>
+    items.map(({ slug }) => ({ locale, slug })),
+  );
 }
 
 export default async function NewsArticleRoute({ params }: Props) {
@@ -112,7 +114,7 @@ export default async function NewsArticleRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const article = getPublishedNewsArticleBySlug(slug);
+  const article = await getNewsArticle(slug);
   const copy = article ? getNewsCopy(article, locale) : undefined;
   if (!article || !copy) {
     notFound();

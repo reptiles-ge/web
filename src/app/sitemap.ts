@@ -202,7 +202,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const article of getPublishedNewsArticles(locale)) {
-      const { languages } = newsArticleAlternates(locale, article.slug);
+      const { languages } = newsArticleAlternates(locale, article);
       add({
         alternates: { languages },
         datePublished: newsDateTime(article.publishedAt),

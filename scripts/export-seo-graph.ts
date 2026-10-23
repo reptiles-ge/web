@@ -164,10 +164,7 @@ function addNews() {
 
   for (const article of getPublishedNewsArticles()) {
     for (const locale of getNewsArticleLocales(article)) {
-      const { canonical, languages } = newsArticleAlternates(
-        locale,
-        article.slug,
-      );
+      const { canonical, languages } = newsArticleAlternates(locale, article);
       addRoute({
         alternates: languages,
         canonicalUrl: canonical,
