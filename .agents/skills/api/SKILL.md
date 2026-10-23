@@ -125,6 +125,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `/v1/auth/` is in `UNDOCUMENTED_PATH_PREFIXES`, like `/v1/admin/`. Every `/v1/admin/…` route stays out of the OpenAPI document and Scalar; `routes/docs.test.ts` fails if one leaks.
 - `requireAdmin` (`middleware/requireAdmin.ts`) accepts the write token when an `Authorization` header is present, and otherwise an admin session (`requireAdminSession`). Use it only on admin **reads** the admin app needs. Admin writes stay `requireToken` until they get their own session and origin checks.
 - `GET /v1/admin/species` (`requireAdmin`, `NO_STORE`) lists every species, whatever its status, in catalog order: `id`, KA and EN common names, scientific name, group, status, danger, KA slug, version, hero image, gallery photo count, pending drafts and the last revision time. It is registered before `.use(requireToken)` in `routes/adminSpecies.ts`, so the token-only routes after it never accept a session (tested).
+- `GET /v1/admin/ratings` (`requireAdmin`, `NO_STORE`, `routes/adminRatings.ts`) lists site ratings newest first: `id`, `rating`, `path`, `locale`, `feedback`, `country`, `createdAt`. `limit` (1–100, default 50), `cursor` (the `id` of the last rating on the previous page) and `rating` (1–5). It returns `nextCursor`, `total` (matches for the filter) and an all-time `summary` (`average`, `byRating`, `count`). Migration `0011` indexes `site_ratings (rating, id)`.
 
 ## Caching
 

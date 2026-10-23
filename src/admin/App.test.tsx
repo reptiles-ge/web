@@ -10,6 +10,15 @@ vi.mock("./species", async (importOriginal) => ({
   fetchAdminSpecies: vi.fn(async () => []),
 }));
 
+vi.mock("./ratings", () => ({
+  fetchAdminRatings: vi.fn(async () => ({
+    data: [],
+    nextCursor: null,
+    summary: { average: null, byRating: {}, count: 0 },
+    total: 0,
+  })),
+}));
+
 vi.mock("./session", () => ({
   fetchCurrentUser: vi.fn(),
   signIn: vi.fn(),
@@ -55,6 +64,20 @@ describe("admin App", () => {
       await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
     expect(screen.getByText(ADMIN.email)).toBeInTheDocument();
+  });
+
+  it("switches between species and ratings", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const user = userEvent.setup();
+    await user.click(await screen.findByRole("menuitem", { name: "Ratings" }));
+    expect(
+      await screen.findByRole("heading", { name: "Ratings" }),
+    ).toBeInTheDocument();
+    await user.click(screen.getByRole("menuitem", { name: "Species" }));
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
   });
 
   it("signs in and opens the dashboard", async () => {

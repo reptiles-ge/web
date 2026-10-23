@@ -11,6 +11,7 @@ import { allowedOrigins } from "./lib/origins";
 import { noindex } from "./middleware/noindex";
 import { adminAuthors } from "./routes/adminAuthors";
 import { adminNews } from "./routes/adminNews";
+import { adminRatings } from "./routes/adminRatings";
 import { adminSpecies } from "./routes/adminSpecies";
 import { adminUsers } from "./routes/adminUsers";
 import { auth } from "./routes/auth";
@@ -60,6 +61,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/auth", auth)
   .route("/v1/admin/authors", adminAuthors)
   .route("/v1/admin/news", adminNews)
+  .route("/v1/admin/ratings", adminRatings)
   .route("/v1/admin/species", adminSpecies)
   .route("/v1/admin/users", adminUsers)
   .route("/v1/docs", docs)

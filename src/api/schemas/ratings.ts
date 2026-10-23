@@ -15,3 +15,16 @@ export const ratingBody = ratingInputSchema.and(
 export const ratingSummaryQuery = z.object({
   days: z.coerce.number().int().min(1).max(RATING_SUMMARY_MAX_DAYS).default(30),
 });
+
+const ADMIN_RATINGS_MAX_LIMIT = 100;
+
+export const adminRatingsQuery = z.object({
+  cursor: z.coerce.number().int().min(1).optional(),
+  limit: z.coerce
+    .number()
+    .int()
+    .min(1)
+    .max(ADMIN_RATINGS_MAX_LIMIT)
+    .default(50),
+  rating: z.coerce.number().int().min(1).max(5).optional(),
+});

@@ -8,6 +8,7 @@ import type { ApiEnv } from "../env";
 import { insertRating, ratingCountsSince } from "../db/ratings";
 import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
+import { summariseRatings } from "../lib/ratingSummary";
 import { validate } from "../lib/validate";
 import { rateLimitRatings } from "../middleware/rateLimitRatings";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
@@ -66,30 +67,10 @@ export const ratings = new Hono<ApiEnv>()
       const since = new Date(Date.now() - days * DAY_MS).toISOString();
       const counts = await ratingCountsSince(c.env.DB, since);
       c.header("Cache-Control", NO_STORE);
-      return c.json({ data: summarise(counts, since) }, 200);
+      return c.json({ data: { ...summariseRatings(counts), since } }, 200);
     },
   );
 
 function countryCode(value: string | undefined) {
   return value && /^[A-Z]{2}$/.test(value) && value !== "XX" ? value : null;
-}
-
-function summarise(
-  counts: Array<{ count: number; rating: number }>,
-  since: string,
-) {
-  const byRating: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-  let count = 0;
-  let total = 0;
-  for (const row of counts) {
-    byRating[row.rating] = row.count;
-    count += row.count;
-    total += row.rating * row.count;
-  }
-  return {
-    average: count ? Math.round((total / count) * 100) / 100 : null,
-    byRating,
-    count,
-    since,
-  };
 }
