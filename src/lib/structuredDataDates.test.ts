@@ -4,9 +4,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getRegionSpecies, regions } from "@/data/regions";
-import { getCatalogSpecies, type Species } from "@/data/species";
+import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
@@ -23,7 +22,11 @@ import {
   regionDateFields,
 } from "@/lib/structuredDataDates";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  fixtureUpdatedAt,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 describe("atlasDateFields", () => {
   it.each(routing.locales)(
@@ -31,8 +34,8 @@ describe("atlasDateFields", () => {
     async (locale) => {
       const fields = await atlasDateFields(locale);
       const newest = Math.max(
-        ...getCatalogSpecies().map((item) =>
-          Date.parse(speciesUpdatedAt(item, locale)),
+        ...catalogSpeciesFixture().map((item) =>
+          Date.parse(fixtureUpdatedAt(item, locale)),
         ),
       );
       expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(newest);
@@ -46,14 +49,14 @@ describe("atlasDateFields", () => {
 describe("member-derived dates", () => {
   const newest = (items: Species[], locale: AppLocale) =>
     Math.max(
-      ...items.map((item) => Date.parse(speciesUpdatedAt(item, locale))),
+      ...items.map((item) => Date.parse(fixtureUpdatedAt(item, locale))),
     );
 
   it.each(routing.locales)(
     "dates every %s group hub by its newest member species",
     async (locale) => {
       for (const hub of GROUP_HUB_LIST) {
-        const members = getCatalogSpecies().filter(
+        const members = catalogSpeciesFixture().filter(
           (item) => getSpeciesAtlasMeta(item.id).group === hub.group,
         );
         if (members.length === 0) continue;
@@ -72,7 +75,7 @@ describe("member-derived dates", () => {
     async (locale) => {
       for (const guide of CLUSTER_GUIDE_LIST) {
         if (guide.schema !== "collection") continue;
-        const members = getCatalogSpecies().filter(guide.matches);
+        const members = catalogSpeciesFixture().filter(guide.matches);
         if (members.length === 0) continue;
         expect(
           Date.parse(
@@ -88,7 +91,7 @@ describe("member-derived dates", () => {
     "dates every %s region by its newest listed species",
     async (locale) => {
       for (const region of regions) {
-        const members = getRegionSpecies(region, getCatalogSpecies());
+        const members = getRegionSpecies(region, catalogSpeciesFixture());
         if (members.length === 0) continue;
         expect(
           Date.parse(
@@ -107,7 +110,9 @@ describe("member-derived dates", () => {
           getCreditAuthorPhotos(author, speciesCatalogFixture("ka")),
         ),
       );
-      const members = getCatalogSpecies().filter((item) => ids.has(item.id));
+      const members = catalogSpeciesFixture().filter((item) =>
+        ids.has(item.id),
+      );
       if (members.length === 0) continue;
       expect(
         Date.parse(
@@ -119,7 +124,7 @@ describe("member-derived dates", () => {
   });
 
   it("dates a quiz by the newest species in its pool", async () => {
-    const pool = getCatalogSpecies().filter(
+    const pool = catalogSpeciesFixture().filter(
       (item) => getSpeciesAtlasMeta(item.id).group === "snake",
     );
     expect(
@@ -134,12 +139,12 @@ describe("member-derived dates", () => {
   });
 });
 
-describe("speciesUpdatedAt", () => {
+describe("fixtureUpdatedAt", () => {
   it("never dates a translation before the Georgian profile", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       for (const locale of routing.locales) {
         expect(
-          Date.parse(speciesUpdatedAt(item, locale)),
+          Date.parse(fixtureUpdatedAt(item, locale)),
           `${item.id} ${locale}`,
         ).toBeGreaterThanOrEqual(Date.parse(item.updatedAt));
       }

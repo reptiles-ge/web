@@ -1,12 +1,16 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { locales } from "@/i18n/locales";
-import { localizeSpecies, speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
+import {
+  catalogSpeciesFixture,
+  fixtureUpdatedAt,
+  localizedFixture,
+  speciesFixture,
+} from "../../../tests/fixtures/speciesCatalog";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -30,10 +34,10 @@ type ListBody = {
 const env = { DB: createSpeciesTestDatabase().db };
 
 function expectedList(locale: (typeof locales)[number], group?: string) {
-  return getCatalogSpecies()
+  return catalogSpeciesFixture()
     .filter((item) => !group || speciesAtlasMeta[item.id]?.group === group)
     .map((item) => {
-      const localized = localizeSpecies(item, locale);
+      const localized = localizedFixture(item, locale);
       return {
         commonName: localized.commonName,
         danger: localized.danger ?? null,
@@ -42,7 +46,7 @@ function expectedList(locale: (typeof locales)[number], group?: string) {
         image: localized.image,
         scientificName: localized.scientificName,
         slug: getSpeciesPublicSlug(item.id, locale),
-        updatedAt: speciesUpdatedAt(item, locale),
+        updatedAt: fixtureUpdatedAt(item, locale),
       };
     });
 }
@@ -88,7 +92,7 @@ describe("GET /v1/species", () => {
 
 describe("GET /v1/species/:slug", () => {
   it("matches every published profile in every locale", async () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       for (const locale of locales) {
         const { body, response } = await requestJson<DetailBody>(
           `/v1/species/${getSpeciesPublicSlug(item.id, locale)}`,
@@ -98,7 +102,7 @@ describe("GET /v1/species/:slug", () => {
         expect(response.status).toBe(200);
         const { group, habitats, lookalikes, slug, ...profile } = body.data;
         expect(profile).toStrictEqual(
-          await Response.json(localizeSpecies(item, locale)).json(),
+          await Response.json(localizedFixture(item, locale)).json(),
         );
         expect(group).toBe(speciesAtlasMeta[item.id]?.group);
         expect(habitats).toStrictEqual(speciesAtlasMeta[item.id]?.habitats);
@@ -120,7 +124,7 @@ describe("GET /v1/species/:slug", () => {
       (entry) => entry.id === "pseudopus-apodus",
     );
     expect(peer).toStrictEqual({
-      commonName: localizeSpecies(getSpeciesById("pseudopus-apodus")!, "en")
+      commonName: localizedFixture(speciesFixture("pseudopus-apodus")!, "en")
         .commonName,
       id: "pseudopus-apodus",
       slug: "pseudopus-apodus",
@@ -189,6 +193,9 @@ describe("GET /v1/species/:slug", () => {
 describe("GET /v1/species/:slug/field-records", () => {
   it("returns the species' records by the locale's slug, and 404 otherwise", async () => {
     const database = createSpeciesTestDatabase();
+    database.sqlite.exec(
+      "DELETE FROM species_field_records WHERE species_id = 'macrovipera-lebetina'",
+    );
     database.sqlite
       .prepare(
         "INSERT INTO species_field_records (species_id, position, locality, lat, lng, evidence, observer) VALUES ('macrovipera-lebetina', 0, 'Vashlovani', 41.2, 46.2, 'observation', 'nika')",

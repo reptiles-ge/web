@@ -9,10 +9,13 @@ import {
   regions,
   toRegionSpeciesCard,
 } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+
+import {
+  localizedFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 let catalog: CatalogCard[];
 
@@ -73,8 +76,8 @@ describe("getRegionTooltipPreviews", () => {
 });
 
 describe("species cards", () => {
-  const viper = getSpeciesById("macrovipera-lebetina")!;
-  const grassSnake = getSpeciesById("natrix-natrix")!;
+  const viper = speciesFixture("macrovipera-lebetina")!;
+  const grassSnake = speciesFixture("natrix-natrix")!;
 
   it("flags High and Moderate cards as venomous", () => {
     expect(isRegionCardVenomous({ danger: "High" } as never)).toBe(true);
@@ -84,7 +87,7 @@ describe("species cards", () => {
   });
 
   it("builds a localized card with the danger level", () => {
-    const card = toRegionSpeciesCard(localizeSpecies(viper, "en"));
+    const card = toRegionSpeciesCard(localizedFixture(viper, "en"));
     expect(card.id).toBe(viper.id);
     expect(card.scientificName).toBe(viper.scientificName);
     expect(card.danger).toBe(viper.danger);

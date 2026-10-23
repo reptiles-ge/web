@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 
-import { searchCatalogsFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  searchCatalogsFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
   const index = buildSearchIndex(locale, searchCatalogsFixture());
@@ -28,7 +30,7 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
   it("has exactly one species document per published species", () => {
     const species = index.filter((doc) => doc.kind === "species");
     expect(species.map((doc) => doc.id).sort()).toEqual(
-      getCatalogSpecies()
+      catalogSpeciesFixture()
         .map((item) => item.id)
         .sort(),
     );

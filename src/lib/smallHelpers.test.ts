@@ -1,7 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import {
@@ -23,6 +22,7 @@ import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 import { recordRequests, server } from "../../tests/msw/server";
 
 afterEach(() => {
@@ -121,7 +121,7 @@ describe("seoKeywords", () => {
   });
 
   it("builds a de-duplicated, trimmed keyword list for a species", () => {
-    const species = getSpeciesById("macrovipera-lebetina")!;
+    const species = speciesFixture("macrovipera-lebetina")!;
     const keywords = speciesSeoKeywords(species, "en");
     expect(keywords).toContain(species.scientificName);
     expect(keywords).toContain("Georgia");
@@ -151,7 +151,7 @@ describe("getFooterData", () => {
 
 describe("occurrence summaries", () => {
   const summaryFor = async (id: string) => {
-    const species = getSpeciesById(id)!;
+    const species = speciesFixture(id)!;
     return getOccurrenceSummary({
       fieldRecords: await getSpeciesFieldRecords(id),
       gallery: species.gallery,

@@ -4,15 +4,17 @@ import {
   getHerpetofaunaChecklistStatus,
   herpetofaunaChecklistIds,
 } from "@/data/herpetofauna-checklist";
-import { featuredSpeciesIds, getCatalogSpecies } from "@/data/species";
+import { featuredSpeciesIds } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
+
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
 
 describe("herpetofauna checklist", () => {
   it("covers every published amphibian and reptile", () => {
-    const publishedHerps = getCatalogSpecies().filter((item) =>
+    const publishedHerps = catalogSpeciesFixture().filter((item) =>
       HERP_GROUPS.has(getSpeciesAtlasMeta(item.id).group),
     );
     expect(publishedHerps.length).toBeGreaterThan(0);

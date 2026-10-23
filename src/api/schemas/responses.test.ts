@@ -4,13 +4,11 @@ import { describe, expect, it } from "vitest";
 
 import { locales } from "@/i18n/locales";
 
+import { fieldRecordsFixture } from "../../../tests/fixtures/speciesCatalog";
 import { app } from "../app";
 import { buildOpenApiDocument } from "../lib/openapi";
 import { RESPONSE_EXAMPLES } from "../lib/openapiExamples";
-import {
-  compiledFieldRecords,
-  createFieldRecordsTestDatabase,
-} from "../testing/sqliteDatabase";
+import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 import {
   catalogCardResponse,
   catalogFullResponse,
@@ -22,7 +20,7 @@ import {
   speciesResponse,
 } from "./responses";
 
-const env = { DB: createFieldRecordsTestDatabase().db };
+const env = { DB: createSpeciesTestDatabase().db };
 
 function expectValid(schema: z.ZodType, value: unknown, label: string) {
   const result = schema.safeParse(value);
@@ -64,7 +62,7 @@ describe("documented response schemas", () => {
   });
 
   it("describe the field records of every species that has them", async () => {
-    const ids = Object.keys(compiledFieldRecords());
+    const ids = Object.keys(fieldRecordsFixture());
     expect(ids.length).toBeGreaterThan(0);
     for (const id of ids) {
       const { body } = await getJson(`/v1/species/${id}/field-records`, "en");

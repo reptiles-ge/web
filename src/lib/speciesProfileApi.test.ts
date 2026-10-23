@@ -1,9 +1,10 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-
+import {
+  localizedFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 import { reptilesApi } from "../../tests/msw/reptilesApi";
 import { recordRequests, server } from "../../tests/msw/server";
 import { getSpeciesProfile } from "./speciesProfileApi";
@@ -41,7 +42,7 @@ describe("getSpeciesProfile", () => {
     expect(profile?.group).toBe("snake");
     expect(profile?.species).toStrictEqual(
       await Response.json(
-        localizeSpecies(getSpeciesById("macrovipera-lebetina")!, "en"),
+        localizedFixture(speciesFixture("macrovipera-lebetina")!, "en"),
       ).json(),
     );
   });

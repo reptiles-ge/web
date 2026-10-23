@@ -4,7 +4,6 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 import type { AppLocale } from "@/i18n/routing";
 
 import { regions } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { getRegionSummary, regionSummaryFacts } from "@/lib/regionSummary";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
@@ -13,6 +12,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 const MESSAGES = { en, ka, ru, tr } as const;
 const LOCALES = ["ka", "en", "ru", "tr"] as const satisfies AppLocale[];
@@ -60,7 +60,7 @@ describe("region summary facts", () => {
       }
       expect(facts.venomous.map((item) => item.id)).toEqual(
         region.speciesIds.filter((id) =>
-          isVenomousDanger(getSpeciesById(id)?.danger),
+          isVenomousDanger(speciesFixture(id)?.danger),
         ),
       );
     },
@@ -94,7 +94,7 @@ describe("region summary copy", () => {
       const text = (await getRegionSummary(region, "en")).join(" ");
       for (const other of regions) {
         for (const id of other.speciesIds) {
-          const item = getSpeciesById(id);
+          const item = speciesFixture(id);
           if (!item || listed.has(id) || !isVenomousDanger(item.danger)) {
             continue;
           }

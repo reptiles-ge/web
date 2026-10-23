@@ -20,20 +20,12 @@ export {
 const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 
 export function getCatalogSpecies() {
+  const byId = new Map(species.map((item) => [item.id, item]));
   const catalog: Species[] = [];
   for (const id of catalogSpeciesIds) {
-    if (!isPublishedSpeciesId(id)) continue;
-    const item = getSpeciesById(id);
+    if (unpublishedSpeciesIds.has(id)) continue;
+    const item = byId.get(id);
     if (item) catalog.push(item);
   }
   return catalog;
-}
-
-export function getSpeciesById(id: string) {
-  if (!isPublishedSpeciesId(id)) return undefined;
-  return species.find((item) => item.id === id);
-}
-
-function isPublishedSpeciesId(id: string) {
-  return !unpublishedSpeciesIds.has(id);
 }

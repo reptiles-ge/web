@@ -10,8 +10,9 @@ import {
 } from "@/data/news";
 import { newsSlugs } from "@/data/newsPublish";
 import { getRegionById } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 const articles = getAllNewsArticles();
 
@@ -109,7 +110,7 @@ describe("news MDX content", () => {
               if (typeof part === "string") continue;
               const label = `${article.slug} ${locale} ${JSON.stringify(part)}`;
               if (part.type === "species")
-                expect(getSpeciesById(part.id), label).toBeDefined();
+                expect(speciesFixture(part.id), label).toBeDefined();
               if (part.type === "region")
                 expect(getRegionById(part.id), label).toBeDefined();
               if (part.type === "hub")

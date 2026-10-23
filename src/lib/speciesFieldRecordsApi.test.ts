@@ -1,19 +1,11 @@
 import { http, HttpResponse } from "msw";
-import fs from "node:fs";
-import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import type { SpeciesFieldRecord } from "@/data/speciesTypes";
-
+import { fieldRecordsFixture } from "../../tests/fixtures/speciesCatalog";
 import { recordRequests, server } from "../../tests/msw/server";
 import { getSpeciesFieldRecords } from "./speciesFieldRecordsApi";
 
-const compiled = JSON.parse(
-  fs.readFileSync(
-    path.join(process.cwd(), "src/data/fieldRecords.generated.json"),
-    "utf8",
-  ),
-) as Record<string, SpeciesFieldRecord[]>;
+const compiled = fieldRecordsFixture();
 
 afterEach(() => {
   vi.unstubAllEnvs();

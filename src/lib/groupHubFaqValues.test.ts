@@ -5,7 +5,6 @@ import {
   herpetofaunaChecklistIds,
   isHerpetofaunaGroup,
 } from "@/data/herpetofauna-checklist";
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import { hubCandidateSpecies, hubFaqValues } from "@/lib/groupHubFaqValues";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
@@ -14,7 +13,10 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
-import { speciesGroupFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  speciesGroupFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const MESSAGES = { en, ka, ru, tr } as const;
 
@@ -31,7 +33,7 @@ function faq1A(locale: keyof typeof MESSAGES, hubId: GroupHubId) {
 
 describe("hub FAQ checklist candidates", () => {
   it("lists every published candidate taxon of the hub group and nothing else", () => {
-    const published = new Set(getCatalogSpecies().map((item) => item.id));
+    const published = new Set(catalogSpeciesFixture().map((item) => item.id));
     for (const hubId of herpHubs) {
       const group = GROUP_HUBS[hubId].group;
       const expected = herpetofaunaChecklistIds()

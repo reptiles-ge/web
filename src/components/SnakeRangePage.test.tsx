@@ -5,15 +5,15 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { SnakeRangePage } from "@/components/SnakeRangePage";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 
 import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
 import {
+  localizedFixture,
   speciesCatalogFixture,
+  speciesFixture,
   speciesGroupFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
@@ -48,7 +48,7 @@ vi.mock("@/components/map/GeorgiaMap", () => ({
   GeorgiaMap: () => null,
 }));
 
-const CAUCASUS_VIPER = getSpeciesById("vipera-kaznakovi")!;
+const CAUCASUS_VIPER = speciesFixture("vipera-kaznakovi")!;
 
 describe("SnakeRangePage", () => {
   it.each(["ka", "en", "ru", "tr"] as const)(
@@ -62,7 +62,7 @@ describe("SnakeRangePage", () => {
           species: speciesGroupFixture("snake", locale),
         }),
       );
-      const localized = localizeSpecies(CAUCASUS_VIPER, locale).commonName;
+      const localized = localizedFixture(CAUCASUS_VIPER, locale).commonName;
       expect(screen.getAllByText(localized).length).toBeGreaterThan(0);
       if (locale !== "ka") {
         expect(screen.queryAllByText(CAUCASUS_VIPER.commonName)).toHaveLength(

@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import { photoLicenses } from "@/data/photoLicenses";
-import { getCatalogSpecies } from "@/data/species";
 import { photoContributor, photoRights } from "@/lib/imageRights";
 import {
   getPhotoUseCreditExample,
@@ -15,7 +14,10 @@ import {
   type PhotoUsePhoto,
 } from "@/lib/photoUse";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const OTHER_AUTHOR = {
   aliases: ["Other"],
@@ -32,7 +34,7 @@ describe("photo use data", () => {
 
   it("counts every unique gallery photo of the published catalog", () => {
     const srcs = new Set(
-      getCatalogSpecies().flatMap((species) =>
+      catalogSpeciesFixture().flatMap((species) =>
         species.gallery.map((item) => item.src),
       ),
     );
@@ -109,7 +111,7 @@ describe("photo use data", () => {
       PHOTO_USE_SHOWCASE_GROUPS.filter((group) => groups.includes(group)),
     );
     for (const photo of showcase) {
-      const species = getCatalogSpecies().find(
+      const species = catalogSpeciesFixture().find(
         (item) => item.id === photo.speciesId,
       );
       expect(photo.src).toBe(species?.image);

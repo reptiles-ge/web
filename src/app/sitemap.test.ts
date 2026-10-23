@@ -23,8 +23,6 @@ vi.mock("@/i18n/navigation", () => ({
   useRouter: () => ({}),
 }));
 
-import { getCatalogSpecies } from "@/data/species";
-import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { creditAuthorUrl } from "@/lib/creditAuthors";
 import {
@@ -41,6 +39,10 @@ import {
   regionModifiedDate,
 } from "@/lib/structuredDataDates";
 
+import {
+  catalogSpeciesFixture,
+  fixtureUpdatedAt,
+} from "../../tests/fixtures/speciesCatalog";
 import sitemap from "./sitemap";
 
 const PLACEHOLDER_DAY = "2026-09-16";
@@ -115,11 +117,11 @@ describe("sitemap", () => {
   });
 
   it("dates each species URL by its own locale", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       for (const locale of routing.locales) {
         const url = speciesPageUrl(locale, item.id);
         const entry = entries.find((candidate) => candidate.url === url);
-        expect(entry?.lastModified, url).toBe(speciesUpdatedAt(item, locale));
+        expect(entry?.lastModified, url).toBe(fixtureUpdatedAt(item, locale));
       }
     }
   });
@@ -202,7 +204,7 @@ describe("sitemap", () => {
   it("lists every published species in every locale", () => {
     const speciesUrls = urls.filter((url) => /\/(snakes|gvelebi)\//.test(url));
     expect(speciesUrls.length).toBeGreaterThan(0);
-    const published = getCatalogSpecies().length;
+    const published = catalogSpeciesFixture().length;
     const perLocale = published * routing.locales.length;
     const speciesEntries = entries.filter((entry) => "datePublished" in entry);
     expect(speciesEntries.length).toBeGreaterThanOrEqual(perLocale);

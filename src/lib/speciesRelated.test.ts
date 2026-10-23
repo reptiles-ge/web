@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import {
@@ -8,7 +7,9 @@ import {
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
 
-const catalog = getCatalogSpecies();
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+
+const catalog = catalogSpeciesFixture();
 
 describe("profile related species", () => {
   it("links every published species from another profile", () => {

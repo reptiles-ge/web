@@ -1,6 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import {
@@ -8,6 +7,8 @@ import {
   getSpeciesQuizTeaser,
   quizTeaserOptionIds,
 } from "@/lib/quizTeaser";
+
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 vi.mock("@/lib/speciesCatalogApi", async () => {
   const { speciesCatalogFixture } =
@@ -19,7 +20,7 @@ vi.mock("@/lib/speciesCatalogApi", async () => {
   };
 });
 
-const catalog = getCatalogSpecies();
+const catalog = catalogSpeciesFixture();
 const byId = new Map(catalog.map((item) => [item.id, item]));
 const quizSpecies = catalog.filter(
   (item) => isSnakeSpecies(item) || isLizardSpecies(item),

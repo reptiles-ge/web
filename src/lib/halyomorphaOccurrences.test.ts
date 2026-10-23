@@ -1,12 +1,11 @@
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import type { SpeciesFieldRecord } from "@/data/speciesTypes";
-
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { getSpeciesById } from "@/data/species";
 
+import {
+  fieldRecordsFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 import {
   confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
@@ -14,12 +13,7 @@ import {
   occurrenceStatusForCount,
 } from "./halyomorphaOccurrences";
 
-const fieldRecordsById = JSON.parse(
-  fs.readFileSync(
-    path.join(process.cwd(), "src/data/fieldRecords.generated.json"),
-    "utf8",
-  ),
-) as Record<string, SpeciesFieldRecord[]>;
+const fieldRecordsById = fieldRecordsFixture();
 
 describe("occurrenceStatusForCount", () => {
   it("marks fewer than five records as recorded only", () => {
@@ -148,7 +142,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("uses only confirmed Zamenis regions as distribution", () => {
-    const species = getSpeciesById("zamenis-hohenackeri");
+    const species = speciesFixture("zamenis-hohenackeri");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -183,7 +177,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("keeps Golden Jackal distribution aligned with reviewed field records", () => {
-    const species = getSpeciesById("canis-aureus");
+    const species = speciesFixture("canis-aureus");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -227,7 +221,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("keeps Green Toad distribution aligned with reviewed field records", () => {
-    const species = getSpeciesById("bufotes-viridis");
+    const species = speciesFixture("bufotes-viridis");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -273,7 +267,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("keeps Common Cuckoo distribution aligned with reviewed field records", () => {
-    const species = getSpeciesById("cuculus-canorus");
+    const species = speciesFixture("cuculus-canorus");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -316,7 +310,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("keeps Grey Wolf distribution aligned with reviewed field records", () => {
-    const species = getSpeciesById("canis-lupus");
+    const species = speciesFixture("canis-lupus");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -362,7 +356,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("confirms Caucasian Badger regions from one record each", () => {
-    const species = getSpeciesById("meles-canescens");
+    const species = speciesFixture("meles-canescens");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -404,7 +398,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("keeps Red Fox distribution aligned with reviewed field records", () => {
-    const species = getSpeciesById("vulpes-vulpes");
+    const species = speciesFixture("vulpes-vulpes");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -447,7 +441,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("confirms Artvin lizard regions from five records", () => {
-    const species = getSpeciesById("darevskia-derjugini");
+    const species = speciesFixture("darevskia-derjugini");
     expect(species).toBeDefined();
     if (!species) return;
 
@@ -503,7 +497,7 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("uses checklist localities, not obscured point counts, for Caucasian Salamander regions", () => {
-    const species = getSpeciesById("mertensiella-caucasica");
+    const species = speciesFixture("mertensiella-caucasica");
     expect(species).toBeDefined();
     if (!species) return;
 

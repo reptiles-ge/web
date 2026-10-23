@@ -1,11 +1,17 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { taxonIdentifiers } from "@/data/taxonIdentifiers";
 import { speciesSameAs } from "@/lib/createSpeciesRoute";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 
-const catalogIds = new Set(getCatalogSpecies().map((species) => species.id));
+import {
+  catalogSpeciesFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const catalogIds = new Set(
+  catalogSpeciesFixture().map((species) => species.id),
+);
 const entries = Object.entries(taxonIdentifiers);
 
 describe("taxon identifiers", () => {
@@ -48,7 +54,7 @@ describe("taxon identifiers", () => {
   });
 
   it("gives the nose-horned viper the ids of its profile name, Vipera ammodytes", () => {
-    expect(getSpeciesById("vipera-transcaucasiana")?.scientificName).toBe(
+    expect(speciesFixture("vipera-transcaucasiana")?.scientificName).toBe(
       "Vipera ammodytes",
     );
     expect(taxonIdentifiers["vipera-transcaucasiana"]).toEqual({
@@ -94,7 +100,7 @@ describe("taxon identifiers", () => {
       ],
     ],
   ])("adds the verified ids of %s to the Taxon sameAs", (id, expected) => {
-    const species = getSpeciesById(id);
+    const species = speciesFixture(id);
     expect(species).toBeDefined();
     const sameAs = speciesSameAs(species!);
     for (const url of expected) expect(sameAs).toContain(url);
@@ -102,7 +108,7 @@ describe("taxon identifiers", () => {
   });
 
   it("takes GBIF ids only from the verified table, not from cited source links", () => {
-    for (const species of getCatalogSpecies()) {
+    for (const species of catalogSpeciesFixture()) {
       const gbif = speciesSameAs(species).filter((url) =>
         url.startsWith("https://www.gbif.org/species/"),
       );
