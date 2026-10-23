@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
+import { pickVenomousSnakes, summarizeAtlas } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { atlasPageCount, atlasPageRange } from "@/lib/atlasPages";
 import { getFooterData } from "@/lib/footerData";
@@ -138,12 +138,28 @@ describe("seoKeywords", () => {
 
 describe("getFooterData", () => {
   it("lists every region and every venomous snake", async () => {
-    const data = getFooterData("en", await getSpeciesCatalog("en"));
+    const catalog = await getSpeciesCatalog("en");
+    const data = await getFooterData("en");
     expect(data.regions).toHaveLength(12);
     expect(data.venomous.map((item) => item.id)).toEqual(
-      (await getVenomousCatalogSpecies("en")).map((item) => item.id),
+      pickVenomousSnakes(catalog).map((item) => item.id),
     );
+    expect(data.venomous.length).toBeGreaterThan(0);
+    expect(data.stats).toEqual(summarizeAtlas(catalog));
     for (const region of data.regions) expect(region.name).toBeTruthy();
+  });
+
+  it("asks the catalog only for limited pages", async () => {
+    const requests = recordRequests();
+    await getFooterData("ka");
+    requests.stop();
+    const catalogUrls = requests.urls.filter((url) =>
+      url.includes("/v1/catalog"),
+    );
+    expect(catalogUrls.length).toBeGreaterThan(0);
+    for (const url of catalogUrls) {
+      expect(new URL(url).searchParams.get("limit"), url).toBeTruthy();
+    }
   });
 });
 

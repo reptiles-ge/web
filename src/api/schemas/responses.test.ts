@@ -8,7 +8,7 @@ import { fieldRecordsFixture } from "../../../tests/fixtures/speciesCatalog";
 import { app } from "../app";
 import { buildOpenApiDocument } from "../lib/openapi";
 import { RESPONSE_EXAMPLES } from "../lib/openapiExamples";
-import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
+import { createNewsTestDatabase } from "../testing/sqliteDatabase";
 import {
   authorListResponse,
   authorResponse,
@@ -18,11 +18,13 @@ import {
   catalogQuizResponse,
   errorResponse,
   fieldRecordsResponse,
+  newsListResponse,
+  newsResponse,
   speciesListResponse,
   speciesResponse,
 } from "./responses";
 
-const env = { DB: createSpeciesTestDatabase().db };
+const env = { DB: createNewsTestDatabase().db };
 
 function expectValid(schema: z.ZodType, value: unknown, label: string) {
   const result = schema.safeParse(value);
@@ -99,6 +101,19 @@ describe("documented response schemas", () => {
     }
   });
 
+  it("describe every news list and article in every locale", async () => {
+    for (const locale of locales) {
+      const { body: list } = await getJson("/v1/news", locale);
+      expectValid(newsListResponse, list, `news ${locale}`);
+      const { data } = list as { data: Array<{ slug: string }> };
+      expect(data.length).toBeGreaterThan(20);
+      for (const { slug } of data) {
+        const { body } = await getJson(`/v1/news/${slug}`, locale);
+        expectValid(newsResponse, body, `news/${slug} ${locale}`);
+      }
+    }
+  });
+
   it("describe the error responses exactly", async () => {
     const missing = await getJson("/v1/species/no-such-species");
     expect(missing.response.status).toBe(404);
@@ -125,6 +140,8 @@ describe("documented response schemas", () => {
       RESPONSE_EXAMPLES.catalogPhotos,
       "photos",
     );
+    expectValid(newsListResponse, RESPONSE_EXAMPLES.newsList, "news list");
+    expectValid(newsResponse, RESPONSE_EXAMPLES.news, "news");
     expectValid(errorResponse, RESPONSE_EXAMPLES.error, "error");
   });
 

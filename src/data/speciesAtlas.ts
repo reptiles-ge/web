@@ -5,8 +5,9 @@ import { regions } from "@/data/mapRegions";
 import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import {
   type CatalogCard,
-  getCatalogMatches,
   getSpeciesCatalog,
+  getSpeciesCatalogCounts,
+  getVenomousSnakeCards,
 } from "@/lib/speciesCatalogApi";
 
 export type { AnimalGroup } from "@/data/speciesAtlasMeta";
@@ -42,24 +43,23 @@ export type AtlasStats = {
 type DangerRanked = Pick<CatalogCard, "danger" | "family" | "scientificName">;
 
 export async function getAtlasStats(locale: AppLocale): Promise<AtlasStats> {
-  const { facets, stats, total } = await getCatalogMatches(locale, {
-    limit: 1,
-  });
+  const { groups, lastUpdated, photos, total, venomous } =
+    await getSpeciesCatalogCounts(locale);
   return {
-    amphibians: facets.group.amphibian,
-    birds: facets.group.bird,
-    insects: facets.group.insect,
-    lastUpdated: stats.lastUpdated,
-    lizards: facets.group.lizard,
-    mammals: facets.group.mammal,
-    photos: stats.photos,
+    amphibians: groups.amphibian,
+    birds: groups.bird,
+    insects: groups.insect,
+    lastUpdated,
+    lizards: groups.lizard,
+    mammals: groups.mammal,
+    photos,
     regions: regions.length,
-    scorpions: facets.group.scorpion,
-    snakes: facets.group.snake,
-    spiders: facets.group.spider,
+    scorpions: groups.scorpion,
+    snakes: groups.snake,
+    spiders: groups.spider,
     total,
-    turtles: facets.group.turtle,
-    venomous: stats.venomous,
+    turtles: groups.turtle,
+    venomous,
   };
 }
 
@@ -104,7 +104,7 @@ export async function getRecentlyUpdatedSpecies(locale: AppLocale, limit = 4) {
 }
 
 export async function getVenomousCatalogSpecies(locale: AppLocale) {
-  return pickVenomousSnakes(await getSpeciesCatalog(locale));
+  return pickVenomousSnakes(await getVenomousSnakeCards(locale));
 }
 
 export function pickVenomousSnakes(catalog: readonly CatalogCard[]) {

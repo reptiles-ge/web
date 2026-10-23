@@ -110,8 +110,19 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   - **Public from the browser** (site forms such as ratings): `requireSiteOrigin` (Origin must be in `ALLOWED_ORIGINS`, else 403 `forbidden`) **and** a Cloudflare rate limit middleware (429 `rate_limited`, fails open when the binding errors), then Zod validation. The Origin check alone is not protection; the rate limit is.
 - NEVER put `API_WRITE_TOKEN` or any secret in browser code or a `NEXT_PUBLIC_*` variable.
 - Secrets: `.dev.vars` locally (gitignored) and `wrangler secret put … --config wrangler.api.jsonc` in production. NEVER put a secret in code, config, tests, commits, PR text, or chat. Never read `process.env`; use `c.env`.
-- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS (`GET`/`POST`/`OPTIONS`, echoes an `ALLOWED_ORIGINS` origin, `*` otherwise, preflight cached 24 h), `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
+- `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS (`GET`/`POST`/`OPTIONS`, echoes an `ALLOWED_ORIGINS` origin with `Access-Control-Allow-Credentials: true`, `*` otherwise, preflight cached 24 h), `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
 - The D1 `database_id` in `wrangler.api.jsonc` is an identifier, not a secret. It stays in the repo.
+
+### Admin users and sessions
+
+- Migration `0009_users.sql`: `users` (UUID id, lowercased unique `email`, `name`, `role_id`, `password_hash`, `disabled`), the `user_roles` lookup (`admin` for now; a new role is an `INSERT` in a new migration) and `user_sessions`. No IP addresses or user agents.
+- Passwords: PBKDF2-SHA256, 100,000 iterations (the Workers maximum), a random 16-byte salt per hash, stored as `pbkdf2-sha256$100000$salt$hash` (`lib/passwords.ts`). Never store, log or return a plain password.
+- `POST /v1/admin/users` (`requireToken`) creates a user: `{ email, name, password (12–256), role }`, 409 `conflict` for an existing email. There is no sign-up route. The owner creates admins with the write token.
+- `POST /v1/auth/login` (`requireSiteOrigin`, `rateLimitLogin`: `LOGIN_LIMITER`, 5/min per IP) answers one 401 `Invalid email or password` for a wrong password, an unknown email or a disabled user, and verifies against a dummy hash when the email is unknown so timing does not reveal it.
+- A session is a random 32-byte token in the `__Host-reptiles_admin_session` cookie (`HttpOnly`, `Secure`, `SameSite=Strict`, `Path=/`, 7 days). D1 keeps only its SHA-256 (`token_hash`). The browser never sees `API_WRITE_TOKEN`.
+- `requireAdminSession` reads the cookie, rejects a missing, unknown, expired or disabled session (401) and a non-admin role (403), and sets `c.var.user`. `GET /v1/auth/me` returns that user; `POST /v1/auth/logout` (`requireSiteOrigin`, `rateLimitLogin`) deletes the session and clears the cookie.
+- The admin app (`admin.reptiles.ge`) sends these requests with `credentials: "include"`. Its origin is in `ALLOWED_ORIGINS`; for local work add `http://localhost:3002` in `.dev.vars`.
+- `/v1/auth/` is in `UNDOCUMENTED_PATH_PREFIXES`, like `/v1/admin/`.
 
 ## Caching
 
@@ -133,7 +144,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `SiteRating.tsx` posts straight to `https://api.reptiles.ge/v1/ratings` with `createApiClient()`. There is no `/api/rating` route on the site any more, and the site Worker has no rating code or bindings.
 - The API owns the whole flow: origin check, `RATING_VISITOR_LIMITER` (3/min per IP) and `RATING_GLOBAL_LIMITER` (30/min), validation with `src/lib/ratingInput.ts`, the D1 insert (country from `cf-ipcountry`, never from the body), and the Telegram notice in `c.executionCtx.waitUntil` (`inBackground`).
 - Telegram secrets live on `reptiles-api`: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (`wrangler secret put … --config wrangler.api.jsonc`). Without them the rating is still stored and the miss is logged.
-- `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
+- `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge,https://admin.reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
 - The site CSP `connect-src` allows `https://api.reptiles.ge` (and `http://localhost:8787` in development). Keep it in sync if the API origin changes.
 
 ### Species writes (phase 2)
@@ -191,12 +202,18 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Public: `GET /v1/authors` (`?contributor=true`) and `GET /v1/authors/:id`, edge-cached, localized by `X-Locale` with the Georgian name as fallback. Admin (token): `GET` and `PUT /v1/admin/authors/:id` (whole record; an alias owned by another author is a 400).
 - The site reads contributors only from these endpoints (`src/lib/authorsApi.ts`: `getContributors(locale)`, `getContributorDirectory(locale)`). Contributor pages, credit links, photo alt text, image rights JSON-LD, search, the sitemap and photo-use all take that data; client components read the directory from `ContributorsProvider`. A credit links to a contributor by `authorId`, or by its spelling when it has none (news MDX credits).
 
-### News (phase 1a, not served yet)
+### News
 
 - Migration `0008_news.sql` adds `news_articles`, `news_texts`, `news_sections` (blocks as a JSON array), `news_media` + `news_media_alts`, `news_sources`, `news_hubs`, `news_regions`, `news_species` and the `news_series` lookup. `docs/NEWS-D1-MIGRATION.md` is the plan.
 - `db/newsRows.ts` is the single row builder (`NewsRecord = { article: NewsArticle, position }`); `db/news.ts` reads (`readNewsRecords`). `news.test.ts` requires the import of `news.generated.ts` to read back `toStrictEqual`.
 - `news_media.author_id` is derived like `species_media.author_id`: `RELINK_MEDIA_AUTHORS` includes `RELINK_NEWS_MEDIA_AUTHORS`.
 - `db:import:news` is a one-off with a guard (`news_import_runs`): it fails when `news_articles` has rows. News MDX is still the live source until the site reads from the API (phase 3).
+- Writes are validated with `schemas/newsRecord.ts` (`newsArticleSchema`), which runs the shared rules in `src/lib/newsRules.ts`.
+- Public read (`routes/news.ts`, `db/newsView.ts`), edge-cached:
+  - `GET /v1/news` lists published articles that have text in the `X-Locale` locale, newest first (ties by `position`), without `sections`. Filters `hub`, `region`, `species` (related, or linked in that locale's text), `series` and `author` (id or credit spelling, the same text match as the site, `src/lib/newsAuthorMentions.ts`) combine. `limit` / `cursor` (a slug) work like `/v1/catalog`; `total` counts every match.
+  - `GET /v1/news/:slug` returns one published article with `sections` and `gallery`. Without text in the requested locale it falls back to Georgian, and `locale` and `Content-Language` say `ka`. Drafts and unknown slugs answer 404.
+  - Texts, photo `alt`, source names and the series name are localized. Photo credits are returned as published (not translated), with `authorId`. Paragraphs are `NewsMark` arrays, not the Markdown text format of species.
+- `routes/news.test.ts` compares the list, every filter and every article in all four locales with the site's own news functions (`src/data/news.ts`). Tests get a seeded database from `createNewsTestDatabase()`.
 
 ### Drafts (AI changes need approval)
 

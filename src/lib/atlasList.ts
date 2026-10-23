@@ -9,6 +9,7 @@ import {
   type CatalogCard,
   type CatalogMatchQuery,
   getCatalogMatches,
+  getVenomousSnakeCards,
 } from "@/lib/speciesCatalogApi";
 
 export type AtlasPage = {
@@ -56,12 +57,7 @@ export async function getAtlasRecentItems(
 export async function getAtlasVenomousSnakes(
   locale: AppLocale,
 ): Promise<AtlasCardItem[]> {
-  const { data } = await getCatalogMatches(locale, {
-    danger: "venomous",
-    group: "snake",
-    limit: 100,
-  });
-  return data.map(toAtlasCardItem);
+  return (await getVenomousSnakeCards(locale)).map(toAtlasCardItem);
 }
 
 function toAtlasCardItem(item: CatalogCard): AtlasCardItem {
