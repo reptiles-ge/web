@@ -5,6 +5,7 @@ import { Hono } from "hono";
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
 
+import { listAdminSpecies } from "../db/species";
 import {
   decideDraftStatement,
   insertDraft,
@@ -28,6 +29,7 @@ import {
   setPhotoCoordinates,
 } from "../lib/speciesPhotos";
 import { validate } from "../lib/validate";
+import { requireAdmin } from "../middleware/requireAdmin";
 import { requireToken } from "../middleware/requireToken";
 import {
   draftCreateBody,
@@ -43,6 +45,11 @@ import {
 } from "../schemas/speciesRecord";
 
 export const adminSpecies = new Hono<ApiEnv>()
+  .get("/", requireAdmin, async (c) => {
+    const data = await listAdminSpecies(c.env.DB);
+    c.header("Cache-Control", NO_STORE);
+    return c.json({ data, total: data.length }, 200);
+  })
   .use(requireToken)
   .get("/:id", validate("param", speciesIdParam), async (c) => {
     const found = await readSpeciesRecord(c.env.DB, c.req.valid("param").id);

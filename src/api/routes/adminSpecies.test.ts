@@ -8,6 +8,7 @@ import type { ApiBindings } from "../env";
 import { app } from "../app";
 import { readSpeciesCatalog } from "../db/speciesCatalog";
 import { readSpeciesRecord } from "../db/speciesWrite";
+import { hashSessionToken } from "../lib/sessions";
 import { speciesRecordSchema } from "../schemas/speciesRecord";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
@@ -320,5 +321,133 @@ describe("PUT /v1/admin/species/:id", () => {
       expect.any(Error),
     );
     log.mockRestore();
+  });
+});
+
+describe("GET /v1/admin/species", () => {
+  const COOKIE = "__Host-reptiles_admin_session";
+
+  type ListBody = {
+    data: Array<{
+      commonName: { en: null | string; ka: string };
+      group: string;
+      id: string;
+      lastEditedAt: null | string;
+      pendingDrafts: number;
+      photoCount: number;
+      status: string;
+      version: number;
+    }>;
+    total: number;
+  };
+
+  async function signIn(role = "admin", expiresInMs = 60_000) {
+    if (role !== "admin") {
+      sqlite.prepare("INSERT INTO user_roles (id) VALUES (?)").run(role);
+    }
+    const userId = crypto.randomUUID();
+    sqlite
+      .prepare(
+        "INSERT INTO users (id, email, name, role_id, password_hash) VALUES (?, ?, ?, ?, 'x')",
+      )
+      .run(userId, `${userId}@reptiles.ge`, "Admin", role);
+    const token = crypto.randomUUID();
+    sqlite
+      .prepare(
+        "INSERT INTO user_sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)",
+      )
+      .run(
+        await hashSessionToken(token),
+        userId,
+        new Date(Date.now() + expiresInMs).toISOString(),
+      );
+    return { Cookie: `${COOKIE}=${token}` };
+  }
+
+  function list(headers: Record<string, string> = {}) {
+    return requestJson<ErrorBody & ListBody>("/v1/admin/species", env, {
+      headers,
+    });
+  }
+
+  it("lists every species, published or not, in catalog order", async () => {
+    const { body, response } = await list({
+      Authorization: `Bearer ${TOKEN}`,
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    const rows = sqlite
+      .prepare("SELECT id, status FROM species ORDER BY catalog_position")
+      .all() as Array<{ id: string; status: string }>;
+    expect(body.total).toBe(rows.length);
+    expect(body.data.map(({ id, status }) => ({ id, status }))).toEqual(rows);
+    expect(body.data.some(({ status }) => status !== "published")).toBe(true);
+    expect(body.data.find(({ id }) => id === ID)).toMatchObject({
+      commonName: { en: expect.any(String), ka: "გიურზა" },
+      group: "snake",
+      lastEditedAt: null,
+      pendingDrafts: 0,
+      photoCount: expect.any(Number),
+      version: 1,
+    });
+  });
+
+  it("counts pending drafts and shows the last edit", async () => {
+    sqlite
+      .prepare(
+        "INSERT INTO species_drafts (species_id, base_version, source, actor, summary, record) VALUES (?, 1, 'ai', 'bot', 'Draft', '{}')",
+      )
+      .run(ID);
+    sqlite
+      .prepare(
+        "INSERT INTO species_revisions (species_id, version, actor, source, summary, created_at) VALUES (?, 2, 'nika', 'admin', 'Edit', '2026-10-23T10:00:00.000Z')",
+      )
+      .run(ID);
+    const { body } = await list({ Authorization: `Bearer ${TOKEN}` });
+    expect(body.data.find(({ id }) => id === ID)).toMatchObject({
+      lastEditedAt: "2026-10-23T10:00:00.000Z",
+      pendingDrafts: 1,
+    });
+  });
+
+  it("lets a signed-in admin read the list", async () => {
+    const { body, response } = await list(await signIn());
+    expect(response.status).toBe(200);
+    expect(body.total).toBeGreaterThan(100);
+  });
+
+  it("refuses everyone else", async () => {
+    const cases: Array<[Record<string, string>, number]> = [
+      [{}, 401],
+      [{ Authorization: "Bearer wrong" }, 401],
+      [{ Cookie: `${COOKIE}=made-up` }, 401],
+      [await signIn("admin", -1000), 401],
+      [await signIn("editor"), 403],
+    ];
+    for (const [headers, status] of cases) {
+      const { body, response } = await list(headers);
+      expect(response.status).toBe(status);
+      expect(body.data).toBeUndefined();
+    }
+  });
+
+  it("keeps every other admin species route token-only", async () => {
+    const session = await signIn();
+    const read = await app.request(
+      `/v1/admin/species/${ID}`,
+      { headers: session },
+      env,
+    );
+    expect(read.status).toBe(401);
+    const write = await app.request(
+      `/v1/admin/species/${ID}`,
+      {
+        body: JSON.stringify({}),
+        headers: { ...session, "Content-Type": "application/json" },
+        method: "PUT",
+      },
+      env,
+    );
+    expect(write.status).toBe(401);
   });
 });

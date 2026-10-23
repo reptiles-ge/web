@@ -5,6 +5,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { App } from "./App";
 import { fetchCurrentUser, signIn, signOut } from "./session";
 
+vi.mock("./species", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("./species")>()),
+  fetchAdminSpecies: vi.fn(async () => []),
+}));
+
 vi.mock("./session", () => ({
   fetchCurrentUser: vi.fn(),
   signIn: vi.fn(),
@@ -47,7 +52,7 @@ describe("admin App", () => {
     vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
     render(<App />);
     expect(
-      await screen.findByRole("heading", { name: "Dashboard" }),
+      await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
     expect(screen.getByText(ADMIN.email)).toBeInTheDocument();
   });
@@ -58,7 +63,7 @@ describe("admin App", () => {
     render(<App />);
     await fillAndSubmit();
     expect(
-      await screen.findByRole("heading", { name: "Dashboard" }),
+      await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
     expect(signIn).toHaveBeenCalledWith(ADMIN.email, "secret");
   });
@@ -75,7 +80,7 @@ describe("admin App", () => {
     render(<App />);
     await fillAndSubmit();
     expect(await screen.findByText(message)).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "Dashboard" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Species" })).toBeNull();
   });
 
   it("explains a failed request", async () => {

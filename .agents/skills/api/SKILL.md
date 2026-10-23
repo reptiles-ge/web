@@ -122,7 +122,9 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - A session is a random 32-byte token in the `__Host-reptiles_admin_session` cookie (`HttpOnly`, `Secure`, `SameSite=Strict`, `Path=/`, 7 days). D1 keeps only its SHA-256 (`token_hash`). The browser never sees `API_WRITE_TOKEN`.
 - `requireAdminSession` reads the cookie, rejects a missing, unknown, expired or disabled session (401) and a non-admin role (403), and sets `c.var.user`. `GET /v1/auth/me` returns that user; `POST /v1/auth/logout` (`requireSiteOrigin`, `rateLimitLogin`) deletes the session and clears the cookie.
 - The admin app (`admin.reptiles.ge`) sends these requests with `credentials: "include"`. Its origin is in `ALLOWED_ORIGINS`; for local work add `http://localhost:3002` in `.dev.vars`.
-- `/v1/auth/` is in `UNDOCUMENTED_PATH_PREFIXES`, like `/v1/admin/`.
+- `/v1/auth/` is in `UNDOCUMENTED_PATH_PREFIXES`, like `/v1/admin/`. Every `/v1/admin/…` route stays out of the OpenAPI document and Scalar; `routes/docs.test.ts` fails if one leaks.
+- `requireAdmin` (`middleware/requireAdmin.ts`) accepts the write token when an `Authorization` header is present, and otherwise an admin session (`requireAdminSession`). Use it only on admin **reads** the admin app needs. Admin writes stay `requireToken` until they get their own session and origin checks.
+- `GET /v1/admin/species` (`requireAdmin`, `NO_STORE`) lists every species, whatever its status, in catalog order: `id`, KA and EN common names, scientific name, group, status, danger, KA slug, version, hero image, gallery photo count, pending drafts and the last revision time. It is registered before `.use(requireToken)` in `routes/adminSpecies.ts`, so the token-only routes after it never accept a session (tested).
 
 ## Caching
 
