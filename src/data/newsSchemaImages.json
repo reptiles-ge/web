@@ -161,6 +161,26 @@
         "width": 1200
       }
     ],
+    "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg",
+        "width": 1200
+      }
+    ],
     "https://cdn.reptiles.ge/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": [
       {
         "height": 675,
@@ -201,6 +221,26 @@
         "width": 1200
       }
     ],
+    "https://cdn.reptiles.ge/news-armenia-red-book-2010-red-book-cover.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-armenia-red-book-2010-red-book-cover.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-armenia-red-book-2010-red-book-cover.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-armenia-red-book-2010-red-book-cover.jpg",
+        "width": 1200
+      }
+    ],
     "https://cdn.reptiles.ge/news-batumi-19300-hoekstra-1.jpg": [
       {
         "height": 675,
@@ -218,6 +258,26 @@
         "height": 1200,
         "ratio": "1x1",
         "url": "https://cdn.reptiles.ge/schema/1x1/news-batumi-19300-hoekstra-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-batumi-2026-end-brc-station-2-team.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-batumi-2026-end-brc-station-2-team.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-batumi-2026-end-brc-station-2-team.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-batumi-2026-end-brc-station-2-team.jpg",
         "width": 1200
       }
     ],
