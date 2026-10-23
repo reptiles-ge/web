@@ -10,6 +10,7 @@ import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
 
 import type { ApiDatabase } from "./database";
 
+import { readCreditPersonNames } from "./authors";
 import { readSpeciesCatalog } from "./speciesCatalog";
 
 export type CatalogView = "card" | "full" | "photos" | "quiz";
@@ -25,7 +26,10 @@ export async function readLocalizedCatalog(
   locale: AppLocale,
   view: CatalogView,
 ) {
-  const catalog = await readSpeciesCatalog(db);
+  const [catalog, personNames] = await Promise.all([
+    readSpeciesCatalog(db),
+    readCreditPersonNames(db, locale),
+  ]);
   const unpublished = new Set(catalog.unpublishedIds);
   const reverse = new Map<string, string[]>();
   for (const [id, peers] of Object.entries(catalog.lookalikes)) {
@@ -38,7 +42,7 @@ export async function readLocalizedCatalog(
       const translation =
         locale === "ka" ? undefined : catalog.translations[locale][base.id];
       const species = translation
-        ? applySpeciesTranslation(base, translation, locale)
+        ? applySpeciesTranslation(base, translation, locale, personNames)
         : base;
       const meta = catalog.atlasMeta[base.id]!;
       const direct = catalog.lookalikes[base.id] ?? [];

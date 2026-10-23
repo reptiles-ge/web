@@ -5,13 +5,16 @@ import type {
 } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { localizeCreditPerson, localizeCreditPlace } from "@/data/creditNames";
+import { localizeCreditPlace } from "@/data/creditNames";
 import { mergeGallery, overlayPhotoCredit } from "@/data/speciesMedia";
+
+export type CreditPersonNames = (photographer: string) => string | undefined;
 
 export function applySpeciesTranslation(
   species: Species,
   translation: SpeciesTranslation,
   locale: AppLocale,
+  personNames: CreditPersonNames,
 ): Species {
   const { gallery, imageCredit, mobileImageCredit, ...text } = translation;
 
@@ -29,7 +32,10 @@ export function applySpeciesTranslation(
             ? { location: localizeCreditPlace(value.location, locale) }
             : {}),
           ...(value.photographer
-            ? { photographer: localizeCreditPerson(value.photographer, locale) }
+            ? {
+                photographer:
+                  personNames(value.photographer) ?? value.photographer,
+              }
             : {}),
         }
       : undefined;

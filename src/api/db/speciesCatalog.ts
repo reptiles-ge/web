@@ -23,6 +23,7 @@ export type SpeciesCatalogData = {
 };
 
 type CreditRow = {
+  author_id: null | string;
   credit_date: null | string;
   credit_lat: null | number;
   credit_lng: null | number;
@@ -79,7 +80,7 @@ type TextRow = {
 };
 
 const CREDIT_SELECT =
-  "photo_confidence_id, credit_person, credit_location, credit_date, credit_lat, credit_lng, credit_url, credit_photo_confidence_id";
+  "photo_confidence_id, author_id, credit_person, credit_location, credit_date, credit_lat, credit_lng, credit_url, credit_photo_confidence_id";
 
 export async function readSpeciesCatalog(
   db: ApiDatabase,
@@ -290,6 +291,7 @@ function compact<T extends Record<string, unknown>>(value: T) {
 
 function credit(row: CreditRow): PhotoCredit | undefined {
   const value = compact({
+    authorId: row.author_id ?? undefined,
     date: row.credit_date ?? undefined,
     lat: row.credit_lat ?? undefined,
     lng: row.credit_lng ?? undefined,

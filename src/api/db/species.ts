@@ -6,6 +6,7 @@ import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
 
 import type { ApiDatabase } from "./database";
 
+import { readCreditPersonNames } from "./authors";
 import { readSpeciesCatalog } from "./speciesCatalog";
 
 type ListRow = {
@@ -44,9 +45,10 @@ export async function getSpeciesDetail(
   id: string,
   locale: AppLocale,
 ) {
-  const [catalog, lookalikes] = await Promise.all([
+  const [catalog, lookalikes, personNames] = await Promise.all([
     readSpeciesCatalog(db, id),
     listLookalikes(db, id, locale),
+    readCreditPersonNames(db, locale),
   ]);
   const base = catalog.species[0];
   const meta = catalog.atlasMeta[id];
@@ -55,7 +57,7 @@ export async function getSpeciesDetail(
     locale === "ka" ? undefined : catalog.translations[locale][id];
   return {
     ...(translation
-      ? applySpeciesTranslation(base, translation, locale)
+      ? applySpeciesTranslation(base, translation, locale, personNames)
       : base),
     group: meta.group,
     habitats: meta.habitats,

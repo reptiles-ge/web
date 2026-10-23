@@ -1,10 +1,11 @@
 import type { AppLocale } from "@/i18n/routing";
+import type { CreditPersonNames } from "@/i18n/speciesTranslation";
 
 import type { ApiDatabase } from "./database";
 
 import { renderBoundInserts } from "./sqlRender";
 
-export const AUTHOR_TABLES = [
+const AUTHOR_TABLES = [
   {
     columns: [
       "id",
@@ -229,6 +230,21 @@ export async function readAuthor(db: ApiDatabase, id: string) {
     };
   }
   return record;
+}
+
+export async function readCreditPersonNames(
+  db: ApiDatabase,
+  locale: AppLocale,
+): Promise<CreditPersonNames> {
+  if (locale === "ka") return () => undefined;
+  const { results } = await db
+    .prepare(
+      "SELECT a.alias AS alias, t.name AS name FROM author_aliases a JOIN author_texts t ON t.author_id = a.author_id AND t.locale = ?",
+    )
+    .bind(locale)
+    .all<{ alias: string; name: string }>();
+  const names = new Map(results.map((row) => [row.alias, row.name]));
+  return (photographer) => names.get(photographer);
 }
 
 export function relinkSpeciesAuthors(db: ApiDatabase, speciesId: string) {

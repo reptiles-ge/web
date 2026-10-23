@@ -87,6 +87,11 @@ const imageUrl = doc(z.string(), "Absolute image URL.", [
 const photoCredit = component(
   "PhotoCredit",
   z.strictObject({
+    authorId: doc(
+      z.string(),
+      "Id of the author this credit belongs to, in `/v1/authors`. Set whenever `photographer` is known to the atlas.",
+      ["zauri-khachidze"],
+    ).optional(),
     date: doc(
       z.string(),
       "When the photo was taken, as published: `YYYY-MM-DD`, `YYYY-MM`, or a localized day and month.",
