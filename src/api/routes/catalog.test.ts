@@ -21,11 +21,18 @@ const env = { DB: createSpeciesTestDatabase().db };
 
 type CatalogBody = {
   data: Array<Record<string, unknown>>;
+  facets: Record<
+    "danger" | "group" | "habitat" | "region",
+    Record<string, number>
+  >;
   locale: string;
   nextCursor: null | string;
+  stats: { lastUpdated: null | string; photos: number; venomous: number };
   total: number;
   view: string;
 };
+
+const ids = (body: CatalogBody) => body.data.map((entry) => entry.id);
 
 const VIEW_KEYS = {
   card: SPECIES_CARD_KEYS,
@@ -112,6 +119,107 @@ describe("GET /v1/catalog", () => {
     expect(ids).toStrictEqual(all.data.map((entry) => entry.id));
   });
 
+  it("filters by group, danger, habitat and region, and counts every match", async () => {
+    const { body: all } = await requestJson<CatalogBody>("/v1/catalog", env);
+    const { body } = await requestJson<CatalogBody>(
+      "/v1/catalog?group=snake&danger=venomous&habitat=mountain&region=kakheti",
+      env,
+    );
+    expect(body.total).toBe(body.data.length);
+    expect(body.total).toBeGreaterThan(0);
+    expect(body.total).toBeLessThan(all.total);
+    for (const entry of body.data) {
+      expect(entry.group).toBe("snake");
+      expect(["High", "Moderate"]).toContain(entry.danger);
+      expect(entry.habitats).toContain("mountain");
+    }
+    expect(body.facets.group.snake).toBe(body.total);
+    expect(body.facets.danger.venomous).toBe(body.total);
+    expect(body.facets.region.kakheti).toBe(body.total);
+    expect(body.stats.venomous).toBe(body.total);
+  });
+
+  it("counts each filter value while keeping the other filters", async () => {
+    const { body: all } = await requestJson<CatalogBody>("/v1/catalog", env);
+    const { all: groupAll, ...groups } = all.facets.group;
+    expect(groupAll).toBe(all.total);
+    expect(Object.values(groups).reduce((sum, n) => sum + n, 0)).toBe(
+      all.total,
+    );
+    const { body: snakes } = await requestJson<CatalogBody>(
+      "/v1/catalog?group=snake",
+      env,
+    );
+    expect(snakes.total).toBe(all.facets.group.snake);
+    expect(snakes.facets.group).toStrictEqual(all.facets.group);
+    expect(snakes.facets.danger.all).toBe(snakes.total);
+    expect(all.stats.photos).toBe(
+      all.data.reduce((sum, entry) => sum + (entry.photoCount as number), 0),
+    );
+  });
+
+  it("searches names and places in every locale", async () => {
+    for (const locale of locales) {
+      const { body } = await requestJson<CatalogBody>(
+        `/v1/catalog?q=${encodeURIComponent("გიურზა")}`,
+        env,
+        { headers: { "X-Locale": locale } },
+      );
+      expect(ids(body)).toStrictEqual(["macrovipera-lebetina"]);
+    }
+    const { body } = await requestJson<CatalogBody>(
+      "/v1/catalog?q=VIPERIDAE",
+      env,
+    );
+    expect(ids(body)).toContain("vipera-kaznakovi");
+  });
+
+  it("returns a numbered page of the sorted matches", async () => {
+    const { body: sorted } = await requestJson<CatalogBody>(
+      "/v1/catalog?sort=featured",
+      env,
+    );
+    const { body: page } = await requestJson<CatalogBody>(
+      "/v1/catalog?sort=featured&limit=24&page=2",
+      env,
+    );
+    expect(ids(page)).toStrictEqual(ids(sorted).slice(24, 48));
+    expect(page.total).toBe(sorted.total);
+    expect(page.nextCursor).toBe(ids(sorted)[47]);
+    const { body: past } = await requestJson<CatalogBody>(
+      "/v1/catalog?limit=24&page=99",
+      env,
+    );
+    expect(past.data).toStrictEqual([]);
+    expect(past.nextCursor).toBeNull();
+  });
+
+  it("sorts by name, range and update time", async () => {
+    const { body: az } = await requestJson<CatalogBody>(
+      "/v1/catalog?sort=az",
+      env,
+      { headers: { "X-Locale": "en" } },
+    );
+    const names = az.data.map((entry) => entry.commonName as string);
+    expect(names).toStrictEqual(
+      [...names].sort((a, b) => a.localeCompare(b, "en")),
+    );
+    const { body: updated } = await requestJson<CatalogBody>(
+      "/v1/catalog?sort=updated&limit=4",
+      env,
+    );
+    const times = updated.data.map((entry) =>
+      Date.parse(entry.updatedAt as string),
+    );
+    expect(times).toStrictEqual([...times].sort((a, b) => b - a));
+    expect(updated.data[0]?.updatedAt).toBe(updated.stats.lastUpdated);
+    const { body: range } = await requestJson<CatalogBody>(
+      "/v1/catalog?sort=range&limit=1",
+      env,
+    );
+    expect(range.data[0]?.id).toBeDefined();
+  });
+
   it("ignores a locale query parameter", async () => {
     const { body } = await requestJson<CatalogBody>(
       "/v1/catalog?locale=en",
@@ -130,7 +238,7 @@ describe("GET /v1/catalog", () => {
     expect(body.error.code).toBe("invalid_request");
   });
 
-  it("rejects an unknown view, limit or cursor", async () => {
+  it("rejects an unknown view, limit, cursor, page, filter or sort", async () => {
     for (const url of [
       "/v1/catalog?view=huge",
       "/v1/catalog?limit=0",
@@ -138,6 +246,15 @@ describe("GET /v1/catalog", () => {
       "/v1/catalog?limit=abc",
       "/v1/catalog?cursor=not-a-species",
       "/v1/catalog?cursor=dolichophis-caspius",
+      "/v1/catalog?page=2",
+      "/v1/catalog?limit=10&page=0",
+      "/v1/catalog?limit=10&page=2&cursor=vipera-kaznakovi",
+      "/v1/catalog?group=fish",
+      "/v1/catalog?danger=mild",
+      "/v1/catalog?habitat=desert",
+      "/v1/catalog?region=paris",
+      "/v1/catalog?sort=random",
+      `/v1/catalog?q=${"a".repeat(101)}`,
     ]) {
       const { body, response } = await requestJson<ErrorBody>(url, env);
       expect(response.status).toBe(400);
