@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "batumi-raptor-count-2026-season-ends",
   "caucasirella-akhali-gvari-kavkasia",
   "egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026",
   "schendyla-megobroba-new-centipede-tbilisi-2026",
