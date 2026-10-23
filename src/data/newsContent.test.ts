@@ -2,7 +2,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { getPublishedCreditAuthorBySlug } from "@/data/creditAuthors";
 import {
   getAllNewsArticles,
   getNewsArticleLocales,
@@ -12,7 +11,10 @@ import { newsSlugs } from "@/data/newsPublish";
 import { getRegionById } from "@/data/regions";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 
-import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  contributorsFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const articles = getAllNewsArticles();
 
@@ -117,9 +119,11 @@ describe("news MDX content", () => {
                 expect(GROUP_HUBS[part.id], label).toBeDefined();
               if (part.type === "credit-author")
                 expect(
-                  getPublishedCreditAuthorBySlug(part.slug),
+                  contributorsFixture().some(
+                    (author) => author.id === part.slug,
+                  ),
                   label,
-                ).toBeDefined();
+                ).toBe(true);
             }
           }
         }

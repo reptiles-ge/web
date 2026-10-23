@@ -15,7 +15,6 @@ import { generateMetadata as regionMetadata } from "@/app/[locale]/regions/[id]/
 import { generateMetadata as riskToHumansMetadata } from "@/app/[locale]/risk-to-humans/page";
 import { generateMetadata as snakesInYardMetadata } from "@/app/[locale]/snakes-in-the-yard/page";
 import { generateMetadata as venomousSnakesMetadata } from "@/app/[locale]/venomous-snakes/page";
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "@/data/news";
 import { regions } from "@/data/regions";
@@ -33,6 +32,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };
 
@@ -211,11 +211,11 @@ const brandedPages: Array<[string, MetadataLoader]> = [
   ["contact", (locale) => contactMetadata(localeParams(locale))],
   ["contributors", (locale) => authorsMetadata(localeParams(locale))],
   ["news", (locale) => newsIndexMetadata(localeParams(locale))],
-  ...getPublishedCreditAuthors().map((author): [string, MetadataLoader] => [
-    author.slug,
+  ...contributorsFixture().map((author): [string, MetadataLoader] => [
+    author.id,
     (locale) =>
       authorMetadata({
-        params: Promise.resolve({ locale, slug: author.slug }),
+        params: Promise.resolve({ locale, slug: author.id }),
       }),
   ]),
 ];

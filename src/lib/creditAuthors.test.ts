@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import imageManifest from "@/data/image-manifest.json";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { routing } from "@/i18n/routing";
@@ -21,22 +20,24 @@ import {
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   HOME_CONTRIBUTOR_LIMIT,
-  resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
 import {
   catalogSpeciesFixture,
+  contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-const authors = getPublishedCreditAuthors();
+const authors = contributorsFixture("ka");
+const resolvePublishedCreditAuthor = (id: string) =>
+  authors.find((author) => author.id === id);
 
 describe("static params and urls", () => {
-  it("has one param per published author and locale", () => {
-    const params = creditAuthorStaticParams();
+  it("has one param per contributor and locale", () => {
+    const params = creditAuthorStaticParams(authors);
     expect(params).toHaveLength(authors.length * routing.locales.length);
-    expect(params).toContainEqual({ locale: "en", slug: authors[0].slug });
+    expect(params).toContainEqual({ locale: "en", slug: authors[0].id });
   });
 
   it("builds absolute URLs", () => {
@@ -46,7 +47,7 @@ describe("static params and urls", () => {
 
   it("has alternates for every locale", () => {
     for (const alternates of [
-      creditAuthorAlternates("en", authors[0].slug),
+      creditAuthorAlternates("en", authors[0].id),
       creditAuthorIndexAlternates("en"),
     ]) {
       for (const locale of routing.locales) {
@@ -56,24 +57,18 @@ describe("static params and urls", () => {
   });
 });
 
-describe("resolvePublishedCreditAuthor", () => {
-  it("resolves published authors only", () => {
-    expect(resolvePublishedCreditAuthor(authors[0].slug)).toBe(authors[0]);
-    expect(resolvePublishedCreditAuthor("nobody")).toBeUndefined();
-  });
-});
-
 describe("getCreditAuthorPhotos", () => {
-  it("only returns photos credited to one of the author's aliases", () => {
+  it("only returns photos linked to the author", () => {
     for (const author of authors) {
       const aliases = new Set(author.aliases);
       for (const photo of getCreditAuthorPhotos(
         author,
         speciesCatalogFixture("ka"),
       )) {
+        expect(photo.credit?.authorId, photo.src).toBe(author.id);
         expect(
           aliases.has(photo.credit?.photographer?.trim() ?? ""),
-          `${author.slug}: ${photo.src}`,
+          `${author.id}: ${photo.src}`,
         ).toBe(true);
       }
     }
@@ -85,7 +80,7 @@ describe("getCreditAuthorPhotos", () => {
         author,
         speciesCatalogFixture("ka"),
       ).map((photo) => photo.src);
-      expect(new Set(srcs).size, author.slug).toBe(srcs.length);
+      expect(new Set(srcs).size, author.id).toBe(srcs.length);
     }
   });
 
@@ -104,7 +99,7 @@ describe("getCreditAuthorPhotos", () => {
   it("returns nothing for an author with no matching credits", () => {
     expect(
       getCreditAuthorPhotos(
-        { ...authors[0], aliases: ["Nobody Atall"] },
+        { id: "nobody-atall" },
         speciesCatalogFixture("ka"),
       ),
     ).toEqual([]);
@@ -147,11 +142,11 @@ describe("getCreditAuthorHubIds", () => {
 });
 
 describe("getCreditAuthorCards", () => {
-  const cards = getCreditAuthorCards(speciesCatalogFixture("ka"));
+  const cards = getCreditAuthorCards(authors, speciesCatalogFixture("ka"));
 
-  it("has a card for every published author", () => {
-    expect(cards.map((card) => card.author.slug).sort()).toEqual(
-      authors.map((author) => author.slug).sort(),
+  it("has a card for every contributor", () => {
+    expect(cards.map((card) => card.author.id).sort()).toEqual(
+      authors.map((author) => author.id).sort(),
     );
   });
 
@@ -160,7 +155,7 @@ describe("getCreditAuthorCards", () => {
       const previous = cards[index - 1];
       const current = cards[index];
       if (previous.photoCount === current.photoCount) {
-        expect(previous.author.slug <= current.author.slug).toBe(true);
+        expect(previous.author.id <= current.author.id).toBe(true);
       } else {
         expect(previous.photoCount).toBeGreaterThan(current.photoCount);
       }
@@ -259,7 +254,7 @@ describe("portrait URLs outside the picture element", () => {
 
   it("optimizes every published portrait", () => {
     for (const author of authors) {
-      expect(optimizedEntry(author.portraitSrc), author.slug).not.toBeNull();
+      expect(optimizedEntry(author.portraitSrc), author.id).not.toBeNull();
     }
   });
 
@@ -267,11 +262,11 @@ describe("portrait URLs outside the picture element", () => {
     for (const author of authors) {
       const image = creditAuthorPortraitImage(author);
       if (!optimizedEntry(author.portraitSrc)?.formats.includes("webp")) {
-        expect(image.url, author.slug).toBe(author.portraitSrc);
+        expect(image.url, author.id).toBe(author.portraitSrc);
         continue;
       }
-      expect(uploaded.has(image.url), author.slug).toBe(true);
-      expect(image.type, author.slug).toBe("image/webp");
+      expect(uploaded.has(image.url), author.id).toBe(true);
+      expect(image.type, author.id).toBe("image/webp");
     }
   });
 
@@ -291,7 +286,7 @@ describe("portrait URLs outside the picture element", () => {
       for (const url of [sitemapUrl, searchThumb]) {
         expect(
           uploaded.has(url) || url === author.portraitSrc,
-          `${author.slug} ${url}`,
+          `${author.id} ${url}`,
         ).toBe(true);
       }
     }
@@ -302,7 +297,9 @@ describe("contributor entity JSON-LD", () => {
   const bySlug = (slug: string) => resolvePublishedCreditAuthor(slug)!;
 
   it("describes a person with a verified job title and affiliation", () => {
-    const zauri = bySlug("zauri-khachidze");
+    const zauri = contributorsFixture("en").find(
+      (author) => author.id === "zauri-khachidze",
+    )!;
     const node = creditAuthorEntityJsonLd(zauri, "en", {
       description: "bio",
       jobTitle: "Ranger",

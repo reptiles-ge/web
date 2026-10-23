@@ -4,20 +4,17 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { ContributorProfile } from "@/data/authors";
+
 import { AuthorPage } from "@/components/AuthorPage";
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  type CreditAuthor,
-  creditAuthorBio,
-  creditAuthorKind,
-  creditAuthorName,
-} from "@/data/creditAuthors";
 import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getContributors } from "@/lib/authorsApi";
 import {
   creditAuthorAlternates,
   creditAuthorEntityJsonLd,
@@ -28,7 +25,6 @@ import {
   creditAuthorUrl,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
-  resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
@@ -56,7 +52,9 @@ export default async function AuthorRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const author = resolvePublishedCreditAuthor(slug);
+  const author = (await getContributors(locale)).find(
+    (item) => item.id === slug,
+  );
   if (!author) notFound();
 
   const [t, tShared, creditPhotos, catalog] = await Promise.all([
@@ -67,9 +65,9 @@ export default async function AuthorRoute({ params }: Props) {
   ]);
   const photos = getCreditAuthorPhotos(author, creditPhotos);
   const byId = new Map(catalog.map((item) => [item.id, item]));
-  const name = creditAuthorName(author, locale);
-  const bio = creditAuthorBio(author, locale);
-  const url = creditAuthorUrl(locale, author.slug);
+  const name = author.name;
+  const bio = author.bio;
+  const url = creditAuthorUrl(locale, author.id);
   const indexUrl = creditAuthorIndexUrl(locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const relatedNews = getPublishedNewsForCreditAuthor(author, locale);
@@ -126,7 +124,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
-    ...(await authorDateFields(author.slug, locale)),
+    ...(await authorDateFields(author.id, locale)),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
@@ -170,7 +168,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const locale = localeParam as AppLocale;
-  const author = resolvePublishedCreditAuthor(slug);
+  const author = (await getContributors(locale)).find(
+    (item) => item.id === slug,
+  );
   if (!author) {
     const t = await getTranslations({ locale, namespace: "author" });
     return {
@@ -183,19 +183,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     getTranslations({ locale, namespace: "author" }),
     getCreditPhotoCatalog(),
   ]);
-  const name = creditAuthorName(author, locale);
+  const name = author.name;
   const photos = getCreditAuthorPhotos(author, creditPhotos);
   const title = creditAuthorMetaTitle(author, locale, name, t);
   const fallbackDescription = sentenceMetaDescription(
-    (locale === "ka" ? undefined : author.metaDescription?.[locale]) ??
-      creditAuthorBio(author, locale) ??
+    (locale === "ka" ? undefined : author.metaDescription) ??
+      author.bio ??
       t("metaDescription", {
         count: photos.length,
         name,
         species: getCreditAuthorSpeciesIds(photos).length,
       }),
   );
-  const url = creditAuthorUrl(locale, author.slug);
+  const url = creditAuthorUrl(locale, author.id);
   const description = kaMetaDescriptionOverride(
     locale,
     new URL(url).pathname,
@@ -204,7 +204,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const portrait = creditAuthorPortraitImage(author);
 
   return {
-    alternates: creditAuthorAlternates(locale, author.slug),
+    alternates: creditAuthorAlternates(locale, author.id),
     description,
     openGraph: {
       description,
@@ -218,7 +218,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
-      type: creditAuthorKind(author) === "person" ? "profile" : "website",
+      type: author.kind === "person" ? "profile" : "website",
       url,
     },
     robots: INDEXABLE_ROBOTS,
@@ -232,17 +232,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  return creditAuthorStaticParams();
+export async function generateStaticParams() {
+  return creditAuthorStaticParams(await getContributors(routing.defaultLocale));
 }
 
 function creditAuthorMetaTitle(
-  author: CreditAuthor,
+  author: ContributorProfile,
   locale: AppLocale,
   name: string,
   t: Awaited<ReturnType<typeof getTranslations<"author">>>,
 ) {
-  if (creditAuthorKind(author) !== "person") return t("metaTitle", { name });
+  if (author.kind !== "person") return t("metaTitle", { name });
   return t("metaTitleWithRole", {
     name,
     role: t(`roles.${author.role}`).toLocaleLowerCase(locale),

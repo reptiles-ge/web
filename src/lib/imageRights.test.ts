@@ -20,9 +20,12 @@ import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 
 import {
   catalogSpeciesFixture,
+  contributorDirectoryFixture,
   localizedFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+
+const contributors = contributorDirectoryFixture();
 
 type ImageObject = Record<string, unknown> & {
   acquireLicensePage?: string;
@@ -87,6 +90,7 @@ describe("photoRights", () => {
       "https://cdn.reptiles.ge/vipera-dinniki-sandro-1.jpg",
       { photographer: "სანდრო ხახვა" },
       "en",
+      contributorDirectoryFixture("en"),
     );
     expect(rights.license).toBe(photoUsePageUrl("en"));
     expect(rights.acquireLicensePage).toBe(photoUsePageUrl("en"));
@@ -113,6 +117,7 @@ describe("photoRights", () => {
           url: "https://www.inaturalist.org/observations/140705806",
         },
         "ka",
+        contributors,
       );
       expect(rights.license).toBe(photoUsePageUrl("ka"));
       expect(rights.acquireLicensePage).toBe(photoUsePageUrl("ka"));
@@ -136,6 +141,7 @@ describe("photoRights", () => {
         url: "https://www.inaturalist.org/observations/238226101",
       },
       "ka",
+      contributors,
     );
     expect(rights.license).toBe(
       "https://creativecommons.org/licenses/by-nc/4.0/",
@@ -151,6 +157,7 @@ describe("photoRights", () => {
       "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
       { photographer: "Hectonichus" },
       "ka",
+      contributors,
     );
     expect(rights.license).toBe(
       "https://creativecommons.org/licenses/by-sa/3.0/",
@@ -164,7 +171,12 @@ describe("photoRights", () => {
     const src = Object.keys(photoLicenses).find(
       (key) => photoLicenses[key].license === null,
     ) as string;
-    const rights = photoRights(src, { photographer: "Someone" }, "ru");
+    const rights = photoRights(
+      src,
+      { photographer: "Someone" },
+      "ru",
+      contributors,
+    );
     expect(rights.license).toBe(photoUsePageUrl("ru"));
     expect(rights.acquireLicensePage).toBe(photoUsePageUrl("ru"));
   });
@@ -174,6 +186,7 @@ describe("photoRights", () => {
       "https://cdn.reptiles.ge/erinaceus-concolor-israel-1.jpg",
       { photographer: "Nadav Kavalerchik" },
       "en",
+      contributors,
     );
     expect(rights.license).toMatch(
       /^https:\/\/creativecommons\.org\/publicdomain\//,
@@ -189,6 +202,7 @@ describe("photoRights", () => {
       "https://cdn.reptiles.ge/x.jpg",
       undefined,
       "en",
+      contributors,
     );
     expect(rights).not.toHaveProperty("creator");
     expect(rights).not.toHaveProperty("copyrightHolder");
@@ -200,7 +214,7 @@ describe("photoRights", () => {
 
   it("leaves out the fallback notice on an uncredited open-licensed photo", () => {
     const src = "https://cdn.reptiles.ge/falco-tinnunculus-paul-1.jpg";
-    const rights = photoRights(src, undefined, "en");
+    const rights = photoRights(src, undefined, "en", contributors);
     expect(rights.license).toBe(photoLicenses[src].license);
     expect(rights).not.toHaveProperty("copyrightNotice");
   });
@@ -211,12 +225,17 @@ describe("photoRights", () => {
         "https://cdn.reptiles.ge/x.jpg",
         undefined,
         locale,
+        contributors,
       );
       expect(rights.copyrightNotice, locale).toMatch(/^© \S/);
     }
     expect(
-      photoRights("https://cdn.reptiles.ge/x.jpg", undefined, "ka")
-        .copyrightNotice,
+      photoRights(
+        "https://cdn.reptiles.ge/x.jpg",
+        undefined,
+        "ka",
+        contributors,
+      ).copyrightNotice,
     ).toBe("© ფოტოს ავტორი. ყველა უფლება დაცულია.");
   });
 });
@@ -230,6 +249,7 @@ describe("photoRightsCategory", () => {
       photoRightsCategory(
         "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg",
         { photographer: "Giorgi Iankoshvili" },
+        contributors,
       ),
     ).toBe("contributor");
     expect(
@@ -238,27 +258,41 @@ describe("photoRightsCategory", () => {
         {
           photographer: "Vojtěch Víta",
         },
+        contributors,
       ),
     ).toBe("open");
     expect(
       photoRightsCategory(
         "https://cdn.reptiles.ge/erinaceus-concolor-israel-1.jpg",
         { photographer: "Nadav Kavalerchik" },
+        contributors,
       ),
     ).toBe("open");
     expect(
-      photoRightsCategory(allRightsReserved, { photographer: "Someone" }),
+      photoRightsCategory(
+        allRightsReserved,
+        { photographer: "Someone" },
+        contributors,
+      ),
     ).toBe("permission");
     expect(
-      photoRightsCategory("https://cdn.reptiles.ge/x.jpg", {
-        photographer: "Someone",
-      }),
+      photoRightsCategory(
+        "https://cdn.reptiles.ge/x.jpg",
+        {
+          photographer: "Someone",
+        },
+        contributors,
+      ),
     ).toBe("permission");
-    expect(photoRightsCategory("https://cdn.reptiles.ge/x.jpg", {})).toBe(
-      "unknown",
-    );
     expect(
-      photoRightsCategory("https://cdn.reptiles.ge/x.jpg", undefined),
+      photoRightsCategory("https://cdn.reptiles.ge/x.jpg", {}, contributors),
+    ).toBe("unknown");
+    expect(
+      photoRightsCategory(
+        "https://cdn.reptiles.ge/x.jpg",
+        undefined,
+        contributors,
+      ),
     ).toBe("unknown");
   });
 });
@@ -285,6 +319,7 @@ describe("species ImageObjects", () => {
         const item = localizedFixture(raw, locale);
         const data = speciesStructuredData({
           breadcrumbCrumbs: [{ name: item.commonName }],
+          contributors,
           galleryTitle: "gallery",
           item,
           locale,
@@ -306,10 +341,15 @@ describe("species ImageObjects", () => {
       for (const raw of catalogSpeciesFixture()) {
         const item = localizedFixture(raw, locale);
         for (const photo of item.gallery) {
-          const image = galleryImageObject(photo, item, locale) as ImageObject;
+          const image = galleryImageObject(
+            photo,
+            item,
+            locale,
+            contributors,
+          ) as ImageObject;
           const label = `${locale} ${raw.id} ${photo.src}`;
           expectLicensed(image, label);
-          if (photoContributor(photo.credit)) {
+          if (photoContributor(photo.credit, contributors)) {
             expect(image.license, label).toBe(photoUsePageUrl(locale));
             expect(image.copyrightHolder?.["@id"], label).toBe(ORGANIZATION_ID);
           }
@@ -346,6 +386,7 @@ describe("guide and news images", () => {
           locale,
           speciesCatalogFixture(locale),
           speciesCatalogFixture("ka"),
+          contributors,
         );
         expectLicensed(rights, article.slug);
         if ("creator" in rights) expectAttributed(rights, article.slug);

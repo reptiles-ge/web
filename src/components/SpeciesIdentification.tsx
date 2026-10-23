@@ -11,10 +11,6 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { SpeciesLookalikeList } from "@/components/SpeciesLookalikeList";
 import {
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
-import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
@@ -24,7 +20,12 @@ import {
   type SpeciesIdentification as Identification,
 } from "@/data/speciesTypes";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
+import {
+  type ContributorDirectory,
+  creditContributor,
+} from "@/lib/contributorCredits";
 import { dangerLevelTone } from "@/lib/dangerLevels";
 import { IDENTIFICATION_PHOTO_SIZES } from "@/lib/imageSizes";
 import { SPECIES_COLOR_TONES } from "@/lib/speciesColors";
@@ -372,14 +373,11 @@ function IdentificationIntro({
 
 function photoCreditLine(
   credit: GalleryImage["credit"],
-  locale: AppLocale,
+  contributors: ContributorDirectory,
 ): string {
   const photographer = credit?.photographer?.trim();
-  const author = photographer
-    ? getPublishedCreditAuthorByName(photographer)
-    : undefined;
   return [
-    author ? creditAuthorName(author, locale) : photographer,
+    creditContributor(contributors, credit)?.name ?? photographer,
     credit?.location?.trim(),
     credit?.date?.match(/\d{4}/)?.[0],
   ]
@@ -509,7 +507,7 @@ function SpeciesIdentificationLookalikes({
   );
 }
 
-function SpeciesIdentificationPhoto({
+async function SpeciesIdentificationPhoto({
   alt,
   locale,
   photo,
@@ -519,7 +517,10 @@ function SpeciesIdentificationPhoto({
   photo: GalleryImage;
 }) {
   const entry = optimizedEntry(photo.src);
-  const credit = photoCreditLine(photo.credit, locale);
+  const credit = photoCreditLine(
+    photo.credit,
+    await getContributorDirectory(locale),
+  );
 
   return (
     <figure className="mt-5 lg:sticky lg:top-36 lg:col-start-1 lg:row-span-full lg:mt-0 lg:self-start">

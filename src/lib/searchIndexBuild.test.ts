@@ -6,10 +6,15 @@ import { buildSearchIndex } from "@/lib/searchIndexBuild";
 import {
   catalogSpeciesFixture,
   searchCatalogsFixture,
+  searchContributorsFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
 describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
-  const index = buildSearchIndex(locale, searchCatalogsFixture());
+  const index = buildSearchIndex(
+    locale,
+    searchCatalogsFixture(),
+    searchContributorsFixture(),
+  );
 
   it("is not empty and every document has the basics", () => {
     expect(index.length).toBeGreaterThan(0);
@@ -58,7 +63,11 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
 describe("buildSearchIndex across locales", () => {
   it("indexes the same set of documents in every locale", () => {
     const keysPerLocale = routing.locales.map((locale) =>
-      buildSearchIndex(locale, searchCatalogsFixture())
+      buildSearchIndex(
+        locale,
+        searchCatalogsFixture(),
+        searchContributorsFixture(),
+      )
         .map((doc) => doc.key)
         .sort(),
     );

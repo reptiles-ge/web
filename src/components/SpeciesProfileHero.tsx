@@ -20,6 +20,7 @@ import {
 } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
@@ -69,12 +70,13 @@ export async function SpeciesProfileHero({
   shareText,
   species,
 }: SpeciesProfileHeroProps) {
-  const [t, tCard, tDanger, tNav, tSafety] = await Promise.all([
+  const [t, tCard, tDanger, tNav, tSafety, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "card" }),
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "home.safetyStrip" }),
+    getContributorDirectory(locale),
   ]);
   const riskChip = getSpeciesRiskChip(species, group);
   const dangerLabel = tCard("dangerLevel");
@@ -92,7 +94,7 @@ export async function SpeciesProfileHero({
               species.commonName,
               species.scientificName,
               photo.credit,
-              locale,
+              contributors,
             ),
       gallerySrc: optimizedImgSrc(photo.src, 1200),
       height: entry?.height,

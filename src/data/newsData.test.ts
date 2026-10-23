@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import {
   getAllNewsArticles,
   getNewsArticleLocales,
@@ -26,7 +25,10 @@ import {
 } from "@/data/news";
 import { routing } from "@/i18n/routing";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  contributorsFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const published = getPublishedNewsArticles();
 const article = published[0];
@@ -147,7 +149,7 @@ describe("relations", () => {
   });
 
   it("only returns published articles for a credit author", () => {
-    for (const author of getPublishedCreditAuthors()) {
+    for (const author of contributorsFixture()) {
       for (const item of getPublishedNewsForCreditAuthor(author)) {
         expect(item.status).toBe("published");
       }

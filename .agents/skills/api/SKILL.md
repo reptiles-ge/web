@@ -189,6 +189,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `0007_authors_backfill.sql` was a one-off backfill from the contributor registry, the old credit-name translations and the photo credits. Its generator was deleted once it was applied; new authors and aliases go through `PUT /v1/admin/authors/:id`.
 - Every photo credit in API responses carries `authorId`. Outside Georgian, `photographer` is the author's name in that locale (`author_texts`) when there is one, looked up by the credit text through `author_aliases` (`readCreditPersonNames`, passed to `applySpeciesTranslation`); otherwise the credit text is kept. Place names are still localized in code (`creditNames.ts`).
 - Public: `GET /v1/authors` (`?contributor=true`) and `GET /v1/authors/:id`, edge-cached, localized by `X-Locale` with the Georgian name as fallback. Admin (token): `GET` and `PUT /v1/admin/authors/:id` (whole record; an alias owned by another author is a 400).
+- The site reads contributors only from these endpoints (`src/lib/authorsApi.ts`: `getContributors(locale)`, `getContributorDirectory(locale)`). Contributor pages, credit links, photo alt text, image rights JSON-LD, search, the sitemap and photo-use all take that data; client components read the directory from `ContributorsProvider`. A credit links to a contributor by `authorId`, or by its spelling when it has none (news MDX credits).
 
 ### Drafts (AI changes need approval)
 

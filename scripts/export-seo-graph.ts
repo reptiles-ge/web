@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { getPublishedCreditAuthors } from "../src/data/creditAuthors";
 import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import {
   getNewsArticleLocales,
@@ -29,6 +28,7 @@ import {
   speciesAlternates,
 } from "../src/lib/site";
 import { regionHref } from "../src/lib/speciesRoutes";
+import { getContributors } from "../src/lib/authorsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
@@ -60,18 +60,18 @@ type RouteType =
 
 const routes = new Map<string, RouteInput>();
 
-function addAuthors() {
-  for (const author of getPublishedCreditAuthors()) {
+async function addAuthors() {
+  for (const author of await getContributors(routing.defaultLocale)) {
     for (const locale of routing.locales) {
       const { canonical, languages } = creditAuthorAlternates(
         locale,
-        author.slug,
+        author.id,
       );
       addRoute({
         alternates: languages,
         canonicalUrl: canonical,
         locale,
-        path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
+        path: new URL(creditAuthorUrl(locale, author.id)).pathname,
         type: "author",
       });
     }
@@ -243,7 +243,7 @@ async function main() {
   addGuides();
   addRegions();
   addSpecies(await getSpeciesCatalog(routing.defaultLocale));
-  addAuthors();
+  await addAuthors();
   addNews();
   addQuizzes();
 

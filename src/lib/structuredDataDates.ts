@@ -6,10 +6,6 @@ import {
   pageFileModifiedAt,
 } from "@/data/contentDates.generated";
 import {
-  getPublishedCreditAuthorBySlug,
-  getPublishedCreditAuthors,
-} from "@/data/creditAuthors";
-import {
   AUTHOR_MESSAGE_NAMESPACES,
   PAGE_MESSAGE_NAMESPACES,
   REGION_MESSAGE_NAMESPACES,
@@ -24,6 +20,7 @@ import {
   sitemapRegionLastModified,
 } from "@/data/pageLastModified";
 import { getRegionById, getRegionSpecies, regions } from "@/data/regions";
+import { getContributors } from "@/lib/authorsApi";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
   type CreditPhotoSource,
@@ -114,6 +111,9 @@ export async function pageModifiedDate(
       path === "/authors"
         ? (creditPhotos ?? (await getCreditPhotoCatalog()))
         : [],
+      path === "/authors"
+        ? (await getContributors(locale)).map((author) => author.id)
+        : [],
     ),
   ]);
 }
@@ -161,10 +161,10 @@ function authorMembersDate(
   catalog: readonly CatalogCard[],
   creditPhotos: readonly CreditPhotoSource[],
 ) {
-  const author = getPublishedCreditAuthorBySlug(slug);
-  if (!author) return null;
   const ids = new Set(
-    getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author, creditPhotos)),
+    getCreditAuthorSpeciesIds(
+      getCreditAuthorPhotos({ id: slug }, creditPhotos),
+    ),
   );
   return speciesDate(catalog.filter((item) => ids.has(item.id)));
 }
@@ -219,6 +219,7 @@ function pageMembersDate(
   path: string,
   catalog: readonly CatalogCard[],
   creditPhotos: readonly CreditPhotoSource[],
+  authorIds: readonly string[],
 ) {
   if (path === "/regions") {
     return latestDate(
@@ -227,9 +228,7 @@ function pageMembersDate(
   }
   if (path === "/authors") {
     return latestDate(
-      getPublishedCreditAuthors().map((author) =>
-        authorMembersDate(author.slug, catalog, creditPhotos),
-      ),
+      authorIds.map((id) => authorMembersDate(id, catalog, creditPhotos)),
     );
   }
   if (path === "/quiz") {

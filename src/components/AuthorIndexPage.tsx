@@ -1,17 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { CreditAuthorRole } from "@/data/creditAuthors";
+import type { AuthorRole } from "@/data/authors";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorCard } from "@/lib/creditAuthors";
 
 import { AuthorIndexGrid } from "@/components/AuthorIndexGrid";
 import { CoverImage } from "@/components/CoverImage";
-import {
-  creditAuthorBio,
-  creditAuthorHref,
-  creditAuthorName,
-} from "@/data/creditAuthors";
+import { creditAuthorHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
 import {
   getCreditAuthorPhotos,
@@ -20,7 +16,7 @@ import {
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
-const ROLE_ORDER: readonly CreditAuthorRole[] = [
+const ROLE_ORDER: readonly AuthorRole[] = [
   "herpetologist",
   "professor",
   "ranger",
@@ -146,12 +142,12 @@ export async function AuthorIndexPage({
                 id: card.author.id,
                 node: (
                   <AuthorIndexCard
-                    bio={creditAuthorBio(card.author, locale)}
+                    bio={card.author.bio}
                     card={card}
-                    name={creditAuthorName(card.author, locale)}
+                    name={card.author.name}
                     photosLabel={t("statPhotos")}
                     portraitAlt={t("portraitAlt", {
-                      name: creditAuthorName(card.author, locale),
+                      name: card.author.name,
                     })}
                     role={t(`roles.${card.author.role}`)}
                     speciesLabel={t("statSpecies")}
@@ -213,7 +209,7 @@ function AuthorIndexCard({
   return (
     <Link
       className={`group flex flex-1 flex-col rounded-[26px] bg-card p-5 transition-[translate,box-shadow] duration-300 hover:translate-y-[-3px] hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_22px_48px_rgba(14,20,17,0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[32px] lg:p-7 ${CARD_SHADOW}`}
-      href={creditAuthorHref(card.author.slug)}
+      href={creditAuthorHref(card.author.id)}
     >
       <div className="flex items-center gap-4 lg:gap-[18px]">
         <span className="relative size-14 shrink-0 overflow-hidden rounded-full bg-ink lg:size-[72px]">

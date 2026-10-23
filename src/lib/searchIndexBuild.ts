@@ -1,10 +1,10 @@
 import type { CatalogCard } from "@/data/speciesCatalogTypes";
 
 import {
+  type AuthorRole,
+  type ContributorProfile,
   creditAuthorHref,
-  type CreditAuthorRole,
-  getPublishedCreditAuthors,
-} from "@/data/creditAuthors";
+} from "@/data/authors";
 import { getGuideArticles } from "@/data/guideArticles";
 import {
   getPublishedNewsArticles,
@@ -1036,9 +1036,15 @@ const SEARCH_THUMB_WIDTH = 400;
 
 export type SearchCatalogs = Record<AppLocale, readonly CatalogCard[]>;
 
+export type SearchContributors = Record<
+  AppLocale,
+  readonly ContributorProfile[]
+>;
+
 export function buildSearchIndex(
   locale: AppLocale,
   catalogs: SearchCatalogs,
+  contributors: SearchContributors,
 ): SearchDocument[] {
   const base = catalogs[routing.defaultLocale];
   const byLocale = Object.fromEntries(
@@ -1112,33 +1118,35 @@ export function buildSearchIndex(
     toSpeciesDocument(locale, item, localized),
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
-  const authorDocs = getPublishedCreditAuthors().map((author) => {
+  const contributorsById = Object.fromEntries(
+    routing.locales.map((item) => [
+      item,
+      new Map(contributors[item].map((author) => [author.id, author])),
+    ]),
+  ) as Record<AppLocale, Map<string, ContributorProfile>>;
+  const authorDocs = contributors[routing.defaultLocale].map((author) => {
+    const inLocale = (target: AppLocale) =>
+      contributorsById[target].get(author.id) ?? author;
     return {
-      href: creditAuthorHref(author.slug),
+      href: creditAuthorHref(author.id),
       icon: "info" as const,
       id: `author:${author.id}`,
       image: author.portraitSrc,
       key: `author:${author.id}`,
       kind: "page" as const,
-      scoreTitles: [author.name.ka, author.name.en],
+      scoreTitles: [author.name, inLocale("en").name],
       searchText: blob([
-        author.name.ka,
-        author.name.en,
-        author.name.ru,
-        author.name.tr,
-        author.bio?.ka,
-        author.bio?.en,
-        author.bio?.ru,
-        author.bio?.tr,
+        ...routing.locales.map((target) => inLocale(target).name),
+        ...routing.locales.map((target) => inLocale(target).bio),
         ...author.aliases,
-        author.links?.facebook,
-        author.links?.instagram,
+        author.links.facebook,
+        author.links.instagram,
         ...creditAuthorRoleSearchTerms(author.role),
         "ფოტოგრაფი",
         "photographer",
         "фотограф",
         "fotoğrafçı",
-        author.slug,
+        author.id,
       ]),
       subtitle: pickLocale(
         {
@@ -1149,7 +1157,7 @@ export function buildSearchIndex(
         },
         locale,
       ),
-      title: pickLocalized(author.name, locale),
+      title: inLocale(locale).name,
     };
   });
   const newsDocs = getPublishedNewsArticles().map((article) => {
@@ -1178,8 +1186,8 @@ function blob(parts: Array<string | undefined>) {
   return `${raw} ${transliterateKa(raw)}`.toLowerCase();
 }
 
-function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
-  const terms: Record<CreditAuthorRole, string[]> = {
+function creditAuthorRoleSearchTerms(role: AuthorRole) {
+  const terms: Record<AuthorRole, string[]> = {
     herpetologist: ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"],
     photographer: ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"],
     professor: ["პროფესორი", "professor", "профессор", "profesör"],
