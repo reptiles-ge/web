@@ -1,6 +1,6 @@
 # News content: MDX → D1 migration plan
 
-Status as of 2026-10-23. Nothing is built yet. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
+Status as of 2026-10-23. Phases 1 and 2, slice 3.1 and the `news:import` create path are built; none of it is in production yet. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
 
 ## Where things stand
 
@@ -10,7 +10,7 @@ Status as of 2026-10-23. Nothing is built yet. Binding API rules are in `.agents
 | 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production   |
 | 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                              |
 | 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                |
-| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳                                        |
+| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳ 3.1 code done (article page)           |
 | 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                        |
 | 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done |
 | 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                        |
@@ -115,6 +115,18 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 ---
 
 ## Phase 3 — site reads news from the API
+
+### 3.1 — article page, done (code only)
+
+- `src/lib/newsApi.ts`: `getNewsArticle(slug)` loads `GET /v1/news/:slug` in each of the article's `locales` (React `cache`, tags `news` and `news:<slug>`, `revalidate: 3600`) and rebuilds the same `NewsArticle` the compiled data has, so the page components and helpers stay as they are. `getNewsList(locale)` loads `GET /v1/news`. `newsApi.test.ts` shows the rebuild equals every compiled article (photo credits also carry `authorId`).
+- `news/[slug]/page.tsx` reads the article from the API. `dynamicParams` is `true`, and `generateStaticParams` comes from `getNewsList` per locale, so an article added in D1 gets a page without a deploy. An unknown slug is a `noindex` 404 as before.
+- `newsArticleAlternates(locale, article)` takes the article instead of looking the slug up in the compiled data.
+- The MSW test API (`tests/msw/reptilesApi.ts`) now seeds news (`createNewsTestDatabase`).
+- Still on the compiled data inside the article page: the series block and "continue reading" (both lists), until 3.2 brings the list consumers over.
+- Checked in the browser against a local API (`pnpm dev:api`, local D1 with `db:import:news`) and `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`: the Georgian and English pages render, with hreflang, JSON-LD and every section, and an unknown slug gives the `noindex` 404.
+- **Order before merging to `main`:** production must have the news tables, the data and the API (`db:migrate:remote`, `db:import:news:remote`, `deploy:api`). Otherwise every article page 404s. And per the order note above, `news:import` (create path) should exist first: from 3.1 on, an article added only as MDX is listed by the compiled index but has no article page.
+
+### Original plan
 
 Site loaders in `src/lib/newsApi.ts`: `getNewsList(locale, filters?)` and `getNewsArticle(slug, locale)`, React `cache`, tags `news` and `news:<slug>`, `revalidate: 3600`, like `speciesFetchOptions`. `/api/revalidate` accepts the new tags.
 

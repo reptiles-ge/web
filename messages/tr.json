@@ -1259,6 +1259,8 @@
     "emptyTitle": "Bu süzgeçlere uyan tür yok",
     "emptyGroupTitle": "{group} — eşleşen tür yok",
     "emptyBody": "Başka bir birleşim deneyin veya tam kataloğu görmek için süzgeçleri sıfırlayın.",
+    "loadError": "Türler yüklenemedi.",
+    "loadRetry": "Tekrar dene",
     "suggestSpecies": "Tür öner",
     "mapEyebrow": "Bölgesel atlas",
     "mapTitle": "Türleri bölgeye göre keşfet",

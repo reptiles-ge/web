@@ -1259,6 +1259,8 @@
     "emptyTitle": "No species match these filters",
     "emptyGroupTitle": "{group} — no matching species",
     "emptyBody": "Try another combination, or reset filters to see the full catalog.",
+    "loadError": "Couldn't load the species.",
+    "loadRetry": "Try again",
     "suggestSpecies": "Suggest a species",
     "mapEyebrow": "Regional atlas",
     "mapTitle": "Explore species by region",

@@ -1,15 +1,16 @@
 import type { DangerLevel } from "@/data/speciesTypes";
 
-export type AtlasIndexItem = Pick<
+export type AtlasCardItem = Pick<
   SpeciesListItem,
   | "commonName"
   | "danger"
   | "id"
+  | "image"
   | "location"
+  | "mobileImage"
   | "regionIds"
   | "scientificName"
-  | "searchText"
-> & { hasPhoto: boolean };
+>;
 
 export type AtlasPhoto = Pick<SpeciesListItem, "image" | "mobileImage">;
 
@@ -25,6 +26,5 @@ export type SpeciesListItem = {
   mobileImage?: string;
   regionIds: string[];
   scientificName: string;
-  searchText: string;
   updatedAt: string;
 };

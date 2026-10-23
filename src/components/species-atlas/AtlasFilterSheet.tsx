@@ -1,11 +1,11 @@
 "use client";
 
 import { X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useId, useState } from "react";
 import { Drawer } from "vaul";
 
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import type { AppLocale } from "@/i18n/routing";
 
 import {
   GROUP_OPTIONS,
@@ -13,34 +13,38 @@ import {
 } from "@/components/species-atlas/atlasOptions";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { RiskSegment } from "@/components/species-atlas/RiskSegment";
+import { useAtlasCounts } from "@/components/species-atlas/useAtlasResults";
 import {
+  atlasFacetCount,
+  type AtlasFacets,
   type AtlasFilters,
   type AtlasRegionLabel,
-  countAtlasSpecies,
   defaultAtlasFilters,
-  filterAtlasSpecies,
 } from "@/data/atlasFilters";
 import { type HabitatTag } from "@/data/speciesAtlasMeta";
 import { cn } from "@/lib/cn";
 
 type AtlasFilterSheetProps = {
-  catalog: AtlasIndexItem[];
+  facets: AtlasFacets;
   filters: AtlasFilters;
   onApply: (next: AtlasFilters) => void;
   onClose: () => void;
   open: boolean;
   regionLabels: AtlasRegionLabel[];
+  total: number;
 };
 
 export function AtlasFilterSheet({
-  catalog,
+  facets,
   filters,
   onApply,
   onClose,
   open,
   regionLabels,
+  total,
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
+  const locale = useLocale() as AppLocale;
   const titleId = useId();
   const [draft, setDraft] = useState<AtlasFilters>(filters);
   const [syncedOpen, setSyncedOpen] = useState(open);
@@ -79,14 +83,15 @@ export function AtlasFilterSheet({
     onClose();
   }
 
-  const draftWithQuery = { ...draft, query: filters.query };
-  const resultCount = open
-    ? filterAtlasSpecies(catalog, draftWithQuery).length
-    : 0;
-  const count = <K extends keyof AtlasFilters>(
-    key: K,
-    value: AtlasFilters[K],
-  ) => (open ? countAtlasSpecies(catalog, draftWithQuery, key, value) : 0);
+  const draftCounts = useAtlasCounts(
+    locale,
+    { ...draft, query: filters.query },
+    { facets, filters, total },
+    open,
+  );
+  const resultCount = draftCounts.total;
+  const count = (key: keyof AtlasFacets, value: string) =>
+    atlasFacetCount(draftCounts.facets, key, value);
 
   return (
     <Drawer.Root

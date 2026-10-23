@@ -18,7 +18,11 @@ import {
 } from "../../../../../tests/fixtures/speciesCatalog";
 
 const contributors = contributorDirectoryFixture();
-import NewsArticleRoute, { generateMetadata } from "./page";
+import NewsArticleRoute, {
+  dynamicParams,
+  generateMetadata,
+  generateStaticParams,
+} from "./page";
 
 const messages = { en, ka, ru, tr };
 
@@ -74,4 +78,26 @@ describe("news article metadata", () => {
       expect(metadata.robots).toMatchObject({ "max-image-preview": "large" });
     },
   );
+});
+
+describe("news article routes", () => {
+  it("prerenders one page per published article and language from the API", async () => {
+    const expected = routing.locales.flatMap((locale) =>
+      getPublishedNewsArticles(locale).map(({ slug }) => ({ locale, slug })),
+    );
+    expect(await generateStaticParams()).toEqual(expected);
+    expect(dynamicParams).toBe(true);
+  });
+
+  it("answers 404 for an article the API does not have", async () => {
+    await expect(
+      NewsArticleRoute({
+        params: Promise.resolve({ locale: "en", slug: "no-such-article" }),
+      }),
+    ).rejects.toThrow();
+    const metadata = await generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: "no-such-article" }),
+    });
+    expect(metadata.robots).toBeNull();
+  });
 });
