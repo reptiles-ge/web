@@ -8,7 +8,6 @@ import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { isFilteredAtlasRequest } from "@/lib/atlasFilterRequest";
 import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
-import { inspectProxyRequest } from "@/lib/requestInspector";
 import { hasRoutePlaceholder } from "@/lib/routePlaceholder";
 import {
   getSpeciesHubId,
@@ -237,7 +236,6 @@ const PREFIXED_TEMPORARY_REDIRECTS: Record<string, string> = {
 };
 
 export default function proxy(request: NextRequest) {
-  inspectProxyRequest(request);
   const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
 
   if (request.nextUrl.hostname === "www.reptiles.ge") {

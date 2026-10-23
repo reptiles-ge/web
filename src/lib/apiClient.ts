@@ -21,8 +21,32 @@ export function createApiClient({
   origin = apiOrigin(),
   token,
 }: ApiClientOptions = {}) {
+  const transport =
+    process.env.NODE_ENV === "development" ? loggedFetch(fetch) : fetch;
   return hc<AppType>(origin, {
-    ...(fetch ? { fetch } : {}),
+    ...(transport ? { fetch: transport } : {}),
     ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
   });
+}
+
+function loggedFetch(base?: typeof fetch): typeof fetch {
+  return async (input, init) => {
+    const method =
+      init?.method ?? (input instanceof Request ? input.method : "GET");
+    const url = input instanceof Request ? input.url : String(input);
+    const started = Date.now();
+    try {
+      const response = await (base ?? globalThis.fetch)(input, init);
+      console.info(
+        `[api-request] ${method} ${url} → ${response.status} (${Date.now() - started} ms)`,
+      );
+      return response;
+    } catch (error) {
+      console.info(
+        `[api-request] ${method} ${url} → failed (${Date.now() - started} ms)`,
+        error,
+      );
+      throw error;
+    }
+  };
 }
