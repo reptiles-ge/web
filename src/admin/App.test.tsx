@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -41,6 +41,7 @@ async function fillAndSubmit(email = ADMIN.email, password = "secret") {
 }
 
 beforeEach(() => {
+  window.history.replaceState(null, "", "/");
   vi.mocked(fetchCurrentUser).mockReset();
   vi.mocked(signIn).mockReset();
   vi.mocked(signOut).mockReset();
@@ -66,18 +67,56 @@ describe("admin App", () => {
     expect(screen.getByText(ADMIN.email)).toBeInTheDocument();
   });
 
-  it("switches between species and ratings", async () => {
+  it("opens species at /species when signed in at /", async () => {
     vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
     render(<App />);
-    const user = userEvent.setup();
-    await user.click(await screen.findByRole("menuitem", { name: "Ratings" }));
-    expect(
-      await screen.findByRole("heading", { name: "Ratings" }),
-    ).toBeInTheDocument();
-    await user.click(screen.getByRole("menuitem", { name: "Species" }));
     expect(
       await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/species");
+    expect(document.title).toBe("Species — reptiles.ge admin");
+  });
+
+  it("opens ratings directly at /ratings", async () => {
+    window.history.replaceState(null, "", "/ratings");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(
+      await screen.findByRole("heading", { name: "Ratings" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Ratings — reptiles.ge admin");
+  });
+
+  it("navigates between pages and follows the back button", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const user = userEvent.setup();
+    const ratings = await screen.findByRole("link", { name: "Ratings" });
+    expect(ratings).toHaveAttribute("href", "/ratings");
+    await user.click(ratings);
+    expect(
+      await screen.findByRole("heading", { name: "Ratings" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/ratings");
+    act(() => {
+      window.history.back();
+    });
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows a not-found page for an unknown path", async () => {
+    window.history.replaceState(null, "", "/nope");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const user = userEvent.setup();
+    expect(await screen.findByText("Page not found")).toBeInTheDocument();
+    await user.click(screen.getByRole("link", { name: "Open species" }));
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/species");
   });
 
   it("signs in and opens the dashboard", async () => {

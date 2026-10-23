@@ -138,10 +138,10 @@ export function RatingsPage({
     setAttempt((count) => count + 1);
   }
 
-  function filter(value: number | undefined) {
+  function filter(value: "all" | number) {
     setState({ status: "loading" });
     setMoreFailed(false);
-    setRating(value);
+    setRating(value === "all" ? undefined : value);
   }
 
   async function loadMore() {
@@ -169,24 +169,24 @@ export function RatingsPage({
   const page = state.status === "ready" ? state.page : null;
 
   return (
-    <Space direction="vertical" size="middle" style={{ width: "100%" }}>
+    <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
       <Flex align="center" gap="middle" justify="space-between" wrap>
         <Typography.Title level={3} style={{ margin: 0 }}>
           Ratings
         </Typography.Title>
         <Space wrap>
-          <Select<number | undefined>
+          <Select<"all" | number>
             aria-label="Filter by rating"
             onChange={filter}
             options={[
-              { label: "All ratings", value: undefined },
+              { label: "All ratings", value: "all" },
               ...STARS.map((stars) => ({
                 label: `${stars} ★`,
                 value: stars,
               })),
             ]}
             style={{ width: 140 }}
-            value={rating}
+            value={rating ?? "all"}
           />
           <Button loading={state.status === "loading"} onClick={reload}>
             Reload

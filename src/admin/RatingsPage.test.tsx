@@ -57,6 +57,7 @@ describe("RatingsPage", () => {
     );
     expect(screen.getByText("2 of 2 ratings")).toBeInTheDocument();
     expect(screen.getByText("Average")).toBeInTheDocument();
+    expect(screen.getByTitle("All ratings")).toBeInTheDocument();
     expect(fetchAdminRatings).toHaveBeenCalledWith({ rating: undefined });
   });
 
@@ -88,6 +89,13 @@ describe("RatingsPage", () => {
     await userEvent.click(await screen.findByTitle("2 ★"));
     await vi.waitFor(() =>
       expect(fetchAdminRatings).toHaveBeenLastCalledWith({ rating: 2 }),
+    );
+    await userEvent.click(screen.getByLabelText("Filter by rating"));
+    await userEvent.click(await screen.findByTitle("All ratings"));
+    await vi.waitFor(() =>
+      expect(fetchAdminRatings).toHaveBeenLastCalledWith({
+        rating: undefined,
+      }),
     );
   });
 
