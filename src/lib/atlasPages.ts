@@ -1,4 +1,4 @@
-export const ATLAS_PAGE_SIZE = 24;
+const ATLAS_PAGE_SIZE = 24;
 
 export function atlasPageCount(total: number, pageSize = ATLAS_PAGE_SIZE) {
   if (total <= 0) return 0;
