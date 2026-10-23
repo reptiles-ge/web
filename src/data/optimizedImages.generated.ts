@@ -7305,6 +7305,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-armenia-red-book-2010-red-book-cover.jpg": {
+    "path": "news-armenia-red-book-2010-red-book-cover",
+    "width": 2048,
+    "height": 1363,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-armenia-red-book-aram-aghasyan.jpg": {
+    "path": "news-armenia-red-book-aram-aghasyan",
+    "width": 2048,
+    "height": 1363,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-armenia-red-book-elaphe-urartica-didi-shiraki-georgia.jpg": {
+    "path": "news-armenia-red-book-elaphe-urartica-didi-shiraki-georgia",
+    "width": 1110,
+    "height": 650,
+    "widths": [320, 400, 640, 800, 1110],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-armenia-red-book-elaphe-urartica-kaputan-armenia.jpg": {
+    "path": "news-armenia-red-book-elaphe-urartica-kaputan-armenia",
+    "width": 1110,
+    "height": 660,
+    "widths": [320, 400, 640, 800, 1110],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-armenia-red-book-great-cormorants-sevan-beko.jpg": {
+    "path": "news-armenia-red-book-great-cormorants-sevan-beko",
+    "width": 2400,
+    "height": 1408,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,
