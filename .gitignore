@@ -46,6 +46,7 @@ src/data/speciesSlugs.generated.ts
 src/data/contentDates.generated.ts
 src/data/releaseVersion.generated.ts
 index.html
+!src/admin/index.html
 
 tmp/
 .seo/
@@ -57,6 +58,7 @@ cdn-unused-images.txt
 /playwright/.cache/
 .env.sentry-build-plugin
 /dist/
+/dist-admin/
 .vinext/
 .wrangler/
 progress.md

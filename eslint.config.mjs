@@ -151,6 +151,24 @@ const eslintConfig = defineConfig([
     },
   },
   {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/admin/**"],
+    rules: {
+      "@typescript-eslint/no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["antd", "antd/*", "@ant-design/*"],
+              message:
+                "antd is for the admin app (src/admin) only. It must never reach the reptiles.ge bundle.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ["src/proxy.ts", "middleware.ts", "src/middleware.ts"],
     ...nextEdgeBoundary.configs.recommended,
   },
@@ -221,6 +239,7 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "dist/**",
+    "dist-admin/**",
     "next-env.d.ts",
     "src/data/news.generated.ts",
     "src/data/speciesSlugs.generated.ts",
