@@ -1,9 +1,10 @@
 import { http, HttpResponse } from "msw";
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
 import { reptilesApi } from "../../tests/msw/reptilesApi";
 import { recordRequests, server } from "../../tests/msw/server";
 import { getSpeciesCatalog } from "./speciesCatalogApi";
@@ -20,10 +21,10 @@ describe("getSpeciesCatalog", () => {
       "https://api.reptiles.ge/v1/catalog?view=full",
     ]);
     expect(cards[0]?.commonName).toBe(
-      localizeSpecies(getCatalogSpecies()[0]!, "en").commonName,
+      localizedFixture(catalogSpeciesFixture()[0]!, "en").commonName,
     );
     expect(cards.map((entry) => entry.id)).toEqual(
-      getCatalogSpecies().map((entry) => entry.id),
+      catalogSpeciesFixture().map((entry) => entry.id),
     );
     expect(cards[0]).not.toHaveProperty("overview");
     expect(full[0]).toHaveProperty("overview");

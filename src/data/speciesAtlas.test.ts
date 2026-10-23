@@ -3,7 +3,6 @@ import { beforeAll, describe, expect, it } from "vitest";
 
 import type { DangerLevel } from "@/data/speciesTypes";
 
-import { getCatalogSpecies } from "@/data/species";
 import {
   getAtlasStats,
   getCatalogByDanger,
@@ -14,9 +13,10 @@ import {
 } from "@/data/speciesAtlas";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 import { server } from "../../tests/msw/server";
 
-const catalog = getCatalogSpecies();
+const catalog = catalogSpeciesFixture();
 
 describe("getAtlasStats", () => {
   let stats: Awaited<ReturnType<typeof getAtlasStats>>;

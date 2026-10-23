@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
   SPECIES_CARD_KEYS,
@@ -8,10 +7,13 @@ import {
   SPECIES_QUIZ_KEYS,
 } from "@/data/speciesTypes";
 import { locales } from "@/i18n/locales";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../../tests/fixtures/speciesCatalog";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -36,9 +38,9 @@ async function expected(
   view: "card" | "full" | "photos" | "quiz",
 ) {
   return Promise.all(
-    getCatalogSpecies().map(async (item) => {
+    catalogSpeciesFixture().map(async (item) => {
       const localized = (await Response.json(
-        localizeSpecies(item, locale),
+        localizedFixture(item, locale),
       ).json()) as Record<string, unknown>;
       const fields =
         view === "full"

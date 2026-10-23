@@ -1,13 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
+
 function species(id: string) {
-  const item = getSpeciesById(id);
+  const item = speciesFixture(id);
   if (!item) throw new Error(`Missing species ${id}`);
   return item;
 }

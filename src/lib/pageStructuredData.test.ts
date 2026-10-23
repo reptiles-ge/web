@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import {
   breadcrumbListLd,
   homeChildBreadcrumbLd,
@@ -9,6 +8,8 @@ import {
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
 import { siteEntityId, speciesPageUrl } from "@/lib/site";
+
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("breadcrumbListLd", () => {
   it("numbers crumbs from 1 in order", () => {
@@ -60,7 +61,7 @@ describe("homeChildBreadcrumbLd", () => {
 
 describe("speciesItemListLd", () => {
   it("lists species with name, position and locale URL", () => {
-    const species = getSpeciesById("macrovipera-lebetina");
+    const species = speciesFixture("macrovipera-lebetina");
     expect(species).toBeDefined();
     const ld = speciesItemListLd("en", [
       {

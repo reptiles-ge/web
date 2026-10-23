@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import {
   collectTurtleRegions,
   TURTLE_META,
   TURTLE_ORDER,
 } from "@/lib/turtleIdentify";
+
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("turtleIdentify", () => {
   it("has metadata for every turtle in the display order", () => {
@@ -21,7 +22,7 @@ describe("turtleIdentify", () => {
 
   it("collects each region once across turtles", () => {
     const turtles = TURTLE_ORDER.flatMap((id) => {
-      const species = getSpeciesById(id);
+      const species = speciesFixture(id);
       return species ? [species] : [];
     });
     const regions = collectTurtleRegions([...turtles, ...turtles]);

@@ -2,8 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
 import { KA_META_DESCRIPTION_OVERRIDES } from "@/lib/kaMetaDescriptionOverrides";
@@ -16,6 +14,11 @@ import {
   speciesPageMetaTitle,
 } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
+
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const descriptionOverrides = Object.entries(
   SPECIES_META_DESCRIPTION_OVERRIDE,
@@ -120,9 +123,9 @@ describe("speciesMetaDescription", () => {
   });
 
   it("gives every published profile a whole-sentence description that fits", () => {
-    for (const raw of getCatalogSpecies()) {
+    for (const raw of catalogSpeciesFixture()) {
       for (const locale of routing.locales) {
-        const item = localizeSpecies(raw, locale);
+        const item = localizedFixture(raw, locale);
         if (locale === "ka" && KA_META_DESCRIPTION_OVERRIDES[kaPath(raw.id)]) {
           continue;
         }
@@ -145,7 +148,7 @@ describe("speciesMetaDescription", () => {
 
 describe("SPECIES_META_DESCRIPTION_OVERRIDE", () => {
   it("targets catalog species only", () => {
-    const ids = new Set(getCatalogSpecies().map((species) => species.id));
+    const ids = new Set(catalogSpeciesFixture().map((species) => species.id));
     for (const speciesId of Object.keys(SPECIES_META_DESCRIPTION_OVERRIDE)) {
       expect(ids.has(speciesId), speciesId).toBe(true);
     }

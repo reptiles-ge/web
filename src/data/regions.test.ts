@@ -1,9 +1,6 @@
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import type { LocalizedText } from "@/data/mapRegions";
-import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
 import { getRegionContent } from "@/data/regionContent";
 import {
@@ -12,13 +9,8 @@ import {
   regions,
   toRegionSpeciesCard,
 } from "@/data/regions";
-import {
-  getCatalogSpecies,
-  getSpeciesById,
-  unpublishedSpeciesIds,
-} from "@/data/species";
+import { unpublishedSpeciesIds } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
 import {
   confirmedRecordThresholdForSpecies,
@@ -26,19 +18,21 @@ import {
   getHalyomorphaOccurrenceSummary,
 } from "@/lib/halyomorphaOccurrences";
 
-const fieldRecordsById = JSON.parse(
-  fs.readFileSync(
-    path.join(process.cwd(), "src/data/fieldRecords.generated.json"),
-    "utf8",
-  ),
-) as Record<string, SpeciesFieldRecord[]>;
+import {
+  catalogSpeciesFixture,
+  fieldRecordsFixture,
+  localizedFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const fieldRecordsById = fieldRecordsFixture();
 
 describe("region species cards", () => {
   it("keeps only the fields the region cards render", () => {
     const region = regions.find((item) => item.id === "kakheti");
     expect(region).toBeDefined();
     const cards = region!.speciesIds
-      .map((id) => getSpeciesById(id))
+      .map((id) => speciesFixture(id))
       .filter((item) => item !== undefined)
       .map((item) => toRegionSpeciesCard(item));
 
@@ -58,7 +52,7 @@ describe("region species cards", () => {
 
 describe("region speciesIds", () => {
   it("only lists published catalog ids", () => {
-    const published = new Set(getCatalogSpecies().map((item) => item.id));
+    const published = new Set(catalogSpeciesFixture().map((item) => item.id));
     for (const region of regions) {
       for (const id of region.speciesIds) {
         expect(unpublishedSpeciesIds.has(id), `${region.id}:${id}`).toBe(false);
@@ -109,7 +103,7 @@ describe("region speciesIds", () => {
     "zamenis-longissimus",
     "xerotyphlops-vermicularis",
   ])("lists %s only where the record table confirms distribution", (id) => {
-    const species = getSpeciesById(id);
+    const species = speciesFixture(id);
     expect(species).toBeDefined();
     if (!species) return;
     const records = getHalyomorphaFieldRecords({
@@ -137,7 +131,7 @@ describe("region speciesIds", () => {
 
   it("lists Brown Bear only where the record table confirms distribution", () => {
     const id = "ursus-arctos";
-    const species = getSpeciesById(id);
+    const species = speciesFixture(id);
     expect(species).toBeDefined();
     if (!species) return;
     const records = getHalyomorphaFieldRecords({
@@ -165,7 +159,7 @@ describe("region speciesIds", () => {
 
   it("lists Caucasian Salamander only where the record table confirms distribution", () => {
     const id = "mertensiella-caucasica";
-    const species = getSpeciesById(id);
+    const species = speciesFixture(id);
     expect(species).toBeDefined();
     if (!species) return;
     const records = getHalyomorphaFieldRecords({
@@ -233,7 +227,7 @@ describe("region copy locale parity", () => {
 });
 
 describe("region FAQ venomous snakes", () => {
-  const venomousSnakes = getCatalogSpecies().filter(
+  const venomousSnakes = catalogSpeciesFixture().filter(
     (item) =>
       getSpeciesAtlasMeta(item.id).group === "snake" &&
       isVenomousDanger(item.danger),
@@ -270,11 +264,11 @@ describe("region FAQ snake lists", () => {
     ru: "желтопузик",
     tr: "cam kertenkele",
   } as const;
-  const snakes = getCatalogSpecies().filter(isSnakeSpecies);
+  const snakes = catalogSpeciesFixture().filter(isSnakeSpecies);
   const normalize = (text: string, locale: (typeof LOCALES)[number]) =>
     text.replaceAll("’", "'").toLocaleLowerCase(locale);
   const name = (id: string, locale: (typeof LOCALES)[number]) =>
-    normalize(localizeSpecies(getSpeciesById(id)!, locale).commonName, locale);
+    normalize(localizedFixture(speciesFixture(id)!, locale).commonName, locale);
 
   it.each(regions.map((region) => [region.id, region] as const))(
     "%s FAQ and overview name only the snakes the region lists",

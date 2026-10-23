@@ -3,12 +3,16 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   getSpeciesProfileGuideLinks,
   SPECIES_GUIDE_LINK_LIMIT,
 } from "@/lib/speciesGuideLinks";
+
+import {
+  catalogSpeciesFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 type ClusterCopy = Record<
   string,
@@ -24,12 +28,12 @@ function clusterCopy(locale: string): ClusterCopy {
 }
 
 describe("species profile guide links", () => {
-  const catalog = getCatalogSpecies();
+  const catalog = catalogSpeciesFixture();
 
   it("links every species a guide names back to that guide", () => {
     for (const article of getGuideArticles()) {
       for (const id of article.relatedSpeciesIds ?? []) {
-        const hrefs = getSpeciesProfileGuideLinks(getSpeciesById(id)!).map(
+        const hrefs = getSpeciesProfileGuideLinks(speciesFixture(id)!).map(
           (link) => (link.kind === "page" ? link.href : null),
         );
         expect(hrefs, `${id} -> ${article.pathname}`).toContain(
@@ -48,7 +52,7 @@ describe("species profile guide links", () => {
       ["halyomorpha-halys", "/insects/farosana-sakhlshi"],
     ] as const;
     for (const [id, href] of pairs) {
-      const [first] = getSpeciesProfileGuideLinks(getSpeciesById(id)!);
+      const [first] = getSpeciesProfileGuideLinks(speciesFixture(id)!);
       expect(first?.kind === "page" ? first.href : null, id).toBe(href);
     }
   });

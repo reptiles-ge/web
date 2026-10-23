@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { getRegionById } from "@/data/regions";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import {
   CLUSTER_GUIDE_LIST,
   CLUSTER_GUIDES,
@@ -26,7 +25,9 @@ import {
 import { GROUP_HUBS } from "@/lib/groupHubs";
 
 import {
+  catalogSpeciesFixture,
   speciesCatalogFixture,
+  speciesFixture,
   speciesGroupFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
@@ -39,7 +40,7 @@ function keys(id: string) {
 }
 
 function species(id: string) {
-  const item = getSpeciesById(id);
+  const item = speciesFixture(id);
   if (!item) throw new Error(`Missing species ${id}`);
   return item;
 }
@@ -55,7 +56,7 @@ describe("cluster guide configuration", () => {
 
   it("points every guide at an existing hero species and a real hub", () => {
     for (const guide of CLUSTER_GUIDE_LIST) {
-      expect(getSpeciesById(guide.heroSpeciesId), guide.id).toBeDefined();
+      expect(speciesFixture(guide.heroSpeciesId), guide.id).toBeDefined();
       expect(HUB_IDS, guide.id).toContain(guide.parentHub);
     }
   });
@@ -63,7 +64,7 @@ describe("cluster guide configuration", () => {
   it("matches at least one published species for every guide", () => {
     for (const guide of CLUSTER_GUIDE_LIST) {
       expect(
-        getCatalogSpecies().filter(guide.matches).length,
+        catalogSpeciesFixture().filter(guide.matches).length,
         guide.id,
       ).toBeGreaterThan(0);
     }
@@ -90,7 +91,7 @@ describe("species predicates", () => {
   });
 
   it("keeps frog and newt sets disjoint", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       expect(isFrogSpecies(item.id) && isNewtSpecies(item.id)).toBe(false);
     }
   });
@@ -138,7 +139,7 @@ describe("getRegionSnakeSpecies", () => {
 describe("splitHubSpecies", () => {
   it("never loses or duplicates a species in any hub", () => {
     for (const hub of HUB_IDS) {
-      const list = getCatalogSpecies();
+      const list = catalogSpeciesFixture();
       const sample = list.slice(0, 40);
       const sections = splitHubSpecies(hub, sample);
       const ids = sections.flatMap((section) =>
@@ -151,7 +152,7 @@ describe("splitHubSpecies", () => {
 
   it("never returns an empty section", () => {
     for (const hub of HUB_IDS) {
-      for (const section of splitHubSpecies(hub, getCatalogSpecies())) {
+      for (const section of splitHubSpecies(hub, catalogSpeciesFixture())) {
         expect(section.items.length, `${hub}/${section.key}`).toBeGreaterThan(
           0,
         );
@@ -310,13 +311,13 @@ describe("getSpeciesGuideLinks", () => {
   });
 
   it("gives every published species at least one guide link", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       expect(getSpeciesGuideLinks(item).length, item.id).toBeGreaterThan(0);
     }
   });
 
   it("never returns duplicate links for a species", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       const links = getSpeciesGuideLinks(item);
       expect(dedupeGuideLinks(links), item.id).toHaveLength(links.length);
     }

@@ -1,24 +1,24 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  compiledFieldRecords,
-  createFieldRecordsTestDatabase,
-} from "../testing/sqliteDatabase";
+import { fieldRecordsFixture } from "../../../tests/fixtures/speciesCatalog";
+import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 import {
   buildFieldRecordsImport,
   FIELD_RECORDS_IMPORT_GUARD,
   readFieldRecords,
 } from "./fieldRecords";
 
-const recordsById = compiledFieldRecords();
+const recordsById = fieldRecordsFixture();
 
 const statements = buildFieldRecordsImport(recordsById);
 
-const load = createFieldRecordsTestDatabase;
+const load = createSpeciesTestDatabase;
 
 describe("field records in D1", () => {
   it("round-trips every field record of every species 1:1", async () => {
-    const { db } = load();
+    const { db, sqlite } = load();
+    sqlite.exec("DELETE FROM species_field_records");
+    for (const statement of statements) sqlite.exec(statement);
     for (const [id, records] of Object.entries(recordsById)) {
       expect(await readFieldRecords(db, id), id).toStrictEqual(records);
     }

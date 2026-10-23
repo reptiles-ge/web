@@ -1,15 +1,15 @@
 import { http, HttpResponse } from "msw";
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import { FALLBACK_OG_IMAGE_URL, speciesOgImageUrl } from "@/lib/site";
 import { speciesOpengraphResponse } from "@/lib/speciesOpengraph";
 
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 import { recordRequests, server } from "../../tests/msw/server";
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0]);
 const ID = "macrovipera-lebetina";
-const SPECIES_OG = speciesOgImageUrl(ID, getSpeciesById(ID)?.image);
+const SPECIES_OG = speciesOgImageUrl(ID, speciesFixture(ID)?.image);
 const CATALOG = "https://api.reptiles.ge/v1/catalog?view=card";
 
 const image = () =>

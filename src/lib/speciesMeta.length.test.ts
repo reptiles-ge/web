@@ -1,9 +1,7 @@
 import { createTranslator } from "next-intl";
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import {
   SPECIES_META_TITLE_OVERRIDE,
@@ -16,9 +14,15 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };
-const catalogIds = new Set(getCatalogSpecies().map((species) => species.id));
+const catalogIds = new Set(
+  catalogSpeciesFixture().map((species) => species.id),
+);
 
 function renderedTitles(locale: (typeof routing.locales)[number]) {
   const t = createTranslator({
@@ -26,8 +30,8 @@ function renderedTitles(locale: (typeof routing.locales)[number]) {
     messages: messages[locale],
     namespace: "speciesMeta",
   });
-  return getCatalogSpecies().map((raw) => {
-    const item = localizeSpecies(raw, locale);
+  return catalogSpeciesFixture().map((raw) => {
+    const item = localizedFixture(raw, locale);
     const group = getSpeciesAtlasMeta(raw.id).group;
     return {
       bareName: `${item.commonName} (${item.scientificName})`,

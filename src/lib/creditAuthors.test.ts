@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import imageManifest from "@/data/image-manifest.json";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
@@ -26,7 +25,10 @@ import {
 } from "@/lib/creditAuthors";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const authors = getPublishedCreditAuthors();
 
@@ -88,7 +90,7 @@ describe("getCreditAuthorPhotos", () => {
   });
 
   it("only references published species", () => {
-    const ids = new Set(getCatalogSpecies().map((item) => item.id));
+    const ids = new Set(catalogSpeciesFixture().map((item) => item.id));
     for (const author of authors) {
       for (const photo of getCreditAuthorPhotos(
         author,

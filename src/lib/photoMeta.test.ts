@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import { optimizedEntry } from "@/data/optimizedImages";
-import { getCatalogSpecies } from "@/data/species";
 import { galleryImageObject, galleryImageObjects } from "@/lib/photoMeta";
+
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("galleryImageObject", () => {
   it("points published photographers at their author page", () => {
@@ -142,7 +143,7 @@ describe("galleryImageObjects", () => {
 
 describe("species photo JSON-LD URLs", () => {
   it("points every optimized catalog photo at its published CDN file", () => {
-    for (const species of getCatalogSpecies()) {
+    for (const species of catalogSpeciesFixture()) {
       for (const photo of species.gallery) {
         if (!optimizedEntry(photo.src)) continue;
         const data = galleryImageObject(photo, species, "ka");

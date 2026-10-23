@@ -1,7 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
-import { speciesEn } from "@/data/species-en";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
   buildLlmsFullText,
@@ -11,7 +9,11 @@ import {
 import { llmsLinkHeader } from "@/lib/llmsPaths";
 import { AI_CITATION_USER_AGENTS, buildRobotsTxt } from "@/lib/robotsTxt";
 
-import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  catalogSpeciesFixture,
+  speciesCatalogFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const LLMS = createLlmsSpecies({
   en: speciesCatalogFixture("en"),
@@ -81,7 +83,7 @@ describe("buildLlmsIndexText", () => {
 
     expect(body.startsWith("# Reptiles.ge")).toBe(true);
     expect(body).toContain(
-      `Catalog of published profiles (${getCatalogSpecies().length} live pages)`,
+      `Catalog of published profiles (${catalogSpeciesFixture().length} live pages)`,
     );
     expect(body).toContain("## News");
     expect(body).toContain("caucasian-toad-bufo-verrucosissimus-taxonomy-2026");
@@ -123,7 +125,7 @@ describe("buildLlmsFullText", () => {
     expect(body).toContain("/en/snakes/macrovipera-lebetina");
     expect(body).toContain("10.3897/caucasiana.5.e189214");
     expect(body).toContain(
-      `Published species cards: ${getCatalogSpecies().length}`,
+      `Published species cards: ${catalogSpeciesFixture().length}`,
     );
     expect(body.length).toBeGreaterThan(50_000);
     expect(body.length).toBeLessThan(900_000);
@@ -170,7 +172,7 @@ describe("buildLlmsFullText", () => {
       /\nEnglish summary: The Levantine viper\b[^\n]*\(Macrovipera lebetinus\)/,
     );
     expect(body.match(/^English summary: /gm)?.length).toBe(
-      getCatalogSpecies().length,
+      catalogSpeciesFixture().length,
     );
     expect(body).toContain(
       "- English title: Georgia has 56 reptiles and 12 amphibians — the 2026 checklist",
@@ -217,12 +219,12 @@ describe("per-locale llms files", () => {
 
   it("gives every species with an English translation English Facts, Identification and FAQ", () => {
     const cards = speciesCards(buildLlmsFullText(LLMS, "en"));
-    const catalog = getCatalogSpecies();
+    const catalog = catalogSpeciesFixture();
 
     expect(cards.size).toBe(catalog.length);
     for (const item of catalog) {
       const card = cards.get(item.id) ?? "";
-      const english = speciesEn[item.id];
+      const english = speciesFixture(item.id, "en");
       expect(card, item.id).toMatch(/^- URL: https:\/\/reptiles\.ge\/en\//m);
       if (!english || !DEEP_GROUPS.has(getSpeciesAtlasMeta(item.id).group)) {
         continue;

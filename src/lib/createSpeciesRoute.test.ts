@@ -1,9 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { speciesSameAs, speciesStructuredData } from "@/lib/createSpeciesRoute";
 import { getSpeciesHeroSources } from "@/lib/speciesContent";
+
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 const CHEIRACANTHIUM_URL =
   "https://reptiles.ge/en/spiders/cheiracanthium-punctorium";
@@ -61,8 +65,8 @@ type TaxonJsonLd = {
 
 describe("species structured data", () => {
   it("lists in ImageGallery exactly the photos the gallery shows", () => {
-    for (const raw of getCatalogSpecies()) {
-      const localized = localizeSpecies(raw, "ka");
+    for (const raw of catalogSpeciesFixture()) {
+      const localized = localizedFixture(raw, "ka");
       const shown = getSpeciesHeroSources(localized).gallery.length;
       const gallery = speciesStructuredData({
         breadcrumbCrumbs: [{ name: localized.commonName }],
@@ -80,11 +84,11 @@ describe("species structured data", () => {
   });
 
   it("includes both Georgian cockroach names in every Taxon instance", () => {
-    const raw = getSpeciesById("blatta-orientalis");
+    const raw = speciesFixture("blatta-orientalis");
     expect(raw).toBeDefined();
 
     for (const locale of ["ka", "en", "ru", "tr"] as const) {
-      const localized = localizeSpecies(raw!, locale);
+      const localized = localizedFixture(raw!, locale);
       const jsonLd = speciesStructuredData({
         breadcrumbCrumbs: [{ name: localized.commonName }],
         galleryTitle: "gallery",
@@ -110,8 +114,8 @@ describe("species structured data", () => {
   });
 
   it("defines the Taxon and each photo once and references the organization by @id", () => {
-    const raw = getSpeciesById("macrovipera-lebetina")!;
-    const localized = localizeSpecies(raw, "ka");
+    const raw = speciesFixture("macrovipera-lebetina")!;
+    const localized = localizedFixture(raw, "ka");
     const pageUrl = "https://reptiles.ge/gvelebi/giurza";
     const jsonLd = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
@@ -155,11 +159,11 @@ describe("species structured data", () => {
   });
 
   it("keeps Cheiracanthium identity URLs in sameAs and source URLs in citation", () => {
-    const raw = getSpeciesById("cheiracanthium-punctorium");
+    const raw = speciesFixture("cheiracanthium-punctorium");
     expect(raw).toBeDefined();
 
     const species = raw!;
-    const localized = localizeSpecies(species, "en");
+    const localized = localizedFixture(species, "en");
     const sameAs = speciesSameAs(species);
 
     expect(species.sources.map((source) => source.url)).toContain(
@@ -217,11 +221,11 @@ describe("species structured data", () => {
   });
 
   it("uses წავი as the Georgian otter label and keeps only the current IUCN assessment in sameAs", () => {
-    const raw = getSpeciesById("lutra-lutra");
+    const raw = speciesFixture("lutra-lutra");
     expect(raw).toBeDefined();
 
     const species = raw!;
-    const localized = localizeSpecies(species, "ka");
+    const localized = localizedFixture(species, "ka");
     const sameAs = speciesSameAs(species);
 
     expect(localized.commonName).toBe("წავი");
@@ -265,7 +269,7 @@ describe("species structured data", () => {
   });
 
   it("keeps a source about another species out of the badger's sameAs", () => {
-    const raw = getSpeciesById("meles-canescens");
+    const raw = speciesFixture("meles-canescens");
     expect(raw).toBeDefined();
 
     const sameAs = speciesSameAs(raw!);
@@ -275,8 +279,8 @@ describe("species structured data", () => {
   });
 
   it("cites the Vipera transcaucasiana IUCN account without making it a sameAs of Vipera ammodytes", () => {
-    const raw = getSpeciesById("vipera-transcaucasiana")!;
-    const localized = localizeSpecies(raw, "en");
+    const raw = speciesFixture("vipera-transcaucasiana")!;
+    const localized = localizedFixture(raw, "en");
     const article = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
       galleryTitle: "gallery",
@@ -295,7 +299,7 @@ describe("species structured data", () => {
   });
 
   it("only uses a source as sameAs when it names the Taxon's own binomial", () => {
-    for (const raw of getCatalogSpecies()) {
+    for (const raw of catalogSpeciesFixture()) {
       const [genus, epithet] = raw.scientificName.split(" ");
       const sameAs = new Set(speciesSameAs(raw));
       for (const source of raw.sources) {
@@ -316,9 +320,9 @@ describe("species structured data", () => {
   });
 
   it("keeps keyword phrases and duplicates out of Taxon alternateName", () => {
-    for (const raw of getCatalogSpecies()) {
+    for (const raw of catalogSpeciesFixture()) {
       for (const locale of ["ka", "en", "ru", "tr"] as const) {
-        const localized = localizeSpecies(raw, locale);
+        const localized = localizedFixture(raw, locale);
         const article = speciesStructuredData({
           breadcrumbCrumbs: [{ name: localized.commonName }],
           galleryTitle: "gallery",
@@ -346,10 +350,10 @@ describe("species structured data", () => {
   });
 
   it("writes FAQ answers as plain text without inline species links", () => {
-    const raw = getSpeciesById("meles-canescens");
+    const raw = speciesFixture("meles-canescens");
     expect(raw).toBeDefined();
 
-    const localized = localizeSpecies(raw!, "ka");
+    const localized = localizedFixture(raw!, "ka");
     const faq = speciesStructuredData({
       breadcrumbCrumbs: [{ name: localized.commonName }],
       galleryTitle: "გალერეა",

@@ -199,7 +199,7 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
       rangeFile,
       "src/app/api/occurrences/[id]/[locale]/route.ts",
       "src/data/speciesRangeMaps/base.ts",
-      "src/i18n/localizeSpecies.ts",
+      "src/i18n/speciesTranslation.ts",
     ]),
   ];
   const [content, catalog, templateEntries, allSourceFiles, paths] =
