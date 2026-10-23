@@ -7,12 +7,20 @@ import type {
   SpeciesIdentification,
   SpeciesTranslation,
 } from "@/data/speciesTypes";
-import type {
-  SpeciesCatalogData,
-  TranslationLocale,
-} from "@/lib/speciesImportSource";
 
 import type { ApiDatabase } from "./database";
+import type { TranslationLocale } from "./speciesRows";
+
+export type SpeciesCatalogData = {
+  atlasMeta: Record<string, { group: AnimalGroup; habitats: HabitatTag[] }>;
+  catalogIds: string[];
+  idByAnySlug: Record<string, string>;
+  kaSlugById: Record<string, string>;
+  lookalikes: Record<string, string[]>;
+  species: Species[];
+  translations: Record<TranslationLocale, Record<string, SpeciesTranslation>>;
+  unpublishedIds: string[];
+};
 
 type CreditRow = {
   credit_date: null | string;

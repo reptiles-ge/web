@@ -1,10 +1,10 @@
 import { localAdminForbiddenResponse } from "@/lib/adminAccess";
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import {
   isLocalAdminOriginRequest,
   readAdminJsonText,
 } from "@/lib/adminRequest";
 import { readAdminSpecies } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 import {
   formatAdminWorkflowProgress,
   notifyAdminTelegram,
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       id?: unknown;
       progress?: unknown;
     }>(request);
-    if (typeof id !== "string" || !isSpeciesContentId(id))
+    if (typeof id !== "string" || !isSpeciesId(id))
       throw new Error("Invalid species id");
     progress = formatAdminWorkflowProgress(workflowProgress);
     speciesName = (await readAdminSpecies(id)).record.base.commonName;

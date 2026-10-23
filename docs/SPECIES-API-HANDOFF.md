@@ -24,7 +24,9 @@ Species content lives in D1 (`reptiles-db`) and is served by the `reptiles-api` 
 | S2.11  | Search index route `/api/search/{locale}`, locale-switch index as a prop              | #1507 |
 | S2.12a | Leftover pages and the manual scripts on the API                                      | #1508 |
 | S2.12b | Occurrence summaries and map records from the D1 field-records endpoint               | #1514 |
-| S4     | Slug table built from the API card catalog at build time (owner chose option B)       | —     |
+| S4     | Slug table built from the API card catalog at build time (owner chose option B)       | #1517 |
+| S5a    | Committed SQL test seed; tests off the compiled catalog                               | #1521 |
+| S5b    | Species MDX deleted; MDX-only admin flows answer 503                                  | —     |
 
 S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 
@@ -38,7 +40,7 @@ S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 
 ### 1. Release `staging` → `main`
 
-- **Order:** recommended now, before S4. Only the owner decides when.
+- **Order:** next, after S5. Only the owner decides when.
 - **API:** the API is already ahead of `main` and backward compatible, so no API deploy is needed for this.
 - **Process:** follow `docs/RELEASING.md`. The PR from `staging` to `main` gets the `skip-changelog` label.
 - **After merge:** open the live site and check a profile, a hub, search, the language switcher and `/sitemap.xml`.
@@ -52,29 +54,14 @@ The owner chose a build-time table over a KV snapshot (2026-10-23). `scripts/com
 - The MDX import (`speciesImportSource`) computes its own slugs from MDX, so the test database no longer reads the generated table.
 - A KV snapshot refreshed on writes remains the option if deploy-time slugs become a problem.
 
-### 3. S5 — delete species MDX
+### 3. S5 — delete species MDX (done)
 
-**Remove:**
-
-- `src/content/species/*`;
-- the species part of `scripts/compile-species.ts`;
-- `src/data/species.generated.ts` and `fieldRecords.generated.json`;
-- `src/data/species-en.ts`, `species-ru.ts`, `species-tr.ts` and `src/i18n/localizeSpecies.ts`;
-- `getCatalogSpecies` / `getSpeciesById` in `src/data/species.ts`;
-- the `db:import:species*` scripts and `src/lib/speciesImportSource.ts`.
-
-**Tests:**
-
-- Many tests read the compiled catalog directly, or through `tests/fixtures/speciesCatalog.ts`. Move them to MSW (`tests/msw/reptilesApi.ts`) and `createSpeciesTestDatabase()`.
-- The test database is seeded from the MDX import today (`buildSpeciesImport(speciesImportSource())`). It needs a committed seed instead, for example a SQL dump of the current catalog.
-
-**Docs:** update `AGENTS.md` (species content pipeline, catalog SSOT, "Do not" list), `README.md` and the guard tests.
-
-**Local admin:**
-
-- These still read or write MDX: `src/app/admin/**`, `src/app/api/admin/**/route.local.ts`, `adminGalleryMdx`, `adminPhotos`, `speciesAnalysisInventory`, species creation.
-- After this step they stop working until step 4. The owner accepted that.
-- Either disable those routes with a clear message, or leave them failing. Do not ship MDX back to keep them alive.
+- **S5a (#1521):** `tests/fixtures/speciesSeed.sql` is the committed test seed (a frozen snapshot of the MDX catalog, all locales, slugs and 13,817 field records). A vitest `globalSetup` loads it into the real API app and caches the localized catalogs for `tests/fixtures/speciesCatalog.ts`. Tests no longer read compiled MDX.
+- **S5b:**
+  - Deleted: `src/content/species/*`, `scripts/compile-species.ts`, `scripts/speciesFrontmatter.ts`, the SQL export scripts and `db:import:*`, `species.generated.ts`, `fieldRecords.generated.json`, `speciesImportSource`, the API import builders, `adminGalleryMdx`, and the AI analysis code that edited MDX in a worktree (`speciesPageAnalysis`, `speciesSuperAnalysis*`, `speciesAnalysisInventory`, `speciesAnalysisValidation`, the iNaturalist-to-MDX import and its prompts).
+  - Kept and moved: content dates now come from `scripts/compile-content-dates.ts` (`pnpm content:compile`, same output). The Halyomorpha profile copy moved to `src/content/halyomorphaProfileCopy.ts`.
+  - Local admin: the species list and page, cover, crop, reorder, remove, coordinates, drafts, the text editor and AI page texts work through the API. Adding photos, adding field records, AI analysis, workflow, super-analysis and species creation answer 503 with a message until step 4.
+  - `pnpm db:seed:local` loads the test seed into an empty local D1 for `dev:api`. `dev:api` and `deploy:api` no longer run a compile step: the API bundle uses no generated file.
 
 ### 4. Admin on the API (last)
 
@@ -84,12 +71,11 @@ Detailed plans are in `docs/SPECIES-D1-MIGRATION.md` (sections 2b-b, 2b-d, 2b-f)
 - an endpoint in `src/api/routes/adminSpecies.ts` that goes through `change()`;
 - AI output goes through `POST …/drafts`, never a direct write;
 - a typed call in `src/lib/adminSpeciesApi.ts`;
-- then delete the MDX helper.
 
 1. **2b-b Adding a photo:** upload and iNaturalist import.
-2. **2b-d AI analysis, workflow, super-analysis:** results become drafts. `speciesAnalysisInventory` reads each `ka.mdx` today; it should read the API record instead.
-3. **2b-f New species creation:** create the D1 record and every registration (atlas meta, checklist status, regions, lookalikes, slugs) through the API, instead of 4 MDX files and 6 hand edits.
-4. **Clean up:** delete `adminGalleryMdx.ts`, `adminPhotos.ts` and the remaining MDX paths in the content editor.
+2. **2b-d AI analysis, workflow, super-analysis:** rebuild on the API record; results become drafts. The old MDX-based design is in `docs/SPECIES-SUPER-ANALYSIS.md`, and the code is in Git history before S5b.
+3. **2b-f New species creation:** create the D1 record and every registration (atlas meta, checklist status, regions, lookalikes, slugs) through the API.
+4. **Field records:** an API write endpoint and the admin form (the route answers 503 today).
 
 ### Open item, any time
 

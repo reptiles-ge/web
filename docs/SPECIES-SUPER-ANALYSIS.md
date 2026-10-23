@@ -1,5 +1,7 @@
 # Species editor: audit and Super Analysis
 
+**Status (2026-10-23): removed.** The analysis, workflow, super-analysis, records import and species-creation flows edited species MDX in a Git worktree. Species MDX was deleted in S5, and so was this code; the routes answer 503 until the admin phase rebuilds them on API drafts (`docs/SPECIES-D1-MIGRATION.md`, 2b-d and 2b-f). This file is kept as the design reference for that port. The code is in Git history before the S5 merge.
+
 Audit date: 2026-10-09. Local development feature, not a public AI endpoint.
 
 ## What existed

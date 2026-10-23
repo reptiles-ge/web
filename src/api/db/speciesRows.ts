@@ -5,7 +5,6 @@ import type {
   Species,
   SpeciesTranslation,
 } from "@/data/speciesTypes";
-import type { TranslationLocale } from "@/lib/speciesImportSource";
 
 import { SPECIES_TABLES, type SpeciesTable } from "./speciesSchema";
 
@@ -26,6 +25,8 @@ export type SpeciesStatus = "draft" | "published" | "unpublished";
 export type SqlExpression = { sql: string; values: SqlValue[] };
 
 export type SqlValue = null | number | string;
+
+export type TranslationLocale = "en" | "ru" | "tr";
 
 type Cell = SqlExpression | SqlValue;
 

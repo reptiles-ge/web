@@ -71,11 +71,11 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     expect(offenders(checkedFiles, /SELECT\s+\*/i)).toEqual([]);
   });
 
-  it("serves species from D1, never from the bundled MDX catalog", () => {
+  it("serves species from D1, never from site species modules", () => {
     expect(
       offenders(
         sourceFiles,
-        /^import (?!type)[^;]*from "@\/(data\/species(\.generated|-en|-ru|-tr|Publish|SlugTable)?|data\/speciesSlugs\.generated|i18n\/localizeSpecies|lib\/speciesImportSource|lib\/speciesRoutes)"/m,
+        /^import (?!type)[^;]*from "@\/(data\/species(Publish|SlugTable)?|data\/speciesSlugs\.generated|lib\/speciesRoutes)"/m,
         (rel) => rel.startsWith("testing/"),
       ),
     ).toEqual([]);
@@ -203,7 +203,7 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
       "utf8",
     );
     expect(route).toContain("getSpeciesProfile(");
-    expect(route).not.toMatch(/resolveSpeciesInHub|localizeSpecies\(raw/);
+    expect(route).not.toMatch(/resolveSpeciesInHub/);
     expect(
       readFileSync(path.join(ROOT, "src/lib/speciesProfileApi.ts"), "utf8"),
     ).not.toMatch(/^["']use client["']/m);

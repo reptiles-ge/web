@@ -26,16 +26,12 @@ import {
 } from "../src/data/georgia-paths";
 import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 import { getRegionHeroImage } from "../src/data/regionImages";
-import {
-  species,
-  speciesEn,
-  speciesRu,
-  speciesTr,
-} from "../src/data/species.generated";
 import { images as siteImages } from "../src/data/speciesMedia";
 import type { OptimizedImageEntry } from "../src/data/optimizedImages";
+import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
 import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
 import { compactAsset, formatGeneratedImages } from "../src/lib/imageOptimize";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
@@ -212,7 +208,7 @@ function toStorageKey(src: string): string | null {
   return null;
 }
 
-function collectSources(): Map<string, string> {
+function collectSources(species: CatalogPhotoSpecies[]): Map<string, string> {
   const byKey = new Map<string, string>();
 
   const add = (src: string | undefined) => {
@@ -236,16 +232,13 @@ function collectSources(): Map<string, string> {
     add(item.image);
     add(item.mobileImage);
     for (const photo of item.gallery) add(photo.src);
-
-    for (const table of [speciesEn, speciesRu, speciesTr]) {
-      for (const photo of table[item.id]?.gallery ?? []) add(photo.src);
-    }
   }
 
   return byKey;
 }
 
 function collectTargets(
+  species: CatalogPhotoSpecies[],
   ids: string[],
   imageSources: string[],
   regionId: RegionPathId | undefined,
@@ -319,15 +312,13 @@ function collectTargets(
     add(item.image);
     add(item.mobileImage);
     for (const photo of item.gallery) add(photo.src);
-    for (const table of [speciesEn, speciesRu, speciesTr]) {
-      for (const photo of table[item.id]?.gallery ?? []) add(photo.src);
-    }
   }
 
   return [...targets.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
 
 function collectCoverKeys(
+  species: CatalogPhotoSpecies[],
   ids: string[],
   all: boolean,
   news: boolean,
@@ -494,7 +485,8 @@ async function run() {
   const storage: StorageAdapter = createBunnyStorageContext().storage;
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
-  const byKey = collectSources();
+  const species = await getSpeciesCatalog("ka", "photos");
+  const byKey = collectSources(species);
 
   if (options.emitOnly) {
     const current = await loadManifest(
@@ -507,6 +499,7 @@ async function run() {
   }
 
   const discovered = collectTargets(
+    species,
     options.speciesIds,
     options.imageSources,
     options.regionId,
@@ -516,6 +509,7 @@ async function run() {
     options.siteKeys,
   );
   const coverKeys = collectCoverKeys(
+    species,
     options.speciesIds,
     options.all,
     options.news,

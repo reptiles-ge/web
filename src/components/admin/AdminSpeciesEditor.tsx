@@ -654,9 +654,8 @@ export function AdminSpeciesEditor({
         >
           <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
           <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            ფაილი CDN-ზეა AVIF/WebP ზომებით, როგორც images:optimize. MDX და
-            კატალოგი იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე. Merge
-            შენზეა.
+            სახეობაზე ფოტოს დამატება დროებით გამორთულია: ის MDX-ს ცვლიდა და
+            ადმინის API-ზე გადატანის შემდეგ დაბრუნდება.
           </p>
           <label className="mt-5 block text-[12px] text-muted-foreground">
             ფოტოები

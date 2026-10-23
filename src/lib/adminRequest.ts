@@ -14,6 +14,17 @@ export function adminErrorResponse(error: unknown, fallback: string) {
   return adminInvalidResponse(message);
 }
 
+export function adminUnavailableResponse(request: Request) {
+  if (!isLocalAdminOriginRequest(request)) return localAdminForbiddenResponse();
+  return Response.json(
+    {
+      error:
+        "ეს ფუნქცია სახეობების MDX-ს ცვლიდა. MDX წაიშალა, ამიტომ ის ადმინის API-ზე გადატანამდე გამორთულია.",
+    },
+    { status: 503 },
+  );
+}
+
 export function isLocalAdminOriginRequest(request: Request) {
   const url = new URL(request.url);
   return (

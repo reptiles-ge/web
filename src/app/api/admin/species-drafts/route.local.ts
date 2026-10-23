@@ -1,4 +1,3 @@
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import {
   adminErrorResponse,
   readBodyString,
@@ -8,6 +7,7 @@ import {
   approveAdminSpeciesDraft,
   rejectAdminSpeciesDraft,
 } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       ? (body as { draftId: unknown }).draftId
       : NaN,
   );
-  if (!id || !isSpeciesContentId(id)) {
+  if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });
   }
   if (!Number.isInteger(draftId) || draftId < 1) {

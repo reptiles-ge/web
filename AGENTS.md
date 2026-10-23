@@ -33,9 +33,9 @@ Do not add code comments. Do not invent UI copy in one locale only.
 
 | Task                           | Start here                                                                                   |
 | ------------------------------ | -------------------------------------------------------------------------------------------- |
-| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts`                    |
+| Species content (D1)           | `.agents/skills/api/SKILL.md`, then `src/lib/speciesProfileApi.ts` / `speciesCatalogApi.ts`  |
 | Writing style (all prose)      | `src/prompts/writing-style.md` — binding house style; AI prompts load it                     |
-| Catalog, publish, danger       | `src/data/species.ts`                                                                        |
+| Publish list                   | `src/data/speciesPublish.ts`                                                                 |
 | Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                                   |
 | Public URL / slug / lookalikes | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`, `src/lib/speciesLookalikes.ts` |
 | Localized pathnames            | `src/i18n/pathnames.ts`                                                                      |
@@ -60,8 +60,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 ```text
 src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
-src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
-src/data/species.generated.ts   gitignored
+species content            D1 (reptiles-db) → reptiles-api (api.reptiles.ge) → server loaders in src/lib/
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table, from the API)
 src/app/api/search/[locale] search index JSON, built from the API catalog (static per deploy)
 src/content/news/{slug}/  ka.mdx + en.mdx (+ ru/tr) → compile → src/data/news.generated.ts (gitignored)
@@ -70,7 +69,7 @@ src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
 src/i18n/                  next-intl routing + pathnames
 messages/                  KA + EN copy
-scripts/compile-species.ts predev / prebuild
+scripts/compile-*.ts       predev / prebuild
 ```
 
 Route pages are thin factories:
@@ -86,22 +85,23 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Catalog
 
-- **146** MDX folders, **146** featured IDs, **145** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
+- **146** species in D1, **145** published. `dolichophis-caspius` is unpublished and 302s to the snake hub.
 - Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 45 birds, 17 mammals, 8 spiders, 4 scorpions, 4 insects.
-- SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
+- SSOT for live pages, quiz, atlas, search: the API, through `getSpeciesCatalog(locale, view)` and `getSpeciesProfile(id, locale)` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
-- Nose-horned viper: the taxon is _Vipera ammodytes_, subspecies _transcaucasiana_ (Tarkhnishvili et al. 2026), and the profile folder id is `vipera-transcaucasiana`. `vipera-ammodytes` URLs 301 to that single profile. Name it _Vipera transcaucasiana_ only as an older or alternative name (2009 IUCN account).
-- `Macrovipera lebetinus` vs folder id `macrovipera-lebetina`: explained on the გიურზა profile. Do not contradict it elsewhere.
+- Nose-horned viper: the taxon is _Vipera ammodytes_, subspecies _transcaucasiana_ (Tarkhnishvili et al. 2026), and the species id is `vipera-transcaucasiana`. `vipera-ammodytes` URLs 301 to that single profile. Name it _Vipera transcaucasiana_ only as an older or alternative name (2009 IUCN account).
+- `Macrovipera lebetinus` vs species id `macrovipera-lebetina`: explained on the გიურზა profile. Do not contradict it elsewhere.
 
-## Species content pipeline
+## Species content (D1)
 
-1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit. Translation frontmatter is strict: only `id`, `scientificName`, `dateModified`, text fields, `identification`, and credit overlays (`imageCredit`, `mobileImageCredit`, `gallery`). Compile fails on any other key, a missing locale file, an unregistered folder, an overlay `src` not in the KA gallery, mismatched `identification.colors`, or a `faq` / `facts` / `stats` / `identification.traits` count that differs from KA.
-2. `pnpm species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts`. `pnpm slugs:compile` (also in `compile`) writes gitignored `src/data/speciesSlugs.generated.ts` from the API card catalog, so slug changes reach `src/proxy.ts` on the next deploy.
-3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
-4. Add `speciesAtlasMeta`.
-5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
-6. Lookalikes: `LOOKALIKES` in `speciesLookalikes.ts` (bidirectional). **Do not** add a lookalike YAML key to MDX — compile does not read it.
-7. Range map on a profile: only if the id is in some `regions[].speciesIds`. That is a data task, not MDX.
+There is no species MDX. Species content lives in D1 and is served by `reptiles-api`; the site renders it on the server. Read `.agents/skills/api/SKILL.md` before changing anything about it.
+
+1. Edit through the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts for approval; cover, crop, reorder, remove and coordinates write through the API. Adding photos or field records, AI analysis and workflow, and new species creation answer 503 until the admin phase moves them to the API.
+2. The record rules are enforced by `src/api/schemas/speciesRecord.ts`: KA owns taxonomy, `danger`, images and `sources`; `en` / `ru` / `tr` translate the text and may re-credit KA photos by `src`; `faq`, `facts`, `stats` and `identification.traits` counts and `identification.colors` match KA.
+3. Still in code and read by the site: `speciesAtlasMeta` (group, habitats), `LOOKALIKES` in `speciesLookalikes.ts` (bidirectional), `featuredSpeciesIds` / `unpublishedSpeciesIds` in `src/data/speciesPublish.ts`, and the KA slug rules (`KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`). A species needs these entries too until the admin phase moves them.
+4. `pnpm slugs:compile` (part of `compile`) builds the gitignored slug table from the API card catalog, so a slug change or a new species reaches `src/proxy.ts` on the next deploy. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
+5. Range map on a profile: only if the id is in some `regions[].speciesIds` or the species has field records in D1. Region membership is a data task in `regions.ts`.
+6. Tests read species from `tests/fixtures/speciesSeed.sql`, a frozen snapshot taken when MDX was deleted, through the MSW API (`tests/msw/reptilesApi.ts`) and `tests/fixtures/speciesCatalog.ts`. They never read production data.
 
 Empty/placeholder fields are hidden by `src/lib/speciesContent.ts`. Prefer a missing field over invented size, region, IUCN category, or Red List status.
 
@@ -179,9 +179,9 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 - Layout: `app.ts` mounts one sub-app per resource from `routes/` under `/v1/`; SQL only in `db/`; input only through `validate()` and Zod schemas; errors only through `ApiError` / `lib/errors.ts`.
 - `src/api/structure.test.ts` fails on any break of that layout. Do not weaken it.
-- Species content is written only through `PUT /v1/admin/species/:id` (validated, versioned, revisioned, revalidates the site). The MDX import refuses to run once API edits exist.
-- Species profile pages load their content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`), with no MDX fallback and no client loaders. See the skill for what is still local.
-- D1 is the source of truth for species (`0002_species.sql`). `pnpm db:import:species` was the one-off initial copy from MDX (a round-trip test proves it was 1:1); it refuses to run once API edits exist. Species MDX files are no longer edited.
+- Species content is written only through `PUT /v1/admin/species/:id` and approved drafts (validated, versioned, revisioned, revalidates the site).
+- Every species page and list loads its content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`, `speciesCatalogApi.ts`, `speciesFieldRecordsApi.ts`), with no client loaders.
+- D1 is the source of truth for species (`0002_species.sql`, `0005_species_field_records.sql`). Species MDX was deleted in S5.
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.
@@ -239,13 +239,14 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 ## Commands
 
 ```bash
-pnpm dev                  # compile species, then next dev
+pnpm dev                  # compile (news, content dates, slug table, map), then next dev
 pnpm build
 pnpm lint
 pnpm doctor               # React Doctor health scan
 pnpm doctor:changed       # only issues introduced vs the base branch
 pnpm doctor:check         # fails unless the React Doctor score is exactly 100
-pnpm species:compile
+pnpm content:compile      # content dates and release version
+pnpm slugs:compile        # slug table from the API card catalog
 pnpm news:compile         # news MDX → src/data/news.generated.ts
 pnpm i18n:check           # locale key parity + ICU argument check (KA is the source)
 pnpm i18n:usage           # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
@@ -253,10 +254,10 @@ pnpm test:coverage        # vitest with v8 coverage; fails below the thresholds 
 pnpm cpd                  # jscpd copy-paste scan, fails on any clone (threshold 0)
 pnpm dev:api              # API Worker on :8787 (local D1; never applies migrations)
 pnpm db:migrate           # apply API migrations to the local D1 (by hand only)
-pnpm db:import:species    # copy the species catalog from MDX into the local D1
+pnpm db:seed:local        # load the test seed into an empty local D1
 ```
 
-`pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if the generated catalog is missing).
+`pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if a generated file is missing).
 
 Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. Every component counts toward coverage. `vitest.config.ts` sets per-glob thresholds (`src/lib/**`, `src/data/**`, a lower floor for `src/components/**`) on top of the global one; raise a floor when coverage grows, never lower it. `coverage.exclude` lists only untested dev/admin files and thin route files. `src/lib/coverageConfig.test.ts` fails on an entry that matches no file or a listed file that has a test.
 
@@ -269,7 +270,8 @@ Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/serve
 
 ## Do not
 
-- Commit or hand-edit `src/data/species.generated.ts` or `src/data/speciesSlugs.generated.ts` (gitignored; `predev` / `prebuild` writes them).
+- Commit or hand-edit `src/data/speciesSlugs.generated.ts` or the other `*.generated.*` files (gitignored; `predev` / `prebuild` writes them).
+- Add species MDX or another file-based species source. Species content changes go through the API.
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Add `redirects()` to `next.config.ts`. Production runs on vinext, which never applies it; every 301 lives in `src/proxy.ts`.

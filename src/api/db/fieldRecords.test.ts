@@ -2,36 +2,22 @@ import { describe, expect, it } from "vitest";
 
 import { fieldRecordsFixture } from "../../../tests/fixtures/speciesCatalog";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
-import {
-  buildFieldRecordsImport,
-  FIELD_RECORDS_IMPORT_GUARD,
-  readFieldRecords,
-} from "./fieldRecords";
-
-const recordsById = fieldRecordsFixture();
-
-const statements = buildFieldRecordsImport(recordsById);
-
-const load = createSpeciesTestDatabase;
+import { readFieldRecords } from "./fieldRecords";
 
 describe("field records in D1", () => {
-  it("round-trips every field record of every species 1:1", async () => {
-    const { db, sqlite } = load();
-    sqlite.exec("DELETE FROM species_field_records");
-    for (const statement of statements) sqlite.exec(statement);
-    for (const [id, records] of Object.entries(recordsById)) {
-      expect(await readFieldRecords(db, id), id).toStrictEqual(records);
-    }
+  it("reads each species' records in position order", async () => {
+    const { db, sqlite } = createSpeciesTestDatabase();
+    const [id, records] = Object.entries(fieldRecordsFixture())[0]!;
+    expect(await readFieldRecords(db, id)).toStrictEqual(records);
+    const total = sqlite
+      .prepare("SELECT COUNT(*) AS n FROM species_field_records")
+      .get() as { n: number };
+    expect(total.n).toBe(Object.values(fieldRecordsFixture()).flat().length);
     expect(await readFieldRecords(db, "no-such-species")).toEqual([]);
   });
 
-  it("refuses a second import once records exist", () => {
-    const { sqlite } = load();
-    expect(() => sqlite.exec(FIELD_RECORDS_IMPORT_GUARD)).toThrow();
-  });
-
   it("enforces coordinates, evidence and the species link", () => {
-    const { sqlite } = load();
+    const { sqlite } = createSpeciesTestDatabase();
     const insert =
       (species: string, lat: number, evidence: null | string) => () =>
         sqlite
@@ -42,15 +28,5 @@ describe("field records in D1", () => {
     expect(insert("testudo-graeca", 95, null)).toThrow();
     expect(insert("testudo-graeca", 41, "rumour")).toThrow();
     expect(insert("no-such-species", 41, null)).toThrow();
-  });
-
-  it("keeps every statement under D1's size limit", () => {
-    const encoder = new TextEncoder();
-    expect(
-      Math.max(
-        ...statements.map((statement) => encoder.encode(statement).length),
-      ),
-    ).toBeLessThan(100_000);
-    expect(statements[0]).toBe(FIELD_RECORDS_IMPORT_GUARD);
   });
 });

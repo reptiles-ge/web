@@ -230,15 +230,6 @@ export function splitSentences(text: string) {
   return sentences;
 }
 
-export function styleIssueSurface(field: string) {
-  if (field === "description") return "hero";
-  if (field.startsWith("identification")) return "identification";
-  if (field.startsWith("faq")) return "faq";
-  if (["behavior", "conservation", "diet", "habitat"].includes(field))
-    return "biology";
-  return field;
-}
-
 function countOccurrences(text: string, phrase: string) {
   return text.split(phrase).length - 1;
 }

@@ -41,10 +41,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-src/data/species.generated.ts
 src/data/news.generated.ts
 src/data/speciesSlugs.generated.ts
-src/data/fieldRecords.generated.json
 src/data/contentDates.generated.ts
 src/data/releaseVersion.generated.ts
 index.html

@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   HALYOMORPHA_ANNOTATION_COPY,
   HALYOMORPHA_PEST_COPY,
-} from "@/content/species/halyomorpha-halys/profileCopy";
+} from "@/content/halyomorphaProfileCopy";
 import { routing } from "@/i18n/routing";
 import {
   findSourceNames,
