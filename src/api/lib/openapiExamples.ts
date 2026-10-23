@@ -1,4 +1,5 @@
 const credit = {
+  authorId: "laura-and-bobby-bok",
   location: "Vashlovani protected areas",
   photoConfidence: "georgia-field",
   photographer: "Laura and Bobby Bok",
@@ -52,6 +53,7 @@ const levantineViperTexts = {
     },
     {
       credit: {
+        authorId: "armen-seropian",
         date: "2025-05-28",
         location: "Vashlovani protected areas",
         photoConfidence: "georgia-field",

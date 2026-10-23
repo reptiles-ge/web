@@ -107,3 +107,52 @@ describe("GET /v1/authors/:id", () => {
     expect(bad.response.status).toBe(400);
   });
 });
+
+describe("photo credits", () => {
+  type Credit = { authorId?: string; photographer?: string };
+  type CatalogBody = {
+    data: Array<{ gallery: Array<{ credit?: Credit }>; id: string }>;
+  };
+
+  async function credits(locale: string) {
+    const { body } = await requestJson<CatalogBody>(
+      "/v1/catalog?view=photos",
+      env,
+      { headers: { "X-Locale": locale } },
+    );
+    return body.data.flatMap((item) =>
+      item.gallery.flatMap((photo) => (photo.credit ? [photo.credit] : [])),
+    );
+  }
+
+  it("carries the author id and names the author in each locale", async () => {
+    const ka = await credits("ka");
+    const zauri = ka.filter((credit) => credit.authorId === "zauri-khachidze");
+    expect(zauri.length).toBeGreaterThan(10);
+    expect(new Set(zauri.map((credit) => credit.photographer))).toEqual(
+      new Set(["ზაური ხაჩიძე"]),
+    );
+    const en = await credits("en");
+    expect(
+      new Set(
+        en
+          .filter((credit) => credit.authorId === "zauri-khachidze")
+          .map((credit) => credit.photographer),
+      ),
+    ).toEqual(new Set(["Zauri Khachidze"]));
+    const ru = await credits("ru");
+    expect(
+      ru.some(
+        (credit) =>
+          credit.authorId === "zauri-khachidze" &&
+          credit.photographer === "Заури Хачидзе",
+      ),
+    ).toBe(true);
+  });
+
+  it("keeps a credit's own text when the author has no name in that locale", async () => {
+    const en = await credits("en");
+    const sharp = en.find((credit) => credit.authorId === "charles-j-sharp");
+    expect(sharp?.photographer).toMatch(/Charles J\. Sharp/);
+  });
+});

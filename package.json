@@ -88,7 +88,6 @@
     "db:migrations:list": "wrangler d1 migrations list reptiles-db --local --config wrangler.api.jsonc",
     "db:migrate": "wrangler d1 migrations apply reptiles-db --local --config wrangler.api.jsonc",
     "db:migrate:remote": "wrangler d1 migrations apply reptiles-db --remote --config wrangler.api.jsonc",
-    "authors:sql": "tsx scripts/export-authors-sql.ts",
     "db:seed:local": "wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file tests/fixtures/speciesSeed.sql"
   },
   "lint-staged": {
