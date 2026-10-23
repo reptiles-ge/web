@@ -46,11 +46,16 @@ export async function refreshSpeciesApiCache(tags: string[]) {
           options,
         ),
     ]);
-  for (const request of [...catalog, ...profiles]) {
-    try {
-      await request();
-    } catch (error) {
-      console.error("Species API cache refresh failed", error);
-    }
-  }
+  await [...catalog, ...profiles].reduce<Promise<void>>(
+    (previous, request) =>
+      previous.then(() =>
+        request().then(
+          () => undefined,
+          (error: unknown) => {
+            console.error("Species API cache refresh failed", error);
+          },
+        ),
+      ),
+    Promise.resolve(),
+  );
 }

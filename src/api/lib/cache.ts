@@ -24,11 +24,10 @@ export const edgeCache = (cacheName: string) =>
       return;
     }
     const key = cacheKey(c.req.raw);
-    const store = await caches.open(cacheName);
-    const refresh = await canBypass(
-      c.req.header(CACHE_BYPASS_HEADER),
-      c.env.REVALIDATE_TOKEN,
-    );
+    const [store, refresh] = await Promise.all([
+      caches.open(cacheName),
+      canBypass(c.req.header(CACHE_BYPASS_HEADER), c.env.REVALIDATE_TOKEN),
+    ]);
     if (!refresh) {
       const hit = await store.match(key);
       if (hit) return new Response(hit.body, hit);
