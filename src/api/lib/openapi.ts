@@ -300,7 +300,11 @@ const OPERATIONS: Operation[] = [
   },
 ];
 
-export const UNDOCUMENTED_PATH_PREFIXES = ["/v1/admin/", "/v1/ratings"];
+export const UNDOCUMENTED_PATH_PREFIXES = [
+  "/v1/admin/",
+  "/v1/auth/",
+  "/v1/ratings",
+];
 
 export const documentedOperations = OPERATIONS.map(({ method, path }) => ({
   method,

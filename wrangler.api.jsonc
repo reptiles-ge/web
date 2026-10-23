@@ -13,7 +13,7 @@
     },
   ],
   "vars": {
-    "ALLOWED_ORIGINS": "https://reptiles.ge",
+    "ALLOWED_ORIGINS": "https://reptiles.ge,https://admin.reptiles.ge",
   },
   "ratelimits": [
     {
@@ -25,6 +25,11 @@
       "name": "RATING_GLOBAL_LIMITER",
       "namespace_id": "1231",
       "simple": { "limit": 30, "period": 60 },
+    },
+    {
+      "name": "LOGIN_LIMITER",
+      "namespace_id": "1232",
+      "simple": { "limit": 5, "period": 60 },
     },
   ],
   "services": [
