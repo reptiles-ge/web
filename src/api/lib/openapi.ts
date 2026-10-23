@@ -36,22 +36,51 @@ const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
   {
     cursor: {
       description:
-        "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`.",
+        "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`, not with `page`.",
       example: "natrix-tessellata",
+    },
+    danger: {
+      description:
+        "`venomous` (danger level `High` or `Moderate`) or `harmless`. Only groups where venom applies: amphibians, lizards, scorpions, snakes, spiders and turtles.",
+      example: "venomous",
     },
     group: {
       description: "Only species of this animal group.",
       example: "snake",
     },
+    habitat: {
+      description: "Only species tagged with this habitat.",
+      example: "forest",
+    },
     limit: {
       description:
-        "Page size, 1–100. Without it the whole catalog comes back in one response.",
+        "Page size, 1–100. Without it every match comes back in one response.",
       example: "40",
+    },
+    page: {
+      description:
+        "Page number from 1, of `limit` species each. Only with `limit`, not with `cursor`. A page past the last one is empty.",
+      example: "2",
+    },
+    q: {
+      description:
+        "Search text, up to 100 characters. Matches common names and places in every locale, and scientific, genus and family names, case-insensitively.",
+      example: "viper",
+    },
+    region: {
+      description:
+        "Only species the atlas lists for this region of Georgia (a region id of reptiles.ge, such as `kakheti`).",
+      example: "kakheti",
     },
     slug: {
       description:
         "Public slug of the species in the requested locale (`X-Locale`): the Georgian slug for `ka` (`giurza`), the species id for `en`, `ru` and `tr` (`macrovipera-lebetina`). Case-insensitive.",
       example: "giurza",
+    },
+    sort: {
+      description:
+        "`catalog` (default, catalog order), `featured` (species with a photo first), `az` (common name in the requested locale), `range` (most regions first) or `updated` (newest text first). Ties keep catalog order.",
+      example: "featured",
     },
     view: {
       description:
@@ -185,7 +214,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Every published species in catalog order, with groups, habitats and lookalike ids, in one response. Use `card` for lists and cards, `photos` for photo credits (the card fields plus the gallery), `quiz` for identification quizzes (the card fields plus identification, facts and gallery), and `full` only when you need every text, for example to build a search index. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`. `total` always counts the whole catalog.",
+      "Published species with groups, habitats and lookalike ids. Use `card` for lists and cards, `photos` for photo credits (the card fields plus the gallery), `quiz` for identification quizzes (the card fields plus identification, facts and gallery), and `full` only when you need every text, for example to build a search index. Filter with `group`, `danger`, `habitat`, `region` and `q`, and order with `sort`. Pagination is optional: pass `limit`, then either `page` for a numbered page or each response's `nextCursor` as `cursor` until it is `null`. `total` counts every match; `facets` count the matches for each filter value and `stats` sum over every match, so a page never needs the whole catalog for its counts.",
     errors: [400],
     header: localeHeader,
     method: "get",

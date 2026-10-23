@@ -3,6 +3,7 @@ import { z } from "zod";
 import { locales } from "@/i18n/locales";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
+import { REGION_IDS } from "../lib/catalogFilter";
 import {
   AFFILIATIONS,
   AUTHOR_JOB_TITLES,
@@ -360,7 +361,60 @@ const resolvedLocale = doc(locale, "Locale of the texts in `data`.");
 
 const catalogTotal = doc(
   z.int().min(0),
-  "Number of published species in the whole catalog, on every page.",
+  "Number of published species that match the filters (the whole catalog without filters), on every page.",
+);
+
+const facetCounts = <const T extends readonly string[]>(
+  values: T,
+  description: string,
+) =>
+  doc(
+    z.strictObject({
+      all: doc(z.int().min(0), "Count without this filter."),
+      ...(Object.fromEntries(
+        values.map((value) => [value, z.int().min(0)]),
+      ) as Record<T[number], z.ZodInt>),
+    }),
+    description,
+  );
+
+const catalogFacets = component(
+  "CatalogFacets",
+  z.strictObject({
+    danger: facetCounts(
+      ["harmless", "venomous"] as const,
+      "Matches for each `danger` value, with the other filters applied.",
+    ),
+    group: facetCounts(
+      ANIMAL_GROUPS,
+      "Matches for each `group` value, with the other filters applied.",
+    ),
+    habitat: facetCounts(
+      HABITATS,
+      "Matches for each `habitat` value, with the other filters applied.",
+    ),
+    region: facetCounts(
+      REGION_IDS,
+      "Matches for each `region` value, with the other filters applied.",
+    ),
+  }),
+  "Filter counts for building filter menus: each key counts the matches for every value of that filter while keeping the other filters and `q`.",
+);
+
+const catalogStats = component(
+  "CatalogStats",
+  z.strictObject({
+    lastUpdated: doc(
+      z.string().nullable(),
+      `Newest \`updatedAt\` among the matches. ${OFFSET_DATE_TIME}`,
+    ),
+    photos: doc(z.int().min(0), "Gallery photos of all matches."),
+    venomous: doc(
+      z.int().min(0),
+      "Matches with a `High` or `Moderate` danger level.",
+    ),
+  }),
+  "Totals over every match, not only this page.",
 );
 
 const nextCursor = doc(
@@ -399,8 +453,10 @@ export const catalogCardResponse = component(
   "CatalogCardResponse",
   z.strictObject({
     data: z.array(catalogCard),
+    facets: catalogFacets,
     locale: resolvedLocale,
     nextCursor,
+    stats: catalogStats,
     total: catalogTotal,
     view: z.literal("card"),
   }),
@@ -411,8 +467,10 @@ export const catalogPhotosResponse = component(
   "CatalogPhotosResponse",
   z.strictObject({
     data: z.array(catalogPhotoSpecies),
+    facets: catalogFacets,
     locale: resolvedLocale,
     nextCursor,
+    stats: catalogStats,
     total: catalogTotal,
     view: z.literal("photos"),
   }),
@@ -423,8 +481,10 @@ export const catalogQuizResponse = component(
   "CatalogQuizResponse",
   z.strictObject({
     data: z.array(catalogQuizSpecies),
+    facets: catalogFacets,
     locale: resolvedLocale,
     nextCursor,
+    stats: catalogStats,
     total: catalogTotal,
     view: z.literal("quiz"),
   }),
@@ -435,8 +495,10 @@ export const catalogFullResponse = component(
   "CatalogFullResponse",
   z.strictObject({
     data: z.array(catalogSpecies),
+    facets: catalogFacets,
     locale: resolvedLocale,
     nextCursor,
+    stats: catalogStats,
     total: catalogTotal,
     view: z.literal("full"),
   }),
