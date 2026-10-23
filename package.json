@@ -22,6 +22,7 @@
     "predev": "pnpm run compile",
     "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
+    "dev:inspect": "pnpm run compile && node --experimental-network-inspection node_modules/next/dist/bin/next dev --port 3333 --inspect",
     "prebuild": "pnpm run compile",
     "pretest": "pnpm run compile",
     "build": "next build",

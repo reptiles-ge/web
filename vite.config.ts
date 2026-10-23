@@ -3,8 +3,11 @@ import type { Plugin } from "vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import { responseStoreAdapter } from "@vinext/cloudflare/cache/response-store-adapter";
 import { imagesOptimizer } from "@vinext/cloudflare/images/images-optimizer";
+import { fileURLToPath } from "node:url";
 import vinext from "vinext";
 import { defineConfig } from "vite";
+
+const responseStore = responseStoreAdapter();
 
 const EMPTY_SEARCH_INDEX = "\0reptiles:empty-search-index";
 const SEARCH_INDEX_MODULE =
@@ -36,7 +39,15 @@ export default defineConfig({
   plugins: [
     clientOnlySearchIndex(),
     vinext({
-      cache: responseStoreAdapter(),
+      cache: {
+        ...responseStore,
+        data: {
+          ...responseStore.data,
+          adapter: fileURLToPath(
+            new URL("./src/lib/responseStoreDataCache.ts", import.meta.url),
+          ),
+        },
+      },
       images: { optimizer: imagesOptimizer() },
     }),
     cloudflare({
