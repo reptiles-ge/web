@@ -5,9 +5,10 @@ import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 import type { AtlasRegionLabel, AtlasView } from "@/data/atlasFilters";
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
+import { useAtlasPhotoLoader } from "@/components/species-atlas/AtlasPhotos";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
@@ -21,7 +22,7 @@ import { cn } from "@/lib/cn";
 type AtlasSpeciesGridProps = {
   locale: AppLocale;
   regionLabels: AtlasRegionLabel[];
-  species: SpeciesListItem[];
+  species: AtlasIndexItem[];
   view: AtlasView;
 };
 
@@ -36,7 +37,7 @@ export function AtlasSpeciesGrid({
     () => new Map(regionLabels.map((region) => [region.id, region.label])),
     [regionLabels],
   );
-  const regionNames = (item: SpeciesListItem) =>
+  const regionNames = (item: AtlasIndexItem) =>
     item.regionIds.map((id) => labelById.get(id) ?? id);
   const [visibleCount, setVisibleCount] = useState(() =>
     initialAtlasVisibleCount(species.length),
@@ -49,6 +50,7 @@ export function AtlasSpeciesGrid({
   }
 
   const visible = species.slice(0, visibleCount);
+  useAtlasPhotoLoader(visible);
   const hasMore = visibleCount < species.length;
   const progress = species.length
     ? Math.round((visible.length / species.length) * 100)

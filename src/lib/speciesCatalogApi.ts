@@ -39,6 +39,34 @@ export const getSpeciesCatalog = cache(
   },
 );
 
+export class CatalogPageError extends Error {
+  constructor(readonly status: number) {
+    super(`Species catalog API answered ${status}`);
+  }
+}
+
 export function getCreditPhotoCatalog() {
   return getSpeciesCatalog(routing.defaultLocale, "photos");
+}
+
+export async function getSpeciesCatalogPage(
+  locale: AppLocale,
+  { cursor, limit }: { cursor?: string; limit: number },
+): Promise<{ data: CatalogCard[]; nextCursor: null | string }> {
+  const response = await createApiClient().v1.catalog.$get(
+    {
+      header: { "x-locale": locale },
+      query: {
+        limit: String(limit),
+        view: "card",
+        ...(cursor ? { cursor } : {}),
+      },
+    },
+    speciesFetchOptions(["species"]),
+  );
+  if (!response.ok) {
+    throw new CatalogPageError(response.status);
+  }
+  const { data, nextCursor } = await response.json();
+  return { data: data as CatalogCard[], nextCursor };
 }

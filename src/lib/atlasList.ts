@@ -1,18 +1,62 @@
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type {
+  AtlasIndexItem,
+  AtlasPhoto,
+  SpeciesListItem,
+} from "@/data/speciesListItem";
 
+import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getRegionsForSpecies } from "@/data/regions";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import {
+  type CatalogCard,
+  getSpeciesCatalog,
+  getSpeciesCatalogPage,
+} from "@/lib/speciesCatalogApi";
+
+export const ATLAS_PHOTO_PAGE_SIZE = 24;
+
+export type AtlasPhotoPage = {
+  nextCursor: null | string;
+  photos: Record<string, AtlasPhoto>;
+};
 
 export async function getAtlasListItems(
   locale: AppLocale,
-): Promise<SpeciesListItem[]> {
+): Promise<AtlasIndexItem[]> {
   const [catalog, searchTexts] = await Promise.all([
     getSpeciesCatalog(locale),
     atlasSearchTexts(),
   ]);
-  return catalog.map((item) => toAtlasListItem(item, searchTexts));
+  return catalog.map((item) => ({
+    commonName: item.commonName,
+    hasPhoto: Boolean(atlasSpeciesImage(item)),
+    id: item.id,
+    location: item.location,
+    regionIds: getRegionsForSpecies(item.id).map((region) => region.id),
+    scientificName: item.scientificName,
+    searchText: searchTexts.get(item.id) ?? "",
+    ...(item.danger ? { danger: item.danger } : {}),
+  }));
+}
+
+export async function getAtlasPhotoPage(
+  locale: AppLocale,
+  cursor?: string,
+): Promise<AtlasPhotoPage> {
+  const page = await getSpeciesCatalogPage(locale, {
+    limit: ATLAS_PHOTO_PAGE_SIZE,
+    ...(cursor ? { cursor } : {}),
+  });
+  const photos: Record<string, AtlasPhoto> = {};
+  for (const item of page.data) {
+    if (!atlasSpeciesImage(item)) continue;
+    photos[item.id] = {
+      image: item.image,
+      ...(item.mobileImage ? { mobileImage: item.mobileImage } : {}),
+    };
+  }
+  return { nextCursor: page.nextCursor, photos };
 }
 
 export async function getAtlasRecentItems(

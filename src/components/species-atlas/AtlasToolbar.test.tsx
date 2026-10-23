@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 
 import { AtlasToolbar } from "@/components/species-atlas/AtlasToolbar";
 import { defaultAtlasFilters } from "@/data/atlasFilters";
@@ -16,7 +16,7 @@ vi.mock("@/lib/speciesCatalogApi", () => ({
     speciesCatalogFixture(locale),
 }));
 
-let catalog: SpeciesListItem[];
+let catalog: AtlasIndexItem[];
 
 beforeAll(async () => {
   catalog = await getAtlasListItems("ka");

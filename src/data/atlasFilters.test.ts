@@ -1,37 +1,29 @@
 import { describe, expect, it } from "vitest";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 
 import { defaultAtlasFilters, filterAtlasSpecies } from "@/data/atlasFilters";
 
-const giurza: SpeciesListItem = {
+const giurza: AtlasIndexItem = {
   commonName: "გიურზა",
   danger: "High",
-  description: "Card blurb",
-  family: "Viperidae",
-  genus: "Macrovipera",
+  hasPhoto: true,
   id: "macrovipera-lebetina",
-  image: "https://cdn.reptiles.ge/macrovipera-lebetina.png",
   location: "კახეთი",
   regionIds: ["kakheti"],
   scientificName: "Macrovipera lebetinus",
   searchText: "გიურზა blunt-nosed viper macrovipera lebetinus viperidae კახეთი",
-  updatedAt: "2026-01-01T00:00:00+04:00",
 };
 
-const grassSnake: SpeciesListItem = {
+const grassSnake: AtlasIndexItem = {
   commonName: "ჩვეულებრივი ანკარა",
   danger: "Harmless",
-  description: "Card blurb",
-  family: "Colubridae",
-  genus: "Natrix",
+  hasPhoto: true,
   id: "natrix-natrix",
-  image: "https://cdn.reptiles.ge/natrix-natrix.png",
   location: "კოლხეთი",
   regionIds: [],
   scientificName: "Natrix natrix",
   searchText: "ჩვეულებრივი ანკარა grass snake natrix natrix colubridae კოლხეთი",
-  updatedAt: "2026-01-02T00:00:00+04:00",
 };
 
 describe("filterAtlasSpecies", () => {

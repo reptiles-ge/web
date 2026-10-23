@@ -2,9 +2,10 @@ import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
+import { AtlasPhotosProvider } from "@/components/species-atlas/AtlasPhotos";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
@@ -21,7 +22,7 @@ vi.mock("@/lib/speciesCatalogApi", () => ({
     speciesCatalogFixture(locale),
 }));
 
-let items: SpeciesListItem[];
+let items: AtlasIndexItem[];
 
 beforeAll(async () => {
   items = await getAtlasListItems("ka");
@@ -113,5 +114,55 @@ describe("AtlasSpeciesCard", () => {
       />,
     );
     expect(screen.getByText(ka.speciesAtlas.rangePending)).toBeInTheDocument();
+  });
+
+  it("leaves the image out while the photo page is still loading", () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(() => new Promise(() => {})),
+    );
+    renderWith(
+      <AtlasPhotosProvider
+        initial={{ nextCursor: "a", photos: {} }}
+        locale="ka"
+      >
+        <AtlasSpeciesCard
+          locale="ka"
+          regionNames={[]}
+          species={species("macrovipera-lebetina")}
+        />
+      </AtlasPhotosProvider>,
+    );
+    expect(screen.getByRole("link").querySelector("img")).toBeNull();
+    expect(
+      screen.queryByText(ka.speciesAtlas.illustration),
+    ).not.toBeInTheDocument();
+    vi.unstubAllGlobals();
+  });
+
+  it("shows the photo the provider loaded", () => {
+    renderWith(
+      <AtlasPhotosProvider
+        initial={{
+          nextCursor: null,
+          photos: {
+            "macrovipera-lebetina": {
+              image: "https://cdn.reptiles.ge/giurza.jpg",
+            },
+          },
+        }}
+        locale="ka"
+      >
+        <AtlasSpeciesCard
+          locale="ka"
+          regionNames={[]}
+          species={species("macrovipera-lebetina")}
+        />
+      </AtlasPhotosProvider>,
+    );
+    expect(screen.getByRole("link").querySelector("img")).toHaveAttribute(
+      "src",
+      "https://cdn.reptiles.ge/giurza.jpg",
+    );
   });
 });

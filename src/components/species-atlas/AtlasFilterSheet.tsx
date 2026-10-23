@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { type ReactNode, useId, useState } from "react";
 import { Drawer } from "vaul";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 
 import {
   GROUP_OPTIONS,
@@ -24,7 +24,7 @@ import { type HabitatTag } from "@/data/speciesAtlasMeta";
 import { cn } from "@/lib/cn";
 
 type AtlasFilterSheetProps = {
-  catalog: SpeciesListItem[];
+  catalog: AtlasIndexItem[];
   filters: AtlasFilters;
   onApply: (next: AtlasFilters) => void;
   onClose: () => void;
