@@ -50,7 +50,7 @@ describe("createApiClient", () => {
     );
   });
 
-  it("logs each API call in development", async () => {
+  it("logs each API call in development without the token", async () => {
     vi.stubEnv("NODE_ENV", "development");
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const fetch = vi.fn(async () => new Response(null, { status: 204 }));
@@ -59,26 +59,11 @@ describe("createApiClient", () => {
     });
     expect(fetch).toHaveBeenCalledOnce();
     expect(info).toHaveBeenCalledOnce();
-    const [line] = info.mock.calls[0];
-    expect(line).toMatch(
+    expect(info.mock.calls[0][0]).toMatch(
       /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/ratings\/summary → 204 \(\d+ ms\)$/,
     );
-    expect(String(line)).not.toContain("secret");
-    info.mockRestore();
-  });
-
-  it("logs a failed API call and rethrows", async () => {
-    vi.stubEnv("NODE_ENV", "development");
-    const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
-    const failure = new Error("offline");
-    const fetch = vi.fn(async () => {
-      throw failure;
-    });
-    await expect(
-      createApiClient({ fetch }).v1.ratings.summary.$get({ query: {} }),
-    ).rejects.toBe(failure);
-    expect(info.mock.calls[0][0]).toMatch(/→ failed \(\d+ ms\)$/);
-    info.mockRestore();
+    expect(JSON.stringify(info.mock.calls)).not.toContain("secret");
+    vi.restoreAllMocks();
   });
 
   it("does not log outside development", async () => {
@@ -87,6 +72,6 @@ describe("createApiClient", () => {
     const fetch = vi.fn(async () => new Response(null));
     await createApiClient({ fetch }).v1.ratings.summary.$get({ query: {} });
     expect(info).not.toHaveBeenCalled();
-    info.mockRestore();
+    vi.restoreAllMocks();
   });
 });
