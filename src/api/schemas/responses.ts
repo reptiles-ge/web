@@ -475,9 +475,16 @@ const authorPhotoCount = doc(
   "Number of distinct photos of published species credited to this author.",
 );
 
+const authorAliases = doc(
+  z.array(z.string()),
+  "Every spelling of the author's name that appears in photo credits (`credit.photographer`), in any locale, sorted.",
+  [["Sandro Khakhva", "სანდრო ხახვა"]],
+);
+
 const authorSummary = component(
   "AuthorSummary",
   z.strictObject({
+    aliases: authorAliases,
     id: authorId,
     isContributor,
     kind: authorKind,
@@ -495,11 +502,7 @@ const authorProfile = component(
       z.array(z.enum(AFFILIATIONS)),
       "Ids of the institutions the author is affiliated with, in display order.",
     ),
-    aliases: doc(
-      z.array(z.string()),
-      "Every spelling of the author's name that appears in photo credits (`credit.photographer`), in any locale.",
-      [["Sandro Khakhva", "სანდრო ხახვა"]],
-    ),
+    aliases: authorAliases,
     bio: doc(
       z.string(),
       "Short biography in plain text, in the requested locale or Georgian.",

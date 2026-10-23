@@ -49,4 +49,29 @@ describe("createApiClient", () => {
       "http://localhost:8787/v1/species",
     );
   });
+
+  it("logs each API call in development without the token", async () => {
+    vi.stubEnv("NODE_ENV", "development");
+    const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
+    const fetch = vi.fn(async () => new Response(null, { status: 204 }));
+    await createApiClient({ fetch, token: "secret" }).v1.ratings.summary.$get({
+      query: {},
+    });
+    expect(fetch).toHaveBeenCalledOnce();
+    expect(info).toHaveBeenCalledOnce();
+    expect(info.mock.calls[0][0]).toMatch(
+      /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/ratings\/summary → 204 \(\d+ ms\)$/,
+    );
+    expect(JSON.stringify(info.mock.calls)).not.toContain("secret");
+    vi.restoreAllMocks();
+  });
+
+  it("does not log outside development", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
+    const fetch = vi.fn(async () => new Response(null));
+    await createApiClient({ fetch }).v1.ratings.summary.$get({ query: {} });
+    expect(info).not.toHaveBeenCalled();
+    vi.restoreAllMocks();
+  });
 });

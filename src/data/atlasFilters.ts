@@ -1,4 +1,4 @@
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem, AtlasPhoto } from "@/data/speciesListItem";
 
 import {
   type AnimalGroup,
@@ -38,9 +38,9 @@ export function countAtlasFacets(filters: AtlasFilters) {
 }
 
 export function filterAtlasSpecies(
-  catalog: SpeciesListItem[],
+  catalog: AtlasIndexItem[],
   filters: AtlasFilters,
-): SpeciesListItem[] {
+): AtlasIndexItem[] {
   const q = filters.query.trim().toLowerCase();
 
   return catalog.filter((item) => {
@@ -84,7 +84,7 @@ export type AtlasSort = (typeof ATLAS_SORT_OPTIONS)[number];
 
 export type AtlasView = "grid" | "list";
 
-export function atlasSpeciesImage(item: SpeciesListItem): string {
+export function atlasSpeciesImage(item: AtlasPhoto): string {
   const candidates = [item.mobileImage, item.image];
   for (const src of candidates) {
     if (src && !src.includes("species-placeholder")) return src;
@@ -93,7 +93,7 @@ export function atlasSpeciesImage(item: SpeciesListItem): string {
 }
 
 export function countAtlasSpecies<K extends keyof AtlasFilters>(
-  catalog: SpeciesListItem[],
+  catalog: AtlasIndexItem[],
   filters: AtlasFilters,
   key: K,
   value: AtlasFilters[K],
@@ -102,10 +102,10 @@ export function countAtlasSpecies<K extends keyof AtlasFilters>(
 }
 
 export function sortAtlasSpecies(
-  list: SpeciesListItem[],
+  list: AtlasIndexItem[],
   sort: AtlasSort,
   locale: string,
-): SpeciesListItem[] {
+): AtlasIndexItem[] {
   const indexed = list.map((item, index) => ({ index, item }));
   switch (sort) {
     case "az":
@@ -118,8 +118,8 @@ export function sortAtlasSpecies(
     case "featured":
       indexed.sort(
         (a, b) =>
-          Number(Boolean(atlasSpeciesImage(b.item))) -
-            Number(Boolean(atlasSpeciesImage(a.item))) || a.index - b.index,
+          Number(b.item.hasPhoto) - Number(a.item.hasPhoto) ||
+          a.index - b.index,
       );
       break;
     case "range":

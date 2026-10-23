@@ -21,7 +21,11 @@ import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
+import {
+  getAtlasListItems,
+  getAtlasPhotoPage,
+  getAtlasRecentItems,
+} from "@/lib/atlasList";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import {
@@ -76,10 +80,11 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const [t, catalog, recent, tooltipSpeciesByRegion, stats, dates] =
+  const [t, catalog, photos, recent, tooltipSpeciesByRegion, stats, dates] =
     await Promise.all([
       getTranslations({ locale, namespace: "speciesAtlas" }),
       getAtlasListItems(locale),
+      getAtlasPhotoPage(locale),
       getAtlasRecentItems(locale),
       getRegionTooltipPreviews(locale),
       getAtlasStats(locale),
@@ -123,6 +128,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
             fallback={
               <SpeciesAtlasFallback
                 catalog={catalog}
+                photos={photos}
                 recent={recent}
                 regionCount={stats.regions}
                 regionLabels={regionLabels}
@@ -133,6 +139,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
           >
             <SpeciesAtlas
               catalog={catalog}
+              photos={photos}
               recent={recent}
               regionCount={stats.regions}
               regionLabels={regionLabels}

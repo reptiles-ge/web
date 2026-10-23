@@ -2,6 +2,7 @@ import { hc } from "hono/client";
 
 import type { AppType } from "@/api/app";
 
+import { loggedFetch } from "@/lib/apiRequestLog";
 import { publicEnv } from "@/lib/env";
 
 const API_ORIGIN = "https://api.reptiles.ge";
@@ -21,8 +22,10 @@ export function createApiClient({
   origin = apiOrigin(),
   token,
 }: ApiClientOptions = {}) {
+  const transport =
+    process.env.NODE_ENV === "development" ? loggedFetch(fetch) : fetch;
   return hc<AppType>(origin, {
-    ...(fetch ? { fetch } : {}),
+    ...(transport ? { fetch: transport } : {}),
     ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
   });
 }

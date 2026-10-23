@@ -24,12 +24,12 @@ import {
   type AtlasView,
   countAtlasSpecies,
 } from "@/data/atlasFilters";
-import { type SpeciesListItem } from "@/data/speciesListItem";
+import { type AtlasIndexItem } from "@/data/speciesListItem";
 
 type AtlasBrowseProps = {
-  catalog: SpeciesListItem[];
+  catalog: AtlasIndexItem[];
   facetCount: number;
-  filtered: SpeciesListItem[];
+  filtered: AtlasIndexItem[];
   filterOpen: boolean;
   filters: AtlasFilters;
   hasActiveFilters: boolean;
