@@ -3,6 +3,7 @@ import { z } from "zod";
 import { authorListQuery, authorParam } from "../schemas/authors";
 import { catalogQuery } from "../schemas/catalog";
 import { LOCALE_HEADER, localeHeader } from "../schemas/common";
+import { newsListQuery, newsParam } from "../schemas/news";
 import { responseSchemas } from "../schemas/responses";
 import { speciesListQuery, speciesParam } from "../schemas/species";
 import { PUBLIC_CACHE } from "./cache";
@@ -19,6 +20,7 @@ type Operation = {
   method: "get";
   operationId: string;
   param?: z.ZodObject;
+  parameterDocs?: Record<string, ParameterDoc>;
   path: string;
   query?: z.ZodObject;
   success: {
@@ -27,48 +29,88 @@ type Operation = {
     schema: JsonSchema;
   };
   summary: string;
-  tag: "Authors" | "Catalog" | "Species";
+  tag: "Authors" | "Catalog" | "News" | "Species";
 };
+
+type ParameterDoc = { description: string; example: string };
 
 const ref = (id: string) => ({ $ref: `#/components/schemas/${id}` });
 
-const PARAMETER_DOCS: Record<string, { description: string; example: string }> =
-  {
-    cursor: {
-      description:
-        "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`.",
-      example: "natrix-tessellata",
-    },
-    group: {
-      description: "Only species of this animal group.",
-      example: "snake",
-    },
-    limit: {
-      description:
-        "Page size, 1–100. Without it the whole catalog comes back in one response.",
-      example: "40",
-    },
-    slug: {
-      description:
-        "Public slug of the species in the requested locale (`X-Locale`): the Georgian slug for `ka` (`giurza`), the species id for `en`, `ru` and `tr` (`macrovipera-lebetina`). Case-insensitive.",
-      example: "giurza",
-    },
-    view: {
-      description:
-        "`card` (default, about 130–210 KB) has what lists and cards need. `full` adds every text field and is several MB (up to about 3.6 MB for `ka`); use it only when you need all texts at once.",
-      example: "card",
-    },
-    "x-locale": {
-      description:
-        "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
-      example: "en",
-    },
-  };
+const PARAMETER_DOCS: Record<string, ParameterDoc> = {
+  cursor: {
+    description:
+      "The `nextCursor` of the previous page (the `id` of its last species). Only with `limit`.",
+    example: "natrix-tessellata",
+  },
+  group: {
+    description: "Only species of this animal group.",
+    example: "snake",
+  },
+  limit: {
+    description:
+      "Page size, 1–100. Without it the whole catalog comes back in one response.",
+    example: "40",
+  },
+  slug: {
+    description:
+      "Public slug of the species in the requested locale (`X-Locale`): the Georgian slug for `ka` (`giurza`), the species id for `en`, `ru` and `tr` (`macrovipera-lebetina`). Case-insensitive.",
+    example: "giurza",
+  },
+  view: {
+    description:
+      "`card` (default, about 130–210 KB) has what lists and cards need. `full` adds every text field and is several MB (up to about 3.6 MB for `ka`); use it only when you need all texts at once.",
+    example: "card",
+  },
+  "x-locale": {
+    description:
+      "Language of the texts. `ka` (Georgian) is the canonical text and the default; `en`, `ru` and `tr` are translations.",
+    example: "en",
+  },
+};
+
+const NEWS_PARAMETER_DOCS: Record<string, ParameterDoc> = {
+  author: {
+    description:
+      "Only articles that name this author (an id from `/v1/authors`) or one of their credit spellings.",
+    example: "nika-melikishvili",
+  },
+  cursor: {
+    description:
+      "The `nextCursor` of the previous page (the `slug` of its last article). Only with `limit`.",
+    example: "batumi-raptor-count-2026-season-ends",
+  },
+  hub: {
+    description: "Only articles about this group hub.",
+    example: "birds",
+  },
+  limit: {
+    description:
+      "Page size, 1–100. Without it every matching article comes back in one response.",
+    example: "10",
+  },
+  region: {
+    description: "Only articles about this region of Georgia.",
+    example: "kakheti",
+  },
+  series: {
+    description: "Only articles of this series.",
+    example: "batumi-raptor-count-2026",
+  },
+  slug: {
+    description: "Article slug. The same in every locale.",
+    example: "lagodekhi-iucn-mwvane-sia",
+  },
+  species: {
+    description:
+      "Only articles about this species (a species id), or that link it in the text of the requested locale.",
+    example: "capra-cylindricornis",
+  },
+};
 
 const DESCRIPTION = `
 Open, read-only JSON API of [reptiles.ge](https://reptiles.ge), the atlas of animals of Georgia (the country in the Caucasus).
 
-It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna.
+It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna. The atlas news articles are under \`/v1/news\`.
 
 ## Quick start
 
@@ -101,6 +143,8 @@ Text fields are plain text, not HTML:
   - a site path starting with \`/\`, such as \`[Kakheti](/regions/kakheti)\`: a page on reptiles.ge, in its English form (\`https://reptiles.ge/en/regions/kakheti\`);
   - an absolute \`https://\` URL.
 - There is no other Markdown.
+
+News article bodies (\`/v1/news/{slug}\`) do not use this format. Their paragraphs are arrays of \`NewsMark\` pieces: plain strings, typed links and scientific names.
 
 An empty string, an empty array or a missing optional field means the atlas has published nothing there. It does not mean "none" or "absent": do not fill it in or read it as a negative answer.
 
@@ -269,6 +313,52 @@ const OPERATIONS: Operation[] = [
     summary: "Get an author",
     tag: "Authors",
   },
+  {
+    description:
+      "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series` or `author`; filters combine. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`.",
+    errors: [400],
+    header: localeHeader,
+    method: "get",
+    operationId: "listNews",
+    parameterDocs: NEWS_PARAMETER_DOCS,
+    path: "/v1/news",
+    query: newsListQuery,
+    success: {
+      description: "News articles.",
+      examples: {
+        series: {
+          summary: "series=batumi-raptor-count-2026&limit=1, shortened",
+          value: RESPONSE_EXAMPLES.newsList,
+        },
+      },
+      schema: ref("NewsListResponse"),
+    },
+    summary: "List news",
+    tag: "News",
+  },
+  {
+    description:
+      "One published news article with its body: sections of paragraphs and figures. Paragraphs are structured (`NewsMark`), not Markdown. When the article has no text in the requested locale, the Georgian text comes back and `locale` says `ka`. Drafts answer `404`.",
+    errors: [400, 404],
+    header: localeHeader,
+    method: "get",
+    operationId: "getNews",
+    param: newsParam,
+    parameterDocs: NEWS_PARAMETER_DOCS,
+    path: "/v1/news/{slug}",
+    success: {
+      description: "News article.",
+      examples: {
+        lagodekhi: {
+          summary: "Lagodekhi, shortened",
+          value: RESPONSE_EXAMPLES.news,
+        },
+      },
+      schema: ref("NewsResponse"),
+    },
+    summary: "Get a news article",
+    tag: "News",
+  },
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = ["/v1/admin/", "/v1/ratings"];
@@ -317,7 +407,7 @@ export function buildOpenApiDocument() {
           error: { code: "internal_error", message: "Internal error" },
         }),
         NotFound: errorResponse(
-          "No published species with this slug in the requested locale.",
+          "No published species, author or news article with this id or slug.",
           RESPONSE_EXAMPLES.error,
         ),
         NotModified: {
@@ -357,6 +447,10 @@ export function buildOpenApiDocument() {
         description: "Photographers and contributors credited on atlas photos.",
         name: "Authors",
       },
+      {
+        description: "Published news articles of the atlas.",
+        name: "News",
+      },
     ],
   };
 }
@@ -394,9 +488,9 @@ function operation(entry: Operation) {
     description: entry.description,
     operationId: entry.operationId,
     parameters: [
-      ...(entry.header ? parameters(entry.header, "header") : []),
-      ...(entry.param ? parameters(entry.param, "path") : []),
-      ...(entry.query ? parameters(entry.query, "query") : []),
+      ...(entry.header ? parameters(entry.header, "header", entry) : []),
+      ...(entry.param ? parameters(entry.param, "path", entry) : []),
+      ...(entry.query ? parameters(entry.query, "query", entry) : []),
       { $ref: "#/components/parameters/IfNoneMatch" },
     ],
     responses: {
@@ -430,10 +524,11 @@ function operation(entry: Operation) {
 function parameters(
   schema: z.ZodObject,
   location: "header" | "path" | "query",
+  entry: Operation,
 ) {
   const required = new Set((toSchema(schema).required as string[]) ?? []);
   return Object.entries(schema.shape).map(([name, field]) => ({
-    ...PARAMETER_DOCS[name],
+    ...(entry.parameterDocs?.[name] ?? PARAMETER_DOCS[name]),
     in: location,
     name: location === "header" ? headerName(name) : name,
     required: location === "path" || required.has(name),

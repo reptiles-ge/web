@@ -558,6 +558,196 @@ export const authorResponse = component(
   "One author's profile.",
 );
 
+const plain = (description: string, examples?: string[]) =>
+  doc(
+    z.string(),
+    `${description} Plain text in the response locale.`,
+    examples,
+  );
+
+const newsSlug = doc(
+  z.string(),
+  "Article slug: lowercase Latin words joined by hyphens. The same in every locale; also the URL part on reptiles.ge (`/news/{slug}`).",
+  ["lagodekhi-iucn-mwvane-sia"],
+);
+
+const newsPhoto = component(
+  "NewsPhoto",
+  z.strictObject({
+    alt: plain("Alternative text of the photo."),
+    credit: photoCredit.optional(),
+    fromAtlas: doc(
+      z.boolean(),
+      "The site captions this photo as a photograph from the atlas.",
+    ).optional(),
+    height: doc(z.int().positive(), "Height in pixels, when known.").optional(),
+    plate: doc(
+      z.boolean(),
+      "Show the whole image at its own aspect ratio, without cropping.",
+    ).optional(),
+    src: doc(
+      z.string(),
+      "Image URL. Either absolute or a path on the site, such as `/images/news/…`, to resolve against `https://reptiles.ge`.",
+      ["https://cdn.reptiles.ge/capra-cylindricornis-nika-3.jpg"],
+    ),
+    width: doc(z.int().positive(), "Width in pixels, when known.").optional(),
+  }),
+  "A news photo. The credit is shown as published and is not translated.",
+);
+
+const newsMark = component(
+  "NewsMark",
+  z.union([
+    doc(z.string(), "Plain text, possibly a single space between two links."),
+    z.strictObject({
+      href: doc(z.string(), "Absolute URL."),
+      label: z.string(),
+      type: z.literal("external"),
+    }),
+    z.strictObject({
+      id: doc(z.string(), "Group hub id, such as `snakes`."),
+      label: z.string(),
+      type: z.literal("hub"),
+    }),
+    z.strictObject({
+      id: doc(
+        z.string(),
+        "Region id, such as `kakheti` (`/regions/{id}` on the site).",
+      ),
+      label: z.string(),
+      type: z.literal("region"),
+    }),
+    z.strictObject({
+      id: doc(speciesId, "Species id; resolve it with `/v1/species`."),
+      label: z.string(),
+      type: z.literal("species"),
+    }),
+    z.strictObject({
+      label: z.string(),
+      slug: doc(z.string(), "Author id in `/v1/authors`."),
+      type: z.literal("credit-author"),
+    }),
+    z.strictObject({
+      label: z.string(),
+      type: z.literal("news-index"),
+    }),
+    z.strictObject({
+      name: doc(z.string(), "Scientific name, shown in italics."),
+      type: z.literal("sci"),
+    }),
+  ]),
+  "One piece of a paragraph: plain text, a link (`type` says to what; `label` is the visible text), a link to the news index, or a scientific name.",
+);
+
+const newsBlock = component(
+  "NewsBlock",
+  z.union([
+    z.strictObject({
+      parts: z.array(newsMark),
+      type: z.literal("p"),
+    }),
+    z.strictObject({
+      src: doc(
+        z.string(),
+        "`src` of one of the article's photos (`image` or `gallery`).",
+      ),
+      type: z.literal("figure"),
+    }),
+  ]),
+  "A paragraph or a figure.",
+);
+
+const newsSection = component(
+  "NewsSection",
+  z.strictObject({
+    blocks: z.array(newsBlock),
+    heading: plain("Section heading."),
+  }),
+  "One section of the article body.",
+);
+
+const newsSummary = component(
+  "NewsSummary",
+  z.strictObject({
+    dek: plain("Short summary under the title."),
+    image: doc(newsPhoto, "Cover photo.").optional(),
+    lead: plain("Opening paragraph."),
+    locales: doc(
+      z.array(locale),
+      "Locales the article is written in. Georgian is always first.",
+    ),
+    publishedAt: doc(z.string(), "Publication date, `YYYY-MM-DD`.", [
+      "2026-10-17",
+    ]),
+    relatedHubIds: doc(z.array(z.string()), "Group hubs the article is about."),
+    relatedRegionIds: doc(
+      z.array(z.string()),
+      "Regions of Georgia the article is about.",
+    ),
+    relatedSpeciesIds: doc(
+      z.array(speciesId),
+      "Atlas species the article is about.",
+    ),
+    series: doc(
+      z.strictObject({
+        id: z.string(),
+        name: plain("Series name."),
+      }),
+      "Series of related articles this one belongs to.",
+    ).optional(),
+    slug: newsSlug,
+    sources: doc(
+      z.array(
+        z.strictObject({
+          name: plain("Source name."),
+          url: doc(z.string(), "URL of the source."),
+        }),
+      ),
+      "Sources the article is based on. The first one is the main source.",
+    ),
+    title: plain("Article title."),
+    updatedAt: doc(
+      z.string(),
+      "Date of the last substantive update, `YYYY-MM-DD`.",
+    ).optional(),
+  }),
+  "A published news article without its body.",
+);
+
+const newsArticle = component(
+  "NewsArticle",
+  newsSummary.extend({
+    gallery: doc(z.array(newsPhoto), "Further photos, in order. May be empty."),
+    metaDescription: plain("Description for search results."),
+    metaTitle: plain("Title for search results."),
+    sections: doc(z.array(newsSection), "Article body."),
+  }),
+  "A published news article with its body.",
+);
+
+export const newsListResponse = component(
+  "NewsListResponse",
+  z.strictObject({
+    data: z.array(newsSummary),
+    locale: resolvedLocale,
+    nextCursor,
+    total: doc(z.int().min(0), "Number of matching articles, on every page."),
+  }),
+  "Published articles in the requested locale, newest first.",
+);
+
+export const newsResponse = component(
+  "NewsResponse",
+  z.strictObject({
+    data: newsArticle,
+    locale: doc(
+      locale,
+      "Locale of the texts in `data`. `ka` when the article has no text in the requested locale.",
+    ),
+  }),
+  "One news article.",
+);
+
 export const errorResponse = component(
   "Error",
   z.strictObject({
