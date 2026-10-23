@@ -2,6 +2,7 @@ import { Button, Layout, Menu, Space, Typography } from "antd";
 import { useState } from "react";
 
 import { type AdminUser, signOut } from "./session";
+import { SpeciesPage } from "./SpeciesPage";
 
 export function Dashboard({
   onSignedOut,
@@ -29,9 +30,9 @@ export function Dashboard({
           reptiles.ge admin
         </Typography.Title>
         <Menu
-          items={[{ key: "dashboard", label: "Dashboard" }]}
+          items={[{ key: "species", label: "Species" }]}
           mode="inline"
-          selectedKeys={["dashboard"]}
+          selectedKeys={["species"]}
         />
       </Layout.Sider>
       <Layout>
@@ -62,7 +63,7 @@ export function Dashboard({
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          <Typography.Title level={3}>Dashboard</Typography.Title>
+          <SpeciesPage onSessionExpired={onSignedOut} />
         </Layout.Content>
       </Layout>
     </Layout>
