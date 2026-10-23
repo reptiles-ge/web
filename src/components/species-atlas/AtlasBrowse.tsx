@@ -18,18 +18,16 @@ import {
   type UpdateAtlasFilter,
 } from "@/components/species-atlas/AtlasToolbar";
 import {
+  atlasFacetCount,
   type AtlasFilters,
   type AtlasRegionLabel,
   type AtlasSort,
   type AtlasView,
-  countAtlasSpecies,
 } from "@/data/atlasFilters";
-import { type AtlasIndexItem } from "@/data/speciesListItem";
+import { type AtlasPage } from "@/lib/atlasList";
 
 type AtlasBrowseProps = {
-  catalog: AtlasIndexItem[];
   facetCount: number;
-  filtered: AtlasIndexItem[];
   filterOpen: boolean;
   filters: AtlasFilters;
   hasActiveFilters: boolean;
@@ -39,19 +37,22 @@ type AtlasBrowseProps = {
   onChangeView: (view: AtlasView) => void;
   onCloseFilters: () => void;
   onOpenFilters: () => void;
+  onPageChange: (page: number) => void;
   onRegionMenuChange: (open: boolean) => void;
   onResetFilters: () => void;
+  onRetry: () => void;
   onUpdateFilter: UpdateAtlasFilter;
   regionLabels: AtlasRegionLabel[];
   regionMenuOpen: boolean;
+  results: AtlasPage;
+  resultsFailed: boolean;
+  resultsLoading: boolean;
   sort: AtlasSort;
   view: AtlasView;
 };
 
 export function AtlasBrowse({
-  catalog,
   facetCount,
-  filtered,
   filterOpen,
   filters,
   hasActiveFilters,
@@ -61,30 +62,36 @@ export function AtlasBrowse({
   onChangeView,
   onCloseFilters,
   onOpenFilters,
+  onPageChange,
   onRegionMenuChange,
   onResetFilters,
+  onRetry,
   onUpdateFilter,
   regionLabels,
   regionMenuOpen,
+  results,
+  resultsFailed,
+  resultsLoading,
   sort,
   view,
 }: AtlasBrowseProps) {
+  const { facets, total } = results;
   const t = useTranslations("speciesAtlas");
 
   const regionOptions = useMemo<AtlasRegionOption[]>(
     () => [
       {
-        count: countAtlasSpecies(catalog, filters, "region", "all"),
+        count: atlasFacetCount(facets, "region", "all"),
         id: "all",
         label: t("filters.allRegions"),
       },
       ...regionLabels.map((region) => ({
-        count: countAtlasSpecies(catalog, filters, "region", region.id),
+        count: atlasFacetCount(facets, "region", region.id),
         id: region.id,
         label: region.label,
       })),
     ],
-    [catalog, filters, regionLabels, t],
+    [facets, regionLabels, t],
   );
 
   const tokens = useFilterTokens(filters, regionOptions, onUpdateFilter);
@@ -97,8 +104,8 @@ export function AtlasBrowse({
       <div className="mx-auto max-w-[1440px] lg:px-[60px]">
         <h2 className="sr-only">{t("explorerTitle")}</h2>
         <AtlasToolbar
-          catalog={catalog}
           facetCount={facetCount}
+          facets={facets}
           filters={filters}
           onChangeSort={onChangeSort}
           onChangeView={onChangeView}
@@ -112,7 +119,7 @@ export function AtlasBrowse({
         />
 
         <AtlasResultsBar
-          count={filtered.length}
+          count={total}
           hasActiveFilters={hasActiveFilters}
           onChangeSort={onChangeSort}
           onResetFilters={onResetFilters}
@@ -121,20 +128,40 @@ export function AtlasBrowse({
         />
 
         <AtlasFilterSheet
-          catalog={catalog}
+          facets={facets}
           filters={filters}
           onApply={onApplyFilters}
           onClose={onCloseFilters}
           open={filterOpen}
           regionLabels={regionLabels}
+          total={total}
         />
 
         <div className="px-5 lg:px-0">
-          {filtered.length > 0 ? (
+          {resultsFailed ? (
+            <p
+              className="mt-3.5 flex flex-wrap items-center gap-3 rounded-2xl bg-card px-4 py-3 text-[14px] text-foreground lg:mt-[18px]"
+              role="alert"
+            >
+              {t("loadError")}
+              <button
+                className="font-medium text-primary underline underline-offset-4"
+                onClick={onRetry}
+                type="button"
+              >
+                {t("loadRetry")}
+              </button>
+            </p>
+          ) : null}
+          {total > 0 ? (
             <AtlasSpeciesGrid
+              loading={resultsLoading}
               locale={locale}
+              onPageChange={onPageChange}
+              page={results.page}
               regionLabels={regionLabels}
-              species={filtered}
+              species={results.items}
+              total={total}
               view={view}
             />
           ) : (

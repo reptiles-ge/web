@@ -21,13 +21,13 @@ import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { RiskSegment } from "@/components/species-atlas/RiskSegment";
 import {
   ATLAS_SORT_OPTIONS,
+  atlasFacetCount,
+  type AtlasFacets,
   type AtlasFilters,
   type AtlasSort,
   type AtlasView,
-  countAtlasSpecies,
 } from "@/data/atlasFilters";
 import { type HabitatTag } from "@/data/speciesAtlasMeta";
-import { type AtlasIndexItem } from "@/data/speciesListItem";
 import { cn } from "@/lib/cn";
 
 export type AtlasRegionOption = { count: number; id: string; label: string };
@@ -38,8 +38,8 @@ export type UpdateAtlasFilter = <K extends keyof AtlasFilters>(
 ) => void;
 
 type AtlasToolbarProps = {
-  catalog: AtlasIndexItem[];
   facetCount: number;
+  facets: AtlasFacets;
   filters: AtlasFilters;
   onChangeSort: (sort: AtlasSort) => void;
   onChangeView: (view: AtlasView) => void;
@@ -53,8 +53,8 @@ type AtlasToolbarProps = {
 };
 
 export function AtlasToolbar({
-  catalog,
   facetCount,
+  facets,
   filters,
   onChangeSort,
   onChangeView,
@@ -135,7 +135,7 @@ export function AtlasToolbar({
       </div>
 
       <AtlasGroupTabs
-        catalog={catalog}
+        facets={facets}
         filters={filters}
         onPick={(group) => onUpdateFilter("group", group)}
       />
@@ -208,11 +208,11 @@ function AtlasFacetRow({
 }
 
 function AtlasGroupTabs({
-  catalog,
+  facets,
   filters,
   onPick,
 }: {
-  catalog: AtlasIndexItem[];
+  facets: AtlasFacets;
   filters: AtlasFilters;
   onPick: (group: AtlasFilters["group"]) => void;
 }) {
@@ -226,7 +226,7 @@ function AtlasGroupTabs({
     >
       {GROUP_OPTIONS.map((group) => {
         const active = filters.group === group;
-        const count = countAtlasSpecies(catalog, filters, "group", group);
+        const count = atlasFacetCount(facets, "group", group);
         return (
           <button
             aria-pressed={active}
