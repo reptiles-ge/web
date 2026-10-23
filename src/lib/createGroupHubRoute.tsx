@@ -14,7 +14,6 @@ import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { GROUP_HUB_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
@@ -51,7 +50,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
-    const catalog = getCatalogSpeciesByGroup(hub.group);
+    const catalog = await getCatalogSpeciesByGroup(hub.group, locale);
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
 
@@ -83,9 +82,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     });
 
     const url = absoluteUrl(localePath(locale, hub.path));
-    const species = getCatalogSpeciesByGroup(hub.group).map((item) =>
-      localizeSpecies(item, locale),
-    );
+    const species = await getCatalogSpeciesByGroup(hub.group, locale);
     const hero =
       species.find((item) => item.id === hub.heroSpeciesId) ?? species[0];
     const heroSrc =
@@ -102,7 +99,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     const collectionLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
-      dates: pageDateFields(hub.path, locale),
+      dates: await pageDateFields(hub.path, locale),
       description: t("metaDescription", { count: species.length }),
       locale,
       mainEntity: speciesItemListLd(locale, species),

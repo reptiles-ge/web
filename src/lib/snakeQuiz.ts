@@ -1,10 +1,11 @@
-import { type Species } from "@/data/species";
+import type { SpeciesQuizFields } from "@/data/speciesTypes";
+
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
-import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
 export { QUIZ_LENGTH, type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 
@@ -33,27 +34,26 @@ const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
   "vipera-dinniki": 1,
 };
 
-export function getLizardQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
-  const catalog: SnakeQuizSpecies[] = [];
-  for (const item of species) {
-    if (isLizardSpecies(item) && Boolean(item.image)) {
-      catalog.push(toSnakeQuizSpecies(item));
-    }
-  }
-  return catalog;
+export function getLizardQuizCatalog(
+  catalog: readonly SpeciesQuizFields[],
+): SnakeQuizSpecies[] {
+  return catalog
+    .filter((item) => isLizardSpecies(item) && Boolean(item.image))
+    .map((item) => toSnakeQuizSpecies(item, catalog));
 }
 
-export function getSnakeQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
-  const catalog: SnakeQuizSpecies[] = [];
-  for (const item of species) {
-    if (isSnakeSpecies(item) && Boolean(item.image)) {
-      catalog.push(toSnakeQuizSpecies(item));
-    }
-  }
-  return catalog;
+export function getSnakeQuizCatalog(
+  catalog: readonly SpeciesQuizFields[],
+): SnakeQuizSpecies[] {
+  return catalog
+    .filter((item) => isSnakeSpecies(item) && Boolean(item.image))
+    .map((item) => toSnakeQuizSpecies(item, catalog));
 }
 
-export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
+export function toSnakeQuizSpecies(
+  species: SpeciesQuizFields,
+  catalog: readonly SpeciesQuizFields[],
+): SnakeQuizSpecies {
   const explanation = stripSpeciesInlineLinks(
     species.identification?.summary?.trim() ||
       species.facts[0]?.trim() ||
@@ -85,14 +85,16 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     imageCredit: overridePhoto?.credit ?? species.imageCredit,
     lookalikeIds: getSpeciesLookalikes(species.id),
     mobileImage,
-    relatedIds: getRelatedSpecies(species.id, 8).map((item) => item.id),
+    relatedIds: getRelatedSpecies(species.id, catalog, 8).map(
+      (item) => item.id,
+    ),
     scientificName: species.scientificName,
   };
 }
 
 const HABITAT_LABEL = /ჰაბიტატი|habitat|местообитание|yaşam alanı/i;
 
-function buildQuizHint(species: Species) {
+function buildQuizHint(species: SpeciesQuizFields) {
   const all = species.identification?.traits ?? [];
   const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
   const preferred =
@@ -117,7 +119,7 @@ function buildQuizHint(species: Species) {
   return species.location;
 }
 
-function spoilsAnswer(text: string, species: Species) {
+function spoilsAnswer(text: string, species: SpeciesQuizFields) {
   const haystack = stripSpeciesInlineLinks(text).toLowerCase();
   for (const item of [
     species.commonName,

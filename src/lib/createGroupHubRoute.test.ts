@@ -137,7 +137,9 @@ describe("group hub metadata", () => {
   )(
     "states the %s catalog count in the %s description",
     async (hubId, locale) => {
-      const count = getCatalogSpeciesByGroup(GROUP_HUBS[hubId].group).length;
+      const count = (
+        await getCatalogSpeciesByGroup(GROUP_HUBS[hubId].group, locale)
+      ).length;
       const { description } = await hubMetadata(hubId, locale);
       expect(description.length).toBeLessThanOrEqual(155);
       expect(description).toMatch(new RegExp(`(^|\\D)${count}(\\D|$)`));

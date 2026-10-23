@@ -10,8 +10,6 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
 import { JsonLd } from "@/components/JsonLd";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   breadcrumbListLd,
@@ -19,6 +17,7 @@ import {
   sitePageLd,
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -37,15 +36,17 @@ export default async function DangerousAnimalsRoute({
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const species = getSpeciesById(OG_SPECIES);
-  const karakurt = getSpeciesById("latrodectus-tredecimguttatus");
-  if (!species || !karakurt) notFound();
-
-  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const hero = localizeSpecies(species, locale);
-  const widow = localizeSpecies(karakurt, locale);
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "dangerousAnimals" }),
+    getSpeciesCatalog(locale),
+  ]);
+  const hero = catalog.find((item) => item.id === OG_SPECIES);
+  const widow = catalog.find(
+    (item) => item.id === "latrodectus-tredecimguttatus",
+  );
+  if (!hero || !widow) notFound();
   const url = absoluteUrl(localePath(locale, PATH));
-  const dates = pageDateFields(PATH, locale);
+  const dates = await pageDateFields(PATH, locale);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },

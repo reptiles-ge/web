@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import {
   CLUSTER_GUIDES,
   getRearFangedSpecies,
@@ -13,21 +12,26 @@ import {
   VENOMOUS_SPIDER_IDS,
 } from "@/lib/clusterGuides";
 
+import {
+  catalogSpeciesFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
 describe("isSnakeSpecies", () => {
   it("treats published snakes as snakes", () => {
-    const snake = getSpeciesById("macrovipera-lebetina");
+    const snake = speciesFixture("macrovipera-lebetina");
     expect(snake).toBeDefined();
     expect(isSnakeSpecies(snake!)).toBe(true);
   });
 
   it("never treats the glass lizard as a snake", () => {
-    const glassLizard = getSpeciesById("pseudopus-apodus");
+    const glassLizard = speciesFixture("pseudopus-apodus");
     expect(glassLizard).toBeDefined();
     expect(isSnakeSpecies(glassLizard!)).toBe(false);
   });
 
   it("keeps the quiz pool free of glass lizards", () => {
-    const snakes = getCatalogSpecies().filter(isSnakeSpecies);
+    const snakes = catalogSpeciesFixture().filter(isSnakeSpecies);
     expect(snakes.some((item) => item.id === "pseudopus-apodus")).toBe(false);
     expect(snakes.some((item) => item.id === "macrovipera-lebetina")).toBe(
       true,
@@ -37,7 +41,7 @@ describe("isSnakeSpecies", () => {
 
 describe("rear-fanged cluster", () => {
   it("lists Malpolon and the cat snake in fixed order", () => {
-    const rearFanged = getRearFangedSpecies(getCatalogSpecies());
+    const rearFanged = getRearFangedSpecies(catalogSpeciesFixture());
     expect(rearFanged.map((item) => item.id)).toEqual([
       ...REAR_FANGED_SPECIES_IDS,
     ]);
@@ -48,7 +52,7 @@ describe("rear-fanged cluster", () => {
 
 describe("Darevskia cluster", () => {
   it("matches catalog Darevskia one by one", () => {
-    const darevskia = getCatalogSpecies().filter(isDarevskiaSpecies);
+    const darevskia = catalogSpeciesFixture().filter(isDarevskiaSpecies);
     expect(darevskia.length).toBeGreaterThan(1);
     expect(new Set(darevskia.map((item) => item.id)).size).toBe(
       darevskia.length,
@@ -80,7 +84,7 @@ describe("bird and mammal indexes", () => {
     expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
       "/lizards/xvliki-sakhlshi",
     );
-    const catalog = getCatalogSpecies();
+    const catalog = catalogSpeciesFixture();
     const birds = catalog.filter(isBirdSpecies);
     const mammals = catalog.filter(isMammalSpecies);
     const spiders = catalog.filter(isSpiderSpecies);

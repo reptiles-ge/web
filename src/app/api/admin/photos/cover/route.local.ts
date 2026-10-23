@@ -1,10 +1,11 @@
-import { type CoverTarget, isSpeciesContentId } from "@/lib/adminGalleryMdx";
-import { openCoverPullRequest } from "@/lib/adminPhotoPullRequest";
+import { type CoverTarget } from "@/lib/adminCover";
 import {
   adminErrorResponse,
   readBodyString,
   readLocalAdminJsonBody,
 } from "@/lib/adminRequest";
+import { setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,7 +19,7 @@ export async function POST(request: Request) {
   const id = readBodyString(body, "id");
   const src = readBodyString(body, "src");
   const target = readTarget(body);
-  if (!id || !isSpeciesContentId(id)) {
+  if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });
   }
   if (!src) {
@@ -29,8 +30,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const pullRequestUrl = await openCoverPullRequest({ id, src, target });
-    return Response.json({ pullRequestUrl });
+    return Response.json(await setAdminSpeciesCover(id, { src, target }));
   } catch (error) {
     return adminErrorResponse(error, "Cover update failed");
   }

@@ -1,19 +1,14 @@
-import { randomUUID } from "node:crypto";
-
 import { localAdminForbiddenResponse } from "@/lib/adminAccess";
-import {
-  isSpeciesContentId,
-  readAdminSpeciesGallery,
-} from "@/lib/adminGalleryMdx";
 import {
   isLocalAdminOriginRequest,
   readAdminJsonText,
 } from "@/lib/adminRequest";
+import { readAdminSpecies } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 import {
   formatAdminWorkflowProgress,
   notifyAdminTelegram,
 } from "@/lib/adminTelegram";
-import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
 export const runtime = "nodejs";
@@ -30,11 +25,11 @@ export async function POST(request: Request) {
       id?: unknown;
       progress?: unknown;
     }>(request);
-    if (typeof id !== "string" || !isSpeciesContentId(id))
+    if (typeof id !== "string" || !isSpeciesId(id))
       throw new Error("Invalid species id");
     progress = formatAdminWorkflowProgress(workflowProgress);
-    speciesName = readAdminSpeciesGallery(id).commonName;
-    const result = await processSpeciesTexts(id, randomUUID());
+    speciesName = (await readAdminSpecies(id)).record.base.commonName;
+    const result = await processSpeciesTexts(id);
     await notifyAdminTelegram(
       progress
         ? `✅ ${progress}done ${speciesName} (texts)`
@@ -51,14 +46,11 @@ export async function POST(request: Request) {
           ? `❌ ${progress}failed ${speciesName} (texts)`
           : `❌ texts failed ${speciesName}`,
       );
-    const stale = error instanceof StaleSpeciesContentError;
     return Response.json(
-      {
-        error: stale ? "stale" : "Text processing failed",
-      },
+      { error: "Text processing failed" },
       {
         headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
-        status: stale ? 409 : 400,
+        status: 400,
       },
     );
   }

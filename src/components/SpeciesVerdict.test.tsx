@@ -3,7 +3,6 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { SpeciesVerdict } from "@/components/SpeciesVerdict";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { speciesShareMessage } from "@/lib/speciesShareText";
 
@@ -11,6 +10,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };
 
@@ -38,7 +38,7 @@ describe("SpeciesVerdict", () => {
   it.each(["ka", "en", "ru", "tr"] as const)(
     "keeps the false widow's risk, verdict and share wording consistent in %s",
     async (locale) => {
-      const species = getSpeciesById("steatoda-paykulliana")!;
+      const species = speciesFixture("steatoda-paykulliana")!;
       const copy = messages[locale].profile;
       expect(species.danger).toBe("Moderate");
       render(

@@ -3,8 +3,6 @@ import { describe, expect, it } from "vitest";
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import { photoLicenses } from "@/data/photoLicenses";
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
 import { speciesStructuredData } from "@/lib/createSpeciesRoute";
@@ -19,6 +17,12 @@ import {
 import { newsImageRights } from "@/lib/newsVisual";
 import { galleryImageObject } from "@/lib/photoMeta";
 import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
+
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 type ImageObject = Record<string, unknown> & {
   acquireLicensePage?: string;
@@ -277,8 +281,8 @@ describe("photoLicenses", () => {
 describe("species ImageObjects", () => {
   it("carry license metadata on every page and locale", () => {
     for (const locale of routing.locales) {
-      for (const raw of getCatalogSpecies()) {
-        const item = localizeSpecies(raw, locale);
+      for (const raw of catalogSpeciesFixture()) {
+        const item = localizedFixture(raw, locale);
         const data = speciesStructuredData({
           breadcrumbCrumbs: [{ name: item.commonName }],
           galleryTitle: "gallery",
@@ -299,8 +303,8 @@ describe("species ImageObjects", () => {
 
   it("credit every photo that has a photographer", () => {
     for (const locale of routing.locales) {
-      for (const raw of getCatalogSpecies()) {
-        const item = localizeSpecies(raw, locale);
+      for (const raw of catalogSpeciesFixture()) {
+        const item = localizedFixture(raw, locale);
         for (const photo of item.gallery) {
           const image = galleryImageObject(photo, item, locale) as ImageObject;
           const label = `${locale} ${raw.id} ${photo.src}`;
@@ -337,7 +341,12 @@ describe("guide and news images", () => {
   it("license every news image", () => {
     for (const article of getPublishedNewsArticles()) {
       for (const locale of routing.locales) {
-        const rights = newsImageRights(article, locale);
+        const rights = newsImageRights(
+          article,
+          locale,
+          speciesCatalogFixture(locale),
+          speciesCatalogFixture("ka"),
+        );
         expectLicensed(rights, article.slug);
         if ("creator" in rights) expectAttributed(rights, article.slug);
       }

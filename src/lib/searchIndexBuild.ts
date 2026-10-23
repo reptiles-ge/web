@@ -1,4 +1,4 @@
-import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/data/speciesCatalogTypes";
 
 import {
   creditAuthorHref,
@@ -20,19 +20,14 @@ import {
   regions,
 } from "@/data/regions";
 import {
-  featuredSpeciesIds,
-  getCatalogSpecies,
-  getSpeciesById,
-  type Species,
-} from "@/data/species";
-import {
   type AnimalGroup,
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
 } from "@/data/speciesAtlas";
+import { featuredSpeciesIds } from "@/data/speciesPublish";
 import { pickLocalized } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   CLUSTER_GUIDE_LIST,
   type ClusterGuideId,
@@ -1039,7 +1034,27 @@ const LIZARD_QUIZ_COPY: PageCopy = {
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
 const SEARCH_THUMB_WIDTH = 400;
 
-export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
+export type SearchCatalogs = Record<AppLocale, readonly CatalogCard[]>;
+
+export function buildSearchIndex(
+  locale: AppLocale,
+  catalogs: SearchCatalogs,
+): SearchDocument[] {
+  const base = catalogs[routing.defaultLocale];
+  const byLocale = Object.fromEntries(
+    routing.locales.map((item) => [
+      item,
+      new Map(catalogs[item].map((entry) => [entry.id, entry])),
+    ]),
+  ) as Record<AppLocale, Map<string, CatalogCard>>;
+  const localized = (raw: CatalogCard, target: AppLocale) =>
+    byLocale[target].get(raw.id) ?? raw;
+  const coverFromSpecies = (id?: string, fallback?: string) => {
+    if (fallback) return fallback;
+    if (!id) return undefined;
+    const species = byLocale[routing.defaultLocale].get(id);
+    return species?.mobileImage ?? species?.image;
+  };
   const pages = [
     ...STATIC_PAGES.map((page) =>
       toPageDocument(
@@ -1093,8 +1108,8 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     ),
   ];
 
-  const species = getCatalogSpecies().map((item) =>
-    toSpeciesDocument(locale, item),
+  const species = base.map((item) =>
+    toSpeciesDocument(locale, item, localized),
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
   const authorDocs = getPublishedCreditAuthors().map((author) => {
@@ -1163,13 +1178,6 @@ function blob(parts: Array<string | undefined>) {
   return `${raw} ${transliterateKa(raw)}`.toLowerCase();
 }
 
-function coverFromSpecies(id?: string, fallback?: string) {
-  if (fallback) return fallback;
-  if (!id) return undefined;
-  const species = getSpeciesById(id);
-  return species?.mobileImage ?? species?.image;
-}
-
 function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
   const terms: Record<CreditAuthorRole, string[]> = {
     herpetologist: ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"],
@@ -1192,7 +1200,7 @@ function pickLocale(text: LocalizedText, locale: AppLocale) {
   return pickLocalized(text, locale);
 }
 
-function speciesGroupText(species: Species) {
+function speciesGroupText(species: CatalogCard) {
   const group = getSpeciesAtlasMeta(species.id).group;
   const extra: string[] = [];
   if (groupHasVenomConcept(group)) {
@@ -1308,12 +1316,16 @@ function toRegionDocument(
   };
 }
 
-function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
-  const localized = localizeSpecies(raw, locale);
-  const ka = localizeSpecies(raw, "ka");
-  const en = localizeSpecies(raw, "en");
-  const ru = localizeSpecies(raw, "ru");
-  const tr = localizeSpecies(raw, "tr");
+function toSpeciesDocument(
+  locale: AppLocale,
+  raw: CatalogCard,
+  localize: (raw: CatalogCard, locale: AppLocale) => CatalogCard,
+): SearchDocument {
+  const localized = localize(raw, locale);
+  const ka = localize(raw, "ka");
+  const en = localize(raw, "en");
+  const ru = localize(raw, "ru");
+  const tr = localize(raw, "tr");
   const group = getSpeciesAtlasMeta(raw.id).group;
 
   return {

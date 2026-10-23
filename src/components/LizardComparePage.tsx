@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -38,7 +38,7 @@ export async function LizardComparePage({
   const diceSnake = ordered.find((item) => item.id === "natrix-tessellata");
   const dash = t("emDash");
   const columns = [glass, slowWorm, grassSnake].filter(
-    (item): item is Species => Boolean(item),
+    (item): item is CatalogCard => Boolean(item),
   );
 
   return (
@@ -162,7 +162,7 @@ function CompareCard({
   locale: AppLocale;
   role: string;
   size: string;
-  species: Species;
+  species: CatalogCard;
 }) {
   return (
     <Link

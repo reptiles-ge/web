@@ -1,31 +1,19 @@
-import matter from "gray-matter";
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
   HALYOMORPHA_ANNOTATION_COPY,
   HALYOMORPHA_PEST_COPY,
-} from "@/content/species/halyomorpha-halys/profileCopy";
+} from "@/content/halyomorphaProfileCopy";
 import { routing } from "@/i18n/routing";
 import {
   findSourceNames,
   findSourceNamesInFields,
 } from "@/lib/sourceNameProse";
 
-const CONTENT_ROOT = path.join(process.cwd(), "src/content/species");
-
-function speciesFiles() {
-  return fs
-    .readdirSync(CONTENT_ROOT, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .flatMap((entry) =>
-      routing.locales.map((locale) =>
-        path.join(CONTENT_ROOT, entry.name, `${locale}.mdx`),
-      ),
-    )
-    .filter((file) => fs.existsSync(file));
-}
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 describe("findSourceNames", () => {
   it.each([
@@ -85,19 +73,22 @@ describe("findSourceNames", () => {
 });
 
 describe("species profile prose names no sources", () => {
-  const files = speciesFiles();
+  const profiles = catalogSpeciesFixture().flatMap((species) =>
+    routing.locales.map(
+      (locale) =>
+        [`${species.id}/${locale}`, localizedFixture(species, locale)] as const,
+    ),
+  );
 
-  it("scans every species locale file", () => {
-    expect(files.length).toBeGreaterThanOrEqual(146 * routing.locales.length);
+  it("scans every published species in every locale", () => {
+    expect(profiles.length).toBeGreaterThanOrEqual(
+      145 * routing.locales.length,
+    );
   });
 
-  it.each(files.map((file) => [path.relative(CONTENT_ROOT, file), file]))(
-    "%s",
-    (_, file) => {
-      const { content, data } = matter(fs.readFileSync(file, "utf8"));
-      expect(findSourceNamesInFields({ ...data, body: content })).toEqual([]);
-    },
-  );
+  it.each(profiles)("%s", (_, profile) => {
+    expect(findSourceNamesInFields(profile)).toEqual([]);
+  });
 
   it("keeps the Halyomorpha profile copy free of source names", () => {
     expect(

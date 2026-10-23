@@ -10,7 +10,8 @@ export type ApiErrorCode =
   | "not_found"
   | "payload_too_large"
   | "rate_limited"
-  | "unauthorized";
+  | "unauthorized"
+  | "version_conflict";
 
 export class ApiError extends HTTPException {
   readonly code: ApiErrorCode;
@@ -73,6 +74,7 @@ function codeForStatus(status: number): ApiErrorCode {
   if (status === 401) return "unauthorized";
   if (status === 403) return "forbidden";
   if (status === 404) return "not_found";
+  if (status === 409) return "version_conflict";
   if (status === 413) return "payload_too_large";
   if (status === 429) return "rate_limited";
   if (status >= 500) return "internal_error";

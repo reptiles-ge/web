@@ -1,9 +1,9 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { CoverImage } from "@/components/CoverImage";
 import {
@@ -37,7 +37,7 @@ export async function GroupHubGuides({
   cards: GuideCard[];
   hubId: GroupHubId;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
 }) {
   if (cards.length === 0) return null;
   const t = await getTranslations({ locale, namespace: "groupHubShared" });
@@ -114,7 +114,7 @@ function cardHref(card: GuideCard, locale: AppLocale) {
   return card.kind === "page" ? card.href : speciesHref(card.id, locale);
 }
 
-function cardTitle(card: GuideCard, species: Species[], t: SharedT) {
+function cardTitle(card: GuideCard, species: CatalogCard[], t: SharedT) {
   if (card.kind === "species") {
     const item = species.find((entry) => entry.id === card.id);
     if (item) return item.commonName;
@@ -131,10 +131,10 @@ function FeaturedGuide({
   t,
 }: {
   card: GuideCard;
-  image?: Species;
+  image?: CatalogCard;
   locale: AppLocale;
   rows: GuideCard[];
-  species: Species[];
+  species: CatalogCard[];
   t: SharedT;
 }) {
   const body = cardBody(card, t);
@@ -216,7 +216,7 @@ function GuideRow({
   card: GuideCard;
   locale: AppLocale;
   number: number;
-  species: Species[];
+  species: CatalogCard[];
   t: SharedT;
 }) {
   const emergency = EMERGENCY_GUIDE_KEYS.has(card.key);
@@ -264,7 +264,7 @@ function GuideTile({
 }: {
   card: GuideCard;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
   t: SharedT;
 }) {
   const body = cardBody(card, t);

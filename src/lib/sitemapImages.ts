@@ -25,7 +25,9 @@ export function guidePageImageUrls(srcs: Array<string | undefined>) {
   return collectImageUrls(srcs, MAX_SITEMAP_IMAGES);
 }
 
-export function speciesPageImageUrls(species: Species): string[] {
+export function speciesPageImageUrls(
+  species: Pick<Species, "gallery" | "image" | "mobileImage">,
+): string[] {
   return collectImageUrls([
     species.image,
     species.mobileImage,

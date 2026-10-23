@@ -68,7 +68,7 @@ Then add `{ href: "<internal path>", key: "<key>", kind: "page" }` to `HUB_CLUST
 11. **Verify.**
 
     ```bash
-    pnpm species:compile && pnpm search:compile
+    pnpm content:compile
     npx vitest run src/data/guideArticles.test.ts
     pnpm typecheck
     pnpm lint

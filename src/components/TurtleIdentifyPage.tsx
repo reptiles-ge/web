@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -22,7 +22,7 @@ export async function TurtleIdentifyPage({
   const t = await getTranslations({ locale, namespace: "turtleIdentify" });
   const byId = new Map(species.map((item) => [item.id, item]));
   const turtles = TURTLE_ORDER.map((id) => byId.get(id)).filter(
-    (item): item is Species => Boolean(item),
+    (item): item is CatalogCard => Boolean(item),
   );
   const testudo = byId.get("testudo-graeca");
   const emys = byId.get("emys-orbicularis");

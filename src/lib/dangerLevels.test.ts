@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import {
   DANGER_LEVEL_HASH,
   DANGER_LEVEL_ORDER,
@@ -8,6 +7,8 @@ import {
   dangerPageHref,
   HARMLESS_EXAMPLE_IDS,
 } from "@/lib/dangerLevels";
+
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("dangerLevels", () => {
   it("orders levels from most to least dangerous", () => {
@@ -38,7 +39,7 @@ describe("dangerLevels", () => {
 
   it("lists harmless example species that exist and are harmless", () => {
     for (const id of HARMLESS_EXAMPLE_IDS) {
-      expect(getSpeciesById(id)?.danger, id).toBe("Harmless");
+      expect(speciesFixture(id)?.danger, id).toBe("Harmless");
     }
   });
 });

@@ -4,9 +4,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getRegionSpecies, regions } from "@/data/regions";
-import { getCatalogSpecies, type Species } from "@/data/species";
+import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
@@ -23,14 +22,20 @@ import {
   regionDateFields,
 } from "@/lib/structuredDataDates";
 
+import {
+  catalogSpeciesFixture,
+  fixtureUpdatedAt,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
 describe("atlasDateFields", () => {
   it.each(routing.locales)(
     "dates the %s atlas by its newest species page",
-    (locale) => {
-      const fields = atlasDateFields(locale);
+    async (locale) => {
+      const fields = await atlasDateFields(locale);
       const newest = Math.max(
-        ...getCatalogSpecies().map((item) =>
-          Date.parse(speciesUpdatedAt(item, locale)),
+        ...catalogSpeciesFixture().map((item) =>
+          Date.parse(fixtureUpdatedAt(item, locale)),
         ),
       );
       expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(newest);
@@ -44,19 +49,21 @@ describe("atlasDateFields", () => {
 describe("member-derived dates", () => {
   const newest = (items: Species[], locale: AppLocale) =>
     Math.max(
-      ...items.map((item) => Date.parse(speciesUpdatedAt(item, locale))),
+      ...items.map((item) => Date.parse(fixtureUpdatedAt(item, locale))),
     );
 
   it.each(routing.locales)(
     "dates every %s group hub by its newest member species",
-    (locale) => {
+    async (locale) => {
       for (const hub of GROUP_HUB_LIST) {
-        const members = getCatalogSpecies().filter(
+        const members = catalogSpeciesFixture().filter(
           (item) => getSpeciesAtlasMeta(item.id).group === hub.group,
         );
         if (members.length === 0) continue;
         expect(
-          Date.parse(pageDateFields(hub.path, locale).dateModified),
+          Date.parse(
+            (await await pageDateFields(hub.path, locale)).dateModified,
+          ),
           hub.path,
         ).toBeGreaterThanOrEqual(newest(members, locale));
       }
@@ -65,13 +72,15 @@ describe("member-derived dates", () => {
 
   it.each(routing.locales)(
     "dates every %s collection guide by its newest member species",
-    (locale) => {
+    async (locale) => {
       for (const guide of CLUSTER_GUIDE_LIST) {
         if (guide.schema !== "collection") continue;
-        const members = getCatalogSpecies().filter(guide.matches);
+        const members = catalogSpeciesFixture().filter(guide.matches);
         if (members.length === 0) continue;
         expect(
-          Date.parse(pageDateFields(guide.pathname, locale).dateModified),
+          Date.parse(
+            (await await pageDateFields(guide.pathname, locale)).dateModified,
+          ),
           guide.pathname,
         ).toBeGreaterThanOrEqual(newest(members, locale));
       }
@@ -80,54 +89,62 @@ describe("member-derived dates", () => {
 
   it.each(routing.locales)(
     "dates every %s region by its newest listed species",
-    (locale) => {
+    async (locale) => {
       for (const region of regions) {
-        const members = getRegionSpecies(region);
+        const members = getRegionSpecies(region, catalogSpeciesFixture());
         if (members.length === 0) continue;
         expect(
-          Date.parse(regionDateFields(region.id, locale).dateModified),
+          Date.parse(
+            (await await regionDateFields(region.id, locale)).dateModified,
+          ),
           region.id,
         ).toBeGreaterThanOrEqual(newest(members, locale));
       }
     },
   );
 
-  it("dates a contributor by the newest species carrying their photos", () => {
+  it("dates a contributor by the newest species carrying their photos", async () => {
     for (const author of getPublishedCreditAuthors()) {
       const ids = new Set(
-        getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author)),
+        getCreditAuthorSpeciesIds(
+          getCreditAuthorPhotos(author, speciesCatalogFixture("ka")),
+        ),
       );
-      const members = getCatalogSpecies().filter((item) => ids.has(item.id));
+      const members = catalogSpeciesFixture().filter((item) =>
+        ids.has(item.id),
+      );
       if (members.length === 0) continue;
       expect(
-        Date.parse(authorDateFields(author.slug, "en").dateModified),
+        Date.parse(
+          (await await authorDateFields(author.slug, "en")).dateModified,
+        ),
         author.slug,
       ).toBeGreaterThanOrEqual(newest(members, "en"));
     }
   });
 
-  it("dates a quiz by the newest species in its pool", () => {
-    const pool = getCatalogSpecies().filter(
+  it("dates a quiz by the newest species in its pool", async () => {
+    const pool = catalogSpeciesFixture().filter(
       (item) => getSpeciesAtlasMeta(item.id).group === "snake",
     );
     expect(
-      Date.parse(quizDateFields("snake", "ka").dateModified),
+      Date.parse((await await quizDateFields("snake", "ka")).dateModified),
     ).toBeGreaterThanOrEqual(newest(pool, "ka"));
   });
 
-  it("keeps fixed pages on their own date", () => {
-    expect(pageDateFields("/contact", "en")).toEqual(
-      pageDateFields("/contact", "ka"),
+  it("keeps fixed pages on their own date", async () => {
+    expect(await pageDateFields("/contact", "en")).toEqual(
+      await pageDateFields("/contact", "ka"),
     );
   });
 });
 
-describe("speciesUpdatedAt", () => {
+describe("fixtureUpdatedAt", () => {
   it("never dates a translation before the Georgian profile", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       for (const locale of routing.locales) {
         expect(
-          Date.parse(speciesUpdatedAt(item, locale)),
+          Date.parse(fixtureUpdatedAt(item, locale)),
           `${item.id} ${locale}`,
         ).toBeGreaterThanOrEqual(Date.parse(item.updatedAt));
       }
@@ -163,8 +180,8 @@ describe.each([
   ["regionDateFields", () => regionDateFields("kakheti", "ru")],
   ["authorDateFields", () => authorDateFields("sandro-khakhva", "tr")],
 ])("%s", (_name, fields) => {
-  it("returns a modified and a published date", () => {
-    const result = fields();
+  it("returns a modified and a published date", async () => {
+    const result = await fields();
     expect(Object.keys(result).sort()).toEqual([
       "dateModified",
       "datePublished",

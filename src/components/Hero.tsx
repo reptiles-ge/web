@@ -7,26 +7,26 @@ import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
-import { getSpeciesById } from "@/data/species";
-import { getAtlasStats } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { summarizeAtlas } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const HERO_IMAGE_SIZES =
   "(max-width: 639px) 600px, (max-width: 1023px) 100vw, 61vw";
 
 export async function Hero({ locale }: { locale: AppLocale }) {
-  const [t, tNav, tKnowledge, tSafety, tGroups] = await Promise.all([
+  const [t, tNav, tKnowledge, tSafety, tGroups, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "home.knowledge" }),
     getTranslations({ locale, namespace: "home.safety" }),
     getTranslations({ locale, namespace: "home.groups" }),
+    getSpeciesCatalog(locale),
   ]);
-  const stats = getAtlasStats();
-  const base = getSpeciesById(GROUP_HUBS.snakes.heroSpeciesId);
-  const subject = base ? localizeSpecies(base, locale) : null;
+  const stats = summarizeAtlas(catalog);
+  const subject =
+    catalog.find((item) => item.id === GROUP_HUBS.snakes.heroSpeciesId) ?? null;
   const popular = [
     { href: "/venomous-snakes" as const, label: tKnowledge("venomous.cta") },
     { href: "/snakes/gvelis-nakbeni" as const, label: tSafety("bite") },

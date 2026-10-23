@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 
 import sitemap from "./sitemap";
 
@@ -13,8 +13,13 @@ vi.mock("@/data/news", async (importOriginal) => {
 });
 
 describe("sitemap news archive", () => {
-  const entries = sitemap();
-  const archive = entries.filter((entry) => entry.url.includes("/news/page/"));
+  let archive: Awaited<ReturnType<typeof sitemap>>;
+
+  beforeAll(async () => {
+    archive = (await sitemap()).filter((entry) =>
+      entry.url.includes("/news/page/"),
+    );
+  });
 
   it("lists every archive page that has articles, and none beyond", () => {
     expect(archive.map((entry) => entry.url).sort()).toEqual(

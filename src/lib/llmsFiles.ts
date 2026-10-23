@@ -1,36 +1,41 @@
+import type { Species } from "@/data/species";
+
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles, newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
-import {
-  getCatalogSpecies,
-  getSpeciesById,
-  type Species,
-} from "@/data/species";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { localizeSpecies, speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
 import { absoluteUrl } from "@/lib/site";
-import { getSpeciesLookalikes, speciesHref } from "@/lib/speciesRoutes";
+import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 
-const ROBOTS_DISALLOWED_PATHS = ["/api/", "/admin", "/admin/"] as const;
-const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
+export type LlmsSpecies = {
+  base: readonly Species[];
+  ids: ReadonlySet<string>;
+  localized: (item: Species, locale: AppLocale) => Species;
+};
 
-export const AI_CITATION_USER_AGENTS = [
-  "GPTBot",
-  "ChatGPT-User",
-  "OAI-SearchBot",
-  "PerplexityBot",
-  "ClaudeBot",
-  "anthropic-ai",
-  "Google-Extended",
-  "Bingbot",
-  "Applebot-Extended",
-] as const;
+export function createLlmsSpecies(
+  catalogs: Partial<Record<AppLocale, readonly Species[]>>,
+): LlmsSpecies {
+  const base = catalogs[routing.defaultLocale] ?? [];
+  const byLocale = new Map(
+    Object.entries(catalogs).map(([locale, list]) => [
+      locale,
+      new Map(list.map((item) => [item.id, item])),
+    ]),
+  );
+  return {
+    base,
+    ids: new Set(base.map((item) => item.id)),
+    localized: (item, locale) => byLocale.get(locale)?.get(item.id) ?? item,
+  };
+}
 
 const LOCALE_LABEL: Record<AppLocale, string> = {
   en: "English",
@@ -149,9 +154,12 @@ const DEEP_GROUPS = new Set<AnimalGroup>([
   "turtle",
 ]);
 
-export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
+export function buildLlmsFullText(
+  catalog: LlmsSpecies,
+  locale: AppLocale = routing.defaultLocale,
+) {
   const generatedAt = new Date().toISOString();
-  const species = sortSpecies(getCatalogSpecies());
+  const species = sortSpecies(catalog.base);
   const news = getPublishedNewsArticles(locale);
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
@@ -205,10 +213,10 @@ export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
     parts.push(
       alternateLine(locale, pageUrl(alternateLocale(locale), article.pathname)),
     );
-    parts.push(`- ${absoluteLinks(copy.summary, locale)}`);
+    parts.push(`- ${absoluteLinks(copy.summary, locale, catalog)}`);
     for (const item of copy.faq) {
       parts.push(
-        `- Q: ${absoluteLinks(item.question, locale)} A: ${absoluteLinks(item.answer, locale)}`,
+        `- Q: ${absoluteLinks(item.question, locale, catalog)} A: ${absoluteLinks(item.answer, locale, catalog)}`,
       );
     }
     parts.push("- Sources:");
@@ -253,7 +261,7 @@ export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
       parts.push(`## ${GROUP_HEADING[group]}`);
       parts.push("");
     }
-    parts.push(formatSpeciesCard(item, locale));
+    parts.push(formatSpeciesCard(item, locale, catalog));
   }
 
   parts.push("## Authority");
@@ -270,8 +278,11 @@ export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
   return parts.join("\n");
 }
 
-export function buildLlmsIndexText(locale: AppLocale = routing.defaultLocale) {
-  const species = sortSpecies(getCatalogSpecies());
+export function buildLlmsIndexText(
+  catalog: LlmsSpecies,
+  locale: AppLocale = routing.defaultLocale,
+) {
+  const species = sortSpecies(catalog.base);
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
   const prose = proseLocale(locale);
@@ -400,7 +411,7 @@ export function buildLlmsIndexText(locale: AppLocale = routing.defaultLocale) {
       );
     }
     for (const item of items) {
-      parts.push(formatSpeciesIndexLine(item, locale));
+      parts.push(formatSpeciesIndexLine(item, locale, catalog));
     }
   }
 
@@ -420,51 +431,7 @@ export function buildLlmsIndexText(locale: AppLocale = routing.defaultLocale) {
   return parts.join("\n");
 }
 
-export function buildRobotsTxt() {
-  const llmsTxt = absoluteUrl(llmsIndexPath(routing.defaultLocale));
-  const llmsFull = absoluteUrl(llmsFullPath(routing.defaultLocale));
-  const sitemap = absoluteUrl("/sitemap.xml");
-
-  const rules = [
-    `Content-Signal: ${CONTENT_SIGNAL}`,
-    "Allow: /",
-    ...ROBOTS_DISALLOWED_PATHS.map((path) => `Disallow: ${path}`),
-    "",
-  ];
-  const aiBlocks = AI_CITATION_USER_AGENTS.flatMap((agent) => [
-    `User-agent: ${agent}`,
-    ...rules,
-  ]);
-
-  return [
-    "# reptiles.ge — public atlas of animals of Georgia",
-    "# AI crawlers: citation and summarization of published pages is welcome.",
-    `# Prefer ${llmsTxt} (index) and ${llmsFull} (extractable corpus).`,
-    "# English, Russian and Turkish have their own pair under /en/, /ru/ and /tr/.",
-    "# Do not treat empty atlas fields as negative evidence.",
-    "",
-    "User-agent: *",
-    ...rules,
-    ...aiBlocks,
-    `Sitemap: ${sitemap}`,
-    ...routing.locales.flatMap((locale) => [
-      `# llms.txt (${locale}): ${absoluteUrl(llmsIndexPath(locale))}`,
-      `# llms-full.txt (${locale}): ${absoluteUrl(llmsFullPath(locale))}`,
-    ]),
-    "",
-  ].join("\n");
-}
-
-export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
-  return {
-    "Cache-Control":
-      "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
-    "Content-Type": "text/plain; charset=utf-8",
-    ...(options?.noindex ? { "X-Robots-Tag": "noindex, follow" } : {}),
-  };
-}
-
-function absoluteLinks(text: string, locale: AppLocale) {
+function absoluteLinks(text: string, locale: AppLocale, catalog: LlmsSpecies) {
   return text.replace(
     /\[([^\]]*)\]\(([^)\s]+)\)/g,
     (match, label: string, href: string) => {
@@ -473,7 +440,7 @@ function absoluteLinks(text: string, locale: AppLocale) {
         const [path, hash] = href.split("#");
         return `[${label}](${absoluteUrl(localizedLinkPath(locale, path))}${hash ? `#${hash}` : ""})`;
       }
-      if (getSpeciesById(href)) {
+      if (catalog.ids.has(href)) {
         return `[${label}](${localizedSpeciesUrl(locale, href)})`;
       }
       return label;
@@ -495,8 +462,8 @@ function compactText(value: string) {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function comparisonOnlyLookalikes(item: Species) {
-  const english = localizeSpecies(item, "en");
+function comparisonOnlyLookalikes(item: Species, catalog: LlmsSpecies) {
+  const english = catalog.localized(item, "en");
   const prose = [item, english]
     .flatMap((text) => [
       text.overview,
@@ -509,8 +476,9 @@ function comparisonOnlyLookalikes(item: Species) {
       ...text.facts,
     ])
     .join("\n");
+  const byId = new Map(catalog.base.map((peer) => [peer.id, peer]));
   return getSpeciesLookalikes(item.id)
-    .map((id) => getSpeciesById(id))
+    .map((id) => byId.get(id))
     .filter((peer): peer is Species => Boolean(peer))
     .filter(
       (peer) =>
@@ -520,8 +488,8 @@ function comparisonOnlyLookalikes(item: Species) {
     .map((peer) => peer.scientificName);
 }
 
-function englishSpeciesText(item: Species) {
-  const english = localizeSpecies(item, "en");
+function englishSpeciesText(item: Species, catalog: LlmsSpecies) {
+  const english = catalog.localized(item, "en");
   const name = english.commonName.trim();
   const summary = compactText(english.overview || english.description);
   const kaSummary = compactText(item.overview || item.description);
@@ -531,15 +499,19 @@ function englishSpeciesText(item: Species) {
   };
 }
 
-function formatSpeciesCard(item: Species, locale: AppLocale) {
+function formatSpeciesCard(
+  item: Species,
+  locale: AppLocale,
+  catalog: LlmsSpecies,
+) {
   const group = getSpeciesAtlasMeta(item.id).group;
   const deep = DEEP_GROUPS.has(group);
   const maxOverview = deep ? MAX_OVERVIEW_FULL : MAX_OVERVIEW_COMPACT;
   const canonical = locale === routing.defaultLocale;
-  const text = localizeSpecies(item, locale);
+  const text = catalog.localized(item, locale);
   const translated = (value: string, kaValues: string[]) =>
     canonical || (!kaValues.includes(value) && !GEORGIAN_SCRIPT.test(value));
-  const english = englishSpeciesText(item);
+  const english = englishSpeciesText(item, catalog);
   const name = translated(text.commonName, [item.commonName])
     ? text.commonName
     : item.commonName;
@@ -552,7 +524,7 @@ function formatSpeciesCard(item: Species, locale: AppLocale) {
       localizedSpeciesUrl(alternateLocale(locale), item.id),
     ),
     `- Catalog id: ${item.id}`,
-    `- Updated: ${speciesUpdatedAt(item, locale)}`,
+    `- Updated: ${catalog.localized(item, locale).updatedAt}`,
   ];
 
   if (canonical && english.name) lines.push(`- English name: ${english.name}`);
@@ -565,24 +537,29 @@ function formatSpeciesCard(item: Species, locale: AppLocale) {
     translated(overview, [compactText(item.overview || item.description)])
   ) {
     lines.push("");
-    lines.push(absoluteLinks(truncateText(overview, maxOverview), locale));
+    lines.push(
+      absoluteLinks(truncateText(overview, maxOverview), locale, catalog),
+    );
   }
 
   if (canonical && english.summary) {
     lines.push("");
     lines.push(
-      `English summary: ${absoluteLinks(truncateText(english.summary, maxOverview), "en")}`,
+      `English summary: ${absoluteLinks(truncateText(english.summary, maxOverview), "en", catalog)}`,
     );
   }
 
-  if (deep) lines.push(...formatSpeciesDetails(item, text, translated, locale));
+  if (deep)
+    lines.push(
+      ...formatSpeciesDetails(item, text, translated, locale, catalog),
+    );
 
   const sources = pickSources(
     item.sources,
     deep ? MAX_SOURCES_FULL : MAX_SOURCES_COMPACT,
   );
   if (sources.length > 0) {
-    const lookalikes = comparisonOnlyLookalikes(item);
+    const lookalikes = comparisonOnlyLookalikes(item, catalog);
     lines.push("");
     lines.push("Sources:");
     for (const source of sources) {
@@ -602,6 +579,7 @@ function formatSpeciesDetails(
   text: Species,
   translated: (value: string, kaValues: string[]) => boolean,
   locale: AppLocale,
+  catalog: LlmsSpecies,
 ) {
   const lines: string[] = [];
   const kaStats = item.stats.map((stat) => `${stat.label}: ${stat.value}`);
@@ -621,7 +599,7 @@ function formatSpeciesDetails(
     lines.push("");
     for (const fact of facts) {
       lines.push(
-        `- ${absoluteLinks(truncateText(compactText(fact), MAX_OVERVIEW_COMPACT), locale)}`,
+        `- ${absoluteLinks(truncateText(compactText(fact), MAX_OVERVIEW_COMPACT), locale, catalog)}`,
       );
     }
   }
@@ -633,7 +611,7 @@ function formatSpeciesDetails(
   ) {
     lines.push(
       "",
-      `Identification: ${absoluteLinks(truncateText(compactText(identification), MAX_OVERVIEW_COMPACT), locale)}`,
+      `Identification: ${absoluteLinks(truncateText(compactText(identification), MAX_OVERVIEW_COMPACT), locale, catalog)}`,
     );
   }
 
@@ -646,17 +624,23 @@ function formatSpeciesDetails(
   if (faqs.length > 0) {
     lines.push("", "FAQ:");
     for (const entry of faqs) {
-      lines.push(`- Q: ${absoluteLinks(compactText(entry.question), locale)}`);
       lines.push(
-        `  A: ${absoluteLinks(truncateText(compactText(entry.answer), MAX_OVERVIEW_COMPACT), locale)}`,
+        `- Q: ${absoluteLinks(compactText(entry.question), locale, catalog)}`,
+      );
+      lines.push(
+        `  A: ${absoluteLinks(truncateText(compactText(entry.answer), MAX_OVERVIEW_COMPACT), locale, catalog)}`,
       );
     }
   }
   return lines;
 }
 
-function formatSpeciesIndexLine(item: Species, locale: AppLocale) {
-  const named = localizeSpecies(item, proseLocale(locale));
+function formatSpeciesIndexLine(
+  item: Species,
+  locale: AppLocale,
+  catalog: LlmsSpecies,
+) {
+  const named = catalog.localized(item, proseLocale(locale));
   const details = [
     named.commonName || item.commonName,
     item.danger,
@@ -772,7 +756,7 @@ function quizUrl(locale: AppLocale, id: string) {
   );
 }
 
-function sortSpecies(items: Species[]) {
+function sortSpecies(items: readonly Species[]) {
   return items.slice().sort((a, b) => {
     const groupA = getSpeciesAtlasMeta(a.id).group;
     const groupB = getSpeciesAtlasMeta(b.id).group;

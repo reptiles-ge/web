@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { getRegionContent } from "@/data/regionContent";
@@ -10,12 +9,8 @@ import {
   localizeRegionText,
   type Region,
 } from "@/data/regions";
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-  isVenomousDanger,
-} from "@/data/speciesAtlasMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const GROUP_ORDER = [
   "snake",
@@ -36,16 +31,19 @@ export type RegionSummaryFacts = {
   groups: { count: number; group: (typeof GROUP_ORDER)[number] }[];
   reptiles: number;
   total: number;
-  venomous: Species[];
+  venomous: CatalogCard[];
 };
 
 export async function getRegionSummary(
   region: Region,
   locale: AppLocale,
 ): Promise<string[]> {
-  const t = await getTranslations({ locale, namespace: "regions.summary" });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "regions.summary" }),
+    getSpeciesCatalog(locale),
+  ]);
   const content = getRegionContent(region.id);
-  const facts = regionSummaryFacts(region);
+  const facts = regionSummaryFacts(region, catalog);
   const list = new Intl.ListFormat(locale, { type: "conjunction" });
   const nameIn = localizeRegionText(region.nameIn, locale);
 
@@ -74,8 +72,7 @@ export async function getRegionSummary(
             count: facts.venomous.length,
             species: list.format(
               facts.venomous.map(
-                (item) =>
-                  `${localizeSpecies(item, locale).commonName} (${item.scientificName})`,
+                (item) => `${item.commonName} (${item.scientificName})`,
               ),
             ),
           }),
@@ -98,11 +95,13 @@ export async function getRegionSummary(
   return [landscape.join(" "), risk.join(" "), scope.join(" ")];
 }
 
-export function regionSummaryFacts(region: Region): RegionSummaryFacts {
-  const species = getRegionSpecies(region);
+export function regionSummaryFacts(
+  region: Region,
+  catalog: readonly CatalogCard[],
+): RegionSummaryFacts {
+  const species = getRegionSpecies(region, catalog);
   const counts = new Map<AnimalGroup, number>();
-  for (const item of species) {
-    const { group } = getSpeciesAtlasMeta(item.id);
+  for (const { group } of species) {
     counts.set(group, (counts.get(group) ?? 0) + 1);
   }
   const groups = GROUP_ORDER.flatMap((group) => {

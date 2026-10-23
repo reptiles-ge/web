@@ -31,9 +31,11 @@ import {
 import { routing } from "@/i18n/routing";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { getNavbarData } from "@/lib/navbarData";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type Props = {
   children: ReactNode;
@@ -57,16 +59,19 @@ export default async function LocaleLayout({ children, params }: Props) {
     (await getMessages({ locale })) as ClientMessages,
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, tSite] = await Promise.all([
+  const [t, tSite, catalog, kaCatalog] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "site" }),
+    getSpeciesCatalog(locale),
+    getSpeciesCatalog(routing.defaultLocale),
   ]);
   const siteDescription = kaMetaDescriptionOverride(
     locale,
     localePath(locale, "/"),
     tSite("description"),
   );
-  const footerData = getFooterData(locale);
+  const footerData = getFooterData(locale, catalog);
+  const navbarData = getNavbarData(catalog);
   const SelectionContentEditor =
     locale === "ka" ? await loadSelectionContentEditor() : null;
   const editorT = SelectionContentEditor
@@ -75,7 +80,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider>
+        <LocaleSwitchProvider index={getLocaleSwitchIndex(kaCatalog)}>
           <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />
           <SkipLink label={t("skipToContent")} />
           <NavigationProgress />
@@ -83,7 +88,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LogoPreload />
           <AnalyticsPageContext />
           <TopGeCounter />
-          <Navbar {...getNavbarData()} />
+          <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
             {SelectionContentEditor && editorT ? (
               <SelectionContentEditor

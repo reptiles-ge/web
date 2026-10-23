@@ -71,6 +71,16 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     expect(offenders(checkedFiles, /SELECT\s+\*/i)).toEqual([]);
   });
 
+  it("serves species from D1, never from site species modules", () => {
+    expect(
+      offenders(
+        sourceFiles,
+        /^import (?!type)[^;]*from "@\/(data\/species(Publish|SlugTable)?|data\/speciesSlugs\.generated|lib\/speciesRoutes)"/m,
+        (rel) => rel.startsWith("testing/"),
+      ),
+    ).toEqual([]);
+  });
+
   it("creates Hono instances only in app.ts and routes/", () => {
     expect(
       offenders(
@@ -185,6 +195,18 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     for (const name of ["RATING_VISITOR_LIMITER", "RATING_GLOBAL_LIMITER"]) {
       expect(apiConfig).toContain(name);
     }
+  });
+
+  it("renders species profiles from the API on the server", () => {
+    const route = readFileSync(
+      path.join(ROOT, "src/lib/createSpeciesRoute.tsx"),
+      "utf8",
+    );
+    expect(route).toContain("getSpeciesProfile(");
+    expect(route).not.toMatch(/resolveSpeciesInHub/);
+    expect(
+      readFileSync(path.join(ROOT, "src/lib/speciesProfileApi.ts"), "utf8"),
+    ).not.toMatch(/^["']use client["']/m);
   });
 
   it("applies migrations only from the explicit db:migrate scripts", () => {

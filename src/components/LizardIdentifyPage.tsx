@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -30,12 +30,12 @@ export async function LizardIdentifyPage({
   const featured = [
     byId.get("paralaudakia-caucasia"),
     byId.get("pseudopus-apodus"),
-  ].filter((item): item is Species => Boolean(item));
+  ].filter((item): item is CatalogCard => Boolean(item));
   const darevskia = species.filter(isDarevskiaSpecies);
   const pairs = LIZARD_LOOKALIKE_PAIRS.map((pair) => ({
     a: byId.get(pair.a),
     b: byId.get(pair.b),
-  })).filter((pair): pair is { a: Species; b: Species } =>
+  })).filter((pair): pair is { a: CatalogCard; b: CatalogCard } =>
     Boolean(pair.a && pair.b),
   );
 

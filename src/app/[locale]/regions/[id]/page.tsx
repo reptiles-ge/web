@@ -47,6 +47,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { regionHref } from "@/lib/speciesRoutes";
 import { regionDateFields } from "@/lib/structuredDataDates";
 
@@ -172,9 +173,9 @@ export default async function RegionPage({ params }: PageProps) {
   const overview =
     localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
-  const dates = regionDateFields(region.id, locale);
-  const species = getRegionSpecies(region).map((item) =>
-    toRegionSpeciesCard(item, locale),
+  const dates = await regionDateFields(region.id, locale);
+  const species = getRegionSpecies(region, await getSpeciesCatalog(locale)).map(
+    (item) => toRegionSpeciesCard(item),
   );
   const venomous = species.filter(isRegionCardVenomous);
   const summary = await getRegionSummary(region, locale);
@@ -192,7 +193,7 @@ export default async function RegionPage({ params }: PageProps) {
       name,
     },
     author: { "@id": siteEntityId("organization") },
-    ...regionDateFields(region.id, locale),
+    ...(await regionDateFields(region.id, locale)),
     description: overview,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

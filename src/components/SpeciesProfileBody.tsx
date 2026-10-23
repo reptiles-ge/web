@@ -1,14 +1,16 @@
 import { getTranslations } from "next-intl/server";
 
-import type { HalyomorphaAnnotationMarkerKey } from "@/content/species/halyomorpha-halys/profileCopy";
+import type { HalyomorphaAnnotationMarkerKey } from "@/content/halyomorphaProfileCopy";
 import type {
   DangerLevel,
   GalleryImage,
   PhotoCredit,
   Species,
+  SpeciesFieldRecord,
   SpeciesStat,
 } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyDisclosure } from "@/components/BiologyDisclosure";
@@ -27,7 +29,7 @@ import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import {
   HALYOMORPHA_ANNOTATION_COPY,
   HALYOMORPHA_PEST_COPY,
-} from "@/content/species/halyomorpha-halys/profileCopy";
+} from "@/content/halyomorphaProfileCopy";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -61,15 +63,16 @@ type SpeciesProfileBodyProps = {
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   editable: boolean;
+  fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
   hasRange: boolean;
   heroCredit?: PhotoCredit;
   linkDangerStats: boolean;
   locale: AppLocale;
-  lookalikes: Species[];
+  lookalikes: CatalogCard[];
   mobileGallery: GalleryImage[];
-  related: Species[];
+  related: CatalogCard[];
   showIdentification: boolean;
   species: Species;
 };
@@ -133,6 +136,7 @@ export async function SpeciesProfileBody({
   dangerValue,
   displayStats,
   editable,
+  fieldRecords,
   gallery,
   guideLinks,
   hasRange,
@@ -240,6 +244,8 @@ export async function SpeciesProfileBody({
 
       <SpeciesRangeMap
         editable={editable}
+        fieldRecords={fieldRecords}
+        gallery={gallery}
         habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}
@@ -659,7 +665,7 @@ function SpeciesProfileIdentification({
 }: {
   identification: NonNullable<Species["identification"]>;
   locale: AppLocale;
-  lookalikes: Species[];
+  lookalikes: CatalogCard[];
   species: Species;
 }) {
   const photo =

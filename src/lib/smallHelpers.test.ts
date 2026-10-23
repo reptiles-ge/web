@@ -1,7 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import {
@@ -10,10 +9,7 @@ import {
 } from "@/lib/atlasInfiniteScroll";
 import { getFooterData } from "@/lib/footerData";
 import { loadHalyomorphaOccurrences } from "@/lib/halyomorphaOccurrenceApi";
-import {
-  getOccurrenceSummary,
-  hasFieldRecords,
-} from "@/lib/occurrenceSummaries";
+import { getOccurrenceSummary } from "@/lib/occurrenceSummaries";
 import { searchGroupHeading } from "@/lib/searchGroupHeading";
 import {
   siteKeywords,
@@ -22,8 +18,11 @@ import {
   speciesSeoAnchor,
   speciesSeoKeywords,
 } from "@/lib/seoKeywords";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 import { recordRequests, server } from "../../tests/msw/server";
 
 afterEach(() => {
@@ -122,7 +121,7 @@ describe("seoKeywords", () => {
   });
 
   it("builds a de-duplicated, trimmed keyword list for a species", () => {
-    const species = getSpeciesById("macrovipera-lebetina")!;
+    const species = speciesFixture("macrovipera-lebetina")!;
     const keywords = speciesSeoKeywords(species, "en");
     expect(keywords).toContain(species.scientificName);
     expect(keywords).toContain("Georgia");
@@ -140,35 +139,46 @@ describe("seoKeywords", () => {
 });
 
 describe("getFooterData", () => {
-  it("lists every region and every venomous snake", () => {
-    const data = getFooterData("en");
+  it("lists every region and every venomous snake", async () => {
+    const data = getFooterData("en", await getSpeciesCatalog("en"));
     expect(data.regions).toHaveLength(12);
     expect(data.venomous.map((item) => item.id)).toEqual(
-      getVenomousCatalogSpecies().map((item) => item.id),
+      (await getVenomousCatalogSpecies("en")).map((item) => item.id),
     );
     for (const region of data.regions) expect(region.name).toBeTruthy();
   });
 });
 
 describe("occurrence summaries", () => {
-  it("returns an empty summary for a species without field records", () => {
-    const summary = getOccurrenceSummary("no-such-species", "en");
+  const summaryFor = async (id: string) => {
+    const species = speciesFixture(id)!;
+    return getOccurrenceSummary({
+      fieldRecords: await getSpeciesFieldRecords(id),
+      gallery: species.gallery,
+      locale: "en",
+      speciesId: id,
+      speciesName: species.commonName,
+    });
+  };
+
+  it("returns an empty summary for a species without field records", async () => {
+    expect(await getSpeciesFieldRecords("no-such-species")).toEqual([]);
+    const summary = await summaryFor("bubo-bubo");
+    expect(summary.totalRecords).toBe(0);
     expect(summary.recordsByRegion).toEqual([]);
-    expect(hasFieldRecords("no-such-species")).toBe(false);
   });
 
-  it("returns regional counts for a species that has field records", () => {
-    expect(hasFieldRecords("natrix-natrix")).toBe(true);
-    const summary = getOccurrenceSummary("natrix-natrix", "en");
+  it("returns regional counts for a species that has field records", async () => {
+    const summary = await summaryFor("natrix-natrix");
     expect(summary.recordsByRegion.length).toBeGreaterThan(0);
     for (const region of summary.recordsByRegion) {
       expect(region.count).toBeGreaterThan(0);
     }
   });
 
-  it("names each region in the requested locale", () => {
-    const summary = getOccurrenceSummary("halyomorpha-halys", "en");
-    for (const region of summary.recordsByRegion ?? []) {
+  it("names each region in the requested locale", async () => {
+    const summary = await summaryFor("halyomorpha-halys");
+    for (const region of summary.recordsByRegion) {
       expect(region.name).toBeTruthy();
     }
   });
@@ -185,17 +195,12 @@ describe("loadHalyomorphaOccurrences", () => {
     );
   });
 
-  it("fetches once per URL and flattens the region records", async () => {
+  it("fetches the records once per URL", async () => {
     let calls = 0;
     server.use(
-      http.get("http://site.test/data/occurrences/species-a/en.json", () => {
+      http.get("http://site.test/api/occurrences/species-a/en", () => {
         calls += 1;
-        return HttpResponse.json({
-          regions: {
-            imereti: { records: [{ id: 3 }] },
-            kakheti: { records: [{ id: 1 }, { id: 2 }] },
-          },
-        });
+        return HttpResponse.json([{ id: 1 }, { id: 2 }, { id: 3 }]);
       }),
     );
     const first = await loadHalyomorphaOccurrences("species-a", "en", "r1");
@@ -208,11 +213,11 @@ describe("loadHalyomorphaOccurrences", () => {
   it("forgets a failed request so it can be retried", async () => {
     let calls = 0;
     server.use(
-      http.get("http://site.test/data/occurrences/species-b/ka.json", () => {
+      http.get("http://site.test/api/occurrences/species-b/ka", () => {
         calls += 1;
         return calls === 1
           ? new HttpResponse(null, { status: 500 })
-          : HttpResponse.json({ regions: {} });
+          : HttpResponse.json([]);
       }),
     );
     await expect(
@@ -227,14 +232,14 @@ describe("loadHalyomorphaOccurrences", () => {
   it("encodes the species id and revision in the URL", async () => {
     const requests = recordRequests();
     server.use(
-      http.get("http://site.test/data/occurrences/:id/ru.json", () =>
-        HttpResponse.json({ regions: {} }),
+      http.get("http://site.test/api/occurrences/:id/ru", () =>
+        HttpResponse.json([]),
       ),
     );
     await loadHalyomorphaOccurrences("a b", "ru", "x&y");
     requests.stop();
     expect(requests.urls[0]).toBe(
-      "http://site.test/data/occurrences/a%20b/ru.json?v=x%26y",
+      "http://site.test/api/occurrences/a%20b/ru?v=x%26y",
     );
   });
 });

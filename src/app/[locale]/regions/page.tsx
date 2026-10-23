@@ -69,7 +69,7 @@ export default async function RegionsPage({ params }: LocalePageProps) {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
-    ...pageDateFields("/regions", locale),
+    ...(await pageDateFields("/regions", locale)),
     description: t("metaDescription"),
     hasPart: regions.map((region) => ({
       "@type": "WebPage",
@@ -97,8 +97,8 @@ export default async function RegionsPage({ params }: LocalePageProps) {
         <OptimizedImageScope srcs={[REGIONS_INDEX_HERO_IMAGE]}>
           <RegionsIndex
             directory={getRegionDirectory(locale)}
-            stats={getCatalogRegionStats()}
-            tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+            stats={await getCatalogRegionStats(locale)}
+            tooltipSpeciesByRegion={await getRegionTooltipPreviews(locale)}
           />
         </OptimizedImageScope>
       </ClientMessagesProvider>

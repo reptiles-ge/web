@@ -13,10 +13,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
@@ -44,6 +42,7 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import {
   getSpeciesHeroSources,
   isPlaceholderBody,
@@ -57,17 +56,15 @@ import {
   speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
+import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
-import {
-  getSpeciesPublicSlug,
-  resolveSpeciesInHub,
-  speciesHref,
-  speciesStaticParams,
-} from "@/lib/speciesRoutes";
+import { getSpeciesPublicSlug, speciesHref } from "@/lib/speciesRoutes";
+import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
+import { speciesStaticParams } from "@/lib/speciesStaticParams";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -122,17 +119,17 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
-    const raw = resolveSpeciesInHub(hubId, slug);
+    const id = resolveSpeciesIdInHub(hubId, slug);
+    const loaded = id ? await loadSpeciesPage(id, locale) : null;
 
-    if (!raw) {
+    if (!loaded) {
       return {
         robots: null,
         title: t("notFound"),
       };
     }
 
-    const item = localizeSpecies(raw, locale);
-    const group = getSpeciesAtlasMeta(raw.id).group;
+    const { group, item, raw } = loaded;
     const title = speciesPageMetaTitle(
       raw.id,
       locale,
@@ -203,25 +200,28 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const raw = resolveSpeciesInHub(hubId, slug);
-    if (!raw) {
+    const id = resolveSpeciesIdInHub(hubId, slug);
+    if (!id) {
       notFound();
     }
 
-    const expectedSlug = getSpeciesPublicSlug(raw.id, locale);
+    const expectedSlug = getSpeciesPublicSlug(id, locale);
     if (slug !== expectedSlug) {
-      permanentRedirect(
-        getPathname({ href: speciesHref(raw.id, locale), locale }),
-      );
+      permanentRedirect(getPathname({ href: speciesHref(id, locale), locale }));
     }
 
-    const item = localizeSpecies(raw, locale);
-    const { lookalikes, related } = localizedSpeciesRelations(raw, locale);
-    const tProfile = await getTranslations({ locale, namespace: "profile" });
-    const tHubs = await getTranslations({
-      locale,
-      namespace: "groupHubShared",
-    });
+    const loaded = await loadSpeciesPage(id, locale);
+    if (!loaded) {
+      notFound();
+    }
+    const { item, raw } = loaded;
+    const [catalog, tProfile, tHubs] = await Promise.all([
+      getSpeciesCatalog(locale),
+      getTranslations({ locale, namespace: "profile" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+    ]);
+    const lookalikes = getLookalikeSpecies(raw.id, catalog);
+    const related = getProfileRelatedSpecies(raw.id, catalog);
     const parent = getSpeciesParentHub(item);
     const groupLabel = parent.hubId
       ? tHubs(`hubs.${parent.hubId}`)
@@ -288,15 +288,13 @@ function isTaxonSameAsUrl(url: string) {
   return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
 }
 
-function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
-  return {
-    lookalikes: getLookalikeSpecies(raw.id).map((entry) =>
-      localizeSpecies(entry, locale),
-    ),
-    related: getProfileRelatedSpecies(raw.id).map((entry) =>
-      localizeSpecies(entry, locale),
-    ),
-  };
+async function loadSpeciesPage(id: string, locale: AppLocale) {
+  const [base, localized] = await Promise.all([
+    getSpeciesProfile(id, "ka"),
+    getSpeciesProfile(id, locale),
+  ]);
+  if (!base || !localized) return null;
+  return { group: localized.group, item: localized.species, raw: base.species };
 }
 
 function sourceCreativeWork(source: SpeciesSource) {

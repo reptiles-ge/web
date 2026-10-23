@@ -1,16 +1,20 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { resolvePageContextFromIndex } from "@/lib/localeSwitch";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { liveQuizzes } from "@/lib/quizzes";
 
-const index = getLocaleSwitchIndex();
+import {
+  catalogSpeciesFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const index = getLocaleSwitchIndex(speciesCatalogFixture("ka"));
 
 describe("getLocaleSwitchIndex", () => {
   it("indexes every published species by id and by its KA slug", () => {
-    for (const item of getCatalogSpecies()) {
+    for (const item of catalogSpeciesFixture()) {
       expect(index.idBySlug[item.id], item.id).toBe(item.id);
       expect(index.idBySlug[index.kaSlugById[item.id]], item.id).toBe(item.id);
       expect(index.hubById[item.id], item.id).toBeTruthy();

@@ -9,8 +9,6 @@ import type { LocalePageProps } from "@/lib/pageMetadata";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   breadcrumbListLd,
@@ -18,6 +16,7 @@ import {
   sitePageLd,
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -53,14 +52,14 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "snakesInYard" });
-  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
+  const [t, tSnakes, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "snakesInYard" }),
+    getTranslations({ locale, namespace: "snakes" }),
+    getSpeciesCatalog(locale),
+  ]);
   const url = absoluteUrl(localePath(locale, PATH));
 
-  const heroSpeciesEntry = getSpeciesById(HERO_SPECIES);
-  const heroSpecies = heroSpeciesEntry
-    ? localizeSpecies(heroSpeciesEntry, locale)
-    : undefined;
+  const heroSpecies = catalog.find((item) => item.id === HERO_SPECIES);
   const heroSrc = heroSpecies?.image ?? WHY_IMAGE;
   const coverSrc = WHY_IMAGE;
 
@@ -73,7 +72,7 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const dates = pageDateFields(PATH, locale);
+  const dates = await pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     dates,
     description: t("metaDescription"),

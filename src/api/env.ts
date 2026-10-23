@@ -6,6 +6,8 @@ export type ApiBindings = {
   DB: ApiDatabase;
   RATING_GLOBAL_LIMITER?: RateLimiter;
   RATING_VISITOR_LIMITER?: RateLimiter;
+  REVALIDATE_TOKEN?: string;
+  SITE?: { fetch: (request: Request) => Promise<Response> };
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
 };

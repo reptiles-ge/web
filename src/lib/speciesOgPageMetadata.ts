@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 import { getTranslations } from "next-intl/server";
 
-import { getSpeciesById } from "@/data/species";
 import { type AppLocale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { type localePath, speciesOgImageUrl } from "@/lib/site";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type SpeciesOgPageMetadataInput = {
   locale: AppLocale;
@@ -25,7 +25,10 @@ export async function speciesOgPageMetadata({
   titleValues,
   type,
 }: SpeciesOgPageMetadataInput): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace }),
+    getSpeciesCatalog(locale),
+  ]);
   const title = t("metaTitle", titleValues);
   return buildPageMetadata({
     description: t("metaDescription"),
@@ -35,7 +38,7 @@ export async function speciesOgPageMetadata({
     metadataTitle: { absolute: title },
     ogImageUrl: speciesOgImageUrl(
       ogSpeciesId,
-      getSpeciesById(ogSpeciesId)?.image,
+      catalog.find((item) => item.id === ogSpeciesId)?.image,
     ),
     pagePath,
     title,

@@ -1,16 +1,28 @@
 import type { NewsArticle, NewsPhoto } from "@/data/news";
-import type { PhotoCredit } from "@/data/species";
+import type {
+  PhotoCredit,
+  SpeciesPhotoFields,
+  SpeciesSummary,
+} from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { newsRelatedRegions, newsRelatedSpecies } from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { photoRights, siteImageRights } from "@/lib/imageRights";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
+
+export type AtlasPhotoSource = Pick<
+  SpeciesPhotoFields,
+  "gallery" | "image" | "imageCredit"
+>;
+
+export type NewsSpecies = Pick<
+  SpeciesSummary,
+  "commonName" | "id" | "image" | "imageCredit" | "scientificName"
+>;
 
 export type NewsVisual = {
   alt: string;
@@ -20,10 +32,13 @@ export type NewsVisual = {
   src: string;
 };
 
-export function getNewsImageSrc(article: NewsArticle): null | string {
+export function getNewsImageSrc(
+  article: NewsArticle,
+  catalog: readonly NewsSpecies[],
+): null | string {
   if (article.image?.src) return article.image.src;
 
-  const species = newsRelatedSpecies(article)[0];
+  const species = newsRelatedSpecies(article, catalog)[0];
   if (species && !isPlaceholderMedia(species.image)) {
     return species.image;
   }
@@ -39,14 +54,14 @@ export function getNewsImageSrc(article: NewsArticle): null | string {
 export function getNewsVisual(
   article: NewsArticle,
   locale: AppLocale,
+  catalog: readonly NewsSpecies[],
 ): NewsVisual | null {
   if (article.image) {
     return localizeNewsPhoto(article.image, locale);
   }
 
-  const species = newsRelatedSpecies(article)[0];
-  if (species && !isPlaceholderMedia(species.image)) {
-    const item = localizeSpecies(species, locale);
+  const item = newsRelatedSpecies(article, catalog)[0];
+  if (item && !isPlaceholderMedia(item.image)) {
     return {
       alt: speciesPhotoAlt(
         item.commonName,
@@ -57,7 +72,7 @@ export function getNewsVisual(
       credit: item.imageCredit,
       fromAtlas: true,
       plate: false,
-      src: species.image,
+      src: item.image,
     };
   }
 
@@ -92,18 +107,23 @@ export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
   return article.relatedHubIds[0];
 }
 
-export function newsImageRights(article: NewsArticle, locale: AppLocale) {
-  const visual = getNewsVisual(article, locale);
+export function newsImageRights(
+  article: NewsArticle,
+  locale: AppLocale,
+  catalog: readonly NewsSpecies[],
+  photos: readonly AtlasPhotoSource[],
+) {
+  const visual = getNewsVisual(article, locale, catalog);
   if (!visual) return siteImageRights(locale);
   return photoRights(
     visual.src,
-    visual.credit ?? atlasPhotoCredit(visual.src),
+    visual.credit ?? atlasPhotoCredit(visual.src, photos),
     locale,
   );
 }
 
-function atlasPhotoCredit(src: string) {
-  for (const species of getCatalogSpecies()) {
+function atlasPhotoCredit(src: string, photos: readonly AtlasPhotoSource[]) {
+  for (const species of photos) {
     const photo = species.gallery.find((item) => item.src === src);
     if (photo?.credit) return photo.credit;
     if (species.image === src && species.imageCredit) {

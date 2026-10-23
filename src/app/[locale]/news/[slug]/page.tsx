@@ -9,11 +9,11 @@ import { NewsArticlePage } from "@/components/NewsArticlePage";
 import {
   getNewsCopy,
   getPublishedNewsArticleBySlug,
+  newsRelatedSpecies,
   newsSourceName,
 } from "@/data/news";
 import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -34,6 +34,10 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import {
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -64,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = copy.metaTitle;
   const url = newsArticleUrl(locale, article.slug);
   const description = copy.metaDescription;
-  const ogImage = newsOgImageUrl(article);
+  const ogImage = newsOgImageUrl(article, await getSpeciesCatalog(locale));
   const published = newsDateTime(article.publishedAt);
 
   return {
@@ -113,10 +117,12 @@ export default async function NewsArticleRoute({ params }: Props) {
     notFound();
   }
 
-  const [t, tNav, tShared] = await Promise.all([
+  const [t, tNav, tShared, catalog, creditPhotos] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getSpeciesCatalog(locale),
+    getCreditPhotoCatalog(),
   ]);
   const url = newsArticleUrl(locale, article.slug);
   const published = newsDateTime(article.publishedAt);
@@ -157,17 +163,11 @@ export default async function NewsArticleRoute({ params }: Props) {
       },
     ];
   });
-  const mentions = article.relatedSpeciesIds.flatMap((id) => {
-    const species = getSpeciesById(id);
-    if (!species) return [];
-    return [
-      {
-        "@type": "Taxon" as const,
-        name: species.scientificName,
-        taxonRank: "Species",
-      },
-    ];
-  });
+  const mentions = newsRelatedSpecies(article, catalog).map((species) => ({
+    "@type": "Taxon" as const,
+    name: species.scientificName,
+    taxonRank: "Species",
+  }));
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -189,7 +189,7 @@ export default async function NewsArticleRoute({ params }: Props) {
     datePublished: published,
     description: copy.metaDescription,
     headline: copy.title,
-    image: newsSchemaImages(article, locale),
+    image: newsSchemaImages(article, locale, catalog, creditPhotos),
     inLanguage: locale,
     isPartOf: article.series
       ? [

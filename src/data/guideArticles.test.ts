@@ -10,7 +10,6 @@ import {
 } from "@/data/guideArticles";
 import { optimizedEntry } from "@/data/optimizedImages";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
-import { getSpeciesById } from "@/data/species";
 import { images as siteMedia } from "@/data/speciesMedia";
 import { guideArticleRedirects } from "@/i18n/guideArticleRedirects";
 import { pathnames } from "@/i18n/pathnames";
@@ -18,6 +17,8 @@ import { routing } from "@/i18n/routing";
 import { HUB_CLUSTER_CARDS } from "@/lib/clusterGuides";
 import { RESERVED_HUB_SLUGS } from "@/lib/groupHubs";
 import { pageDateFields } from "@/lib/structuredDataDates";
+
+import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
 
 const articles = getGuideArticles();
 const messages = Object.fromEntries(
@@ -302,7 +303,7 @@ describe.each(articles.map((article) => [article.id, article] as const))(
 
     it("links only to published species", () => {
       for (const id of article.relatedSpeciesIds ?? []) {
-        expect(getSpeciesById(id), id).toBeDefined();
+        expect(speciesFixture(id), id).toBeDefined();
       }
     });
 
@@ -345,8 +346,8 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       );
     });
 
-    it("has sitemap and structured-data dates", () => {
-      const dates = pageDateFields(article.pathname, "ka");
+    it("has sitemap and structured-data dates", async () => {
+      const dates = await pageDateFields(article.pathname, "ka");
       expect(sitemapPathDatePublished(article.pathname)).toBe(
         dates.datePublished,
       );

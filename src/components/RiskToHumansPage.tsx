@@ -1,8 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import {
@@ -20,10 +21,10 @@ import { Link } from "@/i18n/navigation";
 
 type RiskToHumansPageProps = {
   harmlessCount: number;
-  harmlessExamples: Species[];
-  high: Species[];
+  harmlessExamples: CatalogCard[];
+  high: CatalogCard[];
   locale: AppLocale;
-  moderate: Species[];
+  moderate: CatalogCard[];
   publishedAt: string;
   updatedAt: string;
 };

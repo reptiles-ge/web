@@ -199,8 +199,10 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       const result = (await response.json()) as {
         error?: string;
         pullRequestUrl?: string;
+        reviewUrl?: string;
       };
-      if (!response.ok || !result.pullRequestUrl) {
+      const resultUrl = result.reviewUrl ?? result.pullRequestUrl;
+      if (!response.ok || !resultUrl) {
         throw new Error(
           result.error === "request"
             ? copy.requestError
@@ -211,13 +213,11 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       }
       setJobs((current) =>
         current.map((job) =>
-          job.id === id
-            ? { ...job, status: "success", url: result.pullRequestUrl! }
-            : job,
+          job.id === id ? { ...job, status: "success", url: resultUrl } : job,
         ),
       );
       if (activeJob.current === id) {
-        setUrl(result.pullRequestUrl);
+        setUrl(resultUrl);
         setStatus("success");
       }
     } catch (failure) {

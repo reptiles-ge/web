@@ -8,6 +8,8 @@ import {
   newsCategoryHub,
 } from "@/lib/newsVisual";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const articles = getPublishedNewsArticles();
 const bare = {
   ...articles[0],
@@ -41,43 +43,53 @@ describe("localizeNewsPhoto", () => {
 describe("getNewsImageSrc", () => {
   it("prefers the article's own image", () => {
     expect(
-      getNewsImageSrc({
-        ...bare,
-        image: { alt: { ka: "a" }, src: "/own.jpg" },
-      } as never),
+      getNewsImageSrc(
+        {
+          ...bare,
+          image: { alt: { ka: "a" }, src: "/own.jpg" },
+        } as never,
+        speciesCatalogFixture("ka"),
+      ),
     ).toBe("/own.jpg");
   });
 
   it("returns null when there is nothing to show", () => {
-    expect(getNewsImageSrc(bare)).toBeNull();
+    expect(getNewsImageSrc(bare, speciesCatalogFixture("ka"))).toBeNull();
   });
 
   it("falls back to the first related species' photo", () => {
-    const src = getNewsImageSrc({
-      ...bare,
-      relatedSpeciesIds: ["macrovipera-lebetina"],
-    } as never);
+    const src = getNewsImageSrc(
+      {
+        ...bare,
+        relatedSpeciesIds: ["macrovipera-lebetina"],
+      } as never,
+      speciesCatalogFixture("ka"),
+    );
     expect(src).toBeTruthy();
   });
 
   it("falls back to a region hero when only a region is related", () => {
-    const src = getNewsImageSrc({
-      ...bare,
-      relatedRegionIds: ["kakheti"],
-    } as never);
+    const src = getNewsImageSrc(
+      {
+        ...bare,
+        relatedRegionIds: ["kakheti"],
+      } as never,
+      speciesCatalogFixture("ka"),
+    );
     expect(src).toBeTruthy();
   });
 });
 
 describe("getNewsVisual", () => {
   it("returns null for an article with no image or relations", () => {
-    expect(getNewsVisual(bare, "en")).toBeNull();
+    expect(getNewsVisual(bare, "en", speciesCatalogFixture("en"))).toBeNull();
   });
 
   it("uses the article image when present", () => {
     const visual = getNewsVisual(
       { ...bare, image: { alt: { ka: "ალტ" }, src: "/own.jpg" } } as never,
       "ka",
+      speciesCatalogFixture("ka"),
     );
     expect(visual).toMatchObject({ alt: "ალტ", src: "/own.jpg" });
   });
@@ -86,6 +98,7 @@ describe("getNewsVisual", () => {
     const visual = getNewsVisual(
       { ...bare, relatedSpeciesIds: ["macrovipera-lebetina"] } as never,
       "en",
+      speciesCatalogFixture("en"),
     );
     expect(visual?.fromAtlas).toBe(true);
     expect(visual?.alt).toContain("Macrovipera");
@@ -95,6 +108,7 @@ describe("getNewsVisual", () => {
     const visual = getNewsVisual(
       { ...bare, relatedRegionIds: ["kakheti"] } as never,
       "en",
+      speciesCatalogFixture("en"),
     );
     expect(visual?.fromAtlas).toBe(true);
     expect(visual?.alt).toBeTruthy();

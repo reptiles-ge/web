@@ -3,12 +3,16 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   getSpeciesProfileGuideLinks,
   SPECIES_GUIDE_LINK_LIMIT,
 } from "@/lib/speciesGuideLinks";
+
+import {
+  catalogSpeciesFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 type ClusterCopy = Record<
   string,
@@ -24,13 +28,13 @@ function clusterCopy(locale: string): ClusterCopy {
 }
 
 describe("species profile guide links", () => {
-  const catalog = getCatalogSpecies();
+  const catalog = catalogSpeciesFixture();
 
   it("links every species a guide names back to that guide", () => {
     for (const article of getGuideArticles()) {
       for (const id of article.relatedSpeciesIds ?? []) {
-        const hrefs = getSpeciesProfileGuideLinks(id).map((link) =>
-          link.kind === "page" ? link.href : null,
+        const hrefs = getSpeciesProfileGuideLinks(speciesFixture(id)!).map(
+          (link) => (link.kind === "page" ? link.href : null),
         );
         expect(hrefs, `${id} -> ${article.pathname}`).toContain(
           article.pathname,
@@ -48,14 +52,14 @@ describe("species profile guide links", () => {
       ["halyomorpha-halys", "/insects/farosana-sakhlshi"],
     ] as const;
     for (const [id, href] of pairs) {
-      const [first] = getSpeciesProfileGuideLinks(id);
+      const [first] = getSpeciesProfileGuideLinks(speciesFixture(id)!);
       expect(first?.kind === "page" ? first.href : null, id).toBe(href);
     }
   });
 
   it("stays within the limit without repeating a destination", () => {
     for (const item of catalog) {
-      const links = getSpeciesProfileGuideLinks(item.id);
+      const links = getSpeciesProfileGuideLinks(item);
       expect(links.length, item.id).toBeLessThanOrEqual(
         SPECIES_GUIDE_LINK_LIMIT,
       );
@@ -70,7 +74,7 @@ describe("species profile guide links", () => {
     for (const locale of routing.locales) {
       const copy = clusterCopy(locale);
       for (const item of catalog) {
-        for (const link of getSpeciesProfileGuideLinks(item.id)) {
+        for (const link of getSpeciesProfileGuideLinks(item)) {
           const card = copy[link.key];
           const label = `${locale} ${item.id} ${link.key}`;
           expect(card?.title?.trim(), label).toBeTruthy();

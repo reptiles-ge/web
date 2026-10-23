@@ -9,13 +9,12 @@ import type { CreditAuthorGroupStat } from "@/lib/creditAuthors";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { CoverImage } from "@/components/CoverImage";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { quizHref } from "@/lib/quizzes";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const EYEBROW =
@@ -197,10 +196,12 @@ export async function AuthorSpeciesGroups({
   species: number;
 }) {
   if (groups.length === 0) return null;
-  const [t, tNav] = await Promise.all([
+  const [t, tNav, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
   ]);
+  const byId = new Map(catalog.map((item) => [item.id, item]));
 
   return (
     <section className="py-12 lg:py-[88px]">
@@ -241,9 +242,8 @@ export async function AuthorSpeciesGroups({
               </div>
               <ul>
                 {group.species.map((item) => {
-                  const species = getSpeciesById(item.id);
-                  if (!species) return null;
-                  const localized = localizeSpecies(species, locale);
+                  const localized = byId.get(item.id);
+                  if (!localized) return null;
                   return (
                     <li className="border-t border-border/70" key={item.id}>
                       <Link

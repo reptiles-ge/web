@@ -1,10 +1,11 @@
 import type { NavbarData } from "@/components/NavbarMenu";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
-import { getAtlasStats } from "@/data/speciesAtlas";
+import { summarizeAtlas } from "@/data/speciesAtlas";
 import { GROUP_HUB_ILLUSTRATIONS, type GroupHubId } from "@/lib/groupHubs";
 
-export function getNavbarData(): NavbarData {
+export function getNavbarData(catalog: readonly CatalogCard[]): NavbarData {
   const entries = Object.entries(GROUP_HUB_ILLUSTRATIONS) as Array<
     [GroupHubId, string]
   >;
@@ -21,6 +22,6 @@ export function getNavbarData(): NavbarData {
         },
       ]),
     ) as NavbarData["images"],
-    stats: getAtlasStats(),
+    stats: summarizeAtlas(catalog),
   };
 }

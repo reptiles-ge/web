@@ -1,13 +1,13 @@
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 import type { SpeciesHref } from "@/lib/speciesRoutes";
 
 import { localizeRegionText, regions } from "@/data/regions";
 import {
   type AtlasStats,
-  getAtlasStats,
-  getVenomousCatalogSpecies,
+  pickVenomousSnakes,
+  summarizeAtlas,
 } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export type FooterData = {
@@ -29,22 +29,22 @@ type FooterSpeciesLink = {
   scientificName: string;
 };
 
-export function getFooterData(locale: AppLocale): FooterData {
+export function getFooterData(
+  locale: AppLocale,
+  catalog: readonly CatalogCard[],
+): FooterData {
   return {
     regions: regions.map((region) => ({
       href: regionHref(region.id),
       id: region.id,
       name: localizeRegionText(region.name, locale),
     })),
-    stats: getAtlasStats(),
-    venomous: getVenomousCatalogSpecies().map((item) => {
-      const localized = localizeSpecies(item, locale);
-      return {
-        commonName: localized.commonName,
-        href: speciesHref(item.id, locale),
-        id: item.id,
-        scientificName: localized.scientificName,
-      };
-    }),
+    stats: summarizeAtlas(catalog),
+    venomous: pickVenomousSnakes(catalog).map((item) => ({
+      commonName: item.commonName,
+      href: speciesHref(item.id, locale),
+      id: item.id,
+      scientificName: item.scientificName,
+    })),
   };
 }

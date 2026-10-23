@@ -12,8 +12,6 @@ import RegionPage, {
 } from "@/app/[locale]/regions/[id]/page";
 import RiskToHumansRoute from "@/app/[locale]/risk-to-humans/page";
 import { JsonLd } from "@/components/JsonLd";
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
 import { createGroupHubRoute } from "@/lib/createGroupHubRoute";
 import { speciesStructuredData } from "@/lib/createSpeciesRoute";
@@ -29,6 +27,20 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+vi.mock("@/lib/speciesCatalogApi", async () => {
+  const { speciesCatalogFixture } =
+    await import("../../tests/fixtures/speciesCatalog");
+  return {
+    getCreditPhotoCatalog: async () => speciesCatalogFixture("ka"),
+    getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
+      speciesCatalogFixture(locale),
+  };
+});
 
 const messages = { en, ka, ru, tr };
 
@@ -190,9 +202,9 @@ describe("FAQPage generators", () => {
   });
 
   it("write plain text without first-aid steps on species pages", () => {
-    for (const raw of getCatalogSpecies()) {
+    for (const raw of catalogSpeciesFixture()) {
       for (const locale of routing.locales) {
-        const item = localizeSpecies(raw, locale);
+        const item = localizedFixture(raw, locale);
         const pages = (
           speciesStructuredData({
             breadcrumbCrumbs: [{ name: item.commonName }],
@@ -210,11 +222,11 @@ describe("FAQPage generators", () => {
   });
 
   it("drop the giurza bite steps but keep its other questions", () => {
-    const raw = getCatalogSpecies().find(
+    const raw = catalogSpeciesFixture().find(
       (entry) => entry.id === "macrovipera-lebetina",
     )!;
     for (const locale of routing.locales) {
-      const item = localizeSpecies(raw, locale);
+      const item = localizedFixture(raw, locale);
       const page = (
         speciesStructuredData({
           breadcrumbCrumbs: [{ name: item.commonName }],
@@ -235,8 +247,8 @@ describe("FAQPage generators", () => {
 
   it("leave out the same species questions in every locale", () => {
     const counts = (locale: (typeof routing.locales)[number]) =>
-      getCatalogSpecies().map((raw) => {
-        const faq = localizeSpecies(raw, locale).faq ?? [];
+      catalogSpeciesFixture().map((raw) => {
+        const faq = localizedFixture(raw, locale).faq ?? [];
         return `${raw.id}:${faq.length - schemaFaqEntries(faq).length}`;
       });
     for (const locale of routing.locales) {

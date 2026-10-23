@@ -9,6 +9,8 @@ import { newsOgImageUrl } from "@/lib/news";
 import { newsHeroImage, newsSchemaImages } from "@/lib/newsSchemaImages";
 import { newsImageRights } from "@/lib/newsVisual";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
 const crops = vi.hoisted(() => new Map<string, NewsSchemaCrop[]>());
 
 vi.mock("@/data/newsSchemaImages", async (importOriginal) => ({
@@ -40,7 +42,9 @@ beforeEach(() => {
 
 describe("newsHeroImage", () => {
   it("is null without a photo", () => {
-    expect(newsHeroImage(articleWith(undefined))).toBeNull();
+    expect(
+      newsHeroImage(articleWith(undefined), speciesCatalogFixture("ka")),
+    ).toBeNull();
   });
 
   it("is null when the photo size is unknown", () => {
@@ -50,6 +54,7 @@ describe("newsHeroImage", () => {
           alt: { ka: "ფოტო" },
           src: "https://cdn.reptiles.ge/news-schema-test-unsized.jpg",
         }),
+        speciesCatalogFixture("ka"),
       ),
     ).toBeNull();
   });
@@ -63,6 +68,7 @@ describe("newsHeroImage", () => {
           src: "/images/news/test/hero.jpg",
           width: 1920,
         }),
+        speciesCatalogFixture("ka"),
       ),
     ).toEqual({
       height: 1080,
@@ -79,7 +85,7 @@ describe("newsHeroImage", () => {
     expect(article).toBeDefined();
     const src = article!.image!.src;
     const entry = optimizedEntry(src)!;
-    expect(newsHeroImage(article!)).toEqual({
+    expect(newsHeroImage(article!, speciesCatalogFixture("ka"))).toEqual({
       height: entry.height,
       src,
       url: optimizedImgSrc(src, entry.width),
@@ -93,12 +99,22 @@ describe("newsSchemaImages", () => {
     "leads with the share card and its rights in %s",
     (locale) => {
       for (const article of articles) {
-        const [first] = newsSchemaImages(article, locale);
+        const [first] = newsSchemaImages(
+          article,
+          locale,
+          speciesCatalogFixture(locale),
+          speciesCatalogFixture("ka"),
+        );
         expect(first, article.slug).toMatchObject({
           "@type": "ImageObject",
-          contentUrl: newsOgImageUrl(article),
-          url: newsOgImageUrl(article),
-          ...newsImageRights(article, locale),
+          contentUrl: newsOgImageUrl(article, speciesCatalogFixture("ka")),
+          url: newsOgImageUrl(article, speciesCatalogFixture("ka")),
+          ...newsImageRights(
+            article,
+            locale,
+            speciesCatalogFixture(locale),
+            speciesCatalogFixture("ka"),
+          ),
         });
       }
     },
@@ -106,7 +122,12 @@ describe("newsSchemaImages", () => {
 
   it("lists only sized, absolute, unique images", () => {
     for (const article of articles) {
-      const images = newsSchemaImages(article, "ka");
+      const images = newsSchemaImages(
+        article,
+        "ka",
+        speciesCatalogFixture("ka"),
+        speciesCatalogFixture("ka"),
+      );
       const urls = images.map((image) => image.url);
       expect(new Set(urls).size, article.slug).toBe(urls.length);
       for (const image of images) {
@@ -121,8 +142,15 @@ describe("newsSchemaImages", () => {
   });
 
   it("adds a wide hero after the share card", () => {
-    expect(newsSchemaImages(wide, "en").map((image) => image.url)).toEqual([
-      newsOgImageUrl(wide),
+    expect(
+      newsSchemaImages(
+        wide,
+        "en",
+        speciesCatalogFixture("en"),
+        speciesCatalogFixture("ka"),
+      ).map((image) => image.url),
+    ).toEqual([
+      newsOgImageUrl(wide, speciesCatalogFixture("ka")),
       "https://cdn.reptiles.ge/news-schema-test-wide.jpg",
     ]);
   });
@@ -134,7 +162,14 @@ describe("newsSchemaImages", () => {
       src: "https://cdn.reptiles.ge/news-schema-test-narrow.jpg",
       width: 750,
     });
-    expect(newsSchemaImages(narrow, "en")).toHaveLength(1);
+    expect(
+      newsSchemaImages(
+        narrow,
+        "en",
+        speciesCatalogFixture("en"),
+        speciesCatalogFixture("ka"),
+      ),
+    ).toHaveLength(1);
   });
 
   it("does not repeat a hero that is already the share image", () => {
@@ -144,7 +179,14 @@ describe("newsSchemaImages", () => {
       src: "/images/news/test/hero.jpg",
       width: 1920,
     });
-    expect(newsSchemaImages(local, "en")).toHaveLength(1);
+    expect(
+      newsSchemaImages(
+        local,
+        "en",
+        speciesCatalogFixture("en"),
+        speciesCatalogFixture("ka"),
+      ),
+    ).toHaveLength(1);
   });
 
   it("lists the generated crops before the full hero", () => {
@@ -168,7 +210,12 @@ describe("newsSchemaImages", () => {
         width: 1200,
       },
     ]);
-    const images = newsSchemaImages(wide, "ru");
+    const images = newsSchemaImages(
+      wide,
+      "ru",
+      speciesCatalogFixture("ru"),
+      speciesCatalogFixture("ka"),
+    );
     expect(images.map((image) => [image.width, image.height])).toEqual([
       [1200, 630],
       [1200, 675],
@@ -177,7 +224,14 @@ describe("newsSchemaImages", () => {
       [2000, 1333],
     ]);
     for (const image of images) {
-      expect(image).toMatchObject(newsImageRights(wide, "ru"));
+      expect(image).toMatchObject(
+        newsImageRights(
+          wide,
+          "ru",
+          speciesCatalogFixture("ru"),
+          speciesCatalogFixture("ka"),
+        ),
+      );
     }
   });
 });

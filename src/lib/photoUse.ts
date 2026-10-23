@@ -1,9 +1,8 @@
 import type { CreditAuthor } from "@/data/creditAuthors";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
-import type { PhotoCredit } from "@/data/speciesTypes";
+import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
 
 import { photoLicenses } from "@/data/photoLicenses";
-import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { isCoverCrop } from "@/lib/coverCrop";
 import { photoContributor, photoRightsCategory } from "@/lib/imageRights";
@@ -35,9 +34,12 @@ export const PHOTO_USE_FAQ = ["cc", "credit", "text"] as const;
 
 const CC_PREFIX = "https://creativecommons.org/";
 
-export function getPhotoUseCreditExample(
-  photos: PhotoUsePhoto[] = getPhotoUsePhotos(),
-) {
+type PhotoUseSource = Pick<
+  SpeciesPhotoFields,
+  "gallery" | "id" | "image" | "imageCredit"
+>;
+
+export function getPhotoUseCreditExample(photos: PhotoUsePhoto[]) {
   const photo = photos.find(
     (item) =>
       !item.author &&
@@ -53,8 +55,10 @@ export function getPhotoUseCreditExample(
   };
 }
 
-export function getPhotoUseHeroPhotos(): PhotoUsePhoto[] {
-  return getCatalogSpecies().flatMap((species) => {
+export function getPhotoUseHeroPhotos(
+  catalog: readonly PhotoUseSource[],
+): PhotoUsePhoto[] {
+  return catalog.flatMap((species) => {
     if (!species.image || isPlaceholderMedia(species.image)) return [];
     return [
       {
@@ -68,10 +72,12 @@ export function getPhotoUseHeroPhotos(): PhotoUsePhoto[] {
   });
 }
 
-export function getPhotoUsePhotos(): PhotoUsePhoto[] {
+export function getPhotoUsePhotos(
+  catalog: readonly PhotoUseSource[],
+): PhotoUsePhoto[] {
   const seen = new Set<string>();
   const photos: PhotoUsePhoto[] = [];
-  for (const species of getCatalogSpecies()) {
+  for (const species of catalog) {
     const group = getSpeciesAtlasMeta(species.id).group;
     for (const item of species.gallery) {
       if (!item.src || seen.has(item.src)) continue;
@@ -89,9 +95,7 @@ export function getPhotoUsePhotos(): PhotoUsePhoto[] {
   return photos;
 }
 
-export function getPhotoUseShowcase(
-  heroes: PhotoUsePhoto[] = getPhotoUseHeroPhotos(),
-) {
+export function getPhotoUseShowcase(heroes: PhotoUsePhoto[]) {
   const usedAuthors = new Set<string>();
   const picks: Array<PhotoUsePhoto & { author: CreditAuthor }> = [];
   for (const group of PHOTO_USE_SHOWCASE_GROUPS) {
@@ -110,9 +114,7 @@ export function getPhotoUseShowcase(
   return picks;
 }
 
-export function getPhotoUseStats(
-  photos: PhotoUsePhoto[] = getPhotoUsePhotos(),
-) {
+export function getPhotoUseStats(photos: PhotoUsePhoto[]) {
   const photographers = new Set<string>();
   const stats = { contributors: 0, open: 0, permission: 0, unknown: 0 };
   for (const photo of photos) {

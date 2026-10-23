@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { loadSpeciesPageAnalysis } from "@/components/admin/devAdminComponents";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
@@ -14,7 +15,6 @@ import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
-import { hasFieldRecords } from "@/lib/occurrenceSummaries";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -27,6 +27,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
@@ -34,8 +35,8 @@ import { speciesShareMessage } from "@/lib/speciesShareText";
 
 type SpeciesProfileProps = {
   locale: AppLocale;
-  lookalikes: Species[];
-  related: Species[];
+  lookalikes: CatalogCard[];
+  related: CatalogCard[];
   species: Species;
 };
 
@@ -85,13 +86,14 @@ export async function SpeciesProfile({
   related,
   species,
 }: SpeciesProfileProps) {
-  const [t, tHubs, tDanger, tAnalysis] = await Promise.all([
+  const [t, tHubs, tDanger, tAnalysis, fieldRecords] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "pageAnalysis" }),
+    getSpeciesFieldRecords(species.id),
   ]);
-  const guideLinks = getSpeciesProfileGuideLinks(species.id);
+  const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
   const breadcrumbs = buildSpeciesBreadcrumbs({
@@ -169,7 +171,7 @@ export async function SpeciesProfile({
   });
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
-    getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
+    getRegionsForSpecies(species.id).length > 0 || fieldRecords.length > 0;
   const showIdentification = hasRealIdentification(species.identification);
   const biologyCopy =
     species.id === "halyomorpha-halys"
@@ -230,6 +232,7 @@ export async function SpeciesProfile({
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
+        fieldRecords={fieldRecords}
         gallery={gallery}
         guideLinks={guideLinks}
         hasRange={hasRange}
@@ -283,7 +286,6 @@ export async function SpeciesProfile({
             textsNoChanges: tAnalysis("textsNoChanges"),
             textsProcessing: tAnalysis("textsProcessing"),
             textsReport: tAnalysis("textsReport"),
-            textsStale: tAnalysis("textsStale"),
             workflowDescription: tAnalysis("workflowDescription"),
             workflowError: tAnalysis("workflowError"),
             workflowProcessing: tAnalysis("workflowProcessing"),

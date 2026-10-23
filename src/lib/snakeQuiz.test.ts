@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { isDarevskiaSpecies } from "@/lib/clusterGuides";
 import {
   getLizardQuizCatalog,
@@ -9,9 +8,14 @@ import {
 } from "@/lib/snakeQuiz";
 import { generateLizardQuiz } from "@/lib/snakeQuizEngine";
 
+import {
+  catalogSpeciesFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
 describe("quiz catalogs", () => {
   it("keeps the glass lizard out of the snake pool and in the lizard pool", () => {
-    const catalog = getCatalogSpecies();
+    const catalog = catalogSpeciesFixture();
     const snakes = getSnakeQuizCatalog(catalog);
     const lizards = getLizardQuizCatalog(catalog);
     expect(snakes.some((item) => item.id === "pseudopus-apodus")).toBe(false);
@@ -22,9 +26,9 @@ describe("quiz catalogs", () => {
   });
 
   it("does not collapse Darevskia into one option", () => {
-    const lizards = getLizardQuizCatalog(getCatalogSpecies());
+    const lizards = getLizardQuizCatalog(catalogSpeciesFixture());
     const darevskia = lizards.filter((item) =>
-      isDarevskiaSpecies(getSpeciesById(item.id)!),
+      isDarevskiaSpecies(speciesFixture(item.id)!),
     );
     expect(darevskia.length).toBeGreaterThan(1);
     expect(new Set(darevskia.map((item) => item.id)).size).toBe(
@@ -33,7 +37,7 @@ describe("quiz catalogs", () => {
   });
 
   it("builds a lizard round from lizards only", () => {
-    const lizards = getLizardQuizCatalog(getCatalogSpecies());
+    const lizards = getLizardQuizCatalog(catalogSpeciesFixture());
     const round = generateLizardQuiz(lizards, { rng: () => 0.2 });
     expect(round.length).toBe(10);
     const lizardIds = new Set(lizards.map((item) => item.id));
@@ -47,7 +51,7 @@ describe("quiz catalogs", () => {
 });
 
 describe("quiz hint", () => {
-  const base = getSpeciesById("natrix-natrix")!;
+  const base = speciesFixture("natrix-natrix")!;
   const species = (overrides: Partial<typeof base>) => ({
     ...base,
     id: "hint-test",
@@ -63,6 +67,7 @@ describe("quiz hint", () => {
         },
         stats: [{ label: "Местообитание", value: "Wet meadows" }],
       }),
+      catalogSpeciesFixture(),
     ).hint;
     expect(hint).toBe("Wet meadows");
   });
@@ -75,6 +80,7 @@ describe("quiz hint", () => {
           identification: { ...base.identification!, traits: [] },
           stats: [{ label, value: "Riverbanks" }],
         }),
+        catalogSpeciesFixture(),
       ).hint;
       expect(hint).toBe("Riverbanks");
     },

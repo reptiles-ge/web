@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
+import type { CatalogQuizSpecies } from "@/data/speciesCatalogTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { QuizCopyNamespace } from "@/lib/quizzes";
 import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
@@ -28,7 +28,7 @@ type QuizLandingProps = {
   namespace: QuizCopyNamespace;
   pool: SnakeQuizSpecies[];
   quizId: string;
-  species: Species[];
+  species: CatalogQuizSpecies[];
 };
 
 export async function QuizLanding({
@@ -55,8 +55,8 @@ export async function QuizLanding({
       (
         pair,
       ): pair is {
-        a: Species;
-        b: Species;
+        a: CatalogQuizSpecies;
+        b: CatalogQuizSpecies;
         bodyKey: (typeof LOOKALIKE_BODIES)[number];
       } => Boolean(pair.a && pair.b && pair.bodyKey),
     );
@@ -207,7 +207,7 @@ function LookalikeThumb({
   species,
 }: {
   locale: AppLocale;
-  species: Species;
+  species: CatalogQuizSpecies;
 }) {
   return (
     <Link

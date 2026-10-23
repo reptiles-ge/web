@@ -12,9 +12,7 @@ import { VenomousSnakesCta } from "@/components/VenomousSnakesCta";
 import { VenomousSnakesGuides } from "@/components/VenomousSnakesGuides";
 import { VenomousSnakesHero } from "@/components/VenomousSnakesHero";
 import { VenomousSnakesSpecies } from "@/components/VenomousSnakesSpecies";
-import { getSpeciesById, type Species } from "@/data/species";
 import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
   getHubPageRelatedGuides,
@@ -22,6 +20,7 @@ import {
   getViperSpecies,
   REAR_FANGED_SPECIES_IDS,
 } from "@/lib/clusterGuides";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
@@ -32,7 +31,7 @@ type VenomousSnakesPageProps = {
   heroSrc: string;
   locale: AppLocale;
   publishedAt: string;
-  species: Species[];
+  species: CatalogCard[];
   updatedAt: string;
 };
 
@@ -43,13 +42,17 @@ export async function VenomousSnakesPage({
   species,
   updatedAt,
 }: VenomousSnakesPageProps) {
-  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "venomousSnakes" }),
+    getSpeciesCatalog(locale),
+  ]);
   const vipers = getViperSpecies(species);
+  const listed = new Set(species.map((item) => item.id));
+  const byId = new Map(catalog.map((item) => [item.id, item]));
   const rearFangedPool = [...species];
   for (const id of REAR_FANGED_SPECIES_IDS) {
-    if (rearFangedPool.some((item) => item.id === id)) continue;
-    const extra = getSpeciesById(id);
-    if (extra) rearFangedPool.push(localizeSpecies(extra, locale));
+    const extra = listed.has(id) ? undefined : byId.get(id);
+    if (extra) rearFangedPool.push(extra);
   }
   const rearFanged = getRearFangedSpecies(rearFangedPool);
   const highCount = species.filter((item) => item.danger === "High").length;

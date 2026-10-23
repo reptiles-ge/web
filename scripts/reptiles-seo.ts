@@ -12,17 +12,12 @@ import {
   sitemapRegionDatePublished,
 } from "../src/data/pageLastModified";
 import { regions } from "../src/data/regions";
-import { getCatalogSpecies } from "../src/data/species";
-import {
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-} from "../src/data/speciesAtlas";
-import { localizeSpecies } from "../src/i18n/localizeSpecies";
+import type { AnimalGroup } from "../src/data/speciesAtlas";
 import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
 import { creditAuthorUrl } from "../src/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "../src/lib/groupHubs";
-import { buildRobotsTxt } from "../src/lib/llmsFiles";
+import { buildRobotsTxt } from "../src/lib/robotsTxt";
 import { newsArticleUrl } from "../src/lib/news";
 import { liveQuizzes } from "../src/lib/quizzes";
 import { localePath, quizPageUrl, speciesPageUrl } from "../src/lib/site";
@@ -33,6 +28,7 @@ import {
   quizModifiedDate,
   regionModifiedDate,
 } from "../src/lib/structuredDataDates";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
 
@@ -294,7 +290,7 @@ async function main() {
   }
 
   const graph = await readSeoGraph();
-  const inventory = buildInventory(graph);
+  const inventory = await buildInventory(graph);
   const technicalIssues = buildTechnicalIssues(graph, inventory);
   const gscData =
     args.command === "technical"
@@ -588,15 +584,15 @@ function buildGscOpportunities(
   return opportunities;
 }
 
-function buildInventory(graph: SeoGraph): InventoryItem[] {
-  const speciesItems = speciesInventory();
+async function buildInventory(graph: SeoGraph): Promise<InventoryItem[]> {
+  const speciesItems = await speciesInventory();
   const byUrl = new Map(speciesItems.map((item) => [item.url, item]));
-  for (const item of hubInventory()) byUrl.set(item.url, item);
-  for (const item of guideInventory()) byUrl.set(item.url, item);
+  for (const item of await hubInventory()) byUrl.set(item.url, item);
+  for (const item of await guideInventory()) byUrl.set(item.url, item);
   for (const item of newsInventory()) byUrl.set(item.url, item);
-  for (const item of authorInventory()) byUrl.set(item.url, item);
-  for (const item of regionInventory()) byUrl.set(item.url, item);
-  for (const item of quizInventory()) byUrl.set(item.url, item);
+  for (const item of await authorInventory()) byUrl.set(item.url, item);
+  for (const item of await regionInventory()) byUrl.set(item.url, item);
+  for (const item of await quizInventory()) byUrl.set(item.url, item);
 
   return graph.routes.map((route) => {
     const url = normalizeUrl(route.canonicalUrl);
@@ -1288,57 +1284,62 @@ async function googleAccessToken(scopes: string[]) {
   return json.access_token;
 }
 
-function hubInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    GROUP_HUB_LIST.map((hub) => ({
-      alternates: {},
-      canonicalUrl: "",
-      description: null,
-      group: hub.group,
-      h1: null,
-      id: hub.id,
-      inSitemap: true,
-      indexable: true,
-      internalLinksIn: null,
-      internalLinksOut: null,
-      datePublished: sitemapPathDatePublished(hub.path),
-      lastModified: pageModifiedDate(hub.path, locale),
-      locale,
-      pageType: "hub/index",
-      path: localePath(locale, hub.path),
-      schemaTypes: ["CollectionPage", "FAQPage", "BreadcrumbList"],
-      title: hub.id,
-      url: absoluteFromPath(localePath(locale, hub.path)),
-    })),
+async function hubInventory(): Promise<InventoryItem[]> {
+  return Promise.all(
+    routing.locales.flatMap((locale) =>
+      GROUP_HUB_LIST.map(async (hub) => ({
+        alternates: {},
+        canonicalUrl: "",
+        description: null,
+        group: hub.group,
+        h1: null,
+        id: hub.id,
+        inSitemap: true,
+        indexable: true,
+        internalLinksIn: null,
+        internalLinksOut: null,
+        datePublished: sitemapPathDatePublished(hub.path),
+        lastModified: await pageModifiedDate(hub.path, locale),
+        locale,
+        pageType: "hub/index",
+        path: localePath(locale, hub.path),
+        schemaTypes: ["CollectionPage", "FAQPage", "BreadcrumbList"],
+        title: hub.id,
+        url: absoluteFromPath(localePath(locale, hub.path)),
+      })),
+    ),
   );
 }
 
-function guideInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    CLUSTER_GUIDE_LIST.map((guide) => ({
-      alternates: {},
-      canonicalUrl: "",
-      description: null,
-      group:
-        GROUP_HUB_LIST.find((hub) => hub.id === guide.parentHub)?.group ?? null,
-      h1: null,
-      id: guide.id,
-      inSitemap: true,
-      indexable: true,
-      internalLinksIn: null,
-      internalLinksOut: null,
-      datePublished: sitemapPathDatePublished(guide.pathname),
-      lastModified: pageModifiedDate(guide.pathname, locale),
-      locale,
-      pageType: "guide",
-      path: localePath(locale, guide.pathname),
-      schemaTypes: [
-        guide.schema === "collection" ? "CollectionPage" : "WebPage",
-        "BreadcrumbList",
-      ],
-      title: guide.id,
-      url: absoluteFromPath(localePath(locale, guide.pathname)),
-    })),
+async function guideInventory(): Promise<InventoryItem[]> {
+  return Promise.all(
+    routing.locales.flatMap((locale) =>
+      CLUSTER_GUIDE_LIST.map(async (guide) => ({
+        alternates: {},
+        canonicalUrl: "",
+        description: null,
+        group:
+          GROUP_HUB_LIST.find((hub) => hub.id === guide.parentHub)?.group ??
+          null,
+        h1: null,
+        id: guide.id,
+        inSitemap: true,
+        indexable: true,
+        internalLinksIn: null,
+        internalLinksOut: null,
+        datePublished: sitemapPathDatePublished(guide.pathname),
+        lastModified: await pageModifiedDate(guide.pathname, locale),
+        locale,
+        pageType: "guide",
+        path: localePath(locale, guide.pathname),
+        schemaTypes: [
+          guide.schema === "collection" ? "CollectionPage" : "WebPage",
+          "BreadcrumbList",
+        ],
+        title: guide.id,
+        url: absoluteFromPath(localePath(locale, guide.pathname)),
+      })),
+    ),
   );
 }
 
@@ -1370,92 +1371,106 @@ function newsInventory(): InventoryItem[] {
   );
 }
 
-function authorInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    getPublishedCreditAuthors().map((author) => {
-      const name = author.name[locale] ?? author.name.ka;
-      return {
+async function authorInventory(): Promise<InventoryItem[]> {
+  return Promise.all(
+    routing.locales.flatMap((locale) =>
+      getPublishedCreditAuthors().map(async (author) => {
+        const name = author.name[locale] ?? author.name.ka;
+        return {
+          alternates: {},
+          canonicalUrl: "",
+          description: null,
+          group: null,
+          h1: name,
+          id: author.slug,
+          inSitemap: true,
+          indexable: true,
+          internalLinksIn: null,
+          internalLinksOut: null,
+          datePublished: sitemapAuthorDatePublished(author.slug),
+          lastModified: await authorModifiedDate(author.slug, locale),
+          locale,
+          pageType: "author",
+          path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
+          schemaTypes: ["ProfilePage", "BreadcrumbList"],
+          title: name,
+          url: normalizeUrl(creditAuthorUrl(locale, author.slug)),
+        };
+      }),
+    ),
+  );
+}
+
+async function regionInventory(): Promise<InventoryItem[]> {
+  return Promise.all(
+    routing.locales.flatMap((locale) =>
+      regions.map(async (region) => {
+        const name = region.name[locale] ?? region.name.ka;
+        return {
+          alternates: {},
+          canonicalUrl: "",
+          description: null,
+          group: null,
+          h1: name,
+          id: region.id,
+          inSitemap: true,
+          indexable: true,
+          internalLinksIn: null,
+          internalLinksOut: null,
+          datePublished: sitemapRegionDatePublished(region.id),
+          lastModified: await regionModifiedDate(region.id, locale),
+          locale,
+          pageType: "region page",
+          path: localePath(locale, regionHref(region.id)),
+          schemaTypes: ["CollectionPage", "BreadcrumbList"],
+          title: name,
+          url: absoluteFromPath(localePath(locale, regionHref(region.id))),
+        };
+      }),
+    ),
+  );
+}
+
+async function quizInventory(): Promise<InventoryItem[]> {
+  return Promise.all(
+    routing.locales.flatMap((locale) =>
+      liveQuizzes().map(async (quiz) => ({
         alternates: {},
         canonicalUrl: "",
         description: null,
         group: null,
-        h1: name,
-        id: author.slug,
+        h1: quiz.id,
+        id: quiz.id,
         inSitemap: true,
         indexable: true,
         internalLinksIn: null,
         internalLinksOut: null,
-        datePublished: sitemapAuthorDatePublished(author.slug),
-        lastModified: authorModifiedDate(author.slug, locale),
+        datePublished: sitemapQuizDatePublished(quiz.id),
+        lastModified: await quizModifiedDate(quiz.id, locale),
         locale,
-        pageType: "author",
-        path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
-        schemaTypes: ["ProfilePage", "BreadcrumbList"],
-        title: name,
-        url: normalizeUrl(creditAuthorUrl(locale, author.slug)),
-      };
-    }),
+        pageType: "quiz",
+        path: new URL(quizPageUrl(locale, quiz.id)).pathname,
+        schemaTypes: ["WebPage", "BreadcrumbList"],
+        title: quiz.id,
+        url: normalizeUrl(quizPageUrl(locale, quiz.id)),
+      })),
+    ),
   );
 }
 
-function regionInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    regions.map((region) => {
-      const name = region.name[locale] ?? region.name.ka;
-      return {
-        alternates: {},
-        canonicalUrl: "",
-        description: null,
-        group: null,
-        h1: name,
-        id: region.id,
-        inSitemap: true,
-        indexable: true,
-        internalLinksIn: null,
-        internalLinksOut: null,
-        datePublished: sitemapRegionDatePublished(region.id),
-        lastModified: regionModifiedDate(region.id, locale),
-        locale,
-        pageType: "region page",
-        path: localePath(locale, regionHref(region.id)),
-        schemaTypes: ["CollectionPage", "BreadcrumbList"],
-        title: name,
-        url: absoluteFromPath(localePath(locale, regionHref(region.id))),
-      };
-    }),
+async function speciesInventory(): Promise<InventoryItem[]> {
+  const catalogs = await Promise.all(
+    routing.locales.map((locale) => getSpeciesCatalog(locale, "full")),
   );
-}
-
-function quizInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    liveQuizzes().map((quiz) => ({
-      alternates: {},
-      canonicalUrl: "",
-      description: null,
-      group: null,
-      h1: quiz.id,
-      id: quiz.id,
-      inSitemap: true,
-      indexable: true,
-      internalLinksIn: null,
-      internalLinksOut: null,
-      datePublished: sitemapQuizDatePublished(quiz.id),
-      lastModified: quizModifiedDate(quiz.id, locale),
-      locale,
-      pageType: "quiz",
-      path: new URL(quizPageUrl(locale, quiz.id)).pathname,
-      schemaTypes: ["WebPage", "BreadcrumbList"],
-      title: quiz.id,
-      url: normalizeUrl(quizPageUrl(locale, quiz.id)),
-    })),
+  const kaById = new Map(
+    (catalogs[routing.locales.indexOf(routing.defaultLocale)] ?? []).map(
+      (entry) => [entry.id, entry],
+    ),
   );
-}
-
-function speciesInventory(): InventoryItem[] {
-  return routing.locales.flatMap((locale) =>
-    getCatalogSpecies().map((raw) => {
-      const item = localizeSpecies(raw, locale);
-      const group = getSpeciesAtlasMeta(raw.id).group;
+  return routing.locales.flatMap((locale, index) =>
+    (catalogs[index] ?? []).map((item) => {
+      const raw = kaById.get(item.id) ?? item;
+      const group = item.group;
       const url = speciesPageUrl(locale, raw.id);
       return {
         alternates: {},
@@ -1971,7 +1986,7 @@ const INSPECTION_QUOTA: Record<InspectionFamily, Record<AppLocale, number>> = {
   species: { en: 6, ka: 14, ru: 4, tr: 3 },
 };
 
-function inspectionFamilies() {
+function inspectionFamilies(speciesIds: readonly string[]) {
   const families = new Map<string, InspectionFamily>();
   const add = (url: string, family: InspectionFamily) =>
     families.set(normalizeUrl(url), family);
@@ -1991,8 +2006,7 @@ function inspectionFamilies() {
         absoluteFromPath(localePath(locale, regionHref(region.id))),
         "region",
       );
-    for (const item of getCatalogSpecies())
-      add(speciesPageUrl(locale, item.id), "species");
+    for (const id of speciesIds) add(speciesPageUrl(locale, id), "species");
     for (const article of getPublishedNewsArticles(locale))
       add(newsArticleUrl(locale, article.slug), "news");
     for (const author of getPublishedCreditAuthors())
@@ -2009,7 +2023,9 @@ async function urlInspectionSample() {
   const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
     normalizeUrl(match[1]),
   );
-  const families = inspectionFamilies();
+  const families = inspectionFamilies(
+    (await getSpeciesCatalog(routing.defaultLocale)).map((item) => item.id),
+  );
   const buckets = new Map<string, string[]>();
   for (const url of urls) {
     const family = families.get(url) ?? "other";

@@ -1,6 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { http, HttpResponse } from "msw";
+import { beforeAll, describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
+import type { DangerLevel } from "@/data/speciesTypes";
+
 import {
   getAtlasStats,
   getCatalogByDanger,
@@ -9,11 +11,19 @@ import {
   getVenomousCatalogSpecies,
   isVenomousDanger,
 } from "@/data/speciesAtlas";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
-const catalog = getCatalogSpecies();
+import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+import { server } from "../../tests/msw/server";
+
+const catalog = catalogSpeciesFixture();
 
 describe("getAtlasStats", () => {
-  const stats = getAtlasStats();
+  let stats: Awaited<ReturnType<typeof getAtlasStats>>;
+
+  beforeAll(async () => {
+    stats = await getAtlasStats("ka");
+  });
 
   it("counts every published species exactly once across groups", () => {
     const groups =
@@ -30,9 +40,13 @@ describe("getAtlasStats", () => {
     expect(groups).toBe(stats.total);
   });
 
-  it("matches the documented published group sizes", () => {
-    expect(stats.snakes).toBe(getCatalogSpeciesByGroup("snake").length);
-    expect(stats.turtles).toBe(getCatalogSpeciesByGroup("turtle").length);
+  it("matches the documented published group sizes", async () => {
+    expect(stats.snakes).toBe(
+      (await getCatalogSpeciesByGroup("snake", "en")).length,
+    );
+    expect(stats.turtles).toBe(
+      (await getCatalogSpeciesByGroup("turtle", "en")).length,
+    );
     expect(stats.regions).toBe(12);
   });
 
@@ -46,8 +60,19 @@ describe("getAtlasStats", () => {
     expect(Date.parse(stats.lastUpdated ?? "")).toBe(latest);
   });
 
-  it("handles an empty catalog", () => {
-    const empty = getAtlasStats([]);
+  it("counts every gallery photo", () => {
+    expect(stats.photos).toBe(
+      catalog.reduce((sum, item) => sum + item.gallery.length, 0),
+    );
+  });
+
+  it("handles an empty catalog", async () => {
+    server.use(
+      http.get("https://api.reptiles.ge/v1/catalog", () =>
+        HttpResponse.json({ data: [] }),
+      ),
+    );
+    const empty = await getAtlasStats("ka");
     expect(empty.total).toBe(0);
     expect(empty.lastUpdated).toBeNull();
     expect(empty.venomous).toBe(0);
@@ -55,7 +80,11 @@ describe("getAtlasStats", () => {
 });
 
 describe("getCatalogByDanger", () => {
-  const groups = getCatalogByDanger();
+  let groups: Record<DangerLevel, CatalogCard[]>;
+
+  beforeAll(async () => {
+    groups = getCatalogByDanger(await getSpeciesCatalog("en"));
+  });
 
   it("puts each species with a danger level into exactly one bucket", () => {
     const withDanger = catalog.filter((item) => item.danger);
@@ -83,24 +112,24 @@ describe("getCatalogByDanger", () => {
 });
 
 describe("getCatalogSpeciesByGroup", () => {
-  it("returns only that group, sorted by scientific name", () => {
-    const snakes = getCatalogSpeciesByGroup("snake");
+  it("returns only that group, sorted by scientific name", async () => {
+    const snakes = await getCatalogSpeciesByGroup("snake", "ka");
     const names = snakes.map((item) => item.scientificName);
     expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b)));
     expect(snakes.map((item) => item.id)).toContain("natrix-natrix");
     expect(snakes.map((item) => item.id)).not.toContain("pseudopus-apodus");
   });
 
-  it("never returns the unpublished Dolichophis caspius", () => {
+  it("never returns the unpublished Dolichophis caspius", async () => {
     expect(
-      getCatalogSpeciesByGroup("snake").map((item) => item.id),
+      (await getCatalogSpeciesByGroup("snake", "ka")).map((item) => item.id),
     ).not.toContain("dolichophis-caspius");
   });
 });
 
 describe("getRecentlyUpdatedSpecies", () => {
-  it("returns the newest first and respects the limit", () => {
-    const recent = getRecentlyUpdatedSpecies(5);
+  it("returns the newest first and respects the limit", async () => {
+    const recent = await getRecentlyUpdatedSpecies("en", 5);
     expect(recent).toHaveLength(5);
     for (let index = 1; index < recent.length; index += 1) {
       expect(Date.parse(recent[index - 1].updatedAt)).toBeGreaterThanOrEqual(
@@ -109,14 +138,14 @@ describe("getRecentlyUpdatedSpecies", () => {
     }
   });
 
-  it("defaults to four", () => {
-    expect(getRecentlyUpdatedSpecies()).toHaveLength(4);
+  it("defaults to four", async () => {
+    expect(await getRecentlyUpdatedSpecies("en")).toHaveLength(4);
   });
 });
 
 describe("getVenomousCatalogSpecies", () => {
-  it("returns only venomous snakes", () => {
-    const venomous = getVenomousCatalogSpecies();
+  it("returns only venomous snakes", async () => {
+    const venomous = await getVenomousCatalogSpecies("en");
     expect(venomous.length).toBeGreaterThan(0);
     for (const item of venomous) {
       expect(isVenomousDanger(item.danger), item.id).toBe(true);

@@ -15,8 +15,10 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { getNavbarData } from "@/lib/navbarData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 export function generateMetadata(): Promise<Metadata> {
   return notFoundMetadata(routing.defaultLocale);
@@ -28,14 +30,17 @@ export default async function RootNotFound() {
     (await getMessages({ locale })) as ClientMessages,
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
-  const t = await getTranslations({ locale, namespace: "nav" });
+  const [t, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "nav" }),
+    getSpeciesCatalog(locale),
+  ]);
   return (
     <RootDocument locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider>
+        <LocaleSwitchProvider index={getLocaleSwitchIndex(catalog)}>
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
-          <Navbar {...getNavbarData()} />
+          <Navbar {...getNavbarData(catalog)} />
           <main id="main" tabIndex={-1}>
             <NotFoundShell locale={locale} />
           </main>

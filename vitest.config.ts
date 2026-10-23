@@ -77,6 +77,7 @@ export default defineConfig({
         statements: 57,
       },
     },
+    globalSetup: ["tests/setup/speciesFixtures.ts"],
     projects: [
       {
         extends: true,

@@ -3,19 +3,6 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
-import type { PhotoCoordinates } from "@/lib/photoCoordinates";
-
-import {
-  appendFieldRecordToSpecies,
-  appendGalleryItemToSpecies,
-  type CoverTarget,
-  isSpeciesContentId,
-  removeGalleryItemFromSpecies,
-  reorderGalleryInSpecies,
-  setCoverInSpecies,
-  updateGalleryPhotoCoordinatesInSpecies,
-} from "@/lib/adminGalleryMdx";
 import {
   applyOptimizeCatalog,
   type OptimizeCatalogUpdate,
@@ -24,261 +11,7 @@ import {
 const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/staging";
 const BASE_BRANCH = "staging";
-const MDX_FILES = ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"] as const;
-
-export async function openCoverPullRequest(input: {
-  catalog?: OptimizeCatalogUpdate[];
-  coverSrc?: string;
-  id: string;
-  src: string;
-  target: CoverTarget;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-
-  const catalog = input.catalog ?? [];
-  const cropped = Boolean(input.coverSrc && input.coverSrc !== input.src);
-
-  const label =
-    input.target === "both"
-      ? "desktop and mobile cover"
-      : input.target === "desktop"
-        ? "desktop cover"
-        : "mobile cover";
-
-  return withPhotoPullRequest({
-    apply: async (worktree) => {
-      setCoverInSpecies(
-        input.id,
-        input.target,
-        input.src,
-        worktree,
-        input.coverSrc ?? input.src,
-      );
-      await applyOptimizeCatalog(worktree, catalog);
-    },
-    commitBody: cropped
-      ? "Cropped cover from the local admin. The crop and its AVIF/WebP derivatives are already on the CDN; the gallery original is unchanged."
-      : "Cover photo updated from the local admin.",
-    editExistingBody: false,
-    extraFiles: optimizeCatalogFiles(catalog),
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Set ${cropped ? "cropped " : ""}${label} for \`${input.id}\` from local admin`,
-      "- Updates KA `image` / `mobileImage` (and overlay credits when those keys exist)",
-      ...(cropped
-        ? [
-            "- The crop is a separate CDN file used only as the cover; the gallery keeps the original",
-          ]
-        : []),
-      "",
-      "## Test plan",
-      "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
-    ].join("\n"),
-    title: `Set ${cropped ? "cropped " : ""}${label} for ${input.id}`,
-  });
-}
-
-export async function openFieldRecordPullRequest(input: {
-  id: string;
-  record: SpeciesFieldRecord;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      appendFieldRecordToSpecies(input.id, input.record, worktree);
-    },
-    commitBody: "Field location record added from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Add field location record for \`${input.id}\` from local admin`,
-      `- Location: ${input.record.locality} (${input.record.lat}, ${input.record.lng})`,
-      "- Stored as KA `fieldRecords` data; no gallery photo is added",
-      "",
-      "## Test plan",
-      "- [ ] Species profile map shows the location as a non-photo field record",
-      "- [ ] Existing gallery photo records still open the lightbox",
-    ].join("\n"),
-    title: `Add field record for ${input.id}`,
-  });
-}
-
-export async function openGalleryReorderPullRequest(input: {
-  id: string;
-  orderedSrcs: string[];
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (input.orderedSrcs.length < 2) {
-    throw new Error("Need at least two photos to reorder");
-  }
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      reorderGalleryInSpecies(input.id, input.orderedSrcs, worktree);
-    },
-    commitBody: "Gallery order updated from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Reorder gallery for \`${input.id}\` from local admin`,
-      "- KA `gallery` YAML order only; overlay locales still match credits by `src`",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery shows photos in the new order",
-    ].join("\n"),
-    title: `Reorder gallery for ${input.id}`,
-  });
-}
-
-export async function openPhotoCoordinatesPullRequest(input: {
-  coordinates: null | PhotoCoordinates;
-  id: string;
-  src: string;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (!input.src.trim()) {
-    throw new Error("Invalid gallery src");
-  }
-
-  const filename = input.src.split("/").at(-1) || input.src;
-  const coordinates = input.coordinates;
-  const clearing = coordinates === null;
-  const coordLabel = clearing
-    ? "clear coordinates"
-    : `set coordinates ${coordinates.lat}, ${coordinates.lng}`;
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      updateGalleryPhotoCoordinatesInSpecies(
-        input.id,
-        input.src,
-        coordinates,
-        worktree,
-      );
-    },
-    commitBody: clearing
-      ? "Photo coordinates cleared from the local admin."
-      : "Photo coordinates updated from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- ${coordLabel} on \`${filename}\` (\`${input.id}\`)`,
-      "- KA gallery credit `lat` / `lng` (and matching cover credits when the same `src`)",
-      "- Powers map link + ImageObject `GeoCoordinates` on the species page",
-      "",
-      "## Test plan",
-      "- [ ] Gallery / lightbox shows map pin link when coordinates are set",
-      "- [ ] JSON-LD ImageObject contentLocation includes GeoCoordinates",
-    ].join("\n"),
-    title: clearing
-      ? `Clear photo coordinates on ${input.id}`
-      : `Set photo coordinates on ${input.id}`,
-  });
-}
-
-export async function openPhotoPullRequest(input: {
-  catalog?: OptimizeCatalogUpdate[];
-  id: string;
-  items: Array<{
-    ka: GalleryImage;
-    overlays?: Partial<Record<"en" | "ru" | "tr", GalleryImage>>;
-  }>;
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (input.items.length === 0) {
-    throw new Error("No gallery changes to open a pull request for");
-  }
-
-  const catalog = input.catalog ?? [];
-  const noun = input.items.length === 1 ? "photo" : "photos";
-  const catalogFiles = optimizeCatalogFiles(catalog);
-
-  return withPhotoPullRequest({
-    apply: async (worktree) => {
-      for (const item of input.items) {
-        appendGalleryItemToSpecies(
-          input.id,
-          item.ka,
-          item.overlays ?? {},
-          worktree,
-        );
-      }
-      await applyOptimizeCatalog(worktree, catalog);
-    },
-    commitBody:
-      "Uploaded from the local admin. Originals and AVIF/WebP derivatives are already on the CDN.",
-    extraFiles: catalogFiles,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Gallery ${noun} for \`${input.id}\` from local admin`,
-      "- Originals and AVIF/WebP derivatives (400/800/1200/max) are on `cdn.reptiles.ge`",
-      "- `image-manifest.json` and `optimizedImages.generated.ts` updated so the gallery uses `<picture>` sources",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery shows the new photo(s) in every locale",
-      "- [ ] Network panel loads `.avif` (or `.webp`) derivatives, not only the JPEG original",
-    ].join("\n"),
-    title: `Add gallery ${noun} for ${input.id}`,
-  });
-}
-
-export async function openRemovePhotoPullRequest(input: {
-  id: string;
-  src: string;
-}): Promise<{ image: string; mobileImage: string; pullRequestUrl: string }> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (!input.src.trim()) {
-    throw new Error("Invalid gallery src");
-  }
-
-  const filename = input.src.split("/").at(-1) || input.src;
-  let covers = { image: "", mobileImage: "" };
-
-  const pullRequestUrl = await withPhotoPullRequest({
-    apply: (worktree) => {
-      const result = removeGalleryItemFromSpecies(
-        input.id,
-        input.src,
-        worktree,
-      );
-      covers = { image: result.image, mobileImage: result.mobileImage };
-    },
-    commitBody: "Gallery photo removed from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Remove \`${filename}\` from \`${input.id}\` gallery`,
-      "- KA `gallery` item and matching overlay credits by `src`",
-      "- If it was the cover, `image` / `mobileImage` move to another gallery photo",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery no longer shows the removed photo",
-      "- [ ] Hero cover is not the removed photo",
-    ].join("\n"),
-    title: `Remove gallery photo from ${input.id}`,
-  });
-
-  return { ...covers, pullRequestUrl };
-}
+const STANDALONE_ID = "external";
 
 export async function openStandalonePhotoPullRequest(
   catalog: OptimizeCatalogUpdate[],
@@ -289,16 +22,14 @@ export async function openStandalonePhotoPullRequest(
 
   return withPhotoPullRequest({
     apply: (worktree) => applyOptimizeCatalog(worktree, catalog),
-    baseFromCurrentBranch: true,
     commitBody:
       "Standalone originals and AVIF/WebP derivatives are already on the CDN.",
-    extraFiles: optimizeCatalogFiles(catalog),
-    id: "external",
+    files: optimizeCatalogFiles(catalog),
     prBody: [
       "## Summary",
       "- Register standalone CDN photos in `image-manifest.json` and `optimizedImages.generated.ts`",
       "- Originals and AVIF/WebP derivatives are already on `cdn.reptiles.ge`",
-      "- No species gallery or MDX changes",
+      "- No species gallery changes",
       "",
       "## Test plan",
       "- [ ] Uploaded URLs resolve on the CDN",
@@ -356,7 +87,6 @@ function currentBranchName(cwd: string) {
 
 async function findOpenPhotoPullRequest(
   baseBranch: string,
-  id: string,
 ): Promise<null | { branch: string; url: string }> {
   try {
     const raw = run(
@@ -379,7 +109,7 @@ async function findOpenPhotoPullRequest(
       headRefName?: string;
       url?: string;
     }>;
-    const prefix = `photos/${id}-`;
+    const prefix = `photos/${STANDALONE_ID}-`;
     const match = prs.find(
       (pr) =>
         typeof pr.headRefName === "string" &&
@@ -406,40 +136,12 @@ async function findOpenPhotoPullRequest(
       head?: { ref?: string };
       html_url?: string;
     }>;
-    const matchPr = prs.find((pr) => pr.head?.ref?.startsWith(`photos/${id}-`));
+    const matchPr = prs.find((pr) =>
+      pr.head?.ref?.startsWith(`photos/${STANDALONE_ID}-`),
+    );
     return matchPr?.head?.ref && matchPr.html_url
       ? { branch: matchPr.head.ref, url: matchPr.html_url }
       : null;
-  } catch {
-    return null;
-  }
-}
-
-async function findOpenPullRequestForHead(
-  branch: string,
-): Promise<null | string> {
-  try {
-    const raw = run(
-      "gh",
-      ["pr", "list", "--head", branch, "--state", "open", "--json", "url"],
-      REPO_ROOT,
-    );
-    const prs = JSON.parse(raw) as Array<{ url?: string }>;
-    if (prs[0]?.url) return prs[0].url;
-  } catch {}
-
-  try {
-    const remote = run("git", ["remote", "get-url", "origin"], REPO_ROOT);
-    const match = remote.match(/github\.com[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
-    if (!match) return null;
-    const [, owner, repo] = match;
-    const response = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/pulls?state=open&head=${encodeURIComponent(`${owner}:${branch}`)}`,
-      { cache: "no-store" },
-    );
-    if (!response.ok) return null;
-    const prs = (await response.json()) as Array<{ html_url?: string }>;
-    return prs[0]?.html_url ?? null;
   } catch {
     return null;
   }
@@ -477,34 +179,6 @@ function optimizeCatalogFiles(catalog: OptimizeCatalogUpdate[]) {
   ];
 }
 
-function refHasSpeciesFiles(ref: string, id: string) {
-  try {
-    const files = run("git", ["ls-tree", "-r", "--name-only", ref], REPO_ROOT);
-    const required = new Set(speciesMdxRel(id));
-    for (const file of files.split("\n")) {
-      required.delete(file.trim());
-    }
-    return required.size === 0;
-  } catch {
-    return false;
-  }
-}
-
-function resolvePhotoBase(id: string) {
-  const currentBranch = currentBranchName(REPO_ROOT);
-  if (
-    currentBranch &&
-    currentBranch !== BASE_BRANCH &&
-    !refHasSpeciesFiles(BASE_REF, id) &&
-    MDX_FILES.every((file) =>
-      fs.existsSync(path.join(process.cwd(), "src/content/species", id, file)),
-    )
-  ) {
-    return { branch: currentBranch, ref: "HEAD" };
-  }
-  return { branch: BASE_BRANCH, ref: BASE_REF };
-}
-
 function run(cmd: string, args: string[], cwd: string) {
   try {
     return execFileSync(cmd, args, {
@@ -523,10 +197,6 @@ function run(cmd: string, args: string[], cwd: string) {
   }
 }
 
-function speciesMdxRel(id: string) {
-  return MDX_FILES.map((file) => path.join("src/content/species", id, file));
-}
-
 function stamp() {
   const now = new Date();
   const pad = (value: number) => String(value).padStart(2, "0");
@@ -538,55 +208,19 @@ function stamp() {
 
 async function withPhotoPullRequest(input: {
   apply: (worktree: string) => Promise<void> | void;
-  baseFromCurrentBranch?: boolean;
   commitBody: string;
-  editExistingBody?: boolean;
-  extraFiles?: string[];
-  id: string;
+  files: string[];
   prBody: string;
   title: string;
 }): Promise<string> {
-  const rel = speciesMdxRel(input.id);
-  const currentBranch = input.baseFromCurrentBranch
-    ? currentBranchName(REPO_ROOT)
-    : "";
-  if (input.baseFromCurrentBranch && !currentBranch) {
+  const currentBranch = currentBranchName(REPO_ROOT);
+  if (!currentBranch) {
     throw new Error("Check out a branch before uploading standalone photos");
   }
   const base =
-    currentBranch && currentBranch !== BASE_BRANCH
+    currentBranch !== BASE_BRANCH
       ? { branch: currentBranch, ref: "HEAD" }
-      : resolvePhotoBase(input.id);
-
-  if (base.ref === "HEAD" && !input.baseFromCurrentBranch) {
-    if (run("git", ["status", "--porcelain"], REPO_ROOT)) {
-      throw new Error(
-        "Commit or stash local changes before using admin photos",
-      );
-    }
-  }
-  const currentPullRequestUrl =
-    base.ref === "HEAD" && !input.baseFromCurrentBranch
-      ? await findOpenPullRequestForHead(base.branch)
-      : null;
-  if (currentPullRequestUrl) {
-    await input.apply(REPO_ROOT);
-    run("git", ["add", "--", ...rel, ...(input.extraFiles ?? [])], REPO_ROOT);
-    if (!hasStagedChanges(REPO_ROOT)) {
-      throw new Error("No gallery changes to open a pull request for");
-    }
-    run(
-      "git",
-      ["commit", "-m", input.title, "-m", input.commitBody],
-      REPO_ROOT,
-    );
-    run(
-      "git",
-      ["push", "-u", "origin", `HEAD:refs/heads/${base.branch}`],
-      REPO_ROOT,
-    );
-    return currentPullRequestUrl;
-  }
+      : { branch: BASE_BRANCH, ref: BASE_REF };
 
   if (base.ref === "HEAD") {
     run(
@@ -596,8 +230,8 @@ async function withPhotoPullRequest(input: {
     );
   }
 
-  const existing = await findOpenPhotoPullRequest(base.branch, input.id);
-  const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
+  const existing = await findOpenPhotoPullRequest(base.branch);
+  const branch = existing?.branch ?? `photos/${STANDALONE_ID}-${stamp()}`;
   const onPhotoBranch =
     Boolean(existing) && currentBranchName(REPO_ROOT) === branch;
 
@@ -608,21 +242,7 @@ async function withPhotoPullRequest(input: {
     } catch {}
 
     await input.apply(REPO_ROOT);
-    const mdxFiles = rel.filter((_, index) =>
-      fs.existsSync(
-        path.join(
-          process.cwd(),
-          "src/content/species",
-          input.id,
-          MDX_FILES[index],
-        ),
-      ),
-    );
-    run(
-      "git",
-      ["add", "--", ...mdxFiles, ...(input.extraFiles ?? [])],
-      REPO_ROOT,
-    );
+    run("git", ["add", "--", ...input.files], REPO_ROOT);
 
     if (!hasStagedChanges(REPO_ROOT)) {
       throw new Error("No gallery changes to open a pull request for");
@@ -640,16 +260,14 @@ async function withPhotoPullRequest(input: {
     );
 
     if (existing) {
-      if (input.editExistingBody !== false) {
-        try {
-          run(
-            "gh",
-            ["pr", "edit", existing.url, "--body", input.prBody],
-            REPO_ROOT,
-          );
-        } catch {
-          return existing.url;
-        }
+      try {
+        run(
+          "gh",
+          ["pr", "edit", existing.url, "--body", input.prBody],
+          REPO_ROOT,
+        );
+      } catch {
+        return existing.url;
       }
       return existing.url;
     }
@@ -699,14 +317,7 @@ async function withPhotoPullRequest(input: {
     addedWorktree = true;
 
     await input.apply(worktree);
-    const mdxFiles = rel.filter((file) =>
-      fs.existsSync(path.join(worktree, file)),
-    );
-    run(
-      "git",
-      ["add", "--", ...mdxFiles, ...(input.extraFiles ?? [])],
-      worktree,
-    );
+    run("git", ["add", "--", ...input.files], worktree);
 
     if (!hasStagedChanges(worktree)) {
       throw new Error("No gallery changes to open a pull request for");
@@ -722,16 +333,14 @@ async function withPhotoPullRequest(input: {
 
     const repo = githubRepoName(worktree);
     if (existing) {
-      if (input.editExistingBody !== false) {
-        try {
-          run(
-            "gh",
-            ["pr", "edit", existing.url, "--body", input.prBody],
-            worktree,
-          );
-        } catch {
-          return existing.url;
-        }
+      try {
+        run(
+          "gh",
+          ["pr", "edit", existing.url, "--body", input.prBody],
+          worktree,
+        );
+      } catch {
+        return existing.url;
       }
       return existing.url;
     }

@@ -1,9 +1,9 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
@@ -51,7 +51,7 @@ type GroupHubPageProps = {
   heroSrc: string;
   hubId: GroupHubId;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
 };
 
 export async function GroupHubPage({
@@ -92,7 +92,7 @@ export async function GroupHubPage({
             ? t("speciesIndexCta")
             : tShared(getHubIndexTitleKey(hubId)),
         };
-  const dates = pageDateFields(hub.path, locale);
+  const dates = await pageDateFields(hub.path, locale);
 
   return (
     <div className="min-h-screen bg-background">
@@ -198,7 +198,7 @@ async function GroupHubCta({
 }: {
   hubId: GroupHubId;
   locale: AppLocale;
-  species: Species[];
+  species: CatalogCard[];
 }) {
   const [t, tShared] = await Promise.all([
     getTranslations({ locale, namespace: hubId }),

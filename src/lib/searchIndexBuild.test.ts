@@ -1,11 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 
+import {
+  catalogSpeciesFixture,
+  searchCatalogsFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
 describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
-  const index = buildSearchIndex(locale);
+  const index = buildSearchIndex(locale, searchCatalogsFixture());
 
   it("is not empty and every document has the basics", () => {
     expect(index.length).toBeGreaterThan(0);
@@ -26,7 +30,7 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
   it("has exactly one species document per published species", () => {
     const species = index.filter((doc) => doc.kind === "species");
     expect(species.map((doc) => doc.id).sort()).toEqual(
-      getCatalogSpecies()
+      catalogSpeciesFixture()
         .map((item) => item.id)
         .sort(),
     );
@@ -54,7 +58,7 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
 describe("buildSearchIndex across locales", () => {
   it("indexes the same set of documents in every locale", () => {
     const keysPerLocale = routing.locales.map((locale) =>
-      buildSearchIndex(locale)
+      buildSearchIndex(locale, searchCatalogsFixture())
         .map((doc) => doc.key)
         .sort(),
     );

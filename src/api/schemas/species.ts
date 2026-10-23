@@ -2,9 +2,9 @@ import { z } from "zod";
 
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
-import { localeQuery } from "./common";
+import { speciesIdText } from "./common";
 
-const ANIMAL_GROUPS = [
+export const ANIMAL_GROUPS = [
   "amphibian",
   "bird",
   "insect",
@@ -18,5 +18,8 @@ const ANIMAL_GROUPS = [
 
 export const speciesListQuery = z.object({
   group: z.enum(ANIMAL_GROUPS).optional(),
-  locale: localeQuery,
+});
+
+export const speciesParam = z.object({
+  slug: speciesIdText,
 });

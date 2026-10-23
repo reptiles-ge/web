@@ -1,20 +1,17 @@
-import matter from "gray-matter";
-import fs from "node:fs/promises";
-import path from "node:path";
-
 import {
-  type EditorResult,
-  readSpeciesField,
-  validateEditorResult,
-} from "@/lib/contentEditor";
+  type AdminSpeciesRecord,
+  proposeAdminSpeciesDraft,
+  readAdminSpecies,
+} from "@/lib/adminSpeciesApi";
+import { type EditorResult, validateEditorResult } from "@/lib/contentEditor";
 import { transformWithAgent } from "@/lib/contentEditorAgent";
 import {
-  assertSpeciesTextSourceCurrent,
-  createSpeciesTextsPullRequest,
-} from "@/lib/contentEditorPullRequest";
-import { resolveEditorTarget } from "@/lib/contentEditorTarget";
+  draftReviewUrl,
+  finalizeEditorValues,
+} from "@/lib/contentEditorTarget";
+import { toSiteDateTime } from "@/lib/siteTime";
 import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
-import { analysisNumbers } from "@/lib/speciesAnalysisValidation";
+import { readRecordField, writeRecordField } from "@/lib/speciesRecordFields";
 import {
   formatStyleIssues,
   lintFieldStyle,
@@ -22,30 +19,38 @@ import {
   type StyleLocale,
 } from "@/lib/writingStyleLint";
 
-export function getSpeciesTextFields(raw: string) {
-  const data = matter(raw).data;
-  const traits = data.identification?.traits;
-  const faq = data.faq;
+export type SpeciesTextSource = {
+  commonName?: string;
+  danger?: unknown;
+  fields: string[];
+  id: string;
+  read: (locale: StyleLocale, field: string) => string;
+  scientificName?: string;
+  speciesNames: (ids: string[]) => Promise<Array<Record<StyleLocale, string>>>;
+};
+
+function speciesTextFields(
+  read: (field: string) => string,
+  traits: number,
+  faq: number,
+) {
   const fields = [
     "description",
     "interaction",
     "overview",
     "identification.summary",
     "identification.coloration",
-    ...(Array.isArray(traits)
-      ? traits.map(
-          (_: unknown, index: number) => `identification.traits.${index}`,
-        )
-      : []),
+    ...Array.from(
+      { length: traits },
+      (_, index) => `identification.traits.${index}`,
+    ),
     "habitat",
     "diet",
     "behavior",
     "conservation",
-    ...(Array.isArray(faq)
-      ? faq.map((_: unknown, index: number) => `faq.${index}.answer`)
-      : []),
+    ...Array.from({ length: faq }, (_, index) => `faq.${index}.answer`),
   ];
-  return fields.filter((field) => readSpeciesField(raw, field, true).trim());
+  return fields.filter((field) => read(field).trim());
 }
 
 const TEXT_LOCALES = ["ka", "en", "ru", "tr"] as const;
@@ -61,60 +66,55 @@ const TEXT_PHASES: Array<(field: string) => boolean> = [
   (field) => field === "description",
 ];
 
-export async function processSpeciesTexts(id: string, operationId: string) {
+export async function processSpeciesTexts(id: string) {
   const unlock = lockSpeciesAnalysis(id);
   try {
-    await assertSpeciesTextSourceCurrent(id);
-    const { notes, updates } = await rewriteSpeciesTexts(id);
-    const pullRequestUrl = await createSpeciesTextsPullRequest(
-      id,
-      updates,
-      operationId,
+    const { record, version } = await readAdminSpecies(id);
+    const { notes, updates } = await rewriteSpeciesTexts(
+      recordSpeciesTextSource(record),
     );
-    return { pullRequestUrl, report: speciesTextsReport(updates, notes) };
+    if (!updates.length) throw new Error("No page texts changed");
+    const draft = structuredClone(record);
+    for (const { field, result } of updates) {
+      const values = finalizeEditorValues(result, (locale) =>
+        readRecordField(record, locale, field),
+      );
+      for (const locale of TEXT_LOCALES) {
+        if (values[locale] !== readRecordField(record, locale, field)) {
+          writeRecordField(draft, locale, field, values[locale]);
+        }
+      }
+    }
+    draft.base.updatedAt = toSiteDateTime(new Date());
+    const { draftId } = await proposeAdminSpeciesDraft(id, {
+      baseVersion: version,
+      record: draft,
+      summary: `Rewrite ${updates.length} page texts`,
+    });
+    return {
+      report: speciesTextsReport(updates, notes),
+      reviewUrl: draftReviewUrl(id, draftId),
+    };
   } finally {
     unlock();
   }
 }
 
-export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
-  const raws = Object.fromEntries(
-    await Promise.all(
-      TEXT_LOCALES.map(async (locale) => [
-        locale,
-        await fs.readFile(
-          path.join(cwd, "src/content/species", id, `${locale}.mdx`),
-          "utf8",
-        ),
-      ]),
-    ),
-  ) as Record<StyleLocale, string>;
-  const fields = getSpeciesTextFields(raws.ka);
+export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
+  const { commonName, fields } = source;
   if (!fields.length) throw new Error("No page texts to process");
-  const data = matter(raws.ka).data;
-  const commonName =
-    typeof data.commonName === "string" ? data.commonName : undefined;
   const originals = Object.fromEntries(
-    await Promise.all(
-      fields.map(async (field) => [
-        field,
-        {
-          ...Object.fromEntries(
-            TEXT_LOCALES.map((locale) => [
-              locale,
-              readSpeciesField(raws[locale], field, true),
-            ]),
-          ),
-          ka: (await resolveEditorTarget({ field, id, kind: "species" }, cwd))
-            .source,
-        } as EditorResult,
-      ]),
-    ),
+    fields.map((field) => [
+      field,
+      Object.fromEntries(
+        TEXT_LOCALES.map((locale) => [locale, source.read(locale, field)]),
+      ) as EditorResult,
+    ]),
   ) as Record<string, EditorResult>;
-  const speciesNames = await linkedSpeciesNames(
-    cwd,
-    id,
-    fields.map((field) => originals[field].ka),
+  const speciesNames = await source.speciesNames(
+    linkedSpeciesIds(fields.map((field) => originals[field].ka)).filter(
+      (other) => other !== source.id,
+    ),
   );
   const results = new Map<string, EditorResult>();
   const rewrite = async (
@@ -129,10 +129,7 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
         commonName,
         existingTranslations: { en, ru, tr },
         field,
-        latinName:
-          typeof data.scientificName === "string"
-            ? data.scientificName
-            : undefined,
+        latinName: source.scientificName,
         otherFields: Object.fromEntries(
           fields
             .filter((other) => other !== field)
@@ -141,7 +138,7 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
               (results.get(other) ?? originals[other]).ka,
             ]),
         ),
-        riskLevel: RISK_LEVELS.find((level) => level === data.danger),
+        riskLevel: RISK_LEVELS.find((level) => level === source.danger),
         speciesNames,
         styleRepair,
       }),
@@ -193,49 +190,33 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
   };
 }
 
-export function speciesTextsReport(
-  updates: Array<{ field: string; result: EditorResult }>,
-  notes: string[],
-) {
+function analysisNumbers(value: string) {
   return [
-    ...updates.map(({ field, result }) => `${field}\n${result.ka}`),
-    ...(notes.length ? [`შენიშვნები:\n${notes.join("\n")}`] : []),
-  ].join("\n\n");
+    ...new Set(
+      (
+        value
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+          .match(/\d{1,3}(?:[ \u00a0,]\d{3})+(?![.,]?\d)|\d+(?:[.,]\d+)?/g) ??
+        []
+      ).map((item) =>
+        /^\d{1,3}(?:[ \u00a0,]\d{3})+$/.test(item)
+          ? item.replace(/[ \u00a0,]/g, "")
+          : item.replace(",", "."),
+      ),
+    ),
+  ].sort();
 }
 
-async function linkedSpeciesNames(cwd: string, id: string, texts: string[]) {
-  const ids = [
+function linkedSpeciesIds(texts: string[]) {
+  return [
     ...new Set(
       texts.flatMap((text) =>
         [...text.matchAll(/\]\(([a-z]+(?:-[a-z]+)+)\)/g)].map(
-          (match) => match[1],
+          (match) => match[1]!,
         ),
       ),
     ),
-  ].filter((other) => other !== id);
-  const names = await Promise.all(
-    ids.map(async (other) => {
-      try {
-        const entries = await Promise.all(
-          TEXT_LOCALES.map(async (locale) => {
-            const { commonName } = matter(
-              await fs.readFile(
-                path.join(cwd, "src/content/species", other, `${locale}.mdx`),
-                "utf8",
-              ),
-            ).data;
-            return [locale, typeof commonName === "string" ? commonName : ""];
-          }),
-        );
-        return entries.every(([, name]) => name)
-          ? (Object.fromEntries(entries) as Record<StyleLocale, string>)
-          : undefined;
-      } catch {
-        return undefined;
-      }
-    }),
-  );
-  return names.filter((name) => name !== undefined);
+  ];
 }
 
 function numberLosses(
@@ -273,4 +254,51 @@ function numberLosses(
     }
   }
   return rejected;
+}
+
+function recordSpeciesTextSource(
+  record: AdminSpeciesRecord,
+): SpeciesTextSource {
+  const { base } = record;
+  return {
+    commonName: base.commonName,
+    danger: base.danger,
+    fields: speciesTextFields(
+      (field) => readRecordField(record, "ka", field),
+      base.identification?.traits.length ?? 0,
+      base.faq?.length ?? 0,
+    ),
+    id: base.id,
+    read: (locale, field) => readRecordField(record, locale, field),
+    scientificName: base.scientificName,
+    speciesNames: async (ids) =>
+      (
+        await Promise.all(
+          ids.map(async (other) => {
+            try {
+              const { record: peer } = await readAdminSpecies(other);
+              const names = Object.fromEntries(
+                TEXT_LOCALES.map((locale) => [
+                  locale,
+                  readRecordField(peer, locale, "commonName"),
+                ]),
+              ) as Record<StyleLocale, string>;
+              return Object.values(names).every(Boolean) ? names : undefined;
+            } catch {
+              return undefined;
+            }
+          }),
+        )
+      ).filter((names) => names !== undefined),
+  };
+}
+
+function speciesTextsReport(
+  updates: Array<{ field: string; result: EditorResult }>,
+  notes: string[],
+) {
+  return [
+    ...updates.map(({ field, result }) => `${field}\n${result.ka}`),
+    ...(notes.length ? [`შენიშვნები:\n${notes.join("\n")}`] : []),
+  ].join("\n\n");
 }

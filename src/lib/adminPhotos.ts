@@ -9,19 +9,11 @@ import { randomUUID } from "node:crypto";
 import { createRequire } from "node:module";
 import path from "node:path";
 
-import type { GalleryImage, PhotoCredit } from "@/data/species";
+import type { PhotoCredit } from "@/data/species";
 
 import { optimizedImgSrc } from "@/data/optimizedImages";
-import {
-  creditsEqual,
-  type GalleryOverlayLocale,
-  galleryStorageKeys,
-  readAdminSpeciesGallery,
-} from "@/lib/adminGalleryMdx";
-import {
-  openCoverPullRequest,
-  openPhotoPullRequest,
-} from "@/lib/adminPhotoPullRequest";
+import { openStandalonePhotoPullRequest } from "@/lib/adminPhotoPullRequest";
+import { readAdminSpecies, setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
 import {
   type CoverCropRect,
   coverCropSuffix,
@@ -35,19 +27,13 @@ import {
 } from "@/lib/imageOptimize";
 import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
-import { kaToSlug, transliterateKa } from "@/lib/slugify";
+import { transliterateKa } from "@/lib/slugify";
 
 const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
   jpeg: "jpg",
   png: "png",
   webp: "webp",
-};
-
-export type AddSpeciesPhotosResult = {
-  added: GalleryImage[];
-  pullRequestError?: string;
-  pullRequestUrl?: string;
 };
 
 export type AdminPhotoCreditInput = {
@@ -91,82 +77,6 @@ type SharpInstance = {
   webp: (options: { quality: number }) => SharpInstance;
 };
 
-export async function addSpeciesPhotos(input: {
-  credit: AdminPhotoCreditInput;
-  files: Array<{ bytes: Buffer; filename: string }>;
-  id: string;
-}): Promise<AddSpeciesPhotosResult> {
-  if (input.files.length === 0) {
-    throw new Error("Choose at least one photo");
-  }
-
-  const current = readAdminSpeciesGallery(input.id);
-  const used = galleryStorageKeys(current.gallery);
-  const storage = createStorage();
-  const slug = photographerSlug(input.credit.photographer);
-  const kaCredit = creditFromInput(input.credit, "ka");
-  const enCredit = creditFromInput(input.credit, "en");
-  const added: GalleryImage[] = [];
-  const items: Array<{
-    ka: GalleryImage;
-    overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>>;
-  }> = [];
-  const catalog: OptimizeCatalogUpdate[] = [];
-
-  const preparedFiles = await Promise.all(
-    input.files.map((file) => prepareOriginal(file.bytes)),
-  );
-  const uploads = await allocateUploadKeys(
-    storage,
-    used,
-    input.id,
-    slug,
-    preparedFiles,
-  );
-
-  const optimizedList = await Promise.all(
-    uploads.map(async (upload) => {
-      await storage.put(upload.key, upload.buffer, {
-        contentType: upload.contentType,
-      });
-      const src = storage.urlFor(upload.key);
-      const optimized = await optimizeUploadedOriginal({
-        key: upload.key,
-        source: upload.buffer,
-        src,
-        storage,
-      });
-      const kaItem: GalleryImage = kaCredit
-        ? { credit: kaCredit, src }
-        : { src };
-      const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
-      if (enCredit && !creditsEqual(kaCredit, enCredit)) {
-        overlays.en = { credit: enCredit, src };
-      }
-      return { kaItem, optimized, overlays };
-    }),
-  );
-
-  for (const result of optimizedList) {
-    if (result.optimized) catalog.push(result.optimized);
-    items.push({ ka: result.kaItem, overlays: result.overlays });
-    added.push(result.kaItem);
-  }
-
-  try {
-    const pullRequestUrl = await openPhotoPullRequest({
-      catalog,
-      id: input.id,
-      items,
-    });
-    return { added, pullRequestUrl };
-  } catch (error) {
-    const pullRequestError =
-      error instanceof Error ? error.message : "Could not open pull request";
-    return { added, pullRequestError };
-  }
-}
-
 export function creditFromInput(
   input: AdminPhotoCreditInput,
   locale: "en" | "ka",
@@ -205,24 +115,23 @@ export async function cropSpeciesCover(input: {
   id: string;
   src: string;
   target: "desktop" | "mobile";
-}): Promise<{ coverSrc: string; pullRequestUrl: string }> {
-  const { gallery } = readAdminSpeciesGallery(input.id);
-  if (!gallery.some((item) => item.src === input.src)) {
+}): Promise<{ coverSrc: string; pullRequestUrl?: string }> {
+  const { record } = await readAdminSpecies(input.id);
+  if (!record.base.gallery.some((item) => item.src === input.src)) {
     throw new Error(`Unknown gallery src: ${input.src}`);
   }
   const rect = normalizeCoverCropRect(input.crop);
   if (!rect) throw new Error("ქროფი ძალიან პატარაა");
 
   if (isFullCoverCrop(rect)) {
-    const pullRequestUrl = await openCoverPullRequest({
-      id: input.id,
+    await setAdminSpeciesCover(input.id, {
       src: input.src,
       target: input.target,
     });
-    return { coverSrc: input.src, pullRequestUrl };
+    return { coverSrc: input.src };
   }
 
-  const [originalKey] = galleryStorageKeys([{ src: input.src }]);
+  const originalKey = cdnStorageKey(input.src);
   if (!originalKey) {
     throw new Error("მხოლოდ CDN-ზე არსებული ფოტო იჭრება");
   }
@@ -243,14 +152,17 @@ export async function cropSpeciesCover(input: {
     src: coverSrc,
     storage,
   });
-  const pullRequestUrl = await openCoverPullRequest({
-    catalog: optimized ? [optimized] : [],
+  await setAdminSpeciesCover(input.id, {
     coverSrc,
-    id: input.id,
     src: input.src,
     target: input.target,
   });
-  return { coverSrc, pullRequestUrl };
+  return {
+    coverSrc,
+    ...(optimized
+      ? { pullRequestUrl: await openStandalonePhotoPullRequest([optimized]) }
+      : {}),
+  };
 }
 
 export async function uploadStandalonePhotos(
@@ -334,37 +246,13 @@ export async function uploadStandalonePhotos(
   };
 }
 
-async function allocateUploadKeys(
-  storage: BunnyStorageAdapter,
-  used: Set<string>,
-  id: string,
-  slug: null | string,
-  preparedFiles: Array<{
-    buffer: Buffer;
-    contentType: string;
-    ext: string;
-  }>,
-  index = 0,
-  acc: Array<{ buffer: Buffer; contentType: string; key: string }> = [],
-): Promise<Array<{ buffer: Buffer; contentType: string; key: string }>> {
-  if (index >= preparedFiles.length) return acc;
-  const prepared = preparedFiles[index];
-  if (!prepared) return acc;
-  const key = await nextStorageKey(storage, used, id, slug, prepared.ext);
-  acc.push({
-    buffer: prepared.buffer,
-    contentType: prepared.contentType,
-    key,
-  });
-  return allocateUploadKeys(
-    storage,
-    used,
-    id,
-    slug,
-    preparedFiles,
-    index + 1,
-    acc,
-  );
+function cdnStorageKey(src: string) {
+  if (!src.startsWith(`${CDN_BASE}/`)) return undefined;
+  const key = decodeURIComponent(src.slice(CDN_BASE.length + 1));
+  if (!key || key.startsWith("optimized/") || key.startsWith("og/")) {
+    return undefined;
+  }
+  return key;
 }
 
 function createStorage() {
@@ -429,25 +317,6 @@ function loadSharp(): SharpFn {
   return require("sharp") as SharpFn;
 }
 
-async function nextStorageKey(
-  storage: BunnyStorageAdapter,
-  used: Set<string>,
-  id: string,
-  slug: null | string,
-  ext: string,
-) {
-  let n = 1;
-  while (n < 500) {
-    const key = slug ? `${id}-${slug}-${n}.${ext}` : `${id}-${n}.${ext}`;
-    if (!used.has(key) && !(await storage.exists(key))) {
-      used.add(key);
-      return key;
-    }
-    n += 1;
-  }
-  throw new Error("Could not allocate a free CDN filename");
-}
-
 function photoCreditUrl(value: string | undefined): string | undefined {
   const url = value?.trim();
   if (!url) return undefined;
@@ -461,14 +330,6 @@ function photoCreditUrl(value: string | undefined): string | undefined {
     throw new Error("ავტორის URL უნდა იყოს http ან https");
   }
   return url;
-}
-
-function photographerSlug(photographer: string | undefined) {
-  if (!photographer) return null;
-  const first = photographer.trim().split(/\s+/)[0] ?? "";
-  const slug = kaToSlug(first);
-  if (!slug || slug.length < 2) return null;
-  return slug.slice(0, 24);
 }
 
 async function prepareOriginal(

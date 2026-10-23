@@ -2,8 +2,8 @@ import path from "node:path";
 
 import type { TaxonIdentifiers } from "../src/data/taxonIdentifiers";
 
-import { getCatalogSpecies } from "../src/data/species";
 import { createPoliteJson, writeOrCheckModule } from "./remoteDataScript";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 type IdentifierSource = keyof TaxonIdentifiers;
 
@@ -253,10 +253,12 @@ ${lines.join("\n")}
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const taxa: CatalogTaxon[] = getCatalogSpecies().map((species) => ({
-    id: species.id,
-    name: species.scientificName.trim(),
-  }));
+  const taxa: CatalogTaxon[] = (await getSpeciesCatalog("ka")).map(
+    (species) => ({
+      id: species.id,
+      name: species.scientificName.trim(),
+    }),
+  );
   const wikidata = await lookupWikidata(
     taxa.flatMap((taxon) => {
       const equivalent = EQUIVALENT_NAMES[taxon.id]?.wikidata;

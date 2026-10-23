@@ -4,8 +4,9 @@ import type { PhotoLicense } from "../src/data/photoLicenses";
 import type { PhotoCredit } from "../src/data/speciesTypes";
 
 import { getPublishedNewsArticles } from "../src/data/news";
-import { getCatalogSpecies } from "../src/data/species";
 import { createPoliteJson, writeOrCheckModule } from "./remoteDataScript";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
+import type { SpeciesPhotoFields } from "../src/data/speciesTypes";
 
 const ROOT = process.cwd();
 const OUT_FILE = path.join(ROOT, "src/data/photoLicenses.ts");
@@ -52,9 +53,9 @@ const cachedJson = createPoliteJson({
   userAgent: USER_AGENT,
 });
 
-function collectPhotos() {
+function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
   const photos: PhotoRef[] = [];
-  for (const species of getCatalogSpecies()) {
+  for (const species of catalog) {
     photos.push(
       { credit: species.imageCredit, owner: species.id, src: species.image },
       ...(species.mobileImage
@@ -216,7 +217,7 @@ ${lines.join("\n")}
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const photos = collectPhotos();
+  const photos = collectPhotos(await getSpeciesCatalog("ka", "photos"));
   const bySrc = new Map<string, PhotoRef>();
   for (const photo of photos) {
     if (!bySrc.has(photo.src)) bySrc.set(photo.src, photo);

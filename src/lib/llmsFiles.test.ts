@@ -1,15 +1,26 @@
 import { describe, expect, it } from "vitest";
 
-import { getCatalogSpecies } from "@/data/species";
-import { speciesEn } from "@/data/species-en";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
-  AI_CITATION_USER_AGENTS,
   buildLlmsFullText,
   buildLlmsIndexText,
-  buildRobotsTxt,
+  createLlmsSpecies,
 } from "@/lib/llmsFiles";
 import { llmsLinkHeader } from "@/lib/llmsPaths";
+import { AI_CITATION_USER_AGENTS, buildRobotsTxt } from "@/lib/robotsTxt";
+
+import {
+  catalogSpeciesFixture,
+  speciesCatalogFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+const LLMS = createLlmsSpecies({
+  en: speciesCatalogFixture("en"),
+  ka: speciesCatalogFixture("ka"),
+  ru: speciesCatalogFixture("ru"),
+  tr: speciesCatalogFixture("tr"),
+});
 
 const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
 const DEEP_GROUPS = new Set([
@@ -68,11 +79,11 @@ describe("buildRobotsTxt", () => {
 
 describe("buildLlmsIndexText", () => {
   it("keeps the public llms index synced with current atlas data", () => {
-    const body = buildLlmsIndexText();
+    const body = buildLlmsIndexText(LLMS);
 
     expect(body.startsWith("# Reptiles.ge")).toBe(true);
     expect(body).toContain(
-      `Catalog of published profiles (${getCatalogSpecies().length} live pages)`,
+      `Catalog of published profiles (${catalogSpeciesFixture().length} live pages)`,
     );
     expect(body).toContain("## News");
     expect(body).toContain("caucasian-toad-bufo-verrucosissimus-taxonomy-2026");
@@ -90,7 +101,7 @@ describe("buildLlmsIndexText", () => {
 describe("buildLlmsFullText", () => {
   it("cuts long passages at sentence ends, never mid-sentence or at an abbreviation", () => {
     const lines = (["ka", ...PREFIXED_LOCALES] as const).flatMap((locale) =>
-      buildLlmsFullText(locale).split("\n"),
+      buildLlmsFullText(LLMS, locale).split("\n"),
     );
 
     expect(lines.filter((line) => line.trimEnd().endsWith("…"))).toEqual([]);
@@ -102,7 +113,7 @@ describe("buildLlmsFullText", () => {
   });
 
   it("builds an extractable corpus for published atlas pages", () => {
-    const body = buildLlmsFullText();
+    const body = buildLlmsFullText(LLMS);
 
     expect(body.startsWith("# Reptiles.ge — llms-full")).toBe(true);
     expect(body).toContain("call 112");
@@ -114,7 +125,7 @@ describe("buildLlmsFullText", () => {
     expect(body).toContain("/en/snakes/macrovipera-lebetina");
     expect(body).toContain("10.3897/caucasiana.5.e189214");
     expect(body).toContain(
-      `Published species cards: ${getCatalogSpecies().length}`,
+      `Published species cards: ${catalogSpeciesFixture().length}`,
     );
     expect(body.length).toBeGreaterThan(50_000);
     expect(body.length).toBeLessThan(900_000);
@@ -122,7 +133,7 @@ describe("buildLlmsFullText", () => {
   });
 
   it("keeps bite pages educational and omits medical schema claims", () => {
-    const body = buildLlmsFullText();
+    const body = buildLlmsFullText(LLMS);
 
     expect(body).toContain(
       "Symptoms may be absent early; medical staff must assess the bite.",
@@ -131,7 +142,7 @@ describe("buildLlmsFullText", () => {
   });
 
   it("links only to absolute URLs", () => {
-    const body = buildLlmsFullText();
+    const body = buildLlmsFullText(LLMS);
 
     expect(body).not.toMatch(/\]\(\//);
     expect(body).toContain(
@@ -150,7 +161,7 @@ describe("buildLlmsFullText", () => {
   });
 
   it("gives every species card its English name and summary", () => {
-    const body = buildLlmsFullText();
+    const body = buildLlmsFullText(LLMS);
     const cards = body.split("\n### ").slice(1);
     const macrovipera = cards.find((card) =>
       card.startsWith("Macrovipera lebetinus"),
@@ -161,7 +172,7 @@ describe("buildLlmsFullText", () => {
       /\nEnglish summary: The Levantine viper\b[^\n]*\(Macrovipera lebetinus\)/,
     );
     expect(body.match(/^English summary: /gm)?.length).toBe(
-      getCatalogSpecies().length,
+      catalogSpeciesFixture().length,
     );
     expect(body).toContain(
       "- English title: Georgia has 56 reptiles and 12 amphibians — the 2026 checklist",
@@ -169,7 +180,9 @@ describe("buildLlmsFullText", () => {
   });
 
   it("labels a lookalike comparison source instead of dropping it", () => {
-    const card = speciesCards(buildLlmsFullText()).get("macrovipera-lebetina");
+    const card = speciesCards(buildLlmsFullText(LLMS)).get(
+      "macrovipera-lebetina",
+    );
 
     expect(card).toContain(
       "- Jablonski et al. 2019 — Original description of Elaphe urartica (lookalike source: Elaphe urartica): https://doi.org/10.7717/peerj.6944",
@@ -183,7 +196,7 @@ describe("buildLlmsFullText", () => {
 describe("per-locale llms files", () => {
   it("serves an index for each prefixed locale with locale URLs", () => {
     for (const locale of PREFIXED_LOCALES) {
-      const body = buildLlmsIndexText(locale);
+      const body = buildLlmsIndexText(LLMS, locale);
 
       expect(body.startsWith("# Reptiles.ge (")).toBe(true);
       expect(body).toContain(
@@ -196,22 +209,22 @@ describe("per-locale llms files", () => {
       expect(body).not.toContain("](https://reptiles.ge/gvelebi");
       expect(body).toContain("[llms.txt](https://reptiles.ge/llms.txt)");
     }
-    expect(buildLlmsIndexText("en")).toContain(
+    expect(buildLlmsIndexText(LLMS, "en")).toContain(
       "(https://reptiles.ge/en/quiz/which-snake)",
     );
-    expect(buildLlmsIndexText()).toContain(
+    expect(buildLlmsIndexText(LLMS)).toContain(
       "[llms.txt](https://reptiles.ge/en/llms.txt)",
     );
   });
 
   it("gives every species with an English translation English Facts, Identification and FAQ", () => {
-    const cards = speciesCards(buildLlmsFullText("en"));
-    const catalog = getCatalogSpecies();
+    const cards = speciesCards(buildLlmsFullText(LLMS, "en"));
+    const catalog = catalogSpeciesFixture();
 
     expect(cards.size).toBe(catalog.length);
     for (const item of catalog) {
       const card = cards.get(item.id) ?? "";
-      const english = speciesEn[item.id];
+      const english = speciesFixture(item.id, "en");
       expect(card, item.id).toMatch(/^- URL: https:\/\/reptiles\.ge\/en\//m);
       if (!english || !DEEP_GROUPS.has(getSpeciesAtlasMeta(item.id).group)) {
         continue;
@@ -232,7 +245,7 @@ describe("per-locale llms files", () => {
 
   it("keeps Georgian script out of translated Facts, Identification and FAQ blocks", () => {
     for (const locale of PREFIXED_LOCALES) {
-      for (const [id, card] of speciesCards(buildLlmsFullText(locale))) {
+      for (const [id, card] of speciesCards(buildLlmsFullText(LLMS, locale))) {
         const blocks = translatedBlocks(card);
         expect(blocks, `${locale} ${id}`).not.toMatch(GEORGIAN_SCRIPT);
         expect(card.split("\n")[0], `${locale} ${id}`).not.toMatch(
@@ -245,8 +258,8 @@ describe("per-locale llms files", () => {
   it("links every locale file only to absolute URLs", () => {
     for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
       for (const body of [
-        buildLlmsFullText(locale),
-        buildLlmsIndexText(locale),
+        buildLlmsFullText(LLMS, locale),
+        buildLlmsIndexText(LLMS, locale),
       ]) {
         for (const href of markdownLinks(body)) {
           expect(href, `${locale} ${href}`).toMatch(/^https:\/\//);
@@ -256,9 +269,9 @@ describe("per-locale llms files", () => {
   });
 
   it("keeps each full file well below the Georgian corpus size", () => {
-    const ka = buildLlmsFullText().length;
+    const ka = buildLlmsFullText(LLMS).length;
     for (const locale of PREFIXED_LOCALES) {
-      const body = buildLlmsFullText(locale);
+      const body = buildLlmsFullText(LLMS, locale);
       expect(body.startsWith("# Reptiles.ge — llms-full (")).toBe(true);
       expect(body).toContain(`Index: https://reptiles.ge/${locale}/llms.txt`);
       expect(body.length).toBeLessThan(ka);

@@ -9,8 +9,23 @@ const MIGRATIONS_DIR = path.resolve(
   "../../../migrations/api",
 );
 
+const SEED_FILE = path.resolve(
+  import.meta.dirname,
+  "../../../tests/fixtures/speciesSeed.sql",
+);
+
+let seed: string | undefined;
+
+export function createSpeciesTestDatabase() {
+  const database = createTestDatabase();
+  seed ??= readFileSync(SEED_FILE, "utf8");
+  database.sqlite.exec(seed);
+  return database;
+}
+
 export function createTestDatabase() {
   const sqlite = new DatabaseSync(":memory:");
+  sqlite.exec("PRAGMA foreign_keys = ON");
   for (const file of readdirSync(MIGRATIONS_DIR).sort()) {
     sqlite.exec(readFileSync(path.join(MIGRATIONS_DIR, file), "utf8"));
   }
@@ -27,5 +42,27 @@ function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
       (sqlite.prepare(query).get(...values) ?? null) as null | T,
     run: async () => sqlite.prepare(query).run(...values),
   });
-  return { prepare: (query) => statement(query) };
+  let queue: Promise<unknown> = Promise.resolve();
+  const transaction = async (
+    statements: Parameters<ApiDatabase["batch"]>[0],
+  ) => {
+    sqlite.exec("BEGIN");
+    try {
+      const results = [];
+      for (const entry of statements) results.push(await entry.all());
+      sqlite.exec("COMMIT");
+      return results;
+    } catch (error) {
+      sqlite.exec("ROLLBACK");
+      throw error;
+    }
+  };
+  return {
+    batch: (statements) => {
+      const run = queue.then(() => transaction(statements));
+      queue = run.catch(() => undefined);
+      return run as ReturnType<ApiDatabase["batch"]>;
+    },
+    prepare: (query) => statement(query),
+  };
 }

@@ -10,7 +10,6 @@ import type { StorageAdapter } from "@reptiles-ge/img-compression/storage";
 import { getGuideArticles } from "../src/data/guideArticles";
 import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
-import { getCatalogSpecies } from "../src/data/species";
 import { absoluteImageUrl, CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
 import {
   createBunnyStorageContext,
@@ -18,6 +17,7 @@ import {
   loadEnv,
   mapPool,
 } from "./scriptUtils";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 
@@ -125,9 +125,11 @@ function storageKeyFromSrc(src: string): string | null {
   return null;
 }
 
-function collectSpeciesTargets(ids: string[]): SpeciesOgTarget[] {
+function collectSpeciesTargets(
+  ids: string[],
+  catalog: ReadonlyArray<{ id: string; image: string }>,
+): SpeciesOgTarget[] {
   const wanted = new Set(ids);
-  const catalog = getCatalogSpecies();
   const known = new Set(catalog.map((item) => item.id));
 
   for (const id of wanted) {
@@ -174,14 +176,17 @@ function collectGuideTargets(ids: string[]): GuideOgTarget[] {
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
-function collectTargets(options: CliOptions): OgTarget[] {
+function collectTargets(
+  options: CliOptions,
+  catalog: ReadonlyArray<{ id: string; image: string }>,
+): OgTarget[] {
   const hasSpeciesFilter = options.speciesIds.length > 0;
   const hasGuideFilter = options.guideIds.length > 0;
 
   const species =
     hasGuideFilter && !hasSpeciesFilter
       ? []
-      : collectSpeciesTargets(options.speciesIds);
+      : collectSpeciesTargets(options.speciesIds, catalog);
   const guides =
     hasSpeciesFilter && !hasGuideFilter
       ? []
@@ -300,7 +305,7 @@ async function main() {
 
   const og = resolveOgImageConfig();
   const config = resolveImageConfig();
-  const targets = collectTargets(options);
+  const targets = collectTargets(options, await getSpeciesCatalog("ka"));
   const storage = createBunnyStorageContext().storage;
 
   const speciesCount = targets.filter((t) => t.kind === "species").length;

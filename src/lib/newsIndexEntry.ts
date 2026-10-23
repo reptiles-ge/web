@@ -10,7 +10,11 @@ import {
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_ILLUSTRATIONS, type GroupHubId } from "@/lib/groupHubs";
 import { newsReadMinutes } from "@/lib/news";
-import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
+import {
+  getNewsVisual,
+  newsCategoryHub,
+  type NewsSpecies,
+} from "@/lib/newsVisual";
 
 export type NewsIndexEntryLabels = {
   readLabel: (minutes: number) => string;
@@ -21,9 +25,10 @@ export function toNewsIndexEntry(
   article: NewsArticle,
   locale: AppLocale,
   labels: NewsIndexEntryLabels,
+  catalog: readonly NewsSpecies[],
 ): NewsIndexEntry {
   const hub = newsCategoryHub(article);
-  const visual = getNewsVisual(article, locale);
+  const visual = getNewsVisual(article, locale, catalog);
   const minutes = newsReadMinutes(article, locale);
   return {
     alt: visual?.alt ?? "",

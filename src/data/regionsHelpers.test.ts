@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import { getRegionContent } from "@/data/regionContent";
 import {
@@ -9,11 +9,26 @@ import {
   regions,
   toRegionSpeciesCard,
 } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
 import { routing } from "@/i18n/routing";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+
+import {
+  localizedFixture,
+  speciesFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+let catalog: CatalogCard[];
+
+beforeAll(async () => {
+  catalog = await getSpeciesCatalog("ka");
+});
 
 describe("getCatalogRegionStats", () => {
-  const stats = getCatalogRegionStats();
+  let stats: Awaited<ReturnType<typeof getCatalogRegionStats>>;
+
+  beforeAll(async () => {
+    stats = await getCatalogRegionStats("ka");
+  });
 
   it("counts the 12 regions", () => {
     expect(stats.regionCount).toBe(12);
@@ -29,7 +44,7 @@ describe("getCatalogRegionStats", () => {
 describe("getRegionSpecies", () => {
   it("resolves only species that exist", () => {
     for (const region of regions) {
-      const resolved = getRegionSpecies(region);
+      const resolved = getRegionSpecies(region, catalog);
       expect(resolved.length, region.id).toBeLessThanOrEqual(
         region.speciesIds.length,
       );
@@ -41,25 +56,28 @@ describe("getRegionSpecies", () => {
 
   it("skips ids that are not in the catalog", () => {
     const region = { ...regions[0], speciesIds: ["no-such-species"] };
-    expect(getRegionSpecies(region)).toEqual([]);
+    expect(getRegionSpecies(region, catalog)).toEqual([]);
   });
 });
 
 describe("getRegionTooltipPreviews", () => {
-  it.each(routing.locales)("has a capped preview per region (%s)", (locale) => {
-    const previews = getRegionTooltipPreviews(locale);
-    expect(Object.keys(previews).sort()).toEqual(
-      regions.map((region) => region.id).sort(),
-    );
-    for (const list of Object.values(previews)) {
-      expect(list.length).toBeLessThanOrEqual(3);
-    }
-  });
+  it.each(routing.locales)(
+    "has a capped preview per region (%s)",
+    async (locale) => {
+      const previews = await getRegionTooltipPreviews(locale);
+      expect(Object.keys(previews).sort()).toEqual(
+        regions.map((region) => region.id).sort(),
+      );
+      for (const list of Object.values(previews)) {
+        expect(list.length).toBeLessThanOrEqual(3);
+      }
+    },
+  );
 });
 
 describe("species cards", () => {
-  const viper = getSpeciesById("macrovipera-lebetina")!;
-  const grassSnake = getSpeciesById("natrix-natrix")!;
+  const viper = speciesFixture("macrovipera-lebetina")!;
+  const grassSnake = speciesFixture("natrix-natrix")!;
 
   it("flags High and Moderate cards as venomous", () => {
     expect(isRegionCardVenomous({ danger: "High" } as never)).toBe(true);
@@ -69,7 +87,7 @@ describe("species cards", () => {
   });
 
   it("builds a localized card with the danger level", () => {
-    const card = toRegionSpeciesCard(viper, "en");
+    const card = toRegionSpeciesCard(localizedFixture(viper, "en"));
     expect(card.id).toBe(viper.id);
     expect(card.scientificName).toBe(viper.scientificName);
     expect(card.danger).toBe(viper.danger);
@@ -77,10 +95,11 @@ describe("species cards", () => {
   });
 
   it("omits danger and mobileImage when the species has none", () => {
-    const card = toRegionSpeciesCard(
-      { ...grassSnake, danger: undefined, mobileImage: undefined },
-      "ka",
-    );
+    const card = toRegionSpeciesCard({
+      ...grassSnake,
+      danger: undefined,
+      mobileImage: undefined,
+    });
     expect(card).not.toHaveProperty("danger");
     expect(card).not.toHaveProperty("mobileImage");
   });

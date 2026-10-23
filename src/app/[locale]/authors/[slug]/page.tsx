@@ -15,7 +15,6 @@ import {
   creditAuthorName,
 } from "@/data/creditAuthors";
 import { getPublishedNewsForCreditAuthor } from "@/data/news";
-import { getSpeciesById } from "@/data/species";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -36,6 +35,10 @@ import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
+import {
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 import { authorDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -56,12 +59,14 @@ export default async function AuthorRoute({ params }: Props) {
   const author = resolvePublishedCreditAuthor(slug);
   if (!author) notFound();
 
-  const t = await getTranslations({ locale, namespace: "author" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const photos = getCreditAuthorPhotos(author);
+  const [t, tShared, creditPhotos, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "author" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getCreditPhotoCatalog(),
+    getSpeciesCatalog(locale),
+  ]);
+  const photos = getCreditAuthorPhotos(author, creditPhotos);
+  const byId = new Map(catalog.map((item) => [item.id, item]));
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
   const url = creditAuthorUrl(locale, author.slug);
@@ -103,7 +108,7 @@ export default async function AuthorRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
       ...speciesIds.flatMap((id) => {
-        const species = getSpeciesById(id);
+        const species = byId.get(id);
         if (!species) return [];
         return [
           {
@@ -121,7 +126,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
-    ...authorDateFields(author.slug, locale),
+    ...(await authorDateFields(author.slug, locale)),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
@@ -174,9 +179,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const t = await getTranslations({ locale, namespace: "author" });
+  const [t, creditPhotos] = await Promise.all([
+    getTranslations({ locale, namespace: "author" }),
+    getCreditPhotoCatalog(),
+  ]);
   const name = creditAuthorName(author, locale);
-  const photos = getCreditAuthorPhotos(author);
+  const photos = getCreditAuthorPhotos(author, creditPhotos);
   const title = creditAuthorMetaTitle(author, locale, name, t);
   const fallbackDescription = sentenceMetaDescription(
     (locale === "ka" ? undefined : author.metaDescription?.[locale]) ??

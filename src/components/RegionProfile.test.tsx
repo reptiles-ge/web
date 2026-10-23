@@ -13,6 +13,10 @@ import {
 } from "@/data/regions";
 
 import en from "../../messages/en.json";
+import {
+  catalogSpeciesFixture,
+  localizedFixture,
+} from "../../tests/fixtures/speciesCatalog";
 
 vi.mock("@/i18n/navigation", () => ({
   Link: ({
@@ -39,9 +43,10 @@ vi.mock("@/components/map/GeorgiaMap", () => ({
 }));
 
 const region = getRegionById("kakheti")!;
-const species = getRegionSpecies(region).map((item) =>
-  toRegionSpeciesCard(item, "en"),
-);
+const species = getRegionSpecies(
+  region,
+  catalogSpeciesFixture().map((item) => localizedFixture(item, "en")),
+).map((item) => toRegionSpeciesCard(item));
 const venomous = species.filter(isRegionCardVenomous);
 const summary = ["First summary paragraph.", "Second summary paragraph."];
 const content = getLocalizedRegionContent("kakheti", "en");

@@ -1,21 +1,15 @@
+import type { DangerLevel } from "@/data/speciesTypes";
+import type { AppLocale } from "@/i18n/routing";
+
 import { regions } from "@/data/mapRegions";
-import {
-  type DangerLevel,
-  getCatalogSpecies,
-  type Species,
-} from "@/data/species";
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-  isVenomousDanger,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 export type { AnimalGroup } from "@/data/speciesAtlasMeta";
 export {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
-  speciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
 
 const venomousDangerOrder: Record<DangerLevel, number> = {
@@ -41,53 +35,16 @@ export type AtlasStats = {
   venomous: number;
 };
 
-export function getAtlasStats(
-  catalog: Species[] = getCatalogSpecies(),
-): AtlasStats {
-  const byGroup: Record<AnimalGroup, number> = {
-    amphibian: 0,
-    bird: 0,
-    insect: 0,
-    lizard: 0,
-    mammal: 0,
-    scorpion: 0,
-    snake: 0,
-    spider: 0,
-    turtle: 0,
-  };
+type DangerRanked = Pick<CatalogCard, "danger" | "family" | "scientificName">;
 
-  for (const item of catalog) {
-    byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
-  }
-
-  const updatedDates: string[] = [];
-  for (const item of catalog) {
-    if (item.updatedAt) updatedDates.push(item.updatedAt);
-  }
-  updatedDates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-  return {
-    amphibians: byGroup.amphibian,
-    birds: byGroup.bird,
-    insects: byGroup.insect,
-    lastUpdated: updatedDates.at(-1) ?? null,
-    lizards: byGroup.lizard,
-    mammals: byGroup.mammal,
-    photos: getAtlasPhotoCount(catalog),
-    regions: regions.length,
-    scorpions: byGroup.scorpion,
-    snakes: byGroup.snake,
-    spiders: byGroup.spider,
-    total: catalog.length,
-    turtles: byGroup.turtle,
-    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
-  };
+export async function getAtlasStats(locale: AppLocale): Promise<AtlasStats> {
+  return summarizeAtlas(await getSpeciesCatalog(locale));
 }
 
-export function getCatalogByDanger(
-  catalog: Species[] = getCatalogSpecies(),
-): Record<DangerLevel, Species[]> {
-  const groups: Record<DangerLevel, Species[]> = {
+export function getCatalogByDanger<T extends DangerRanked>(
+  catalog: T[],
+): Record<DangerLevel, T[]> {
+  const groups: Record<DangerLevel, T[]> = {
     Harmless: [],
     High: [],
     Moderate: [],
@@ -109,33 +66,28 @@ export function getCatalogByDanger(
   return groups;
 }
 
-export function getCatalogSpeciesByGroup(
+export async function getCatalogSpeciesByGroup(
   group: AnimalGroup,
-  catalog: Species[] = getCatalogSpecies(),
+  locale: AppLocale,
 ) {
-  return catalog
-    .filter((item) => getSpeciesAtlasMeta(item.id).group === group)
+  return (await getSpeciesCatalog(locale))
+    .filter((item) => item.group === group)
     .sort((a, b) => a.scientificName.localeCompare(b.scientificName));
 }
 
-export function getRecentlyUpdatedSpecies(limit = 4) {
-  return [...getCatalogSpecies()]
-    .sort(
-      (a, b) =>
-        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-    )
+export async function getRecentlyUpdatedSpecies(locale: AppLocale, limit = 4) {
+  return [...(await getSpeciesCatalog(locale))]
+    .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
     .slice(0, limit);
 }
 
-export function getVenomousCatalogSpecies(
-  catalog: Species[] = getCatalogSpecies(),
-) {
+export async function getVenomousCatalogSpecies(locale: AppLocale) {
+  return pickVenomousSnakes(await getSpeciesCatalog(locale));
+}
+
+export function pickVenomousSnakes(catalog: readonly CatalogCard[]) {
   return catalog
-    .filter(
-      (item) =>
-        isVenomousDanger(item.danger) &&
-        getSpeciesAtlasMeta(item.id).group === "snake",
-    )
+    .filter((item) => isVenomousDanger(item.danger) && item.group === "snake")
     .sort(
       (a, b) =>
         venomousDangerOrder[a.danger ?? "Harmless"] -
@@ -144,16 +96,49 @@ export function getVenomousCatalogSpecies(
     );
 }
 
-function familyRank(species: Species) {
-  return species.family === "Viperidae" ? 0 : 1;
-}
-
-function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
-  const urls = new Set<string>();
+export function summarizeAtlas(catalog: readonly CatalogCard[]): AtlasStats {
+  const byGroup: Record<AnimalGroup, number> = {
+    amphibian: 0,
+    bird: 0,
+    insect: 0,
+    lizard: 0,
+    mammal: 0,
+    scorpion: 0,
+    snake: 0,
+    spider: 0,
+    turtle: 0,
+  };
+  let photos = 0;
+  let lastUpdated: null | string = null;
   for (const item of catalog) {
-    for (const photo of item.gallery) {
-      if (photo.src) urls.add(photo.src);
+    byGroup[item.group] += 1;
+    photos += item.photoCount;
+    if (
+      item.updatedAt &&
+      (!lastUpdated || Date.parse(item.updatedAt) > Date.parse(lastUpdated))
+    ) {
+      lastUpdated = item.updatedAt;
     }
   }
-  return urls.size;
+
+  return {
+    amphibians: byGroup.amphibian,
+    birds: byGroup.bird,
+    insects: byGroup.insect,
+    lastUpdated,
+    lizards: byGroup.lizard,
+    mammals: byGroup.mammal,
+    photos,
+    regions: regions.length,
+    scorpions: byGroup.scorpion,
+    snakes: byGroup.snake,
+    spiders: byGroup.spider,
+    total: catalog.length,
+    turtles: byGroup.turtle,
+    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
+  };
+}
+
+function familyRank(species: Pick<CatalogCard, "family">) {
+  return species.family === "Viperidae" ? 0 : 1;
 }

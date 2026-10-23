@@ -7,7 +7,12 @@ import {
 } from "@/data/newsSchemaImages";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { newsOgImageDimensions, newsOgImageUrl } from "@/lib/news";
-import { getNewsImageSrc, newsImageRights } from "@/lib/newsVisual";
+import {
+  type AtlasPhotoSource,
+  getNewsImageSrc,
+  newsImageRights,
+  type NewsSpecies,
+} from "@/lib/newsVisual";
 import { absoluteImageUrl } from "@/lib/site";
 
 export type NewsHeroImage = {
@@ -17,8 +22,11 @@ export type NewsHeroImage = {
   width: number;
 };
 
-export function newsHeroImage(article: NewsArticle): NewsHeroImage | null {
-  const src = getNewsImageSrc(article);
+export function newsHeroImage(
+  article: NewsArticle,
+  catalog: readonly NewsSpecies[],
+): NewsHeroImage | null {
+  const src = getNewsImageSrc(article, catalog);
   if (!src) return null;
   const entry = optimizedEntry(src);
   if (entry) {
@@ -39,11 +47,18 @@ export function newsHeroImage(article: NewsArticle): NewsHeroImage | null {
   };
 }
 
-export function newsSchemaImages(article: NewsArticle, locale: AppLocale) {
-  const rights = newsImageRights(article, locale);
-  const ogImage = newsOgImageUrl(article);
-  const images = [imageObject(ogImage, newsOgImageDimensions(article), rights)];
-  const hero = newsHeroImage(article);
+export function newsSchemaImages(
+  article: NewsArticle,
+  locale: AppLocale,
+  catalog: readonly NewsSpecies[],
+  photos: readonly AtlasPhotoSource[],
+) {
+  const rights = newsImageRights(article, locale, catalog, photos);
+  const ogImage = newsOgImageUrl(article, catalog);
+  const images = [
+    imageObject(ogImage, newsOgImageDimensions(article, catalog), rights),
+  ];
+  const hero = newsHeroImage(article, catalog);
   if (!hero || hero.width < NEWS_SCHEMA_IMAGE_MIN_WIDTH) return images;
 
   const seen = new Set([ogImage]);

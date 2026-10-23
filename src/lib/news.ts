@@ -12,7 +12,7 @@ import {
 } from "@/data/news";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { getPathname } from "@/i18n/navigation";
-import { getNewsImageSrc } from "@/lib/newsVisual";
+import { getNewsImageSrc, type NewsSpecies } from "@/lib/newsVisual";
 import {
   absoluteUrl,
   localeAlternates,
@@ -85,8 +85,11 @@ export function newsIndexUrl(locale: AppLocale) {
   return absoluteUrl(newsIndexPath(locale));
 }
 
-export function newsOgImageDimensions(article: NewsArticle) {
-  const url = newsOgImageUrl(article);
+export function newsOgImageDimensions(
+  article: NewsArticle,
+  catalog: readonly NewsSpecies[],
+) {
+  const url = newsOgImageUrl(article, catalog);
   const fromPipeline = ogImageDimensions(url);
   if (fromPipeline.width) return fromPipeline;
   const photo = article.image;
@@ -96,8 +99,16 @@ export function newsOgImageDimensions(article: NewsArticle) {
   return {};
 }
 
-export function newsOgImageUrl(article?: NewsArticle) {
-  const src = article ? getNewsImageSrc(article) : null;
+export function newsOgImageUrl(): string;
+export function newsOgImageUrl(
+  article: NewsArticle,
+  catalog: readonly NewsSpecies[],
+): string;
+export function newsOgImageUrl(
+  article?: NewsArticle,
+  catalog: readonly NewsSpecies[] = [],
+) {
+  const src = article ? getNewsImageSrc(article, catalog) : null;
   if (src) {
     if (src.startsWith("/")) {
       return absoluteUrl(src);

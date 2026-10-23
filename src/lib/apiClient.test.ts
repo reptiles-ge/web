@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { app } from "@/api/app";
-import { createTestDatabase } from "@/api/testing/sqliteDatabase";
+import { createSpeciesTestDatabase } from "@/api/testing/sqliteDatabase";
 
 import { apiOrigin, createApiClient } from "./apiClient";
 
@@ -11,12 +11,13 @@ afterEach(() => {
 
 describe("createApiClient", () => {
   it("calls typed routes", async () => {
-    const env = { DB: createTestDatabase().db };
+    const env = { DB: createSpeciesTestDatabase().db };
     const client = createApiClient({
       fetch: async (input, init) => app.request(input, init, env),
     });
     const response = await client.v1.species.$get({
-      query: { group: "turtle", locale: "en" },
+      header: { "x-locale": "en" },
+      query: { group: "turtle" },
     });
     expect(response.status).toBe(200);
     if (response.status !== 200) return;

@@ -66,19 +66,19 @@ pnpm start:vinext
 
 ## Tech stack
 
-| Area          | Choice                                                                                             |
-| ------------- | -------------------------------------------------------------------------------------------------- |
-| Framework     | Next.js 16 (App Router), React 19, TypeScript strict                                               |
-| Runtime       | Cloudflare Workers via vinext (`src/worker.ts`), with a separate response-store Worker for caching |
-| i18n          | `next-intl` v4. Locales are `ka` (default, no prefix), `en`, `ru`, and `tr`                        |
-| Styling       | Tailwind CSS 4, no CSS-in-JS                                                                       |
-| Content       | MDX species profiles compiled to TypeScript at build time; TypeScript modules for guides and news  |
-| Images        | BunnyCDN at `https://cdn.reptiles.ge` (Next.js image optimization is off)                          |
-| Maps          | Leaflet, plus an SVG map of Georgia compiled to paths                                              |
-| Search        | Fuse.js over per-locale indexes generated at build time                                            |
-| Monitoring    | Sentry, Cloudflare Workers observability logs                                                      |
-| Testing       | Vitest (Node and happy-dom), Testing Library, MSW, Playwright with axe-core                        |
-| Quality gates | ESLint, Prettier, knip, jscpd, React Doctor, i18n-check                                            |
+| Area          | Choice                                                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework     | Next.js 16 (App Router), React 19, TypeScript strict                                                                                  |
+| Runtime       | Cloudflare Workers via vinext (`src/worker.ts`), with a separate response-store Worker for caching                                    |
+| i18n          | `next-intl` v4. Locales are `ka` (default, no prefix), `en`, `ru`, and `tr`                                                           |
+| Styling       | Tailwind CSS 4, no CSS-in-JS                                                                                                          |
+| Content       | Species in Cloudflare D1, served by the `reptiles-api` Worker and rendered on the server; MDX for news; TypeScript modules for guides |
+| Images        | BunnyCDN at `https://cdn.reptiles.ge` (Next.js image optimization is off)                                                             |
+| Maps          | Leaflet, plus an SVG map of Georgia compiled to paths                                                                                 |
+| Search        | Fuse.js over per-locale indexes generated at build time                                                                               |
+| Monitoring    | Sentry, Cloudflare Workers observability logs                                                                                         |
+| Testing       | Vitest (Node and happy-dom), Testing Library, MSW, Playwright with axe-core                                                           |
+| Quality gates | ESLint, Prettier, knip, jscpd, React Doctor, i18n-check                                                                               |
 
 > [!NOTE]
 > Next.js 16 differs from older versions. The request edge is `src/proxy.ts`. **Do not add `middleware.ts`.** When in doubt, read the guides in `node_modules/next/dist/docs/`.
@@ -95,7 +95,6 @@ pnpm start:vinext
 │   │   └── sitemap.ts, robots.txt, llms.txt, manifest.ts
 │   ├── components/            Page components and UI
 │   ├── content/
-│   │   ├── species/{id}/      ka.mdx, en.mdx, ru.mdx, tr.mdx per species
 │   │   ├── guides/{id}.ts     Long-form guide articles, all locales in one file
 │   │   └── news/{slug}/       News articles, one MDX per locale
 │   ├── data/                  Catalog, regions, checklist, registries, *.generated.ts outputs
@@ -146,13 +145,12 @@ Route files are thin. They call a factory in `src/lib/`:
 
 `pnpm compile` (run automatically by `predev`, `prebuild`, and `pretest`) writes these gitignored files. **Never edit or commit them.**
 
-| Output                                             | Source                                | Script                 |
-| -------------------------------------------------- | ------------------------------------- | ---------------------- |
-| `src/data/news.generated.ts`                       | `src/content/news/*/*.mdx`            | `pnpm news:compile`    |
-| `src/data/species.generated.ts`                    | `src/content/species/*/*.mdx`         | `pnpm species:compile` |
-| `src/data/speciesSlugs.generated.ts`               | MDX and slug rules (used by the edge) | `pnpm species:compile` |
-| `src/data/releaseVersion.generated.ts`             | Latest Git tag (shown in the footer)  | `pnpm species:compile` |
-| `src/data/search-index.{ka,en,ru,tr}.generated.ts` | Species catalog, guides, and news     | `pnpm search:compile`  |
+| Output                                 | Source                                               | Script                 |
+| -------------------------------------- | ---------------------------------------------------- | ---------------------- |
+| `src/data/news.generated.ts`           | `src/content/news/*/*.mdx`                           | `pnpm news:compile`    |
+| `src/data/speciesSlugs.generated.ts`   | API card catalog and slug aliases (used by the edge) | `pnpm slugs:compile`   |
+| `src/data/contentDates.generated.ts`   | Git dates of guides, page files and messages         | `pnpm content:compile` |
+| `src/data/releaseVersion.generated.ts` | Latest Git tag (shown in the footer)                 | `pnpm content:compile` |
 
 Two generated files are tracked in Git. Do not edit them by hand; regenerate them and commit the result.
 
@@ -179,12 +177,13 @@ All user-facing copy must ship in **all four locales** in the same change. Never
 
 ### Add or edit a species profile
 
-1. Edit `src/content/species/{id}/ka.mdx` and its `en`, `ru`, and `tr` siblings. The KA frontmatter owns the `id`, taxonomy, `danger`, image sources, gallery, and `sources`. The other locales translate the text and may override photo credits by matching `src`.
-2. Run `pnpm species:compile`. It validates the frontmatter with Zod (`scripts/speciesFrontmatter.ts`).
-3. For a new species, register the id in `src/data/speciesPublish.ts` and add its group and habitat tags to `speciesAtlasMeta` in `src/data/speciesAtlasMeta.ts`. Without that entry, grouping breaks.
-4. The KA slug is derived from the common name. Override it in `src/lib/speciesSlugRules.ts` only when needed.
-5. Lookalikes go in `LOOKALIKES` in `src/lib/speciesRoutes.ts` (in both directions), not in MDX.
-6. A range map appears only if the id is in some `regions[].speciesIds` in `src/data/regions.ts`, and that requires a source (see [Content integrity](#content-integrity)).
+Species content lives in D1 and is served by the `reptiles-api` Worker ([`.agents/skills/api/SKILL.md`](.agents/skills/api/SKILL.md)). There are no species files to edit.
+
+1. Edit a profile in the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts to approve; cover, crop, reorder, remove and photo coordinates write through the API. The API validates the whole record: KA owns taxonomy, `danger`, images and `sources`; the other locales translate the text and may re-credit KA photos by `src`.
+2. Adding photos or field records, AI analysis, and new species creation are not available until they move to the API (they answer 503).
+3. Some registries are still code: `speciesAtlasMeta` (group and habitats), `LOOKALIKES` in `src/lib/speciesLookalikes.ts` (both directions), `src/data/speciesPublish.ts`, and the KA slug rules in `src/lib/speciesSlugRules.ts`.
+4. A slug change or a new species reaches the 301s in `src/proxy.ts` on the next deploy (`pnpm slugs:compile` runs in `compile`).
+5. A range map appears only if the id is in some `regions[].speciesIds` in `src/data/regions.ts` (that requires a source, see [Content integrity](#content-integrity)) or the species has field records in D1.
 
 Reference profiles: `macrovipera-lebetina`, `paralaudakia-caucasia`, `pseudopus-apodus`.
 
@@ -317,9 +316,9 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 | `pnpm build`             | Next.js production build                                                |
 | `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                  |
 | `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler       |
-| `pnpm compile`           | `species:compile`, `search:compile`, and `map:compile`                  |
-| `pnpm species:compile`   | MDX to catalog, slug table, occurrences, and release version            |
-| `pnpm search:compile`    | Per-locale search indexes                                               |
+| `pnpm compile`           | `news:compile`, `content:compile`, `slugs:compile`, and `map:compile`   |
+| `pnpm content:compile`   | Content dates and release version                                       |
+| `pnpm slugs:compile`     | Slug table from the API card catalog                                    |
 | `pnpm map:compile`       | Georgia SVG to map paths                                                |
 | `pnpm lint` / `lint:fix` | ESLint                                                                  |
 | `pnpm typecheck`         | TypeScript                                                              |

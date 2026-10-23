@@ -31,9 +31,9 @@ jobs:
 
       - run: pnpm news:compile
 
-      - run: pnpm species:compile
+      - run: pnpm content:compile
 
-      - run: pnpm search:compile
+      - run: pnpm slugs:compile
 
       - run: pnpm format:check
 

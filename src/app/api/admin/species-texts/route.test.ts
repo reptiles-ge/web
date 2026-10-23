@@ -2,13 +2,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("@/lib/speciesTextProcessing", () => ({
   processSpeciesTexts: vi.fn(async () => ({
-    pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999",
     report: "overview\nდამუშავებული ტექსტი",
+    reviewUrl: "/admin/zamenis-hohenackeri#draft-7",
+  })),
+}));
+vi.mock("@/lib/adminSpeciesApi", () => ({
+  readAdminSpecies: vi.fn(async () => ({
+    record: { base: { commonName: "ამიერკავკასიური მცურავი" } },
+    version: 3,
   })),
 }));
 
 import { POST } from "@/app/api/admin/species-texts/route.local";
-import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
 const request = (origin = "http://localhost", progress?: unknown) =>
@@ -39,13 +44,10 @@ describe("POST /api/admin/species-texts", () => {
     const response = await POST(request());
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({
-      pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999",
       report: "overview\nდამუშავებული ტექსტი",
+      reviewUrl: "/admin/zamenis-hohenackeri#draft-7",
     });
-    expect(processSpeciesTexts).toHaveBeenCalledWith(
-      "zamenis-hohenackeri",
-      expect.any(String),
-    );
+    expect(processSpeciesTexts).toHaveBeenCalledWith("zamenis-hohenackeri");
     expect(fetch).toHaveBeenCalledWith(
       "https://api.telegram.org/bottest-token/sendMessage",
       expect.objectContaining({
@@ -80,25 +82,6 @@ describe("POST /api/admin/species-texts", () => {
     vi.spyOn(console, "error").mockImplementation(() => undefined);
     const response = await POST(request());
     expect(response.status).toBe(400);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.telegram.org/bottest-token/sendMessage",
-      expect.objectContaining({
-        body: JSON.stringify({
-          chat_id: "test-chat",
-          text: "❌ texts failed ამიერკავკასიური მცურავი",
-        }),
-      }),
-    );
-  });
-
-  it("returns a conflict before editing stale species text", async () => {
-    vi.mocked(processSpeciesTexts).mockRejectedValueOnce(
-      new StaleSpeciesContentError("Species content differs"),
-    );
-    vi.spyOn(console, "error").mockImplementation(() => undefined);
-    const response = await POST(request());
-    expect(response.status).toBe(409);
-    expect(await response.json()).toEqual({ error: "stale" });
     expect(fetch).toHaveBeenCalledWith(
       "https://api.telegram.org/bottest-token/sendMessage",
       expect.objectContaining({

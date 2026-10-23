@@ -24,40 +24,50 @@ import {
   sitemapRegionLastModified,
 } from "@/data/pageLastModified";
 import { getRegionById, getRegionSpecies, regions } from "@/data/regions";
-import { getCatalogSpecies, type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
+  type CreditPhotoSource,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { liveQuizzes } from "@/lib/quizzes";
+import {
+  type CatalogCard,
+  getCreditPhotoCatalog,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 
 type DateFields = { dateModified: string; datePublished: string };
 
-const memo = new Map<string, null | string>();
-let pathMembers: Map<string, Species[]> | null = null;
 let pathNamespaces: Map<string, readonly string[]> | null = null;
 
-export function atlasDateFields(locale: AppLocale) {
+export async function atlasDateFields(locale: AppLocale) {
   return pageDateFields("/species", locale);
 }
 
-export function authorDateFields(slug: string, locale: AppLocale) {
+export async function authorDateFields(slug: string, locale: AppLocale) {
   return withFloor(
-    authorModifiedDate(slug, locale),
+    await authorModifiedDate(slug, locale),
     sitemapAuthorDatePublished(slug),
   );
 }
 
-export function authorModifiedDate(slug: string, locale: AppLocale) {
+export async function authorModifiedDate(
+  slug: string,
+  locale: AppLocale,
+  catalog?: readonly CatalogCard[],
+  creditPhotos?: readonly CreditPhotoSource[],
+) {
   return latestDate([
     sitemapAuthorLastModified(slug),
     messagesDate(AUTHOR_MESSAGE_NAMESPACES, locale),
-    authorMembersDate(slug, locale),
+    authorMembersDate(
+      slug,
+      catalog ?? (await getSpeciesCatalog(locale)),
+      creditPhotos ?? (await getCreditPhotoCatalog()),
+    ),
   ]);
 }
 
@@ -77,62 +87,86 @@ export function hasMeaningfulUpdate(
   );
 }
 
-export function pageDateFields(path: string, locale: AppLocale): DateFields {
+export async function pageDateFields(
+  path: string,
+  locale: AppLocale,
+): Promise<DateFields> {
   return withFloor(
-    pageModifiedDate(path, locale),
+    await pageModifiedDate(path, locale),
     sitemapPathDatePublished(path),
   );
 }
 
-export function pageModifiedDate(path: string, locale: AppLocale) {
+export async function pageModifiedDate(
+  path: string,
+  locale: AppLocale,
+  catalog?: readonly CatalogCard[],
+  creditPhotos?: readonly CreditPhotoSource[],
+) {
   return latestDate([
     sitemapPathLastModified(path),
     guideArticleModifiedAt[path],
     pageFileModifiedAt[path],
     messagesDate(namespacesByPath().get(path) ?? [], locale),
-    pageMembersDate(path, locale),
+    pageMembersDate(
+      path,
+      catalog ?? (await getSpeciesCatalog(locale)),
+      path === "/authors"
+        ? (creditPhotos ?? (await getCreditPhotoCatalog()))
+        : [],
+    ),
   ]);
 }
 
-export function quizDateFields(id: string, locale: AppLocale) {
-  return withFloor(quizModifiedDate(id, locale), sitemapQuizDatePublished(id));
+export async function quizDateFields(id: string, locale: AppLocale) {
+  return withFloor(
+    await quizModifiedDate(id, locale),
+    sitemapQuizDatePublished(id),
+  );
 }
 
-export function quizModifiedDate(id: string, locale: AppLocale) {
+export async function quizModifiedDate(
+  id: string,
+  locale: AppLocale,
+  catalog?: readonly CatalogCard[],
+) {
   const quiz = liveQuizzes().find((item) => item.id === id);
   return latestDate([
     messagesDate(quiz ? [quiz.messageNamespace] : [], locale),
-    quizMembersDate(id, locale),
+    quizMembersDate(id, catalog ?? (await getSpeciesCatalog(locale))),
   ]);
 }
 
-export function regionDateFields(id: string, locale: AppLocale) {
+export async function regionDateFields(id: string, locale: AppLocale) {
   return withFloor(
-    regionModifiedDate(id, locale),
+    await regionModifiedDate(id, locale),
     sitemapRegionDatePublished(id),
   );
 }
 
-export function regionModifiedDate(id: string, locale: AppLocale) {
+export async function regionModifiedDate(
+  id: string,
+  locale: AppLocale,
+  catalog?: readonly CatalogCard[],
+) {
   return latestDate([
     sitemapRegionLastModified(id),
     messagesDate(REGION_MESSAGE_NAMESPACES, locale),
-    regionMembersDate(id, locale),
+    regionMembersDate(id, catalog ?? (await getSpeciesCatalog(locale))),
   ]);
 }
 
-function authorMembersDate(slug: string, locale: AppLocale) {
-  return memoized(`author:${slug}:${locale}`, () => {
-    const author = getPublishedCreditAuthorBySlug(slug);
-    if (!author) return null;
-    const ids = new Set(
-      getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author)),
-    );
-    return speciesDate(
-      getCatalogSpecies().filter((item) => ids.has(item.id)),
-      locale,
-    );
-  });
+function authorMembersDate(
+  slug: string,
+  catalog: readonly CatalogCard[],
+  creditPhotos: readonly CreditPhotoSource[],
+) {
+  const author = getPublishedCreditAuthorBySlug(slug);
+  if (!author) return null;
+  const ids = new Set(
+    getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author, creditPhotos)),
+  );
+  return speciesDate(catalog.filter((item) => ids.has(item.id)));
 }
 
 function laterDate(base: string, candidate: null | string | undefined) {
@@ -151,31 +185,14 @@ function latestDate(values: Array<null | string | undefined>) {
   return latest;
 }
 
-function membersByPath() {
-  if (pathMembers) return pathMembers;
-  const catalog = getCatalogSpecies();
-  const map = new Map<string, Species[]>();
-  map.set("/", catalog);
-  map.set("/species", catalog);
-  for (const guide of CLUSTER_GUIDE_LIST) {
-    if (guide.schema !== "collection") continue;
-    map.set(guide.pathname, catalog.filter(guide.matches));
-  }
-  for (const hub of GROUP_HUB_LIST) {
-    map.set(
-      hub.path,
-      catalog.filter(
-        (item) => getSpeciesAtlasMeta(item.id).group === hub.group,
-      ),
-    );
-  }
-  pathMembers = map;
-  return map;
-}
-
-function memoized(key: string, compute: () => null | string) {
-  if (!memo.has(key)) memo.set(key, compute());
-  return memo.get(key) ?? null;
+function membersForPath(path: string, catalog: readonly CatalogCard[]) {
+  if (path === "/" || path === "/species") return catalog;
+  const hub = GROUP_HUB_LIST.find((item) => item.path === path);
+  if (hub) return catalog.filter((item) => item.group === hub.group);
+  const guide = CLUSTER_GUIDE_LIST.find(
+    (item) => item.schema === "collection" && item.pathname === path,
+  );
+  return guide ? catalog.filter(guide.matches) : null;
 }
 
 function messagesDate(namespaces: readonly string[], locale: AppLocale) {
@@ -198,52 +215,45 @@ function namespacesByPath() {
   return map;
 }
 
-function pageMembersDate(path: string, locale: AppLocale) {
-  return memoized(`path:${path}:${locale}`, () => {
-    if (path === "/regions") {
-      return latestDate(
-        regions.map((region) => regionMembersDate(region.id, locale)),
-      );
-    }
-    if (path === "/authors") {
-      return latestDate(
-        getPublishedCreditAuthors().map((author) =>
-          authorMembersDate(author.slug, locale),
-        ),
-      );
-    }
-    if (path === "/quiz") {
-      return latestDate(
-        liveQuizzes().map((quiz) => quizMembersDate(quiz.id, locale)),
-      );
-    }
-    const members = membersByPath().get(path);
-    return members ? speciesDate(members, locale) : null;
-  });
-}
-
-function quizMembersDate(id: string, locale: AppLocale) {
-  return memoized(`quiz:${id}:${locale}`, () => {
-    const quiz = liveQuizzes().find((item) => item.id === id);
-    if (!quiz) return null;
-    return speciesDate(
-      getCatalogSpecies().filter(
-        (item) => getSpeciesAtlasMeta(item.id).group === quiz.group,
-      ),
-      locale,
+function pageMembersDate(
+  path: string,
+  catalog: readonly CatalogCard[],
+  creditPhotos: readonly CreditPhotoSource[],
+) {
+  if (path === "/regions") {
+    return latestDate(
+      regions.map((region) => regionMembersDate(region.id, catalog)),
     );
-  });
+  }
+  if (path === "/authors") {
+    return latestDate(
+      getPublishedCreditAuthors().map((author) =>
+        authorMembersDate(author.slug, catalog, creditPhotos),
+      ),
+    );
+  }
+  if (path === "/quiz") {
+    return latestDate(
+      liveQuizzes().map((quiz) => quizMembersDate(quiz.id, catalog)),
+    );
+  }
+  const members = membersForPath(path, catalog);
+  return members ? speciesDate(members) : null;
 }
 
-function regionMembersDate(id: string, locale: AppLocale) {
-  return memoized(`region:${id}:${locale}`, () => {
-    const region = getRegionById(id);
-    return region ? speciesDate(getRegionSpecies(region), locale) : null;
-  });
+function quizMembersDate(id: string, catalog: readonly CatalogCard[]) {
+  const quiz = liveQuizzes().find((item) => item.id === id);
+  if (!quiz) return null;
+  return speciesDate(catalog.filter((item) => item.group === quiz.group));
 }
 
-function speciesDate(items: Species[], locale: AppLocale) {
-  return latestDate(items.map((item) => speciesUpdatedAt(item, locale)));
+function regionMembersDate(id: string, catalog: readonly CatalogCard[]) {
+  const region = getRegionById(id);
+  return region ? speciesDate(getRegionSpecies(region, catalog)) : null;
+}
+
+function speciesDate(items: readonly CatalogCard[]) {
+  return latestDate(items.map((item) => item.updatedAt));
 }
 
 function withFloor(

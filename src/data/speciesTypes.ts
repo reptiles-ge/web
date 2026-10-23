@@ -114,3 +114,45 @@ export type SpeciesTranslation = {
 };
 
 type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
+
+export const SPECIES_CARD_KEYS = [
+  "commonName",
+  "danger",
+  "description",
+  "family",
+  "genus",
+  "id",
+  "image",
+  "imageCredit",
+  "location",
+  "mobileImage",
+  "mobileImageCredit",
+  "publishedAt",
+  "scientificName",
+  "stats",
+  "updatedAt",
+] as const satisfies ReadonlyArray<keyof Species>;
+
+export type SpeciesSummary = Pick<Species, (typeof SPECIES_CARD_KEYS)[number]>;
+
+export const SPECIES_QUIZ_KEYS = [
+  ...SPECIES_CARD_KEYS,
+  "facts",
+  "gallery",
+  "identification",
+] as const satisfies ReadonlyArray<keyof Species>;
+
+export type SpeciesQuizFields = Pick<
+  Species,
+  (typeof SPECIES_QUIZ_KEYS)[number]
+>;
+
+export const SPECIES_PHOTO_KEYS = [
+  ...SPECIES_CARD_KEYS,
+  "gallery",
+] as const satisfies ReadonlyArray<keyof Species>;
+
+export type SpeciesPhotoFields = Pick<
+  Species,
+  (typeof SPECIES_PHOTO_KEYS)[number]
+>;

@@ -43,12 +43,23 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - JSON keys are camelCase. Dates are ISO 8601 in UTC.
 - Non-critical side work (Telegram, analytics) MUST run in `c.executionCtx.waitUntil()`, never before the response.
 
+## OpenAPI and Scalar
+
+- `GET /v1/docs` serves the Scalar API reference (`@scalar/hono-api-reference`, pinned; the `@scalar/api-reference` bundle loads from jsDelivr at the exact version in `SCALAR_CDN`). `GET /v1/docs/openapi.json` serves the OpenAPI 3.1 document. Both are public and send `PUBLIC_CACHE`.
+- The document is built in `lib/openapi.ts` from the same Zod schemas the routes validate with (`z.toJSONSchema`, input side). NEVER write a request schema by hand there; import it from `schemas/`.
+- The spec is public-only. Admin (`/v1/admin/…`) and ratings (`/v1/ratings…`) routes are listed in `UNDOCUMENTED_PATH_PREFIXES` and MUST NOT appear in it, along with any token scheme.
+- Every other route MUST have an entry in `OPERATIONS` (`lib/openapi.ts`) with its method, path, tag, inputs, success status and error statuses. `routes/docs.test.ts` fails when a public route is missing, a documented one no longer exists, path params do not match, or an admin or ratings path leaks into the spec.
+- Responses are typed: `schemas/responses.ts` holds strict Zod schemas for every public response, registered as named components (`responseSchemas`), with a `description` (and `examples` where useful) on every field. `schemas/responses.test.ts` parses every real response (all species, all four locales, every catalog view, all field records) against them, so a new or renamed field fails until the schema and its description are updated. Descriptions follow the content rules: state only what the data shows, never invent meaning.
+- Examples live in `lib/openapiExamples.ts`. They use real atlas values, shortened to whole sentences and the first array items. The test checks them against the schemas, and the `400`/`404` examples against the real responses.
+- The developer guide is `DESCRIPTION` in `lib/openapi.ts` (quick start, versioning, locales, ids and slugs, text format, credits, caching, errors). The docs are public and open source: keep it accurate when behaviour changes.
+- Servers are `/` (whatever origin serves the page, so "Test Request" in `pnpm dev:api` hits the local Worker) and `https://api.reptiles.ge`.
+
 ## Validation
 
 - Every input MUST go through `validate(target, schema)` from `lib/validate.ts` (wraps `@hono/zod-validator`). Read it with `c.req.valid(target)`.
 - NEVER call `c.req.json()`, `c.req.query()`, `c.req.param()`, `c.req.parseBody()`, or similar in `routes/`. The guard test fails on them.
 - Schemas live in `schemas/`. If the site validates the same input, the schema lives in `src/lib` and both use it (example: `src/lib/ratingInput.ts`).
-- Locale input is `localeQuery` from `schemas/common.ts`: the four site locales, default `ka`.
+- Locale input is the `X-Locale` request header, validated with `validate("header", localeHeader)` from `schemas/common.ts`: the four site locales, default `ka`, and anything else is 400 `invalid_request`. NEVER take locale from the query string or path. Localized responses also send `Content-Language`. The site passes it through the typed client: `{ header: { "x-locale": locale } }`. Use `X-Locale`, not `Accept-Language`: browsers send `Accept-Language` on their own in many forms, and every distinct value would be a separate edge-cache entry.
 - Tests that send JSON MUST set `Content-Type: application/json`. Without it Hono validates `{}`.
 
 ## Errors
@@ -71,7 +82,18 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Do not store IP addresses, user agents, or other personal data unless the owner asks for it.
 - AI agents get read-only access to production data. Every AI write goes through the API, through validation, and lands as a draft for human approval. NEVER write to production D1 with raw SQL from an agent.
 
-## Migrations
+## Species data in D1
+
+- Migration `0002_species.sql` holds the whole species catalog: `species` (taxonomy, group, danger, status, catalog order, KA slug), `species_texts` (one row per species and locale), `species_list_items` (facts and identification traits), `species_faq`, `species_stats`, `species_identification_colors`, `species_sources`, `species_habitats`, `species_lookalikes`, `species_slugs` (every public, legacy and alias slug), `species_media` (hero, mobile, gallery, audio with credits) and `species_media_overlays` (per-locale credit and order overrides).
+- Values that can grow live in lookup tables with foreign keys: `locales`, `animal_groups`, `habitats`, `danger_levels`, `photo_confidences`. Add a value with an `INSERT` in a new migration. Do not turn them into `CHECK` lists; SQLite cannot change a `CHECK` without rebuilding the table.
+- **D1 is the source of truth for species.** It was copied once from MDX, and species MDX was deleted afterwards (S5). Change content only through `PUT /v1/admin/species/:id` or an approved draft. NEVER edit species rows by hand, and NEVER add a file-based species source back.
+- `src/api/db/speciesCatalog.ts` reads the catalog; `db/speciesRows.ts` builds the rows for writes. `speciesCatalog.test.ts` reads every species from the test seed, writes the records back into an empty database with the row builder, and requires `toStrictEqual` with the first read. A schema, row or reader change that loses a field fails it.
+- Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, row builder, reader, and the test seed (`tests/fixtures/speciesSeed.sql`). The round-trip test tells you what is missing.
+- `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import site species modules (`speciesPublish`, `speciesSlugTable`, `speciesSlugs.generated`, `speciesRoutes`); the guard test fails if it does, and the Worker stays small (about 190 KB gzip). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
+- `:slug` accepts only the public slug of the requested locale (`X-Locale`, the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
+- Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin, X-Locale`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
+- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
+- Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
 - Add-only. NEVER edit, rename, or delete a migration that has been applied anywhere. Fix forward with a new one.
@@ -93,10 +115,11 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ## Caching
 
+- Public D1-backed `GET` routes use `edgeCache(name)` from `lib/cache.ts`, which stores responses in the Workers Cache API keyed by URL, `Origin` and `X-Locale` (Hono `cache` puts each `vary` header value into the key). A cache hit never touches D1. Never cache an authenticated or `no-store` response.
 - `etag()` runs on every response. A repeated `GET` with a matching `If-None-Match` gets `304` with no body. Keep responses deterministic (no timestamps or random values in a cacheable body) so the ETag stays stable.
 - Public `GET`: `Cache-Control: PUBLIC_CACHE` from `lib/cache.ts`.
 - Authenticated or personal responses: `NO_STORE`.
-- When D1-backed content changes, purge the affected cache entries. Do not shorten cache times as a workaround.
+- The Workers Cache API is per data centre: a Worker can only purge entries in the colo it runs in, so a write cannot clear every edge copy. Do not shorten cache times as a workaround. Instead, readers that need fresh data right after a write (the site's server render) send `X-Cache-Bypass: <REVALIDATE_TOKEN>`, which `edgeCache` checks with a constant-time compare. A plain `Cache-Control: no-cache` from the public never skips the cache.
 
 ## Calling the API from the site
 
@@ -112,6 +135,72 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Telegram secrets live on `reptiles-api`: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (`wrangler secret put … --config wrangler.api.jsonc`). Without them the rating is still stored and the miss is logged.
 - `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
 - The site CSP `connect-src` allows `https://api.reptiles.ge` (and `http://localhost:8787` in development). Keep it in sync if the API origin changes.
+
+### Species writes (phase 2)
+
+- **D1 is the source of truth for species.** Change content only through `PUT /v1/admin/species/:id` or an approved draft. Never with raw SQL.
+- `GET /v1/admin/species/:id` returns `{ record, version }`. `PUT` takes `{ record, expectedVersion, actor, source: admin|ai|api, summary }`. Both need `requireToken`. Admin bodies may be up to 1 MB; every other route stays at 16 KB.
+- `schemas/speciesRecord.ts` enforces every rule the old MDX compiler had:
+  - strict keys;
+  - required fields and dates;
+  - photo credits with paired lat/lng;
+  - colors from `SPECIES_COLORS`;
+  - `sourcesAreValid` (`src/lib/speciesSources.ts`, shared with the compiler);
+  - `danger` only for groups with a venom concept;
+  - a KA slug when published;
+  - faq/facts/stats/traits count parity across locales;
+  - colors equal across locales;
+  - overlay gallery srcs that exist in KA;
+  - no duplicates or self lookalikes.
+- `db/speciesWrite.ts` writes the whole record in **one D1 batch** (one transaction):
+  1. a `species_revisions` row, whose `version` comes from `(SELECT version + 1 … WHERE version = expected)`, so a stale version fails `NOT NULL` and aborts the batch;
+  2. the `species` update;
+  3. child deletes and parameterized inserts (≤ 99 bound values each).
+
+  A stale version answers 409 `version_conflict` with `currentVersion`, both when the pre-check sees it and when a concurrent write wins the race between check and batch. Any database error rolls everything back.
+
+- `db/speciesRows.ts` is the single row builder used by both the import and the writes. Overlays point at media with a subquery, so media ids are never assigned by hand.
+- After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `X-Cache-Bypass: <REVALIDATE_TOKEN>`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data. Without the secret the header is ignored.
+- Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
+- The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
+
+### Catalog (list consumers)
+
+- `GET /v1/catalog?view=card|photos|quiz|full` (locale in `X-Locale`) returns every **published** species in catalog order, localized with `applySpeciesTranslation`, plus `group`, `habitats`, `slug` (KA slug or id) and `lookalikes` (bidirectional ids in the same order as `getSpeciesLookalikes`). It is edge-cached and supports `X-Cache-Bypass`.
+  - `card` (default, about 130–210 KB per locale) is for hubs, lists, home, cards and stats. Its fields are `SPECIES_CARD_KEYS` (`commonName, danger, description, family, genus, id, image, imageCredit, location, mobileImage, mobileImageCredit, publishedAt, scientificName, stats, updatedAt`) plus `photoCount`.
+  - `photos` (about 0.47–0.59 MB per locale) is the card fields plus `gallery` (`SPECIES_PHOTO_KEYS`), for photo credits: contributor pages, photo-use, news image rights. Credit matching uses the KA view (`getCreditPhotoCatalog()`), because translations localize photographer names.
+  - `quiz` (about 0.8–1.4 MB per locale) is the card fields plus `facts`, `gallery` and `identification` (`SPECIES_QUIZ_KEYS`), for the identification quizzes.
+  - `full` (up to about 3.6 MB for KA) is only for consumers that need every text, such as search and `llms-full`. **Never** fetch `full` for a normal page render; add the field you need to `card` instead, or add a narrow view the way `quiz` was added. Next does not cache fetch responses over 2 MB.
+- Pagination is opt-in: `limit` (1–100) and `cursor` (the `id` of the last entry on the previous page). The response always has `total` (all published species) and `nextCursor` (`null` on the last page or without `limit`). An unknown or unpublished cursor id answers 400 `invalid_request`. Without `limit` the whole catalog comes back in one response, which is what the site uses: every site consumer needs the full list, and the reader loads every row from D1 either way.
+- Site loader: `getSpeciesCatalog(locale, view?)` in `src/lib/speciesCatalogApi.ts`. It uses React `cache`, the `species` tag and `revalidate: 3600` (shared `speciesFetchOptions`), and has no fallback.
+- `routes/catalog.test.ts` checks every view against the test fixture in all locales (`toStrictEqual`).
+
+### Field records
+
+- `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
+- Public read: `GET /v1/species/:slug/field-records` (same slug and `X-Locale` rule) returns `{ data, id, total }`, edge-cached.
+- They were copied once from MDX. The site reads them through `getSpeciesFieldRecords(id)` (`src/lib/speciesFieldRecordsApi.ts`) for the profile map, and through `/api/occurrences/{id}/{locale}` for the map's records.
+
+### Drafts (AI changes need approval)
+
+- Migration `0004_species_drafts.sql` adds `species_drafts`: a full proposed record, plus its `base_version`, `source`, `actor`, `summary` and a `status` of pending, approved or rejected.
+- Endpoints, all token-only:
+  - `POST /v1/admin/species/:id/drafts` validates the record and needs `baseVersion` to equal the current version (409 otherwise).
+  - `GET /v1/admin/species/:id/drafts` lists the pending drafts.
+  - `POST …/drafts/:draftId/approve` saves through the normal versioned path. The revision keeps the draft's `source`/`summary`, the approver becomes the `actor`, and the draft is marked approved **in the same batch**. A draft whose base version is no longer current answers 409 and stays pending.
+  - `POST …/drafts/:draftId/reject`.
+- **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. The selection editor (`src/lib/contentEditorSpecies.ts`) and AI page texts (`processSpeciesTexts`) build the draft record from the API record (`src/lib/speciesRecordFields.ts`) and return `reviewUrl` (`/admin/:id#draft-N`).
+- The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
+- Not yet on the API: adding a photo, adding field records, AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase.
+
+### Species pages (SSR from the API)
+
+- Species profile pages render on the server from the API. `createSpeciesRoute.tsx` calls `getSpeciesProfile(id, locale)` (`src/lib/speciesProfileApi.ts`, wrapped in React `cache`) for the page and for `generateMetadata`. It fetches `ka` (for the Taxon, citations and hero) and the page locale before rendering.
+- There is **no fallback**. A 404 from the API is `notFound()`, and any other error fails the render, which vinext does not cache.
+- NEVER add `loading.tsx`, `Suspense` fallbacks or client-side fetching for page content. The HTML must arrive complete, as before. Browser requests (forms such as ratings) go to `api.reptiles.ge` directly.
+- The fetch uses `next: { revalidate: 3600, tags: ["species", "species:<id>"] }`, so a page catches up with D1 within an hour at the latest. Every API write also calls `revalidateTag` through `/api/revalidate` (see "Species writes").
+- Still local for now: lookalike and related cards, slugs and 301s, hubs, search, sitemap (phases 3–4).
+- Tests mock the API with `tests/msw/reptilesApi.ts`, which forwards `https://api.reptiles.ge/*` to the real Hono app on a seeded SQLite database.
 
 ## Types
 
@@ -129,11 +218,12 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 ## Commands
 
 ```bash
-pnpm dev:api              # species:compile, then wrangler dev on :8787 (local D1, no migrations)
+pnpm dev:api              # wrangler dev on :8787 (local D1, no migrations)
 pnpm db:migrations:list   # pending migrations on the local D1
 pnpm db:migrate           # apply pending migrations to the local D1
 pnpm db:migrate:remote    # apply to production reptiles-db (owner asks only)
-pnpm deploy:api           # species:compile, then wrangler deploy (no migrations)
+pnpm db:seed:local        # load tests/fixtures/speciesSeed.sql into an empty local D1 (never production)
+pnpm deploy:api           # wrangler deploy (no migrations)
 pnpm exec vitest run src/api
 ```
 
@@ -145,5 +235,6 @@ Before a PR: `pnpm lint`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm knip`, `
 2. SQL in `db/{resource}.ts` with `bind()` and named columns. New table or index: a new migration.
 3. Route in `routes/{resource}.ts`, mounted under `/v1/` in `app.ts`.
 4. Errors through `ApiError`, cache header from `lib/cache.ts`. A write route needs `requireToken`, or `requireSiteOrigin` plus a rate limit if browsers call it.
-5. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
-6. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).
+5. A public route: its operation in `OPERATIONS` in `lib/openapi.ts`. A private or site-only route: a prefix in `UNDOCUMENTED_PATH_PREFIXES`.
+6. `routes/{resource}.test.ts` covering success, 400, 401, and 404.
+7. Run the checks above. Apply a new migration locally with `pnpm db:migrate`. Production waits for the owner (`pnpm db:migrate:remote`).
