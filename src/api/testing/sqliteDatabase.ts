@@ -4,6 +4,8 @@ import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
 import type { ApiDatabase } from "../db/database";
 
+import { RELINK_MEDIA_AUTHORS } from "../db/authors";
+
 const MIGRATIONS_DIR = path.resolve(
   import.meta.dirname,
   "../../../migrations/api",
@@ -20,6 +22,7 @@ export function createSpeciesTestDatabase() {
   const database = createTestDatabase();
   seed ??= readFileSync(SEED_FILE, "utf8");
   database.sqlite.exec(seed);
+  for (const statement of RELINK_MEDIA_AUTHORS) database.sqlite.exec(statement);
   return database;
 }
 

@@ -86,6 +86,44 @@ const lookalikeIds = [
 ];
 
 export const RESPONSE_EXAMPLES = {
+  author: {
+    data: {
+      affiliations: [],
+      aliases: [
+        "Alexandre Khakhva",
+        "Sandro Khakhva",
+        "Сандро Хахва",
+        "ალექსანდრე ხახვა",
+        "სანდრო ხახვა",
+      ],
+      bio: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara — a beginning herpetologist and naturalist.",
+      id: "sandro-khakhva",
+      isContributor: true,
+      jobTitle: null,
+      kind: "person",
+      links: {},
+      name: "Sandro Khakhva",
+      photoCount: 20,
+      portraitClass: null,
+      portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
+      role: "herpetologist",
+    },
+    locale: "en",
+  },
+  authorList: {
+    data: [
+      {
+        id: "armen-seropian",
+        isContributor: true,
+        kind: "person",
+        name: "Armen Seropian",
+        photoCount: 21,
+        role: "researcher",
+      },
+    ],
+    locale: "en",
+    total: 1,
+  },
   catalogCard: {
     data: [{ ...levantineViper, lookalikes: lookalikeIds, photoCount: 8 }],
     locale: "en",

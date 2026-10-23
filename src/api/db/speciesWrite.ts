@@ -1,5 +1,6 @@
 import type { ApiDatabase } from "./database";
 
+import { relinkSpeciesAuthors } from "./authors";
 import { readSpeciesCatalog } from "./speciesCatalog";
 import {
   type SpeciesRecord,
@@ -109,6 +110,7 @@ export async function writeSpeciesRecord(
         ({ sql, values }) => db.prepare(sql).bind(...values),
       ),
     ),
+    ...relinkSpeciesAuthors(db, id),
     ...alsoRun,
   ];
   await db.batch(statements);
