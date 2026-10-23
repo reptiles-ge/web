@@ -195,10 +195,10 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - **CSS-in-JS exception:** antd (CSS-in-JS) is allowed only in `src/admin/`. ESLint (`@typescript-eslint/no-restricted-imports`) fails on `antd` or `@ant-design/*` anywhere else in `src/`, so it never reaches the reptiles.ge bundle. The site stays Tailwind only.
 - **Sign-in:** admins sign in against the API (`/v1/auth/login`, users in D1, an `HttpOnly` session cookie; see "Admin users and sessions" in `.agents/skills/api/SKILL.md`). `src/admin/session.ts` is the only place the app talks to the API, through `createApiClient` with `credentials: "include"`. `vite.admin.config.ts` passes only `NEXT_PUBLIC_API_ORIGIN`, `NEXT_PUBLIC_SITE_URL` and `VERCEL_ENV` to the browser.
 - There is no sign-up. The owner creates an admin with `POST /v1/admin/users` and the write token.
-- **No public URL yet:** `workers_dev` and `preview_urls` are off and no route is set. Attach `admin.reptiles.ge` only when the owner decides, after the API with migration `0009` is live.
+- **URL:** `admin.reptiles.ge` is a Custom Domain in `wrangler.admin.jsonc`, so `pnpm deploy:admin` attaches it (Cloudflare creates the DNS record and certificate). `workers_dev` and `preview_urls` stay off, so it has no other URL. Deploy the admin only after the API with migration `0009` is live, and from a checkout of `staging` or `main`, never a feature branch.
 - `src/admin/public/_headers` sends `X-Robots-Tag: noindex, nofollow`, `X-Frame-Options: DENY`, `nosniff` and `no-referrer` on every response.
 - Never put `API_WRITE_TOKEN` or any other secret in admin browser code.
-- `pnpm deploy:admin` runs only when the owner says so.
+- `pnpm deploy:admin` runs only when the owner says so. The order is `pnpm db:migrate:remote`, `pnpm deploy:api`, create the first admin (`POST /v1/admin/users`), then `pnpm deploy:admin`.
 - Until features move over, the working admin is still the local `/admin` in the site (`pnpm dev`).
 - Local: `pnpm db:migrate`, `pnpm dev:api` (with `ALLOWED_ORIGINS` including `http://localhost:3002` and an `API_WRITE_TOKEN` in `.dev.vars`), then `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787 pnpm dev:admin`.
 
