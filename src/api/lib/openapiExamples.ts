@@ -115,6 +115,7 @@ export const RESPONSE_EXAMPLES = {
   authorList: {
     data: [
       {
+        aliases: ["Armen Seropian", "Армен Серопиан", "არმენ სეროფიანი"],
         id: "armen-seropian",
         isContributor: true,
         kind: "person",
