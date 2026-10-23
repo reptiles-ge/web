@@ -51,7 +51,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "news:compile": "tsx scripts/compile-news.ts",
-    "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-occurrences.ts && tsx scripts/compile-release-version.ts",
+    "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-release-version.ts",
     "taxon:ids": "tsx scripts/compile-species.ts && tsx scripts/fetch-taxon-identifiers.ts",
     "photos:licenses": "tsx scripts/compile-species.ts && tsx scripts/fetch-photo-licenses.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",

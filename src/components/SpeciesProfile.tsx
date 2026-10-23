@@ -15,7 +15,6 @@ import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
-import { hasFieldRecords } from "@/lib/occurrenceSummaries";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -28,6 +27,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
@@ -86,11 +86,12 @@ export async function SpeciesProfile({
   related,
   species,
 }: SpeciesProfileProps) {
-  const [t, tHubs, tDanger, tAnalysis] = await Promise.all([
+  const [t, tHubs, tDanger, tAnalysis, fieldRecords] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "pageAnalysis" }),
+    getSpeciesFieldRecords(species.id),
   ]);
   const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
@@ -170,7 +171,7 @@ export async function SpeciesProfile({
   });
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
-    getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
+    getRegionsForSpecies(species.id).length > 0 || fieldRecords.length > 0;
   const showIdentification = hasRealIdentification(species.identification);
   const biologyCopy =
     species.id === "halyomorpha-halys"
@@ -231,6 +232,7 @@ export async function SpeciesProfile({
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
+        fieldRecords={fieldRecords}
         gallery={gallery}
         guideLinks={guideLinks}
         hasRange={hasRange}

@@ -91,6 +91,7 @@ export const speciesAnalysisSurfaces = [
     sources: [
       "src/components/map/SpeciesRangeMap.tsx",
       "src/lib/occurrenceSummaries.ts",
+      "src/lib/speciesFieldRecordsApi.ts",
       "src/lib/halyomorphaOccurrences.ts",
       "src/data/mapRegions.ts",
       "src/data/speciesRangeMaps/index.ts",
@@ -196,7 +197,7 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
     ...new Set([
       ...speciesAnalysisSurfaces.flatMap((surface) => [...surface.sources]),
       rangeFile,
-      "scripts/compile-occurrences.ts",
+      "src/app/api/occurrences/[id]/[locale]/route.ts",
       "src/data/speciesRangeMaps/base.ts",
       "src/i18n/localizeSpecies.ts",
     ]),
