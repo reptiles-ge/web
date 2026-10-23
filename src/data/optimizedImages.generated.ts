@@ -256,6 +256,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus",
+    "width": 2400,
+    "height": 1802,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave",
+    "width": 2400,
+    "height": 1510,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
     "path": "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle",
     "width": 750,
