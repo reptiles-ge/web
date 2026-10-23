@@ -80,7 +80,7 @@ const columns: ColumnsType<AdminRating> = [
         style={{ maxWidth: 260 }}
         target="_blank"
       >
-        {decodeURI(path)}
+        {readablePath(path)}
       </Typography.Link>
     ),
     title: "Page",
@@ -276,4 +276,12 @@ function RatingsSummary({ summary }: { summary: AdminRatingsPage["summary"] }) {
       </Card>
     </Flex>
   );
+}
+
+function readablePath(path: string) {
+  try {
+    return decodeURI(path);
+  } catch {
+    return path;
+  }
 }

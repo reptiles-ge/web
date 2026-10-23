@@ -60,6 +60,14 @@ describe("RatingsPage", () => {
     expect(fetchAdminRatings).toHaveBeenCalledWith({ rating: undefined });
   });
 
+  it("keeps a malformed page path readable instead of failing", async () => {
+    vi.mocked(fetchAdminRatings).mockResolvedValue(
+      page({ data: [rating({ id: 4, path: "/%E0" })], total: 1 }),
+    );
+    render(<RatingsPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("/%E0")).toBeInTheDocument();
+  });
+
   it("shows a dash when there are no ratings yet", async () => {
     vi.mocked(fetchAdminRatings).mockResolvedValue(
       page({
