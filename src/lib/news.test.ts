@@ -16,7 +16,6 @@ import {
   newsOgImageUrl,
   newsReadMinutes,
   newsSourceBadges,
-  publishedNewsStaticParams,
 } from "@/lib/news";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
@@ -57,7 +56,7 @@ describe("newsDateTime", () => {
 
 describe("newsArticleAlternates", () => {
   it("lists every language the article has, with KA as x-default", () => {
-    const alternates = newsArticleAlternates("en", article.slug);
+    const alternates = newsArticleAlternates("en", article);
     expect(alternates.canonical).toBe(newsArticleUrl("en", article.slug));
     expect(alternates.languages["x-default"]).toBe(
       newsArticleUrl("ka", article.slug),
@@ -67,9 +66,12 @@ describe("newsArticleAlternates", () => {
     }
   });
 
-  it("returns no per-article languages for an unknown slug", () => {
-    const alternates = newsArticleAlternates("en", "no-such-article");
-    expect(alternates.canonical).toMatch(/^https:\/\//);
+  it("leaves out languages the article is not written in", () => {
+    const alternates = newsArticleAlternates("ka", {
+      copy: { ka: article.copy.ka } as typeof article.copy,
+      slug: article.slug,
+    });
+    expect(Object.keys(alternates.languages)).toEqual(["x-default", "ka"]);
   });
 });
 
@@ -104,16 +106,6 @@ describe("newsOgImageDimensions", () => {
       expect(width, item.slug).toBeGreaterThan(0);
       expect(height, item.slug).toBeGreaterThan(0);
     }
-  });
-});
-
-describe("publishedNewsStaticParams", () => {
-  it("has one entry per published article and language", () => {
-    const expected = getPublishedNewsArticles().reduce(
-      (total, item) => total + Object.keys(item.copy).length,
-      0,
-    );
-    expect(publishedNewsStaticParams()).toHaveLength(expected);
   });
 });
 

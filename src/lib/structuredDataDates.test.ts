@@ -32,12 +32,15 @@ describe("atlasDateFields", () => {
   it.each(routing.locales)(
     "dates the %s atlas by its newest species page",
     async (locale) => {
-      const fields = await atlasDateFields(locale);
-      const newest = Math.max(
-        ...catalogSpeciesFixture().map((item) =>
-          Date.parse(fixtureUpdatedAt(item, locale)),
-        ),
+      const dates = catalogSpeciesFixture().map((item) =>
+        fixtureUpdatedAt(item, locale),
       );
+      const newest = Math.max(...dates.map((date) => Date.parse(date)));
+      const fields = atlasDateFields(
+        locale,
+        dates.find((date) => Date.parse(date) === newest) ?? null,
+      );
+      expect(fields).toStrictEqual(await pageDateFields("/species", locale));
       expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(newest);
       expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(
         Date.parse(fields.datePublished),

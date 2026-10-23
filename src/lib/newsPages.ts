@@ -151,20 +151,6 @@ export function newsPageUrl(locale: AppLocale, page: number) {
   return absoluteUrl(localePath(locale, newsPageHref(page)));
 }
 
-export function newsPaginationPages(current: number, pageCount: number) {
-  const pages: Array<null | number> = [];
-  for (let page = 1; page <= pageCount; page += 1) {
-    const edge = page === 1 || page === pageCount;
-    const near = Math.abs(page - current) <= 1;
-    if (edge || near) {
-      pages.push(page);
-    } else if (pages.at(-1) !== null) {
-      pages.push(null);
-    }
-  }
-  return pages;
-}
-
 export function parseNewsArchivePage(value: string) {
   if (!/^[1-9]\d{0,5}$/.test(value)) return null;
   const page = Number(value);

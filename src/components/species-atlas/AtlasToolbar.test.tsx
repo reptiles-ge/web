@@ -1,31 +1,23 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
-import { beforeAll, describe, expect, it, vi } from "vitest";
-
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import { describe, expect, it, vi } from "vitest";
 
 import { AtlasToolbar } from "@/components/species-atlas/AtlasToolbar";
-import { defaultAtlasFilters } from "@/data/atlasFilters";
-import { getAtlasListItems } from "@/lib/atlasList";
+import { type AtlasFacets, defaultAtlasFilters } from "@/data/atlasFilters";
 
 import ka from "../../../messages/ka.json";
-import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
 
-vi.mock("@/lib/speciesCatalogApi", () => ({
-  getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
-    speciesCatalogFixture(locale),
-}));
-
-let catalog: AtlasIndexItem[];
-
-beforeAll(async () => {
-  catalog = await getAtlasListItems("ka");
-});
+const facets = {
+  danger: { all: 145, harmless: 68, venomous: 11 },
+  group: { all: 145, snake: 22 },
+  habitat: { all: 145 },
+  region: { all: 145 },
+} as unknown as AtlasFacets;
 
 function renderToolbar(query = "") {
   const props = {
-    catalog,
     facetCount: 0,
+    facets,
     filters: { ...defaultAtlasFilters, query },
     onChangeSort: vi.fn(),
     onChangeView: vi.fn(),
@@ -70,6 +62,7 @@ describe("AtlasToolbar", () => {
     const snakes = screen.getByRole("button", {
       name: new RegExp(`^${ka.speciesAtlas.groups.snake}`),
     });
+    expect(snakes).toHaveTextContent("22");
     fireEvent.click(snakes);
     expect(props.onUpdateFilter).toHaveBeenCalledWith("group", "snake");
     fireEvent.click(

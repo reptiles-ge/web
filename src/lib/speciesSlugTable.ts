@@ -5,7 +5,11 @@ import {
   kaSlugById,
   speciesHubById,
 } from "@/data/speciesSlugs.generated";
-import { type GroupHubId, RESERVED_HUB_SLUGS } from "@/lib/groupHubs";
+import {
+  GROUP_HUBS,
+  type GroupHubId,
+  RESERVED_HUB_SLUGS,
+} from "@/lib/groupHubs";
 
 export function getSpeciesHubId(id: string): GroupHubId {
   return speciesHubById[id] ?? "snakes";
@@ -14,6 +18,14 @@ export function getSpeciesHubId(id: string): GroupHubId {
 export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
   if (locale !== "ka") return id;
   return kaSlugById[id] ?? id;
+}
+
+export function publishedSpeciesSlugRows() {
+  return Object.entries(kaSlugById).map(([id, slug]) => ({
+    group: GROUP_HUBS[getSpeciesHubId(id)].group,
+    id,
+    slug,
+  }));
 }
 
 export function resolveSpeciesId(param: string): string | undefined {

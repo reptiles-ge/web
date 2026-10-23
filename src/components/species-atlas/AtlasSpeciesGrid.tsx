@@ -1,35 +1,39 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import type { AtlasRegionLabel, AtlasView } from "@/data/atlasFilters";
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import type { AtlasCardItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
-import { useAtlasPhotoLoader } from "@/components/species-atlas/AtlasPhotos";
+import { AtlasPagination } from "@/components/species-atlas/AtlasPagination";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
 } from "@/components/species-atlas/AtlasSpeciesCard";
-import {
-  initialAtlasVisibleCount,
-  nextAtlasVisibleCount,
-} from "@/lib/atlasInfiniteScroll";
+import { atlasPageCount, atlasPageRange } from "@/lib/atlasPages";
 import { cn } from "@/lib/cn";
 
 type AtlasSpeciesGridProps = {
+  loading: boolean;
   locale: AppLocale;
+  onPageChange: (page: number) => void;
+  page: number;
   regionLabels: AtlasRegionLabel[];
-  species: AtlasIndexItem[];
+  species: AtlasCardItem[];
+  total: number;
   view: AtlasView;
 };
 
 export function AtlasSpeciesGrid({
+  loading,
   locale,
+  onPageChange,
+  page: requestedPage,
   regionLabels,
   species,
+  total,
   view,
 }: AtlasSpeciesGridProps) {
   const t = useTranslations("speciesAtlas");
@@ -37,37 +41,31 @@ export function AtlasSpeciesGrid({
     () => new Map(regionLabels.map((region) => [region.id, region.label])),
     [regionLabels],
   );
-  const regionNames = (item: AtlasIndexItem) =>
+  const regionNames = (item: AtlasCardItem) =>
     item.regionIds.map((id) => labelById.get(id) ?? id);
-  const [visibleCount, setVisibleCount] = useState(() =>
-    initialAtlasVisibleCount(species.length),
-  );
-  const [seenSpecies, setSeenSpecies] = useState(species);
+  const { first, last, page } = atlasPageRange(requestedPage, total);
 
-  if (species !== seenSpecies) {
-    setSeenSpecies(species);
-    setVisibleCount(initialAtlasVisibleCount(species.length));
+  function goToPage(next: number) {
+    onPageChange(next);
+    document
+      .getElementById("explorer")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
-
-  const visible = species.slice(0, visibleCount);
-  useAtlasPhotoLoader(visible);
-  const hasMore = visibleCount < species.length;
-  const progress = species.length
-    ? Math.round((visible.length / species.length) * 100)
-    : 0;
 
   return (
     <>
       <ul
+        aria-busy={loading}
         className={cn(
           "mt-3.5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:mt-[18px] lg:grid-cols-4 lg:gap-5",
           view === "list" && "lg:hidden",
+          loading && "opacity-60 transition-opacity",
         )}
       >
-        {visible.map((item, index) => (
+        {species.map((item, index) => (
           <li key={item.id}>
             <AtlasSpeciesCard
-              index={index}
+              index={first - 1 + index}
               locale={locale}
               regionNames={regionNames(item)}
               species={item}
@@ -91,10 +89,10 @@ export function AtlasSpeciesGrid({
             <span />
           </div>
           <ul>
-            {visible.map((item, index) => (
+            {species.map((item, index) => (
               <li key={item.id}>
                 <AtlasSpeciesRow
-                  index={index}
+                  index={first - 1 + index}
                   locale={locale}
                   regionNames={regionNames(item)}
                   species={item}
@@ -105,37 +103,14 @@ export function AtlasSpeciesGrid({
         </div>
       ) : null}
 
-      {hasMore ? (
-        <div className="mt-[22px] flex flex-col items-center gap-2.5 lg:mt-8 lg:gap-3">
-          <div
-            aria-hidden="true"
-            className="h-1 w-[180px] overflow-hidden rounded-full bg-secondary lg:w-[220px]"
-          >
-            <div
-              className="h-full bg-primary"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <p className="text-[12.5px] text-muted-foreground lg:text-[13px]">
-            {t("showingCount", {
-              shown: visible.length,
-              total: species.length,
-            })}
-          </p>
-          <button
-            className="inline-flex h-[52px] w-full items-center justify-center gap-2.5 rounded-full border border-border bg-card px-7 text-[15px] font-medium text-foreground transition-transform hover:-translate-y-0.5 motion-reduce:transition-none sm:w-auto lg:h-[54px]"
-            onClick={() =>
-              setVisibleCount((loaded) =>
-                nextAtlasVisibleCount(loaded, species.length),
-              )
-            }
-            type="button"
-          >
-            {t("showMore")}
-            <ChevronDown aria-hidden="true" className="size-4" />
-          </button>
-        </div>
-      ) : null}
+      <AtlasPagination
+        current={page}
+        first={first}
+        last={last}
+        onChange={goToPage}
+        pageCount={atlasPageCount(total)}
+        total={total}
+      />
     </>
   );
 }

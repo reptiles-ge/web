@@ -20,7 +20,7 @@ This file is the project map for agents. Humans: see `README.md`.
 | ------------ | ----------------------------------------------------------------------------------- |
 | App          | Next.js 16 App Router, React 19, TypeScript strict                                  |
 | i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json`   |
-| Style        | Tailwind 4, no CSS-in-JS                                                            |
+| Style        | Tailwind 4, no CSS-in-JS. Only exception: antd in the admin app (`src/admin/`)      |
 | Alias        | `@/*` → `src/*`                                                                     |
 | Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                             |
 | Worker entry | `src/worker.ts` (vinext fetch handler; canonical RSC requests so navigation caches) |
@@ -54,6 +54,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                       |
 | Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                  |
 | API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`             |
+| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                |
 
 ## Architecture
 
@@ -187,6 +188,20 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.
 
+## Admin app
+
+`admin.reptiles.ge` is a third Worker, `reptiles-admin`, in `src/admin/`: a Vite + React single-page app with antd, built by `vite.admin.config.ts` into the gitignored `dist-admin/` and served as static assets (`wrangler.admin.jsonc`, SPA fallback). Its build and deploy are separate from the site's.
+
+- **CSS-in-JS exception:** antd (CSS-in-JS) is allowed only in `src/admin/`. ESLint (`@typescript-eslint/no-restricted-imports`) fails on `antd` or `@ant-design/*` anywhere else in `src/`, so it never reaches the reptiles.ge bundle. The site stays Tailwind only.
+- **Sign-in:** admins sign in against the API (`/v1/auth/login`, users in D1, an `HttpOnly` session cookie; see "Admin users and sessions" in `.agents/skills/api/SKILL.md`). `src/admin/session.ts` is the only place the app talks to the API, through `createApiClient` with `credentials: "include"`. `vite.admin.config.ts` passes only `NEXT_PUBLIC_API_ORIGIN`, `NEXT_PUBLIC_SITE_URL` and `VERCEL_ENV` to the browser.
+- There is no sign-up. The owner creates an admin with `POST /v1/admin/users` and the write token.
+- **URL:** `admin.reptiles.ge` is a Custom Domain in `wrangler.admin.jsonc`, so `pnpm deploy:admin` attaches it (Cloudflare creates the DNS record and certificate). `workers_dev` and `preview_urls` stay off, so it has no other URL. Deploy the admin only after the API with migration `0009` is live, and from a checkout of `staging` or `main`, never a feature branch.
+- `src/admin/public/_headers` sends `X-Robots-Tag: noindex, nofollow`, `X-Frame-Options: DENY`, `nosniff` and `no-referrer` on every response.
+- Never put `API_WRITE_TOKEN` or any other secret in admin browser code.
+- `pnpm deploy:admin` runs only when the owner says so. The order is `pnpm db:migrate:remote`, `pnpm deploy:api`, create the first admin (`POST /v1/admin/users`), then `pnpm deploy:admin`.
+- Until features move over, the working admin is still the local `/admin` in the site (`pnpm dev`).
+- Local: `pnpm db:migrate`, `pnpm dev:api` (with `ALLOWED_ORIGINS` including `http://localhost:3002` and an `API_WRITE_TOKEN` in `.dev.vars`), then `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787 pnpm dev:admin`.
+
 ## Quiz
 
 - Registry: `QUIZ_INDEX` in `src/lib/quizzes.ts`. Live: `snake` (`romeli-gvelia` / `which-snake`) and `lizard` (`romeli-xvlikia` / `which-lizard`). Turtle stays `soon` (no href, no URL).
@@ -197,8 +212,8 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 ## News
 
-- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly.
-- New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first.
+- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly. The article page (`/news/{slug}`) already reads D1 through `src/lib/newsApi.ts` (`getNewsArticle`), so a new article needs its D1 rows to get a page; see `docs/NEWS-D1-MIGRATION.md`.
+- New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first. Then `pnpm news:import <slug> --publish` (first with `--dry-run`) puts it in D1, which the article page reads. Only the owner runs the import against production.
 - KA frontmatter owns the shared data: `slug`, `status`, `publishedAt`, `updatedAt`, `related{Hub,Region,Species}Ids`, `sources`, `image`, `gallery` (src, `alt`, credit, size, `plate`, `fromAtlas`). Every locale has `title`, `dek`, `lead`, `metaTitle`, `metaDescription`. `en`/`ru`/`tr` translate the text and give only `{ src, alt }` for `image` / `gallery` (matched by `src`). Do not copy the photo list.
 - Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the compile.
 - `src/data/newsContent.test.ts` checks that every locale has the same figures in the same order and the same section count, and that every linked species, region, hub and contributor exists.
@@ -256,6 +271,9 @@ pnpm cpd                  # jscpd copy-paste scan, fails on any clone (threshold
 pnpm dev:api              # API Worker on :8787 (local D1; never applies migrations)
 pnpm db:migrate           # apply API migrations to the local D1 (by hand only)
 pnpm db:seed:local        # load the test seed into an empty local D1
+pnpm dev:admin            # admin app (Vite) on :3002
+pnpm build:admin          # admin app → dist-admin/
+pnpm preview:admin        # build, then serve dist-admin/ with wrangler dev on :3003
 ```
 
 `pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if a generated file is missing).

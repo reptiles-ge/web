@@ -59,6 +59,27 @@ describe("refreshSpeciesApiCache", () => {
     ]);
   });
 
+  it("refreshes the news list and an article in every locale", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    const seen = recordBypass();
+    await refreshSpeciesApiCache(["news", "news:lagodekhi-iucn-mwvane-sia"]);
+    expect(new Set(seen.map(({ bypass }) => bypass))).toEqual(
+      new Set(["fresh-secret"]),
+    );
+    expect(
+      seen.map(({ locale, url }) => `${locale} ${new URL(url).pathname}`),
+    ).toEqual([
+      "ka /v1/news",
+      "en /v1/news",
+      "ru /v1/news",
+      "tr /v1/news",
+      "ka /v1/news/lagodekhi-iucn-mwvane-sia",
+      "en /v1/news/lagodekhi-iucn-mwvane-sia",
+      "ru /v1/news/lagodekhi-iucn-mwvane-sia",
+      "tr /v1/news/lagodekhi-iucn-mwvane-sia",
+    ]);
+  });
+
   it("does nothing without a secret", async () => {
     const seen = recordBypass();
     await refreshSpeciesApiCache(["species", "species:macrovipera-lebetina"]);

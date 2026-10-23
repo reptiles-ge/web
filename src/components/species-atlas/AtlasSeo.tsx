@@ -4,18 +4,13 @@ import { type ComponentProps, type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
-import { getAtlasListItems } from "@/lib/atlasList";
+import { getAtlasVenomousSnakes } from "@/lib/atlasList";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function AtlasSeo({ locale }: { locale: AppLocale }) {
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
-  const venomousSnakes = (await getAtlasListItems(locale)).filter(
-    (item) =>
-      getSpeciesAtlasMeta(item.id).group === "snake" &&
-      isVenomousDanger(item.danger),
-  );
+  const venomousSnakes = await getAtlasVenomousSnakes(locale);
 
   return (
     <section className="bg-card py-9 lg:py-[88px]">

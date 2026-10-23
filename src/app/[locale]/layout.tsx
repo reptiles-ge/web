@@ -23,6 +23,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
 import { TopGeCounter } from "@/components/TopGeCounter";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   type ClientMessages,
   LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
@@ -35,7 +36,7 @@ import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { getNavbarData } from "@/lib/navbarData";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 type Props = {
   children: ReactNode;
@@ -59,19 +60,18 @@ export default async function LocaleLayout({ children, params }: Props) {
     (await getMessages({ locale })) as ClientMessages,
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, tSite, catalog, kaCatalog] = await Promise.all([
+  const [t, tSite, stats, footerData] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "site" }),
-    getSpeciesCatalog(locale),
-    getSpeciesCatalog(routing.defaultLocale),
+    getAtlasStats(locale),
+    getFooterData(locale),
   ]);
   const siteDescription = kaMetaDescriptionOverride(
     locale,
     localePath(locale, "/"),
     tSite("description"),
   );
-  const footerData = getFooterData(locale, catalog);
-  const navbarData = getNavbarData(catalog);
+  const navbarData = getNavbarData(stats);
   const SelectionContentEditor =
     locale === "ka" ? await loadSelectionContentEditor() : null;
   const editorT = SelectionContentEditor
@@ -80,7 +80,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider index={getLocaleSwitchIndex(kaCatalog)}>
+        <LocaleSwitchProvider
+          index={getLocaleSwitchIndex(publishedSpeciesSlugRows())}
+        >
           <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />
           <SkipLink label={t("skipToContent")} />
           <NavigationProgress />

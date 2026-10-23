@@ -31,7 +31,7 @@ const date = required.refine((value) => !Number.isNaN(Date.parse(value)), {
 });
 const url = z.url();
 
-const credit = z
+export const photoCredit = z
   .strictObject({
     authorId: z.string().optional(),
     date: z.string().optional(),
@@ -47,7 +47,7 @@ const credit = z
   });
 
 const galleryImage = z.strictObject({
-  credit: credit.optional(),
+  credit: photoCredit.optional(),
   photoConfidence: PHOTO_CONFIDENCE.optional(),
   src: url,
 });
@@ -94,9 +94,9 @@ const base = z.strictObject({
   genus: required,
   id: z.string().regex(SLUG).max(100),
   image: url,
-  imageCredit: credit.optional(),
+  imageCredit: photoCredit.optional(),
   mobileImage: url.optional(),
-  mobileImageCredit: credit.optional(),
+  mobileImageCredit: photoCredit.optional(),
   publishedAt: date,
   scientificName: required,
   sources: z.array(
@@ -108,8 +108,8 @@ const base = z.strictObject({
 const translation = z.strictObject({
   ...textFields,
   gallery: z.array(galleryImage).optional(),
-  imageCredit: credit.optional(),
-  mobileImageCredit: credit.optional(),
+  imageCredit: photoCredit.optional(),
+  mobileImageCredit: photoCredit.optional(),
   updatedAt: date.optional(),
 });
 

@@ -1,32 +1,31 @@
 import { render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
-import { beforeAll, describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import type { AtlasCardItem } from "@/data/speciesListItem";
 
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
-import { AtlasPhotosProvider } from "@/components/species-atlas/AtlasPhotos";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
 } from "@/components/species-atlas/AtlasSpeciesCard";
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { getAtlasListItems } from "@/lib/atlasList";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 import ka from "../../../messages/ka.json";
 import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
 
-vi.mock("@/lib/speciesCatalogApi", () => ({
-  getSpeciesCatalog: async (locale: "en" | "ka" | "ru" | "tr") =>
-    speciesCatalogFixture(locale),
+const items: AtlasCardItem[] = speciesCatalogFixture("ka").map((item) => ({
+  commonName: item.commonName,
+  id: item.id,
+  image: item.image,
+  location: item.location,
+  regionIds: getRegionsForSpecies(item.id).map((region) => region.id),
+  scientificName: item.scientificName,
+  ...(item.danger ? { danger: item.danger } : {}),
+  ...(item.mobileImage ? { mobileImage: item.mobileImage } : {}),
 }));
-
-let items: AtlasIndexItem[];
-
-beforeAll(async () => {
-  items = await getAtlasListItems("ka");
-});
 
 function renderWith(node: React.ReactNode) {
   render(
@@ -116,53 +115,39 @@ describe("AtlasSpeciesCard", () => {
     expect(screen.getByText(ka.speciesAtlas.rangePending)).toBeInTheDocument();
   });
 
-  it("leaves the image out while the photo page is still loading", () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(() => new Promise(() => {})),
-    );
+  it("shows the species photo", () => {
     renderWith(
-      <AtlasPhotosProvider
-        initial={{ nextCursor: "a", photos: {} }}
+      <AtlasSpeciesCard
         locale="ka"
-      >
-        <AtlasSpeciesCard
-          locale="ka"
-          regionNames={[]}
-          species={species("macrovipera-lebetina")}
-        />
-      </AtlasPhotosProvider>,
-    );
-    expect(screen.getByRole("link").querySelector("img")).toBeNull();
-    expect(
-      screen.queryByText(ka.speciesAtlas.illustration),
-    ).not.toBeInTheDocument();
-    vi.unstubAllGlobals();
-  });
-
-  it("shows the photo the provider loaded", () => {
-    renderWith(
-      <AtlasPhotosProvider
-        initial={{
-          nextCursor: null,
-          photos: {
-            "macrovipera-lebetina": {
-              image: "https://cdn.reptiles.ge/giurza.jpg",
-            },
-          },
+        regionNames={[]}
+        species={{
+          ...species("macrovipera-lebetina"),
+          image: "https://cdn.reptiles.ge/giurza.jpg",
+          mobileImage: undefined,
         }}
-        locale="ka"
-      >
-        <AtlasSpeciesCard
-          locale="ka"
-          regionNames={[]}
-          species={species("macrovipera-lebetina")}
-        />
-      </AtlasPhotosProvider>,
+      />,
     );
     expect(screen.getByRole("link").querySelector("img")).toHaveAttribute(
       "src",
       "https://cdn.reptiles.ge/giurza.jpg",
     );
+    expect(
+      screen.queryByText(ka.speciesAtlas.illustration),
+    ).not.toBeInTheDocument();
+  });
+
+  it("shows the group illustration when the species has no photo", () => {
+    renderWith(
+      <AtlasSpeciesCard
+        locale="ka"
+        regionNames={[]}
+        species={{
+          ...species("macrovipera-lebetina"),
+          image: "/images/species-placeholder.png",
+          mobileImage: undefined,
+        }}
+      />,
+    );
+    expect(screen.getByText(ka.speciesAtlas.illustration)).toBeInTheDocument();
   });
 });

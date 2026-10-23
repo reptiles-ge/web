@@ -21,11 +21,8 @@ import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import {
-  getAtlasListItems,
-  getAtlasPhotoPage,
-  getAtlasRecentItems,
-} from "@/lib/atlasList";
+import { getAtlasPage, getAtlasRecentItems } from "@/lib/atlasList";
+import { defaultAtlasQuery } from "@/lib/atlasQuery";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import {
@@ -39,7 +36,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import { atlasDateFields } from "@/lib/structuredDataDates";
 
 export async function generateMetadata({
@@ -49,19 +46,16 @@ export async function generateMetadata({
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
-  const [t, catalog] = await Promise.all([
+  const [t, ogSpecies] = await Promise.all([
     getTranslations({ locale, namespace: "speciesAtlas" }),
-    getSpeciesCatalog(locale),
+    getSpeciesProfile("vipera-kaznakovi", locale),
   ]);
   const title = t("metaTitle");
 
   return buildPageMetadata({
     description: t("metaDescription"),
     locale,
-    ogImageUrl: speciesOgImageUrl(
-      "vipera-kaznakovi",
-      catalog.find((item) => item.id === "vipera-kaznakovi")?.image,
-    ),
+    ogImageUrl: speciesOgImageUrl("vipera-kaznakovi", ogSpecies?.species.image),
     pagePath: "/species",
     title,
   });
@@ -80,16 +74,16 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const [t, catalog, photos, recent, tooltipSpeciesByRegion, stats, dates] =
-    await Promise.all([
+  const [t, initial, recent, tooltipSpeciesByRegion, stats] = await Promise.all(
+    [
       getTranslations({ locale, namespace: "speciesAtlas" }),
-      getAtlasListItems(locale),
-      getAtlasPhotoPage(locale),
+      getAtlasPage(locale, defaultAtlasQuery),
       getAtlasRecentItems(locale),
       getRegionTooltipPreviews(locale),
       getAtlasStats(locale),
-      atlasDateFields(locale),
-    ]);
+    ],
+  );
+  const dates = atlasDateFields(locale, stats.lastUpdated);
   const url = absoluteUrl(localePath(locale, "/species"));
   const regionLabels = getRegionLabels(locale);
 
@@ -109,7 +103,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: speciesItemListLd(locale, catalog),
+    mainEntity: speciesItemListLd(locale, initial.items),
     name: t("metaTitle"),
     url,
   };
@@ -127,23 +121,23 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
           <Suspense
             fallback={
               <SpeciesAtlasFallback
-                catalog={catalog}
-                photos={photos}
+                initial={initial}
                 recent={recent}
                 regionCount={stats.regions}
                 regionLabels={regionLabels}
                 tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+                venomousCount={stats.venomous}
                 venomousImage={images.hero}
               />
             }
           >
             <SpeciesAtlas
-              catalog={catalog}
-              photos={photos}
+              initial={initial}
               recent={recent}
               regionCount={stats.regions}
               regionLabels={regionLabels}
               tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+              venomousCount={stats.venomous}
               venomousImage={images.hero}
             />
           </Suspense>

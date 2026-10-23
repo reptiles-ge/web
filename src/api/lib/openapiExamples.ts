@@ -87,6 +87,76 @@ const lookalikeIds = [
   "vipera-transcaucasiana",
 ];
 
+const catalogFacets = {
+  danger: { all: 145, harmless: 68, venomous: 11 },
+  group: {
+    all: 145,
+    amphibian: 12,
+    bird: 45,
+    insect: 4,
+    lizard: 29,
+    mammal: 17,
+    scorpion: 4,
+    snake: 22,
+    spider: 8,
+    turtle: 4,
+  },
+  habitat: { all: 145, forest: 83, grassland: 95, mountain: 64, wetland: 29 },
+  region: {
+    abkhazia: 30,
+    adjara: 47,
+    all: 145,
+    guria: 20,
+    imereti: 28,
+    kakheti: 72,
+    "kvemo-kartli": 54,
+    "mtskheta-mtianeti": 54,
+    racha: 11,
+    "samegrelo-zemo-svaneti": 38,
+    "samtskhe-javakheti": 56,
+    "shida-kartli": 38,
+    tbilisi: 49,
+  },
+};
+
+const catalogStats = {
+  lastUpdated: "2026-10-22T15:29:08+04:00",
+  photos: 1274,
+  venomous: 11,
+};
+
+const lagodekhiCover = {
+  alt: "An East Caucasian tur on a high mountain slope in Lagodekhi.",
+  credit: {
+    authorId: "nika-melikishvili",
+    date: "2021-12-29",
+    location: "ლაგოდეხი",
+    photographer: "ნიკა მელიქიშვილი",
+  },
+  fromAtlas: true,
+  src: "https://cdn.reptiles.ge/capra-cylindricornis-nika-3.jpg",
+} as const;
+
+const lagodekhi = {
+  dek: "Georgia’s oldest protected area is hosting the steering committee of the IUCN World Commission on Protected Areas for a week. Lagodekhi is a candidate for both the Green List and the European Diploma.",
+  image: lagodekhiCover,
+  lead: "A week-long meeting has opened in Lagodekhi Protected Areas: the steering committee of the IUCN World Commission on Protected Areas (WCPA) is gathering there with about 30 international experts and commission members.",
+  locales: ["ka", "en", "ru", "tr"],
+  publishedAt: "2026-10-17",
+  relatedHubIds: [],
+  relatedRegionIds: ["kakheti"],
+  relatedSpeciesIds: ["capra-cylindricornis", "cervus-elaphus"],
+  slug: "lagodekhi-iucn-mwvane-sia",
+  sources: [
+    {
+      name: "IUCN — World Commission on Protected Areas",
+      url: "https://iucn.org/our-union/commissions/world-commission-protected-areas",
+    },
+  ],
+  title:
+    "Lagodekhi is an IUCN Green List candidate as the World Commission on Protected Areas meets in Georgia",
+} as const;
+
 export const RESPONSE_EXAMPLES = {
   author: {
     data: {
@@ -129,8 +199,10 @@ export const RESPONSE_EXAMPLES = {
   },
   catalogCard: {
     data: [{ ...levantineViper, lookalikes: lookalikeIds, photoCount: 8 }],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "card",
   },
@@ -138,8 +210,10 @@ export const RESPONSE_EXAMPLES = {
     data: [
       { ...levantineViper, ...levantineViperTexts, lookalikes: lookalikeIds },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "full",
   },
@@ -151,8 +225,10 @@ export const RESPONSE_EXAMPLES = {
         lookalikes: lookalikeIds,
       },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "photos",
   },
@@ -166,8 +242,10 @@ export const RESPONSE_EXAMPLES = {
         lookalikes: lookalikeIds,
       },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "quiz",
   },
@@ -200,6 +278,83 @@ export const RESPONSE_EXAMPLES = {
       ],
       message: "Invalid header",
     },
+  },
+  news: {
+    data: {
+      ...lagodekhi,
+      gallery: [
+        {
+          alt: "A red deer fawn in the Lagodekhi forest.",
+          credit: {
+            authorId: "dachi-mtchedlishvili",
+            date: "2025-06-05",
+            location: "ლაგოდეხი",
+            photographer: "დაჩი მჭედლიშვილი",
+          },
+          fromAtlas: true,
+          src: "https://cdn.reptiles.ge/cervus-elaphus-dachi-1.jpg",
+        },
+      ],
+      metaDescription:
+        "Founded in 1912, Lagodekhi is a candidate for the Green List and European Diploma. The IUCN World Commission on Protected Areas steering committee meets here.",
+      metaTitle: "Lagodekhi is an IUCN Green List candidate",
+      sections: [
+        {
+          blocks: [
+            {
+              parts: [
+                "Lagodekhi is in ",
+                { id: "kakheti", label: "Kakheti", type: "region" },
+                " and appears on many atlas pages, as a range locality or as the place a photo was taken.",
+              ],
+              type: "p",
+            },
+          ],
+          heading: "Lagodekhi in this atlas",
+        },
+      ],
+    },
+    locale: "en",
+  },
+  newsList: {
+    data: [
+      {
+        dek: "Batumi Raptor Count closed its autumn 2026 count on 21 October. The last day brought the season’s second Rough-legged Buzzard, three Wallcreepers and a basking Caucasus viper.",
+        image: {
+          alt: "Seven counters of the Station 2 team on the last day of the season, with misty wooded hills of Adjara behind them.",
+          credit: {
+            date: "2026-10-21",
+            photographer: "BRC Station 2 team",
+            url: "https://www.batumiraptorcount.org/news/2026/10/last-day-of-the-season",
+          },
+          height: 1667,
+          src: "https://cdn.reptiles.ge/news-batumi-2026-end-brc-station-2-team.jpg",
+          width: 2500,
+        },
+        lead: "The autumn raptor count at the Batumi bottleneck ended on 21 October 2026, after 71 days.",
+        locales: ["ka", "en", "ru", "tr"],
+        publishedAt: "2026-10-23",
+        relatedHubIds: ["birds", "snakes"],
+        relatedRegionIds: ["adjara"],
+        relatedSpeciesIds: ["vipera-kaznakovi", "buteo-buteo"],
+        series: {
+          id: "batumi-raptor-count-2026",
+          name: "Batumi Raptor Count, autumn 2026",
+        },
+        slug: "batumi-raptor-count-2026-season-ends",
+        sources: [
+          {
+            name: "Batumi Raptor Count — One last watch over the bottleneck: the end of the count",
+            url: "https://www.batumiraptorcount.org/news/2026/10/last-day-of-the-season",
+          },
+        ],
+        title:
+          "Batumi count ends after 71 days: a Rough-legged Buzzard and a Caucasus viper on the last day",
+      },
+    ],
+    locale: "en",
+    nextCursor: "batumi-raptor-count-2026-season-ends",
+    total: 5,
   },
   species: {
     data: {

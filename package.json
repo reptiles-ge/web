@@ -52,6 +52,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "news:compile": "tsx scripts/compile-news.ts",
+    "news:import": "tsx scripts/news-import.ts",
     "slugs:compile": "tsx scripts/compile-species-slugs.ts",
     "content:compile": "tsx scripts/compile-content-dates.ts && tsx scripts/compile-release-version.ts",
     "taxon:ids": "tsx scripts/fetch-taxon-identifiers.ts",
@@ -86,10 +87,16 @@
     "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc",
     "dev:api": "wrangler dev --config wrangler.api.jsonc --port 8787",
     "deploy:api": "wrangler deploy --config wrangler.api.jsonc",
+    "dev:admin": "vite --config vite.admin.config.ts",
+    "build:admin": "vite build --config vite.admin.config.ts",
+    "preview:admin": "pnpm run build:admin && wrangler dev --config wrangler.admin.jsonc --port 3003",
+    "deploy:admin": "pnpm run build:admin && wrangler deploy --config wrangler.admin.jsonc",
     "db:migrations:list": "wrangler d1 migrations list reptiles-db --local --config wrangler.api.jsonc",
     "db:migrate": "wrangler d1 migrations apply reptiles-db --local --config wrangler.api.jsonc",
     "db:migrate:remote": "wrangler d1 migrations apply reptiles-db --remote --config wrangler.api.jsonc",
-    "db:seed:local": "wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file tests/fixtures/speciesSeed.sql"
+    "db:seed:local": "wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file tests/fixtures/speciesSeed.sql",
+    "db:import:news": "pnpm run news:compile && tsx scripts/export-news-sql.ts && wrangler d1 execute reptiles-db --local --config wrangler.api.jsonc --file .wrangler/news-import.sql",
+    "db:import:news:remote": "pnpm run news:compile && tsx scripts/export-news-sql.ts && wrangler d1 execute reptiles-db --remote --config wrangler.api.jsonc --file .wrangler/news-import.sql"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
@@ -108,6 +115,7 @@
     "@scalar/hono-api-reference": "0.12.12",
     "@sentry/nextjs": "^11.6.0",
     "@vinext/cloudflare": "1.0.1",
+    "antd": "^6.6.6",
     "clsx": "^2.1.1",
     "framer-motion": "^14.1.0",
     "fuse.js": "^7.5.0",

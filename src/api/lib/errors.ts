@@ -4,6 +4,7 @@ import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { HTTPException } from "hono/http-exception";
 
 export type ApiErrorCode =
+  | "conflict"
   | "forbidden"
   | "internal_error"
   | "invalid_request"

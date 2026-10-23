@@ -7,13 +7,14 @@ import {
   throttle,
   useQueryState,
 } from "nuqs";
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
-import type { AtlasIndexItem, SpeciesListItem } from "@/data/speciesListItem";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
-import type { AtlasPhotoPage } from "@/lib/atlasList";
+import type { AtlasPage } from "@/lib/atlasList";
 
+import { OptimizedImagesProvider } from "@/components/OptimizedImagesProvider";
 import { AtlasBrowse } from "@/components/species-atlas/AtlasBrowse";
 import { AtlasMap } from "@/components/species-atlas/AtlasMap";
 import {
@@ -21,9 +22,9 @@ import {
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
-import { AtlasPhotosProvider } from "@/components/species-atlas/AtlasPhotos";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
+import { useAtlasPage } from "@/components/species-atlas/useAtlasResults";
 import {
   type AtlasFilters,
   type AtlasRegionLabel,
@@ -31,23 +32,16 @@ import {
   type AtlasView,
   countAtlasFacets,
   defaultAtlasFilters,
-  filterAtlasSpecies,
-  sortAtlasSpecies,
 } from "@/data/atlasFilters";
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-  isVenomousDanger,
-} from "@/data/speciesAtlasMeta";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
 type AtlasData = {
-  catalog: AtlasIndexItem[];
-  photos: AtlasPhotoPage;
+  initial: AtlasPage;
   recent: SpeciesListItem[];
   regionCount: number;
   regionLabels: AtlasRegionLabel[];
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+  venomousCount: number;
   venomousImage: string;
 };
 
@@ -215,19 +209,21 @@ export function SpeciesAtlasFallback(props: AtlasData) {
   );
 }
 
+const EMPTY_ENTRIES = {};
+
 function noop() {}
 
 function SpeciesAtlasView({
   applyFilters,
-  catalog,
   filters,
-  photos,
+  initial,
   recent,
   regionCount,
   regionLabels,
   resetFilters,
   tooltipSpeciesByRegion,
   updateFilter,
+  venomousCount,
   venomousImage,
 }: AtlasData & {
   applyFilters: (next: AtlasFilters) => void;
@@ -241,29 +237,24 @@ function SpeciesAtlasView({
   const [regionMenuOpen, setRegionMenuOpen] = useState(false);
   const [sort, setSort] = useState<AtlasSort>("featured");
   const [view, setView] = useState<AtlasView>("grid");
-  const deferredQuery = useDeferredValue(filters.query);
+  const [page, setPage] = useState(1);
+  const resultsKey = JSON.stringify([filters, sort]);
+  const [pageResultsKey, setPageResultsKey] = useState(resultsKey);
+  if (pageResultsKey !== resultsKey) {
+    setPageResultsKey(resultsKey);
+    setPage(1);
+  }
   const skipAtlasFilter = useRef(true);
   const lastQuery = useRef(filters.query);
-
-  const activeFilters: AtlasFilters = useMemo(
-    () => ({
-      ...filters,
-      query: deferredQuery,
-    }),
-    [filters, deferredQuery],
-  );
-
-  const filtered = useMemo(
-    () =>
-      sortAtlasSpecies(
-        filterAtlasSpecies(catalog, activeFilters),
-        sort,
-        locale,
-      ),
-    [catalog, activeFilters, sort, locale],
-  );
+  const {
+    failed,
+    loading,
+    page: results,
+    retry,
+  } = useAtlasPage(locale, { filters, page, sort }, initial);
 
   useEffect(() => {
+    if (loading) return;
     if (skipAtlasFilter.current) {
       skipAtlasFilter.current = false;
       lastQuery.current = filters.query;
@@ -285,38 +276,14 @@ function SpeciesAtlasView({
         group_filter: filters.group,
         habitat_filter: filters.habitat,
         region_filter: filters.region,
-        result_count: filtered.length,
+        result_count: results.total,
         search_term: filters.query.trim()
           ? truncateSearchTerm(filters.query)
           : undefined,
       });
     }, delay);
     return () => window.clearTimeout(timer);
-  }, [filters, filtered.length]);
-
-  const groupTotals = useMemo(() => {
-    const counts: Record<"all" | AnimalGroup, number> = {
-      all: catalog.length,
-      amphibian: 0,
-      bird: 0,
-      insect: 0,
-      lizard: 0,
-      mammal: 0,
-      scorpion: 0,
-      snake: 0,
-      spider: 0,
-      turtle: 0,
-    };
-    for (const item of catalog) {
-      counts[getSpeciesAtlasMeta(item.id).group] += 1;
-    }
-    return counts;
-  }, [catalog]);
-
-  const venomousCount = useMemo(
-    () => catalog.filter((item) => isVenomousDanger(item.danger)).length,
-    [catalog],
-  );
+  }, [filters, loading, results.total]);
 
   const facetCount = countAtlasFacets(filters);
 
@@ -339,7 +306,7 @@ function SpeciesAtlasView({
         <div className="mx-auto max-w-[1440px] px-5 lg:px-[60px]">
           <AtlasTiles
             filters={filters}
-            groupTotals={groupTotals}
+            groupTotals={initial.facets.group}
             onPickRegion={openRegionMenu}
             onPickVenomous={() =>
               updateFilter(
@@ -353,11 +320,9 @@ function SpeciesAtlasView({
           />
         </div>
       </div>
-      <AtlasPhotosProvider initial={photos} locale={locale}>
+      <OptimizedImagesProvider entries={results.entries ?? EMPTY_ENTRIES}>
         <AtlasBrowse
-          catalog={catalog}
           facetCount={facetCount}
-          filtered={filtered}
           filterOpen={filterOpen}
           filters={filters}
           hasActiveFilters={hasActiveFilters}
@@ -367,15 +332,20 @@ function SpeciesAtlasView({
           onChangeView={setView}
           onCloseFilters={() => setFilterOpen(false)}
           onOpenFilters={() => setFilterOpen(true)}
+          onPageChange={setPage}
           onRegionMenuChange={setRegionMenuOpen}
           onResetFilters={resetFilters}
+          onRetry={retry}
           onUpdateFilter={updateFilter}
           regionLabels={regionLabels}
           regionMenuOpen={regionMenuOpen}
+          results={results}
+          resultsFailed={failed}
+          resultsLoading={loading}
           sort={sort}
           view={view}
         />
-      </AtlasPhotosProvider>
+      </OptimizedImagesProvider>
       <AtlasMap tooltipSpeciesByRegion={tooltipSpeciesByRegion} />
       <AtlasRecent species={recent} />
     </>

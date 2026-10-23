@@ -1,12 +1,9 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
+import { pickVenomousSnakes, summarizeAtlas } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
-import {
-  initialAtlasVisibleCount,
-  nextAtlasVisibleCount,
-} from "@/lib/atlasInfiniteScroll";
+import { atlasPageCount, atlasPageRange } from "@/lib/atlasPages";
 import { getFooterData } from "@/lib/footerData";
 import { loadHalyomorphaOccurrences } from "@/lib/halyomorphaOccurrenceApi";
 import { getOccurrenceSummary } from "@/lib/occurrenceSummaries";
@@ -29,22 +26,23 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe("atlas infinite scroll", () => {
-  it("shows the first page, capped at the total", () => {
-    expect(initialAtlasVisibleCount(100)).toBe(12);
-    expect(initialAtlasVisibleCount(5)).toBe(5);
-    expect(initialAtlasVisibleCount(0)).toBe(0);
-    expect(initialAtlasVisibleCount(-3)).toBe(0);
-    expect(initialAtlasVisibleCount(100, 30)).toBe(30);
+describe("atlas pages", () => {
+  it("counts pages of the filtered list", () => {
+    expect(atlasPageCount(145)).toBe(7);
+    expect(atlasPageCount(24)).toBe(1);
+    expect(atlasPageCount(25)).toBe(2);
+    expect(atlasPageCount(0)).toBe(0);
+    expect(atlasPageCount(-3)).toBe(0);
+    expect(atlasPageCount(10, 5)).toBe(2);
   });
 
-  it("loads one more page at a time without overshooting", () => {
-    expect(nextAtlasVisibleCount(12, 100)).toBe(24);
-    expect(nextAtlasVisibleCount(96, 100)).toBe(100);
-    expect(nextAtlasVisibleCount(100, 100)).toBe(100);
-    expect(nextAtlasVisibleCount(150, 100)).toBe(100);
-    expect(nextAtlasVisibleCount(0, 0)).toBe(0);
-    expect(nextAtlasVisibleCount(10, 100, 5)).toBe(15);
+  it("gives the slice of a page, clamped to the last page", () => {
+    expect(atlasPageRange(1, 145)).toEqual({ first: 1, last: 24, page: 1 });
+    expect(atlasPageRange(7, 145)).toEqual({ first: 145, last: 145, page: 7 });
+    expect(atlasPageRange(9, 30)).toEqual({ first: 25, last: 30, page: 2 });
+    expect(atlasPageRange(0, 30)).toEqual({ first: 1, last: 24, page: 1 });
+    expect(atlasPageRange(1, 0)).toEqual({ first: 0, last: 0, page: 1 });
+    expect(atlasPageRange(2, 10, 5)).toEqual({ first: 6, last: 10, page: 2 });
   });
 });
 
@@ -140,12 +138,28 @@ describe("seoKeywords", () => {
 
 describe("getFooterData", () => {
   it("lists every region and every venomous snake", async () => {
-    const data = getFooterData("en", await getSpeciesCatalog("en"));
+    const catalog = await getSpeciesCatalog("en");
+    const data = await getFooterData("en");
     expect(data.regions).toHaveLength(12);
     expect(data.venomous.map((item) => item.id)).toEqual(
-      (await getVenomousCatalogSpecies("en")).map((item) => item.id),
+      pickVenomousSnakes(catalog).map((item) => item.id),
     );
+    expect(data.venomous.length).toBeGreaterThan(0);
+    expect(data.stats).toEqual(summarizeAtlas(catalog));
     for (const region of data.regions) expect(region.name).toBeTruthy();
+  });
+
+  it("asks the catalog only for limited pages", async () => {
+    const requests = recordRequests();
+    await getFooterData("ka");
+    requests.stop();
+    const catalogUrls = requests.urls.filter((url) =>
+      url.includes("/v1/catalog"),
+    );
+    expect(catalogUrls.length).toBeGreaterThan(0);
+    for (const url of catalogUrls) {
+      expect(new URL(url).searchParams.get("limit"), url).toBeTruthy();
+    }
   });
 });
 

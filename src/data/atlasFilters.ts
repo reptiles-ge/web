@@ -1,12 +1,13 @@
-import type { AtlasIndexItem, AtlasPhoto } from "@/data/speciesListItem";
+import type { AtlasPhoto } from "@/data/speciesListItem";
 
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-  groupHasVenomConcept,
-  type HabitatTag,
-  isVenomousDanger,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, type HabitatTag } from "@/data/speciesAtlasMeta";
+
+export type AtlasFacets = {
+  danger: Record<AtlasDangerFilter, number>;
+  group: Record<"all" | AnimalGroup, number>;
+  habitat: Record<"all" | HabitatTag, number>;
+  region: Record<string, number>;
+};
 
 export type AtlasFilters = {
   danger: AtlasDangerFilter;
@@ -37,52 +38,19 @@ export function countAtlasFacets(filters: AtlasFilters) {
   return count;
 }
 
-export function filterAtlasSpecies(
-  catalog: AtlasIndexItem[],
-  filters: AtlasFilters,
-): AtlasIndexItem[] {
-  const q = filters.query.trim().toLowerCase();
-
-  return catalog.filter((item) => {
-    const meta = getSpeciesAtlasMeta(item.id);
-
-    if (filters.group !== "all" && meta.group !== filters.group) {
-      return false;
-    }
-
-    if (filters.danger !== "all") {
-      if (!groupHasVenomConcept(meta.group)) {
-        return false;
-      }
-      if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
-        return false;
-      }
-      if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
-        return false;
-      }
-    }
-
-    if (filters.habitat !== "all" && !meta.habitats.includes(filters.habitat)) {
-      return false;
-    }
-
-    if (filters.region !== "all") {
-      if (!item.regionIds.includes(filters.region)) return false;
-    }
-
-    if (q && !item.searchText.includes(q)) {
-      return false;
-    }
-
-    return true;
-  });
-}
-
 export const ATLAS_SORT_OPTIONS = ["featured", "az", "range"] as const;
 
 export type AtlasSort = (typeof ATLAS_SORT_OPTIONS)[number];
 
 export type AtlasView = "grid" | "list";
+
+export function atlasFacetCount<K extends keyof AtlasFacets>(
+  facets: AtlasFacets,
+  key: K,
+  value: string,
+): number {
+  return (facets[key] as Record<string, number>)[value] ?? 0;
+}
 
 export function atlasSpeciesImage(item: AtlasPhoto): string {
   const candidates = [item.mobileImage, item.image];
@@ -90,45 +58,4 @@ export function atlasSpeciesImage(item: AtlasPhoto): string {
     if (src && !src.includes("species-placeholder")) return src;
   }
   return "";
-}
-
-export function countAtlasSpecies<K extends keyof AtlasFilters>(
-  catalog: AtlasIndexItem[],
-  filters: AtlasFilters,
-  key: K,
-  value: AtlasFilters[K],
-): number {
-  return filterAtlasSpecies(catalog, { ...filters, [key]: value }).length;
-}
-
-export function sortAtlasSpecies(
-  list: AtlasIndexItem[],
-  sort: AtlasSort,
-  locale: string,
-): AtlasIndexItem[] {
-  const indexed = list.map((item, index) => ({ index, item }));
-  switch (sort) {
-    case "az":
-      indexed.sort(
-        (a, b) =>
-          a.item.commonName.localeCompare(b.item.commonName, locale) ||
-          a.index - b.index,
-      );
-      break;
-    case "featured":
-      indexed.sort(
-        (a, b) =>
-          Number(b.item.hasPhoto) - Number(a.item.hasPhoto) ||
-          a.index - b.index,
-      );
-      break;
-    case "range":
-      indexed.sort(
-        (a, b) =>
-          b.item.regionIds.length - a.item.regionIds.length ||
-          a.index - b.index,
-      );
-      break;
-  }
-  return indexed.map((entry) => entry.item);
 }

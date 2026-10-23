@@ -40,8 +40,11 @@ type DateFields = { dateModified: string; datePublished: string };
 
 let pathNamespaces: Map<string, readonly string[]> | null = null;
 
-export async function atlasDateFields(locale: AppLocale) {
-  return pageDateFields("/species", locale);
+export function atlasDateFields(locale: AppLocale, lastUpdated: null | string) {
+  return withFloor(
+    latestDate([pageOwnModifiedDate("/species", locale), lastUpdated]),
+    sitemapPathDatePublished("/species"),
+  );
 }
 
 export async function authorDateFields(slug: string, locale: AppLocale) {
@@ -101,10 +104,7 @@ export async function pageModifiedDate(
   creditPhotos?: readonly CreditPhotoSource[],
 ) {
   return latestDate([
-    sitemapPathLastModified(path),
-    guideArticleModifiedAt[path],
-    pageFileModifiedAt[path],
-    messagesDate(namespacesByPath().get(path) ?? [], locale),
+    pageOwnModifiedDate(path, locale),
     pageMembersDate(
       path,
       catalog ?? (await getSpeciesCatalog(locale)),
@@ -238,6 +238,15 @@ function pageMembersDate(
   }
   const members = membersForPath(path, catalog);
   return members ? speciesDate(members) : null;
+}
+
+function pageOwnModifiedDate(path: string, locale: AppLocale) {
+  return latestDate([
+    sitemapPathLastModified(path),
+    guideArticleModifiedAt[path],
+    pageFileModifiedAt[path],
+    messagesDate(namespacesByPath().get(path) ?? [], locale),
+  ]);
 }
 
 function quizMembersDate(id: string, catalog: readonly CatalogCard[]) {

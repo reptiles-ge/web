@@ -2,9 +2,12 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
+import { NEWS_ARTICLES } from "@/data/news.generated";
+
 import type { ApiDatabase } from "../db/database";
 
 import { RELINK_MEDIA_AUTHORS } from "../db/authors";
+import { buildNewsImport } from "../db/newsRows";
 
 const MIGRATIONS_DIR = path.resolve(
   import.meta.dirname,
@@ -17,6 +20,13 @@ const SEED_FILE = path.resolve(
 );
 
 let seed: string | undefined;
+
+export function createNewsTestDatabase() {
+  const database = createSpeciesTestDatabase();
+  for (const statement of buildNewsImport(NEWS_ARTICLES))
+    database.sqlite.exec(statement);
+  return database;
+}
 
 export function createSpeciesTestDatabase() {
   const database = createTestDatabase();
