@@ -8,7 +8,7 @@ import {
   quizTeaserOptionIds,
 } from "@/lib/quizTeaser";
 
-import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
 vi.mock("@/lib/speciesCatalogApi", async () => {
   const { speciesCatalogFixture } =
@@ -20,7 +20,7 @@ vi.mock("@/lib/speciesCatalogApi", async () => {
   };
 });
 
-const catalog = catalogSpeciesFixture();
+const catalog = speciesCatalogFixture("ka");
 const byId = new Map(catalog.map((item) => [item.id, item]));
 const quizSpecies = catalog.filter(
   (item) => isSnakeSpecies(item) || isLizardSpecies(item),

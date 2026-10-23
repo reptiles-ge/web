@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest";
 
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { locales } from "@/i18n/locales";
-import { getSpeciesLookalikes } from "@/lib/speciesLookalikes";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import {
   catalogSpeciesFixture,
   fixtureUpdatedAt,
   localizedFixture,
+  lookalikesFixture,
   speciesFixture,
 } from "../../../tests/fixtures/speciesCatalog";
 import { type ErrorBody, requestJson } from "../testing/request";
@@ -108,7 +108,7 @@ describe("GET /v1/species/:slug", () => {
         expect(habitats).toStrictEqual(speciesAtlasMeta[item.id]?.habitats);
         expect(slug).toBe(getSpeciesPublicSlug(item.id, locale));
         expect(lookalikes.map((peer) => peer.id)).toStrictEqual(
-          getSpeciesLookalikes(item.id),
+          lookalikesFixture(item.id),
         );
       }
     }
