@@ -8,6 +8,7 @@ const CHECKS = [
   { label: "dev-only API route", pattern: /pattern:`\/api\/(?:admin|dev)\// },
   { label: "admin API path", pattern: /\/api\/admin\// },
   { label: "dev API path", pattern: /\/api\/dev\// },
+  { label: "request inspector", pattern: /\[request-inspector\]/ },
 ];
 
 if (!existsSync(DIST)) {
