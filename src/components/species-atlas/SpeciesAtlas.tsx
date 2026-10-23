@@ -10,8 +10,9 @@ import {
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem, SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
+import type { AtlasPhotoPage } from "@/lib/atlasList";
 
 import { AtlasBrowse } from "@/components/species-atlas/AtlasBrowse";
 import { AtlasMap } from "@/components/species-atlas/AtlasMap";
@@ -20,6 +21,7 @@ import {
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
+import { AtlasPhotosProvider } from "@/components/species-atlas/AtlasPhotos";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
 import {
@@ -40,7 +42,8 @@ import {
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
 type AtlasData = {
-  catalog: SpeciesListItem[];
+  catalog: AtlasIndexItem[];
+  photos: AtlasPhotoPage;
   recent: SpeciesListItem[];
   regionCount: number;
   regionLabels: AtlasRegionLabel[];
@@ -218,6 +221,7 @@ function SpeciesAtlasView({
   applyFilters,
   catalog,
   filters,
+  photos,
   recent,
   regionCount,
   regionLabels,
@@ -349,27 +353,29 @@ function SpeciesAtlasView({
           />
         </div>
       </div>
-      <AtlasBrowse
-        catalog={catalog}
-        facetCount={facetCount}
-        filtered={filtered}
-        filterOpen={filterOpen}
-        filters={filters}
-        hasActiveFilters={hasActiveFilters}
-        locale={locale}
-        onApplyFilters={applyFilters}
-        onChangeSort={setSort}
-        onChangeView={setView}
-        onCloseFilters={() => setFilterOpen(false)}
-        onOpenFilters={() => setFilterOpen(true)}
-        onRegionMenuChange={setRegionMenuOpen}
-        onResetFilters={resetFilters}
-        onUpdateFilter={updateFilter}
-        regionLabels={regionLabels}
-        regionMenuOpen={regionMenuOpen}
-        sort={sort}
-        view={view}
-      />
+      <AtlasPhotosProvider initial={photos} locale={locale}>
+        <AtlasBrowse
+          catalog={catalog}
+          facetCount={facetCount}
+          filtered={filtered}
+          filterOpen={filterOpen}
+          filters={filters}
+          hasActiveFilters={hasActiveFilters}
+          locale={locale}
+          onApplyFilters={applyFilters}
+          onChangeSort={setSort}
+          onChangeView={setView}
+          onCloseFilters={() => setFilterOpen(false)}
+          onOpenFilters={() => setFilterOpen(true)}
+          onRegionMenuChange={setRegionMenuOpen}
+          onResetFilters={resetFilters}
+          onUpdateFilter={updateFilter}
+          regionLabels={regionLabels}
+          regionMenuOpen={regionMenuOpen}
+          sort={sort}
+          view={view}
+        />
+      </AtlasPhotosProvider>
       <AtlasMap tooltipSpeciesByRegion={tooltipSpeciesByRegion} />
       <AtlasRecent species={recent} />
     </>

@@ -4,14 +4,14 @@ import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useId } from "react";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
+import { useAtlasPhoto } from "@/components/species-atlas/AtlasPhotos";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
-import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
@@ -24,7 +24,7 @@ type AtlasSpeciesItemProps = {
   index?: number;
   locale: AppLocale;
   regionNames: string[];
-  species: SpeciesListItem;
+  species: AtlasIndexItem;
 };
 
 const RISK_SOLID: Record<DangerLevel, string> = {
@@ -65,12 +65,14 @@ export function AtlasSpeciesCard({
       prefetch={false}
     >
       <span className="relative block aspect-4/5 overflow-hidden bg-[#151c18]">
-        <ClientCoverImage
-          alt={item.alt}
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
-          sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 330px"
-          src={item.image}
-        />
+        {item.image ? (
+          <ClientCoverImage
+            alt={item.alt}
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
+            sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 330px"
+            src={item.image}
+          />
+        ) : null}
         <span
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 hidden h-[45%] bg-linear-to-t from-[rgba(14,20,17,0.6)] to-transparent lg:block"
@@ -168,7 +170,9 @@ export function AtlasSpeciesRow({
       prefetch={false}
     >
       <span className="relative block size-14 overflow-hidden rounded-[14px] bg-[#151c18]">
-        <ClientCoverImage alt="" aria-hidden sizes="56px" src={item.image} />
+        {item.image ? (
+          <ClientCoverImage alt="" aria-hidden sizes="56px" src={item.image} />
+        ) : null}
       </span>
       <span className="min-w-0">
         <span
@@ -237,14 +241,14 @@ function labelledBy(ids: ReturnType<typeof useLabelIds>, hasRisk: boolean) {
 }
 
 function useAtlasSpecies(
-  species: SpeciesListItem,
+  species: AtlasIndexItem,
   regionNames: string[],
   locale: AppLocale,
 ) {
   const t = useTranslations("speciesAtlas");
   const tDanger = useTranslations("danger");
   const meta = getSpeciesAtlasMeta(species.id);
-  const photo = atlasSpeciesImage(species);
+  const { pending, photo } = useAtlasPhoto(species);
   const risk = getSpeciesRiskChip(species, meta.group);
   const where =
     regionNames.length > 0
@@ -273,8 +277,10 @@ function useAtlasSpecies(
       label: t(`habitats.${habitat}`),
     })),
     href: useSpeciesHref(species.id, locale),
-    image: photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[meta.group]],
-    isIllustration: !photo,
+    image: pending
+      ? ""
+      : photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[meta.group]],
+    isIllustration: !pending && !photo,
     risk: risk ? { label: tDanger(risk.level), level: risk.level } : null,
     where,
     whereShort,

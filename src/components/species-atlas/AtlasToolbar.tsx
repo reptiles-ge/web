@@ -27,7 +27,7 @@ import {
   countAtlasSpecies,
 } from "@/data/atlasFilters";
 import { type HabitatTag } from "@/data/speciesAtlasMeta";
-import { type SpeciesListItem } from "@/data/speciesListItem";
+import { type AtlasIndexItem } from "@/data/speciesListItem";
 import { cn } from "@/lib/cn";
 
 export type AtlasRegionOption = { count: number; id: string; label: string };
@@ -38,7 +38,7 @@ export type UpdateAtlasFilter = <K extends keyof AtlasFilters>(
 ) => void;
 
 type AtlasToolbarProps = {
-  catalog: SpeciesListItem[];
+  catalog: AtlasIndexItem[];
   facetCount: number;
   filters: AtlasFilters;
   onChangeSort: (sort: AtlasSort) => void;
@@ -212,7 +212,7 @@ function AtlasGroupTabs({
   filters,
   onPick,
 }: {
-  catalog: SpeciesListItem[];
+  catalog: AtlasIndexItem[];
   filters: AtlasFilters;
   onPick: (group: AtlasFilters["group"]) => void;
 }) {

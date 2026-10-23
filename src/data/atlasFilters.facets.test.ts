@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AtlasIndexItem } from "@/data/speciesListItem";
 
 import {
   countAtlasFacets,
@@ -9,21 +9,17 @@ import {
   sortAtlasSpecies,
 } from "@/data/atlasFilters";
 
-function item(id: string, overrides: Partial<SpeciesListItem> = {}) {
+function item(id: string, overrides: Partial<AtlasIndexItem> = {}) {
   return {
     commonName: id,
-    description: "",
-    family: "",
-    genus: "",
+    hasPhoto: false,
     id,
-    image: "",
     location: "",
     regionIds: [],
     scientificName: id,
     searchText: id,
-    updatedAt: "2026-01-01",
     ...overrides,
-  } as SpeciesListItem;
+  } as AtlasIndexItem;
 }
 
 const catalog = [
@@ -107,6 +103,18 @@ describe("filterAtlasSpecies", () => {
 });
 
 describe("sortAtlasSpecies", () => {
+  it("puts species with a photo first for the featured sort, keeping ties in order", () => {
+    const withPhotos = [
+      item("a"),
+      item("b", { hasPhoto: true }),
+      item("c"),
+      item("d", { hasPhoto: true }),
+    ];
+    expect(
+      sortAtlasSpecies(withPhotos, "featured", "en").map((entry) => entry.id),
+    ).toEqual(["b", "d", "a", "c"]);
+  });
+
   it("sorts by region count for the range sort, keeping ties in order", () => {
     expect(
       sortAtlasSpecies(catalog, "range", "en").map((entry) => entry.id),
