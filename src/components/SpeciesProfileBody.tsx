@@ -6,6 +6,7 @@ import type {
   GalleryImage,
   PhotoCredit,
   Species,
+  SpeciesFieldRecord,
   SpeciesStat,
 } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -62,6 +63,7 @@ type SpeciesProfileBodyProps = {
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   editable: boolean;
+  fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
   hasRange: boolean;
@@ -134,6 +136,7 @@ export async function SpeciesProfileBody({
   dangerValue,
   displayStats,
   editable,
+  fieldRecords,
   gallery,
   guideLinks,
   hasRange,
@@ -241,6 +244,8 @@ export async function SpeciesProfileBody({
 
       <SpeciesRangeMap
         editable={editable}
+        fieldRecords={fieldRecords}
+        gallery={gallery}
         habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}

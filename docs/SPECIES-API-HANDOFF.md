@@ -23,6 +23,7 @@ Species content lives in D1 (`reptiles-db`) and is served by the `reptiles-api` 
 | S2.10  | `llms.txt`, `llms-full.txt`, species OG images, sitemap species entries               | #1506 |
 | S2.11  | Search index route `/api/search/{locale}`, locale-switch index as a prop              | #1507 |
 | S2.12a | Leftover pages and the manual scripts on the API                                      | #1508 |
+| S2.12b | Occurrence summaries and map records from the D1 field-records endpoint               | —     |
 
 S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 
@@ -34,35 +35,14 @@ S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 
 ## Remaining steps, in order
 
-### 1. S2.12b — occurrences from D1
+### 1. Release `staging` → `main`
 
-**Today:**
-
-- `scripts/compile-species.ts` writes `src/data/fieldRecords.generated.json` from MDX.
-- `scripts/compile-occurrences.ts` turns that into `src/data/occurrenceSummaries.generated.ts`.
-- The site reads it through `src/lib/occurrenceSummaries.ts`:
-  - `hasFieldRecords` in `SpeciesProfile`;
-  - `getOccurrenceSummary` in `components/map/SpeciesRangeMap.tsx`.
-
-**Target:**
-
-- The profile loads its field records from `GET /v1/species/:slug/field-records` on the server.
-  - Add a cached loader next to `speciesProfileApi.ts`, with the same `speciesFetchOptions` and tags.
-  - Build the summary with the existing pure helpers in `src/lib/halyomorphaOccurrences.ts`.
-- `hasFieldRecords` becomes "the endpoint returned records".
-- Delete `compile-occurrences.ts`, the generated summary file, and its step in `species:compile`.
-- Keep `fieldRecords.generated.json` only while `src/api/testing/sqliteDatabase.ts` and `scripts/export-field-records-sql.ts` still need it. S5 removes it.
-
-**Check:** compare the summary for every species with field records, in all four locales, before and after (see "How we verify" below). Check one map in the browser.
-
-### 2. Release `staging` → `main`
-
-- **Order:** recommended after S2.12b and before S4. Only the owner decides when.
+- **Order:** recommended now, before S4. Only the owner decides when.
 - **API:** the API is already ahead of `main` and backward compatible, so no API deploy is needed for this.
 - **Process:** follow `docs/RELEASING.md`. The PR from `staging` to `main` gets the `skip-changelog` label.
 - **After merge:** open the live site and check a profile, a hub, search, the language switcher and `/sitemap.xml`.
 
-### 3. S4 — slugs and 301s
+### 2. S4 — slugs and 301s
 
 **Today:** these still use the generated slug table (`src/data/speciesSlugs.generated.ts`, via `speciesSlugTable.ts`):
 
@@ -81,7 +61,7 @@ So a species added only through the API returns 404.
 
 **Decision for the owner:** the storage choice for the edge snapshot (KV or something else). This adds a binding to `wrangler.jsonc` / `wrangler.api.jsonc`. Propose before building.
 
-### 4. S5 — delete species MDX
+### 3. S5 — delete species MDX
 
 **Remove:**
 
@@ -102,10 +82,10 @@ So a species added only through the API returns 404.
 **Local admin:**
 
 - These still read or write MDX: `src/app/admin/**`, `src/app/api/admin/**/route.local.ts`, `adminGalleryMdx`, `adminPhotos`, `speciesAnalysisInventory`, species creation.
-- After this step they stop working until step 5. The owner accepted that.
+- After this step they stop working until step 4. The owner accepted that.
 - Either disable those routes with a clear message, or leave them failing. Do not ship MDX back to keep them alive.
 
-### 5. Admin on the API (last)
+### 4. Admin on the API (last)
 
 Detailed plans are in `docs/SPECIES-D1-MIGRATION.md` (sections 2b-b, 2b-d, 2b-f). Every step uses the working pattern described there:
 
