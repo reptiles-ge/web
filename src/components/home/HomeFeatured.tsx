@@ -49,7 +49,7 @@ export async function HomeFeatured({ locale }: { locale: AppLocale }) {
 
         <article className="mt-6 grid gap-5 lg:mt-11 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-center lg:gap-14">
           <TrackedSpeciesLink
-            aria-label={spotlight.commonName}
+            aria-label={`${tDetail("eyebrow")} — ${spotlight.commonName}`}
             className="group relative block h-[248px] overflow-hidden rounded-[24px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:h-[360px] lg:h-[440px] lg:rounded-[32px]"
             locale={locale}
             source="home_spotlight"

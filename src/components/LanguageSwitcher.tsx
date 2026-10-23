@@ -44,6 +44,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     tr: t("tr"),
   };
 
+  const pillLabel = `${labels[locale]} — ${t("switch")}`;
   const switchLocale = useSelectLocale();
 
   function selectLocale(code: AppLocale) {
@@ -88,7 +89,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
           aria-controls={listId}
           aria-expanded={open}
           aria-haspopup="dialog"
-          aria-label={t("switch")}
+          aria-label={pillLabel}
           className="flex h-12 w-full items-center gap-3 rounded-full border border-border bg-card pr-4 pl-3.5 text-left text-foreground"
           onClick={() => setOpen((value) => !value)}
           type="button"
@@ -125,7 +126,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       <button
         aria-controls={listId}
         aria-expanded={open}
-        aria-label={t("switch")}
+        aria-label={pillLabel}
         className={cn(
           "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 lg:flex",
           shellClass,
