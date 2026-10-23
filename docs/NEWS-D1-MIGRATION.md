@@ -9,7 +9,7 @@ Status as of 2026-10-23. Nothing is built yet. Binding API rules are in `.agents
 | 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                               |
 | 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production |
 | 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                            |
-| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ⏳                                      |
+| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed              |
 | 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳                                      |
 | 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                      |
 | 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳                                      |
@@ -94,6 +94,18 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 ---
 
 ## Phase 2 — public read API
+
+### Done (code only)
+
+- `GET /v1/news` and `GET /v1/news/:slug` in `src/api/routes/news.ts`, reading through `src/api/db/newsView.ts`. Both are edge-cached, documented in the OpenAPI spec (tag `News`, `NewsListResponse` / `NewsResponse` and their parts, real examples) and listed in `.agents/skills/api/SKILL.md`.
+- Shape: localized texts, photo `alt`, source names and series name; `locales` lists the article's languages; photo credits as published with `authorId`; body as `sections` of `NewsMark` paragraphs and figures. The list leaves out `sections` and `gallery`.
+- List semantics follow the site exactly: only articles with text in the requested locale, newest first with ties by position, and the same hub, region, species and author matching as `src/data/news.ts`. The author text match moved to `src/lib/newsAuthorMentions.ts` so both use one function. `series` is an extra filter.
+- Detail falls back to Georgian when the requested locale has no text (`locale: "ka"`).
+- `routes/news.test.ts` compares every list, filter and article in all four locales with the site's functions, plus paging, bad input, the fallback and drafts. `responses.test.ts` checks every real news response against the documented schemas.
+- The Worker grows from about 195 to 201 KiB gzip.
+- **Deploy:** needs `pnpm db:migrate:remote`, `pnpm db:import:news:remote` and `pnpm deploy:api`, by hand, only when the owner says so. Until then production answers 404 for `/v1/news`.
+
+### Original plan
 
 - `GET /v1/news` (`X-Locale`): published articles, newest first (then `position`), **without sections**: slug, title, dek, lead, dates, series, cover photo, related ids, source names. About 31 × a few KB per locale. Optional filters `hub`, `region`, `species`, `author` (credit author id from `news_media.author_id` and `CreditAuthor` marks), `series`. Optional `limit` / `cursor`, same rules as `/v1/catalog`.
 - `GET /v1/news/:slug` (`X-Locale`): the full article in that locale with a KA fallback for missing locales (today's `getNewsCopy` behaviour), plus `locales` (which locales really exist) for hreflang.

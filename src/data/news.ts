@@ -6,6 +6,10 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { NEWS_ARTICLES } from "@/data/news.generated";
 import { getRegionById } from "@/data/regions";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import {
+  newsMentionsCreditAuthor,
+  newsSourceNames,
+} from "@/lib/newsAuthorMentions";
 
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
@@ -176,60 +180,4 @@ export function newsSourceOrg(article: NewsArticle, locale: AppLocale) {
 
 export function newsSourceOrgName(name: string) {
   return name.split(/\s[—-]\s/)[0]?.trim() || name;
-}
-
-function newsMentionsCreditAuthor(
-  article: NewsArticle,
-  author: Pick<AuthorProfile, "aliases" | "id">,
-) {
-  const aliases = new Set([author.id, ...author.aliases]);
-  const haystack = [
-    ...article.sources.flatMap((source) => [
-      ...newsSourceNames(source),
-      source.url,
-    ]),
-    ...Object.values(article.copy).flatMap((copy) =>
-      copy
-        ? [
-            copy.dek,
-            copy.lead,
-            copy.metaDescription,
-            copy.metaTitle,
-            copy.title,
-            ...copy.sections.flatMap((section) => [
-              section.heading,
-              ...section.blocks.flatMap((block) =>
-                block.type === "p"
-                  ? block.parts.map((part) =>
-                      typeof part === "string"
-                        ? part
-                        : part.type === "sci"
-                          ? part.name
-                          : part.type === "credit-author"
-                            ? `${part.slug} ${part.label}`
-                            : "label" in part
-                              ? part.label
-                              : "",
-                    )
-                  : [],
-              ),
-            ]),
-          ]
-        : [],
-    ),
-  ]
-    .join("\n")
-    .toLocaleLowerCase();
-
-  for (const alias of aliases) {
-    const needle = alias.trim().toLocaleLowerCase();
-    if (needle && haystack.includes(needle)) return true;
-  }
-  return false;
-}
-
-function newsSourceNames(source: NewsSource) {
-  return typeof source.name === "string"
-    ? [source.name]
-    : Object.values(source.name);
 }
