@@ -20,7 +20,7 @@ This file is the project map for agents. Humans: see `README.md`.
 | ------------ | ----------------------------------------------------------------------------------- |
 | App          | Next.js 16 App Router, React 19, TypeScript strict                                  |
 | i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json`   |
-| Style        | Tailwind 4, no CSS-in-JS                                                            |
+| Style        | Tailwind 4, no CSS-in-JS. Only exception: antd in the admin app (`src/admin/`)      |
 | Alias        | `@/*` → `src/*`                                                                     |
 | Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                             |
 | Worker entry | `src/worker.ts` (vinext fetch handler; canonical RSC requests so navigation caches) |
@@ -54,6 +54,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                       |
 | Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                  |
 | API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`             |
+| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                |
 
 ## Architecture
 
@@ -187,6 +188,17 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.
 
+## Admin app
+
+`admin.reptiles.ge` is a third Worker, `reptiles-admin`, in `src/admin/`: a Vite + React single-page app with antd, built by `vite.admin.config.ts` into the gitignored `dist-admin/` and served as static assets (`wrangler.admin.jsonc`, SPA fallback). Its build and deploy are separate from the site's.
+
+- **CSS-in-JS exception:** antd (CSS-in-JS) is allowed only in `src/admin/`. ESLint (`@typescript-eslint/no-restricted-imports`) fails on `antd` or `@ant-design/*` anywhere else in `src/`, so it never reaches the reptiles.ge bundle. The site stays Tailwind only.
+- **No public URL yet:** `workers_dev` and `preview_urls` are off and no route is set. Attach `admin.reptiles.ge` only after Cloudflare Access protects it.
+- `src/admin/public/_headers` sends `X-Robots-Tag: noindex, nofollow`, `X-Frame-Options: DENY`, `nosniff` and `no-referrer` on every response.
+- Never put `API_WRITE_TOKEN` or any other secret in admin browser code. API writes will go through a server side in this Worker.
+- `pnpm deploy:admin` runs only when the owner says so.
+- Until features move over, the working admin is still the local `/admin` in the site (`pnpm dev`).
+
 ## Quiz
 
 - Registry: `QUIZ_INDEX` in `src/lib/quizzes.ts`. Live: `snake` (`romeli-gvelia` / `which-snake`) and `lizard` (`romeli-xvlikia` / `which-lizard`). Turtle stays `soon` (no href, no URL).
@@ -256,6 +268,9 @@ pnpm cpd                  # jscpd copy-paste scan, fails on any clone (threshold
 pnpm dev:api              # API Worker on :8787 (local D1; never applies migrations)
 pnpm db:migrate           # apply API migrations to the local D1 (by hand only)
 pnpm db:seed:local        # load the test seed into an empty local D1
+pnpm dev:admin            # admin app (Vite) on :3002
+pnpm build:admin          # admin app → dist-admin/
+pnpm preview:admin        # build, then serve dist-admin/ with wrangler dev on :3003
 ```
 
 `pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if a generated file is missing).

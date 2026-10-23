@@ -87,6 +87,44 @@ const lookalikeIds = [
   "vipera-transcaucasiana",
 ];
 
+const catalogFacets = {
+  danger: { all: 145, harmless: 68, venomous: 11 },
+  group: {
+    all: 145,
+    amphibian: 12,
+    bird: 45,
+    insect: 4,
+    lizard: 29,
+    mammal: 17,
+    scorpion: 4,
+    snake: 22,
+    spider: 8,
+    turtle: 4,
+  },
+  habitat: { all: 145, forest: 83, grassland: 95, mountain: 64, wetland: 29 },
+  region: {
+    abkhazia: 30,
+    adjara: 47,
+    all: 145,
+    guria: 20,
+    imereti: 28,
+    kakheti: 72,
+    "kvemo-kartli": 54,
+    "mtskheta-mtianeti": 54,
+    racha: 11,
+    "samegrelo-zemo-svaneti": 38,
+    "samtskhe-javakheti": 56,
+    "shida-kartli": 38,
+    tbilisi: 49,
+  },
+};
+
+const catalogStats = {
+  lastUpdated: "2026-10-22T15:29:08+04:00",
+  photos: 1274,
+  venomous: 11,
+};
+
 const lagodekhiCover = {
   alt: "An East Caucasian tur on a high mountain slope in Lagodekhi.",
   credit: {
@@ -161,8 +199,10 @@ export const RESPONSE_EXAMPLES = {
   },
   catalogCard: {
     data: [{ ...levantineViper, lookalikes: lookalikeIds, photoCount: 8 }],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "card",
   },
@@ -170,8 +210,10 @@ export const RESPONSE_EXAMPLES = {
     data: [
       { ...levantineViper, ...levantineViperTexts, lookalikes: lookalikeIds },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "full",
   },
@@ -183,8 +225,10 @@ export const RESPONSE_EXAMPLES = {
         lookalikes: lookalikeIds,
       },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "photos",
   },
@@ -198,8 +242,10 @@ export const RESPONSE_EXAMPLES = {
         lookalikes: lookalikeIds,
       },
     ],
+    facets: catalogFacets,
     locale: "en",
     nextCursor: null,
+    stats: catalogStats,
     total: 145,
     view: "quiz",
   },

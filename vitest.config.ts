@@ -47,6 +47,7 @@ export default defineConfig({
         "src/instrumentation*.ts",
         "src/app/RootDocument.tsx",
         "src/i18n/request.ts",
+        "src/admin/main.tsx",
       ],
       include: ["src/**/*.{ts,tsx}"],
       provider: "v8",
