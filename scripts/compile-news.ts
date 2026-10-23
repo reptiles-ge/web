@@ -2,15 +2,13 @@ import fs from "node:fs";
 import path from "node:path";
 
 import type { NewsArticle } from "../src/data/newsTypes";
-import type { AppLocale } from "../src/i18n/routing";
 
 import { newsSlugs } from "../src/data/newsPublish";
 import { optimizedImages } from "../src/data/optimizedImages.generated";
-import { locales } from "../src/i18n/locales";
 import { checkNewsHeroes, type NewsHeroInput } from "../src/lib/newsHeroImage";
 import {
   newsArticleFromMdx,
-  type NewsMdxFile,
+  readNewsMdxFiles,
 } from "../src/lib/newsMdxArticle";
 import { newsSlugIssue } from "../src/lib/newsSlug";
 
@@ -34,20 +32,13 @@ for (const slug of newsSlugs) {
   if (issue) errors.push(`${slug}: ${issue}`);
 }
 
-function readFiles(slug: string) {
-  const files: Partial<Record<AppLocale, NewsMdxFile>> = {};
-  for (const locale of locales) {
-    const file = path.join(contentRoot, slug, `${locale}.mdx`);
-    if (fs.existsSync(file))
-      files[locale] = { path: file, raw: fs.readFileSync(file, "utf8") };
-  }
-  return files;
-}
-
 const articles: NewsArticle[] = [];
 for (const slug of newsSlugs) {
   try {
-    const result = newsArticleFromMdx(slug, readFiles(slug));
+    const result = newsArticleFromMdx(
+      slug,
+      readNewsMdxFiles(contentRoot, slug),
+    );
     errors.push(...result.errors);
     if (!result.article) continue;
     articles.push(result.article);

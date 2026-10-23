@@ -8,7 +8,7 @@ const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 
 const body = z.strictObject({
   tags: z
-    .array(z.string().regex(/^species(?::[a-z0-9]+(?:-[a-z0-9]+)*)?$/))
+    .array(z.string().regex(/^(?:news|species)(?::[a-z0-9]+(?:-[a-z0-9]+)*)?$/))
     .min(1)
     .max(20),
 });

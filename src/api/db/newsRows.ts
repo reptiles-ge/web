@@ -38,22 +38,7 @@ export function buildNewsImport(articles: readonly NewsArticle[]) {
   ];
 }
 
-function flag(value: boolean | undefined) {
-  return value === undefined ? null : value ? 1 : 0;
-}
-
-function mediaRef(
-  articleId: string,
-  role: MediaRole,
-  position: number,
-): SqlExpression {
-  return {
-    sql: "(SELECT id FROM news_media WHERE article_id = ? AND role = ? AND position = ?)",
-    values: [articleId, role, position],
-  };
-}
-
-function newsRecordRows({ article, position }: NewsRecord) {
+export function newsRecordRows({ article, position }: NewsRecord) {
   const rows = new Map<NewsTable, Cell[][]>(
     NEWS_TABLES.map((table) => [table.name, []]),
   );
@@ -146,4 +131,19 @@ function newsRecordRows({ article, position }: NewsRecord) {
     add("news_species", [id, index, species]),
   );
   return rows;
+}
+
+function flag(value: boolean | undefined) {
+  return value === undefined ? null : value ? 1 : 0;
+}
+
+function mediaRef(
+  articleId: string,
+  role: MediaRole,
+  position: number,
+): SqlExpression {
+  return {
+    sql: "(SELECT id FROM news_media WHERE article_id = ? AND role = ? AND position = ?)",
+    values: [articleId, role, position],
+  };
 }
