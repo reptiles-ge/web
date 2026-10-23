@@ -3,7 +3,11 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { regions } from "@/data/mapRegions";
 import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import {
+  type CatalogCard,
+  getCatalogMatches,
+  getSpeciesCatalog,
+} from "@/lib/speciesCatalogApi";
 
 export type { AnimalGroup } from "@/data/speciesAtlasMeta";
 export {
@@ -38,7 +42,25 @@ export type AtlasStats = {
 type DangerRanked = Pick<CatalogCard, "danger" | "family" | "scientificName">;
 
 export async function getAtlasStats(locale: AppLocale): Promise<AtlasStats> {
-  return summarizeAtlas(await getSpeciesCatalog(locale));
+  const { facets, stats, total } = await getCatalogMatches(locale, {
+    limit: 1,
+  });
+  return {
+    amphibians: facets.group.amphibian,
+    birds: facets.group.bird,
+    insects: facets.group.insect,
+    lastUpdated: stats.lastUpdated,
+    lizards: facets.group.lizard,
+    mammals: facets.group.mammal,
+    photos: stats.photos,
+    regions: regions.length,
+    scorpions: facets.group.scorpion,
+    snakes: facets.group.snake,
+    spiders: facets.group.spider,
+    total,
+    turtles: facets.group.turtle,
+    venomous: stats.venomous,
+  };
 }
 
 export function getCatalogByDanger<T extends DangerRanked>(

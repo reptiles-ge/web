@@ -80,17 +80,20 @@ export function newsArticleIssues(article: NewsRuleArticle): NewsIssue[] {
   }
 
   const links = newsBodyLinks(article);
-  const unlisted = NEWS_UNLISTED_REGION_LINKS[article.slug] ?? [];
+  const unlisted = new Set(NEWS_UNLISTED_REGION_LINKS[article.slug]);
+  const relatedSpecies = new Set<string>(article.relatedSpeciesIds);
+  const relatedRegions = new Set<string>(article.relatedRegionIds);
+  const relatedHubs = new Set<string>(article.relatedHubIds);
   for (const id of links.species) {
-    if (!article.relatedSpeciesIds.includes(id))
+    if (!relatedSpecies.has(id))
       issue(`Linked species ${id} is missing`, "relatedSpeciesIds");
   }
   for (const id of links.region) {
-    if (!article.relatedRegionIds.includes(id) && !unlisted.includes(id))
+    if (!relatedRegions.has(id) && !unlisted.has(id))
       issue(`Linked region ${id} is missing`, "relatedRegionIds");
   }
   for (const id of links.hub) {
-    if (!article.relatedHubIds.some((hub) => hub === id))
+    if (!relatedHubs.has(id))
       issue(`Linked hub ${id} is missing`, "relatedHubIds");
   }
   for (const key of [

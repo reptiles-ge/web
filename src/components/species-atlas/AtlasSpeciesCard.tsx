@@ -4,14 +4,14 @@ import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useId } from "react";
 
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import type { AtlasCardItem } from "@/data/speciesListItem";
 import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
-import { useAtlasPhoto } from "@/components/species-atlas/AtlasPhotos";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
+import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
@@ -24,7 +24,7 @@ type AtlasSpeciesItemProps = {
   index?: number;
   locale: AppLocale;
   regionNames: string[];
-  species: AtlasIndexItem;
+  species: AtlasCardItem;
 };
 
 const RISK_SOLID: Record<DangerLevel, string> = {
@@ -241,14 +241,14 @@ function labelledBy(ids: ReturnType<typeof useLabelIds>, hasRisk: boolean) {
 }
 
 function useAtlasSpecies(
-  species: AtlasIndexItem,
+  species: AtlasCardItem,
   regionNames: string[],
   locale: AppLocale,
 ) {
   const t = useTranslations("speciesAtlas");
   const tDanger = useTranslations("danger");
   const meta = getSpeciesAtlasMeta(species.id);
-  const { pending, photo } = useAtlasPhoto(species);
+  const photo = atlasSpeciesImage(species);
   const risk = getSpeciesRiskChip(species, meta.group);
   const where =
     regionNames.length > 0
@@ -277,10 +277,8 @@ function useAtlasSpecies(
       label: t(`habitats.${habitat}`),
     })),
     href: useSpeciesHref(species.id, locale),
-    image: pending
-      ? ""
-      : photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[meta.group]],
-    isIllustration: !pending && !photo,
+    image: photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[meta.group]],
+    isIllustration: !photo,
     risk: risk ? { label: tDanger(risk.level), level: risk.level } : null,
     where,
     whereShort,

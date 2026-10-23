@@ -1,5 +1,7 @@
 import { cache } from "react";
 
+import type { AtlasFacets } from "@/data/atlasFilters";
+import type { AnimalGroup, HabitatTag } from "@/data/speciesAtlasMeta";
 import type {
   CatalogCard,
   CatalogFullSpecies,
@@ -39,34 +41,68 @@ export const getSpeciesCatalog = cache(
   },
 );
 
-export class CatalogPageError extends Error {
+export type CatalogMatches = {
+  data: CatalogCard[];
+  facets: AtlasFacets;
+  stats: { lastUpdated: null | string; photos: number; venomous: number };
+  total: number;
+};
+
+export type CatalogMatchQuery = {
+  danger?: "harmless" | "venomous";
+  group?: AnimalGroup;
+  habitat?: HabitatTag;
+  limit: number;
+  page?: number;
+  q?: string;
+  region?: string;
+  sort?: "az" | "catalog" | "featured" | "range" | "updated";
+};
+
+export class CatalogQueryError extends Error {
   constructor(readonly status: number) {
     super(`Species catalog API answered ${status}`);
   }
+}
+
+export function getCatalogMatches(
+  locale: AppLocale,
+  query: CatalogMatchQuery,
+): Promise<CatalogMatches> {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(query)) {
+    if (value !== undefined) params.set(key, String(value));
+  }
+  params.sort();
+  return getCatalogMatchesBySearch(locale, params.toString());
 }
 
 export function getCreditPhotoCatalog() {
   return getSpeciesCatalog(routing.defaultLocale, "photos");
 }
 
-export async function getSpeciesCatalogPage(
-  locale: AppLocale,
-  { cursor, limit }: { cursor?: string; limit: number },
-): Promise<{ data: CatalogCard[]; nextCursor: null | string }> {
-  const response = await createApiClient().v1.catalog.$get(
-    {
-      header: { "x-locale": locale },
-      query: {
-        limit: String(limit),
-        view: "card",
-        ...(cursor ? { cursor } : {}),
-      },
-    },
-    speciesFetchOptions(["species"]),
-  );
-  if (!response.ok) {
-    throw new CatalogPageError(response.status);
-  }
-  const { data, nextCursor } = await response.json();
-  return { data: data as CatalogCard[], nextCursor };
-}
+const getCatalogMatchesBySearch = cache(
+  async (locale: AppLocale, search: string): Promise<CatalogMatches> => {
+    const query = Object.fromEntries(
+      new URLSearchParams(search),
+    ) as unknown as {
+      [K in keyof CatalogMatchQuery]: K extends "limit" | "page"
+        ? string
+        : CatalogMatchQuery[K];
+    };
+    const response = await createApiClient().v1.catalog.$get(
+      { header: { "x-locale": locale }, query: { ...query, view: "card" } },
+      speciesFetchOptions(["species"]),
+    );
+    if (!response.ok) {
+      throw new CatalogQueryError(response.status);
+    }
+    const { data, facets, stats, total } = await response.json();
+    return {
+      data: data as CatalogCard[],
+      facets: facets as AtlasFacets,
+      stats,
+      total,
+    };
+  },
+);

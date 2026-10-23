@@ -69,7 +69,30 @@ describe("getAtlasStats", () => {
   it("handles an empty catalog", async () => {
     server.use(
       http.get("https://api.reptiles.ge/v1/catalog", () =>
-        HttpResponse.json({ data: [] }),
+        HttpResponse.json({
+          data: [],
+          facets: {
+            danger: { all: 0, harmless: 0, venomous: 0 },
+            group: Object.fromEntries(
+              [
+                "all",
+                "amphibian",
+                "bird",
+                "insect",
+                "lizard",
+                "mammal",
+                "scorpion",
+                "snake",
+                "spider",
+                "turtle",
+              ].map((group) => [group, 0]),
+            ),
+            habitat: { all: 0 },
+            region: { all: 0 },
+          },
+          stats: { lastUpdated: null, photos: 0, venomous: 0 },
+          total: 0,
+        }),
       ),
     );
     const empty = await getAtlasStats("ka");

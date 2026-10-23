@@ -1,14 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import type { AtlasRegionLabel, AtlasView } from "@/data/atlasFilters";
-import type { AtlasIndexItem } from "@/data/speciesListItem";
+import type { AtlasCardItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AtlasPagination } from "@/components/species-atlas/AtlasPagination";
-import { useAtlasPhotoLoader } from "@/components/species-atlas/AtlasPhotos";
 import {
   AtlasSpeciesCard,
   AtlasSpeciesRow,
@@ -17,16 +16,24 @@ import { atlasPageCount, atlasPageRange } from "@/lib/atlasPages";
 import { cn } from "@/lib/cn";
 
 type AtlasSpeciesGridProps = {
+  loading: boolean;
   locale: AppLocale;
+  onPageChange: (page: number) => void;
+  page: number;
   regionLabels: AtlasRegionLabel[];
-  species: AtlasIndexItem[];
+  species: AtlasCardItem[];
+  total: number;
   view: AtlasView;
 };
 
 export function AtlasSpeciesGrid({
+  loading,
   locale,
+  onPageChange,
+  page: requestedPage,
   regionLabels,
   species,
+  total,
   view,
 }: AtlasSpeciesGridProps) {
   const t = useTranslations("speciesAtlas");
@@ -34,22 +41,12 @@ export function AtlasSpeciesGrid({
     () => new Map(regionLabels.map((region) => [region.id, region.label])),
     [regionLabels],
   );
-  const regionNames = (item: AtlasIndexItem) =>
+  const regionNames = (item: AtlasCardItem) =>
     item.regionIds.map((id) => labelById.get(id) ?? id);
-  const [requestedPage, setRequestedPage] = useState(1);
-  const [seenSpecies, setSeenSpecies] = useState(species);
-
-  if (species !== seenSpecies) {
-    setSeenSpecies(species);
-    setRequestedPage(1);
-  }
-
-  const { first, last, page } = atlasPageRange(requestedPage, species.length);
-  const visible = species.slice(first - 1, last);
-  useAtlasPhotoLoader(visible);
+  const { first, last, page } = atlasPageRange(requestedPage, total);
 
   function goToPage(next: number) {
-    setRequestedPage(next);
+    onPageChange(next);
     document
       .getElementById("explorer")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -58,12 +55,14 @@ export function AtlasSpeciesGrid({
   return (
     <>
       <ul
+        aria-busy={loading}
         className={cn(
           "mt-3.5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:mt-[18px] lg:grid-cols-4 lg:gap-5",
           view === "list" && "lg:hidden",
+          loading && "opacity-60 transition-opacity",
         )}
       >
-        {visible.map((item, index) => (
+        {species.map((item, index) => (
           <li key={item.id}>
             <AtlasSpeciesCard
               index={first - 1 + index}
@@ -90,7 +89,7 @@ export function AtlasSpeciesGrid({
             <span />
           </div>
           <ul>
-            {visible.map((item, index) => (
+            {species.map((item, index) => (
               <li key={item.id}>
                 <AtlasSpeciesRow
                   index={first - 1 + index}
@@ -109,8 +108,8 @@ export function AtlasSpeciesGrid({
         first={first}
         last={last}
         onChange={goToPage}
-        pageCount={atlasPageCount(species.length)}
-        total={species.length}
+        pageCount={atlasPageCount(total)}
+        total={total}
       />
     </>
   );
