@@ -61,6 +61,15 @@ describe("NonReplayingResponseStoreCache", () => {
     });
   });
 
+  it("purges tagged entries instead of refreshing them, even for a positive expire", async () => {
+    const { store } = memoryStore();
+    const cache = new NonReplayingResponseStoreCache(store as never);
+    const handler: WorkersResponseStoreCacheHandler = cache;
+    await handler.revalidateTag("species", { expire: 3600 });
+    expect(store.refresh).not.toHaveBeenCalled();
+    expect(store.purge).toHaveBeenCalledWith({ tags: [expect.any(String)] });
+  });
+
   it("is what the adapter factory builds", () => {
     expect(() => createResponseStoreDataCache()).toThrow(
       "Workers Response Store adapter must run through its generated Cloudflare worker entry",
