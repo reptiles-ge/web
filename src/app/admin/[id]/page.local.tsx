@@ -5,14 +5,12 @@ import { AdminSpeciesDrafts } from "@/components/admin/AdminSpeciesDrafts";
 import { AdminSpeciesEditor } from "@/components/admin/AdminSpeciesEditor";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 import {
-  isSpeciesContentId,
-  readAdminSpeciesGallery,
-} from "@/lib/adminGalleryMdx";
-import {
   listAdminSpeciesDrafts,
   readAdminSpecies,
 } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 import { diffSpeciesRecords } from "@/lib/speciesDraftDiff";
+import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +21,7 @@ type Props = {
 export default async function AdminSpeciesPage({ params }: Props) {
   assertLocalAdminPage();
   const { id } = await params;
-  if (!isSpeciesContentId(id)) notFound();
+  if (!isSpeciesId(id)) notFound();
 
   let loaded: Awaited<ReturnType<typeof readAdminSpecies>>;
   try {
@@ -32,6 +30,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
     notFound();
   }
   const { base, status } = loaded.record;
+  const fieldRecords = await getSpeciesFieldRecords(id);
   const drafts = (await listAdminSpeciesDrafts(id)).map((draft) => ({
     actor: draft.actor,
     baseVersion: draft.baseVersion,
@@ -43,7 +42,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
   }));
   const species = {
     commonName: base.commonName,
-    fieldRecords: readFieldRecords(id),
+    fieldRecords,
     gallery: base.gallery,
     image: base.image,
     mobileImage: base.mobileImage ?? "",
@@ -87,12 +86,4 @@ export default async function AdminSpeciesPage({ params }: Props) {
       </div>
     </main>
   );
-}
-
-function readFieldRecords(id: string) {
-  try {
-    return readAdminSpeciesGallery(id).fieldRecords;
-  } catch {
-    return [];
-  }
 }

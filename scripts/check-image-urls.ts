@@ -5,12 +5,13 @@ import path from "node:path";
 import matter from "gray-matter";
 import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
+import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
+import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { mapPool, printProgress, walkFiles } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const ROOT = process.cwd();
 const SRC_ROOT = path.join(ROOT, "src");
-const SPECIES_ROOT = path.join(SRC_ROOT, "content", "species");
 
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)(\?.*)?$/i;
 const CDN_URL_RE = /https:\/\/cdn\.reptiles\.ge\/[^"'\\\s)>]+/g;
@@ -26,7 +27,6 @@ const SKIP_FILE_NAMES = new Set([
   "georgia-paths.generated.ts",
   "image-manifest.json",
   "optimizedImages.generated.ts",
-  "species.generated.ts",
 ]);
 const SKIP_FILE_SUFFIXES = [".test.ts", ".test.tsx"];
 const SCAN_EXTS = new Set([
@@ -141,7 +141,7 @@ function relPath(filePath: string) {
   return path.relative(ROOT, filePath).split(path.sep).join("/");
 }
 
-function collectSources(): Map<string, ImageHit> {
+function collectSources(species: CatalogPhotoSpecies[]): Map<string, ImageHit> {
   const bySrc = new Map<string, ImageHit>();
 
   const add = (raw: string | undefined, ref: string) => {
@@ -187,8 +187,10 @@ function collectSources(): Map<string, ImageHit> {
     }
   }
 
-  if (!fs.existsSync(SPECIES_ROOT)) {
-    throw new Error(`Missing species content directory: ${SPECIES_ROOT}`);
+  for (const item of species) {
+    add(item.image, `${item.id} image`);
+    add(item.mobileImage, `${item.id} mobileImage`);
+    for (const photo of item.gallery) add(photo.src, `${item.id} gallery`);
   }
 
   for (const id of REGION_PATH_IDS) {
@@ -214,13 +216,13 @@ function servedUrlsFor(src: string): string[] {
   return urls;
 }
 
-function collectServedUrls(): {
+function collectServedUrls(species: CatalogPhotoSpecies[]): {
   fallbacks: number;
   hits: Map<string, ImageHit>;
   optimized: number;
   sources: number;
 } {
-  const sources = collectSources();
+  const sources = collectSources(species);
   const hits = new Map<string, ImageHit>();
   let optimized = 0;
   let fallbacks = 0;
@@ -377,7 +379,7 @@ async function checkUrl(url: string, client: CdnClient): Promise<CheckResult> {
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const collected = collectServedUrls();
+  const collected = collectServedUrls(await getSpeciesCatalog("ka", "photos"));
   const sorted = [...collected.hits.values()].sort((a, b) =>
     a.url.localeCompare(b.url),
   );

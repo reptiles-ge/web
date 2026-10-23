@@ -2,12 +2,11 @@ import type { DatabaseSync } from "node:sqlite";
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { speciesImportSource } from "@/lib/speciesImportSource";
-
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiBindings } from "../env";
 
 import { app } from "../app";
+import { readSpeciesCatalog } from "../db/speciesCatalog";
 import { readSpeciesRecord } from "../db/speciesWrite";
 import { speciesRecordSchema } from "../schemas/speciesRecord";
 import { type ErrorBody, requestJson } from "../testing/request";
@@ -82,7 +81,7 @@ beforeEach(() => {
 
 describe("species record validation", () => {
   it("accepts every species in the catalog as it is today", async () => {
-    for (const id of speciesImportSource().catalogIds) {
+    for (const id of (await readSpeciesCatalog(env.DB)).catalogIds) {
       const found = await readSpeciesRecord(env.DB, id);
       const result = speciesRecordSchema.safeParse(found?.record);
       expect(

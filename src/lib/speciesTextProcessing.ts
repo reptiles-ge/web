@@ -1,17 +1,9 @@
-import matter from "gray-matter";
-import fs from "node:fs/promises";
-import path from "node:path";
-
 import {
   type AdminSpeciesRecord,
   proposeAdminSpeciesDraft,
   readAdminSpecies,
 } from "@/lib/adminSpeciesApi";
-import {
-  type EditorResult,
-  readSpeciesField,
-  validateEditorResult,
-} from "@/lib/contentEditor";
+import { type EditorResult, validateEditorResult } from "@/lib/contentEditor";
 import { transformWithAgent } from "@/lib/contentEditorAgent";
 import {
   draftReviewUrl,
@@ -19,7 +11,6 @@ import {
 } from "@/lib/contentEditorTarget";
 import { toSiteDateTime } from "@/lib/siteTime";
 import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
-import { analysisNumbers } from "@/lib/speciesAnalysisValidation";
 import { readRecordField, writeRecordField } from "@/lib/speciesRecordFields";
 import {
   formatStyleIssues,
@@ -37,46 +28,6 @@ export type SpeciesTextSource = {
   scientificName?: string;
   speciesNames: (ids: string[]) => Promise<Array<Record<StyleLocale, string>>>;
 };
-
-export function getSpeciesTextFields(raw: string) {
-  const data = matter(raw).data;
-  return speciesTextFields(
-    (field) => readSpeciesField(raw, field, true),
-    Array.isArray(data.identification?.traits)
-      ? data.identification.traits.length
-      : 0,
-    Array.isArray(data.faq) ? data.faq.length : 0,
-  );
-}
-
-export async function mdxSpeciesTextSource(
-  id: string,
-  cwd = process.cwd(),
-): Promise<SpeciesTextSource> {
-  const raws = Object.fromEntries(
-    await Promise.all(
-      TEXT_LOCALES.map(async (locale) => [
-        locale,
-        await fs.readFile(
-          path.join(cwd, "src/content/species", id, `${locale}.mdx`),
-          "utf8",
-        ),
-      ]),
-    ),
-  ) as Record<StyleLocale, string>;
-  const data = matter(raws.ka).data;
-  return {
-    commonName:
-      typeof data.commonName === "string" ? data.commonName : undefined,
-    danger: data.danger,
-    fields: getSpeciesTextFields(raws.ka),
-    id,
-    read: (locale, field) => readSpeciesField(raws[locale], field, true),
-    scientificName:
-      typeof data.scientificName === "string" ? data.scientificName : undefined,
-    speciesNames: (ids) => mdxSpeciesNames(cwd, ids),
-  };
-}
 
 function speciesTextFields(
   read: (field: string) => string,
@@ -239,14 +190,21 @@ export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
   };
 }
 
-export function speciesTextsReport(
-  updates: Array<{ field: string; result: EditorResult }>,
-  notes: string[],
-) {
+function analysisNumbers(value: string) {
   return [
-    ...updates.map(({ field, result }) => `${field}\n${result.ka}`),
-    ...(notes.length ? [`შენიშვნები:\n${notes.join("\n")}`] : []),
-  ].join("\n\n");
+    ...new Set(
+      (
+        value
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+          .match(/\d{1,3}(?:[ \u00a0,]\d{3})+(?![.,]?\d)|\d+(?:[.,]\d+)?/g) ??
+        []
+      ).map((item) =>
+        /^\d{1,3}(?:[ \u00a0,]\d{3})+$/.test(item)
+          ? item.replace(/[ \u00a0,]/g, "")
+          : item.replace(",", "."),
+      ),
+    ),
+  ].sort();
 }
 
 function linkedSpeciesIds(texts: string[]) {
@@ -259,32 +217,6 @@ function linkedSpeciesIds(texts: string[]) {
       ),
     ),
   ];
-}
-
-async function mdxSpeciesNames(cwd: string, ids: string[]) {
-  const names = await Promise.all(
-    ids.map(async (other) => {
-      try {
-        const entries = await Promise.all(
-          TEXT_LOCALES.map(async (locale) => {
-            const { commonName } = matter(
-              await fs.readFile(
-                path.join(cwd, "src/content/species", other, `${locale}.mdx`),
-                "utf8",
-              ),
-            ).data;
-            return [locale, typeof commonName === "string" ? commonName : ""];
-          }),
-        );
-        return entries.every(([, name]) => name)
-          ? (Object.fromEntries(entries) as Record<StyleLocale, string>)
-          : undefined;
-      } catch {
-        return undefined;
-      }
-    }),
-  );
-  return names.filter((name) => name !== undefined);
 }
 
 function numberLosses(
@@ -359,4 +291,14 @@ function recordSpeciesTextSource(
         )
       ).filter((names) => names !== undefined),
   };
+}
+
+function speciesTextsReport(
+  updates: Array<{ field: string; result: EditorResult }>,
+  notes: string[],
+) {
+  return [
+    ...updates.map(({ field, result }) => `${field}\n${result.ka}`),
+    ...(notes.length ? [`შენიშვნები:\n${notes.join("\n")}`] : []),
+  ].join("\n\n");
 }

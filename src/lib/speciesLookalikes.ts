@@ -1,6 +1,6 @@
 import { unpublishedSpeciesIds } from "@/data/speciesPublish";
 
-export const LOOKALIKES: Record<string, string[]> = {
+const LOOKALIKES: Record<string, string[]> = {
   "ablepharus-pannonicus": ["ophisops-elegans", "eumeces-schneiderii"],
   "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
   "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus"],

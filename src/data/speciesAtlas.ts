@@ -10,7 +10,6 @@ export {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
-  speciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
 
 const venomousDangerOrder: Record<DangerLevel, number> = {

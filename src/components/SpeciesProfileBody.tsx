@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import type { HalyomorphaAnnotationMarkerKey } from "@/content/species/halyomorpha-halys/profileCopy";
+import type { HalyomorphaAnnotationMarkerKey } from "@/content/halyomorphaProfileCopy";
 import type {
   DangerLevel,
   GalleryImage,
@@ -29,7 +29,7 @@ import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import {
   HALYOMORPHA_ANNOTATION_COPY,
   HALYOMORPHA_PEST_COPY,
-} from "@/content/species/halyomorpha-halys/profileCopy";
+} from "@/content/halyomorphaProfileCopy";
 import {
   optimizedEntry,
   optimizedImgSrc,

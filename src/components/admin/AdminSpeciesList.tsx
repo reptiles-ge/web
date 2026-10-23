@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import type { AnimalGroup } from "@/data/speciesAtlas";
-import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
+import type { AdminSpeciesSummary } from "@/lib/adminSpeciesCatalog";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { cn } from "@/lib/cn";
@@ -117,7 +117,6 @@ export function AdminSpeciesList({
               </span>
               <span className="shrink-0 text-[12px] text-muted-foreground">
                 {item.galleryCount}
-                {item.unpublished ? " · unpublished" : ""}
               </span>
             </Link>
           </li>

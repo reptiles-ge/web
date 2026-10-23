@@ -170,27 +170,6 @@ const eslintConfig = defineConfig([
             {
               allowTypeImports: true,
               message:
-                "Edge slug lookup must not import the generated catalog.",
-              name: "@/data/species.generated",
-            },
-            {
-              allowTypeImports: true,
-              message: "Edge slug lookup must not import locale overlays.",
-              name: "@/data/species-en",
-            },
-            {
-              allowTypeImports: true,
-              message: "Edge slug lookup must not import locale overlays.",
-              name: "@/data/species-ru",
-            },
-            {
-              allowTypeImports: true,
-              message: "Edge slug lookup must not import locale overlays.",
-              name: "@/data/species-tr",
-            },
-            {
-              allowTypeImports: true,
-              message:
                 "src/proxy.ts must import slug lookup from speciesSlugTable, not speciesRoutes.",
               name: "@/lib/speciesRoutes",
             },
@@ -220,33 +199,6 @@ const eslintConfig = defineConfig([
             {
               allowTypeImports: true,
               message:
-                "Client atlas/map code must not import the generated catalog.",
-              name: "@/data/species.generated",
-            },
-            {
-              allowTypeImports: true,
-              message: "Client atlas/map code must not import locale overlays.",
-              name: "@/data/species-en",
-            },
-            {
-              allowTypeImports: true,
-              message: "Client atlas/map code must not import locale overlays.",
-              name: "@/data/species-ru",
-            },
-            {
-              allowTypeImports: true,
-              message: "Client atlas/map code must not import locale overlays.",
-              name: "@/data/species-tr",
-            },
-            {
-              allowTypeImports: true,
-              message:
-                "localizeSpecies pulls the full catalog. Pass localized SpeciesListItem props from a Server Component.",
-              name: "@/i18n/localizeSpecies",
-            },
-            {
-              allowTypeImports: true,
-              message:
                 "@/data/regions imports the full catalog. Use mapRegions and pass species as props.",
               name: "@/data/regions",
             },
@@ -270,7 +222,6 @@ const eslintConfig = defineConfig([
     "build/**",
     "dist/**",
     "next-env.d.ts",
-    "src/data/species.generated.ts",
     "src/data/news.generated.ts",
     "src/data/speciesSlugs.generated.ts",
     "src/data/search-index.generated.ts",

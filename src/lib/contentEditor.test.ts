@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -16,16 +14,33 @@ import { readContentLiteral } from "@/lib/contentEditorLiterals";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import { readNewsBodyField } from "@/lib/newsMdx";
 
-const id = "darevskia-clarkorum";
-const files = Object.fromEntries(
-  ["ka", "en", "ru", "tr"].map((locale) => [
-    locale,
-    fs.readFileSync(
-      path.join(process.cwd(), "src/content/species", id, `${locale}.mdx`),
-      "utf8",
-    ),
-  ]),
-) as Record<"en" | "ka" | "ru" | "tr", string>;
+const id = "test-species";
+const files = {
+  ka: `---
+id: test-species
+commonName: ტესტური ხვლიკი
+datePublished: "2025-01-01T10:00:00+04:00"
+dateModified: "2025-01-02T10:00:00+04:00"
+overview: >-
+  ტესტური ხვლიკი ცხოვრობს კლდოვან ფერდობებზე. ის ნაწილობრივ
+  [სხვა სახეობას](macrovipera-lebetina) ჰგავს.
+interaction: >-
+  ადამიანისთვის საფრთხეს არ წარმოადგენს.
+identification:
+  summary: >-
+    პატარა მურა ხვლიკი.
+  traits:
+    - მუქი ზოლი გვერდზე.
+faq:
+  - question: საშიშია?
+    answer: >-
+      არა, ის უვნებელია.
+stats:
+  - label: სიგრძე
+    value: 20 სმ-მდე
+---
+`,
+} as const;
 const source = readSpeciesField(files.ka, "overview");
 const request = {
   end: 1,
@@ -100,54 +115,6 @@ describe("selection content editor", () => {
     ).not.toThrow();
   });
 
-  it("opens and updates a linked species field", async () => {
-    const linkedId = "macrovipera-lebetina";
-    const linked = await resolveEditorTarget({
-      end: 1,
-      field: "overview",
-      id: linkedId,
-      kind: "species",
-      renderedText: "ignored",
-      start: 0,
-    });
-    const original = Object.fromEntries(
-      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
-        locale,
-        readSpeciesField(linked.originals[index], "overview"),
-      ]),
-    ) as Record<"en" | "ka" | "ru" | "tr", string>;
-    expect(linked.updated(original)).toEqual(linked.originals);
-    expect(() =>
-      linked.updated({
-        ...original,
-        ka: original.ka.replace("/venomous-snakes", "/snakes"),
-      }),
-    ).toThrow("inline links");
-  });
-
-  it("keeps each locale's existing link destinations when translations use Georgian links", async () => {
-    const target = await resolveEditorTarget({
-      ...request,
-      id: "halyomorpha-halys",
-    });
-    const values = Object.fromEntries(
-      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
-        locale,
-        readSpeciesField(target.originals[index], "overview").replace(
-          "/en/species/14072",
-          "/ka/species/14072",
-        ),
-      ]),
-    ) as Record<"en" | "ka" | "ru" | "tr", string>;
-    expect(target.updated(values)).toEqual(target.originals);
-    expect(() =>
-      target.updated({
-        ...values,
-        en: values.en.replace("/ka/species/14072", "/wrong/species/14072"),
-      }),
-    ).toThrow("inline links");
-  });
-
   it("accepts a translation link that Georgian already has and the translation lacked", () => {
     const source = "[დასავლური მახრჩობელა](eryx-jaculus) უფრო მსხვილია.";
     const original = "Песчаный удавчик უფრო მსხვილია.";
@@ -165,68 +132,6 @@ describe("selection content editor", () => {
         source,
       ),
     ).toThrow("inline links");
-  });
-
-  it("opens the glass lizard interaction in every locale", async () => {
-    const target = await resolveEditorTarget({
-      end: 1,
-      field: "interaction",
-      id: "pseudopus-apodus",
-      kind: "species",
-      renderedText: "ignored",
-      start: 0,
-    });
-    expect(target.source).toContain("ადამიანისთვის უვნებელია და შხამი არ აქვს");
-    for (const raw of target.originals) {
-      expect(readSpeciesField(raw, "interaction").trim()).not.toBe("");
-    }
-  });
-
-  it("creates missing behavior translations for the Armenian rock lizard", async () => {
-    const target = await resolveEditorTarget({
-      end: 1,
-      field: "behavior",
-      id: "darevskia-armeniaca",
-      kind: "species",
-      renderedText: "ignored",
-      start: 0,
-    });
-    const updated = target.updated({
-      en: "Females can reproduce without males.",
-      ka: target.source,
-      ru: "Самки могут размножаться без самцов.",
-      tr: "Dişiler erkek olmadan üreyebilir.",
-    });
-    expect(readSpeciesField(updated[2], "behavior")).toBe(
-      "Самки могут размножаться без самцов.",
-    );
-    expect(readSpeciesField(updated[3], "behavior")).toBe(
-      "Dişiler erkek olmadan üreyebilir.",
-    );
-  });
-
-  it("fills an empty behavior field without duplicating it", async () => {
-    const target = await resolveEditorTarget({
-      end: 1,
-      field: "behavior",
-      id: "darevskia-brauneri",
-      kind: "species",
-      renderedText: "ignored",
-      start: 0,
-    });
-    const values = {
-      en: "English behavior.\nSecond paragraph.",
-      ka: target.source,
-      ru: "Поведение.",
-      tr: "Davranış.",
-    };
-    const updated = target.updated(values);
-    for (const [index, locale] of (
-      ["ka", "en", "ru", "tr"] as const
-    ).entries()) {
-      expect(readSpeciesField(updated[index], "behavior")).toBe(values[locale]);
-      expect(updated[index].match(/^behavior:/gm)).toHaveLength(1);
-    }
   });
 
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
@@ -262,60 +167,6 @@ describe("selection content editor", () => {
     ).toThrow();
   });
 
-  it("updates only the chosen field in all four locale files", async () => {
-    const selection = verifyEditorSelection(source, request);
-    const values = {
-      en: "New English overview.",
-      ka: `${selection.before}განახლებული${selection.after}`,
-      ru: "Новое описание.",
-      tr: "Yeni açıklama.",
-    };
-    const target = await resolveEditorTarget(request);
-    const updated = target.updated(values);
-    for (const [index, locale] of (
-      ["ka", "en", "ru", "tr"] as const
-    ).entries()) {
-      expect(readSpeciesField(updated[index], "overview")).toBe(values[locale]);
-      expect(
-        updated[index].replace(/^overview: >-\n(?:^  .*\n|^\n)*/m, ""),
-      ).toBe(
-        files[locale]
-          .replace(/^overview: >-\n(?:^  .*\n|^\n)*/m, "")
-          .replace(
-            /^dateModified: .*$/m,
-            `dateModified: "${readSpeciesField(updated[0], "dateModified")}"`,
-          ),
-      );
-    }
-  });
-
-  it("updates species dateModified only when text changes", async () => {
-    const target = await resolveEditorTarget(request);
-    const original = Object.fromEntries(
-      (["ka", "en", "ru", "tr"] as const).map((locale) => [
-        locale,
-        readSpeciesField(files[locale], "overview"),
-      ]),
-    ) as Record<"en" | "ka" | "ru" | "tr", string>;
-    expect(target.updated(original)).toEqual(target.originals);
-
-    const before = Date.now();
-    const updated = target.updated({
-      ...original,
-      en: `${original.en} Updated.`,
-    });
-    const modified = readSpeciesField(updated[0], "dateModified");
-    expect(modified).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+04:00$/);
-    expect(Date.parse(modified)).toBeGreaterThanOrEqual(before - 1000);
-    expect(Date.parse(modified)).toBeLessThanOrEqual(Date.now());
-    expect(readSpeciesField(updated[0], "datePublished")).toBe(
-      readSpeciesField(files.ka, "datePublished"),
-    );
-    expect(updated[0]).not.toBe(files.ka);
-    expect(updated[2]).toBe(files.ru);
-    expect(updated[3]).toBe(files.tr);
-  });
-
   it("refuses unsupported field formatting and invalid targets", async () => {
     expect(() =>
       replaceSpeciesField(
@@ -324,9 +175,9 @@ describe("selection content editor", () => {
         "new text",
       ),
     ).toThrow();
-    await expect(
-      resolveEditorTarget({ ...request, id: "unknown-species" }),
-    ).rejects.toThrow();
+    await expect(resolveEditorTarget(request)).rejects.toThrow(
+      "Species edits are drafts on the species API",
+    );
   });
 
   it("updates nested species fields without touching another field", () => {
@@ -362,25 +213,6 @@ describe("selection content editor", () => {
         "interaction",
       ),
     ).toBe(replacement);
-  });
-
-  it("prevents a species name edit from changing its public slug", async () => {
-    const target = await resolveEditorTarget({
-      end: 1,
-      field: "commonName",
-      id,
-      kind: "species",
-      renderedText: readSpeciesField(files.ka, "commonName"),
-      start: 0,
-    });
-    expect(() =>
-      target.updated({
-        en: "Other name",
-        ka: "სხვა სახელი",
-        ru: "Другое имя",
-        tr: "Başka ad",
-      }),
-    ).toThrow("public URL");
   });
 
   it("resolves guide, news and message fields to their exact source", async () => {
@@ -533,7 +365,6 @@ describe("selection content editor", () => {
 
   it("resolves nested text blocks across content types", async () => {
     for (const target of [
-      { field: "identification.traits.0", id, kind: "species" },
       { field: "sections.0.paragraphs.0", id: "bat-in-house", kind: "guide" },
       {
         field: "sections.0.blocks.0.parts.0",

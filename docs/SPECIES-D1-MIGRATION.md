@@ -159,6 +159,6 @@ Image derivatives catalog to D1 and the Service Binding from the site to the API
 
 `src/proxy.ts` uses `speciesSlugs.generated`. **Done as a build-time table (owner decision, 2026-10-23):** `pnpm slugs:compile` builds it from the API card catalog (`slug`, `group`) plus `KA_SLUG_ALIASES`, so slug changes need a deploy. The output is identical to the MDX-built table. A KV snapshot updated on writes stays the follow-up if that becomes a problem.
 
-## Phase 5 — delete MDX
+## Phase 5 — delete MDX (done, S5a #1521 and S5b)
 
-Remove `src/content/species/*`, `scripts/compile-species.ts` (species part), the generated species files, the MDX admin helpers (`adminGalleryMdx.ts` remnants, `contentEditor` species MDX paths), and the `db:import:species*` scripts. Update AGENTS.md (species pipeline section) and the guard tests.
+Species MDX, `compile-species`, the generated species files, the MDX admin helpers, the MDX-based AI analysis and the `db:import:*` scripts are gone. Tests use the committed seed `tests/fixtures/speciesSeed.sql`. The MDX-only local admin flows (adding photos and field records, AI analysis and workflow, species creation) answer 503 until 2b-b, 2b-d and 2b-f rebuild them on the API. See `docs/SPECIES-API-HANDOFF.md` for the full list.

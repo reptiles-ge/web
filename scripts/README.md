@@ -17,7 +17,7 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 | Goal                                           | Run                      |
 | ---------------------------------------------- | ------------------------ |
-| MDX → catalog (new/changed species)            | `pnpm species:compile`   |
+| Content dates and release version              | `pnpm content:compile`   |
 | Refresh the slug table from the API            | `pnpm slugs:compile`     |
 | Refresh Georgia map paths                      | `pnpm map:compile`       |
 | Refresh Wikidata / GBIF / iNaturalist IDs      | `pnpm taxon:ids`         |
@@ -37,13 +37,9 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 These outputs are **gitignored** — do not hand-edit or commit them.
 
-### `compile-species.ts` → `pnpm species:compile`
+### `compile-content-dates.ts` → `pnpm content:compile`
 
-Reads `src/content/species/{id}/{ka,en,ru,tr}.mdx` and writes:
-
-- `src/data/species.generated.ts`
-
-Validates frontmatter via `speciesFrontmatter.ts` (Zod). Run this first after MDX changes.
+Writes `src/data/contentDates.generated.ts` from the Git dates of guides, page content files and message namespaces. `content:compile` also runs `compile-release-version.ts`.
 
 ### `compile-species-slugs.ts` → `pnpm slugs:compile`
 
@@ -52,10 +48,6 @@ Reads the published KA card catalog from the species API (`api.reptiles.ge`, or 
 ### `compile-georgia-map.ts` → `pnpm map:compile`
 
 `src/assets/maps/georgia.svg` → `src/data/georgia-paths.generated.ts` (region paths + viewBox). Run after editing the SVG.
-
-### `speciesFrontmatter.ts`
-
-Library only, not a CLI. KA / translation frontmatter schemas for `compile-species.ts`.
 
 ---
 
@@ -147,10 +139,9 @@ Notes:
 
 ## Typical flows
 
-**New species MDX**
+**After a species slug change or a new species in D1**
 
 ```bash
-pnpm species:compile
 pnpm slugs:compile
 ```
 

@@ -18,8 +18,6 @@ import {
   replaceContentLiteral,
 } from "@/lib/contentEditorLiterals";
 import { readNewsBodyField, replaceNewsBodyField } from "@/lib/newsMdx";
-import { toSiteDateTime } from "@/lib/siteTime";
-import { kaToSlug } from "@/lib/slugify";
 
 const locales = ["ka", "en", "ru", "tr"] as const;
 const speciesField =
@@ -71,11 +69,7 @@ export async function resolveEditorTarget(
   let files: string[];
   let field = input.field;
   if (input.kind === "species") {
-    if (!isSpeciesEditorField(field))
-      throw new Error("Unsupported species field");
-    files = locales.map(
-      (locale) => `src/content/species/${input.id}/${locale}.mdx`,
-    );
+    throw new Error("Species edits are drafts on the species API");
   } else if (input.kind === "guide") {
     if (
       !guideField.test(field) ||
@@ -119,16 +113,7 @@ export async function resolveEditorTarget(
     files.map((file) => fs.readFile(path.join(cwd, file), "utf8")),
   );
   const segments = field.split(".");
-  const allowMissingSpeciesTranslation =
-    input.kind === "species" &&
-    editorFields.some((candidate) => candidate === field);
   const read = (raw: string, locale: (typeof locales)[number]) => {
-    if (input.kind === "species")
-      return readSpeciesField(
-        raw,
-        field,
-        allowMissingSpeciesTranslation && locale !== "ka",
-      );
     if (input.kind === "guide")
       return readContentLiteral(raw, "guide", input.id, [locale, ...segments]);
     if (input.kind === "news")
@@ -152,8 +137,7 @@ export async function resolveEditorTarget(
       originals[input.kind === "guide" || input.kind === "region" ? 0 : index],
       locale,
     );
-    if (!value.trim() && !(allowMissingSpeciesTranslation && locale !== "ka"))
-      throw new Error(`Missing ${locale} content`);
+    if (!value.trim()) throw new Error(`Missing ${locale} content`);
   }
   return {
     field,
@@ -171,27 +155,6 @@ export async function resolveEditorTarget(
           locale,
         ),
       );
-      if (input.kind === "species") {
-        if (
-          field === "commonName" &&
-          kaToSlug(values.ka) !== kaToSlug(source)
-        ) {
-          throw new Error("Species name edit would change its public URL");
-        }
-        const updated = locales.map((locale, index) =>
-          read(originals[index], locale) === values[locale]
-            ? originals[index]
-            : replaceSpeciesField(originals[index], field, values[locale]),
-        );
-        if (updated.some((raw, index) => raw !== originals[index])) {
-          updated[0] = replaceSpeciesField(
-            updated[0],
-            "dateModified",
-            toSiteDateTime(new Date()),
-          );
-        }
-        return updated;
-      }
       if (input.kind === "news")
         return locales.map((locale, index) =>
           read(originals[index], locale) === values[locale]

@@ -3,13 +3,13 @@ import Link from "next/link";
 import { AdminSpeciesCreate } from "@/components/admin/AdminSpeciesCreate";
 import { AdminSpeciesList } from "@/components/admin/AdminSpeciesList";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
-import { listAdminSpecies } from "@/lib/adminGalleryMdx";
+import { listAdminSpecies } from "@/lib/adminSpeciesCatalog";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminIndexPage() {
+export default async function AdminIndexPage() {
   assertLocalAdminPage();
-  const species = listAdminSpecies();
+  const species = await listAdminSpecies();
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-10">
@@ -17,8 +17,8 @@ export default function AdminIndexPage() {
         სახეობები
       </h1>
       <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
-        ატვირთვა წერს CDN-ს და ხსნის PR-ს. ლოკალური ბრენჩი არ იცვლება.
-        reptiles.ge იცვლება მხოლოდ merge-ის შემდეგ.
+        სახეობები API-დან იკითხება. ცვლილებები პირდაპირ D1-ში იწერება ან დრაფტად
+        ინახება დასამტკიცებლად.
       </p>
       <AdminSpeciesCreate />
       <Link

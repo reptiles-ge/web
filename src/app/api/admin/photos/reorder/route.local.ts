@@ -1,6 +1,6 @@
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { adminErrorResponse, readLocalAdminJsonBody } from "@/lib/adminRequest";
 import { reorderAdminSpeciesPhotos } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   const id = readId(body);
   const srcs = readSrcs(body);
-  if (!id || !isSpeciesContentId(id)) {
+  if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });
   }
   if (!srcs) {

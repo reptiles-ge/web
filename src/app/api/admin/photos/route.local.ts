@@ -1,59 +1,8 @@
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
-import { addSpeciesPhotos } from "@/lib/adminPhotos";
-import { adminErrorResponse, readLocalAdminFormData } from "@/lib/adminRequest";
+import { adminUnavailableResponse } from "@/lib/adminRequest";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const { form, response } = await readLocalAdminFormData(request);
-  if (response) return response;
-
-  const id = textField(form, "id");
-  if (!isSpeciesContentId(id)) {
-    return Response.json({ error: "Invalid species id" }, { status: 400 });
-  }
-
-  const uploads = form
-    .getAll("photos")
-    .filter((item): item is File => item instanceof File && item.size > 0);
-
-  if (uploads.length === 0) {
-    return Response.json(
-      { error: "Choose at least one photo" },
-      { status: 400 },
-    );
-  }
-
-  try {
-    const result = await addSpeciesPhotos({
-      credit: {
-        date: textField(form, "date"),
-        georgiaField: form.get("georgiaField") === "1",
-        lat: textField(form, "lat"),
-        lng: textField(form, "lng"),
-        location: textField(form, "location"),
-        locationEn: textField(form, "locationEn"),
-        photographer: textField(form, "photographer"),
-        photographerEn: textField(form, "photographerEn"),
-        url: textField(form, "url"),
-      },
-      files: await Promise.all(
-        uploads.map(async (file) => ({
-          bytes: Buffer.from(await file.arrayBuffer()),
-          filename: file.name,
-        })),
-      ),
-      id,
-    });
-
-    return Response.json(result);
-  } catch (error) {
-    return adminErrorResponse(error, "Upload failed");
-  }
-}
-
-function textField(form: FormData, key: string) {
-  const value = form.get(key);
-  return typeof value === "string" ? value.trim() : "";
+  return adminUnavailableResponse(request);
 }

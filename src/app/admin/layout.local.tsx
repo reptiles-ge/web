@@ -28,9 +28,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             >
               Admin
             </Link>
-            <p className="text-[12px] text-muted-foreground">
-              localhost · MDX · PR
-            </p>
+            <p className="text-[12px] text-muted-foreground">localhost · API</p>
           </div>
         </header>
         <OptimizedImagesProvider entries={allOptimizedImageEntries()}>

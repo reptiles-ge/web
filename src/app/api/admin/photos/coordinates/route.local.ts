@@ -1,10 +1,10 @@
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import {
   adminErrorResponse,
   readBodyString,
   readLocalAdminJsonBody,
 } from "@/lib/adminRequest";
 import { setAdminSpeciesPhotoCoordinates } from "@/lib/adminSpeciesApi";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 
 export const runtime = "nodejs";
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
   const lng = readBodyString(body, "lng");
   const clear = readBoolean(body, "clear");
 
-  if (!id || !isSpeciesContentId(id)) {
+  if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });
   }
   if (!src) {

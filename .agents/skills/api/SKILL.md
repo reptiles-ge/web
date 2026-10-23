@@ -86,13 +86,13 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 - Migration `0002_species.sql` holds the whole species catalog: `species` (taxonomy, group, danger, status, catalog order, KA slug), `species_texts` (one row per species and locale), `species_list_items` (facts and identification traits), `species_faq`, `species_stats`, `species_identification_colors`, `species_sources`, `species_habitats`, `species_lookalikes`, `species_slugs` (every public, legacy and alias slug), `species_media` (hero, mobile, gallery, audio with credits) and `species_media_overlays` (per-locale credit and order overrides).
 - Values that can grow live in lookup tables with foreign keys: `locales`, `animal_groups`, `habitats`, `danger_levels`, `photo_confidences`. Add a value with an `INSERT` in a new migration. Do not turn them into `CHECK` lists; SQLite cannot change a `CHECK` without rebuilding the table.
-- **D1 is the source of truth for species.** `pnpm db:import:species` / `db:import:species:remote` was the one-off initial copy from MDX. It deletes and rewrites only the species tables, and its first statement fails once any `species_revisions` row exists, so it can never overwrite API edits. Change content only through `PUT /v1/admin/species/:id`. NEVER edit MDX for species content and NEVER edit species rows by hand.
-- `src/api/db/speciesImport.ts` builds the SQL. `src/api/db/speciesCatalog.ts` reads it back. `speciesCatalog.test.ts` imports every species into SQLite and requires `toStrictEqual` with the compiled MDX catalog (`src/lib/speciesImportSource.ts`). A schema or import change that loses a field fails it.
-- Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, import builder, reader. The round-trip test tells you what is missing.
-- `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import the compiled MDX catalog (`species.generated`, `localizeSpecies`, `speciesRoutes`, `speciesImportSource`); the guard test fails if it does, and the Worker stays small (about 170 KB gzip instead of 2.5 MB). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
+- **D1 is the source of truth for species.** It was copied once from MDX, and species MDX was deleted afterwards (S5). Change content only through `PUT /v1/admin/species/:id` or an approved draft. NEVER edit species rows by hand, and NEVER add a file-based species source back.
+- `src/api/db/speciesCatalog.ts` reads the catalog; `db/speciesRows.ts` builds the rows for writes. `speciesCatalog.test.ts` reads every species from the test seed, writes the records back into an empty database with the row builder, and requires `toStrictEqual` with the first read. A schema, row or reader change that loses a field fails it.
+- Add a new species field in this order: migration (new column or table), `speciesSchema.ts` columns, row builder, reader, and the test seed (`tests/fixtures/speciesSeed.sql`). The round-trip test tells you what is missing.
+- `GET /v1/species` and `GET /v1/species/:slug` read only from D1 (`db/species.ts`). The API runtime MUST NOT import site species modules (`speciesPublish`, `speciesSlugTable`, `speciesSlugs.generated`, `speciesRoutes`); the guard test fails if it does, and the Worker stays small (about 190 KB gzip). Localization reuses the pure `applySpeciesTranslation` (`src/i18n/speciesTranslation.ts`), the same code the site uses.
 - `:slug` accepts only the public slug of the requested locale (`X-Locale`, the `slug` field): `slug_ka` (or the id when it is null) for `ka`, the id for `en`/`ru`/`tr`. Case-insensitive. No ids in `ka`, no aliases from `species_slugs` (the site's 301s handle old slugs). Unpublished species answer 404. The site's loader (`src/lib/speciesProfileApi.ts`) maps the id to that slug with `getSpeciesPublicSlug`.
 - Public species responses are cached at the edge with `edgeCache()` (`lib/cache.ts`, Hono `cache` with `vary: Origin, X-Locale`) for `s-maxage=3600`, so a public API client sees a write within an hour. The site does not wait: see "Species writes" below.
-- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with what the site renders (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
+- `routes/species.test.ts` compares the D1 list and every published profile in all four locales with the test fixture (`toStrictEqual`), including lookalike order. Reverse lookalikes are ordered by id, which matches the alphabetical `LOOKALIKES` keys.
 - Statements stay under 90 KB of UTF-8 (D1 rejects statements over 100 KB; Georgian text is 3 bytes per letter).
 
 - File name: `migrations/api/NNNN_snake_case.sql`, numbered from `0001` with no gaps.
@@ -138,9 +138,9 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ### Species writes (phase 2)
 
-- **D1 is the source of truth for species.** Change content only through `PUT /v1/admin/species/:id`. Never through MDX, never with raw SQL.
+- **D1 is the source of truth for species.** Change content only through `PUT /v1/admin/species/:id` or an approved draft. Never with raw SQL.
 - `GET /v1/admin/species/:id` returns `{ record, version }`. `PUT` takes `{ record, expectedVersion, actor, source: admin|ai|api, summary }`. Both need `requireToken`. Admin bodies may be up to 1 MB; every other route stays at 16 KB.
-- `schemas/speciesRecord.ts` enforces every compile-species rule:
+- `schemas/speciesRecord.ts` enforces every rule the old MDX compiler had:
   - strict keys;
   - required fields and dates;
   - photo credits with paired lat/lng;
@@ -161,7 +161,6 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 - `db/speciesRows.ts` is the single row builder used by both the import and the writes. Overlays point at media with a subquery, so media ids are never assigned by hand.
 - After a write, the API calls the site through the `SITE` Service Binding: `POST /api/revalidate` with `REVALIDATE_TOKEN` and the tags `species`, `species:<id>`, run with `revalidateTag(tag, "max")`. The site's server fetch sends `X-Cache-Bypass: <REVALIDATE_TOKEN>`, so `edgeCache` skips the API edge cache and the re-render reads fresh D1 data. Without the secret the header is ignored.
-- `pnpm db:import:species*` is now a one-off. The first statement fails once any `species_revisions` row exists, so an import can never overwrite API edits.
 - Photo actions: `POST /v1/admin/species/:id/photos/{cover,order,remove,coordinates}` (body includes `actor`). Each one reads the record, applies a pure operation from `lib/speciesPhotos.ts`, validates the whole record, and saves through the same versioned path as `PUT`, so it gets a revision, a 409 on a race, and page revalidation.
 - The local admin (`/admin`, dev only) reads species through `src/lib/adminSpeciesApi.ts`. It calls these endpoints with `API_WRITE_TOKEN` from the developer's local env. Cover, crop, reorder, remove and coordinates no longer open PRs. A crop still opens a catalog-only PR for the AVIF/WebP manifest when it creates new derivatives.
 
@@ -173,14 +172,14 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   - `quiz` (about 0.8–1.4 MB per locale) is the card fields plus `facts`, `gallery` and `identification` (`SPECIES_QUIZ_KEYS`), for the identification quizzes.
   - `full` (up to about 3.6 MB for KA) is only for consumers that need every text, such as search and `llms-full`. **Never** fetch `full` for a normal page render; add the field you need to `card` instead, or add a narrow view the way `quiz` was added. Next does not cache fetch responses over 2 MB.
 - Pagination is opt-in: `limit` (1–100) and `cursor` (the `id` of the last entry on the previous page). The response always has `total` (all published species) and `nextCursor` (`null` on the last page or without `limit`). An unknown or unpublished cursor id answers 400 `invalid_request`. Without `limit` the whole catalog comes back in one response, which is what the site uses: every site consumer needs the full list, and the reader loads every row from D1 either way.
-- Site loader: `getSpeciesCatalog(locale, view?)` in `src/lib/speciesCatalogApi.ts`. It uses React `cache`, the `species` tag and `revalidate: 3600` (shared `speciesFetchOptions`), and has no MDX fallback.
-- `routes/catalog.test.ts` proves every view matches the MDX-era catalog for all locales (`toStrictEqual`).
+- Site loader: `getSpeciesCatalog(locale, view?)` in `src/lib/speciesCatalogApi.ts`. It uses React `cache`, the `species` tag and `revalidate: 3600` (shared `speciesFetchOptions`), and has no fallback.
+- `routes/catalog.test.ts` checks every view against the test fixture in all locales (`toStrictEqual`).
 
 ### Field records
 
 - `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
 - Public read: `GET /v1/species/:slug/field-records` (same slug and `X-Locale` rule) returns `{ data, id, total }`, edge-cached.
-- `pnpm db:import:field-records` / `:remote` is a one-off copy from the compiled MDX JSON. Its first statement fails once any field record exists, so it can never duplicate or overwrite rows. `db/fieldRecords.test.ts` round-trips every record 1:1.
+- They were copied once from MDX. The site reads them through `getSpeciesFieldRecords(id)` (`src/lib/speciesFieldRecordsApi.ts`) for the profile map, and through `/api/occurrences/{id}/{locale}` for the map's records.
 
 ### Drafts (AI changes need approval)
 
@@ -192,12 +191,12 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   - `POST …/drafts/:draftId/reject`.
 - **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. The selection editor (`src/lib/contentEditorSpecies.ts`) and AI page texts (`processSpeciesTexts`) build the draft record from the API record (`src/lib/speciesRecordFields.ts`) and return `reviewUrl` (`/admin/:id#draft-N`).
 - The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
-- Not yet on the API: adding a photo, AI analysis/workflow (it still edits MDX in a worktree), field records (not in D1 yet), and new species creation.
+- Not yet on the API: adding a photo, adding field records, AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase.
 
 ### Species pages (SSR from the API)
 
 - Species profile pages render on the server from the API. `createSpeciesRoute.tsx` calls `getSpeciesProfile(id, locale)` (`src/lib/speciesProfileApi.ts`, wrapped in React `cache`) for the page and for `generateMetadata`. It fetches `ka` (for the Taxon, citations and hero) and the page locale before rendering.
-- There is **no MDX fallback**. A 404 from the API is `notFound()`, and any other error fails the render, which vinext does not cache.
+- There is **no fallback**. A 404 from the API is `notFound()`, and any other error fails the render, which vinext does not cache.
 - NEVER add `loading.tsx`, `Suspense` fallbacks or client-side fetching for page content. The HTML must arrive complete, as before. Browser requests (forms such as ratings) go to `api.reptiles.ge` directly.
 - The fetch uses `next: { revalidate: 3600, tags: ["species", "species:<id>"] }`, so a page catches up with D1 within an hour at the latest. Every API write also calls `revalidateTag` through `/api/revalidate` (see "Species writes").
 - Still local for now: lookalike and related cards, slugs and 301s, hubs, search, sitemap (phases 3–4).
@@ -219,13 +218,12 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 ## Commands
 
 ```bash
-pnpm dev:api              # species:compile, then wrangler dev on :8787 (local D1, no migrations)
+pnpm dev:api              # wrangler dev on :8787 (local D1, no migrations)
 pnpm db:migrations:list   # pending migrations on the local D1
 pnpm db:migrate           # apply pending migrations to the local D1
 pnpm db:migrate:remote    # apply to production reptiles-db (owner asks only)
-pnpm db:import:species    # one-off: copy MDX into an empty local D1 (refuses once API edits exist)
-pnpm db:import:species:remote  # one-off on production (done; refuses once API edits exist)
-pnpm deploy:api           # species:compile, then wrangler deploy (no migrations)
+pnpm db:seed:local        # load tests/fixtures/speciesSeed.sql into an empty local D1 (never production)
+pnpm deploy:api           # wrangler deploy (no migrations)
 pnpm exec vitest run src/api
 ```
 

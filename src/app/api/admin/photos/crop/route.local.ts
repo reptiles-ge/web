@@ -1,8 +1,8 @@
 import type { CoverCropRect } from "@/lib/coverCrop";
 
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { cropSpeciesCover } from "@/lib/adminPhotos";
 import { adminErrorResponse, readLocalAdminJsonBody } from "@/lib/adminRequest";
+import { isSpeciesId } from "@/lib/adminSpeciesCatalog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   const src = typeof data.src === "string" ? data.src.trim() : "";
   const target = data.target;
   const crop = readCrop(data.crop);
-  if (!id || !isSpeciesContentId(id)) {
+  if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });
   }
   if (!src) {
