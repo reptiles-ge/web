@@ -214,6 +214,10 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   - `GET /v1/news/:slug` returns one published article with `sections` and `gallery`. Without text in the requested locale it falls back to Georgian, and `locale` and `Content-Language` say `ka`. Drafts and unknown slugs answer 404.
   - Texts, photo `alt`, source names and the series name are localized. Photo credits are returned as published (not translated), with `authorId`. Paragraphs are `NewsMark` arrays, not the Markdown text format of species.
 - `routes/news.test.ts` compares the list, every filter and every article in all four locales with the site's own news functions (`src/data/news.ts`). Tests get a seeded database from `createNewsTestDatabase()`.
+- Writes (`routes/adminNews.ts`, `db/newsWrite.ts`, `requireToken`). Migration `0010_news_revisions.sql` adds `news_articles.version` and `news_revisions`:
+  - `POST /v1/admin/news` with `{ actor, article, source, summary }` validates the article (`newsArticleSchema`, then `newsReferenceIssues` against published species and contributors in D1, hubs and `REGION_IDS`), refuses an existing slug with 409 `conflict`, and creates it as a **draft** at the end of the order, version 1, with its first revision and author links, in one batch. `?dryRun=true` runs every check and answers 200 without writing.
+  - `POST /v1/admin/news/:slug/status` with `{ actor, expectedVersion, source, status, summary }` publishes or unpublishes. A stale version is 409 `version_conflict` with `currentVersion`. It revalidates the site with the `news` and `news:<slug>` tags; the site's `/api/revalidate` accepts them and refreshes the news list and that article in every locale at the edge.
+  - `pnpm news:import <slug> [--dry-run] [--publish] [--actor <name>]` (`scripts/news-import.ts`, through `src/lib/adminNewsApi.ts`) parses `src/content/news/<slug>/*.mdx` with `newsArticleFromMdx` and calls these endpoints with `API_WRITE_TOKEN`. It uses `NEXT_PUBLIC_API_ORIGIN` when set, production otherwise. It does not delete the MDX while the site still lists news from it.
 
 ### Drafts (AI changes need approval)
 

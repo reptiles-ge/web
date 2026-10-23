@@ -1,6 +1,14 @@
 import type { ApiBindings } from "../env";
 
-export async function revalidateSpeciesPages(env: ApiBindings, id: string) {
+export function revalidateNewsPages(env: ApiBindings, slug: string) {
+  return revalidateSite(env, ["news", `news:${slug}`]);
+}
+
+export function revalidateSpeciesPages(env: ApiBindings, id: string) {
+  return revalidateSite(env, ["species", `species:${id}`]);
+}
+
+async function revalidateSite(env: ApiBindings, tags: string[]) {
   if (!env.SITE || !env.REVALIDATE_TOKEN) {
     console.error("Site revalidation is not configured");
     return;
@@ -8,7 +16,7 @@ export async function revalidateSpeciesPages(env: ApiBindings, id: string) {
   try {
     const response = await env.SITE.fetch(
       new Request("https://reptiles.ge/api/revalidate", {
-        body: JSON.stringify({ tags: ["species", `species:${id}`] }),
+        body: JSON.stringify({ tags }),
         headers: {
           Authorization: `Bearer ${env.REVALIDATE_TOKEN}`,
           "Content-Type": "application/json",

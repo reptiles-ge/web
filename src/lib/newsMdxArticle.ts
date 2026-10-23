@@ -1,8 +1,11 @@
 import matter from "gray-matter";
+import fs from "node:fs";
+import path from "node:path";
 
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { locales } from "@/i18n/locales";
 import {
   newsKaFrontmatterSchema,
   newsTranslationFrontmatterSchema,
@@ -109,4 +112,14 @@ export function newsArticleFromMdx(
       ? { heroImageException: fm.heroImageException }
       : {}),
   };
+}
+
+export function readNewsMdxFiles(contentRoot: string, slug: string) {
+  const files: Partial<Record<AppLocale, NewsMdxFile>> = {};
+  for (const locale of locales) {
+    const file = path.join(contentRoot, slug, `${locale}.mdx`);
+    if (fs.existsSync(file))
+      files[locale] = { path: file, raw: fs.readFileSync(file, "utf8") };
+  }
+  return files;
 }

@@ -5,6 +5,8 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const CATALOG_VIEWS = ["card", "full", "photos", "quiz"] as const;
 
+const NEWS_TAG_PREFIX = "news:";
+
 const SPECIES_TAG_PREFIX = "species:";
 
 export async function refreshSpeciesApiCache(tags: string[]) {
@@ -46,7 +48,30 @@ export async function refreshSpeciesApiCache(tags: string[]) {
           options,
         ),
     ]);
-  await [...catalog, ...profiles].reduce<Promise<void>>(
+  const newsList = tags.includes("news")
+    ? routing.locales.map(
+        (locale) => () =>
+          api.v1.news.$get(
+            { header: { "x-locale": locale }, query: {} },
+            options,
+          ),
+      )
+    : [];
+  const newsArticles = tags
+    .filter((tag) => tag.startsWith(NEWS_TAG_PREFIX))
+    .map((tag) => tag.slice(NEWS_TAG_PREFIX.length))
+    .flatMap((slug) =>
+      routing.locales.map(
+        (locale) => () =>
+          api.v1.news[":slug"].$get(
+            { header: { "x-locale": locale }, param: { slug } },
+            options,
+          ),
+      ),
+    );
+  await [...catalog, ...profiles, ...newsList, ...newsArticles].reduce<
+    Promise<void>
+  >(
     (previous, request) =>
       previous.then(() =>
         request().then(

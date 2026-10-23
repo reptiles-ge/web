@@ -60,9 +60,28 @@ describe("POST /api/revalidate", () => {
     expect(refreshSpeciesApiCache).not.toHaveBeenCalled();
   });
 
-  it("only accepts species tags", async () => {
+  it("revalidates news tags", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    for (const tags of [[], ["news"], ["species:Bad Id"], "species"]) {
+    const response = await POST(
+      request({ tags: ["news", "news:lagodekhi-iucn-mwvane-sia"] }, "secret"),
+    );
+    expect(response.status).toBe(204);
+    expect(revalidateTag).toHaveBeenCalledWith("news", "max");
+    expect(revalidateTag).toHaveBeenCalledWith(
+      "news:lagodekhi-iucn-mwvane-sia",
+      "max",
+    );
+  });
+
+  it("only accepts species and news tags", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    for (const tags of [
+      [],
+      ["authors"],
+      ["species:Bad Id"],
+      ["news:Bad Slug"],
+      "species",
+    ]) {
       expect((await POST(request({ tags }, "secret"))).status).toBe(400);
     }
     expect((await POST(request(null, "secret"))).status).toBe(400);

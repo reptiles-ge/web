@@ -109,3 +109,25 @@ export const newsArticleSchema = z
       });
     }
   });
+
+const actor = z.string().trim().min(1).max(100);
+const summary = z.string().trim().min(1).max(500);
+
+export const newsCreateBody = z.strictObject({
+  actor,
+  article: newsArticleSchema,
+  source: z.enum(["admin", "ai", "api", "import"]),
+  summary,
+});
+
+export const newsCreateQuery = z.object({
+  dryRun: z.enum(["true", "false"]).default("false"),
+});
+
+export const newsStatusBody = z.strictObject({
+  actor,
+  expectedVersion: z.int().min(1),
+  source: z.enum(["admin", "ai", "api", "import"]),
+  status: z.enum(["draft", "published"]),
+  summary,
+});
