@@ -19,6 +19,7 @@ type AuthorBody = {
 
 type ListBody = {
   data: Array<{
+    aliases: string[];
     id: string;
     isContributor: boolean;
     name: string;
@@ -50,6 +51,26 @@ describe("GET /v1/authors", () => {
     ).toMatchObject({ name: "Zauri Khachidze" });
     expect(contributors.response.headers.get("Content-Language")).toBe("en");
   });
+
+  it.each(["ka", "en", "ru", "tr"])(
+    "lists the same aliases as each profile (%s)",
+    async (locale) => {
+      const headers = { "X-Locale": locale };
+      for (const query of ["", "?contributor=true"]) {
+        const list = await requestJson<ListBody>(`/v1/authors${query}`, env, {
+          headers,
+        });
+        const profiles = await Promise.all(
+          list.body.data.map(({ id }) =>
+            requestJson<AuthorBody>(`/v1/authors/${id}`, env, { headers }),
+          ),
+        );
+        expect(list.body.data.map(({ aliases }) => aliases)).toEqual(
+          profiles.map(({ body }) => body.data.aliases),
+        );
+      }
+    },
+  );
 
   it("counts the photos linked through photo credits", async () => {
     const { body } = await requestJson<ListBody>("/v1/authors", env);

@@ -148,7 +148,7 @@ export async function listAuthors(
   locale: AppLocale,
   contributorsOnly: boolean,
 ) {
-  const [authors, texts, photos] = await Promise.all([
+  const [authors, texts, photos, aliases] = await Promise.all([
     db
       .prepare(
         `${AUTHOR_SELECT}${contributorsOnly ? " WHERE is_contributor = 1" : ""} ORDER BY id`,
@@ -161,6 +161,13 @@ export async function listAuthors(
       .bind(locale)
       .all<TextRow>(),
     countPublishedPhotos(db),
+    db
+      .prepare(
+        contributorsOnly
+          ? "SELECT a.alias AS alias, a.author_id AS author_id FROM author_aliases a JOIN authors au ON au.id = a.author_id WHERE au.is_contributor = 1 ORDER BY a.alias"
+          : "SELECT alias, author_id FROM author_aliases ORDER BY alias",
+      )
+      .all<{ alias: string; author_id: string }>(),
   ]);
   const names = new Map<string, Partial<Record<AppLocale, string>>>();
   for (const row of texts.results) {
@@ -169,9 +176,16 @@ export async function listAuthors(
       [row.locale]: row.name,
     });
   }
+  const aliasesByAuthor = new Map<string, string[]>();
+  for (const row of aliases.results) {
+    const list = aliasesByAuthor.get(row.author_id);
+    if (list) list.push(row.alias);
+    else aliasesByAuthor.set(row.author_id, [row.alias]);
+  }
   return authors.results.map((row) => {
     const name = names.get(row.id);
     return {
+      aliases: aliasesByAuthor.get(row.id) ?? [],
       id: row.id,
       isContributor: row.is_contributor === 1,
       kind: row.kind_id,

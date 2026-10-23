@@ -20,22 +20,31 @@ const getAuthorProfile = cache(
   },
 );
 
+const listContributors = cache(async (locale: AppLocale) => {
+  const response = await createApiClient().v1.authors.$get(
+    { header: { "x-locale": locale }, query: { contributor: "true" } },
+    speciesFetchOptions(["authors"]),
+  );
+  if (!response.ok) {
+    throw new Error(`Authors API answered ${response.status}`);
+  }
+  return (await response.json()).data;
+});
+
 export const getContributors = cache(
-  async (locale: AppLocale): Promise<ContributorProfile[]> => {
-    const response = await createApiClient().v1.authors.$get(
-      { header: { "x-locale": locale }, query: { contributor: "true" } },
-      speciesFetchOptions(["authors"]),
-    );
-    if (!response.ok) {
-      throw new Error(`Authors API answered ${response.status}`);
-    }
-    const { data } = await response.json();
-    return (await Promise.all(
-      data.map(({ id }) => getAuthorProfile(id, locale)),
-    )) as ContributorProfile[];
-  },
+  async (locale: AppLocale): Promise<ContributorProfile[]> =>
+    (await Promise.all(
+      (await listContributors(locale)).map(({ id }) =>
+        getAuthorProfile(id, locale),
+      ),
+    )) as ContributorProfile[],
 );
 
-export const getContributorDirectory = cache(async (locale: AppLocale) =>
-  contributorDirectory(await getContributors(locale)),
-);
+export const getContributorDirectory = cache(async (locale: AppLocale) => {
+  const contributors = await listContributors(locale);
+  return contributorDirectory(
+    contributors.every(({ aliases }) => Array.isArray(aliases))
+      ? contributors
+      : await getContributors(locale),
+  );
+});
