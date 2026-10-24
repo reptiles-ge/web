@@ -49,7 +49,7 @@ export async function findPublishedSpeciesId(
 ) {
   const row = await db
     .prepare(
-      `SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "COALESCE(slug_ka, id)" : "id"} = ?`,
+      `SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "slug_ka" : "id"} = ?`,
     )
     .bind(slug)
     .first<{ id: string }>();
