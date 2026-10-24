@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { DangerLevel, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import { SpeciesPageStats } from "@/components/SpeciesPageStats";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
@@ -27,8 +28,11 @@ type SpeciesProfileFactsProps = {
   editable: boolean;
   linkDangerStats: boolean;
   locale: AppLocale;
+  publishedAt?: string;
   speciesId: string;
   stats: SpeciesStat[];
+  updatedAt?: string;
+  views: number;
 };
 
 const DESKTOP_COLUMNS = 4;
@@ -47,8 +51,11 @@ export async function SpeciesProfileFacts({
   editable,
   linkDangerStats,
   locale,
+  publishedAt,
   speciesId,
   stats,
+  updatedAt,
+  views,
 }: SpeciesProfileFactsProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const tiles = factTiles(displayStats, locale);
@@ -59,12 +66,22 @@ export async function SpeciesProfileFacts({
     <div className="min-w-0">
       {tiles.length > 0 ? (
         <section>
-          <h2
-            className="px-6 pt-7 pb-3 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:sr-only"
-            id={SPECIES_SECTION_IDS.atAGlance}
-          >
-            {t("atAGlanceTitle")}
-          </h2>
+          <div className="flex items-baseline justify-between gap-3 px-6 pt-7 pb-3 lg:p-0">
+            <h2
+              className="min-w-0 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:sr-only"
+              id={SPECIES_SECTION_IDS.atAGlance}
+            >
+              {t("atAGlanceTitle")}
+            </h2>
+            <SpeciesPageStats
+              className="lg:hidden"
+              compact
+              locale={locale}
+              publishedAt={publishedAt}
+              updatedAt={updatedAt}
+              views={views}
+            />
+          </div>
           <dl className="grid grid-cols-2 gap-2 px-4 lg:h-full lg:grid-cols-4 lg:gap-4 lg:px-0">
             {tiles.map((tile, index) => (
               <div

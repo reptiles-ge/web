@@ -539,6 +539,8 @@
     "viewPhotos": "{count} fotoğrafı gör",
     "lastUpdated": "Son güncelleme",
     "updatedOn": "Güncellendi:",
+    "updatedShort": "Güncellendi {date}",
+    "viewCount": "{count, plural, other {# görüntülenme}}",
     "sourcesEyebrow": "Kaynaklar",
     "sourcesTitle": "Kaynaklar",
     "sourcesProfileTitle": "Bu profilin kaynakları",

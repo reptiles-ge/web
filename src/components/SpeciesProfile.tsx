@@ -40,6 +40,7 @@ type SpeciesProfileProps = {
   lookalikes: CatalogCard[];
   related: CatalogCard[];
   species: Species;
+  views: number;
 };
 
 const HALYOMORPHA_BIOLOGY_COPY: Record<
@@ -87,6 +88,7 @@ export async function SpeciesProfile({
   lookalikes,
   related,
   species,
+  views,
 }: SpeciesProfileProps) {
   const [t, tHubs, tDanger, tAnalysis, fieldRecords, contributors] =
     await Promise.all([
@@ -249,6 +251,7 @@ export async function SpeciesProfile({
           related={related}
           showIdentification={showIdentification}
           species={species}
+          views={views}
         />
         {SpeciesPageAnalysis ? (
           <SpeciesPageAnalysis
