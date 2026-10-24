@@ -63,13 +63,3 @@ export async function ratingCounts(db: ApiDatabase) {
     .all<{ count: number; rating: number }>();
   return results;
 }
-
-export async function ratingCountsSince(db: ApiDatabase, since: string) {
-  const { results } = await db
-    .prepare(
-      "SELECT rating, COUNT(*) AS count FROM site_ratings WHERE created_at >= ? GROUP BY rating",
-    )
-    .bind(since)
-    .all<{ count: number; rating: number }>();
-  return results;
-}
