@@ -1,8 +1,10 @@
 import type { ColumnsType } from "antd/es/table";
+import type { ReactNode } from "react";
 
 import { Alert, Button, Flex, Input, Space, Table, Typography } from "antd";
 
 export function AdminListView<T extends object>({
+  actions,
   columns,
   noun,
   onQuery,
@@ -14,6 +16,7 @@ export function AdminListView<T extends object>({
   title,
   total,
 }: {
+  actions?: ReactNode;
   columns: ColumnsType<T>;
   noun: string;
   onQuery: (query: string) => void;
@@ -42,6 +45,7 @@ export function AdminListView<T extends object>({
           <Button loading={status === "loading"} onClick={onReload}>
             Reload
           </Button>
+          {actions}
         </Space>
       </Flex>
       {status === "error" ? (

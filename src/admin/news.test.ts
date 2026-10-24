@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import { describe, expect, it } from "vitest";
 
 import { server } from "../../tests/msw/server";
-import { clearNewsCache, fetchAdminNews } from "./news";
+import { clearNewsCache, clearNewsSectionCache, fetchAdminNews } from "./news";
 import { SessionExpiredError } from "./species";
 
 const URL = "https://api.reptiles.ge/v1/admin/news";
@@ -56,6 +56,33 @@ describe("clearNewsCache", () => {
     server.use(http.post(CLEAR, () => new HttpResponse(null, { status: 502 })));
     await expect(clearNewsCache("batumi-raptor-count")).rejects.toThrow(
       "Article cache clear failed: 502",
+    );
+  });
+});
+
+describe("clearNewsSectionCache", () => {
+  const CLEAR = `${URL}/revalidate`;
+
+  it("posts for the whole news section with credentials", async () => {
+    let credentials: string | undefined;
+    server.use(
+      http.post(CLEAR, ({ request }) => {
+        credentials = request.credentials;
+        return HttpResponse.json({ data: { tags: ["news"] } });
+      }),
+    );
+    await expect(clearNewsSectionCache()).resolves.toBeUndefined();
+    expect(credentials).toBe("include");
+  });
+
+  it("reports an expired session and other failures", async () => {
+    server.use(http.post(CLEAR, () => new HttpResponse(null, { status: 403 })));
+    await expect(clearNewsSectionCache()).rejects.toBeInstanceOf(
+      SessionExpiredError,
+    );
+    server.use(http.post(CLEAR, () => new HttpResponse(null, { status: 502 })));
+    await expect(clearNewsSectionCache()).rejects.toThrow(
+      "News cache clear failed: 502",
     );
   });
 });

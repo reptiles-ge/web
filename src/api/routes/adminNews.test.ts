@@ -392,3 +392,60 @@ describe("POST /v1/admin/news/:slug/revalidate", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 });
+
+describe("POST /v1/admin/news/revalidate", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+  async function clearSection(headers?: Record<string, string>) {
+    return requestJson<ErrorBody & { data: { tags: string[] } }>(
+      "/v1/admin/news/revalidate",
+      env,
+      {
+        headers: headers ?? {
+          ...(await adminSessionHeaders(sqlite)),
+          Origin: ADMIN_ORIGIN,
+        },
+        method: "POST",
+      },
+    );
+  }
+
+  beforeEach(() => {
+    useDatabase(createNewsTestDatabase());
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  it("revalidates every news page with the news tag", async () => {
+    const { body, response } = await clearSection();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ tags: ["news"] });
+    const [request] = siteFetch.mock.calls[0]!;
+    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(await request.json()).toEqual({ tags: ["news"] });
+  });
+
+  it("answers 502 when the site fails", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    const { body, response } = await clearSection();
+    expect(response.status).toBe(502);
+    expect(body.error.code).toBe("site_unavailable");
+    log.mockRestore();
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    for (const [headers, status] of [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await clearSection(headers)).response.status).toBe(status);
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await clearSection()).response.status).toBe(429);
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+});
