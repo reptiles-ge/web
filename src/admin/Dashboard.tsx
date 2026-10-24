@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
 import { CachePage } from "./CachePage";
+import { DraftDetailPage } from "./DraftDetailPage";
+import { DraftsPage } from "./DraftsPage";
 import { NewsDetailPage } from "./NewsDetailPage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
@@ -22,6 +24,7 @@ const SECTIONS: Array<{
   path: string;
 }> = [
   { label: "Species", page: SpeciesPage, path: "/species" },
+  { label: "Drafts", page: DraftsPage, path: "/drafts" },
   { label: "News", page: NewsPage, path: "/news" },
   { label: "Authors", page: AuthorsPage, path: "/authors" },
   { label: "Cache", page: CachePage, path: "/cache" },
@@ -38,6 +41,7 @@ const DETAILS: Array<{
 }> = [
   { page: SpeciesDetailPage, path: "/species" },
   { page: NewsDetailPage, path: "/news" },
+  { page: DraftDetailPage, path: "/drafts" },
   { page: AuthorDetailPage, path: "/authors" },
 ];
 

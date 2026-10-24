@@ -213,6 +213,9 @@ type AdminAuthorList = {
     photoCount: number;
     role: null | string;
   }>;
+  limit: number;
+  page: number;
+  pageCount: number;
   total: number;
 };
 
@@ -230,12 +233,27 @@ async function adminAction(path: string, headers?: Record<string, string>) {
   );
 }
 
+function countAuthors(where = "") {
+  return (
+    sqlite.prepare(`SELECT COUNT(*) AS n FROM authors ${where}`).get() as {
+      n: number;
+    }
+  ).n;
+}
+
 function listAuthors(
   headers: Record<string, string> = { Authorization: `Bearer ${TOKEN}` },
+  query = "",
 ) {
-  return requestJson<AdminAuthorList & ErrorBody>("/v1/admin/authors", env, {
-    headers,
-  });
+  return requestJson<AdminAuthorList & ErrorBody>(
+    `/v1/admin/authors${query}`,
+    env,
+    { headers },
+  );
+}
+
+function listAuthorsWith(query: string) {
+  return listAuthors(undefined, query);
 }
 
 async function sentTags() {
@@ -246,25 +264,87 @@ async function sentTags() {
 }
 
 describe("GET /v1/admin/authors", () => {
-  it("lists every author, contributors first, then by photos", async () => {
-    const { body, response } = await listAuthors();
-    expect(response.status).toBe(200);
-    expect(response.headers.get("Cache-Control")).toBe("no-store");
-    const total = (
-      sqlite.prepare("SELECT COUNT(*) AS n FROM authors").get() as { n: number }
-    ).n;
-    expect(body.total).toBe(total);
-    expect(body.data).toHaveLength(total);
-    const firstOther = body.data.findIndex((item) => !item.isContributor);
+  it("pages through every author, contributors first, then by photos", async () => {
+    const first = await listAuthors();
+    expect(first.response.status).toBe(200);
+    expect(first.response.headers.get("Cache-Control")).toBe("no-store");
+    const total = countAuthors();
+    expect(first.body).toMatchObject({
+      limit: 50,
+      page: 1,
+      pageCount: Math.ceil(total / 50),
+      total,
+    });
+    expect(first.body.data).toHaveLength(50);
+    const all: AdminAuthorList["data"] = [];
+    for (let page = 1; page <= Math.ceil(total / 100); page += 1) {
+      const { body } = await listAuthorsWith(`?limit=100&page=${page}`);
+      expect(body.page).toBe(page);
+      all.push(...body.data);
+    }
+    expect(all).toHaveLength(total);
+    expect(new Set(all.map((item) => item.id)).size).toBe(total);
+    expect(all.slice(0, 50)).toEqual(first.body.data);
+    const firstOther = all.findIndex((item) => !item.isContributor);
     expect(firstOther).toBeGreaterThan(0);
-    expect(
-      body.data.slice(firstOther).every((item) => !item.isContributor),
-    ).toBe(true);
-    const contributors = body.data.slice(0, firstOther);
+    expect(all.slice(firstOther).every((item) => !item.isContributor)).toBe(
+      true,
+    );
+    const contributors = all.slice(0, firstOther);
     for (let index = 1; index < contributors.length; index += 1) {
       expect(contributors[index - 1]!.photoCount).toBeGreaterThanOrEqual(
         contributors[index]!.photoCount,
       );
+    }
+  });
+
+  it("answers an empty page past the end", async () => {
+    const { body } = await listAuthorsWith("?page=999");
+    expect(body.data).toEqual([]);
+    expect(body.total).toBe(countAuthors());
+  });
+
+  it("filters by contributor, kind and role", async () => {
+    const contributors = await listAuthorsWith("?contributor=true&limit=100");
+    expect(contributors.body.total).toBe(
+      countAuthors("WHERE is_contributor = 1"),
+    );
+    expect(contributors.body.data.every((item) => item.isContributor)).toBe(
+      true,
+    );
+    const others = await listAuthorsWith("?contributor=false");
+    expect(others.body.total).toBe(countAuthors("WHERE is_contributor = 0"));
+    const pages = await listAuthorsWith("?kind=page&limit=100");
+    expect(pages.body.total).toBe(countAuthors("WHERE kind_id = 'page'"));
+    expect(pages.body.data.every((item) => item.kind === "page")).toBe(true);
+    const photographers = await listAuthorsWith("?role=photographer");
+    expect(photographers.body.total).toBe(
+      countAuthors("WHERE role_id = 'photographer'"),
+    );
+  });
+
+  it("searches the id and the Georgian and English names", async () => {
+    for (const q of ["sandro-khakhva", "Sandro Khak", "სანდრო ხახვა"]) {
+      const { body } = await listAuthorsWith(`?q=${encodeURIComponent(q)}`);
+      expect(body.data.map((item) => item.id)).toContain("sandro-khakhva");
+    }
+    const none = await listAuthorsWith("?q=%25_%5C");
+    expect(none.body).toMatchObject({ data: [], pageCount: 1, total: 0 });
+  });
+
+  it("refuses an invalid page, limit or filter", async () => {
+    for (const query of [
+      "?page=0",
+      "?limit=0",
+      "?limit=101",
+      "?page=one",
+      "?kind=robot",
+      "?role=wizard",
+      "?contributor=yes",
+    ]) {
+      const { body, response } = await listAuthorsWith(query);
+      expect(response.status, query).toBe(400);
+      expect(body.error.code).toBe("invalid_request");
     }
   });
 

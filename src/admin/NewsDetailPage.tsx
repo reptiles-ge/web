@@ -7,6 +7,7 @@ import type { NewsPhoto, NewsSection } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { publicEnv } from "@/lib/env";
+import { MAX_PAGE_SIZE } from "@/lib/pagination";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
 import { AdminLink } from "./AdminLink";
@@ -86,7 +87,11 @@ export function NewsDetailPage({
       Promise.all([
         fetchAdminNewsRecord(id),
         fetchAdminSpecies(),
-        fetchAdminAuthors(),
+        fetchAdminAuthors({
+          contributor: true,
+          limit: MAX_PAGE_SIZE,
+          page: 1,
+        }).then((page) => page.data),
       ]),
     onSessionExpired,
   );

@@ -58,9 +58,8 @@ describe("api app", () => {
       },
     };
     const { body, response } = await requestJson<ErrorBody>(
-      "/v1/ratings/summary",
-      { ...broken, API_WRITE_TOKEN: "t" },
-      { headers: { Authorization: "Bearer t" } },
+      "/v1/contributors",
+      broken,
     );
     expect(response.status).toBe(500);
     expect(body).toEqual({

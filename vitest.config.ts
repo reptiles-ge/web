@@ -96,7 +96,7 @@ export default defineConfig({
       {
         extends: true,
         test: {
-          environment: "happy-dom",
+          environment: "./tests/setup/happyDomEnvironment.ts",
           fileParallelism: false,
           include: ["src/**/*.test.tsx"],
           name: "dom",

@@ -116,10 +116,12 @@ beforeEach(() => {
     ] as AdminSpecies[]);
   vi.mocked(fetchAdminAuthors)
     .mockReset()
-    .mockResolvedValue([
-      { id: "nika", isContributor: true, name: { en: "Nika", ka: "ნიკა" } },
-      { id: "guest", isContributor: false, name: { en: null, ka: null } },
-    ] as AdminAuthor[]);
+    .mockResolvedValue({
+      data: [
+        { id: "nika", isContributor: true, name: { en: "Nika", ka: "ნიკა" } },
+        { id: "guest", isContributor: false, name: { en: null, ka: null } },
+      ] as AdminAuthor[],
+    } as Awaited<ReturnType<typeof fetchAdminAuthors>>);
   vi.mocked(saveNewsCopy).mockReset().mockResolvedValue(4);
   vi.mocked(clearNewsCache).mockReset();
 });
@@ -131,6 +133,11 @@ describe("NewsDetailPage", () => {
       await screen.findByRole("heading", { name: "ქართული სათაური" }),
     ).toBeInTheDocument();
     expect(screen.getByText("version 3")).toBeInTheDocument();
+    expect(fetchAdminAuthors).toHaveBeenCalledWith({
+      contributor: true,
+      limit: 100,
+      page: 1,
+    });
     expect(screen.getByText("No unsaved changes")).toBeInTheDocument();
     await waitFor(() =>
       expect(screen.getByAltText("გველგესლა ქვაზე")).toBeInTheDocument(),

@@ -1,18 +1,9 @@
 import { z } from "zod";
 
 import { locales } from "@/i18n/locales";
+import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 
-import { speciesIdText } from "./common";
-
-export const AUTHOR_KINDS = ["page", "person"] as const;
-
-export const AUTHOR_ROLES = [
-  "herpetologist",
-  "photographer",
-  "professor",
-  "ranger",
-  "researcher",
-] as const;
+import { pageQuery, speciesIdText } from "./common";
 
 export const AUTHOR_JOB_TITLES = [
   "director",
@@ -46,6 +37,16 @@ export const authorListQuery = z.object({
     .enum(["true", "false"])
     .optional()
     .transform((value) => value === "true"),
+});
+
+export const adminAuthorListQuery = pageQuery.extend({
+  contributor: z
+    .enum(["true", "false"])
+    .optional()
+    .transform((value) => (value === undefined ? undefined : value === "true")),
+  kind: z.enum(AUTHOR_KINDS).optional(),
+  q: z.string().trim().max(100).optional(),
+  role: z.enum(AUTHOR_ROLES).optional(),
 });
 
 const CONTRIBUTOR_MAX_LIMIT = 100;
