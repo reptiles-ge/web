@@ -246,11 +246,17 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 ### Drafts (AI changes need approval)
 
 - Migration `0004_species_drafts.sql` adds `species_drafts`: a full proposed record, plus its `base_version`, `source`, `actor`, `summary` and a `status` of pending, approved or rejected.
-- Endpoints, all token-only:
+- Migration `0013_species_drafts_status_index.sql` adds `species_drafts_status (status, id)` for the cross-species list.
+- Endpoints under `/v1/admin/species`, all token-only:
   - `POST /v1/admin/species/:id/drafts` validates the record and needs `baseVersion` to equal the current version (409 otherwise).
   - `GET /v1/admin/species/:id/drafts` lists the pending drafts.
   - `POST …/drafts/:draftId/approve` saves through the normal versioned path. The revision keeps the draft's `source`/`summary`, the approver becomes the `actor`, and the draft is marked approved **in the same batch**. A draft whose base version is no longer current answers 409 and stays pending.
   - `POST …/drafts/:draftId/reject`.
+- Endpoints under `/v1/admin/drafts` (`routes/adminDrafts.ts`), for the **Drafts** page of the admin app:
+  - `GET /v1/admin/drafts?status=pending|approved|rejected` (`requireAdmin`, `NO_STORE`, default `pending`) lists at most 200 drafts of every species, newest first, without the record: species id, KA common name, scientific name, `baseVersion`, the live `speciesVersion` (a draft is stale when they differ), `source`, `actor`, `summary`, `status`, `createdAt`, `decidedAt`, `decidedBy`.
+  - `GET /v1/admin/drafts/:draftId` (`requireAdmin`) returns `{ draft, current }`: the draft with its record and the live `{ record, version }`. The admin app diffs them with `diffSpeciesRecords`.
+  - `POST /v1/admin/drafts/:draftId/merge` and `…/reject` are guarded like the cache endpoints: `requireSiteOrigin`, `rateLimitAdmin`, then `requireAdminSession` (no token). The signed-in admin's `name` becomes the revision `actor` and `decided_by`. Merge runs the same approve as the token route (`approveSpeciesDraft` in `lib/speciesDrafts.ts`), and only after the batch commits calls `revalidateSpeciesPage` (`species:<id>`). It answers `{ status, version, speciesId, revalidated }`; a failed revalidation is `revalidated: false`, never an error, because the write is already live. Reject never touches the species and never revalidates.
+- Approve and reject are safe against races: `decideDraftStatement` sets `decided_by` to `NULL` when the row is no longer pending, which breaks the table's `CHECK`, so a draft decided between the read and the write aborts the whole batch (answered as 400 `Draft is already …`). A second merge of the same draft answers 400; a stale one 409 `version_conflict` and stays pending.
 - **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. The selection editor (`src/lib/contentEditorSpecies.ts`) and AI page texts (`processSpeciesTexts`) build the draft record from the API record (`src/lib/speciesRecordFields.ts`) and return `reviewUrl` (`/admin/:id#draft-N`).
 - The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
 - Not yet on the API: adding a photo, adding field records, AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase.
