@@ -3,16 +3,10 @@ import type { ColumnsType } from "antd/es/table";
 import { Badge, Space, Tag, Typography } from "antd";
 import { useMemo, useState } from "react";
 
-import {
-  AdminListView,
-  imageColumn,
-  includesQuery,
-  photoCountColumn,
-  revisionColumns,
-  unique,
-  useAdminList,
-} from "./AdminList";
+import { AdminListView } from "./AdminListView";
+import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
 import { type AdminSpecies, fetchAdminSpecies } from "./species";
+import { includesQuery, unique, useAdminList } from "./useAdminList";
 
 const STATUS_COLORS: Record<AdminSpecies["status"], string> = {
   draft: "gold",

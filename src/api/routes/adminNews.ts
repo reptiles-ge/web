@@ -18,9 +18,15 @@ import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
-import { revalidateNewsPages } from "../lib/revalidateSite";
+import {
+  revalidateNewsArticle,
+  revalidateNewsPages,
+} from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
+import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { requireAdmin } from "../middleware/requireAdmin";
+import { requireAdminSession } from "../middleware/requireAdminSession";
+import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import { newsParam } from "../schemas/news";
 import {
@@ -38,6 +44,28 @@ export const adminNews = new Hono<ApiEnv>()
     c.header("Cache-Control", NO_STORE);
     return c.json({ data, total: data.length }, 200);
   })
+  .post(
+    "/:slug/revalidate",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", newsParam),
+    async (c) => {
+      const { slug } = c.req.valid("param");
+      if (!(await readNewsState(c.env.DB, slug))) {
+        throw new ApiError(404, "not_found", "Article not found");
+      }
+      if (!(await revalidateNewsArticle(c.env, slug))) {
+        throw new ApiError(
+          502,
+          "site_unavailable",
+          "The site could not be revalidated",
+        );
+      }
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id: slug } }, 200);
+    },
+  )
   .use(requireToken)
   .post(
     "/",
