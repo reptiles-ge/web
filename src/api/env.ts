@@ -2,6 +2,7 @@ import type { ApiDatabase } from "./db/database";
 import type { SessionUser } from "./db/users";
 
 export type ApiBindings = {
+  ADMIN_LIMITER?: RateLimiter;
   ALLOWED_ORIGINS?: string;
   API_WRITE_TOKEN?: string;
   DB: ApiDatabase;

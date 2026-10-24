@@ -60,7 +60,7 @@ beforeEach(() => {
 });
 
 describe("photo actions", () => {
-  it("sets the desktop cover with the photo credit and revalidates", async () => {
+  it("sets the desktop cover with the photo credit without revalidating", async () => {
     const before = await record();
     const photo = before.record.base.gallery.at(-1)!;
     const { body, response } = await action<{
@@ -73,7 +73,7 @@ describe("photo actions", () => {
     expect(after.record.base.imageCredit).toStrictEqual(photo.credit);
     expect(after.record.base.mobileImage).toBe(before.record.base.mobileImage);
     await Promise.all(pending);
-    expect(siteFetch).toHaveBeenCalledTimes(1);
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 
   it("updates an existing translated cover credit from that locale's overlay", async () => {

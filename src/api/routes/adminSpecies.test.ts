@@ -131,7 +131,7 @@ describe("GET /v1/admin/species/:id", () => {
 });
 
 describe("PUT /v1/admin/species/:id", () => {
-  it("writes the record atomically, bumps the version and revalidates the site", async () => {
+  it("writes the record atomically and bumps the version without revalidating the site", async () => {
     const { record } = (await getRecord()).body.data;
     record.base.overview = "ახალი მიმოხილვა";
     record.translations.en.overview = "New overview";
@@ -162,12 +162,7 @@ describe("PUT /v1/admin/species/:id", () => {
     ]);
 
     await Promise.all(pending);
-    const [request] = siteFetch.mock.calls[0] as [Request];
-    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
-    expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({
-      tags: ["species", `species:${ID}`],
-    });
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 
   it("refuses a stale version without changing anything", async () => {
@@ -298,32 +293,6 @@ describe("PUT /v1/admin/species/:id", () => {
     const { record } = (await getRecord()).body.data;
     expect((await put(ID, edit(record), null)).status).toBe(401);
     expect((await put(ID, edit(record), "wrong")).status).toBe(401);
-  });
-
-  it("logs when the site cannot be revalidated", async () => {
-    const log = vi.spyOn(console, "error").mockImplementation(() => {});
-    const { record } = (await getRecord()).body.data;
-    env.SITE = undefined;
-    expect((await put(ID, edit(record))).status).toBe(200);
-    await Promise.all(pending);
-    expect(log).toHaveBeenCalledWith("Site revalidation is not configured");
-    env.SITE = {
-      fetch: vi.fn(async () => new Response(null, { status: 500 })),
-    };
-    expect((await put(ID, edit(record, 2))).status).toBe(200);
-    env.SITE = {
-      fetch: vi.fn(async () => {
-        throw new Error("down");
-      }),
-    };
-    expect((await put(ID, edit(record, 3))).status).toBe(200);
-    await Promise.all(pending);
-    expect(log).toHaveBeenCalledWith("Site revalidation answered 500");
-    expect(log).toHaveBeenCalledWith(
-      "Site revalidation failed",
-      expect.any(Error),
-    );
-    log.mockRestore();
   });
 });
 

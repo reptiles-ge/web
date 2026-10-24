@@ -126,6 +126,17 @@ export async function listPublishedSpecies(
   }));
 }
 
+export async function readSpeciesIdsRevisedSince(
+  db: ApiDatabase,
+  since: string,
+) {
+  const { results } = await db
+    .prepare("SELECT species_id FROM species_revisions WHERE created_at >= ?")
+    .bind(since)
+    .all<{ species_id: string }>();
+  return [...new Set(results.map(({ species_id }) => species_id))].sort();
+}
+
 async function listLookalikes(db: ApiDatabase, id: string, locale: AppLocale) {
   const { results } = await db
     .prepare(
