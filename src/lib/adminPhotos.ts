@@ -9,8 +9,6 @@ import { randomUUID } from "node:crypto";
 import { createRequire } from "node:module";
 import path from "node:path";
 
-import type { PhotoCredit } from "@/data/species";
-
 import { optimizedImgSrc } from "@/data/optimizedImages";
 import { openStandalonePhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import { readAdminSpecies, setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
@@ -25,27 +23,14 @@ import {
   type OptimizeCatalogUpdate,
   optimizeUploadedOriginal,
 } from "@/lib/imageOptimize";
-import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
+import { PHOTO_ENCODING, PHOTO_MAX_UPLOAD_BYTES } from "@/lib/photoDerivatives";
 import { CDN_BASE } from "@/lib/site";
 import { transliterateKa } from "@/lib/slugify";
 
-const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
   jpeg: "jpg",
   png: "png",
   webp: "webp",
-};
-
-export type AdminPhotoCreditInput = {
-  date?: string;
-  georgiaField?: boolean;
-  lat?: string;
-  lng?: string;
-  location?: string;
-  locationEn?: string;
-  photographer?: string;
-  photographerEn?: string;
-  url?: string;
 };
 
 export type StandalonePhoto = {
@@ -76,39 +61,6 @@ type SharpInstance = {
   toBuffer: () => Promise<Buffer>;
   webp: (options: { quality: number }) => SharpInstance;
 };
-
-export function creditFromInput(
-  input: AdminPhotoCreditInput,
-  locale: "en" | "ka",
-): PhotoCredit | undefined {
-  const photographer =
-    locale === "en"
-      ? input.photographerEn?.trim() || input.photographer?.trim()
-      : input.photographer?.trim();
-  const location =
-    locale === "en"
-      ? input.locationEn?.trim() || input.location?.trim()
-      : input.location?.trim();
-  const date = input.date?.trim();
-  const url = photoCreditUrl(input.url);
-  const georgiaField = Boolean(input.georgiaField);
-  const coordinates = parsePhotoCoordinatesInput(
-    input.lat ?? "",
-    input.lng ?? "",
-  );
-  if (georgiaField && !location) {
-    throw new Error("საქართველოს ველის ფოტოს ადგილი სავალდებულოა");
-  }
-  const credit: PhotoCredit = {
-    ...(photographer ? { photographer } : {}),
-    ...(url ? { url } : {}),
-    ...(location ? { location } : {}),
-    ...(date ? { date } : {}),
-    ...(coordinates ? { lat: coordinates.lat, lng: coordinates.lng } : {}),
-    ...(georgiaField ? { photoConfidence: "georgia-field" } : {}),
-  };
-  return Object.keys(credit).length > 0 ? credit : undefined;
-}
 
 export async function cropSpeciesCover(input: {
   crop: CoverCropRect;
@@ -317,21 +269,6 @@ function loadSharp(): SharpFn {
   return require("sharp") as SharpFn;
 }
 
-function photoCreditUrl(value: string | undefined): string | undefined {
-  const url = value?.trim();
-  if (!url) return undefined;
-  let parsed: URL;
-  try {
-    parsed = new URL(url);
-  } catch {
-    throw new Error("ავტორის URL არასწორია");
-  }
-  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-    throw new Error("ავტორის URL უნდა იყოს http ან https");
-  }
-  return url;
-}
-
 async function prepareOriginal(
   bytes: Buffer,
   crop?: CoverCropRect,
@@ -341,7 +278,7 @@ async function prepareOriginal(
   ext: string;
   format: SupportedInputFormat;
 }> {
-  if (bytes.byteLength > MAX_UPLOAD_BYTES) {
+  if (bytes.byteLength > PHOTO_MAX_UPLOAD_BYTES) {
     throw new Error("File is larger than 12 MB");
   }
   const sharp = loadSharp();
@@ -371,7 +308,12 @@ async function prepareOriginal(
     };
   }
 
-  const buffer = await image.jpeg({ mozjpeg: true, quality: 92 }).toBuffer();
+  const buffer = await image
+    .jpeg({
+      mozjpeg: true,
+      quality: PHOTO_ENCODING.originalJpegQuality,
+    })
+    .toBuffer();
   return {
     buffer,
     contentType: INPUT_MIME_TYPES.jpeg,

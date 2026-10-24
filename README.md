@@ -180,7 +180,7 @@ All user-facing copy must ship in **all four locales** in the same change. Never
 Species content lives in D1 and is served by the `reptiles-api` Worker ([`.agents/skills/api/SKILL.md`](.agents/skills/api/SKILL.md)). There are no species files to edit.
 
 1. Edit a profile in the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts to approve; cover, crop, reorder, remove and photo coordinates write through the API. The API validates the whole record: KA owns taxonomy, `danger`, images and `sources`; the other locales translate the text and may re-credit KA photos by `src`.
-2. Adding photos or field records, AI analysis, and new species creation are not available until they move to the API (they answer 503).
+2. New gallery photos are added in the admin app (**Add photos** on a species page). Adding field records, AI analysis, and new species creation are not available until they move to the API (they answer 503).
 3. Lookalikes are part of the species record in D1, and the site reads them from the API. Some registries are still code: `speciesAtlasMeta` (group and habitats), `src/data/speciesPublish.ts`, and the KA slug rules in `src/lib/speciesSlugRules.ts`.
 4. A slug change or a new species reaches the 301s in `src/proxy.ts` on the next deploy (`pnpm slugs:compile` runs in `compile`).
 5. A range map appears only if the id is in some `regions[].speciesIds` in `src/data/regions.ts` (that requires a source, see [Content integrity](#content-integrity)) or the species has field records in D1.

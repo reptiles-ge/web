@@ -7,6 +7,10 @@ export type ApiBindings = {
   API_KEY_LIMITER?: RateLimiter;
   API_KEY_MODE?: string;
   API_WRITE_TOKEN?: string;
+  BUNNY_CDN_BASE_URL?: string;
+  BUNNY_STORAGE_ACCESS_KEY?: string;
+  BUNNY_STORAGE_REGION?: string;
+  BUNNY_STORAGE_ZONE?: string;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;
@@ -16,6 +20,7 @@ export type ApiBindings = {
   SITE_API_KEY?: string;
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
+  UPLOAD_LIMITER?: RateLimiter;
   VIEW_LIMITER?: RateLimiter;
 };
 

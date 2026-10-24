@@ -43,6 +43,7 @@ next-env.d.ts
 
 src/data/news.generated.ts
 src/data/speciesSlugs.generated.ts
+src/data/optimizedImages.api.generated.ts
 src/data/contentDates.generated.ts
 src/data/releaseVersion.generated.ts
 index.html

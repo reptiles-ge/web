@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run map:compile",
+    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile && pnpm run map:compile",
     "predev": "pnpm run compile",
     "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
@@ -54,6 +54,7 @@
     "news:compile": "tsx scripts/compile-news.ts",
     "news:import": "tsx scripts/news-import.ts",
     "slugs:compile": "tsx scripts/compile-species-slugs.ts",
+    "images:compile": "tsx scripts/compile-optimized-images.ts",
     "content:compile": "tsx scripts/compile-content-dates.ts && tsx scripts/compile-release-version.ts",
     "taxon:ids": "tsx scripts/fetch-taxon-identifiers.ts",
     "photos:licenses": "tsx scripts/fetch-photo-licenses.ts",
@@ -135,6 +136,10 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.63.1",
+    "@jsquash/avif": "2.1.1",
+    "@jsquash/jpeg": "1.6.0",
+    "@jsquash/resize": "2.1.1",
+    "@jsquash/webp": "1.5.0",
     "@lingual/i18n-check": "^0.9.5",
     "@next/bundle-analyzer": "16.4.2",
     "@playwright/test": "1.64.0",
