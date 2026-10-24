@@ -1,7 +1,7 @@
 import { Button, message, Popconfirm } from "antd";
 import { useState } from "react";
 
-import { SessionExpiredError } from "./species";
+import { SessionExpiredError } from "./adminResponse";
 
 export function ClearCacheButton({
   description,

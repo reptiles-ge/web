@@ -382,14 +382,20 @@ describe("GET /v1/admin/species", () => {
     }
   });
 
-  it("keeps every other admin species route token-only", async () => {
+  it("lets a session read one record, but keeps writes and drafts token-only", async () => {
     const session = await signIn();
     const read = await app.request(
       `/v1/admin/species/${ID}`,
       { headers: session },
       env,
     );
-    expect(read.status).toBe(401);
+    expect(read.status).toBe(200);
+    const drafts = await app.request(
+      `/v1/admin/species/${ID}/drafts`,
+      { headers: session },
+      env,
+    );
+    expect(drafts.status).toBe(401);
     const write = await app.request(
       `/v1/admin/species/${ID}`,
       {
@@ -400,5 +406,118 @@ describe("GET /v1/admin/species", () => {
       env,
     );
     expect(write.status).toBe(401);
+  });
+});
+
+describe("GET /v1/admin/species/:id/field-records", () => {
+  type FieldRecordsBody = {
+    data: Array<{ lat: number; lng: number; locality: string }>;
+    id: string;
+    total: number;
+  };
+
+  function fieldRecords(id: string, headers: Record<string, string>) {
+    return requestJson<ErrorBody & FieldRecordsBody>(
+      `/v1/admin/species/${id}/field-records`,
+      env,
+      { headers },
+    );
+  }
+
+  it("returns every field record of a species in position order", async () => {
+    const id = (
+      sqlite
+        .prepare(
+          "SELECT species_id AS id FROM species_field_records GROUP BY species_id ORDER BY COUNT(*) DESC LIMIT 1",
+        )
+        .get() as { id: string }
+    ).id;
+    const expected = sqlite
+      .prepare(
+        "SELECT locality FROM species_field_records WHERE species_id = ? ORDER BY position",
+      )
+      .all(id) as Array<{ locality: string }>;
+    const { body, response } = await fieldRecords(
+      id,
+      await adminSessionHeaders(sqlite),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.id).toBe(id);
+    expect(body.total).toBe(expected.length);
+    expect(body.data.map(({ locality }) => locality)).toEqual(
+      expected.map(({ locality }) => locality),
+    );
+  });
+
+  it("answers 404 for an unknown species and refuses non-admins", async () => {
+    const token = { Authorization: `Bearer ${TOKEN}` };
+    expect((await fieldRecords("no-such-species", token)).response.status).toBe(
+      404,
+    );
+    expect((await fieldRecords(ID, {})).response.status).toBe(401);
+    expect(
+      (await fieldRecords(ID, await adminSessionHeaders(sqlite, "editor")))
+        .response.status,
+    ).toBe(403);
+  });
+});
+
+describe("POST /v1/admin/species/:id/revalidate", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+  async function revalidate(id: string, headers?: Record<string, string>) {
+    return requestJson<ErrorBody & { data: { id: string } }>(
+      `/v1/admin/species/${id}/revalidate`,
+      env,
+      {
+        headers: headers ?? {
+          ...(await adminSessionHeaders(sqlite)),
+          Origin: ADMIN_ORIGIN,
+        },
+        method: "POST",
+      },
+    );
+  }
+
+  beforeEach(() => {
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  it("revalidates only that species' profile pages", async () => {
+    const { body, response } = await revalidate(ID);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: ID });
+    const [request] = siteFetch.mock.calls[0]!;
+    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
+    expect(await request.json()).toEqual({ tags: [`species:${ID}`] });
+  });
+
+  it("answers 404 for an unknown species and 502 when the site fails", async () => {
+    expect((await revalidate("no-such-species")).response.status).toBe(404);
+    expect(siteFetch).not.toHaveBeenCalled();
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    const { body, response } = await revalidate(ID);
+    expect(response.status).toBe(502);
+    expect(body.error.code).toBe("site_unavailable");
+    log.mockRestore();
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    for (const [headers, status] of [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await revalidate(ID, headers)).response.status).toBe(status);
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await revalidate(ID)).response.status).toBe(429);
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 });

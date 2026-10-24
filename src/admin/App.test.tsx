@@ -7,7 +7,9 @@ import { fetchCurrentUser, signIn, signOut } from "./session";
 
 vi.mock("./species", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./species")>()),
+  fetchAdminFieldRecords: vi.fn(async () => []),
   fetchAdminSpecies: vi.fn(async () => []),
+  fetchAdminSpeciesRecord: vi.fn(async () => null),
 }));
 
 vi.mock("./news", () => ({ fetchAdminNews: vi.fn(async () => []) }));
@@ -114,6 +116,19 @@ describe("admin App", () => {
       await screen.findByRole("heading", { name: "Authors" }),
     ).toBeInTheDocument();
     expect(document.title).toBe("Authors — reptiles.ge admin");
+  });
+
+  it("opens a species detail page under the Species menu", async () => {
+    window.history.replaceState(null, "", "/species/macrovipera-lebetina");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(
+      await screen.findByRole("link", { name: "← Species" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Species — reptiles.ge admin");
+    expect(
+      screen.getByRole("link", { name: "Species" }).closest("li"),
+    ).toHaveClass("ant-menu-item-selected");
   });
 
   it("navigates between pages and follows the back button", async () => {

@@ -1,9 +1,9 @@
 import { useEffect, useEffectEvent, useMemo, useState } from "react";
 
-import { SessionExpiredError } from "./species";
+import { SessionExpiredError } from "./adminResponse";
 
 type LoadState<T> =
-  { items: T[]; status: "ready" } | { status: "error" } | { status: "loading" };
+  { data: T; status: "ready" } | { status: "error" } | { status: "loading" };
 
 export function includesQuery(values: string[], query: string) {
   const needle = query.trim().toLowerCase();
@@ -15,20 +15,20 @@ export function unique<T>(values: T[]) {
   return [...new Set(values)].sort();
 }
 
-export function useAdminList<T>(
-  load: () => Promise<T[]>,
+export function useAdminData<T>(
+  load: () => Promise<T>,
   onSessionExpired: () => void,
 ) {
   const [state, setState] = useState<LoadState<T>>({ status: "loading" });
   const [attempt, setAttempt] = useState(0);
   const expire = useEffectEvent(onSessionExpired);
-  const fetchItems = useEffectEvent(load);
+  const fetchData = useEffectEvent(load);
 
   useEffect(() => {
     let active = true;
-    fetchItems().then(
-      (items) => {
-        if (active) setState({ items, status: "ready" });
+    fetchData().then(
+      (data) => {
+        if (active) setState({ data, status: "ready" });
       },
       (error: unknown) => {
         if (!active) return;
@@ -41,15 +41,23 @@ export function useAdminList<T>(
     };
   }, [attempt]);
 
-  const items = useMemo(
-    () => (state.status === "ready" ? state.items : []),
-    [state],
-  );
-
   function reload() {
     setState({ status: "loading" });
     setAttempt((count) => count + 1);
   }
 
-  return { items, reload, status: state.status };
+  return {
+    data: state.status === "ready" ? state.data : undefined,
+    reload,
+    status: state.status,
+  };
+}
+
+export function useAdminList<T>(
+  load: () => Promise<T[]>,
+  onSessionExpired: () => void,
+) {
+  const { data, reload, status } = useAdminData(load, onSessionExpired);
+  const items = useMemo(() => data ?? [], [data]);
+  return { items, reload, status };
 }

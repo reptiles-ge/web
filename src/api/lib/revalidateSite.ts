@@ -38,6 +38,10 @@ export function revalidateNewsSection(env: ApiBindings) {
   return revalidateSite(env, ["news"]);
 }
 
+export function revalidateSpeciesPage(env: ApiBindings, id: string) {
+  return revalidateSite(env, [`species:${id}`]);
+}
+
 export async function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
   const tags = ["species", ...ids.map((id) => `species:${id}`)];
   for (let start = 0; start < tags.length; start += MAX_TAGS_PER_REQUEST) {
