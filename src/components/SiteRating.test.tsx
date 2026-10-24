@@ -23,7 +23,7 @@ function renderRating() {
 
 function sentBody() {
   const [url, init] = vi.mocked(fetch).mock.calls[0]!;
-  expect(String(url)).toBe("https://api.reptiles.ge/v1/ratings");
+  expect(String(url)).toBe("/api/rating");
   expect(init?.method).toBe("POST");
   return JSON.parse(String(init?.body)) as Record<string, unknown>;
 }
