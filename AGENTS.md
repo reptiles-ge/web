@@ -261,7 +261,7 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 ## Commands
 
 ```bash
-pnpm dev                  # compile (news, content dates, slug table, map), then next dev
+pnpm dev                  # compile (news, content dates, slug table, images), then next dev
 pnpm build
 pnpm lint
 pnpm doctor               # React Doctor health scan
