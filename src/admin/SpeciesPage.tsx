@@ -90,7 +90,7 @@ export function SpeciesPage({
     {
       key: "name",
       render: (_, item) => (
-        <Space direction="vertical" size={0}>
+        <Space orientation="vertical" size={0}>
           <Typography.Text strong>{item.commonName.ka}</Typography.Text>
           <Typography.Text type="secondary">
             {item.commonName.en ?? "—"} · <i>{item.scientificName}</i>
@@ -173,7 +173,7 @@ export function SpeciesPage({
   }
 
   return (
-    <Space direction="vertical" size="middle" style={{ width: "100%" }}>
+    <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
       <Flex align="center" gap="middle" justify="space-between" wrap>
         <Typography.Title level={3} style={{ margin: 0 }}>
           Species
