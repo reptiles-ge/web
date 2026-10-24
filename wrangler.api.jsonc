@@ -14,6 +14,7 @@
   ],
   "vars": {
     "ALLOWED_ORIGINS": "https://reptiles.ge,https://admin.reptiles.ge",
+    "API_KEY_MODE": "off",
   },
   "ratelimits": [
     {
@@ -42,8 +43,13 @@
       "simple": { "limit": 30, "period": 60 },
     },
     {
-      "name": "UPLOAD_LIMITER",
+      "name": "API_KEY_LIMITER",
       "namespace_id": "1235",
+      "simple": { "limit": 120, "period": 60 },
+    },
+    {
+      "name": "UPLOAD_LIMITER",
+      "namespace_id": "1236",
       "simple": { "limit": 30, "period": 60 },
     },
   ],

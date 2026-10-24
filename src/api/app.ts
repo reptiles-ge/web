@@ -6,9 +6,12 @@ import { secureHeaders } from "hono/secure-headers";
 
 import type { ApiEnv } from "./env";
 
+import { needsApiKey } from "./lib/apiKeys";
 import { ApiError, errorResponse, handleError } from "./lib/errors";
 import { allowedOrigins } from "./lib/origins";
 import { noindex } from "./middleware/noindex";
+import { requireApiKey } from "./middleware/requireApiKey";
+import { adminApiKeys } from "./routes/adminApiKeys";
 import { adminAuthors } from "./routes/adminAuthors";
 import { adminDrafts } from "./routes/adminDrafts";
 import { adminNews } from "./routes/adminNews";
@@ -58,6 +61,7 @@ export const app = new Hono<ApiEnv>()
     }),
   )
   .use((c, next) => bodyLimitFor(c.req.path)(c, next))
+  .use((c, next) => (needsApiKey(c.req.path) ? requireApiKey(c, next) : next()))
   .use(etag())
   .route("/v1/species", species)
   .route("/v1/catalog", catalog)
@@ -68,6 +72,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/ratings", ratings)
   .route("/v1/views", views)
   .route("/v1/auth", auth)
+  .route("/v1/admin/api-keys", adminApiKeys)
   .route("/v1/admin/authors", adminAuthors)
   .route("/v1/admin/drafts", adminDrafts)
   .route("/v1/admin/news", adminNews)
