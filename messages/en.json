@@ -4295,7 +4295,7 @@
     "metaTitle": "API for developers",
     "metaDescription": "The Reptiles.ge API: species profiles, risk levels and credited photos of Georgia's animals as JSON, in four languages. Request an API key.",
     "brand": "For developers",
-    "version": "API v1 · beta",
+    "version": "API v1",
     "title": "Georgia's wildlife, in your app",
     "body": "Species profiles, regions, risk levels and credited field photos — as structured JSON, in four languages.",
     "bodyShort": "Species, regions, risk levels and credited photos — as JSON, in four languages.",
