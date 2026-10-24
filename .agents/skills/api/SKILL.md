@@ -170,6 +170,16 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `ALLOWED_ORIGINS` is a var in `wrangler.api.jsonc` (`https://reptiles.ge,https://admin.reptiles.ge`). For local work, add your dev origin in `.dev.vars`, and point the site at the local API with `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`.
 - The site CSP `connect-src` allows `https://api.reptiles.ge` (and `http://localhost:8787` in development). Keep it in sync if the API origin changes.
 
+### View counts
+
+- Species and news pages are cached (site and API edge), so the server never sees a page view. `ContentViewBeacon` (`src/components/ContentViewBeacon.tsx`, on species profiles from `createSpeciesRoute.tsx` and on `NewsArticlePage`) posts `{ kind: "species" | "news", id }` (`src/lib/contentViewInput.ts`) to `POST /v1/views` after hydration. A news `id` is its slug.
+- The browser sends at most one beacon per page per UTC day (`localStorage` key `reptiles:viewed:<kind>:<id>`) and none when `navigator.webdriver` is set. That only saves requests; the API does the real dedupe.
+- `POST /v1/views` (`routes/views.ts`): `requireSiteOrigin`, `rateLimitViews` (`VIEW_LIMITER`, 30/min per IP), validation, then `202` with no body. Counting runs in `inBackground`, and requests with no user agent or a bot user agent are not counted.
+- Migration `0014_content_views.sql`: `content_views (kind, target_id, day, views)` holds the counts per UTC day; the total is the sum. One visitor counts once per target per UTC day.
+- The visitor is `SHA-256(daily salt, IP, User-Agent, Accept-Language)`, kept in `content_view_visitors` for that day only. The salt is 32 random bytes per day in `content_view_salts`. Each count deletes visitors and salts from earlier days, so a stored hash cannot be linked to an IP or to another day. No IP address or user agent is stored.
+- Only published targets count (`EXISTS` on `species.status` / `news_articles.status`). An unknown id is still answered `202`.
+- `/v1/views` is in `UNDOCUMENTED_PATH_PREFIXES`.
+
 ### Species writes (phase 2)
 
 - **D1 is the source of truth for species.** Change content only through `PUT /v1/admin/species/:id` or an approved draft. Never with raw SQL.
