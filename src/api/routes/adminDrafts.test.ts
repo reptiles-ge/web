@@ -260,6 +260,53 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
     expect((await live()).version).toBe(2);
   });
 
+  it("keeps the live field records and range map when merging a draft saved without them", async () => {
+    const { record: before } = await live();
+    expect(before.fieldRecords.length).toBeGreaterThan(0);
+    expect(before.rangeMap).not.toBeNull();
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    const stored = sqlite
+      .prepare("SELECT record FROM species_drafts WHERE id = ?")
+      .get(draftId) as { record: string };
+    const legacy = JSON.parse(stored.record) as Partial<SpeciesRecord>;
+    delete legacy.fieldRecords;
+    delete legacy.rangeMap;
+    sqlite
+      .prepare("UPDATE species_drafts SET record = ? WHERE id = ?")
+      .run(JSON.stringify(legacy), draftId);
+    expect((await decide(draftId, "merge")).response.status).toBe(200);
+    const { record: after } = await live();
+    expect(after.base.overview).toBe("AI overview");
+    expect(after.fieldRecords).toStrictEqual(before.fieldRecords);
+    expect(after.rangeMap).toStrictEqual(before.rangeMap);
+  });
+
+  it("merges field record and range map changes", async () => {
+    const draftId = await propose((record) => {
+      record.fieldRecords = [
+        ...record.fieldRecords.slice(1),
+        { evidence: "observation", lat: 41.7, lng: 44.8, locality: "Tbilisi" },
+      ];
+      record.rangeMap!.confirmedThreshold = 2;
+      record.rangeMap!.copy.en.intro = "New intro";
+    });
+    const { record: before } = await live();
+    expect((await decide(draftId, "merge")).response.status).toBe(200);
+    const { record: after } = await live();
+    expect(after.fieldRecords).toHaveLength(before.fieldRecords.length);
+    expect(after.fieldRecords.at(-1)).toStrictEqual({
+      evidence: "observation",
+      lat: 41.7,
+      lng: 44.8,
+      locality: "Tbilisi",
+    });
+    expect(after.fieldRecords[0]).toStrictEqual(before.fieldRecords[1]);
+    expect(after.rangeMap!.confirmedThreshold).toBe(2);
+    expect(after.rangeMap!.copy.en.intro).toBe("New intro");
+  });
+
   it("refuses a second merge of the same draft", async () => {
     const draftId = await propose((record) => {
       record.base.overview = "AI overview";

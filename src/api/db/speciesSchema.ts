@@ -8,6 +8,24 @@ const CREDIT_COLUMNS = [
   "credit_photo_confidence_id",
 ] as const;
 
+export const RANGE_MAP_TEXT_COLUMNS = [
+  "range_title",
+  "intro",
+  "map_aria",
+  "official_region_label",
+  "regions_metric_label",
+  "confirmed_status_label",
+] as const;
+
+export const RANGE_MAP_TEXT_KEYS = [
+  "rangeTitle",
+  "intro",
+  "mapAria",
+  "officialRegionLabel",
+  "regionsMetricLabel",
+  "confirmedStatusLabel",
+] as const;
+
 export const SPECIES_TABLES = [
   {
     columns: [
@@ -95,6 +113,19 @@ export const SPECIES_TABLES = [
   {
     columns: ["slug", "species_id"],
     name: "species_slugs",
+  },
+  {
+    columns: [
+      "species_id",
+      "inaturalist_taxon_id",
+      "range_source",
+      "confirmed_threshold",
+    ],
+    name: "species_range_maps",
+  },
+  {
+    columns: ["species_id", "locale", ...RANGE_MAP_TEXT_COLUMNS],
+    name: "species_range_map_texts",
   },
 ] as const;
 

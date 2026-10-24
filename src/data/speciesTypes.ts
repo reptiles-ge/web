@@ -83,6 +83,22 @@ export type SpeciesIdentification = {
   traits: string[];
 };
 
+export type SpeciesRangeMap = {
+  confirmedThreshold?: number;
+  copy: Record<"en" | "ka" | "ru" | "tr", SpeciesRangeMapCopy>;
+  iNaturalistTaxonId: number;
+  rangeSource?: "map-regions" | "record-summary";
+};
+
+export type SpeciesRangeMapCopy = {
+  confirmedStatusLabel?: string;
+  intro?: string;
+  mapAria?: string;
+  officialRegionLabel?: string;
+  rangeTitle?: string;
+  regionsMetricLabel?: string;
+};
+
 export type SpeciesSource = {
   name: string;
   url?: string;
