@@ -73,11 +73,25 @@ describe("POST /api/revalidate", () => {
     );
   });
 
-  it("only accepts species and news tags", async () => {
+  it("revalidates author tags", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    const tags = ["authors", "author:sandro-khakhva", "species", "news"];
+    const response = await POST(request({ tags }, "secret"));
+    expect(response.status).toBe(204);
+    for (const tag of tags) {
+      expect(revalidateTag).toHaveBeenCalledWith(tag, "max");
+    }
+    expect(refreshSpeciesApiCache).toHaveBeenCalledWith(tags);
+  });
+
+  it("only accepts species, news and author tags", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
     for (const tags of [
       [],
-      ["authors"],
+      ["author"],
+      ["authors:sandro-khakhva"],
+      ["author:Bad Id"],
+      ["contributors"],
       ["species:Bad Id"],
       ["news:Bad Slug"],
       "species",

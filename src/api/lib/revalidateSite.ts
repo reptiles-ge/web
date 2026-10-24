@@ -1,5 +1,9 @@
 import type { ApiBindings } from "../env";
 
+export function revalidateAuthorPages(env: ApiBindings, id: string) {
+  return revalidateSite(env, ["authors", `author:${id}`, "species", "news"]);
+}
+
 export function revalidateNewsPages(env: ApiBindings, slug: string) {
   return revalidateSite(env, ["news", `news:${slug}`]);
 }
