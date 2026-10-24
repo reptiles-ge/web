@@ -539,6 +539,8 @@
     "viewPhotos": "{count, plural, one {View # photo} other {View # photos}}",
     "lastUpdated": "Last updated",
     "updatedOn": "Updated:",
+    "updatedShort": "Updated {date}",
+    "viewCount": "{count, plural, one {# view} other {# views}}",
     "sourcesEyebrow": "References",
     "sourcesTitle": "Sources",
     "sourcesProfileTitle": "What this profile is based on",

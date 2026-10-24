@@ -23,6 +23,7 @@ import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesGuideFeature } from "@/components/SpeciesGuideFeature";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
+import { SpeciesPageStats } from "@/components/SpeciesPageStats";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
 import { SpeciesSourcesRelated } from "@/components/SpeciesSourcesRelated";
@@ -39,14 +40,13 @@ import {
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
+import { formatPhotoDate } from "@/lib/formatDate";
 import {
   getSpeciesIdentificationPhoto,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
-import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 import {
   SPECIES_SECTION_IDS,
   type SpeciesProfileSectionAvailability,
@@ -77,6 +77,7 @@ type SpeciesProfileBodyProps = {
   related: CatalogCard[];
   showIdentification: boolean;
   species: Species;
+  views: number;
 };
 
 const HALYOMORPHA_ANNOTATED_IMAGE_SRC =
@@ -150,6 +151,7 @@ export async function SpeciesProfileBody({
   related,
   showIdentification,
   species,
+  views,
 }: SpeciesProfileBodyProps) {
   const [t, contributors] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
@@ -172,6 +174,7 @@ export async function SpeciesProfileBody({
         linkDangerStats={linkDangerStats}
         locale={locale}
         species={species}
+        views={views}
       />
 
       <SpeciesProfileNavigation
@@ -194,6 +197,7 @@ export async function SpeciesProfileBody({
           sources: species.sources.length > 0,
         }}
         updatedAt={species.updatedAt}
+        views={views}
       />
 
       <section className="bg-surface py-11 lg:py-20">
@@ -711,6 +715,7 @@ async function SpeciesProfileNavigation({
   riskLevel,
   sections,
   updatedAt,
+  views,
 }: {
   counts: Partial<Record<string, number>>;
   locale: AppLocale;
@@ -719,11 +724,9 @@ async function SpeciesProfileNavigation({
   riskLevel?: DangerLevel;
   sections: SpeciesProfileSectionAvailability;
   updatedAt?: string;
+  views: number;
 }) {
-  const [t, tAttribution] = await Promise.all([
-    getTranslations({ locale, namespace: "profile" }),
-    getTranslations({ locale, namespace: "attribution" }),
-  ]);
+  const t = await getTranslations({ locale, namespace: "profile" });
   const availableIds = speciesProfileSectionIds(sections);
   const sectionOrder = [
     SPECIES_SECTION_IDS.overview,
@@ -751,13 +754,12 @@ async function SpeciesProfileNavigation({
       ariaLabel={t("contents")}
       items={ids.map((id) => ({ count: counts[id], id, label: labels[id] }))}
       meta={
-        updatedAt && hasMeaningfulUpdate(publishedAt, updatedAt) ? (
-          <time dateTime={updatedAt}>
-            {tAttribution("updated", {
-              date: formatContentDate(updatedAt, locale),
-            })}
-          </time>
-        ) : null
+        <SpeciesPageStats
+          locale={locale}
+          publishedAt={publishedAt}
+          updatedAt={updatedAt}
+          views={views}
+        />
       }
       name={name}
       riskLevel={riskLevel}
@@ -775,6 +777,7 @@ async function SpeciesProfileSummary({
   linkDangerStats,
   locale,
   species,
+  views,
 }: Pick<
   SpeciesProfileBodyProps,
   | "dangerValue"
@@ -786,6 +789,7 @@ async function SpeciesProfileSummary({
   | "linkDangerStats"
   | "locale"
   | "species"
+  | "views"
 >) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const riskLevel = getSpeciesRiskChip(species)?.level;
@@ -828,8 +832,11 @@ async function SpeciesProfileSummary({
           editable={editable}
           linkDangerStats={linkDangerStats}
           locale={locale}
+          publishedAt={species.publishedAt}
           speciesId={species.id}
           stats={species.stats}
+          updatedAt={species.updatedAt}
+          views={views}
         />
         {interactionBody ? (
           <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 max-lg:order-1 lg:col-span-full lg:mx-0 lg:mt-0 lg:rounded-[26px] lg:px-7 lg:py-6">
