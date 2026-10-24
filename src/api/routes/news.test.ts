@@ -205,6 +205,27 @@ describe("GET /v1/news/:slug", () => {
     expect(slugs(en.body)).not.toContain(slug);
   });
 
+  it("returns the article's views summed over every day", async () => {
+    const viewed = createNewsTestDatabase();
+    const [first, second] = getPublishedNewsArticles();
+    viewed.sqlite
+      .prepare(
+        "INSERT INTO content_views (kind, target_id, day, views) VALUES ('news', ?1, '2026-10-23', 4), ('news', ?1, '2026-10-24', 3), ('species', ?1, '2026-10-24', 9)",
+      )
+      .run(first!.slug);
+    const viewedEnv = { DB: viewed.db };
+    const counted = await requestJson<DetailBody & { views: number }>(
+      `/v1/news/${first!.slug}`,
+      viewedEnv,
+    );
+    const unseen = await requestJson<DetailBody & { views: number }>(
+      `/v1/news/${second!.slug}`,
+      viewedEnv,
+    );
+    expect(counted.body.views).toBe(7);
+    expect(unseen.body.views).toBe(0);
+  });
+
   it("hides drafts and answers 404 for unknown slugs", async () => {
     const drafts = createNewsTestDatabase();
     const slug = getPublishedNewsArticles()[0]!.slug;

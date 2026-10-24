@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import type { ApiEnv } from "../env";
 
 import { getPublishedNews, listPublishedNews } from "../db/newsView";
+import { readViewTotal } from "../db/views";
 import { edgeCache, PUBLIC_CACHE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import { validate } from "../lib/validate";
@@ -41,14 +42,14 @@ export const news = new Hono<ApiEnv>()
     validate("param", newsParam),
     validate("header", localeHeader),
     async (c) => {
-      const found = await getPublishedNews(
-        c.env.DB,
-        c.req.valid("param").slug,
-        c.req.valid("header")["x-locale"],
-      );
+      const { slug } = c.req.valid("param");
+      const [found, views] = await Promise.all([
+        getPublishedNews(c.env.DB, slug, c.req.valid("header")["x-locale"]),
+        readViewTotal(c.env.DB, "news", slug),
+      ]);
       if (!found) throw new ApiError(404, "not_found", "Article not found");
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", found.locale);
-      return c.json(found, 200);
+      return c.json({ ...found, views }, 200);
     },
   );

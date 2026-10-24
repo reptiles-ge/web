@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { ViewCount } from "@/components/ViewCount";
 import { cn } from "@/lib/cn";
 import { formatContentDateShort } from "@/lib/formatDate";
 import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
@@ -13,13 +14,6 @@ type SpeciesPageStatsProps = {
   publishedAt?: string;
   updatedAt?: string;
   views: number;
-};
-
-const COUNT_LOCALE: Record<AppLocale, string> = {
-  en: "en-US",
-  ka: "en-US",
-  ru: "ru-RU",
-  tr: "tr-TR",
 };
 
 export async function SpeciesPageStats({
@@ -49,30 +43,13 @@ export async function SpeciesPageStats({
       )}
     >
       {showViews ? (
-        <span
-          className={cn(
-            "inline-flex items-center",
-            compact ? "gap-2" : "gap-1.5",
-          )}
-        >
-          <svg
-            aria-hidden="true"
-            className={cn(
-              "shrink-0 fill-none stroke-current stroke-[1.75]",
-              compact ? "size-3.5" : "size-[15px]",
-            )}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-          <span aria-hidden="true">
-            {new Intl.NumberFormat(COUNT_LOCALE[locale]).format(views)}
-          </span>
-          <span className="sr-only">{t("viewCount", { count: views })}</span>
-        </span>
+        <ViewCount
+          className={compact ? "gap-2" : "gap-1.5"}
+          count={views}
+          iconClassName={compact ? "size-3.5" : "size-[15px]"}
+          label={t("viewCount", { count: views })}
+          locale={locale}
+        />
       ) : null}
       {showViews && updated ? (
         <span

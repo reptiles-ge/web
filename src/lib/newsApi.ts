@@ -130,6 +130,7 @@ export const getNewsArticle = cache(
       ),
       status: "published",
       ...(base.updatedAt ? { updatedAt: base.updatedAt } : {}),
+      views: ka.views,
     };
   },
 );

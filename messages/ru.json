@@ -929,6 +929,8 @@
     "clear": "Очистить",
     "latest": "Свежие",
     "readTime": "{minutes} мин чтения",
+    "readTimeShort": "{minutes} мин",
+    "viewCount": "{count, plural, one {# просмотр} few {# просмотра} many {# просмотров} other {# просмотра}}",
     "howWeWriteEyebrow": "Как мы пишем",
     "howWeWrite": "К каждой статье приложен первоисточник — научная работа, полевой учёт или официальное сообщение.",
     "methodologyLink": "Стандарты и источники",

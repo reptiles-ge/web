@@ -929,6 +929,8 @@
     "clear": "Clear",
     "latest": "Latest",
     "readTime": "{minutes} min read",
+    "readTimeShort": "{minutes} min",
+    "viewCount": "{count, plural, one {# view} other {# views}}",
     "howWeWriteEyebrow": "How we write",
     "howWeWrite": "Every article cites a primary source — a scientific paper, a field survey or an official statement.",
     "methodologyLink": "Standards & sources",
