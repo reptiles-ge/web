@@ -17,23 +17,14 @@ export const news = new Hono<ApiEnv>()
     validate("query", newsListQuery),
     async (c) => {
       const { "x-locale": locale } = c.req.valid("header");
-      const { cursor, limit, ...filters } = c.req.valid("query");
-      const entries = await listPublishedNews(c.env.DB, locale, filters);
-      const start = cursor
-        ? entries.findIndex((entry) => entry.slug === cursor) + 1
-        : 0;
-      if (start === 0 && cursor) {
-        throw new ApiError(400, "invalid_request", "Unknown cursor", [
-          { message: "No article with this slug in the list", path: "cursor" },
-        ]);
-      }
-      const end = limit === undefined ? entries.length : start + limit;
-      const data = entries.slice(start, end);
-      const nextCursor =
-        end < entries.length ? (data.at(-1)?.slug ?? null) : null;
+      const { limit, page, ...filters } = c.req.valid("query");
+      const result = await listPublishedNews(c.env.DB, locale, filters, {
+        limit,
+        page,
+      });
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", locale);
-      return c.json({ data, locale, nextCursor, total: entries.length }, 200);
+      return c.json({ ...result, locale }, 200);
     },
   )
   .get(
