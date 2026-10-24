@@ -6,6 +6,7 @@ export const PAGE_MESSAGE_NAMESPACES: Readonly<
   "/authors": ["author"],
   "/contact": ["contact"],
   "/dangerous-animals": ["dangerousAnimals"],
+  "/developers": ["developers"],
   "/photo-use": ["photoUse"],
   "/privacy": ["legal.privacy"],
   "/quiz": ["quizzes"],

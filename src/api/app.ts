@@ -11,6 +11,7 @@ import { ApiError, errorResponse, handleError } from "./lib/errors";
 import { allowedOrigins } from "./lib/origins";
 import { noindex } from "./middleware/noindex";
 import { requireApiKey } from "./middleware/requireApiKey";
+import { accessRequests } from "./routes/accessRequests";
 import { adminApiKeys } from "./routes/adminApiKeys";
 import { adminAuthors } from "./routes/adminAuthors";
 import { adminDrafts } from "./routes/adminDrafts";
@@ -71,6 +72,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/news", news)
   .route("/v1/images", images)
   .route("/v1/ratings", ratings)
+  .route("/v1/access-requests", accessRequests)
   .route("/v1/views", views)
   .route("/v1/auth", auth)
   .route("/v1/admin/api-keys", adminApiKeys)

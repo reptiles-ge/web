@@ -156,7 +156,7 @@ curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/speci
 curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
 \`\`\`
 
-Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the contact page](https://reptiles.ge/en/contact). Keys start with \`rpt_\` and can expire or be revoked. Keep the key on your server: do not put it in browser code. Browsers on other sites cannot send the header anyway, because cross-origin requests do not allow it. To try a request here, enter the key under "Authentication".
+Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the developers page](https://reptiles.ge/en/developers). Keys start with \`rpt_\` and can expire or be revoked. Keep the key on your server: do not put it in browser code. Browsers on other sites cannot send the header anyway, because cross-origin requests do not allow it. To try a request here, enter the key under "Authentication".
 
 Each key may make 120 requests per minute. Responses served from the edge cache count too.
 
@@ -487,6 +487,7 @@ const OPERATIONS: Operation[] = [
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = [
+  "/v1/access-requests",
   "/v1/admin/",
   "/v1/auth/",
   "/v1/ratings",

@@ -104,6 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       );
     add(page("/"));
     add(page("/contact"));
+    add(page("/developers"));
     add(page("/about"));
     add(page("/photo-use"));
     for (const path of Object.values(LEGAL_PATHS)) add(page(path));
