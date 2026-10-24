@@ -79,7 +79,7 @@ export async function listPublishedNews(
 ) {
   const query = q?.toLocaleLowerCase();
   const entries = (await publishedNewsSummaries(db, locale, filters)).filter(
-    (entry) => !query || newsSearchText(entry).includes(query),
+    (entry) => !query || matchesNewsQuery(entry, query),
   );
   const matches = hub
     ? entries.filter((entry) => entry.relatedHubIds.includes(hub))
@@ -105,6 +105,10 @@ function localeLinksSpecies(
 function localizePhoto(photo: NewsPhoto, locale: AppLocale): NewsPhotoView {
   const { alt, ...rest } = photo;
   return { ...rest, alt: alt[locale] ?? alt.ka };
+}
+
+function matchesNewsQuery(entry: NewsSummaryView, query: string) {
+  return newsSearchText(entry).includes(query);
 }
 
 function newsDetail(article: NewsArticle, locale: AppLocale): NewsDetailView {
