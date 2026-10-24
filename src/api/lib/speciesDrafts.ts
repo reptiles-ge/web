@@ -18,7 +18,17 @@ export async function approveSpeciesDraft(
   draft: Draft,
   actor: string,
 ) {
-  const checked = speciesRecordSchema.safeParse(draft.record);
+  const current = await readSpeciesVersion(db, draft.speciesId);
+  if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
+  const live = (await readSpeciesRecord(db, draft.speciesId))?.record ?? null;
+  const saved: Partial<SpeciesRecord> = draft.record;
+  const record: SpeciesRecord = {
+    ...draft.record,
+    fieldRecords: saved.fieldRecords ?? live?.fieldRecords ?? [],
+    rangeMap:
+      saved.rangeMap === undefined ? (live?.rangeMap ?? null) : saved.rangeMap,
+  };
+  const checked = speciesRecordSchema.safeParse(record);
   if (!checked.success) {
     throw new ApiError(
       400,
@@ -27,19 +37,21 @@ export async function approveSpeciesDraft(
       checked.error.issues,
     );
   }
-  const current = await readSpeciesVersion(db, draft.speciesId);
-  if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
-  const baseRecord =
-    draft.baseRecord ??
-    (await readSpeciesRecord(db, draft.speciesId))?.record ??
-    null;
   try {
     return await saveSpeciesRecord(
       db,
-      draft.record,
+      record,
       draft.baseVersion,
       { actor, source: draft.source, summary: draft.summary },
-      [decideDraftStatement(db, draft.id, "approved", actor, baseRecord)],
+      [
+        decideDraftStatement(
+          db,
+          draft.id,
+          "approved",
+          actor,
+          draft.baseRecord ?? live,
+        ),
+      ],
     );
   } catch (error) {
     await ensureStillPending(db, draft.id);

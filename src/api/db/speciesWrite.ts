@@ -1,6 +1,8 @@
 import type { ApiDatabase } from "./database";
 
 import { relinkSpeciesAuthors } from "./authors";
+import { fieldRecordStatements, readFieldRecords } from "./fieldRecords";
+import { readRangeMap } from "./rangeMaps";
 import { readSpeciesCatalog } from "./speciesCatalog";
 import {
   type SpeciesRecord,
@@ -41,16 +43,22 @@ export async function readSpeciesRecord(db: ApiDatabase, id: string) {
       version: number;
     }>();
   if (!row) return null;
-  const catalog = await readSpeciesCatalog(db, id);
+  const [catalog, fieldRecords, rangeMap] = await Promise.all([
+    readSpeciesCatalog(db, id),
+    readFieldRecords(db, id),
+    readRangeMap(db, id),
+  ]);
   const base = catalog.species[0];
   const meta = catalog.atlasMeta[id];
   if (!base || !meta) return null;
   const record: SpeciesRecord = {
     base,
     catalogPosition: row.catalog_position,
+    fieldRecords,
     group: meta.group,
     habitats: meta.habitats,
     lookalikes: catalog.lookalikes[id] ?? [],
+    rangeMap,
     slugKa: catalog.kaSlugById[id] ?? null,
     slugs: Object.keys(catalog.idByAnySlug).sort(),
     status: row.status,
@@ -110,6 +118,7 @@ export async function writeSpeciesRecord(
         ({ sql, values }) => db.prepare(sql).bind(...values),
       ),
     ),
+    ...fieldRecordStatements(db, id, record.fieldRecords),
     ...relinkSpeciesAuthors(db, id),
     ...alsoRun,
   ];

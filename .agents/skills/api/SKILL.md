@@ -248,9 +248,16 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 ### Field records
 
-- `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. It is **a separate resource**, not part of `SpeciesRecord`, so record writes never rewrite them.
+- `species_field_records` (migration `0005`) holds observation, literature and specimen locations: about 13.8k rows for 96 species. They are part of `SpeciesRecord` (`fieldRecords`, in position order), so `PUT`, the photo actions, text saves and merged drafts all write them back. `fieldRecordStatements` (`db/fieldRecords.ts`) rewrites them with one `DELETE` and one `INSERT … SELECT … FROM json_each(?)`, so a species with 1,000 records stays two statements; never switch it to per-row inserts.
 - Public read: `GET /v1/species/:slug/field-records` (same slug and `X-Locale` rule) returns `{ data, id, total }`, edge-cached.
 - They were copied once from MDX. The site reads them through `getSpeciesFieldRecords(id)` (`src/lib/speciesFieldRecordsApi.ts`) for the profile map, and through `/api/occurrences/{id}/{locale}` for the map's records.
+
+### Range maps
+
+- Migration `0018_species_range_maps.sql` adds `species_range_maps` (one row per species with an interactive map: `inaturalist_taxon_id`, `range_source`, `confirmed_threshold`) and `species_range_map_texts` (per locale, only the texts that differ from the site defaults: `range_title`, `intro`, `map_aria`, `official_region_label`, `regions_metric_label`, `confirmed_status_label`). `0019_species_range_maps_backfill.sql` copied the 96 maps that lived in `src/data/speciesRangeMaps/{id}.ts`, with their per-species thresholds.
+- They are `rangeMap` in `SpeciesRecord` (`null` without a map), read by `readRangeMap` (`db/rangeMaps.ts`) and written by the row builder like the other species tables.
+- Public read: `GET /v1/species/:slug/range-map` (same slug and `X-Locale` rule) returns `{ data, id, locale }`, `data` being the settings plus that locale's `copy`, or `null`. The site reads it through `getSpeciesRangeMap(id, locale)` (`src/lib/speciesRangeMapApi.ts`) and merges `copy` over `HALYOMORPHA_RANGE_COPY`.
+- A merged draft that was saved before `fieldRecords` and `rangeMap` were part of the record keeps the live values for both (`approveSpeciesDraft`), so an old draft never empties a map.
 
 ### Authors
 
@@ -297,7 +304,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Approve and reject are safe against races: `decideDraftStatement` sets `decided_by` to `NULL` when the row is no longer pending, which breaks the table's `CHECK`, so a draft decided between the read and the write aborts the whole batch (answered as 400 `Draft is already …`). A second merge of the same draft answers 400; a stale one 409 `version_conflict` and stays pending.
 - **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. A local AI submits drafts with `pnpm species:draft` (`scripts/species-draft.ts`, playbook in `.agents/skills/species-drafts/SKILL.md`): it reads `GET /v1/admin/species/:id`, checks the edited record against `speciesRecordSchema`, refuses changes to status, group, slugs, ids, cover images or gallery `src`, and posts `POST /v1/admin/species/:id/drafts` only. The selection editor (`src/lib/contentEditorSpecies.ts`) and AI page texts (`processSpeciesTexts`) build the draft record from the API record (`src/lib/speciesRecordFields.ts`) and return `reviewUrl` (`/admin/:id#draft-N`).
 - The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
-- Not yet on the API: adding field records, AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase. Adding a photo is on the API (see "Photo uploads").
+- Not yet on the API: AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase. Adding a photo is on the API (see "Photo uploads").
 
 ### Species pages (SSR from the API)
 

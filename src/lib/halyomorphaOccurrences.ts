@@ -41,6 +41,8 @@ export type HalyomorphaOccurrenceSummary = {
   totalRecords: number;
 };
 
+export const DEFAULT_CONFIRMED_RECORD_THRESHOLD = 5;
+
 export type HalyomorphaRegionSummary = {
   center?: { lat: number; lng: number };
   count: number;
@@ -136,28 +138,6 @@ const MERTENSIELLA_SOURCE_CONFIRMED_REGIONS = new Set<RegionPathId>([
   "shida-kartli",
 ]);
 
-export function confirmedRecordThresholdForSpecies(speciesId: string) {
-  if (speciesId === "aquila-chrysaetos") return 4;
-  if (speciesId === "ursus-arctos") return 8;
-  if (
-    speciesId === "canis-aureus" ||
-    speciesId === "cheiracanthium-punctorium" ||
-    speciesId === "columba-palumbus" ||
-    speciesId === "coturnix-coturnix" ||
-    speciesId === "lanius-collurio" ||
-    speciesId === "latrodectus-tredecimguttatus" ||
-    speciesId === "meles-canescens" ||
-    speciesId === "mustela-nivalis" ||
-    speciesId === "natrix-natrix" ||
-    speciesId === "vipera-renardi" ||
-    speciesId === "zamenis-hohenackeri" ||
-    speciesId === "zamenis-longissimus"
-  )
-    return 1;
-  if (speciesId === "platyceps-najadum") return 3;
-  return 5;
-}
-
 export function getHalyomorphaFieldRecords({
   fieldRecords,
   gallery,
@@ -197,7 +177,7 @@ export function getHalyomorphaFieldRecords({
 export function getHalyomorphaOccurrenceSummary(
   records: HalyomorphaFieldRecord[],
   locale: AppLocale,
-  confirmedRecordThreshold = 5,
+  confirmedRecordThreshold = DEFAULT_CONFIRMED_RECORD_THRESHOLD,
 ): HalyomorphaOccurrenceSummary {
   const years = records.flatMap((record) => yearFromDate(record.date));
   const mertensiellaRecords = records.some(
@@ -261,7 +241,7 @@ export function getHalyomorphaRegionRecords(
 
 export function occurrenceStatusForCount(
   count: number,
-  confirmedRecordThreshold = 5,
+  confirmedRecordThreshold = DEFAULT_CONFIRMED_RECORD_THRESHOLD,
 ): HalyomorphaOccurrenceStatus {
   return count < confirmedRecordThreshold ? "recorded-only" : "confirmed";
 }

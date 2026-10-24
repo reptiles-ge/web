@@ -351,6 +351,45 @@ const fieldRecord = component(
   "A dated location where the species was recorded in Georgia.",
 );
 
+const rangeMapText = (description: string) =>
+  doc(z.string(), description).optional();
+
+const rangeMap = component(
+  "RangeMap",
+  z.strictObject({
+    confirmedThreshold: doc(
+      z.int().min(1),
+      "Records a region needs before it counts as a region where the species is recorded. Missing means the default of 5.",
+      [1],
+    ).optional(),
+    copy: doc(
+      z.strictObject({
+        confirmedStatusLabel: rangeMapText(
+          "Label for regions with enough records.",
+        ),
+        intro: rangeMapText("Text above the map."),
+        mapAria: rangeMapText("Accessible name of the map."),
+        officialRegionLabel: rangeMapText("Legend label for a shaded region."),
+        rangeTitle: rangeMapText("Heading of the map section."),
+        regionsMetricLabel: rangeMapText(
+          "Label for the number of shaded regions.",
+        ),
+      }),
+      "Texts of this map in the requested locale that differ from the site's defaults. A missing key uses the default text.",
+    ),
+    iNaturalistTaxonId: doc(
+      z.int().min(1),
+      "iNaturalist taxon id the map links to.",
+      [39782],
+    ),
+    rangeSource: doc(
+      z.enum(["map-regions", "record-summary"]),
+      "Which regions are shaded: `record-summary` shades regions with enough field records; `map-regions` (or missing) shades the species' regions from the atlas.",
+    ).optional(),
+  }),
+  "Settings and texts of the interactive range map on a species page.",
+);
+
 const total = doc(z.int().min(0), "Number of items in `data`.");
 
 const resolvedLocale = doc(locale, "Locale of the texts in `data`.");
@@ -450,6 +489,16 @@ export const fieldRecordsResponse = component(
     total,
   }),
   "Field records of one species.",
+);
+
+export const rangeMapResponse = component(
+  "RangeMapResponse",
+  z.strictObject({
+    data: rangeMap.nullable(),
+    id: doc(speciesId, "Species id the map belongs to."),
+    locale: resolvedLocale,
+  }),
+  "Interactive range map of one species, or `null` when its page has none.",
 );
 
 export const catalogCardResponse = component(
