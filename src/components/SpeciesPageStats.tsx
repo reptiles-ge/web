@@ -30,10 +30,6 @@ export async function SpeciesPageStats({
   const showViews = views > 0;
   if (!showViews && !updated) return null;
 
-  const updatedLabel = updated
-    ? t("updatedShort", { date: formatContentDateShort(updated, locale) })
-    : null;
-
   return (
     <div
       className={cn(
@@ -57,20 +53,38 @@ export async function SpeciesPageStats({
           className="size-[3px] shrink-0 rounded-full bg-muted-foreground/50"
         />
       ) : null}
-      {updated && updatedLabel ? (
-        compact ? (
-          <time dateTime={updated}>
-            <span aria-hidden="true">
-              {formatContentDateShort(updated, locale, {
-                omitCurrentYear: true,
-              })}
-            </span>
-            <span className="sr-only">{updatedLabel}</span>
-          </time>
-        ) : (
-          <time dateTime={updated}>{updatedLabel}</time>
-        )
+      {updated ? (
+        <UpdatedDate
+          compact={compact}
+          label={t("updatedShort", {
+            date: formatContentDateShort(updated, locale),
+          })}
+          locale={locale}
+          updated={updated}
+        />
       ) : null}
     </div>
+  );
+}
+
+function UpdatedDate({
+  compact,
+  label,
+  locale,
+  updated,
+}: {
+  compact: boolean;
+  label: string;
+  locale: AppLocale;
+  updated: string;
+}) {
+  if (!compact) return <time dateTime={updated}>{label}</time>;
+  return (
+    <time dateTime={updated}>
+      <span aria-hidden="true">
+        {formatContentDateShort(updated, locale, { omitCurrentYear: true })}
+      </span>
+      <span className="sr-only">{label}</span>
+    </time>
   );
 }

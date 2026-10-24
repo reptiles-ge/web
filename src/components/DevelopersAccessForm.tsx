@@ -52,6 +52,7 @@ export function DevelopersAccessForm({
   const [tried, setTried] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [sentSite, setSentSite] = useState("");
+  const submitting = status === "sending";
 
   const errors = {
     consent: tried && !consent,
@@ -81,14 +82,15 @@ export function DevelopersAccessForm({
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     const valid =
       name.trim() && EMAIL_PATTERN.test(contact) && website.trim() && consent;
     if (!valid) {
       setTried(true);
       return;
     }
-    setStatus("sending");
     try {
+      setStatus("sending");
       const response = await fetch("/api/access-request", {
         body: JSON.stringify({
           consent,
@@ -123,34 +125,7 @@ export function DevelopersAccessForm({
 
   if (status === "sent") {
     return (
-      <div className="flex flex-col items-start py-2" role="status">
-        <span className="inline-flex size-[60px] items-center justify-center rounded-full bg-(--nw-accent) text-white">
-          <Check aria-hidden="true" className="size-7" strokeWidth={2.4} />
-        </span>
-        <p className="mt-5 text-[28px] leading-[1.2] font-semibold">
-          {t("sentTitle")}
-        </p>
-        <p className="mt-2.5 max-w-[480px] text-[16px] leading-[1.65] text-(--nw-muted)">
-          {t.rich("sentBody", {
-            b: (chunks) => (
-              <b className="font-semibold break-all text-(--nw-ink)">
-                {chunks}
-              </b>
-            ),
-            site: sentSite,
-          })}
-        </p>
-        <div className="mt-[22px] flex flex-wrap gap-2.5">
-          {docsLink}
-          <button
-            className="h-[50px] cursor-pointer rounded-full border border-[#d5ddd4] bg-(--nw-card) px-5 text-[15px] font-medium text-(--nw-ink) dark:border-(--nw-line)"
-            onClick={startAgain}
-            type="button"
-          >
-            {t("again")}
-          </button>
-        </div>
-      </div>
+      <SentPanel docsLink={docsLink} onAgain={startAgain} site={sentSite} />
     );
   }
 
@@ -202,64 +177,29 @@ export function DevelopersAccessForm({
         type="url"
         value={website}
       />
-      <OptionGroup label={t("projectType")} labelId={`${id}-type`}>
-        {API_ACCESS_PROJECT_TYPES.map((item) => (
-          <button
-            aria-checked={projectType === item}
-            className={optionClass(projectType === item)}
-            key={item}
-            onClick={() => setProjectType(item)}
-            role="radio"
-            type="button"
-          >
-            {typeLabels[item]}
-          </button>
-        ))}
-      </OptionGroup>
-      <OptionGroup label={t("data")} labelId={`${id}-data`} multiple>
-        {API_ACCESS_DATA.map((item) => {
-          const selected = data.includes(item);
-          return (
-            <button
-              aria-checked={selected}
-              className={optionClass(selected)}
-              key={item}
-              onClick={() =>
-                setData(
-                  selected
-                    ? data.filter((value) => value !== item)
-                    : [...data, item],
-                )
-              }
-              role="checkbox"
-              type="button"
-            >
-              {selected ? (
-                <Check
-                  aria-hidden="true"
-                  className="size-3.5"
-                  strokeWidth={2.4}
-                />
-              ) : null}
-              {dataLabels[item]}
-            </button>
-          );
-        })}
-      </OptionGroup>
-      <OptionGroup label={t("volume")} labelId={`${id}-volume`}>
-        {API_ACCESS_VOLUMES.map((item) => (
-          <button
-            aria-checked={volume === item}
-            className={optionClass(volume === item)}
-            key={item}
-            onClick={() => setVolume(item)}
-            role="radio"
-            type="button"
-          >
-            {volumeLabels[item]}
-          </button>
-        ))}
-      </OptionGroup>
+      <RadioOptions
+        label={t("projectType")}
+        labelId={`${id}-type`}
+        labels={typeLabels}
+        onChange={setProjectType}
+        options={API_ACCESS_PROJECT_TYPES}
+        value={projectType}
+      />
+      <DataOptions
+        label={t("data")}
+        labelId={`${id}-data`}
+        labels={dataLabels}
+        onChange={setData}
+        value={data}
+      />
+      <RadioOptions
+        label={t("volume")}
+        labelId={`${id}-volume`}
+        labels={volumeLabels}
+        onChange={setVolume}
+        options={API_ACCESS_VOLUMES}
+        value={volume}
+      />
       <div className="md:col-span-2">
         <label className={labelClass} htmlFor={`${id}-description`}>
           {t("description")}
@@ -277,69 +217,13 @@ export function DevelopersAccessForm({
           value={description}
         />
       </div>
-      <div className="md:col-span-2">
-        <button
-          aria-checked={consent}
-          aria-describedby={errors.consent ? `${id}-consent-error` : undefined}
-          className="flex cursor-pointer items-start gap-3 border-0 bg-transparent p-0 text-left text-(--nw-ink)"
-          onClick={() => setConsent(!consent)}
-          role="checkbox"
-          type="button"
-        >
-          <span
-            className={cn(
-              "mt-px inline-flex size-[22px] shrink-0 items-center justify-center rounded-[7px] border-2 text-white",
-              consent
-                ? "border-(--nw-accent) bg-(--nw-accent)"
-                : errors.consent
-                  ? "border-(--nw-danger-dot) bg-(--nw-card)"
-                  : "border-(--nw-sep) bg-(--nw-card)",
-            )}
-          >
-            {consent ? (
-              <Check
-                aria-hidden="true"
-                className="size-[13px]"
-                strokeWidth={3}
-              />
-            ) : null}
-          </span>
-          <span className="text-[14px] leading-[1.55]">
-            {t.rich("consent", {
-              b: (chunks) => <b className="font-semibold">{chunks}</b>,
-            })}
-          </span>
-        </button>
-        {errors.consent ? (
-          <p className={cn(errorClass, "ml-[34px]")} id={`${id}-consent-error`}>
-            {t("errorConsent")}
-          </p>
-        ) : null}
-      </div>
-      <div className="flex flex-wrap items-center gap-4 md:col-span-2">
-        <button
-          className={cn(
-            darkButtonClass,
-            "h-14 px-7 text-[16px] disabled:cursor-wait disabled:opacity-70",
-          )}
-          disabled={status === "sending"}
-          type="submit"
-        >
-          {status === "sending" ? t("sending") : t("submit")}
-          <ArrowRight aria-hidden="true" className="size-[17px]" />
-        </button>
-        <span className="text-[13px] text-(--nw-muted)">
-          {t("replyFrom", { email })}
-        </span>
-        {status === "failed" ? (
-          <p
-            className="w-full text-[13.5px] text-(--nw-danger-dot)"
-            role="alert"
-          >
-            {t("failed", { email })}
-          </p>
-        ) : null}
-      </div>
+      <ConsentCheckbox
+        checked={consent}
+        errorId={`${id}-consent-error`}
+        invalid={errors.consent}
+        onToggle={() => setConsent(!consent)}
+      />
+      <SubmitRow email={email} status={status} />
     </form>
   );
 }
@@ -371,6 +255,107 @@ function borderClass(invalid: boolean) {
   return invalid
     ? "border-(--nw-danger-dot)"
     : "border-[#d5ddd4] dark:border-(--nw-line)";
+}
+
+function consentBoxClass(checked: boolean, invalid: boolean) {
+  if (checked) return "border-(--nw-accent) bg-(--nw-accent)";
+  return invalid
+    ? "border-(--nw-danger-dot) bg-(--nw-card)"
+    : "border-(--nw-sep) bg-(--nw-card)";
+}
+
+function ConsentCheckbox({
+  checked,
+  errorId,
+  invalid,
+  onToggle,
+}: {
+  checked: boolean;
+  errorId: string;
+  invalid: boolean;
+  onToggle: () => void;
+}) {
+  const t = useTranslations("developers.form");
+  return (
+    <div className="md:col-span-2">
+      <button
+        aria-checked={checked}
+        aria-describedby={invalid ? errorId : undefined}
+        className="flex cursor-pointer items-start gap-3 border-0 bg-transparent p-0 text-left text-(--nw-ink)"
+        onClick={onToggle}
+        role="checkbox"
+        type="button"
+      >
+        <span
+          className={cn(
+            "mt-px inline-flex size-[22px] shrink-0 items-center justify-center rounded-[7px] border-2 text-white",
+            consentBoxClass(checked, invalid),
+          )}
+        >
+          {checked ? (
+            <Check aria-hidden="true" className="size-[13px]" strokeWidth={3} />
+          ) : null}
+        </span>
+        <span className="text-[14px] leading-[1.55]">
+          {t.rich("consent", {
+            b: (chunks) => <b className="font-semibold">{chunks}</b>,
+          })}
+        </span>
+      </button>
+      {invalid ? (
+        <p className={cn(errorClass, "ml-[34px]")} id={errorId}>
+          {t("errorConsent")}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function DataOptions({
+  label,
+  labelId,
+  labels,
+  onChange,
+  value,
+}: {
+  label: string;
+  labelId: string;
+  labels: Record<ApiAccessData, string>;
+  onChange: (value: ApiAccessData[]) => void;
+  value: ApiAccessData[];
+}) {
+  return (
+    <OptionGroup label={label} labelId={labelId} multiple>
+      {API_ACCESS_DATA.map((item) => {
+        const selected = value.includes(item);
+        return (
+          <button
+            aria-checked={selected}
+            className={optionClass(selected)}
+            key={item}
+            onClick={() =>
+              onChange(
+                selected
+                  ? value.filter((entry) => entry !== item)
+                  : [...value, item],
+              )
+            }
+            role="checkbox"
+            type="button"
+          >
+            {selected ? (
+              <Check
+                aria-hidden="true"
+                className="size-3.5"
+                strokeWidth={2.4}
+              />
+            ) : null}
+            {labels[item]}
+          </button>
+        );
+      })}
+    </OptionGroup>
+  );
 }
 
 function optionClass(selected: boolean) {
@@ -405,6 +390,107 @@ function OptionGroup({
       >
         {children}
       </div>
+    </div>
+  );
+}
+
+function RadioOptions<T extends string>({
+  label,
+  labelId,
+  labels,
+  onChange,
+  options,
+  value,
+}: {
+  label: string;
+  labelId: string;
+  labels: Record<T, string>;
+  onChange: (value: T) => void;
+  options: readonly T[];
+  value: T;
+}) {
+  return (
+    <OptionGroup label={label} labelId={labelId}>
+      {options.map((item) => (
+        <button
+          aria-checked={value === item}
+          className={optionClass(value === item)}
+          key={item}
+          onClick={() => onChange(item)}
+          role="radio"
+          type="button"
+        >
+          {labels[item]}
+        </button>
+      ))}
+    </OptionGroup>
+  );
+}
+
+function SentPanel({
+  docsLink,
+  onAgain,
+  site,
+}: {
+  docsLink: ReactNode;
+  onAgain: () => void;
+  site: string;
+}) {
+  const t = useTranslations("developers.form");
+  return (
+    <div className="flex flex-col items-start py-2" role="status">
+      <span className="inline-flex size-[60px] items-center justify-center rounded-full bg-(--nw-accent) text-white">
+        <Check aria-hidden="true" className="size-7" strokeWidth={2.4} />
+      </span>
+      <p className="mt-5 text-[28px] leading-[1.2] font-semibold">
+        {t("sentTitle")}
+      </p>
+      <p className="mt-2.5 max-w-[480px] text-[16px] leading-[1.65] text-(--nw-muted)">
+        {t.rich("sentBody", {
+          b: (chunks) => (
+            <b className="font-semibold break-all text-(--nw-ink)">{chunks}</b>
+          ),
+          site,
+        })}
+      </p>
+      <div className="mt-[22px] flex flex-wrap gap-2.5">
+        {docsLink}
+        <button
+          className="h-[50px] cursor-pointer rounded-full border border-[#d5ddd4] bg-(--nw-card) px-5 text-[15px] font-medium text-(--nw-ink) dark:border-(--nw-line)"
+          onClick={onAgain}
+          type="button"
+        >
+          {t("again")}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function SubmitRow({ email, status }: { email: string; status: Status }) {
+  const t = useTranslations("developers.form");
+  const sending = status === "sending";
+  return (
+    <div className="flex flex-wrap items-center gap-4 md:col-span-2">
+      <button
+        className={cn(
+          darkButtonClass,
+          "h-14 px-7 text-[16px] disabled:cursor-wait disabled:opacity-70",
+        )}
+        disabled={sending}
+        type="submit"
+      >
+        {sending ? t("sending") : t("submit")}
+        <ArrowRight aria-hidden="true" className="size-[17px]" />
+      </button>
+      <span className="text-[13px] text-(--nw-muted)">
+        {t("replyFrom", { email })}
+      </span>
+      {status === "failed" ? (
+        <p className="w-full text-[13.5px] text-(--nw-danger-dot)" role="alert">
+          {t("failed", { email })}
+        </p>
+      ) : null}
     </div>
   );
 }
