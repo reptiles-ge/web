@@ -19,12 +19,13 @@ import {
   regions,
 } from "@/data/mapRegions";
 import {
+  HALYOMORPHA_RANGE_COPY,
   type HalyomorphaRangeCopy,
-  INTERACTIVE_RANGE_MAPS,
-} from "@/data/speciesRangeMaps";
+} from "@/data/speciesRangeMaps/base";
 import { Link } from "@/i18n/navigation";
 import { getOccurrenceSummary } from "@/lib/occurrenceSummaries";
 import { regionHref } from "@/lib/regionHref";
+import { getSpeciesRangeMap } from "@/lib/speciesRangeMapApi";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
@@ -52,17 +53,21 @@ export async function SpeciesRangeMap({
   speciesName,
   updatedAt,
 }: SpeciesRangeMapProps) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const [t, interactiveRangeConfig] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getSpeciesRangeMap(speciesId, locale),
+  ]);
   const rangeRegions = getRegionsForSpecies(speciesId);
   const highlightedIds = rangeRegions.map((region) => region.id);
-  const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];
-  const interactiveRangeCopy = interactiveRangeConfig?.copy[locale];
-  const interactiveRangeSummary = interactiveRangeCopy
+  const interactiveRangeCopy = interactiveRangeConfig
+    ? { ...HALYOMORPHA_RANGE_COPY[locale], ...interactiveRangeConfig.copy }
+    : null;
+  const interactiveRangeSummary = interactiveRangeConfig
     ? getOccurrenceSummary({
+        confirmedThreshold: interactiveRangeConfig.confirmedThreshold,
         fieldRecords,
         gallery,
         locale,
-        speciesId,
         speciesName,
       })
     : null;

@@ -6,10 +6,15 @@ import type {
   CatalogCard,
   CatalogFullSpecies,
 } from "@/data/speciesCatalogTypes";
-import type { Species, SpeciesFieldRecord } from "@/data/speciesTypes";
+import type {
+  Species,
+  SpeciesFieldRecord,
+  SpeciesRangeMap,
+} from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { contributorDirectory } from "@/lib/contributorCredits";
+import { DEFAULT_CONFIRMED_RECORD_THRESHOLD } from "@/lib/halyomorphaOccurrences";
 
 import { speciesFixtureFile } from "./speciesFixtureFiles";
 
@@ -28,9 +33,17 @@ function bareSpecies({
 
 const fixtures = new Map<AppLocale, SpeciesFixture[]>();
 let fieldRecords: Record<string, SpeciesFieldRecord[]> | undefined;
+let rangeMaps: Record<string, SpeciesRangeMap> | undefined;
 
 export function catalogSpeciesFixture(): Species[] {
   return speciesCatalogFixture("ka").map(bareSpecies);
+}
+
+export function confirmedThresholdFixture(id: string) {
+  return (
+    rangeMapsFixture()[id]?.confirmedThreshold ??
+    DEFAULT_CONFIRMED_RECORD_THRESHOLD
+  );
 }
 
 export function contributorDirectoryFixture(locale: AppLocale = "ka") {
@@ -66,6 +79,11 @@ export function lookalikesFixture(id: string): string[] {
   return (
     speciesCatalogFixture("ka").find((item) => item.id === id)?.lookalikes ?? []
   );
+}
+
+export function rangeMapsFixture() {
+  rangeMaps ??= readFixture<Record<string, SpeciesRangeMap>>("range-maps");
+  return rangeMaps;
 }
 
 export function searchCatalogsFixture(): Record<AppLocale, SpeciesFixture[]> {

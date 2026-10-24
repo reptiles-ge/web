@@ -3,11 +3,11 @@ import { describe, expect, it } from "vitest";
 import { getRegionsForSpecies } from "@/data/mapRegions";
 
 import {
+  confirmedThresholdFixture,
   fieldRecordsFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
 import {
-  confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
   occurrenceStatusForCount,
@@ -22,53 +22,11 @@ describe("occurrenceStatusForCount", () => {
     expect(occurrenceStatusForCount(5)).toBe("confirmed");
   });
 
-  it("allows species-specific confirmation thresholds", () => {
-    const aquilaThreshold =
-      confirmedRecordThresholdForSpecies("aquila-chrysaetos");
-    expect(occurrenceStatusForCount(3, aquilaThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(4, aquilaThreshold)).toBe("confirmed");
+  it("uses the threshold it is given", () => {
     expect(occurrenceStatusForCount(0, 1)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, 1)).toBe("confirmed");
-    const quailThreshold =
-      confirmedRecordThresholdForSpecies("coturnix-coturnix");
-    expect(occurrenceStatusForCount(0, quailThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(1, quailThreshold)).toBe("confirmed");
-    const bearThreshold = confirmedRecordThresholdForSpecies("ursus-arctos");
-    expect(occurrenceStatusForCount(7, bearThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(8, bearThreshold)).toBe("confirmed");
-    const weaselThreshold =
-      confirmedRecordThresholdForSpecies("mustela-nivalis");
-    expect(occurrenceStatusForCount(0, weaselThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(1, weaselThreshold)).toBe("confirmed");
-    const renardiThreshold =
-      confirmedRecordThresholdForSpecies("vipera-renardi");
-    expect(occurrenceStatusForCount(0, renardiThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(1, renardiThreshold)).toBe("confirmed");
-    const zamenisThreshold = confirmedRecordThresholdForSpecies(
-      "zamenis-hohenackeri",
-    );
-    expect(occurrenceStatusForCount(0, zamenisThreshold)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(1, zamenisThreshold)).toBe("confirmed");
-    const karakurtThreshold = confirmedRecordThresholdForSpecies(
-      "latrodectus-tredecimguttatus",
-    );
-    expect(occurrenceStatusForCount(0, karakurtThreshold)).toBe(
-      "recorded-only",
-    );
-    expect(occurrenceStatusForCount(1, karakurtThreshold)).toBe("confirmed");
-    const longissimusThreshold = confirmedRecordThresholdForSpecies(
-      "zamenis-longissimus",
-    );
-    expect(occurrenceStatusForCount(0, longissimusThreshold)).toBe(
-      "recorded-only",
-    );
-    expect(occurrenceStatusForCount(1, longissimusThreshold)).toBe("confirmed");
-    const platycepsThreshold =
-      confirmedRecordThresholdForSpecies("platyceps-najadum");
-    expect(occurrenceStatusForCount(2, platycepsThreshold)).toBe(
-      "recorded-only",
-    );
-    expect(occurrenceStatusForCount(3, platycepsThreshold)).toBe("confirmed");
+    expect(occurrenceStatusForCount(7, 8)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(8, 8)).toBe("confirmed");
   });
 
   it("counts a photographed iNaturalist observation once", () => {
@@ -155,7 +113,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmedIds = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -190,7 +148,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
 
     expect(summary.totalRecords).toBe(21);
@@ -234,7 +192,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmed = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -280,7 +238,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmed = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -323,7 +281,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmed = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -369,7 +327,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmed = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -411,7 +369,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
     const confirmed = summary.recordsByRegion
       .filter((region) => region.status === "confirmed")
@@ -454,7 +412,7 @@ describe("occurrenceStatusForCount", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(species.id),
+      confirmedThresholdFixture(species.id),
     );
 
     expect(

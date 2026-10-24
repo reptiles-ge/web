@@ -3,7 +3,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { HALYOMORPHA_RANGE_GEOJSON } from "@/data/halyomorphaRangeRegions";
 import {
-  confirmedRecordThresholdForSpecies,
+  DEFAULT_CONFIRMED_RECORD_THRESHOLD,
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
   getHalyomorphaRegionRecords,
@@ -17,15 +17,15 @@ type OccurrenceInput = {
 };
 
 export function getOccurrenceSummary({
-  speciesId,
+  confirmedThreshold = DEFAULT_CONFIRMED_RECORD_THRESHOLD,
   ...input
-}: OccurrenceInput & { speciesId: string }) {
+}: OccurrenceInput & { confirmedThreshold?: number }) {
   const records =
     input.fieldRecords.length > 0 ? getHalyomorphaFieldRecords(input) : [];
   return getHalyomorphaOccurrenceSummary(
     records,
     input.locale,
-    confirmedRecordThresholdForSpecies(speciesId),
+    confirmedThreshold,
   );
 }
 

@@ -170,7 +170,6 @@ describe("occurrence summaries", () => {
       fieldRecords: await getSpeciesFieldRecords(id),
       gallery: species.gallery,
       locale: "en",
-      speciesId: id,
       speciesName: species.commonName,
     });
   };

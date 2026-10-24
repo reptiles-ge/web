@@ -13,13 +13,13 @@ import { unpublishedSpeciesIds } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
 import {
-  confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
 } from "@/lib/halyomorphaOccurrences";
 
 import {
   catalogSpeciesFixture,
+  confirmedThresholdFixture,
   fieldRecordsFixture,
   localizedFixture,
   speciesFixture,
@@ -115,7 +115,7 @@ describe("region speciesIds", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(id),
+      confirmedThresholdFixture(id),
     );
     expect(
       getRegionsForSpecies(id)
@@ -143,7 +143,7 @@ describe("region speciesIds", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(id),
+      confirmedThresholdFixture(id),
     );
     expect(
       getRegionsForSpecies(id)
@@ -171,7 +171,7 @@ describe("region speciesIds", () => {
     const summary = getHalyomorphaOccurrenceSummary(
       records,
       "ka",
-      confirmedRecordThresholdForSpecies(id),
+      confirmedThresholdFixture(id),
     );
     expect(
       getRegionsForSpecies(id)
