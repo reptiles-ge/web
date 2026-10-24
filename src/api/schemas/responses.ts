@@ -911,6 +911,10 @@ export const newsResponse = component(
       locale,
       "Locale of the texts in `data`. `ka` when the article has no text in the requested locale.",
     ),
+    views: doc(
+      z.int().min(0),
+      "Views of this article on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
+    ),
   }),
   "One news article.",
 );
