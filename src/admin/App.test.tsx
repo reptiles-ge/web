@@ -12,6 +12,8 @@ vi.mock("./species", async (importOriginal) => ({
 
 vi.mock("./news", () => ({ fetchAdminNews: vi.fn(async () => []) }));
 
+vi.mock("./authors", () => ({ fetchAdminAuthors: vi.fn(async () => []) }));
+
 vi.mock("./ratings", () => ({
   fetchAdminRatings: vi.fn(async () => ({
     data: [],
@@ -100,6 +102,18 @@ describe("admin App", () => {
     ).toBeInTheDocument();
     expect(window.location.pathname).toBe("/news");
     expect(document.title).toBe("News — reptiles.ge admin");
+  });
+
+  it("opens authors from the menu at /authors", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const authors = await screen.findByRole("link", { name: "Authors" });
+    expect(authors).toHaveAttribute("href", "/authors");
+    await userEvent.setup().click(authors);
+    expect(
+      await screen.findByRole("heading", { name: "Authors" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Authors — reptiles.ge admin");
   });
 
   it("navigates between pages and follows the back button", async () => {

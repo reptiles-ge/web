@@ -5,7 +5,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { AuthorRecord } from "../db/authors";
 import type { ApiBindings } from "../env";
 
+import { app } from "../app";
 import { authorRecordSchema } from "../schemas/authors";
+import {
+  ADMIN_SESSION_COOKIE,
+  adminSessionHeaders,
+} from "../testing/adminSession";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -191,5 +196,176 @@ describe("PUT /v1/admin/authors/:id", () => {
       401,
     );
     expect((await getAuthor("nobody")).response.status).toBe(404);
+  });
+});
+
+const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+type AdminAuthorList = {
+  data: Array<{
+    aliasCount: number;
+    id: string;
+    image: null | string;
+    isContributor: boolean;
+    jobTitle: null | string;
+    kind: string;
+    name: { en: null | string; ka: null | string };
+    photoCount: number;
+    role: null | string;
+  }>;
+  total: number;
+};
+
+async function adminAction(path: string, headers?: Record<string, string>) {
+  return requestJson<ErrorBody & { data: Record<string, unknown> }>(
+    `/v1/admin/authors${path}`,
+    env,
+    {
+      headers: headers ?? {
+        ...(await adminSessionHeaders(sqlite)),
+        Origin: ADMIN_ORIGIN,
+      },
+      method: "POST",
+    },
+  );
+}
+
+function listAuthors(
+  headers: Record<string, string> = { Authorization: `Bearer ${TOKEN}` },
+) {
+  return requestJson<AdminAuthorList & ErrorBody>("/v1/admin/authors", env, {
+    headers,
+  });
+}
+
+async function sentTags() {
+  const [request] = siteFetch.mock.calls[0]!;
+  expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+  expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
+  return ((await request.json()) as { tags: string[] }).tags;
+}
+
+describe("GET /v1/admin/authors", () => {
+  it("lists every author, contributors first, then by photos", async () => {
+    const { body, response } = await listAuthors();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    const total = (
+      sqlite.prepare("SELECT COUNT(*) AS n FROM authors").get() as { n: number }
+    ).n;
+    expect(body.total).toBe(total);
+    expect(body.data).toHaveLength(total);
+    const firstOther = body.data.findIndex((item) => !item.isContributor);
+    expect(firstOther).toBeGreaterThan(0);
+    expect(
+      body.data.slice(firstOther).every((item) => !item.isContributor),
+    ).toBe(true);
+    const contributors = body.data.slice(0, firstOther);
+    for (let index = 1; index < contributors.length; index += 1) {
+      expect(contributors[index - 1]!.photoCount).toBeGreaterThanOrEqual(
+        contributors[index]!.photoCount,
+      );
+    }
+  });
+
+  it("returns the admin fields of an author", async () => {
+    const { body } = await listAuthors();
+    const sandro = body.data.find((item) => item.id === "sandro-khakhva")!;
+    const record = (
+      await requestJson<{ data: AuthorRecord }>(
+        "/v1/admin/authors/sandro-khakhva",
+        env,
+        { headers: { Authorization: `Bearer ${TOKEN}` } },
+      )
+    ).body.data;
+    const photos = (
+      sqlite
+        .prepare(
+          "SELECT COUNT(DISTINCT src) AS n FROM species_media WHERE author_id = 'sandro-khakhva' AND role != 'audio'",
+        )
+        .get() as { n: number }
+    ).n;
+    expect(sandro).toEqual({
+      aliasCount: record.aliases.length,
+      id: "sandro-khakhva",
+      image: record.portraitSrc,
+      isContributor: record.isContributor,
+      jobTitle: record.jobTitle,
+      kind: record.kind,
+      name: { en: record.texts.en?.name ?? null, ka: record.texts.ka.name },
+      photoCount: photos,
+      role: record.role,
+    });
+  });
+
+  it("lets a signed-in admin read the list and refuses everyone else", async () => {
+    expect(
+      (await listAuthors(await adminSessionHeaders(sqlite))).response.status,
+    ).toBe(200);
+    for (const [headers, status] of [
+      [{}, 401],
+      [{ Authorization: "Bearer wrong" }, 401],
+      [{ Cookie: `${ADMIN_SESSION_COOKIE}=made-up` }, 401],
+      [await adminSessionHeaders(sqlite, "editor"), 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await listAuthors(headers)).response.status).toBe(status);
+    }
+  });
+
+  it("stays out of the public API document", async () => {
+    const response = await app.request("/v1/docs/openapi.json", {}, env);
+    const document = (await response.json()) as { paths: object };
+    expect(Object.keys(document.paths).join()).not.toContain("/admin/authors");
+  });
+});
+
+describe("POST /v1/admin/authors/:id/revalidate and /revalidate", () => {
+  beforeEach(() => {
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  it("revalidates one contributor page", async () => {
+    const { body, response } = await adminAction("/sandro-khakhva/revalidate");
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: "sandro-khakhva" });
+    expect(await sentTags()).toEqual(["author:sandro-khakhva"]);
+  });
+
+  it("revalidates every page that shows authors", async () => {
+    const { body, response } = await adminAction("/revalidate");
+    expect(response.status).toBe(200);
+    expect(body.data).toEqual({ tags: ["authors"] });
+    expect(await sentTags()).toEqual(["authors"]);
+  });
+
+  it("answers 404 for an unknown author and 502 when the site fails", async () => {
+    expect((await adminAction("/nobody/revalidate")).response.status).toBe(404);
+    expect(siteFetch).not.toHaveBeenCalled();
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    for (const path of ["/sandro-khakhva/revalidate", "/revalidate"]) {
+      const { body, response } = await adminAction(path);
+      expect(response.status).toBe(502);
+      expect(body.error.code).toBe("site_unavailable");
+    }
+    log.mockRestore();
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    for (const path of ["/sandro-khakhva/revalidate", "/revalidate"]) {
+      for (const [headers, status] of [
+        [{ Origin: ADMIN_ORIGIN }, 401],
+        [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+        [session, 403],
+        [{ ...session, Origin: "https://evil.example" }, 403],
+      ] as Array<[Record<string, string>, number]>) {
+        expect((await adminAction(path, headers)).response.status).toBe(status);
+      }
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await adminAction("/revalidate")).response.status).toBe(429);
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 });
