@@ -27,11 +27,11 @@ export function usePagedList<T, F>(
   const [result, setResult] = useState<Result<T, F>>({ status: "ready" });
   const [search, setSearch] = useState("");
   const expire = useEffectEvent(onSessionExpired);
-  const fetchPage = useEffectEvent(load);
+  const fetchPage = useEffectEvent(() => load(request.query));
 
   useEffect(() => {
     let active = true;
-    fetchPage(request.query).then(
+    fetchPage().then(
       (page) => {
         if (active) setResult({ page, request, status: "ready" });
       },
