@@ -32,8 +32,11 @@ type DetailBody = {
 
 type ListBody = {
   data: NewsSummaryView[];
+  facets: { hub: Record<string, number> };
+  limit: number;
   locale: string;
-  nextCursor: null | string;
+  page: number;
+  pageCount: number;
   total: number;
 };
 
@@ -55,7 +58,7 @@ describe("GET /v1/news", () => {
       const expected = getPublishedNewsArticles(locale);
       expect(slugs(body)).toEqual(expected.map((article) => article.slug));
       expect(body.total).toBe(expected.length);
-      expect(body.nextCursor).toBeNull();
+      expect(body).toMatchObject({ limit: 50, page: 1, pageCount: 1 });
       expect(body.data.map((item) => item.title)).toEqual(
         expected.map((article) => getNewsCopy(article, locale).title),
       );
@@ -118,27 +121,67 @@ describe("GET /v1/news", () => {
     expect((await list("?author=no-such-author")).body.total).toBe(0);
   });
 
-  it("pages with limit and cursor", async () => {
+  it("pages with page and limit", async () => {
     const all = slugs((await list()).body);
+    const pageCount = Math.ceil(all.length / 7);
     const seen: string[] = [];
-    let cursor: null | string = null;
-    do {
-      const query: string = `?limit=7${cursor ? `&cursor=${cursor}` : ""}`;
-      const { body } = await list(query);
-      expect(body.total).toBe(all.length);
+    for (let page = 1; page <= pageCount; page += 1) {
+      const { body } = await list(`?limit=7&page=${page}`);
+      expect(body).toMatchObject({
+        limit: 7,
+        page,
+        pageCount,
+        total: all.length,
+      });
       seen.push(...slugs(body));
-      cursor = body.nextCursor;
-    } while (cursor);
+    }
     expect(seen).toEqual(all);
+    const past = await list(`?limit=7&page=${pageCount + 1}`);
+    expect(past.body.data).toEqual([]);
+    expect(past.body.total).toBe(all.length);
   });
 
-  it("rejects bad filters and cursors", async () => {
+  it("searches titles, deks and sources and counts every hub", async () => {
+    const { body: all } = await list("", "en");
+    const article = all.data.find((item) => item.relatedHubIds.length > 0)!;
+    const word = article.title.split(" ").find((part) => part.length > 5)!;
+    const query = word.toUpperCase();
+    const { body } = await list(`?q=${encodeURIComponent(query)}`, "en");
+    const expected = all.data.filter((item) =>
+      [item.title, item.dek, ...item.sources.map((source) => source.name)]
+        .join(" ")
+        .toLowerCase()
+        .includes(word.toLowerCase()),
+    );
+    expect(slugs(body)).toEqual(slugs({ ...all, data: expected }));
+    expect(body.facets.hub.all).toBe(expected.length);
+
+    const hub = article.relatedHubIds[0]!;
+    const { body: byHub } = await list(
+      `?q=${encodeURIComponent(query)}&hub=${hub}`,
+      "en",
+    );
+    expect(byHub.total).toBe(
+      expected.filter((item) => item.relatedHubIds.includes(hub)).length,
+    );
+    expect(byHub.facets).toEqual(body.facets);
+    expect(body.facets.hub[hub]).toBe(byHub.total);
+    expect(all.facets.hub.all).toBe(all.total);
+    expect((await list("?q=zzzz-no-such-text")).body).toMatchObject({
+      data: [],
+      pageCount: 1,
+      total: 0,
+    });
+  });
+
+  it("rejects bad filters and pages", async () => {
     for (const query of [
-      "?cursor=no-such-article",
+      "?page=0",
       "?limit=0",
       "?limit=101",
       "?hub=fish",
       "?series=unknown",
+      `?q=${"a".repeat(101)}`,
     ]) {
       const { body, response } = await requestJson<ErrorBody>(
         `/v1/news${query}`,

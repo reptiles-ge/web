@@ -2,6 +2,7 @@ import type * as NewsModule from "@/data/news";
 import type { NewsArticle, NewsListArticle, NewsPhoto } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 
 export const MANY_NEWS_TOTAL = 53;
@@ -37,6 +38,34 @@ export function manyNewsListArticles(
   return withManyNews(actual)
     .getPublishedNewsArticles(locale)
     .map((article) => toNewsListArticle(article, locale));
+}
+
+export function manyNewsListPage(
+  actual: typeof NewsModule,
+  locale: AppLocale,
+  page: number,
+  limit: number,
+  hub?: GroupHubId,
+) {
+  const all = manyNewsListArticles(actual, locale);
+  const matches = hub
+    ? all.filter((article) => article.relatedHubIds.includes(hub))
+    : all;
+  const counts = Object.fromEntries(
+    (Object.keys(GROUP_HUBS) as GroupHubId[]).map((id) => [
+      id,
+      all.filter((article) => article.relatedHubIds.includes(id)).length,
+    ]),
+  ) as Record<GroupHubId, number>;
+  return {
+    articles: matches.slice((page - 1) * limit, page * limit),
+    facets: { hub: { all: all.length, ...counts } },
+    limit,
+    locale,
+    page,
+    pageCount: Math.max(1, Math.ceil(matches.length / limit)),
+    total: matches.length,
+  };
 }
 
 export function toNewsListArticle(

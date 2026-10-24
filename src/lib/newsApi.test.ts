@@ -12,6 +12,7 @@ import {
   getNewsArticle,
   getNewsList,
   getNewsListArticles,
+  getNewsListArticlesPage,
   HOME_NEWS_LIMIT,
 } from "./newsApi";
 
@@ -101,11 +102,27 @@ describe("getNewsListArticles with a limit", () => {
     server.events.on("request:start", listen);
     const found = await getNewsListArticles("en", HOME_NEWS_LIMIT);
     server.events.removeListener("request:start", listen);
-    expect(queries).toEqual([`?limit=${HOME_NEWS_LIMIT}`]);
+    expect(queries).toEqual([`?limit=${HOME_NEWS_LIMIT}&page=1`]);
     expect(found.map(({ slug }) => slug)).toEqual(
       getPublishedNewsArticles("en")
         .slice(0, HOME_NEWS_LIMIT)
         .map(({ slug }) => slug),
     );
+  });
+});
+
+describe("getNewsListArticlesPage", () => {
+  it("asks the API for one page with the topic and search", async () => {
+    const queries: string[] = [];
+    const listen = ({ request }: { request: Request }) => {
+      const url = new URL(request.url);
+      if (url.pathname === "/v1/news") queries.push(url.search);
+    };
+    server.events.on("request:start", listen);
+    const found = await getNewsListArticlesPage("en", 2, 3, "birds", "count");
+    server.events.removeListener("request:start", listen);
+    expect(queries).toEqual(["?hub=birds&limit=3&page=2&q=count"]);
+    expect(found).toMatchObject({ limit: 3, page: 2 });
+    expect(found.facets.hub.birds).toBeGreaterThanOrEqual(found.total);
   });
 });

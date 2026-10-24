@@ -108,19 +108,22 @@ const NEWS_PARAMETER_DOCS: Record<string, ParameterDoc> = {
       "Only articles that name this author (an id from `/v1/authors`) or one of their credit spellings.",
     example: "nika-melikishvili",
   },
-  cursor: {
-    description:
-      "The `nextCursor` of the previous page (the `slug` of its last article). Only with `limit`.",
-    example: "batumi-raptor-count-2026-season-ends",
-  },
   hub: {
     description: "Only articles about this group hub.",
     example: "birds",
   },
   limit: {
+    description: "Page size, 1–100. Default 50.",
+    example: "24",
+  },
+  page: {
+    description: "Page number, from 1. Default 1.",
+    example: "1",
+  },
+  q: {
     description:
-      "Page size, 1–100. Without it every matching article comes back in one response.",
-    example: "10",
+      "Only articles whose title, dek or source names contain this text, ignoring case.",
+    example: "batumi",
   },
   region: {
     description: "Only articles about this region of Georgia.",
@@ -417,7 +420,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series` or `author`; filters combine. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`.",
+      "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series`, `author` or the text search `q`; filters combine. Pages are numbered: `page` (from 1) and `limit` (default 50), with `total` and `pageCount` in every response. `facets.hub` counts the matches for each hub with the other filters applied.",
     errors: [400],
     header: localeHeader,
     method: "get",
