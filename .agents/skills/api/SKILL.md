@@ -123,7 +123,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - The site and the build scripts send `SITE_API_KEY` (a secret on both `reptiles-api` and the site Worker, and in CI for `pnpm compile`). `createApiClient` adds it on the server only (`typeof window === "undefined"`); browser calls never carry it. The site key has no rate limit.
 - Client keys are rate limited per key id with `API_KEY_LIMITER` (120/min). Lookups are cached per isolate for 60 s, so a revoke takes effect within a minute. `last_used_at` is updated at most once a day per key, in the background.
 - Admin (`routes/adminApiKeys.ts`, undocumented): `GET /v1/admin/api-keys` (`requireAdmin`, `NO_STORE`) lists keys newest first; `POST /v1/admin/api-keys` (`{ name, note?, expiresAt? }`) and `POST /v1/admin/api-keys/:id/revoke` are guarded like the cache endpoints (`requireSiteOrigin`, `rateLimitAdmin`, `requireAdminSession`), so the admin app's API keys page can call them. The token alone cannot create keys.
-- Rollout: set `SITE_API_KEY` on both Workers and in CI, deploy, switch to `log`, issue client keys, read the logs, then `enforce`. Before `enforce`, add the `X-Api-Key` scheme and a quick-start note to `DESCRIPTION` and the OpenAPI document so Scalar's "Test Request" can send it.
+- Rollout: set `SITE_API_KEY` on both Workers and in CI, deploy, switch to `log`, issue client keys, read the logs, then `enforce`. Before `enforce`, add the `X-Api-Key` scheme and a quick-start note to `DESCRIPTION` and the OpenAPI document so Scalar's "Test Request" can send it. Production runs `enforce` since 2026-10-24; CI (`lint.yml`, `e2e.yml`) and the site build read `SITE_API_KEY` from their secrets.
 
 ### Admin users and sessions
 

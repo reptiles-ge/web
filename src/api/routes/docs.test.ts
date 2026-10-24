@@ -69,7 +69,7 @@ describe("docs route", () => {
     const { document, response } = await loadDocument();
     expect(response.status).toBe(200);
     expect(document.openapi).toBe("3.1.0");
-    expect(document.security).toEqual([]);
+    expect(document.security).toEqual([{ ApiKey: [] }]);
     expect(document.servers.map((server) => server.url)).toEqual([
       "/",
       "https://api.reptiles.ge",
