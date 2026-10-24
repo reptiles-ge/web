@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile && pnpm run map:compile",
+    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile",
     "predev": "pnpm run compile",
     "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
