@@ -1,6 +1,7 @@
 import { routing } from "@/i18n/routing";
 import { createApiClient } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
+import { HOME_NEWS_LIMIT } from "@/lib/newsApi";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const AUTHOR_TAG_PREFIX = "author:";
@@ -51,12 +52,14 @@ export async function refreshSpeciesApiCache(tags: string[]) {
         ),
     ]);
   const newsList = tags.includes("news")
-    ? routing.locales.map(
-        (locale) => () =>
-          api.v1.news.$get(
-            { header: { "x-locale": locale }, query: {} },
-            options,
-          ),
+    ? routing.locales.flatMap((locale) =>
+        [{}, { limit: String(HOME_NEWS_LIMIT) }].map(
+          (query) => () =>
+            api.v1.news.$get(
+              { header: { "x-locale": locale }, query },
+              options,
+            ),
+        ),
       )
     : [];
   const newsArticles = tags
