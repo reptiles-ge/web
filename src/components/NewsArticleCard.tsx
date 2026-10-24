@@ -7,11 +7,10 @@ import type { AppLocale } from "@/i18n/routing";
 import { CoverImage } from "@/components/CoverImage";
 import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
 import { Link } from "@/i18n/navigation";
-import { getContributorDirectory } from "@/lib/authorsApi";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref } from "@/lib/news";
-import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { newsCategoryHub } from "@/lib/newsVisual";
+import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 type NewsArticleCardProps = {
   article: NewsArticle;
@@ -26,18 +25,16 @@ export async function NewsArticleCard({
   prefetch,
   variant = "grid",
 }: NewsArticleCardProps) {
-  const [t, tNav, catalog, contributors] = await Promise.all([
+  const [t, tNav, [visual]] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
-    getSpeciesCatalog(locale),
-    getContributorDirectory(locale),
+    loadNewsVisuals([article], locale),
   ]);
   const title = newsLocalizedTitle(article, locale);
   const dek = newsLocalizedDek(article, locale);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const hub = newsCategoryHub(article);
   const category = hub ? tNav(hub) : null;
-  const visual = getNewsVisual(article, locale, catalog, contributors);
   const featured = variant === "featured";
   const Heading = featured ? "h2" : "h3";
 

@@ -1,7 +1,6 @@
 import type { NewsIndexEntry } from "@/components/NewsIndexCards";
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
-import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import {
   newsLocalizedDek,
@@ -11,11 +10,7 @@ import {
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_ILLUSTRATIONS, type GroupHubId } from "@/lib/groupHubs";
 import { newsReadMinutes } from "@/lib/news";
-import {
-  getNewsVisual,
-  newsCategoryHub,
-  type NewsSpecies,
-} from "@/lib/newsVisual";
+import { newsCategoryHub, type NewsVisual } from "@/lib/newsVisual";
 
 export type NewsIndexEntryLabels = {
   readLabel: (minutes: number) => string;
@@ -26,11 +21,9 @@ export function toNewsIndexEntry(
   article: NewsArticle,
   locale: AppLocale,
   labels: NewsIndexEntryLabels,
-  catalog: readonly NewsSpecies[],
-  contributors: ContributorDirectory,
+  visual: NewsVisual | null | undefined,
 ): NewsIndexEntry {
   const hub = newsCategoryHub(article);
-  const visual = getNewsVisual(article, locale, catalog, contributors);
   const minutes = newsReadMinutes(article, locale);
   return {
     alt: visual?.alt ?? "",

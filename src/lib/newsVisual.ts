@@ -39,10 +39,8 @@ export function getNewsImageSrc(
 ): null | string {
   if (article.image?.src) return article.image.src;
 
-  const species = newsRelatedSpecies(article, catalog)[0];
-  if (species && !isPlaceholderMedia(species.image)) {
-    return species.image;
-  }
+  const species = newsAtlasSpecies(article, catalog);
+  if (species) return species.image;
 
   const region = newsRelatedRegions(article)[0];
   if (region) {
@@ -62,8 +60,8 @@ export function getNewsVisual(
     return localizeNewsPhoto(article.image, locale);
   }
 
-  const item = newsRelatedSpecies(article, catalog)[0];
-  if (item && !isPlaceholderMedia(item.image)) {
+  const item = newsAtlasSpecies(article, catalog);
+  if (item) {
     return {
       alt: speciesPhotoAlt(
         item.commonName,
@@ -103,6 +101,14 @@ export function localizeNewsPhoto(
     plate: Boolean(photo.plate),
     src: photo.src,
   };
+}
+
+export function newsAtlasSpecies<T extends NewsSpecies>(
+  article: NewsArticle,
+  catalog: readonly T[],
+): T | undefined {
+  const species = newsRelatedSpecies(article, catalog)[0];
+  return species && !isPlaceholderMedia(species.image) ? species : undefined;
 }
 
 export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
