@@ -8,6 +8,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { ContentViewBeacon } from "@/components/ContentViewBeacon";
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { Logo } from "@/components/Logo";
@@ -110,6 +111,7 @@ export async function NewsArticlePage({
   return (
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <NewsVisualPreload visual={visual} />
+      <ContentViewBeacon id={article.slug} kind="news" />
       <article>
         <NewsArticleHeader
           article={article}

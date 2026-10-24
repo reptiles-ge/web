@@ -38,3 +38,25 @@ export function EmptyState({
     </div>
   );
 }
+
+export function LoadingState({ label }: { label: string }) {
+  return (
+    <div
+      aria-live="polite"
+      className="flex min-h-56 flex-col items-center justify-center gap-3 px-4 py-9 text-center"
+      role="status"
+    >
+      <div className="relative flex size-11 items-center justify-center">
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 animate-ping rounded-full bg-primary/10 motion-reduce:animate-none"
+        />
+        <span
+          aria-hidden="true"
+          className="size-9 animate-spin rounded-full border-2 border-border border-t-primary motion-reduce:animate-none"
+        />
+      </div>
+      <p className="text-[12px] font-medium text-muted-foreground">{label}</p>
+    </div>
+  );
+}

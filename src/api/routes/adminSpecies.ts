@@ -8,18 +8,8 @@ import type { ApiEnv } from "../env";
 import { readFieldRecords } from "../db/fieldRecords";
 import { upsertOptimizedImageStatement } from "../db/optimizedImages";
 import { listAdminSpecies } from "../db/species";
-import {
-  decideDraftStatement,
-  insertDraft,
-  listPendingDrafts,
-  readDraft,
-} from "../db/speciesDrafts";
-import {
-  readSpeciesRecord,
-  readSpeciesVersion,
-  type SpeciesRevision,
-  writeSpeciesRecord,
-} from "../db/speciesWrite";
+import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
+import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
 import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
@@ -34,6 +24,13 @@ import {
   ensureSiteRevalidated,
   revalidateSpeciesPage,
 } from "../lib/revalidateSite";
+import {
+  approveSpeciesDraft,
+  pendingSpeciesDraft,
+  rejectSpeciesDraft,
+  saveSpeciesRecord,
+  versionConflict,
+} from "../lib/speciesDrafts";
 import {
   removePhoto,
   reorderPhotos,
@@ -174,11 +171,16 @@ export const adminSpecies = new Hono<ApiEnv>()
         throw new ApiError(404, "not_found", "Species not found");
       }
       if (current !== expectedVersion) throw versionConflict(current);
-      const version = await save(c, record, expectedVersion, {
-        actor,
-        source,
-        summary,
-      });
+      const version = await saveSpeciesRecord(
+        c.env.DB,
+        record,
+        expectedVersion,
+        {
+          actor,
+          source,
+          summary,
+        },
+      );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id, version } }, 200);
     },
@@ -288,25 +290,12 @@ export const adminSpecies = new Hono<ApiEnv>()
     validate("param", draftParam),
     validate("json", draftDecisionBody),
     async (c) => {
-      const draft = await pendingDraft(c, c.req.valid("param"));
-      const checked = speciesRecordSchema.safeParse(draft.record);
-      if (!checked.success) {
-        throw new ApiError(
-          400,
-          "invalid_request",
-          "The draft breaks a content rule",
-          checked.error.issues,
-        );
-      }
-      const current = await readSpeciesVersion(c.env.DB, draft.speciesId);
-      if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
-      const { actor } = c.req.valid("json");
-      const version = await save(
-        c,
-        draft.record,
-        draft.baseVersion,
-        { actor, source: draft.source, summary: draft.summary },
-        [decideDraftStatement(c.env.DB, draft.id, "approved", actor)],
+      const { draftId, id } = c.req.valid("param");
+      const draft = await pendingSpeciesDraft(c.env.DB, draftId, id);
+      const version = await approveSpeciesDraft(
+        c.env.DB,
+        draft,
+        c.req.valid("json").actor,
       );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { status: "approved" as const, version } }, 200);
@@ -317,13 +306,9 @@ export const adminSpecies = new Hono<ApiEnv>()
     validate("param", draftParam),
     validate("json", draftDecisionBody),
     async (c) => {
-      const draft = await pendingDraft(c, c.req.valid("param"));
-      await decideDraftStatement(
-        c.env.DB,
-        draft.id,
-        "rejected",
-        c.req.valid("json").actor,
-      ).run();
+      const { draftId, id } = c.req.valid("param");
+      await pendingSpeciesDraft(c.env.DB, draftId, id);
+      await rejectSpeciesDraft(c.env.DB, draftId, c.req.valid("json").actor);
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { status: "rejected" as const } }, 200);
     },
@@ -335,7 +320,7 @@ async function change<T>(
   actor: string,
   summary: string,
   apply: (record: SpeciesRecord) => T,
-  alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
+  alsoRun: Parameters<typeof saveSpeciesRecord>[4] = [],
   read?: Awaited<ReturnType<typeof readSpeciesRecord>>,
 ) {
   const current = read ?? (await readSpeciesRecord(c.env.DB, id));
@@ -351,8 +336,8 @@ async function change<T>(
       checked.error.issues,
     );
   }
-  const version = await save(
-    c,
+  const version = await saveSpeciesRecord(
+    c.env.DB,
     record,
     current.version,
     { actor, source: "admin", summary },
@@ -367,58 +352,4 @@ function covers(record: SpeciesRecord) {
     image: record.base.image,
     mobileImage: record.base.mobileImage ?? "",
   };
-}
-
-async function pendingDraft(
-  c: Context<ApiEnv>,
-  { draftId, id }: { draftId: number; id: string },
-) {
-  const draft = await readDraft(c.env.DB, draftId);
-  if (!draft || draft.speciesId !== id) {
-    throw new ApiError(404, "not_found", "Draft not found");
-  }
-  if (draft.status !== "pending") {
-    throw new ApiError(
-      400,
-      "invalid_request",
-      `Draft is already ${draft.status}`,
-    );
-  }
-  return draft;
-}
-
-async function save(
-  c: Context<ApiEnv>,
-  record: SpeciesRecord,
-  expectedVersion: number,
-  revision: SpeciesRevision,
-  alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
-) {
-  const id = record.base.id;
-  let version: number;
-  try {
-    version = await writeSpeciesRecord(
-      c.env.DB,
-      record,
-      expectedVersion,
-      revision,
-      alsoRun,
-    );
-  } catch (error) {
-    const now = await readSpeciesVersion(c.env.DB, id);
-    if (now !== null && now !== expectedVersion) throw versionConflict(now);
-    throw error;
-  }
-  return version;
-}
-
-function versionConflict(currentVersion: number) {
-  return new ApiError(
-    409,
-    "version_conflict",
-    "Species changed since it was read",
-    {
-      currentVersion,
-    },
-  );
 }

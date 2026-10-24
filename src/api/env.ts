@@ -18,6 +18,7 @@ export type ApiBindings = {
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
   UPLOAD_LIMITER?: RateLimiter;
+  VIEW_LIMITER?: RateLimiter;
 };
 
 export type ApiEnv = {

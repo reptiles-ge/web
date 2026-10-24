@@ -37,8 +37,13 @@
       "simple": { "limit": 5, "period": 60 },
     },
     {
-      "name": "UPLOAD_LIMITER",
+      "name": "VIEW_LIMITER",
       "namespace_id": "1234",
+      "simple": { "limit": 30, "period": 60 },
+    },
+    {
+      "name": "UPLOAD_LIMITER",
+      "namespace_id": "1235",
       "simple": { "limit": 30, "period": 60 },
     },
   ],

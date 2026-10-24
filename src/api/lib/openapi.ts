@@ -462,6 +462,7 @@ export const UNDOCUMENTED_PATH_PREFIXES = [
   "/v1/admin/",
   "/v1/auth/",
   "/v1/ratings",
+  "/v1/views",
 ];
 
 export const documentedOperations = OPERATIONS.map(({ method, path }) => ({
