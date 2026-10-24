@@ -26,6 +26,7 @@ import {
   newsListResponse,
   newsResponse,
   optimizedImageListResponse,
+  rangeMapResponse,
   speciesListResponse,
   speciesResponse,
 } from "./responses";
@@ -122,6 +123,20 @@ describe("documented response schemas", () => {
     }
   });
 
+  it("describe the range map of every species in every locale", async () => {
+    let maps = 0;
+    for (const locale of locales) {
+      const { body: list } = await getJson("/v1/species", locale);
+      const { data } = list as { data: Array<{ id: string; slug: string }> };
+      for (const { id, slug } of data) {
+        const { body } = await getJson(`/v1/species/${slug}/range-map`, locale);
+        expectValid(rangeMapResponse, body, `range-map ${id} ${locale}`);
+        if ((body as { data: unknown }).data) maps += 1;
+      }
+    }
+    expect(maps).toBeGreaterThan(0);
+  });
+
   it("describe every news list and article in every locale", async () => {
     for (const locale of locales) {
       const { body: list } = await getJson("/v1/news", locale);
@@ -175,6 +190,7 @@ describe("documented response schemas", () => {
       RESPONSE_EXAMPLES.fieldRecords,
       "field records",
     );
+    expectValid(rangeMapResponse, RESPONSE_EXAMPLES.rangeMap, "range map");
     expectValid(catalogCardResponse, RESPONSE_EXAMPLES.catalogCard, "card");
     expectValid(catalogFullResponse, RESPONSE_EXAMPLES.catalogFull, "full");
     expectValid(catalogQuizResponse, RESPONSE_EXAMPLES.catalogQuiz, "quiz");

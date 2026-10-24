@@ -5,10 +5,11 @@ import type {
   CatalogCard,
   CatalogFullSpecies,
 } from "@/data/speciesCatalogTypes";
-import type { SpeciesFieldRecord } from "@/data/speciesTypes";
+import type { SpeciesFieldRecord, SpeciesRangeMap } from "@/data/speciesTypes";
 
 import { app } from "@/api/app";
 import { readFieldRecords } from "@/api/db/fieldRecords";
+import { readRangeMap } from "@/api/db/rangeMaps";
 import { createSpeciesTestDatabase } from "@/api/testing/sqliteDatabase";
 import { routing } from "@/i18n/routing";
 
@@ -83,4 +84,13 @@ export async function setup() {
     speciesFixtureFile("field-records"),
     JSON.stringify(fieldRecords),
   );
+
+  const mapIds = database.sqlite
+    .prepare("SELECT species_id FROM species_range_maps ORDER BY species_id")
+    .all() as Array<{ species_id: string }>;
+  const rangeMaps: Record<string, SpeciesRangeMap> = {};
+  for (const { species_id: id } of mapIds) {
+    rangeMaps[id] = (await readRangeMap(database.db, id))!;
+  }
+  writeFileSync(speciesFixtureFile("range-maps"), JSON.stringify(rangeMaps));
 }

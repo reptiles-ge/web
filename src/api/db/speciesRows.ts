@@ -3,17 +3,25 @@ import type {
   GalleryImage,
   PhotoCredit,
   Species,
+  SpeciesFieldRecord,
+  SpeciesRangeMap,
   SpeciesTranslation,
 } from "@/data/speciesTypes";
 
-import { SPECIES_TABLES, type SpeciesTable } from "./speciesSchema";
+import {
+  RANGE_MAP_TEXT_KEYS,
+  SPECIES_TABLES,
+  type SpeciesTable,
+} from "./speciesSchema";
 
 export type SpeciesRecord = {
   base: Species;
   catalogPosition: number;
+  fieldRecords: SpeciesFieldRecord[];
   group: AnimalGroup;
   habitats: HabitatTag[];
   lookalikes: string[];
+  rangeMap: null | SpeciesRangeMap;
   slugKa: null | string;
   slugs: string[];
   status: SpeciesStatus;
@@ -52,6 +60,8 @@ type TextSource = {
 };
 
 export const TRANSLATION_LOCALES: TranslationLocale[] = ["en", "ru", "tr"];
+
+export const RECORD_LOCALES = ["ka", ...TRANSLATION_LOCALES] as const;
 
 type MediaRole = "audio" | "gallery" | "hero" | "mobile";
 
@@ -153,6 +163,21 @@ export function speciesRecordRows(record: SpeciesRecord) {
     add("species_lookalikes", [id, peer, index]),
   );
   for (const slug of record.slugs) add("species_slugs", [slug, id]);
+  if (record.rangeMap) {
+    const { copy, ...settings } = record.rangeMap;
+    add("species_range_maps", [
+      id,
+      settings.iNaturalistTaxonId,
+      settings.rangeSource ?? null,
+      settings.confirmedThreshold ?? null,
+    ]);
+    for (const locale of RECORD_LOCALES) {
+      const texts = RANGE_MAP_TEXT_KEYS.map((key) => copy[locale][key] ?? null);
+      if (texts.some((text) => text !== null)) {
+        add("species_range_map_texts", [id, locale, ...texts]);
+      }
+    }
+  }
   return rows;
 }
 

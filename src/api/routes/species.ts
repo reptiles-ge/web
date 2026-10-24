@@ -3,6 +3,7 @@ import { Hono } from "hono";
 import type { ApiEnv } from "../env";
 
 import { readFieldRecords } from "../db/fieldRecords";
+import { readRangeMap } from "../db/rangeMaps";
 import {
   findPublishedSpeciesId,
   getSpeciesDetail,
@@ -64,5 +65,26 @@ export const species = new Hono<ApiEnv>()
       const data = await readFieldRecords(c.env.DB, id);
       c.header("Cache-Control", PUBLIC_CACHE);
       return c.json({ data, id, total: data.length }, 200);
+    },
+  )
+  .get(
+    "/:slug/range-map",
+    validate("param", speciesParam),
+    validate("header", localeHeader),
+    async (c) => {
+      const { "x-locale": locale } = c.req.valid("header");
+      const id = await findPublishedSpeciesId(
+        c.env.DB,
+        c.req.valid("param").slug,
+        locale,
+      );
+      if (!id) throw new ApiError(404, "not_found", "Species not found");
+      const rangeMap = await readRangeMap(c.env.DB, id);
+      const data = rangeMap
+        ? { ...rangeMap, copy: rangeMap.copy[locale] }
+        : null;
+      c.header("Cache-Control", PUBLIC_CACHE);
+      c.header("Content-Language", locale);
+      return c.json({ data, id, locale }, 200);
     },
   );

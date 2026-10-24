@@ -15,6 +15,23 @@ type FieldRecordRow = {
   url: null | string;
 };
 
+export function fieldRecordStatements(
+  db: ApiDatabase,
+  speciesId: string,
+  records: SpeciesFieldRecord[],
+) {
+  return [
+    db
+      .prepare("DELETE FROM species_field_records WHERE species_id = ?")
+      .bind(speciesId),
+    db
+      .prepare(
+        "INSERT INTO species_field_records (species_id, position, locality, lat, lng, evidence, date, note, observer, observer_name, source, url) SELECT ?, key, json_extract(value, '$.locality'), json_extract(value, '$.lat'), json_extract(value, '$.lng'), json_extract(value, '$.evidence'), json_extract(value, '$.date'), json_extract(value, '$.note'), json_extract(value, '$.observer'), json_extract(value, '$.observerName'), json_extract(value, '$.source'), json_extract(value, '$.url') FROM json_each(?)",
+      )
+      .bind(speciesId, JSON.stringify(records)),
+  ];
+}
+
 export async function readFieldRecords(db: ApiDatabase, speciesId: string) {
   const { results } = await db
     .prepare(

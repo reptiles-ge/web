@@ -30,13 +30,6 @@ export type HalyomorphaRangeCopy = {
   zoomOutLabel: string;
 };
 
-export type InteractiveRangeMapConfig = {
-  copy: Record<AppLocale, HalyomorphaRangeCopy>;
-  iNaturalistTaxonId: number;
-  rangeSource?: "map-regions" | "record-summary";
-  regionMetric?: "confirmed";
-};
-
 export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     closeLabel: "Close field record",

@@ -265,6 +265,28 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
+      "Settings and texts of the interactive range map on the species page, in the requested locale. Only texts that differ from the site's defaults are listed. `data` is `null` when the species page has no interactive map.",
+    errors: [400, 404],
+    header: localeHeader,
+    method: "get",
+    operationId: "getRangeMap",
+    param: speciesParam,
+    path: "/v1/species/{slug}/range-map",
+    success: {
+      description: "Range map.",
+      examples: {
+        pondSlider: {
+          summary: "Pond slider, shortened",
+          value: RESPONSE_EXAMPLES.rangeMap,
+        },
+      },
+      schema: ref("RangeMapResponse"),
+    },
+    summary: "Get the range map",
+    tag: "Species",
+  },
+  {
+    description:
       "Published species with groups, habitats and lookalike ids. Use `card` for lists and cards, `photos` for photo credits (the card fields plus the gallery), `quiz` for identification quizzes (the card fields plus identification, facts and gallery), and `full` only when you need every text, for example to build a search index. Filter with `group`, `danger`, `habitat`, `region` and `q`, and order with `sort`. Pagination is optional: pass `limit`, then either `page` for a numbered page or each response's `nextCursor` as `cursor` until it is `null`. `total` counts every match; `facets` count the matches for each filter value and `stats` sum over every match, so a page never needs the whole catalog for its counts.",
     errors: [400],
     header: localeHeader,

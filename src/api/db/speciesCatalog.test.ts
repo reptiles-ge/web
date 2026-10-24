@@ -8,7 +8,7 @@ import { RELINK_MEDIA_AUTHORS } from "./authors";
 import { readSpeciesCatalog, type SpeciesCatalogData } from "./speciesCatalog";
 import { speciesRecordRows } from "./speciesRows";
 import { SPECIES_TABLES } from "./speciesSchema";
-import { readSpeciesRecord } from "./speciesWrite";
+import { readSpeciesRecord, writeSpeciesRecord } from "./speciesWrite";
 import { renderLiteralInserts } from "./sqlRender";
 
 type Database = ReturnType<typeof createTestDatabase>;
@@ -50,6 +50,29 @@ describe("species in D1", () => {
     }
     for (const statement of RELINK_MEDIA_AUTHORS) fresh.sqlite.exec(statement);
     expect(await readSpeciesCatalog(fresh.db)).toStrictEqual(source);
+  });
+
+  it("writes every full record back unchanged, field records and range map included", async () => {
+    const { db, sqlite } = createSpeciesTestDatabase();
+    let fieldRecords = 0;
+    let rangeMaps = 0;
+    for (const id of source.catalogIds) {
+      const found = await readSpeciesRecord(db, id);
+      fieldRecords += found!.record.fieldRecords.length;
+      if (found!.record.rangeMap) rangeMaps += 1;
+      await writeSpeciesRecord(db, found!.record, found!.version, {
+        actor: "test",
+        source: "admin",
+        summary: "Round trip",
+      });
+      const again = await readSpeciesRecord(db, id);
+      expect(again!.version).toBe(found!.version + 1);
+      expect(again!.record).toStrictEqual(found!.record);
+    }
+    expect(fieldRecords).toBe(count(sqlite, "species_field_records"));
+    expect(fieldRecords).toBeGreaterThan(0);
+    expect(rangeMaps).toBe(count(sqlite, "species_range_maps"));
+    expect(rangeMaps).toBeGreaterThan(0);
   });
 
   it("keeps one row per species, locale, slug and source", () => {

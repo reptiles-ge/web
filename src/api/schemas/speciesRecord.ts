@@ -113,13 +113,49 @@ const translation = z.strictObject({
   updatedAt: date.optional(),
 });
 
+const fieldRecord = z.strictObject({
+  date: z.string().optional(),
+  evidence: z.enum(["literature", "observation", "specimen"]).optional(),
+  lat: z.number().min(-90).max(90),
+  lng: z.number().min(-180).max(180),
+  locality: required,
+  note: z.string().optional(),
+  observer: z.string().optional(),
+  observerName: z.string().optional(),
+  source: z.string().optional(),
+  url: z.string().optional(),
+});
+
+const rangeMapCopy = z.strictObject({
+  confirmedStatusLabel: required.optional(),
+  intro: required.optional(),
+  mapAria: required.optional(),
+  officialRegionLabel: required.optional(),
+  rangeTitle: required.optional(),
+  regionsMetricLabel: required.optional(),
+});
+
+const rangeMap = z.strictObject({
+  confirmedThreshold: z.int().min(1).optional(),
+  copy: z.strictObject({
+    en: rangeMapCopy,
+    ka: rangeMapCopy,
+    ru: rangeMapCopy,
+    tr: rangeMapCopy,
+  }),
+  iNaturalistTaxonId: z.int().min(1),
+  rangeSource: z.enum(["map-regions", "record-summary"]).optional(),
+});
+
 export const speciesRecordSchema = z
   .strictObject({
     base,
     catalogPosition: z.int().min(0),
+    fieldRecords: z.array(fieldRecord),
     group: z.enum(ANIMAL_GROUPS),
     habitats: z.array(z.enum(HABITATS)),
     lookalikes: z.array(z.string().regex(SLUG)),
+    rangeMap: rangeMap.nullable(),
     slugKa: z.string().regex(SLUG).nullable(),
     slugs: z.array(z.string().regex(SLUG)),
     status: z.enum(["draft", "published", "unpublished"]),

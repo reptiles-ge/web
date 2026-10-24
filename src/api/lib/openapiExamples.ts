@@ -412,6 +412,18 @@ export const RESPONSE_EXAMPLES = {
     nextCursor: "batumi-raptor-count-2026-season-ends",
     total: 5,
   },
+  rangeMap: {
+    data: {
+      copy: {
+        officialRegionLabel: "Region with records",
+        rangeTitle: "Where pond sliders are recorded in Georgia",
+      },
+      iNaturalistTaxonId: 39782,
+      rangeSource: "record-summary",
+    },
+    id: "trachemys-scripta",
+    locale: "en",
+  },
   species: {
     data: {
       ...levantineViper,
