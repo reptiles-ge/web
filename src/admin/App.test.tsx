@@ -14,7 +14,11 @@ vi.mock("./species", async (importOriginal) => ({
 
 vi.mock("./news", () => ({ fetchAdminNews: vi.fn(async () => []) }));
 
-vi.mock("./authors", () => ({ fetchAdminAuthors: vi.fn(async () => []) }));
+vi.mock("./authors", () => ({
+  fetchAdminAuthorPhotos: vi.fn(async () => null),
+  fetchAdminAuthorRecord: vi.fn(async () => null),
+  fetchAdminAuthors: vi.fn(async () => []),
+}));
 
 vi.mock("./ratings", () => ({
   fetchAdminRatings: vi.fn(async () => ({
@@ -129,6 +133,17 @@ describe("admin App", () => {
     expect(
       screen.getByRole("link", { name: "Species" }).closest("li"),
     ).toHaveClass("ant-menu-item-selected");
+  });
+
+  it("opens an author detail page under the Authors menu", async () => {
+    window.history.replaceState(null, "", "/authors/sandro-khakhva");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(await screen.findByText("Author not found")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Authors" }).closest("li"),
+    ).toHaveClass("ant-menu-item-selected");
+    expect(document.title).toBe("Authors — reptiles.ge admin");
   });
 
   it("navigates between pages and follows the back button", async () => {

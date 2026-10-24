@@ -7,6 +7,7 @@ import {
   type AuthorRecord,
   findAliasOwners,
   listAdminAuthors,
+  listAuthorPhotos,
   readAuthor,
   writeAuthor,
 } from "../db/authors";
@@ -60,13 +61,27 @@ export const adminAuthors = new Hono<ApiEnv>()
       return c.json({ data: { id } }, 200);
     },
   )
-  .use(requireToken)
-  .get("/:id", validate("param", authorParam), async (c) => {
+  .get("/:id", requireAdmin, validate("param", authorParam), async (c) => {
     const author = await readAuthor(c.env.DB, c.req.valid("param").id);
     if (!author) throw new ApiError(404, "not_found", "Author not found");
     c.header("Cache-Control", NO_STORE);
     return c.json({ data: author }, 200);
   })
+  .get(
+    "/:id/photos",
+    requireAdmin,
+    validate("param", authorParam),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      if (!(await authorExists(c.env.DB, id))) {
+        throw new ApiError(404, "not_found", "Author not found");
+      }
+      const data = await listAuthorPhotos(c.env.DB, id);
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data, id, total: data.length }, 200);
+    },
+  )
+  .use(requireToken)
   .put(
     "/:id",
     validate("param", authorParam),

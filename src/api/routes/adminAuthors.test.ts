@@ -369,3 +369,89 @@ describe("POST /v1/admin/authors/:id/revalidate and /revalidate", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 });
+
+describe("GET /v1/admin/authors/:id and /:id/photos", () => {
+  type PhotosBody = {
+    data: Array<{
+      date: null | string;
+      location: null | string;
+      role: string;
+      speciesId: string;
+      speciesName: { en: null | string; ka: null | string };
+      src: string;
+      status: string;
+    }>;
+    id: string;
+    total: number;
+  };
+
+  function photos(id: string, headers: Record<string, string>) {
+    return requestJson<ErrorBody & PhotosBody>(
+      `/v1/admin/authors/${id}/photos`,
+      env,
+      { headers },
+    );
+  }
+
+  it("lets a session read an author record, but not write it", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    const read = await requestJson<{ data: AuthorRecord }>(
+      "/v1/admin/authors/sandro-khakhva",
+      env,
+      { headers: session },
+    );
+    expect(read.response.status).toBe(200);
+    expect(read.body.data.id).toBe("sandro-khakhva");
+    const write = await requestJson<ErrorBody>(
+      "/v1/admin/authors/sandro-khakhva",
+      env,
+      {
+        body: JSON.stringify({ author: read.body.data }),
+        headers: { ...session, "Content-Type": "application/json" },
+        method: "PUT",
+      },
+    );
+    expect(write.response.status).toBe(401);
+  });
+
+  it("lists every species photo credited to the author in catalog order", async () => {
+    const expected = sqlite
+      .prepare(
+        "SELECT m.species_id AS speciesId, m.role AS role, m.src AS src FROM species_media m JOIN species s ON s.id = m.species_id WHERE m.author_id = 'sandro-khakhva' AND m.role != 'audio' ORDER BY s.catalog_position, m.role, m.position",
+      )
+      .all() as Array<{ role: string; speciesId: string; src: string }>;
+    expect(expected.length).toBeGreaterThan(0);
+    const { body, response } = await photos(
+      "sandro-khakhva",
+      await adminSessionHeaders(sqlite),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.id).toBe("sandro-khakhva");
+    expect(body.total).toBe(expected.length);
+    expect(
+      body.data.map(({ role, speciesId, src }) => ({ role, speciesId, src })),
+    ).toEqual(expected);
+    const first = body.data[0]!;
+    const name = sqlite
+      .prepare(
+        "SELECT common_name AS name FROM species_texts WHERE species_id = ? AND locale = 'ka'",
+      )
+      .get(first.speciesId) as { name: string };
+    expect(first.speciesName.ka).toBe(name.name);
+  });
+
+  it("answers 404 for an unknown author and refuses non-admins", async () => {
+    const token = { Authorization: `Bearer ${TOKEN}` };
+    expect((await photos("nobody", token)).response.status).toBe(404);
+    expect((await photos("sandro-khakhva", {})).response.status).toBe(401);
+    expect(
+      (
+        await photos(
+          "sandro-khakhva",
+          await adminSessionHeaders(sqlite, "editor"),
+        )
+      ).response.status,
+    ).toBe(403);
+  });
+});

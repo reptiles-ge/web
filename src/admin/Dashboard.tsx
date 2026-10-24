@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
@@ -26,7 +27,17 @@ const SECTIONS: Array<{
 
 const HOME_PATH = SECTIONS[0].path;
 
-const SPECIES_DETAIL = /^\/species\/([a-z0-9-]+)$/;
+type DetailProps = { id: string; onSessionExpired: () => void };
+
+const DETAILS: Array<{
+  page: (props: DetailProps) => ReactNode;
+  path: string;
+}> = [
+  { page: SpeciesDetailPage, path: "/species" },
+  { page: AuthorDetailPage, path: "/authors" },
+];
+
+const DETAIL_PATH = /^(\/[a-z]+)\/([a-z0-9-]+)$/;
 
 const TITLE = "reptiles.ge admin";
 
@@ -39,9 +50,10 @@ export function Dashboard({
 }) {
   const [pending, setPending] = useState(false);
   const pathname = usePathname();
-  const speciesId = SPECIES_DETAIL.exec(pathname)?.[1];
+  const [, detailPath, detailId] = DETAIL_PATH.exec(pathname) ?? [];
+  const detail = DETAILS.find(({ path }) => path === detailPath);
   const section = SECTIONS.find(
-    ({ path }) => path === pathname || (speciesId && path === HOME_PATH),
+    ({ path }) => path === pathname || (detail && path === detail.path),
   );
 
   useEffect(() => {
@@ -109,10 +121,10 @@ export function Dashboard({
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          {speciesId ? (
-            <SpeciesDetailPage
-              id={speciesId}
-              key={speciesId}
+          {detail && detailId ? (
+            <detail.page
+              id={detailId}
+              key={pathname}
               onSessionExpired={onSignedOut}
             />
           ) : section ? (

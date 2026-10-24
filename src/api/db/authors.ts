@@ -46,6 +46,17 @@ type AdminAuthorRow = {
   role_id: null | string;
 };
 
+type AuthorPhotoRow = {
+  credit_date: null | string;
+  credit_location: null | string;
+  name_en: null | string;
+  name_ka: null | string;
+  role: "gallery" | "hero" | "mobile";
+  species_id: string;
+  src: string;
+  status: "draft" | "published" | "unpublished";
+};
+
 export const RELINK_NEWS_MEDIA_AUTHORS =
   "UPDATE news_media SET author_id = (SELECT author_id FROM author_aliases WHERE alias = news_media.credit_person);";
 
@@ -187,6 +198,24 @@ export async function listAdminAuthors(db: ApiDatabase) {
     name: { en: row.name_en, ka: row.name_ka },
     photoCount: row.photo_count,
     role: row.role_id,
+  }));
+}
+
+export async function listAuthorPhotos(db: ApiDatabase, id: string) {
+  const { results } = await db
+    .prepare(
+      "SELECT m.species_id, k.common_name AS name_ka, e.common_name AS name_en, s.status, m.role, m.src, m.credit_location, m.credit_date FROM species_media m JOIN species s ON s.id = m.species_id LEFT JOIN species_texts k ON k.species_id = m.species_id AND k.locale = 'ka' LEFT JOIN species_texts e ON e.species_id = m.species_id AND e.locale = 'en' WHERE m.author_id = ? AND m.role != 'audio' ORDER BY s.catalog_position, m.role, m.position",
+    )
+    .bind(id)
+    .all<AuthorPhotoRow>();
+  return results.map((row) => ({
+    date: row.credit_date,
+    location: row.credit_location,
+    role: row.role,
+    speciesId: row.species_id,
+    speciesName: { en: row.name_en, ka: row.name_ka },
+    src: row.src,
+    status: row.status,
   }));
 }
 

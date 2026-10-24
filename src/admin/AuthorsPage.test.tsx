@@ -112,4 +112,11 @@ describe("AuthorsPage", () => {
     render(<AuthorsPage onSessionExpired={expired} />);
     await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
   });
+
+  it("links each author to its detail page", async () => {
+    open();
+    expect(
+      await screen.findByRole("link", { name: "ჩარლზ შარპი" }),
+    ).toHaveAttribute("href", "/authors/charles-j-sharp");
+  });
 });
