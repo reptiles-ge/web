@@ -113,6 +113,7 @@ export function SpeciesSearch({
     emptyTitle: t("noResults"),
     groups,
     listLabel: t("title"),
+    loadingLabel: t("loading"),
     onHover: setActiveIndex,
     onPickSuggestion: pickSuggestion,
     onSelect: goTo,

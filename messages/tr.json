@@ -93,6 +93,7 @@
     "placeholder": "Tür, sayfa, bölge…",
     "noResults": "Sonuç yok",
     "noResultsHint": "Bir ad, rehber konusu veya bölge deneyin",
+    "loading": "Yükleniyor…",
     "featured": "Öne çıkan türler",
     "suggested": "Önerilen sayfalar",
     "recent": "Son açılanlar",
