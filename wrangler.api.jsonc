@@ -31,6 +31,11 @@
       "namespace_id": "1232",
       "simple": { "limit": 5, "period": 60 },
     },
+    {
+      "name": "ADMIN_LIMITER",
+      "namespace_id": "1233",
+      "simple": { "limit": 5, "period": 60 },
+    },
   ],
   "services": [
     {

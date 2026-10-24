@@ -1,97 +1,57 @@
 import type { ColumnsType } from "antd/es/table";
 
-import {
-  Alert,
-  Badge,
-  Button,
-  Flex,
-  Image,
-  Input,
-  Space,
-  Table,
-  Tag,
-  Typography,
-} from "antd";
-import { useEffect, useEffectEvent, useMemo, useState } from "react";
+import { Badge, Space, Tag, Typography } from "antd";
+import { useMemo, useState } from "react";
 
-import { optimizedImgSrc } from "@/data/optimizedImages";
-
+import { AdminLink } from "./AdminLink";
+import { AdminListView } from "./AdminListView";
+import { ClearCacheButton } from "./ClearCacheButton";
+import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
+import { clearSiteCache } from "./site";
 import {
   type AdminSpecies,
+  clearSpeciesCache,
   fetchAdminSpecies,
-  SessionExpiredError,
+  SPECIES_STATUS_COLORS,
 } from "./species";
-
-type LoadState =
-  | { species: AdminSpecies[]; status: "ready" }
-  | { status: "error" }
-  | { status: "loading" };
-
-const STATUS_COLORS: Record<AdminSpecies["status"], string> = {
-  draft: "gold",
-  published: "green",
-  unpublished: "default",
-};
+import { includesQuery, unique, useAdminList } from "./useAdminList";
 
 export function SpeciesPage({
   onSessionExpired,
 }: {
   onSessionExpired: () => void;
 }) {
-  const [state, setState] = useState<LoadState>({ status: "loading" });
-  const [attempt, setAttempt] = useState(0);
+  const {
+    items: species,
+    reload,
+    status,
+  } = useAdminList(fetchAdminSpecies, onSessionExpired);
   const [query, setQuery] = useState("");
-  const expire = useEffectEvent(onSessionExpired);
-
-  useEffect(() => {
-    let active = true;
-    fetchAdminSpecies().then(
-      (species) => {
-        if (active) setState({ species, status: "ready" });
-      },
-      (error: unknown) => {
-        if (!active) return;
-        if (error instanceof SessionExpiredError) expire();
-        else setState({ status: "error" });
-      },
-    );
-    return () => {
-      active = false;
-    };
-  }, [attempt]);
-
-  const species = useMemo(
-    () => (state.status === "ready" ? state.species : []),
-    [state],
-  );
   const visible = useMemo(
-    () => species.filter((item) => matches(item, query)),
+    () =>
+      species.filter((item) =>
+        includesQuery(
+          [
+            item.id,
+            item.scientificName,
+            item.commonName.ka,
+            item.commonName.en ?? "",
+          ],
+          query,
+        ),
+      ),
     [species, query],
   );
 
   const columns: ColumnsType<AdminSpecies> = [
-    {
-      dataIndex: "image",
-      key: "image",
-      render: (src: null | string) =>
-        src ? (
-          <Image
-            alt=""
-            height={40}
-            preview={false}
-            src={optimizedImgSrc(src, 320)}
-            style={{ objectFit: "cover" }}
-            width={56}
-          />
-        ) : null,
-      title: "Photo",
-      width: 72,
-    },
+    imageColumn<AdminSpecies>("Photo"),
     {
       key: "name",
       render: (_, item) => (
         <Space orientation="vertical" size={0}>
-          <Typography.Text strong>{item.commonName.ka}</Typography.Text>
+          <AdminLink path={`/species/${item.id}`} strong>
+            {item.commonName.ka}
+          </AdminLink>
           <Typography.Text type="secondary">
             {item.commonName.en ?? "—"} · <i>{item.scientificName}</i>
           </Typography.Text>
@@ -123,7 +83,7 @@ export function SpeciesPage({
       key: "status",
       onFilter: (value, item) => item.status === value,
       render: (status: AdminSpecies["status"]) => (
-        <Tag color={STATUS_COLORS[status]}>{status}</Tag>
+        <Tag color={SPECIES_STATUS_COLORS[status]}>{status}</Tag>
       ),
       title: "Status",
     },
@@ -133,13 +93,7 @@ export function SpeciesPage({
       render: (danger: null | string) => danger ?? "—",
       title: "Danger",
     },
-    {
-      align: "right",
-      dataIndex: "photoCount",
-      key: "photoCount",
-      sorter: (a, b) => a.photoCount - b.photoCount,
-      title: "Photos",
-    },
+    photoCountColumn(),
     {
       align: "right",
       dataIndex: "pendingDrafts",
@@ -149,82 +103,55 @@ export function SpeciesPage({
       sorter: (a, b) => a.pendingDrafts - b.pendingDrafts,
       title: "Drafts",
     },
+    ...revisionColumns<AdminSpecies>(),
     {
-      align: "right",
-      dataIndex: "version",
-      key: "version",
-      sorter: (a, b) => a.version - b.version,
-      title: "Version",
-    },
-    {
-      dataIndex: "lastEditedAt",
-      key: "lastEditedAt",
-      render: (value: null | string) =>
-        value ? new Date(value).toLocaleString() : "—",
-      sorter: (a, b) =>
-        (a.lastEditedAt ?? "").localeCompare(b.lastEditedAt ?? ""),
-      title: "Last edited",
+      fixed: "right",
+      key: "actions",
+      render: (_, item) => (
+        <ClearCacheButton
+          description="This species' profile pages on reptiles.ge render fresh on their next visit, in every language. Hubs, lists and cards are not cleared."
+          failure="The species cache could not be cleared. Try again in a minute."
+          label="Clear cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            await clearSpeciesCache(item.id);
+            return `Cache cleared for ${item.id}.`;
+          }}
+          size="small"
+          title="Clear this species' cache?"
+        />
+      ),
+      title: "Actions",
     },
   ];
 
-  function reload() {
-    setState({ status: "loading" });
-    setAttempt((count) => count + 1);
-  }
-
   return (
-    <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
-      <Flex align="center" gap="middle" justify="space-between" wrap>
-        <Typography.Title level={3} style={{ margin: 0 }}>
-          Species
-        </Typography.Title>
-        <Space wrap>
-          <Input.Search
-            allowClear
-            aria-label="Search species"
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Name, scientific name or id"
-            style={{ width: 280 }}
-          />
-          <Button loading={state.status === "loading"} onClick={reload}>
-            Reload
-          </Button>
-        </Space>
-      </Flex>
-      {state.status === "error" ? (
-        <Alert
-          action={<Button onClick={reload}>Retry</Button>}
-          message="Could not load species."
-          showIcon
-          type="error"
+    <AdminListView<AdminSpecies>
+      actions={
+        <ClearCacheButton
+          description="Every species page on reptiles.ge renders fresh on its next visit: profiles, hubs, lists and cards. Species edited in the last 24 hours are refetched from the API. This is most of the site."
+          failure="The species cache could not be cleared. Try again in a minute."
+          label="Clear species cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            const species = await clearSiteCache();
+            return species.length === 0
+              ? "Species cache cleared."
+              : `Species cache cleared. ${species.length} recently edited species refetched.`;
+          }}
+          title="Clear the whole species cache?"
         />
-      ) : (
-        <Table<AdminSpecies>
-          columns={columns}
-          dataSource={visible}
-          footer={() => `${visible.length} of ${species.length} species`}
-          loading={state.status === "loading"}
-          pagination={{ defaultPageSize: 50, showSizeChanger: true }}
-          rowKey="id"
-          scroll={{ x: 900 }}
-          size="small"
-        />
-      )}
-    </Space>
+      }
+      columns={columns}
+      noun="species"
+      onQuery={setQuery}
+      onReload={reload}
+      rowKey="id"
+      rows={visible}
+      searchPlaceholder="Name, scientific name or id"
+      status={status}
+      title="Species"
+      total={species.length}
+    />
   );
-}
-
-function matches(species: AdminSpecies, query: string) {
-  const needle = query.trim().toLowerCase();
-  if (!needle) return true;
-  return [
-    species.id,
-    species.scientificName,
-    species.commonName.ka,
-    species.commonName.en ?? "",
-  ].some((value) => value.toLowerCase().includes(needle));
-}
-
-function unique<T>(values: T[]) {
-  return [...new Set(values)].sort();
 }

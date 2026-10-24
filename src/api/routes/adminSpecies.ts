@@ -5,6 +5,7 @@ import { Hono } from "hono";
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
 
+import { readFieldRecords } from "../db/fieldRecords";
 import { listAdminSpecies } from "../db/species";
 import {
   decideDraftStatement,
@@ -18,10 +19,12 @@ import {
   type SpeciesRevision,
   writeSpeciesRecord,
 } from "../db/speciesWrite";
-import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
-import { revalidateSpeciesPages } from "../lib/revalidateSite";
+import {
+  ensureSiteRevalidated,
+  revalidateSpeciesPage,
+} from "../lib/revalidateSite";
 import {
   removePhoto,
   reorderPhotos,
@@ -29,7 +32,10 @@ import {
   setPhotoCoordinates,
 } from "../lib/speciesPhotos";
 import { validate } from "../lib/validate";
+import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { requireAdmin } from "../middleware/requireAdmin";
+import { requireAdminSession } from "../middleware/requireAdminSession";
+import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import {
   draftCreateBody,
@@ -50,13 +56,43 @@ export const adminSpecies = new Hono<ApiEnv>()
     c.header("Cache-Control", NO_STORE);
     return c.json({ data, total: data.length }, 200);
   })
-  .use(requireToken)
-  .get("/:id", validate("param", speciesIdParam), async (c) => {
+  .get("/:id", requireAdmin, validate("param", speciesIdParam), async (c) => {
     const found = await readSpeciesRecord(c.env.DB, c.req.valid("param").id);
     if (!found) throw new ApiError(404, "not_found", "Species not found");
     c.header("Cache-Control", NO_STORE);
     return c.json({ data: found }, 200);
   })
+  .get(
+    "/:id/field-records",
+    requireAdmin,
+    validate("param", speciesIdParam),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      if ((await readSpeciesVersion(c.env.DB, id)) === null) {
+        throw new ApiError(404, "not_found", "Species not found");
+      }
+      const data = await readFieldRecords(c.env.DB, id);
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data, id, total: data.length }, 200);
+    },
+  )
+  .post(
+    "/:id/revalidate",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      if ((await readSpeciesVersion(c.env.DB, id)) === null) {
+        throw new ApiError(404, "not_found", "Species not found");
+      }
+      await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id));
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id } }, 200);
+    },
+  )
+  .use(requireToken)
   .put(
     "/:id",
     validate("param", speciesIdParam),
@@ -308,7 +344,6 @@ async function save(
     if (now !== null && now !== expectedVersion) throw versionConflict(now);
     throw error;
   }
-  inBackground(c, revalidateSpeciesPages(c.env, id));
   return version;
 }
 

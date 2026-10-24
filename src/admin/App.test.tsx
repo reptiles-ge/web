@@ -7,7 +7,23 @@ import { fetchCurrentUser, signIn, signOut } from "./session";
 
 vi.mock("./species", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./species")>()),
+  fetchAdminFieldRecords: vi.fn(async () => []),
   fetchAdminSpecies: vi.fn(async () => []),
+  fetchAdminSpeciesRecord: vi.fn(async () => null),
+}));
+
+vi.mock("./news", () => ({ fetchAdminNews: vi.fn(async () => []) }));
+
+vi.mock("./authors", () => ({
+  fetchAdminAuthorPhotos: vi.fn(async () => null),
+  fetchAdminAuthorRecord: vi.fn(async () => null),
+  fetchAdminAuthors: vi.fn(async () => []),
+}));
+
+vi.mock("./site", () => ({
+  clearPageGroupCache: vi.fn(),
+  clearSiteCache: vi.fn(),
+  fetchPageGroups: vi.fn(async () => []),
 }));
 
 vi.mock("./ratings", () => ({
@@ -85,6 +101,67 @@ describe("admin App", () => {
       await screen.findByRole("heading", { name: "Ratings" }),
     ).toBeInTheDocument();
     expect(document.title).toBe("Ratings — reptiles.ge admin");
+  });
+
+  it("opens news from the menu at /news", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const news = await screen.findByRole("link", { name: "News" });
+    expect(news).toHaveAttribute("href", "/news");
+    await userEvent.setup().click(news);
+    expect(
+      await screen.findByRole("heading", { name: "News" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/news");
+    expect(document.title).toBe("News — reptiles.ge admin");
+  });
+
+  it("opens authors from the menu at /authors", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const authors = await screen.findByRole("link", { name: "Authors" });
+    expect(authors).toHaveAttribute("href", "/authors");
+    await userEvent.setup().click(authors);
+    expect(
+      await screen.findByRole("heading", { name: "Authors" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Authors — reptiles.ge admin");
+  });
+
+  it("opens a species detail page under the Species menu", async () => {
+    window.history.replaceState(null, "", "/species/macrovipera-lebetina");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(
+      await screen.findByRole("link", { name: "← Species" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Species — reptiles.ge admin");
+    expect(
+      screen.getByRole("link", { name: "Species" }).closest("li"),
+    ).toHaveClass("ant-menu-item-selected");
+  });
+
+  it("opens an author detail page under the Authors menu", async () => {
+    window.history.replaceState(null, "", "/authors/sandro-khakhva");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(await screen.findByText("Author not found")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Authors" }).closest("li"),
+    ).toHaveClass("ant-menu-item-selected");
+    expect(document.title).toBe("Authors — reptiles.ge admin");
+  });
+
+  it("opens the cache page from the menu at /cache", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const cache = await screen.findByRole("link", { name: "Cache" });
+    expect(cache).toHaveAttribute("href", "/cache");
+    await userEvent.setup().click(cache);
+    expect(
+      await screen.findByRole("heading", { name: "Cache" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Cache — reptiles.ge admin");
   });
 
   it("navigates between pages and follows the back button", async () => {

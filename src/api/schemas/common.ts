@@ -14,3 +14,5 @@ export const speciesIdText = z
   .toLowerCase()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
   .max(100);
+
+export const sitePageGroupParam = z.object({ id: speciesIdText });

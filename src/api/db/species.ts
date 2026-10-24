@@ -49,7 +49,7 @@ export async function findPublishedSpeciesId(
 ) {
   const row = await db
     .prepare(
-      `SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "COALESCE(slug_ka, id)" : "id"} = ?`,
+      `SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "slug_ka" : "id"} = ?`,
     )
     .bind(slug)
     .first<{ id: string }>();
@@ -124,6 +124,17 @@ export async function listPublishedSpecies(
     slug: publicSlug(row.id, row.slug_ka, locale),
     updatedAt: row.updated_at,
   }));
+}
+
+export async function readSpeciesIdsRevisedSince(
+  db: ApiDatabase,
+  since: string,
+) {
+  const { results } = await db
+    .prepare("SELECT species_id FROM species_revisions WHERE created_at >= ?")
+    .bind(since)
+    .all<{ species_id: string }>();
+  return [...new Set(results.map(({ species_id }) => species_id))].sort();
 }
 
 async function listLookalikes(db: ApiDatabase, id: string, locale: AppLocale) {

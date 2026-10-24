@@ -1,11 +1,16 @@
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { AuthorDetailPage } from "./AuthorDetailPage";
+import { AuthorsPage } from "./AuthorsPage";
+import { CachePage } from "./CachePage";
+import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
-import { navigate, usePathname } from "./router";
+import { followLink, navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
+import { SpeciesDetailPage } from "./SpeciesDetailPage";
 import { SpeciesPage } from "./SpeciesPage";
 
 type SectionProps = { onSessionExpired: () => void };
@@ -16,10 +21,25 @@ const SECTIONS: Array<{
   path: string;
 }> = [
   { label: "Species", page: SpeciesPage, path: "/species" },
+  { label: "News", page: NewsPage, path: "/news" },
+  { label: "Authors", page: AuthorsPage, path: "/authors" },
+  { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
 ];
 
 const HOME_PATH = SECTIONS[0].path;
+
+type DetailProps = { id: string; onSessionExpired: () => void };
+
+const DETAILS: Array<{
+  page: (props: DetailProps) => ReactNode;
+  path: string;
+}> = [
+  { page: SpeciesDetailPage, path: "/species" },
+  { page: AuthorDetailPage, path: "/authors" },
+];
+
+const DETAIL_PATH = /^(\/[a-z]+)\/([a-z0-9-]+)$/;
 
 const TITLE = "reptiles.ge admin";
 
@@ -32,7 +52,11 @@ export function Dashboard({
 }) {
   const [pending, setPending] = useState(false);
   const pathname = usePathname();
-  const section = SECTIONS.find(({ path }) => path === pathname);
+  const [, detailPath, detailId] = DETAIL_PATH.exec(pathname) ?? [];
+  const detail = DETAILS.find(({ path }) => path === detailPath);
+  const section = SECTIONS.find(
+    ({ path }) => path === pathname || (detail && path === detail.path),
+  );
 
   useEffect(() => {
     if (pathname === "/") navigate(HOME_PATH, { replace: true });
@@ -52,14 +76,6 @@ export function Dashboard({
     }
   }
 
-  function open(event: MouseEvent, path: string) {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-      return;
-    }
-    event.preventDefault();
-    navigate(path);
-  }
-
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout.Sider breakpoint="lg" collapsedWidth={0} theme="light">
@@ -70,7 +86,7 @@ export function Dashboard({
           items={SECTIONS.map(({ label, path }) => ({
             key: path,
             label: (
-              <a href={path} onClick={(event) => open(event, path)}>
+              <a href={path} onClick={(event) => followLink(event, path)}>
                 {label}
               </a>
             ),
@@ -107,14 +123,20 @@ export function Dashboard({
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          {section ? (
+          {detail && detailId ? (
+            <detail.page
+              id={detailId}
+              key={pathname}
+              onSessionExpired={onSignedOut}
+            />
+          ) : section ? (
             <section.page onSessionExpired={onSignedOut} />
           ) : pathname === "/" ? null : (
             <Result
               extra={
                 <Button
                   href={HOME_PATH}
-                  onClick={(event) => open(event, HOME_PATH)}
+                  onClick={(event) => followLink(event, HOME_PATH)}
                   type="primary"
                 >
                   Open species

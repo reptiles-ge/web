@@ -7,6 +7,7 @@ import { newsReferenceIssues } from "@/lib/newsRules";
 
 import type { ApiEnv } from "../env";
 
+import { listAdminNews } from "../db/news";
 import {
   createNewsArticle,
   readNewsKnownIds,
@@ -17,8 +18,17 @@ import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
-import { revalidateNewsPages } from "../lib/revalidateSite";
+import {
+  ensureSiteRevalidated,
+  revalidateNewsArticle,
+  revalidateNewsPages,
+  revalidateNewsSection,
+} from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
+import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
+import { requireAdmin } from "../middleware/requireAdmin";
+import { requireAdminSession } from "../middleware/requireAdminSession";
+import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import { newsParam } from "../schemas/news";
 import {
@@ -31,6 +41,38 @@ const HUB_IDS = new Set(Object.keys(GROUP_HUBS));
 const REGIONS = new Set(REGION_IDS);
 
 export const adminNews = new Hono<ApiEnv>()
+  .get("/", requireAdmin, async (c) => {
+    const data = await listAdminNews(c.env.DB);
+    c.header("Cache-Control", NO_STORE);
+    return c.json({ data, total: data.length }, 200);
+  })
+  .post(
+    "/revalidate",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    async (c) => {
+      await ensureSiteRevalidated(revalidateNewsSection(c.env));
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { tags: ["news"] } }, 200);
+    },
+  )
+  .post(
+    "/:slug/revalidate",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", newsParam),
+    async (c) => {
+      const { slug } = c.req.valid("param");
+      if (!(await readNewsState(c.env.DB, slug))) {
+        throw new ApiError(404, "not_found", "Article not found");
+      }
+      await ensureSiteRevalidated(revalidateNewsArticle(c.env, slug));
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id: slug } }, 200);
+    },
+  )
   .use(requireToken)
   .post(
     "/",

@@ -11,6 +11,7 @@ export type ApiErrorCode =
   | "not_found"
   | "payload_too_large"
   | "rate_limited"
+  | "site_unavailable"
   | "unauthorized"
   | "version_conflict";
 
