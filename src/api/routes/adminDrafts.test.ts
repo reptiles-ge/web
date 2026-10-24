@@ -182,6 +182,37 @@ describe("GET /v1/admin/drafts/:draftId", () => {
     expect(body.data.current.record.base.overview).not.toBe("AI overview");
   });
 
+  it("keeps the record the draft was based on after it is merged", async () => {
+    const before = (await live()).record.base.overview;
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    await decide(draftId, "merge");
+    const { body } = await requestJson<{
+      data: {
+        current: { record: SpeciesRecord };
+        draft: { baseRecord: SpeciesRecord };
+      };
+    }>(`/v1/admin/drafts/${draftId}`, env, { headers: await signedIn() });
+    expect(body.data.draft.baseRecord.base.overview).toBe(before);
+    expect(body.data.current.record.base.overview).toBe("AI overview");
+  });
+
+  it("copies the live record into an older draft when it is merged", async () => {
+    const before = (await live()).record.base.overview;
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    sqlite.prepare("UPDATE species_drafts SET base_record = NULL").run();
+    await decide(draftId, "merge");
+    const row = sqlite
+      .prepare("SELECT base_record FROM species_drafts WHERE id = ?")
+      .get(draftId) as { base_record: string };
+    expect((JSON.parse(row.base_record) as SpeciesRecord).base.overview).toBe(
+      before,
+    );
+  });
+
   it("answers 404 for an unknown draft", async () => {
     const { response } = await requestJson("/v1/admin/drafts/9999", env, {
       headers: await signedIn(),

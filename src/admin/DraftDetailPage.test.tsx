@@ -20,18 +20,23 @@ vi.mock("./drafts", async (importOriginal) => ({
 }));
 
 function detail({
+  baseRecord = record("გველი ცხოვრობს ფერდობზე"),
   baseVersion = 3,
+  live = record("გველი ცხოვრობს ფერდობზე"),
   status = "pending",
   version = 3,
 }: {
+  baseRecord?: null | ReturnType<typeof record>;
   baseVersion?: number;
+  live?: ReturnType<typeof record>;
   status?: string;
   version?: number;
 } = {}) {
   return {
-    current: { record: record("გველი ცხოვრობს ფერდობზე"), version },
+    current: { record: live, version },
     draft: {
       actor: "claude",
+      baseRecord,
       baseVersion,
       createdAt: "2026-10-20T10:00:00.000Z",
       decidedAt: status === "pending" ? null : "2026-10-21T10:00:00.000Z",
@@ -156,6 +161,44 @@ describe("DraftDetailPage", () => {
     ).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Merge" })).toBeNull();
     expect(screen.getByText(/^Nika,/)).toBeInTheDocument();
+  });
+
+  it("shows what a merged draft changed from its base version", async () => {
+    vi.mocked(fetchDraft).mockResolvedValue(
+      detail({
+        live: record("გველი ბინადრობს ფერდობზე"),
+        status: "approved",
+        version: 4,
+      }),
+    );
+    render(<DraftDetailPage id="4" onSessionExpired={vi.fn()} />);
+    const row = (await screen.findByText("base.overview")).closest("tr")!;
+    expect(within(row).getByText("ცხოვრობს")).toHaveStyle({
+      textDecoration: "line-through",
+    });
+    expect(
+      screen.getByRole("columnheader", { name: "Before (v3)" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/shows what it changed from version 3/),
+    ).toBeInTheDocument();
+  });
+
+  it("falls back to the live record for a draft without a base copy", async () => {
+    vi.mocked(fetchDraft).mockResolvedValue(
+      detail({
+        baseRecord: null,
+        live: record("გველი ბინადრობს ფერდობზე"),
+        status: "approved",
+      }),
+    );
+    render(<DraftDetailPage id="4" onSessionExpired={vi.fn()} />);
+    expect(
+      await screen.findByText(/No copy of the record from before it was kept/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("No differences from the live record."),
+    ).toBeInTheDocument();
   });
 
   it("shows a missing draft and an expired session", async () => {

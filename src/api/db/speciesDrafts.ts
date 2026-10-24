@@ -6,6 +6,7 @@ export type DraftStatus = "approved" | "pending" | "rejected";
 
 export type SpeciesDraft = {
   actor: string;
+  baseRecord: null | SpeciesRecord;
   baseVersion: number;
   createdAt: string;
   decidedAt: null | string;
@@ -18,7 +19,7 @@ export type SpeciesDraft = {
   summary: string;
 };
 
-type DraftListRow = Omit<DraftRow, "record"> & {
+type DraftListRow = Omit<DraftRow, "base_record" | "record"> & {
   common_name_ka: string;
   scientific_name: string;
   species_version: number;
@@ -26,6 +27,7 @@ type DraftListRow = Omit<DraftRow, "record"> & {
 
 type DraftRow = {
   actor: string;
+  base_record: null | string;
   base_version: number;
   created_at: string;
   decided_at: null | string;
@@ -39,19 +41,25 @@ type DraftRow = {
 };
 
 const COLUMNS =
-  "id, species_id, base_version, source, actor, summary, record, status, created_at, decided_at, decided_by";
+  "id, species_id, base_version, base_record, source, actor, summary, record, status, created_at, decided_at, decided_by";
 
 export function decideDraftStatement(
   db: ApiDatabase,
   draftId: number,
   status: "approved" | "rejected",
   actor: string,
+  baseRecord: null | SpeciesRecord = null,
 ) {
   return db
     .prepare(
-      "UPDATE species_drafts SET status = ?, decided_by = CASE WHEN status = 'pending' THEN ? END, decided_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now') WHERE id = ?",
+      "UPDATE species_drafts SET status = ?, decided_by = CASE WHEN status = 'pending' THEN ? END, decided_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), base_record = COALESCE(base_record, ?) WHERE id = ?",
     )
-    .bind(status, actor, draftId);
+    .bind(
+      status,
+      actor,
+      baseRecord ? JSON.stringify(baseRecord) : null,
+      draftId,
+    );
 }
 
 export async function insertDraft(
@@ -63,11 +71,12 @@ export async function insertDraft(
 ) {
   const row = await db
     .prepare(
-      "INSERT INTO species_drafts (species_id, base_version, source, actor, summary, record) VALUES (?, ?, ?, ?, ?, ?) RETURNING id",
+      "INSERT INTO species_drafts (species_id, base_version, base_record, source, actor, summary, record) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id",
     )
     .bind(
       draft.record.base.id,
       draft.baseVersion,
+      draft.baseRecord ? JSON.stringify(draft.baseRecord) : null,
       draft.source,
       draft.actor,
       draft.summary,
@@ -126,6 +135,9 @@ export async function readDraft(db: ApiDatabase, draftId: number) {
 function toDraft(row: DraftRow): SpeciesDraft {
   return {
     actor: row.actor,
+    baseRecord: row.base_record
+      ? (JSON.parse(row.base_record) as SpeciesRecord)
+      : null,
     baseVersion: row.base_version,
     createdAt: row.created_at,
     decidedAt: row.decided_at,
