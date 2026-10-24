@@ -50,12 +50,11 @@ export default async function NewsIndexRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const newsPage = await getNewsListPage(locale, 1);
+  const [t, tShared, newsPage] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getNewsListPage(locale, 1),
+  ]);
   const articles = newsPage?.articles ?? [];
   const url = newsIndexUrl(locale);
   const jsonLd = newsListingJsonLd({

@@ -169,10 +169,17 @@ export function newsPageHref(page: number) {
   return page <= 1 ? newsIndexHref() : newsArchiveHref(page);
 }
 
-export function newsPageOf<T>(
-  all: readonly T[],
-  page: number,
-): NewsPage<T> | null {
+export function newsPageUrl(locale: AppLocale, page: number) {
+  return absoluteUrl(localePath(locale, newsPageHref(page)));
+}
+
+export function parseNewsArchivePage(value: string) {
+  if (!/^[1-9]\d{0,5}$/.test(value)) return null;
+  const page = Number(value);
+  return page >= 2 ? page : null;
+}
+
+function newsPageOf<T>(all: readonly T[], page: number): NewsPage<T> | null {
   const pageCount = pageCountFor(all.length);
   if (!Number.isSafeInteger(page) || page < 1 || page > pageCount) return null;
   const start = (page - 1) * NEWS_PAGE_SIZE;
@@ -185,16 +192,6 @@ export function newsPageOf<T>(
     pageCount,
     total: all.length,
   };
-}
-
-export function newsPageUrl(locale: AppLocale, page: number) {
-  return absoluteUrl(localePath(locale, newsPageHref(page)));
-}
-
-export function parseNewsArchivePage(value: string) {
-  if (!/^[1-9]\d{0,5}$/.test(value)) return null;
-  const page = Number(value);
-  return page >= 2 ? page : null;
 }
 
 function pageCountFor(total: number) {
