@@ -8,7 +8,12 @@ import { routing } from "@/i18n/routing";
 
 import { toNewsListArticle } from "../../tests/fixtures/manyNews";
 import { server } from "../../tests/msw/server";
-import { getNewsArticle, getNewsList, getNewsListArticles } from "./newsApi";
+import {
+  getNewsArticle,
+  getNewsList,
+  getNewsListArticles,
+  HOME_NEWS_LIMIT,
+} from "./newsApi";
 
 function strip(photo: NewsPhoto): NewsPhoto {
   if (!photo.credit?.authorId) return photo;
@@ -84,4 +89,23 @@ describe("getNewsListArticles", () => {
       );
     },
   );
+});
+
+describe("getNewsListArticles with a limit", () => {
+  it("asks the API for the first articles only", async () => {
+    const queries: string[] = [];
+    const listen = ({ request }: { request: Request }) => {
+      const url = new URL(request.url);
+      if (url.pathname === "/v1/news") queries.push(url.search);
+    };
+    server.events.on("request:start", listen);
+    const found = await getNewsListArticles("en", HOME_NEWS_LIMIT);
+    server.events.removeListener("request:start", listen);
+    expect(queries).toEqual([`?limit=${HOME_NEWS_LIMIT}`]);
+    expect(found.map(({ slug }) => slug)).toEqual(
+      getPublishedNewsArticles("en")
+        .slice(0, HOME_NEWS_LIMIT)
+        .map(({ slug }) => slug),
+    );
+  });
 });
