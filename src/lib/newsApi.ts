@@ -1,6 +1,11 @@
 import { cache } from "react";
 
-import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
+import type {
+  NewsArticle,
+  NewsListArticle,
+  NewsPhoto,
+  NewsSource,
+} from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -32,6 +37,35 @@ export const getNewsList = cache(async (locale: AppLocale) => {
   }
   return (await response.json()).data;
 });
+
+export const getNewsListArticles = cache(
+  async (locale: AppLocale): Promise<NewsListArticle[]> =>
+    (await getNewsList(locale)).map((item) => ({
+      dek: item.dek,
+      id: item.slug,
+      ...(item.image
+        ? {
+            image: {
+              ...item.image,
+              alt: { [locale]: item.image.alt } as NewsPhoto["alt"],
+            },
+          }
+        : {}),
+      lead: item.lead,
+      publishedAt: item.publishedAt,
+      readMinutes: item.readMinutes,
+      relatedHubIds: item.relatedHubIds as GroupHubId[],
+      relatedRegionIds: item.relatedRegionIds,
+      relatedSpeciesIds: item.relatedSpeciesIds,
+      ...(item.series
+        ? { series: item.series.id as NewsArticle["series"] & string }
+        : {}),
+      slug: item.slug,
+      sources: item.sources,
+      title: item.title,
+      ...(item.updatedAt ? { updatedAt: item.updatedAt } : {}),
+    })),
+);
 
 export const getNewsArticle = cache(
   async (slug: string): Promise<NewsArticle | null> => {

@@ -14,7 +14,7 @@ import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { getContributors } from "@/lib/authorsApi";
+import { getContributor, getContributors } from "@/lib/authorsApi";
 import {
   creditAuthorAlternates,
   creditAuthorEntityJsonLd,
@@ -52,9 +52,7 @@ export default async function AuthorRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const author = (await getContributors(locale)).find(
-    (item) => item.id === slug,
-  );
+  const author = await getContributor(slug, locale);
   if (!author) notFound();
 
   const [t, tShared, creditPhotos, catalog] = await Promise.all([
@@ -168,9 +166,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const locale = localeParam as AppLocale;
-  const author = (await getContributors(locale)).find(
-    (item) => item.id === slug,
-  );
+  const author = await getContributor(slug, locale);
   if (!author) {
     const t = await getTranslations({ locale, namespace: "author" });
     return {

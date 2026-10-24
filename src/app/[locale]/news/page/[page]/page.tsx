@@ -4,13 +4,17 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { NewsListArticle } from "@/data/newsTypes";
+
 import { JsonLd } from "@/components/JsonLd";
 import { NewsArchivePage } from "@/components/NewsArchivePage";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsIndexUrl, newsOgImageUrl } from "@/lib/news";
+import { getNewsListArticles } from "@/lib/newsApi";
 import {
-  getNewsPage,
+  getNewsListPage,
+  getNewsListPageCounts,
   newsArchiveAlternates,
   newsArchiveHref,
   newsArchiveStaticParams,
@@ -27,7 +31,7 @@ type Props = {
   params: Promise<{ locale: string; page: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolved = await resolveArchivePage(params);
@@ -45,12 +49,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
   return {
     ...metadata,
-    alternates: newsArchiveAlternates(locale, newsPage.page),
+    alternates: newsArchiveAlternates(
+      locale,
+      newsPage.page,
+      await getNewsListPageCounts(),
+    ),
   };
 }
 
-export function generateStaticParams() {
-  return newsArchiveStaticParams();
+export async function generateStaticParams() {
+  return newsArchiveStaticParams(await getNewsListPageCounts());
 }
 
 export default async function NewsArchiveRoute({ params }: Props) {
@@ -60,13 +68,14 @@ export default async function NewsArchiveRoute({ params }: Props) {
   const { locale, newsPage } = resolved;
   setRequestLocale(locale);
 
-  const [copy, t, tShared] = await Promise.all([
+  const [copy, t, tShared, all] = await Promise.all([
     archiveCopy(locale, newsPage),
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getNewsListArticles(locale),
   ]);
   const url = newsPageUrl(locale, newsPage.page);
-  const dateModified = newsPageDateModified(locale, newsPage.articles);
+  const dateModified = newsPageDateModified(all[0], newsPage.articles);
   const jsonLd = newsListingJsonLd({
     articles: newsPage.articles,
     breadcrumbs: [
@@ -92,7 +101,10 @@ export default async function NewsArchiveRoute({ params }: Props) {
   );
 }
 
-async function archiveCopy(locale: AppLocale, newsPage: NewsPage) {
+async function archiveCopy(
+  locale: AppLocale,
+  newsPage: NewsPage<NewsListArticle>,
+) {
   const t = await getTranslations({ locale, namespace: "news" });
   const newest = newsPage.articles[0]?.publishedAt ?? "";
   const oldest = newsPage.articles.at(-1)?.publishedAt ?? "";
@@ -112,6 +124,6 @@ async function resolveArchivePage(params: Props["params"]) {
   if (!hasLocale(routing.locales, localeParam)) return null;
   const locale = localeParam as AppLocale;
   const page = parseNewsArchivePage(pageParam);
-  const newsPage = page ? getNewsPage(locale, page) : null;
+  const newsPage = page ? await getNewsListPage(locale, page) : null;
   return newsPage ? { locale, newsPage } : null;
 }

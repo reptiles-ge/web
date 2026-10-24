@@ -1,10 +1,7 @@
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  getPublishedNewsArticles,
-  type NewsArticle,
-  newsLocalizedTitle,
-} from "@/data/news";
+import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newestNewsDateTime,
@@ -12,10 +9,11 @@ import {
   newsDateTime,
   newsIndexHref,
 } from "@/lib/news";
+import { getNewsListArticles } from "@/lib/newsApi";
 import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 
-export type NewsPage = {
-  articles: NewsArticle[];
+export type NewsPage<T = NewsArticle> = {
+  articles: T[];
   first: number;
   last: number;
   page: number;
@@ -23,8 +21,10 @@ export type NewsPage = {
   total: number;
 };
 
+type NewsDates = Pick<NewsArticle, "publishedAt" | "updatedAt">;
+
 type NewsListingJsonLdInput = {
-  articles: readonly NewsArticle[];
+  articles: readonly Pick<NewsListArticle, "slug" | "title">[];
   breadcrumbs: ReadonlyArray<{ name: string; url: string }>;
   dates: { dateModified?: string; datePublished?: string };
   description: string;
@@ -35,29 +35,40 @@ type NewsListingJsonLdInput = {
 
 export const NEWS_PAGE_SIZE = 24;
 
-export function getNewsPage(locale: AppLocale, page: number): NewsPage | null {
-  const all = getPublishedNewsArticles(locale);
-  const pageCount = pageCountFor(all.length);
-  if (!Number.isSafeInteger(page) || page < 1 || page > pageCount) return null;
-  const start = (page - 1) * NEWS_PAGE_SIZE;
-  const articles = all.slice(start, start + NEWS_PAGE_SIZE);
-  return {
-    articles,
-    first: articles.length > 0 ? start + 1 : 0,
-    last: start + articles.length,
-    page,
-    pageCount,
-    total: all.length,
-  };
+type NewsPageCounts = Record<AppLocale, number>;
+
+export async function getNewsListPage(locale: AppLocale, page: number) {
+  return newsPageOf(await getNewsListArticles(locale), page);
 }
 
-export function newsArchiveAlternates(locale: AppLocale, page: number) {
+export async function getNewsListPageCounts() {
+  const counts = await Promise.all(
+    routing.locales.map(
+      async (locale) =>
+        [
+          locale,
+          pageCountFor((await getNewsListArticles(locale)).length),
+        ] as const,
+    ),
+  );
+  return Object.fromEntries(counts) as NewsPageCounts;
+}
+
+export function getNewsPage(locale: AppLocale, page: number) {
+  return newsPageOf(getPublishedNewsArticles(locale), page);
+}
+
+export function newsArchiveAlternates(
+  locale: AppLocale,
+  page: number,
+  pageCounts: NewsPageCounts,
+) {
   const languages: Record<string, string> = {};
-  if (newsPageCount("ka") >= page) {
+  if (pageCounts.ka >= page) {
     languages["x-default"] = newsPageUrl("ka", page);
   }
   for (const loc of routing.locales) {
-    if (newsPageCount(loc) >= page) languages[loc] = newsPageUrl(loc, page);
+    if (pageCounts[loc] >= page) languages[loc] = newsPageUrl(loc, page);
   }
   return { canonical: newsPageUrl(locale, page), languages };
 }
@@ -69,16 +80,22 @@ export function newsArchiveHref(page: number) {
   };
 }
 
-export function newsArchivePages(locale: AppLocale) {
+export function newsArchivePages(
+  locale: AppLocale,
+  pageCounts: NewsPageCounts,
+) {
   return Array.from(
-    { length: newsPageCount(locale) - 1 },
+    { length: pageCounts[locale] - 1 },
     (_, index) => index + 2,
   );
 }
 
-export function newsArchiveStaticParams() {
+export function newsArchiveStaticParams(pageCounts: NewsPageCounts) {
   return routing.locales.flatMap((locale) =>
-    newsArchivePages(locale).map((page) => ({ locale, page: String(page) })),
+    newsArchivePages(locale, pageCounts).map((page) => ({
+      locale,
+      page: String(page),
+    })),
   );
 }
 
@@ -113,7 +130,7 @@ export function newsListingJsonLd({
       "@type": "ItemList",
       itemListElement: articles.map((article, index) => ({
         "@type": "ListItem",
-        name: newsLocalizedTitle(article, locale),
+        name: article.title,
         position: index + 1,
         url: newsArticleUrl(locale, article.slug),
       })),
@@ -131,11 +148,16 @@ export function newsPageCount(locale: AppLocale) {
   return pageCountFor(getPublishedNewsArticles(locale).length);
 }
 
+export function newsPageCounts(): NewsPageCounts {
+  return Object.fromEntries(
+    routing.locales.map((locale) => [locale, newsPageCount(locale)]),
+  ) as NewsPageCounts;
+}
+
 export function newsPageDateModified(
-  locale: AppLocale,
-  articles: readonly NewsArticle[],
+  newest: NewsDates | undefined,
+  articles: readonly NewsDates[],
 ) {
-  const newest = getPublishedNewsArticles(locale)[0];
   const shifted = newest ? newsDateTime(newest.publishedAt) : null;
   const edited = newestNewsDateTime(articles);
   if (!shifted) return edited;
@@ -155,6 +177,21 @@ export function parseNewsArchivePage(value: string) {
   if (!/^[1-9]\d{0,5}$/.test(value)) return null;
   const page = Number(value);
   return page >= 2 ? page : null;
+}
+
+function newsPageOf<T>(all: readonly T[], page: number): NewsPage<T> | null {
+  const pageCount = pageCountFor(all.length);
+  if (!Number.isSafeInteger(page) || page < 1 || page > pageCount) return null;
+  const start = (page - 1) * NEWS_PAGE_SIZE;
+  const articles = all.slice(start, start + NEWS_PAGE_SIZE);
+  return {
+    articles,
+    first: articles.length > 0 ? start + 1 : 0,
+    last: start + articles.length,
+    page,
+    pageCount,
+    total: all.length,
+  };
 }
 
 function pageCountFor(total: number) {

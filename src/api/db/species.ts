@@ -9,6 +9,22 @@ import type { ApiDatabase } from "./database";
 import { readCreditPersonNames } from "./authors";
 import { readSpeciesCatalog } from "./speciesCatalog";
 
+type AdminListRow = {
+  common_name_en: null | string;
+  common_name_ka: string;
+  danger_id: DangerLevel | null;
+  group_id: AnimalGroup;
+  id: string;
+  image: null | string;
+  last_edited_at: null | string;
+  pending_drafts: number;
+  photo_count: number;
+  scientific_name: string;
+  slug_ka: null | string;
+  status: "draft" | "published" | "unpublished";
+  version: number;
+};
+
 type ListRow = {
   common_name: string;
   danger_id: DangerLevel | null;
@@ -64,6 +80,28 @@ export async function getSpeciesDetail(
     lookalikes,
     slug: publicSlug(id, catalog.kaSlugById[id] ?? null, locale),
   };
+}
+
+export async function listAdminSpecies(db: ApiDatabase) {
+  const { results } = await db
+    .prepare(
+      "SELECT s.id, s.scientific_name, s.group_id, s.danger_id, s.status, s.slug_ka, s.version, k.common_name AS common_name_ka, e.common_name AS common_name_en, h.src AS image, (SELECT COUNT(*) FROM species_media g WHERE g.species_id = s.id AND g.role = 'gallery') AS photo_count, (SELECT COUNT(*) FROM species_drafts d WHERE d.species_id = s.id AND d.status = 'pending') AS pending_drafts, (SELECT r.created_at FROM species_revisions r WHERE r.species_id = s.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at FROM species s JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' LEFT JOIN species_texts e ON e.species_id = s.id AND e.locale = 'en' LEFT JOIN species_media h ON h.species_id = s.id AND h.role = 'hero' ORDER BY s.catalog_position",
+    )
+    .all<AdminListRow>();
+  return results.map((row) => ({
+    commonName: { en: row.common_name_en, ka: row.common_name_ka },
+    danger: row.danger_id,
+    group: row.group_id,
+    id: row.id,
+    image: row.image,
+    lastEditedAt: row.last_edited_at,
+    pendingDrafts: row.pending_drafts,
+    photoCount: row.photo_count,
+    scientificName: row.scientific_name,
+    slug: row.slug_ka,
+    status: row.status,
+    version: row.version,
+  }));
 }
 
 export async function listPublishedSpecies(

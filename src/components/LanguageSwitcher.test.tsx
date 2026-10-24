@@ -120,7 +120,9 @@ describe("LanguageSwitcher", () => {
 
   it("toggles the desktop pill and closes from the panel", async () => {
     renderSwitcher("en", "light");
-    const pill = screen.getAllByRole("button", { name: en.language.switch })[1];
+    const pill = screen.getByRole("button", {
+      name: `${en.language.en} — ${en.language.switch}`,
+    });
     expect(pill).toHaveTextContent(en.language.en);
     fireEvent.click(pill);
     expect(pill).toHaveAttribute("aria-expanded", "true");
@@ -131,7 +133,9 @@ describe("LanguageSwitcher", () => {
 
   it("renders the drawer variant as a full-width button", () => {
     renderSwitcher("en", "menu");
-    const button = screen.getByRole("button", { name: en.language.switch });
+    const button = screen.getByRole("button", {
+      name: `${en.language.en} — ${en.language.switch}`,
+    });
     expect(button).toHaveTextContent(en.language.en);
     fireEvent.click(button);
     expect(button).toHaveAttribute("aria-expanded", "true");

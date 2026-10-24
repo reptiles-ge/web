@@ -1,10 +1,6 @@
 import type { InferResponseType } from "hono/client";
 
-import { createApiClient } from "@/lib/apiClient";
-
-const api = createApiClient({
-  fetch: (input, init) => fetch(input, { ...init, credentials: "include" }),
-});
+import { api } from "./apiClient";
 
 export type AdminUser = InferResponseType<
   typeof api.v1.auth.me.$get,

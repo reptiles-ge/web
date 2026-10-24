@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { NewsPage } from "@/lib/newsPages";
 
@@ -7,12 +8,11 @@ import { NewsListCard } from "@/components/NewsIndexCards";
 import { NewsMonthSection } from "@/components/NewsMonthSection";
 import { NewsPagination } from "@/components/NewsPagination";
 import { Link } from "@/i18n/navigation";
-import { getContributorDirectory } from "@/lib/authorsApi";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
 import { groupNewsByMonth } from "@/lib/newsMonthGroups";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
@@ -24,21 +24,20 @@ export async function NewsArchivePage({
   newsPage,
 }: {
   locale: AppLocale;
-  newsPage: NewsPage;
+  newsPage: NewsPage<NewsListArticle>;
 }) {
-  const [t, tNav, tShared, catalog, contributors] = await Promise.all([
+  const { articles, first, last, page, pageCount, total } = newsPage;
+  const [t, tNav, tShared, visuals] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    getSpeciesCatalog(locale),
-    getContributorDirectory(locale),
+    loadNewsVisuals(articles, locale),
   ]);
-  const { articles, first, last, page, pageCount, total } = newsPage;
   const newest = articles[0];
   const oldest = articles.at(-1);
 
   const monthLabels: Record<string, string> = {};
-  const items = articles.map((article) => {
+  const items = articles.map((article, index) => {
     const monthKey = article.publishedAt.slice(0, 7);
     monthLabels[monthKey] ??= formatContentMonth(article.publishedAt, locale);
     const entry = toNewsIndexEntry(
@@ -48,8 +47,7 @@ export async function NewsArchivePage({
         readLabel: (minutes) => t("readTime", { minutes }),
         topicLabel: (hub) => tNav(hub),
       },
-      catalog,
-      contributors,
+      visuals[index],
     );
     return { card: <NewsListCard entry={entry} />, id: article.id, monthKey };
   });

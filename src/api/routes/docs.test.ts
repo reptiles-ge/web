@@ -99,7 +99,8 @@ describe("docs route", () => {
   it("keeps admin and ratings routes out of the public spec", async () => {
     const { document } = await loadDocument();
     const raw = JSON.stringify(document);
-    expect(raw).not.toMatch(/\/v1\/(admin|ratings)|bearerToken/);
+    expect(raw).not.toMatch(/\/v1\/(admin|auth\/|ratings)|bearerToken/);
+    expect(raw).toContain("/v1/authors");
     expect(
       Object.values(document.paths).flatMap((methods) => Object.keys(methods)),
     ).toEqual(expect.arrayContaining(["get"]));

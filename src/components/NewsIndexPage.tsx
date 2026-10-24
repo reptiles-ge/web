@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -17,14 +17,13 @@ import {
 import { NewsPagination } from "@/components/NewsPagination";
 import { newsSourceName } from "@/data/news";
 import { Link } from "@/i18n/navigation";
-import { getContributorDirectory } from "@/lib/authorsApi";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexDateFields, newsSourceBadges } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 type NewsIndexPageProps = {
-  articles: NewsArticle[];
+  articles: NewsListArticle[];
   locale: AppLocale;
   pageCount: number;
   total: number;
@@ -55,15 +54,14 @@ export async function NewsIndexPage({
   pageCount,
   total,
 }: NewsIndexPageProps) {
-  const [t, tNav, tShared, catalog, contributors] = await Promise.all([
+  const [t, tNav, tShared, visuals] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    getSpeciesCatalog(locale),
-    getContributorDirectory(locale),
+    loadNewsVisuals(articles, locale),
   ]);
 
-  const entries = articles.map((article) =>
+  const entries = articles.map((article, index) =>
     toNewsIndexEntry(
       article,
       locale,
@@ -71,8 +69,7 @@ export async function NewsIndexPage({
         readLabel: (minutes) => t("readTime", { minutes }),
         topicLabel: (hub) => tNav(hub),
       },
-      catalog,
-      contributors,
+      visuals[index],
     ),
   );
   const [lead, ...rest] = entries;

@@ -1,9 +1,23 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { App } from "./App";
 import { fetchCurrentUser, signIn, signOut } from "./session";
+
+vi.mock("./species", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("./species")>()),
+  fetchAdminSpecies: vi.fn(async () => []),
+}));
+
+vi.mock("./ratings", () => ({
+  fetchAdminRatings: vi.fn(async () => ({
+    data: [],
+    nextCursor: null,
+    summary: { average: null, byRating: {}, count: 0 },
+    total: 0,
+  })),
+}));
 
 vi.mock("./session", () => ({
   fetchCurrentUser: vi.fn(),
@@ -27,6 +41,7 @@ async function fillAndSubmit(email = ADMIN.email, password = "secret") {
 }
 
 beforeEach(() => {
+  window.history.replaceState(null, "", "/");
   vi.mocked(fetchCurrentUser).mockReset();
   vi.mocked(signIn).mockReset();
   vi.mocked(signOut).mockReset();
@@ -47,9 +62,61 @@ describe("admin App", () => {
     vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
     render(<App />);
     expect(
-      await screen.findByRole("heading", { name: "Dashboard" }),
+      await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
     expect(screen.getByText(ADMIN.email)).toBeInTheDocument();
+  });
+
+  it("opens species at /species when signed in at /", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/species");
+    expect(document.title).toBe("Species — reptiles.ge admin");
+  });
+
+  it("opens ratings directly at /ratings", async () => {
+    window.history.replaceState(null, "", "/ratings");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    expect(
+      await screen.findByRole("heading", { name: "Ratings" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Ratings — reptiles.ge admin");
+  });
+
+  it("navigates between pages and follows the back button", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const user = userEvent.setup();
+    const ratings = await screen.findByRole("link", { name: "Ratings" });
+    expect(ratings).toHaveAttribute("href", "/ratings");
+    await user.click(ratings);
+    expect(
+      await screen.findByRole("heading", { name: "Ratings" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/ratings");
+    act(() => {
+      window.history.back();
+    });
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows a not-found page for an unknown path", async () => {
+    window.history.replaceState(null, "", "/nope");
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const user = userEvent.setup();
+    expect(await screen.findByText("Page not found")).toBeInTheDocument();
+    await user.click(screen.getByRole("link", { name: "Open species" }));
+    expect(
+      await screen.findByRole("heading", { name: "Species" }),
+    ).toBeInTheDocument();
+    expect(window.location.pathname).toBe("/species");
   });
 
   it("signs in and opens the dashboard", async () => {
@@ -58,7 +125,7 @@ describe("admin App", () => {
     render(<App />);
     await fillAndSubmit();
     expect(
-      await screen.findByRole("heading", { name: "Dashboard" }),
+      await screen.findByRole("heading", { name: "Species" }),
     ).toBeInTheDocument();
     expect(signIn).toHaveBeenCalledWith(ADMIN.email, "secret");
   });
@@ -75,7 +142,7 @@ describe("admin App", () => {
     render(<App />);
     await fillAndSubmit();
     expect(await screen.findByText(message)).toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "Dashboard" })).toBeNull();
+    expect(screen.queryByRole("heading", { name: "Species" })).toBeNull();
   });
 
   it("explains a failed request", async () => {

@@ -1,7 +1,27 @@
-import { Button, Layout, Menu, Space, Typography } from "antd";
-import { useState } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
+import { Button, Layout, Menu, Result, Space, Typography } from "antd";
+import { useEffect, useState } from "react";
+
+import { RatingsPage } from "./RatingsPage";
+import { navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
+import { SpeciesPage } from "./SpeciesPage";
+
+type SectionProps = { onSessionExpired: () => void };
+
+const SECTIONS: Array<{
+  label: string;
+  page: (props: SectionProps) => ReactNode;
+  path: string;
+}> = [
+  { label: "Species", page: SpeciesPage, path: "/species" },
+  { label: "Ratings", page: RatingsPage, path: "/ratings" },
+];
+
+const HOME_PATH = SECTIONS[0].path;
+
+const TITLE = "reptiles.ge admin";
 
 export function Dashboard({
   onSignedOut,
@@ -11,6 +31,16 @@ export function Dashboard({
   user: AdminUser;
 }) {
   const [pending, setPending] = useState(false);
+  const pathname = usePathname();
+  const section = SECTIONS.find(({ path }) => path === pathname);
+
+  useEffect(() => {
+    if (pathname === "/") navigate(HOME_PATH, { replace: true });
+  }, [pathname]);
+
+  useEffect(() => {
+    document.title = section ? `${section.label} — ${TITLE}` : TITLE;
+  }, [section]);
 
   async function logout() {
     setPending(true);
@@ -22,16 +52,31 @@ export function Dashboard({
     }
   }
 
+  function open(event: MouseEvent, path: string) {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    event.preventDefault();
+    navigate(path);
+  }
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout.Sider breakpoint="lg" collapsedWidth={0} theme="light">
         <Typography.Title level={5} style={{ margin: 16 }}>
-          reptiles.ge admin
+          {TITLE}
         </Typography.Title>
         <Menu
-          items={[{ key: "dashboard", label: "Dashboard" }]}
+          items={SECTIONS.map(({ label, path }) => ({
+            key: path,
+            label: (
+              <a href={path} onClick={(event) => open(event, path)}>
+                {label}
+              </a>
+            ),
+          }))}
           mode="inline"
-          selectedKeys={["dashboard"]}
+          selectedKeys={section ? [section.path] : []}
         />
       </Layout.Sider>
       <Layout>
@@ -62,7 +107,23 @@ export function Dashboard({
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          <Typography.Title level={3}>Dashboard</Typography.Title>
+          {section ? (
+            <section.page onSessionExpired={onSignedOut} />
+          ) : pathname === "/" ? null : (
+            <Result
+              extra={
+                <Button
+                  href={HOME_PATH}
+                  onClick={(event) => open(event, HOME_PATH)}
+                  type="primary"
+                >
+                  Open species
+                </Button>
+              }
+              status="404"
+              title="Page not found"
+            />
+          )}
         </Layout.Content>
       </Layout>
     </Layout>

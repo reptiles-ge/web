@@ -125,25 +125,27 @@ export async function getAuthorDetail(
     readAuthor(db, id),
     readAuthorPhotoCount(db, id),
   ]);
-  if (!record) return null;
-  const text = record.texts[locale];
-  const bio = text?.bio ?? record.texts.ka.bio;
-  const metaDescription = text?.metaDescription;
+  return record ? authorProfile(record, locale, photoCount) : null;
+}
+
+export async function getContributorDetail(
+  db: ApiDatabase,
+  id: string,
+  locale: AppLocale,
+) {
+  const [record, counts] = await Promise.all([
+    readAuthor(db, id),
+    db
+      .prepare(
+        "SELECT COUNT(DISTINCT m.src) AS photos, COUNT(DISTINCT m.species_id) AS species FROM species_media m JOIN species s ON s.id = m.species_id WHERE m.author_id = ? AND m.role != 'audio' AND s.status = 'published'",
+      )
+      .bind(id)
+      .first<{ photos: number; species: number }>(),
+  ]);
+  if (!record?.isContributor) return null;
   return {
-    affiliations: record.affiliations,
-    aliases: record.aliases,
-    ...(bio ? { bio } : {}),
-    id: record.id,
-    isContributor: record.isContributor,
-    jobTitle: record.jobTitle,
-    kind: record.kind,
-    links: record.links,
-    ...(metaDescription ? { metaDescription } : {}),
-    name: text?.name ?? record.texts.ka.name,
-    photoCount,
-    portraitClass: record.portraitClass,
-    portraitSrc: record.portraitSrc,
-    role: record.role,
+    ...authorProfile(record, locale, counts?.photos ?? 0),
+    speciesCount: counts?.species ?? 0,
   };
 }
 
@@ -200,6 +202,61 @@ export async function listAuthors(
   });
 }
 
+export async function listContributors(
+  db: ApiDatabase,
+  locale: AppLocale,
+  limit?: number,
+) {
+  const [authors, texts, aliases, affiliations, counts] = await Promise.all([
+    db.prepare(`${AUTHOR_SELECT} WHERE is_contributor = 1`).all<AuthorRow>(),
+    db
+      .prepare(
+        "SELECT t.author_id AS author_id, t.locale AS locale, t.name AS name, t.bio AS bio, t.meta_description AS meta_description FROM author_texts t JOIN authors a ON a.id = t.author_id WHERE a.is_contributor = 1 AND t.locale IN ('ka', ?)",
+      )
+      .bind(locale)
+      .all<TextRow>(),
+    db
+      .prepare(
+        "SELECT al.alias AS alias, al.author_id AS author_id FROM author_aliases al JOIN authors a ON a.id = al.author_id WHERE a.is_contributor = 1 ORDER BY al.alias",
+      )
+      .all<{ alias: string; author_id: string }>(),
+    db
+      .prepare(
+        "SELECT af.affiliation_id AS affiliation_id, af.author_id AS author_id FROM author_affiliations af JOIN authors a ON a.id = af.author_id WHERE a.is_contributor = 1 ORDER BY af.author_id, af.position",
+      )
+      .all<{ affiliation_id: string; author_id: string }>(),
+    db
+      .prepare(
+        "SELECT m.author_id AS author_id, COUNT(DISTINCT m.src) AS photos, COUNT(DISTINCT m.species_id) AS species FROM species_media m JOIN species s ON s.id = m.species_id JOIN authors a ON a.id = m.author_id WHERE a.is_contributor = 1 AND m.role != 'audio' AND s.status = 'published' GROUP BY m.author_id",
+      )
+      .all<{ author_id: string; photos: number; species: number }>(),
+  ]);
+  const records = new Map<string, AuthorRecord>(
+    authors.results.map((row) => [row.id, authorRecord(row)]),
+  );
+  for (const text of texts.results) {
+    const record = records.get(text.author_id);
+    if (record) record.texts[text.locale] = authorText(text);
+  }
+  for (const { alias, author_id } of aliases.results) {
+    records.get(author_id)?.aliases.push(alias);
+  }
+  for (const { affiliation_id, author_id } of affiliations.results) {
+    records.get(author_id)?.affiliations.push(affiliation_id);
+  }
+  const totals = new Map(counts.results.map((row) => [row.author_id, row]));
+  const data = [...records.values()]
+    .map((record) => {
+      const count = totals.get(record.id);
+      return {
+        ...authorProfile(record, locale, count?.photos ?? 0),
+        speciesCount: count?.species ?? 0,
+      };
+    })
+    .sort((a, b) => b.photoCount - a.photoCount || a.id.localeCompare(b.id));
+  return { data: data.slice(0, limit), total: data.length };
+}
+
 export async function readAuthor(db: ApiDatabase, id: string) {
   const [row, texts, aliases, affiliations] = await db.batch([
     db.prepare(`${AUTHOR_SELECT} WHERE id = ?`).bind(id),
@@ -221,31 +278,15 @@ export async function readAuthor(db: ApiDatabase, id: string) {
   ]);
   const author = row!.results[0] as AuthorRow | undefined;
   if (!author) return null;
-  const record: AuthorRecord = {
-    affiliations: (
-      affiliations!.results as Array<{ affiliation_id: string }>
-    ).map((entry) => entry.affiliation_id),
-    aliases: (aliases!.results as Array<{ alias: string }>).map(
-      (entry) => entry.alias,
-    ),
-    id: author.id,
-    isContributor: author.is_contributor === 1,
-    jobTitle: author.job_title_id,
-    kind: author.kind_id,
-    links: compactLinks(author),
-    portraitClass: author.portrait_class,
-    portraitSrc: author.portrait_src,
-    role: author.role_id,
-    texts: {} as AuthorRecord["texts"],
-  };
+  const record = authorRecord(author);
+  record.affiliations = (
+    affiliations!.results as Array<{ affiliation_id: string }>
+  ).map((entry) => entry.affiliation_id);
+  record.aliases = (aliases!.results as Array<{ alias: string }>).map(
+    (entry) => entry.alias,
+  );
   for (const text of texts!.results as TextRow[]) {
-    record.texts[text.locale] = {
-      name: text.name,
-      ...(text.bio ? { bio: text.bio } : {}),
-      ...(text.meta_description
-        ? { metaDescription: text.meta_description }
-        : {}),
-    };
+    record.texts[text.locale] = authorText(text);
   }
   return record;
 }
@@ -296,6 +337,48 @@ export async function writeAuthor(db: ApiDatabase, author: AuthorRecord) {
   ]);
 }
 
+function authorProfile(
+  record: AuthorRecord,
+  locale: AppLocale,
+  photoCount: number,
+) {
+  const text = record.texts[locale];
+  const bio = text?.bio ?? record.texts.ka.bio;
+  const metaDescription = text?.metaDescription;
+  return {
+    affiliations: record.affiliations,
+    aliases: record.aliases,
+    ...(bio ? { bio } : {}),
+    id: record.id,
+    isContributor: record.isContributor,
+    jobTitle: record.jobTitle,
+    kind: record.kind,
+    links: record.links,
+    ...(metaDescription ? { metaDescription } : {}),
+    name: text?.name ?? record.texts.ka.name,
+    photoCount,
+    portraitClass: record.portraitClass,
+    portraitSrc: record.portraitSrc,
+    role: record.role,
+  };
+}
+
+function authorRecord(row: AuthorRow): AuthorRecord {
+  return {
+    affiliations: [],
+    aliases: [],
+    id: row.id,
+    isContributor: row.is_contributor === 1,
+    jobTitle: row.job_title_id,
+    kind: row.kind_id,
+    links: compactLinks(row),
+    portraitClass: row.portrait_class,
+    portraitSrc: row.portrait_src,
+    role: row.role_id,
+    texts: {} as AuthorRecord["texts"],
+  };
+}
+
 function authorRows(author: AuthorRecord) {
   return {
     author_affiliations: author.affiliations.map((id, position) => [
@@ -326,6 +409,14 @@ function authorRows(author: AuthorRecord) {
         author.links.researchGate ?? null,
       ],
     ],
+  };
+}
+
+function authorText(row: TextRow): AuthorText {
+  return {
+    name: row.name,
+    ...(row.bio ? { bio: row.bio } : {}),
+    ...(row.meta_description ? { metaDescription: row.meta_description } : {}),
   };
 }
 

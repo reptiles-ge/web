@@ -1,21 +1,11 @@
 import type { NewsIndexEntry } from "@/components/NewsIndexCards";
-import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
-import type { ContributorDirectory } from "@/lib/contributorCredits";
 
-import {
-  newsLocalizedDek,
-  newsLocalizedTitle,
-  newsSourceName,
-} from "@/data/news";
+import { newsSourceName } from "@/data/news";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_ILLUSTRATIONS, type GroupHubId } from "@/lib/groupHubs";
-import { newsReadMinutes } from "@/lib/news";
-import {
-  getNewsVisual,
-  newsCategoryHub,
-  type NewsSpecies,
-} from "@/lib/newsVisual";
+import { newsCategoryHub, type NewsVisual } from "@/lib/newsVisual";
 
 export type NewsIndexEntryLabels = {
   readLabel: (minutes: number) => string;
@@ -23,29 +13,26 @@ export type NewsIndexEntryLabels = {
 };
 
 export function toNewsIndexEntry(
-  article: NewsArticle,
+  article: NewsListArticle,
   locale: AppLocale,
   labels: NewsIndexEntryLabels,
-  catalog: readonly NewsSpecies[],
-  contributors: ContributorDirectory,
+  visual: NewsVisual | null | undefined,
 ): NewsIndexEntry {
   const hub = newsCategoryHub(article);
-  const visual = getNewsVisual(article, locale, catalog, contributors);
-  const minutes = newsReadMinutes(article, locale);
   return {
     alt: visual?.alt ?? "",
     dateLabel: formatContentDate(article.publishedAt, locale),
-    dek: newsLocalizedDek(article, locale),
+    dek: article.dek,
     illustrated: !visual,
     publishedAt: article.publishedAt,
-    readLabel: labels.readLabel(minutes),
+    readLabel: labels.readLabel(article.readMinutes),
     slug: article.slug,
     source: article.sources[0]
       ? newsSourceName(article.sources[0], locale)
       : null,
     sourceMore: Math.max(0, article.sources.length - 1),
     src: visual?.src ?? GROUP_HUB_ILLUSTRATIONS[hub ?? "snakes"],
-    title: newsLocalizedTitle(article, locale),
+    title: article.title,
     topicLabel: hub ? labels.topicLabel(hub) : null,
   };
 }
