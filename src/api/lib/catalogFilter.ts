@@ -8,8 +8,8 @@ import {
   isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
 import { type DangerLevel } from "@/data/speciesTypes";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 
-import { ANIMAL_GROUPS } from "../schemas/species";
 import { HABITATS } from "../schemas/speciesRecord";
 
 export type CatalogFilters = {

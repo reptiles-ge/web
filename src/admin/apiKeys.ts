@@ -1,7 +1,10 @@
 import type { InferResponseType } from "hono/client";
 
+import type { Page } from "@/lib/pagination";
+
 import { checkAdminResponse } from "./adminResponse";
 import { api } from "./apiClient";
+import { type PagedQuery, toQueryParams } from "./pagination";
 
 export type AdminApiKey = InferResponseType<
   (typeof api.v1.admin)["api-keys"]["$get"],
@@ -23,10 +26,14 @@ export async function createApiKey(input: {
   return (await response.json()).data;
 }
 
-export async function fetchApiKeys(): Promise<AdminApiKey[]> {
-  const response = await api.v1.admin["api-keys"].$get();
+export async function fetchApiKeys(
+  query: PagedQuery<object>,
+): Promise<Page<AdminApiKey>> {
+  const response = await api.v1.admin["api-keys"].$get({
+    query: toQueryParams(query),
+  });
   checkAdminResponse(response, "API keys failed");
-  return (await response.json()).data;
+  return response.json();
 }
 
 export async function revokeApiKey(id: string) {

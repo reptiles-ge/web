@@ -17,6 +17,7 @@ export type NewsArticle = {
   sources: readonly NewsSource[];
   status: NewsArticleStatus;
   updatedAt?: string;
+  views?: number;
 };
 
 export type NewsListArticle = Pick<

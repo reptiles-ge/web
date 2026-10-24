@@ -12,13 +12,17 @@ import { SessionExpiredError } from "./species";
 
 vi.mock("./ratings", () => ({ fetchAdminRatings: vi.fn() }));
 
+const FIRST = { limit: 50, page: 1 };
+
 function page(overrides: Partial<AdminRatingsPage> = {}): AdminRatingsPage {
   return {
     data: [
       rating({ id: 3 }),
       rating({ feedback: "ფოტო აკლია", id: 2, path: "/xvlikebi", rating: 2 }),
     ],
-    nextCursor: null,
+    limit: 50,
+    page: 1,
+    pageCount: 1,
     summary: {
       average: 3.5,
       byRating: { 1: 0, 2: 1, 3: 0, 4: 0, 5: 1 },
@@ -55,10 +59,10 @@ describe("RatingsPage", () => {
       "href",
       "https://reptiles.ge/xvlikebi",
     );
-    expect(screen.getByText("2 of 2 ratings")).toBeInTheDocument();
+    expect(screen.getByText("1–2 of 2 ratings")).toBeInTheDocument();
     expect(screen.getByText("Average")).toBeInTheDocument();
     expect(screen.getByTitle("All ratings")).toBeInTheDocument();
-    expect(fetchAdminRatings).toHaveBeenCalledWith({ rating: undefined });
+    expect(fetchAdminRatings).toHaveBeenCalledExactlyOnceWith(FIRST);
   });
 
   it("keeps a malformed page path readable instead of failing", async () => {
@@ -88,59 +92,51 @@ describe("RatingsPage", () => {
     await userEvent.click(screen.getByLabelText("Filter by rating"));
     await userEvent.click(await screen.findByTitle("2 ★"));
     await vi.waitFor(() =>
-      expect(fetchAdminRatings).toHaveBeenLastCalledWith({ rating: 2 }),
+      expect(fetchAdminRatings).toHaveBeenLastCalledWith({
+        ...FIRST,
+        rating: 2,
+      }),
     );
     await userEvent.click(screen.getByLabelText("Filter by rating"));
     await userEvent.click(await screen.findByTitle("All ratings"));
     await vi.waitFor(() =>
       expect(fetchAdminRatings).toHaveBeenLastCalledWith({
+        ...FIRST,
         rating: undefined,
       }),
     );
   });
 
-  it("loads the next page", async () => {
-    vi.mocked(fetchAdminRatings)
-      .mockResolvedValueOnce(page({ nextCursor: 2, total: 3 }))
-      .mockResolvedValueOnce(
-        page({ data: [rating({ id: 1, path: "/kuebi" })], total: 3 }),
-      );
-    render(<RatingsPage onSessionExpired={vi.fn()} />);
-    await userEvent.click(
-      await screen.findByRole("button", { name: "Load more" }),
+  it("loads the next page from the API", async () => {
+    vi.mocked(fetchAdminRatings).mockResolvedValue(
+      page({ pageCount: 2, total: 52 }),
     );
+    render(<RatingsPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("1–2 of 52 ratings")).toBeInTheDocument();
+    vi.mocked(fetchAdminRatings).mockResolvedValue(
+      page({
+        data: [rating({ id: 1, path: "/kuebi" })],
+        page: 2,
+        pageCount: 2,
+        total: 52,
+      }),
+    );
+    await userEvent.click(screen.getByTitle("2"));
     expect(await screen.findByText("/kuebi")).toBeInTheDocument();
-    expect(screen.getByText("3 of 3 ratings")).toBeInTheDocument();
-    expect(fetchAdminRatings).toHaveBeenLastCalledWith({
-      cursor: 2,
-      rating: undefined,
-    });
-    expect(screen.queryByRole("button", { name: "Load more" })).toBeNull();
+    expect(screen.getByText("51–51 of 52 ratings")).toBeInTheDocument();
+    expect(fetchAdminRatings).toHaveBeenLastCalledWith({ limit: 50, page: 2 });
   });
 
-  it("reports a failed next page", async () => {
-    vi.mocked(fetchAdminRatings)
-      .mockResolvedValueOnce(page({ nextCursor: 2 }))
-      .mockRejectedValueOnce(new Error("offline"));
+  it("asks the API for the feedback search", async () => {
+    vi.mocked(fetchAdminRatings).mockResolvedValue(page());
     render(<RatingsPage onSessionExpired={vi.fn()} />);
-    await userEvent.click(
-      await screen.findByRole("button", { name: "Load more" }),
+    await screen.findByText("ფოტო აკლია");
+    vi.mocked(fetchAdminRatings).mockResolvedValue(
+      page({ data: [rating({ feedback: "ფოტო აკლია", id: 2 })], total: 1 }),
     );
-    expect(
-      await screen.findByText("Could not load more ratings."),
-    ).toBeInTheDocument();
-  });
-
-  it("returns to sign-in when the session expires while paging", async () => {
-    vi.mocked(fetchAdminRatings)
-      .mockResolvedValueOnce(page({ nextCursor: 2 }))
-      .mockRejectedValueOnce(new SessionExpiredError());
-    const onSessionExpired = vi.fn();
-    render(<RatingsPage onSessionExpired={onSessionExpired} />);
-    await userEvent.click(
-      await screen.findByRole("button", { name: "Load more" }),
-    );
-    await vi.waitFor(() => expect(onSessionExpired).toHaveBeenCalledOnce());
+    await userEvent.type(screen.getByLabelText("Search ratings"), "ფოტო");
+    expect(await screen.findByText("1–1 of 1 ratings")).toBeInTheDocument();
+    expect(fetchAdminRatings).toHaveBeenLastCalledWith({ ...FIRST, q: "ფოტო" });
   });
 
   it("returns to sign-in when the session has expired", async () => {

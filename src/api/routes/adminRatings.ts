@@ -14,22 +14,12 @@ export const adminRatings = new Hono<ApiEnv>().get(
   requireAdmin,
   validate("query", adminRatingsQuery),
   async (c) => {
-    const { cursor, limit, rating } = c.req.valid("query");
-    const [rows, counts] = await Promise.all([
-      listRatings(c.env.DB, { cursor, limit: limit + 1, rating }),
+    const { limit, page, ...filters } = c.req.valid("query");
+    const [result, counts] = await Promise.all([
+      listRatings(c.env.DB, filters, { limit, page }),
       ratingCounts(c.env.DB),
     ]);
-    const summary = summariseRatings(counts);
-    const data = rows.slice(0, limit);
     c.header("Cache-Control", NO_STORE);
-    return c.json(
-      {
-        data,
-        nextCursor: rows.length > limit ? (data.at(-1)?.id ?? null) : null,
-        summary,
-        total: rating === undefined ? summary.count : summary.byRating[rating],
-      },
-      200,
-    );
+    return c.json({ ...result, summary: summariseRatings(counts) }, 200);
   },
 );

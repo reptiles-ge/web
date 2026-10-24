@@ -77,7 +77,7 @@ const PARAMETER_DOCS: Record<string, ParameterDoc> = {
   },
   region: {
     description:
-      "Only species the atlas lists for this region of Georgia (a region id of reptiles.ge, such as `kakheti`).",
+      "Only species the atlas lists for this region of Georgia (a region id of Reptiles.ge, such as `kakheti`).",
     example: "kakheti",
   },
   slug: {
@@ -108,19 +108,22 @@ const NEWS_PARAMETER_DOCS: Record<string, ParameterDoc> = {
       "Only articles that name this author (an id from `/v1/authors`) or one of their credit spellings.",
     example: "nika-melikishvili",
   },
-  cursor: {
-    description:
-      "The `nextCursor` of the previous page (the `slug` of its last article). Only with `limit`.",
-    example: "batumi-raptor-count-2026-season-ends",
-  },
   hub: {
     description: "Only articles about this group hub.",
     example: "birds",
   },
   limit: {
+    description: "Page size, 1–100. Default 50.",
+    example: "24",
+  },
+  page: {
+    description: "Page number, from 1. Default 1.",
+    example: "1",
+  },
+  q: {
     description:
-      "Page size, 1–100. Without it every matching article comes back in one response.",
-    example: "10",
+      "Only articles whose title, dek or source names contain this text, ignoring case.",
+    example: "batumi",
   },
   region: {
     description: "Only articles about this region of Georgia.",
@@ -142,7 +145,7 @@ const NEWS_PARAMETER_DOCS: Record<string, ParameterDoc> = {
 };
 
 const DESCRIPTION = `
-Open, read-only JSON API of [reptiles.ge](https://reptiles.ge), the atlas of animals of Georgia (the country in the Caucasus).
+Open, read-only JSON API of [Reptiles.ge](https://reptiles.ge), the atlas of animals of Georgia (the country in the Caucasus).
 
 It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna. The atlas news articles are under \`/v1/news\`.
 
@@ -153,7 +156,7 @@ curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/speci
 curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
 \`\`\`
 
-Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the contact page](https://reptiles.ge/en/contact). Keys start with \`rpt_\` and can expire or be revoked. Keep the key on your server: do not put it in browser code. Browsers on other sites cannot send the header anyway, because cross-origin requests do not allow it. To try a request here, enter the key under "Authentication".
+Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the developers page](https://reptiles.ge/en/developers). Keys start with \`rpt_\` and can expire or be revoked. Keep the key on your server: do not put it in browser code. Browsers on other sites cannot send the header anyway, because cross-origin requests do not allow it. To try a request here, enter the key under "Authentication".
 
 Each key may make 120 requests per minute. Responses served from the edge cache count too.
 
@@ -176,7 +179,7 @@ Text fields are plain text, not HTML:
 - Paragraphs are separated by \`\\n\`.
 - Links are inline Markdown, \`[label](target)\`. A target is one of:
   - a species id, such as \`[Dinnik’s viper](vipera-dinniki)\`: link it to that species (\`/v1/species/vipera-dinniki\`);
-  - a site path starting with \`/\`, such as \`[Kakheti](/regions/kakheti)\`: a page on reptiles.ge, in its English form (\`https://reptiles.ge/en/regions/kakheti\`);
+  - a site path starting with \`/\`, such as \`[Kakheti](/regions/kakheti)\`: a page on Reptiles.ge, in its English form (\`https://reptiles.ge/en/regions/kakheti\`);
   - an absolute \`https://\` URL.
 - There is no other Markdown.
 
@@ -186,7 +189,7 @@ An empty string, an empty array or a missing optional field means the atlas has 
 
 ## Images, audio and credits
 
-Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`. Resized AVIF and WebP copies of photos uploaded through the API are listed in \`/v1/images\`.
+Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on Reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`. Resized AVIF and WebP copies of photos uploaded through the API are listed in \`/v1/images\`.
 
 ## Caching
 
@@ -329,7 +332,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Everyone credited on atlas photos, ordered by id. Pass `contributor=true` for only the contributors who have a page on reptiles.ge. `name` is localized; a photo credit's `photographer` text matches one of an author's `aliases`.",
+      "Everyone credited on atlas photos, ordered by id. Pass `contributor=true` for only the contributors who have a page on Reptiles.ge. `name` is localized; a photo credit's `photographer` text matches one of an author's `aliases`.",
     errors: [400],
     header: localeHeader,
     method: "get",
@@ -373,7 +376,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Every contributor with a page on reptiles.ge, as full profiles, most credited photos first (ties by id). `photoCount` and `speciesCount` count photos of published species. Pass `limit` for only the first contributors; `total` always counts all of them.",
+      "Every contributor with a page on Reptiles.ge, as full profiles, most credited photos first (ties by id). `photoCount` and `speciesCount` count photos of published species. Pass `limit` for only the first contributors; `total` always counts all of them.",
     errors: [400],
     header: localeHeader,
     method: "get",
@@ -395,7 +398,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "One contributor's profile, the same fields as an entry in `/v1/contributors`. Authors who are only credited on photos (no page on reptiles.ge) answer 404; use `/v1/authors/{id}` for them.",
+      "One contributor's profile, the same fields as an entry in `/v1/contributors`. Authors who are only credited on photos (no page on Reptiles.ge) answer 404; use `/v1/authors/{id}` for them.",
     errors: [400, 404],
     header: localeHeader,
     method: "get",
@@ -417,7 +420,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series` or `author`; filters combine. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`.",
+      "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series`, `author` or the text search `q`; filters combine. Pages are numbered: `page` (from 1) and `limit` (default 50), with `total` and `pageCount` in every response. `facets.hub` counts the matches for each hub with the other filters applied.",
     errors: [400],
     header: localeHeader,
     method: "get",
@@ -484,6 +487,7 @@ const OPERATIONS: Operation[] = [
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = [
+  "/v1/access-requests",
   "/v1/admin/",
   "/v1/auth/",
   "/v1/ratings",
@@ -562,13 +566,13 @@ export function buildOpenApiDocument() {
       },
     },
     externalDocs: {
-      description: "reptiles.ge, the atlas these data come from",
+      description: "Reptiles.ge, the atlas these data come from",
       url: "https://reptiles.ge/en",
     },
     info: {
-      contact: { name: "reptiles.ge", url: "https://reptiles.ge/en/contact" },
+      contact: { name: "Reptiles.ge", url: "https://reptiles.ge/en/contact" },
       description: DESCRIPTION,
-      title: "reptiles.ge API",
+      title: "Reptiles.ge API",
       version: "1",
     },
     openapi: "3.1.0",

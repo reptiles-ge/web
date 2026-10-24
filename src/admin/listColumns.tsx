@@ -1,4 +1,5 @@
 import type { ColumnsType, ColumnType } from "antd/es/table";
+import type { ColumnFilterItem } from "antd/es/table/interface";
 
 import { Image, Space, Typography } from "antd";
 
@@ -57,7 +58,6 @@ export function photoCountColumn<
     align: "right",
     dataIndex: "photoCount",
     key: "photoCount",
-    sorter: (a, b) => a.photoCount - b.photoCount,
     title: "Photos",
   };
 }
@@ -70,7 +70,6 @@ export function revisionColumns<
       align: "right",
       dataIndex: "version",
       key: "version",
-      sorter: (a, b) => a.version - b.version,
       title: "Version",
     },
     {
@@ -78,9 +77,20 @@ export function revisionColumns<
       key: "lastEditedAt",
       render: (value: null | string) =>
         value ? new Date(value).toLocaleString() : "—",
-      sorter: (a, b) =>
-        (a.lastEditedAt ?? "").localeCompare(b.lastEditedAt ?? ""),
       title: "Last edited",
     },
   ];
+}
+
+export function serverFilter(
+  selected: boolean | string | undefined,
+  filters: ColumnFilterItem[] | readonly string[],
+) {
+  return {
+    filteredValue: selected === undefined ? null : [selected],
+    filterMultiple: false,
+    filters: filters.map((item) =>
+      typeof item === "string" ? { text: item, value: item } : item,
+    ),
+  };
 }

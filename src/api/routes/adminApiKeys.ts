@@ -16,13 +16,18 @@ import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
-import { apiKeyCreateBody, apiKeyParam } from "../schemas/apiKeys";
+import {
+  apiKeyCreateBody,
+  apiKeyListQuery,
+  apiKeyParam,
+} from "../schemas/apiKeys";
 
 export const adminApiKeys = new Hono<ApiEnv>()
-  .get("/", requireAdmin, async (c) => {
-    const keys = await listApiKeys(c.env.DB);
+  .get("/", requireAdmin, validate("query", apiKeyListQuery), async (c) => {
+    const { limit, page, ...filters } = c.req.valid("query");
+    const result = await listApiKeys(c.env.DB, filters, { limit, page });
     c.header("Cache-Control", NO_STORE);
-    return c.json({ data: keys, total: keys.length }, 200);
+    return c.json(result, 200);
   })
   .post(
     "/",

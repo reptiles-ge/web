@@ -27,6 +27,7 @@ export function AdminListView<T extends object>({
   rows,
   searchPlaceholder,
   status,
+  summary,
   title,
   total,
 }: {
@@ -40,6 +41,7 @@ export function AdminListView<T extends object>({
   rows: T[];
   searchPlaceholder: string;
   status: "error" | "loading" | "ready";
+  summary?: ReactNode;
   title: string;
   total: number;
 }) {
@@ -71,38 +73,41 @@ export function AdminListView<T extends object>({
           type="error"
         />
       ) : (
-        <Table<T>
-          columns={columns}
-          dataSource={rows}
-          footer={() =>
-            `${paging ? pageRange(paging, rows.length) : rows.length} of ${total} ${noun}`
-          }
-          loading={status === "loading"}
-          onChange={
-            paging
-              ? (pagination, filters) =>
-                  paging.onChange({
-                    filters,
-                    limit: pagination.pageSize ?? paging.limit,
-                    page: pagination.current ?? 1,
-                  })
-              : undefined
-          }
-          pagination={
-            paging
-              ? {
-                  current: paging.page,
-                  pageSize: paging.limit,
-                  pageSizeOptions: [...PAGE_SIZE_OPTIONS],
-                  showSizeChanger: true,
-                  total,
-                }
-              : { defaultPageSize: 50, showSizeChanger: true }
-          }
-          rowKey={rowKey}
-          scroll={{ x: 900 }}
-          size="small"
-        />
+        <>
+          {summary}
+          <Table<T>
+            columns={columns}
+            dataSource={rows}
+            footer={() =>
+              `${paging ? pageRange(paging, rows.length) : rows.length} of ${total} ${noun}`
+            }
+            loading={status === "loading"}
+            onChange={
+              paging
+                ? (pagination, filters) =>
+                    paging.onChange({
+                      filters,
+                      limit: pagination.pageSize ?? paging.limit,
+                      page: pagination.current ?? 1,
+                    })
+                : undefined
+            }
+            pagination={
+              paging
+                ? {
+                    current: paging.page,
+                    pageSize: paging.limit,
+                    pageSizeOptions: [...PAGE_SIZE_OPTIONS],
+                    showSizeChanger: true,
+                    total,
+                  }
+                : { defaultPageSize: 50, showSizeChanger: true }
+            }
+            rowKey={rowKey}
+            scroll={{ x: 900 }}
+            size="small"
+          />
+        </>
       )}
     </Space>
   );

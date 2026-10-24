@@ -18,6 +18,8 @@ export const speciesIdText = z
 
 export const sitePageGroupParam = z.object({ id: speciesIdText });
 
+export const listSearch = z.string().trim().max(100).optional();
+
 export const pageQuery = z.object({
   limit: z.coerce
     .number()

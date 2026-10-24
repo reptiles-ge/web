@@ -1,8 +1,9 @@
 import { z } from "zod";
 
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
+
 import { REGION_IDS } from "../lib/catalogFilter";
 import { speciesIdText } from "./common";
-import { ANIMAL_GROUPS } from "./species";
 import { HABITATS } from "./speciesRecord";
 
 const CATALOG_MAX_LIMIT = 100;

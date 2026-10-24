@@ -8,11 +8,13 @@ import { SessionExpiredError } from "./species";
 const URL = "https://api.reptiles.ge/v1/admin/ratings";
 
 describe("fetchAdminRatings", () => {
-  it("loads a page with credentials, cursor and rating filter", async () => {
+  it("loads a page with credentials, search and rating filter", async () => {
     let request: Request | undefined;
     const page = {
       data: [],
-      nextCursor: null,
+      limit: 20,
+      page: 3,
+      pageCount: 1,
       summary: { average: null, byRating: {}, count: 0 },
       total: 0,
     };
@@ -22,14 +24,16 @@ describe("fetchAdminRatings", () => {
         return HttpResponse.json(page);
       }),
     );
-    expect(await fetchAdminRatings({ cursor: 7, rating: 2 })).toEqual(page);
+    expect(
+      await fetchAdminRatings({ limit: 20, page: 3, q: "photo", rating: 2 }),
+    ).toEqual(page);
     expect(request?.credentials).toBe("include");
-    const params = new globalThis.URL(request?.url ?? "").searchParams;
-    expect(params.get("cursor")).toBe("7");
-    expect(params.get("rating")).toBe("2");
+    expect(new globalThis.URL(request?.url ?? "").search).toBe(
+      "?limit=20&page=3&q=photo&rating=2",
+    );
   });
 
-  it("sends no filter when none is set", async () => {
+  it("sends only the page when no filter is set", async () => {
     let url = "";
     server.use(
       http.get(URL, ({ request }) => {
@@ -37,20 +41,20 @@ describe("fetchAdminRatings", () => {
         return HttpResponse.json({});
       }),
     );
-    await fetchAdminRatings({});
-    expect(url).toBe(URL);
+    await fetchAdminRatings({ limit: 50, page: 1, q: "", rating: undefined });
+    expect(url).toBe(`${URL}?limit=50&page=1`);
   });
 
   it.each([401, 403])("reports an expired session on %i", async (status) => {
     server.use(http.get(URL, () => new HttpResponse(null, { status })));
-    await expect(fetchAdminRatings({})).rejects.toBeInstanceOf(
-      SessionExpiredError,
-    );
+    await expect(
+      fetchAdminRatings({ limit: 50, page: 1 }),
+    ).rejects.toBeInstanceOf(SessionExpiredError);
   });
 
   it("fails loudly on any other error", async () => {
     server.use(http.get(URL, () => new HttpResponse(null, { status: 500 })));
-    await expect(fetchAdminRatings({})).rejects.toThrow(
+    await expect(fetchAdminRatings({ limit: 50, page: 1 })).rejects.toThrow(
       "Ratings list failed: 500",
     );
   });

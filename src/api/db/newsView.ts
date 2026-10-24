@@ -3,9 +3,11 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { newsSeriesName } from "@/data/newsSeries";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { newsMentionsCreditAuthor } from "@/lib/newsAuthorMentions";
 import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 import { newsArticleLocales, newsBodyLinks } from "@/lib/newsRules";
+import { pageOffset, type PageParams, toPage } from "@/lib/pagination";
 
 import type { ApiDatabase } from "./database";
 
@@ -22,6 +24,7 @@ export type NewsDetailView = NewsSummaryView & {
 export type NewsFilters = {
   author?: string;
   hub?: string;
+  q?: string;
   region?: string;
   series?: string;
   species?: string;
@@ -71,38 +74,21 @@ export async function getPublishedNews(
 export async function listPublishedNews(
   db: ApiDatabase,
   locale: AppLocale,
-  filters: NewsFilters,
+  { hub, q, ...filters }: NewsFilters,
+  page: PageParams,
 ) {
-  const [records, author] = await Promise.all([
-    readNewsRecords(db),
-    filters.author ? readAuthor(db, filters.author) : null,
-  ]);
-  if (filters.author && !author) return [];
-  return records
-    .filter(({ article }) => {
-      if (article.status !== "published" || !article.copy[locale]) return false;
-      if (
-        filters.hub &&
-        !article.relatedHubIds.some((id) => id === filters.hub)
-      )
-        return false;
-      if (filters.region && !article.relatedRegionIds.includes(filters.region))
-        return false;
-      if (filters.series && article.series !== filters.series) return false;
-      if (
-        filters.species &&
-        !article.relatedSpeciesIds.includes(filters.species) &&
-        !localeLinksSpecies(article, locale, filters.species)
-      )
-        return false;
-      return !author || newsMentionsCreditAuthor(article, author);
-    })
-    .sort(
-      (a, b) =>
-        b.article.publishedAt.localeCompare(a.article.publishedAt) ||
-        a.position - b.position,
-    )
-    .map(({ article }) => newsSummary(article, locale));
+  const query = q?.toLocaleLowerCase();
+  const entries = (await publishedNewsSummaries(db, locale, filters)).filter(
+    (entry) => !query || matchesNewsQuery(entry, query),
+  );
+  const matches = hub
+    ? entries.filter((entry) => entry.relatedHubIds.includes(hub))
+    : entries;
+  const start = pageOffset(page);
+  return {
+    ...toPage(matches.slice(start, start + page.limit), matches.length, page),
+    facets: { hub: newsHubCounts(entries) },
+  };
 }
 
 function localeLinksSpecies(
@@ -121,6 +107,10 @@ function localizePhoto(photo: NewsPhoto, locale: AppLocale): NewsPhotoView {
   return { ...rest, alt: alt[locale] ?? alt.ka };
 }
 
+function matchesNewsQuery(entry: NewsSummaryView, query: string) {
+  return newsSearchText(entry).includes(query);
+}
+
 function newsDetail(article: NewsArticle, locale: AppLocale): NewsDetailView {
   const copy = article.copy[locale];
   return {
@@ -132,6 +122,24 @@ function newsDetail(article: NewsArticle, locale: AppLocale): NewsDetailView {
     metaTitle: copy.metaTitle,
     sections: copy.sections,
   };
+}
+
+function newsHubCounts(entries: readonly NewsSummaryView[]) {
+  const counts = Object.fromEntries(
+    Object.keys(GROUP_HUBS).map((hub) => [hub, 0]),
+  ) as Record<GroupHubId, number>;
+  for (const entry of entries) {
+    for (const hub of new Set(entry.relatedHubIds)) {
+      if (hub in counts) counts[hub as GroupHubId] += 1;
+    }
+  }
+  return { all: entries.length, ...counts };
+}
+
+function newsSearchText(entry: NewsSummaryView) {
+  return [entry.title, entry.dek, ...entry.sources.map((source) => source.name)]
+    .join(" ")
+    .toLocaleLowerCase();
 }
 
 function newsSummary(article: NewsArticle, locale: AppLocale): NewsSummaryView {
@@ -162,4 +170,36 @@ function newsSummary(article: NewsArticle, locale: AppLocale): NewsSummaryView {
     title: copy.title,
     ...(article.updatedAt ? { updatedAt: article.updatedAt } : {}),
   };
+}
+
+async function publishedNewsSummaries(
+  db: ApiDatabase,
+  locale: AppLocale,
+  filters: Omit<NewsFilters, "hub" | "q">,
+) {
+  const [records, author] = await Promise.all([
+    readNewsRecords(db),
+    filters.author ? readAuthor(db, filters.author) : null,
+  ]);
+  if (filters.author && !author) return [];
+  return records
+    .filter(({ article }) => {
+      if (article.status !== "published" || !article.copy[locale]) return false;
+      if (filters.region && !article.relatedRegionIds.includes(filters.region))
+        return false;
+      if (filters.series && article.series !== filters.series) return false;
+      if (
+        filters.species &&
+        !article.relatedSpeciesIds.includes(filters.species) &&
+        !localeLinksSpecies(article, locale, filters.species)
+      )
+        return false;
+      return !author || newsMentionsCreditAuthor(article, author);
+    })
+    .sort(
+      (a, b) =>
+        b.article.publishedAt.localeCompare(a.article.publishedAt) ||
+        a.position - b.position,
+    )
+    .map(({ article }) => newsSummary(article, locale));
 }

@@ -1,15 +1,24 @@
 "use client";
 
+import debounce from "lodash/debounce";
 import { Search, X } from "lucide-react";
-import { type ReactNode, useDeferredValue, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
+import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
+
+import { ClientCoverImage } from "@/components/ClientCoverImage";
+import { NewsListCardView } from "@/components/NewsCardParts";
 import { NewsMonthSection } from "@/components/NewsMonthSection";
-import { groupNewsByMonth, type NewsMonthItem } from "@/lib/newsMonthGroups";
-
-export type NewsIndexBrowserItem = NewsMonthItem & {
-  searchText: string;
-  topics: readonly string[];
-};
+import { NewsPaginationView } from "@/components/NewsPaginationView";
+import { OptimizedImagesProvider } from "@/components/OptimizedImagesProvider";
+import { useCachedJson } from "@/components/useCachedJson";
+import {
+  type NewsBrowserPage,
+  type NewsBrowserResult,
+  newsBrowserUrl,
+} from "@/lib/newsBrowserQuery";
+import { groupNewsByMonth } from "@/lib/newsMonthGroups";
 
 type NewsIndexBrowserLabels = {
   clear: string;
@@ -17,6 +26,10 @@ type NewsIndexBrowserLabels = {
   emptyText: string;
   emptyTitle: string;
   emptyTitleShort: string;
+  newer: string;
+  older: string;
+  pages: readonly string[];
+  pagination: string;
   resetFilter: string;
   resetFilterShort: string;
   searchLabel: string;
@@ -26,15 +39,18 @@ type NewsIndexBrowserLabels = {
 
 type NewsIndexBrowserProps = {
   articleWords: readonly string[];
-  chips: ReadonlyArray<{ count: number; id: string; label: string }>;
+  chips: ReadonlyArray<{ id: "all" | GroupHubId; label: string }>;
   featured: ReactNode;
   featuredCount: number;
-  items: readonly NewsIndexBrowserItem[];
+  initial: NewsBrowserPage;
   labels: NewsIndexBrowserLabels;
-  monthLabels: Readonly<Record<string, string>>;
+  locale: AppLocale;
+  pagination: ReactNode;
 };
 
 const ALL_TOPICS = "all";
+const SEARCH_DEBOUNCE_MS = 300;
+const EMPTY_SEED: Record<string, NewsBrowserResult> = {};
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
 
@@ -43,39 +59,58 @@ export function NewsIndexBrowser({
   chips,
   featured,
   featuredCount,
-  items,
+  initial,
   labels,
-  monthLabels,
+  locale,
+  pagination,
 }: NewsIndexBrowserProps) {
-  const [topic, setTopic] = useState(ALL_TOPICS);
+  const [topic, setTopic] = useState<"all" | GroupHubId>(ALL_TOPICS);
   const [query, setQuery] = useState("");
-  const deferredQuery = useDeferredValue(query);
-  const trimmedQuery = deferredQuery.trim();
-  const normalizedQuery = trimmedQuery.toLocaleLowerCase();
-  const filtering = topic !== ALL_TOPICS || normalizedQuery.length > 0;
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const filtering = topic !== ALL_TOPICS || search.length > 0;
 
-  const filtered = useMemo(
+  const applySearch = useMemo(
     () =>
-      items.filter(
-        (item) =>
-          (topic === ALL_TOPICS || item.topics.includes(topic)) &&
-          (!normalizedQuery || item.searchText.includes(normalizedQuery)),
-      ),
-    [items, topic, normalizedQuery],
+      debounce((value: string) => {
+        setSearch(value.trim());
+        setPage(1);
+      }, SEARCH_DEBOUNCE_MS),
+    [],
   );
+  useEffect(() => () => applySearch.cancel(), [applySearch]);
 
-  const months = useMemo(
-    () => groupNewsByMonth(filtering ? filtered : items.slice(featuredCount)),
-    [featuredCount, filtered, filtering, items],
+  const { loading, result } = useBrowserResult(
+    filtering ? browserUrl(locale, topic, page, search) : null,
   );
+  const facets = result?.facets ?? initial.facets;
+  const resultContext = filterContext(chips, topic, search);
 
-  const topicLabel = chips.find((chip) => chip.id === topic)?.label;
-  const resultContext =
-    (topic !== ALL_TOPICS && topicLabel ? ` · ${topicLabel}` : "") +
-    (trimmedQuery ? ` · „${trimmedQuery}“` : "");
+  function changeQuery(value: string) {
+    setQuery(value);
+    applySearch(value);
+  }
+
+  function clearQuery() {
+    applySearch.cancel();
+    setQuery("");
+    setSearch("");
+    setPage(1);
+  }
+
+  function chooseTopic(id: "all" | GroupHubId) {
+    setTopic(id);
+    setPage(1);
+  }
+
+  function choosePage(next: number) {
+    setPage(next);
+    resultsRef.current?.scrollIntoView({ block: "start" });
+  }
 
   function resetAll() {
-    setQuery("");
+    clearQuery();
     setTopic(ALL_TOPICS);
   }
 
@@ -83,97 +118,98 @@ export function NewsIndexBrowser({
     <>
       <div className="sticky top-[75px] z-30 mt-[18px] border-b border-(--nw-line) bg-background/92 pt-3.5 pb-3 backdrop-blur-[14px] transition-[top] duration-300 ease-out md:mt-0 md:bg-background/90 md:py-0 max-lg:header-hidden:top-0">
         <div className="flex flex-col md:mx-auto md:box-content md:h-[76px] md:max-w-[1320px] md:flex-row md:items-center md:gap-4 md:px-10 lg:px-[60px]">
-          <div
-            aria-label={labels.topicsLabel}
-            className="order-2 mt-2.5 flex min-w-0 snap-x snap-proximity scroll-px-5 scrollbar-none gap-1.5 overflow-x-auto px-5 md:order-1 md:mt-0 md:flex-1 md:snap-none md:px-0 [&::-webkit-scrollbar]:hidden"
-            role="group"
-          >
-            {chips.map((chip) => {
-              const on = topic === chip.id;
-              return (
-                <button
-                  aria-pressed={on}
-                  className={`inline-flex h-11 shrink-0 cursor-pointer snap-start items-center gap-[7px] rounded-full pr-[7px] pl-3.5 text-[14px] font-medium whitespace-nowrap transition-[background,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-(--nw-accent) focus-visible:ring-offset-2 focus-visible:outline-none md:h-10 md:gap-2 md:pr-2 md:pl-4 ${
-                    on
-                      ? "bg-(--nw-strong) text-(--nw-on-strong)"
-                      : "bg-(--nw-card) text-(--nw-ink) shadow-[inset_0_0_0_1px_var(--nw-line)]"
-                  }`}
-                  key={chip.id}
-                  onClick={() => setTopic(chip.id)}
-                  type="button"
-                >
-                  {chip.label}
-                  <span
-                    className={`inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full px-1.5 text-[11.5px] font-semibold tabular-nums md:h-6 md:min-w-6 md:text-[12px] ${
-                      on
-                        ? "bg-white/16 text-(--nw-on-strong) dark:bg-black/12"
-                        : "bg-(--nw-wash) text-(--nw-muted)"
-                    }`}
-                  >
-                    {chip.count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-          <div className="order-1 px-5 md:order-2 md:w-[300px] md:shrink-0 md:px-0">
-            <label className="flex h-12 items-center gap-2.5 rounded-full border border-(--nw-line) bg-(--nw-card) pr-2 pl-4 focus-within:border-(--nw-accent) md:h-11">
-              <Search
-                aria-hidden="true"
-                className="size-4 shrink-0 text-(--nw-muted)"
-                strokeWidth={1.75}
-              />
-              <input
-                aria-label={labels.searchLabel}
-                autoComplete="off"
-                className="h-full min-w-0 flex-1 appearance-none border-0 bg-transparent p-0 text-[16px] font-medium text-(--nw-ink) outline-none placeholder:text-(--nw-muted) placeholder:opacity-100 md:text-[14.5px]"
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder={labels.searchPlaceholder}
-                type="search"
-                value={query}
-              />
-              {query ? (
-                <button
-                  aria-label={labels.clear}
-                  className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--nw-wash) text-(--nw-ink) md:size-[30px]"
-                  onClick={() => setQuery("")}
-                  type="button"
-                >
-                  <X
-                    aria-hidden="true"
-                    className="size-3.5"
-                    strokeWidth={1.75}
-                  />
-                </button>
-              ) : null}
-            </label>
-          </div>
+          <TopicChips
+            chips={chips}
+            counts={facets.hub}
+            label={labels.topicsLabel}
+            onChoose={chooseTopic}
+            topic={topic}
+          />
+          <NewsSearchField
+            clearLabel={labels.clear}
+            label={labels.searchLabel}
+            onChange={changeQuery}
+            onClear={clearQuery}
+            placeholder={labels.searchPlaceholder}
+            query={query}
+          />
         </div>
       </div>
 
       {filtering ? null : featured}
 
-      {filtering && filtered.length > 0 ? (
-        <div
-          className={`${wrapClass} flex items-center justify-between gap-3 pt-5 md:justify-start md:gap-3.5 md:pt-9`}
-          role="status"
-        >
-          <span className="text-[14px] text-(--nw-muted) md:text-[15px]">
-            <b className="font-semibold text-(--nw-ink)">{filtered.length}</b>{" "}
-            {articleWords[filtered.length]}
-            {resultContext}
-          </span>
-          <button
-            className="h-8 shrink-0 cursor-pointer rounded-full bg-(--nw-surface) px-3 text-[13px] font-medium text-(--nw-ink) dark:bg-(--nw-wash)"
-            onClick={resetAll}
-            type="button"
-          >
-            <span className="md:hidden">{labels.resetFilterShort}</span>
-            <span className="hidden md:inline">{labels.resetFilter}</span>
-          </button>
-        </div>
-      ) : null}
+      <div
+        aria-busy={loading}
+        className={`scroll-mt-[180px] transition-opacity duration-150 ${
+          loading && result ? "opacity-60" : ""
+        }`}
+        ref={resultsRef}
+      >
+        {result && result.total > 0 ? (
+          <ResultsSummary
+            context={resultContext}
+            labels={labels}
+            onReset={resetAll}
+            total={result.total}
+            word={articleWords[result.total]}
+          />
+        ) : null}
 
+        <BrowserMonths
+          articleWords={articleWords}
+          featuredCount={featuredCount}
+          initial={initial}
+          result={result}
+        />
+
+        {result && result.total === 0 && !loading ? (
+          <EmptyResults labels={labels} onReset={resetAll} />
+        ) : null}
+
+        <BrowserPagination
+          fallback={filtering ? null : pagination}
+          labels={labels}
+          onChoose={choosePage}
+          result={result}
+        />
+      </div>
+    </>
+  );
+}
+
+const EMPTY_ENTRIES = {};
+
+type Topic = "all" | GroupHubId;
+
+function BrowserMonths({
+  articleWords,
+  featuredCount,
+  initial,
+  result,
+}: {
+  articleWords: readonly string[];
+  featuredCount: number;
+  initial: NewsBrowserPage;
+  result: NewsBrowserResult | null;
+}) {
+  const months = useMemo(
+    () =>
+      groupNewsByMonth(
+        (result ? result.items : initial.items.slice(featuredCount)).map(
+          (item) => ({
+            card: (
+              <NewsListCardView entry={item.entry} image={ClientCoverImage} />
+            ),
+            id: item.id,
+            monthKey: item.monthKey,
+          }),
+        ),
+      ),
+    [featuredCount, initial.items, result],
+  );
+  const monthLabels = result?.monthLabels ?? initial.monthLabels;
+  return (
+    <OptimizedImagesProvider entries={result?.entries ?? EMPTY_ENTRIES}>
       {months.map((month) => (
         <NewsMonthSection
           countLabel={articleWords[month.items.length]}
@@ -182,34 +218,238 @@ export function NewsIndexBrowser({
           key={month.key}
         />
       ))}
-
-      {filtering && filtered.length === 0 ? (
-        <section className={`${wrapClass} pt-8 md:pt-14`}>
-          <div className="flex flex-col items-center gap-2.5 rounded-[28px] bg-(--nw-card) px-5 py-11 text-center md:gap-3.5 md:rounded-[32px] md:px-6 md:py-[72px]">
-            <span className="hidden size-14 items-center justify-center rounded-full bg-(--nw-line-soft) text-(--nw-accent) md:inline-flex">
-              <Search
-                aria-hidden="true"
-                className="size-[22px]"
-                strokeWidth={1.75}
-              />
-            </span>
-            <p className="text-[19px] font-semibold text-(--nw-ink) md:text-[22px]">
-              <span className="md:hidden">{labels.emptyTitleShort}</span>
-              <span className="hidden md:inline">{labels.emptyTitle}</span>
-            </p>
-            <p className="text-[14px] text-(--nw-muted) md:text-[15px]">
-              {labels.emptyText}
-            </p>
-            <button
-              className="mt-2 h-11 cursor-pointer rounded-full bg-(--nw-strong) px-5 text-[14px] font-medium text-(--nw-on-strong) md:mt-1.5"
-              onClick={resetAll}
-              type="button"
-            >
-              {labels.emptyCta}
-            </button>
-          </div>
-        </section>
-      ) : null}
-    </>
+    </OptimizedImagesProvider>
   );
+}
+
+function BrowserPagination({
+  fallback,
+  labels,
+  onChoose,
+  result,
+}: {
+  fallback: ReactNode;
+  labels: NewsIndexBrowserLabels;
+  onChoose: (page: number) => void;
+  result: NewsBrowserResult | null;
+}) {
+  if (!result) return fallback;
+  return (
+    <NewsPaginationView
+      current={result.page}
+      labels={{
+        newer: labels.newer,
+        older: labels.older,
+        page: (number) => labels.pages[number - 1] ?? String(number),
+        pagination: labels.pagination,
+      }}
+      pageControl={({ page: target, ...props }) => (
+        <button {...props} onClick={() => onChoose(target)} type="button" />
+      )}
+      pageCount={result.pageCount}
+    />
+  );
+}
+
+function browserUrl(
+  locale: AppLocale,
+  topic: Topic,
+  page: number,
+  search: string,
+) {
+  return newsBrowserUrl(locale, {
+    ...(topic === ALL_TOPICS ? {} : { hub: topic }),
+    page,
+    ...(search ? { q: search } : {}),
+  });
+}
+
+function EmptyResults({
+  labels,
+  onReset,
+}: {
+  labels: NewsIndexBrowserLabels;
+  onReset: () => void;
+}) {
+  return (
+    <section className={`${wrapClass} pt-8 md:pt-14`}>
+      <div className="flex flex-col items-center gap-2.5 rounded-[28px] bg-(--nw-card) px-5 py-11 text-center md:gap-3.5 md:rounded-[32px] md:px-6 md:py-[72px]">
+        <span className="hidden size-14 items-center justify-center rounded-full bg-(--nw-line-soft) text-(--nw-accent) md:inline-flex">
+          <Search
+            aria-hidden="true"
+            className="size-[22px]"
+            strokeWidth={1.75}
+          />
+        </span>
+        <p className="text-[19px] font-semibold text-(--nw-ink) md:text-[22px]">
+          <span className="md:hidden">{labels.emptyTitleShort}</span>
+          <span className="hidden md:inline">{labels.emptyTitle}</span>
+        </p>
+        <p className="text-[14px] text-(--nw-muted) md:text-[15px]">
+          {labels.emptyText}
+        </p>
+        <button
+          className="mt-2 h-11 cursor-pointer rounded-full bg-(--nw-strong) px-5 text-[14px] font-medium text-(--nw-on-strong) md:mt-1.5"
+          onClick={onReset}
+          type="button"
+        >
+          {labels.emptyCta}
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function filterContext(
+  chips: NewsIndexBrowserProps["chips"],
+  topic: Topic,
+  search: string,
+) {
+  const topicLabel =
+    topic === ALL_TOPICS
+      ? undefined
+      : chips.find((chip) => chip.id === topic)?.label;
+  return (
+    (topicLabel ? ` · ${topicLabel}` : "") + (search ? ` · „${search}“` : "")
+  );
+}
+
+function NewsSearchField({
+  clearLabel,
+  label,
+  onChange,
+  onClear,
+  placeholder,
+  query,
+}: {
+  clearLabel: string;
+  label: string;
+  onChange: (value: string) => void;
+  onClear: () => void;
+  placeholder: string;
+  query: string;
+}) {
+  return (
+    <div className="order-1 px-5 md:order-2 md:w-[300px] md:shrink-0 md:px-0">
+      <label className="flex h-12 items-center gap-2.5 rounded-full border border-(--nw-line) bg-(--nw-card) pr-2 pl-4 focus-within:border-(--nw-accent) md:h-11">
+        <Search
+          aria-hidden="true"
+          className="size-4 shrink-0 text-(--nw-muted)"
+          strokeWidth={1.75}
+        />
+        <input
+          aria-label={label}
+          autoComplete="off"
+          className="h-full min-w-0 flex-1 appearance-none border-0 bg-transparent p-0 text-[16px] font-medium text-(--nw-ink) outline-none placeholder:text-(--nw-muted) placeholder:opacity-100 md:text-[14.5px]"
+          maxLength={100}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
+          type="search"
+          value={query}
+        />
+        {query ? (
+          <button
+            aria-label={clearLabel}
+            className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--nw-wash) text-(--nw-ink) md:size-[30px]"
+            onClick={onClear}
+            type="button"
+          >
+            <X aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
+          </button>
+        ) : null}
+      </label>
+    </div>
+  );
+}
+
+function ResultsSummary({
+  context,
+  labels,
+  onReset,
+  total,
+  word,
+}: {
+  context: string;
+  labels: NewsIndexBrowserLabels;
+  onReset: () => void;
+  total: number;
+  word: string | undefined;
+}) {
+  return (
+    <div
+      className={`${wrapClass} flex items-center justify-between gap-3 pt-5 md:justify-start md:gap-3.5 md:pt-9`}
+      role="status"
+    >
+      <span className="text-[14px] text-(--nw-muted) md:text-[15px]">
+        <b className="font-semibold text-(--nw-ink)">{total}</b> {word}
+        {context}
+      </span>
+      <button
+        className="h-8 shrink-0 cursor-pointer rounded-full bg-(--nw-surface) px-3 text-[13px] font-medium text-(--nw-ink) dark:bg-(--nw-wash)"
+        onClick={onReset}
+        type="button"
+      >
+        <span className="md:hidden">{labels.resetFilterShort}</span>
+        <span className="hidden md:inline">{labels.resetFilter}</span>
+      </button>
+    </div>
+  );
+}
+
+function TopicChips({
+  chips,
+  counts,
+  label,
+  onChoose,
+  topic,
+}: {
+  chips: NewsIndexBrowserProps["chips"];
+  counts: NewsBrowserPage["facets"]["hub"];
+  label: string;
+  onChoose: (id: Topic) => void;
+  topic: Topic;
+}) {
+  return (
+    <div
+      aria-label={label}
+      className="order-2 mt-2.5 flex min-w-0 snap-x snap-proximity scroll-px-5 scrollbar-none gap-1.5 overflow-x-auto px-5 md:order-1 md:mt-0 md:flex-1 md:snap-none md:px-0 [&::-webkit-scrollbar]:hidden"
+      role="group"
+    >
+      {chips.map((chip) => {
+        const on = topic === chip.id;
+        return (
+          <button
+            aria-pressed={on}
+            className={`inline-flex h-11 shrink-0 cursor-pointer snap-start items-center gap-[7px] rounded-full pr-[7px] pl-3.5 text-[14px] font-medium whitespace-nowrap transition-[background,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-(--nw-accent) focus-visible:ring-offset-2 focus-visible:outline-none md:h-10 md:gap-2 md:pr-2 md:pl-4 ${
+              on
+                ? "bg-(--nw-strong) text-(--nw-on-strong)"
+                : "bg-(--nw-card) text-(--nw-ink) shadow-[inset_0_0_0_1px_var(--nw-line)]"
+            }`}
+            key={chip.id}
+            onClick={() => onChoose(chip.id)}
+            type="button"
+          >
+            {chip.label}
+            <span
+              className={`inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full px-1.5 text-[11.5px] font-semibold tabular-nums md:h-6 md:min-w-6 md:text-[12px] ${
+                on
+                  ? "bg-white/16 text-(--nw-on-strong) dark:bg-black/12"
+                  : "bg-(--nw-wash) text-(--nw-muted)"
+              }`}
+            >
+              {counts[chip.id]}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function useBrowserResult(url: null | string) {
+  const { data } = useCachedJson<NewsBrowserResult>(url, EMPTY_SEED);
+  const [shown, setShown] = useState<NewsBrowserResult | null>(null);
+  if (data && data !== shown) setShown(data);
+  if (!url) return { loading: false, result: null };
+  return { loading: !data, result: data ?? shown };
 }

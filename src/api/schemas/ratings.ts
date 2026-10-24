@@ -2,6 +2,8 @@ import { z } from "zod";
 
 import { ratingInputSchema } from "@/lib/ratingInput";
 
+import { listSearch, pageQuery } from "./common";
+
 export const ratingBody = ratingInputSchema.and(
   z.object({
     pages: z.unknown().optional(),
@@ -10,15 +12,7 @@ export const ratingBody = ratingInputSchema.and(
   }),
 );
 
-const ADMIN_RATINGS_MAX_LIMIT = 100;
-
-export const adminRatingsQuery = z.object({
-  cursor: z.coerce.number().int().min(1).optional(),
-  limit: z.coerce
-    .number()
-    .int()
-    .min(1)
-    .max(ADMIN_RATINGS_MAX_LIMIT)
-    .default(50),
+export const adminRatingsQuery = pageQuery.extend({
+  q: listSearch,
   rating: z.coerce.number().int().min(1).max(5).optional(),
 });

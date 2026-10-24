@@ -19,17 +19,12 @@ import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { draftIdParam, draftListQuery } from "../schemas/speciesRecord";
 
-const LIST_LIMIT = 200;
-
 export const adminDrafts = new Hono<ApiEnv>()
   .get("/", requireAdmin, validate("query", draftListQuery), async (c) => {
-    const data = await listDrafts(
-      c.env.DB,
-      c.req.valid("query").status,
-      LIST_LIMIT,
-    );
+    const { limit, page, ...filters } = c.req.valid("query");
+    const result = await listDrafts(c.env.DB, filters, { limit, page });
     c.header("Cache-Control", NO_STORE);
-    return c.json({ data, total: data.length }, 200);
+    return c.json(result, 200);
   })
   .get(
     "/:draftId",

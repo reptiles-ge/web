@@ -3,27 +3,24 @@ import { getTranslations } from "next-intl/server";
 import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { NewsTopicFacets } from "@/lib/newsBrowserQuery";
 
 import { CoverImagePreload } from "@/components/CoverImagePreload";
-import {
-  NewsIndexBrowser,
-  type NewsIndexBrowserItem,
-} from "@/components/NewsIndexBrowser";
-import { NewsListCard } from "@/components/NewsIndexCards";
+import { NewsIndexBrowser } from "@/components/NewsIndexBrowser";
 import {
   NewsAtlasCta,
   NewsFeaturedBlock,
 } from "@/components/NewsIndexSections";
 import { NewsPagination } from "@/components/NewsPagination";
-import { newsSourceName } from "@/data/news";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { Link } from "@/i18n/navigation";
-import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
+import { formatContentDate } from "@/lib/formatDate";
 import { newsIndexDateFields, newsSourceBadges } from "@/lib/news";
-import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
-import { loadNewsVisuals } from "@/lib/newsVisualLoader";
+import { newsBrowserEntries } from "@/lib/newsBrowserItems";
 
 type NewsIndexPageProps = {
   articles: NewsListArticle[];
+  facets: NewsTopicFacets;
   locale: AppLocale;
   pageCount: number;
   total: number;
@@ -50,61 +47,29 @@ const eyebrowClass =
 
 export async function NewsIndexPage({
   articles,
+  facets,
   locale,
   pageCount,
   total,
 }: NewsIndexPageProps) {
-  const [t, tNav, tShared, visuals] = await Promise.all([
+  const [t, tNav, tShared, { items, monthLabels }] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    loadNewsVisuals(articles, locale),
+    newsBrowserEntries(articles, locale),
   ]);
 
-  const entries = articles.map((article, index) =>
-    toNewsIndexEntry(
-      article,
-      locale,
-      {
-        readLabel: (minutes) => t("readTime", { minutes }),
-        topicLabel: (hub) => tNav(hub),
-      },
-      visuals[index],
-    ),
-  );
-  const [lead, ...rest] = entries;
+  const [lead, ...rest] = items.map((item) => item.entry);
 
   const chips = [
-    { count: articles.length, id: "all", label: t("all") },
-    ...TOPIC_ORDER.map((id) => ({
-      count: articles.filter((article) => article.relatedHubIds.includes(id))
-        .length,
+    { id: "all" as const, label: t("all") },
+    ...TOPIC_ORDER.filter((id) => facets.hub[id] > 0).map((id) => ({
       id,
       label: tNav(id),
-    })).filter((chip) => chip.count > 0),
+    })),
   ];
 
-  const monthLabels: Record<string, string> = {};
-  const items: NewsIndexBrowserItem[] = articles.map((article, index) => {
-    const entry = entries[index];
-    const monthKey = article.publishedAt.slice(0, 7);
-    monthLabels[monthKey] ??= formatContentMonth(article.publishedAt, locale);
-    return {
-      card: <NewsListCard entry={entry} />,
-      id: article.id,
-      monthKey,
-      searchText: [
-        entry.title,
-        entry.dek,
-        ...article.sources.map((source) => newsSourceName(source, locale)),
-      ]
-        .join(" ")
-        .toLocaleLowerCase(),
-      topics: article.relatedHubIds,
-    };
-  });
-
-  const articleWords = Array.from({ length: articles.length + 1 }, (_, count) =>
+  const articleWords = Array.from({ length: total + 1 }, (_, count) =>
     t("articleWord", { count }),
   );
 
@@ -165,38 +130,58 @@ export async function NewsIndexPage({
             {t("empty")}
           </p>
         ) : (
-          <NewsIndexBrowser
-            articleWords={articleWords}
-            chips={chips}
-            featured={
-              lead ? (
-                <NewsFeaturedBlock
-                  lead={lead}
+          <OptimizedImageScope srcs={items.map((item) => item.entry.src)}>
+            <NewsIndexBrowser
+              articleWords={articleWords}
+              chips={chips}
+              featured={
+                lead ? (
+                  <NewsFeaturedBlock
+                    lead={lead}
+                    locale={locale}
+                    sides={rest.slice(0, FEATURED_COUNT - 1)}
+                    sourceBadges={newsSourceBadges(articles, locale)}
+                  />
+                ) : null
+              }
+              featuredCount={FEATURED_COUNT}
+              initial={{
+                facets,
+                items,
+                monthLabels,
+                page: 1,
+                pageCount,
+                total,
+              }}
+              labels={{
+                clear: t("clear"),
+                emptyCta: t("allNews"),
+                emptyText: t("emptyText"),
+                emptyTitle: t("emptyTitle"),
+                emptyTitleShort: t("emptyTitleShort"),
+                newer: t("newerArticles"),
+                older: t("olderArticles"),
+                pages: Array.from({ length: pageCount }, (_, index) =>
+                  t("pageNumber", { page: index + 1 }),
+                ),
+                pagination: t("paginationLabel"),
+                resetFilter: t("resetFilter"),
+                resetFilterShort: t("resetFilterShort"),
+                searchLabel: t("searchLabel"),
+                searchPlaceholder: t("searchPlaceholder"),
+                topicsLabel: t("topicsLabel"),
+              }}
+              locale={locale}
+              pagination={
+                <NewsPagination
+                  current={1}
                   locale={locale}
-                  sides={rest.slice(0, FEATURED_COUNT - 1)}
-                  sourceBadges={newsSourceBadges(articles, locale)}
+                  pageCount={pageCount}
                 />
-              ) : null
-            }
-            featuredCount={FEATURED_COUNT}
-            items={items}
-            labels={{
-              clear: t("clear"),
-              emptyCta: t("allNews"),
-              emptyText: t("emptyText"),
-              emptyTitle: t("emptyTitle"),
-              emptyTitleShort: t("emptyTitleShort"),
-              resetFilter: t("resetFilter"),
-              resetFilterShort: t("resetFilterShort"),
-              searchLabel: t("searchLabel"),
-              searchPlaceholder: t("searchPlaceholder"),
-              topicsLabel: t("topicsLabel"),
-            }}
-            monthLabels={monthLabels}
-          />
+              }
+            />
+          </OptimizedImageScope>
         )}
-
-        <NewsPagination current={1} locale={locale} pageCount={pageCount} />
 
         <NewsAtlasCta locale={locale} />
       </div>

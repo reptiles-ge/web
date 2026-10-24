@@ -2,7 +2,7 @@ import { z } from "zod";
 
 import { contentViewInputSchema } from "@/lib/contentViewInput";
 
-import { pageQuery } from "./common";
+import { listSearch, pageQuery } from "./common";
 
 const VIEW_PERIOD_DAYS = ["1", "7", "30"] as const;
 
@@ -14,5 +14,5 @@ export const adminViewListQuery = pageQuery.extend({
     .optional()
     .transform((value) => (value === undefined ? undefined : Number(value))),
   kind: contentViewInputSchema.shape.kind.optional(),
-  q: z.string().trim().max(100).optional(),
+  q: listSearch,
 });

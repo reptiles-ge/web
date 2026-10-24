@@ -1,20 +1,16 @@
 import { z } from "zod";
 
-import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 
-import { speciesIdText } from "./common";
+import { listSearch, pageQuery, speciesIdText } from "./common";
 
-export const ANIMAL_GROUPS = [
-  "amphibian",
-  "bird",
-  "insect",
-  "lizard",
-  "mammal",
-  "scorpion",
-  "snake",
-  "spider",
-  "turtle",
-] as const satisfies readonly AnimalGroup[];
+const SPECIES_STATUSES = ["draft", "published", "unpublished"] as const;
+
+export const adminSpeciesListQuery = pageQuery.extend({
+  group: z.enum(ANIMAL_GROUPS).optional(),
+  q: listSearch,
+  status: z.enum(SPECIES_STATUSES).optional(),
+});
 
 export const speciesListQuery = z.object({
   group: z.enum(ANIMAL_GROUPS).optional(),

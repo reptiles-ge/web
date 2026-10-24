@@ -35,6 +35,7 @@ import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import { newsParam } from "../schemas/news";
 import {
+  adminNewsListQuery,
   newsArticleSchema,
   newsCopyBody,
   newsCreateBody,
@@ -46,10 +47,11 @@ const HUB_IDS = new Set(Object.keys(GROUP_HUBS));
 const REGIONS = new Set(REGION_IDS);
 
 export const adminNews = new Hono<ApiEnv>()
-  .get("/", requireAdmin, async (c) => {
-    const data = await listAdminNews(c.env.DB);
+  .get("/", requireAdmin, validate("query", adminNewsListQuery), async (c) => {
+    const { limit, page, ...filters } = c.req.valid("query");
+    const result = await listAdminNews(c.env.DB, filters, { limit, page });
     c.header("Cache-Control", NO_STORE);
-    return c.json({ data, total: data.length }, 200);
+    return c.json(result, 200);
   })
   .post(
     "/revalidate",

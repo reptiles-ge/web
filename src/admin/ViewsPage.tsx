@@ -4,9 +4,9 @@ import { Segmented, Tag, Typography } from "antd";
 
 import type { ContentViewKind } from "@/lib/contentViewInput";
 
-import { AdminListView, type ServerPaging } from "./AdminListView";
-import { nameColumn } from "./listColumns";
-import { usePagedList } from "./usePagedList";
+import { AdminListView } from "./AdminListView";
+import { nameColumn, serverFilter } from "./listColumns";
+import { serverPaging, usePagedList } from "./usePagedList";
 import {
   type AdminView,
   type AdminViewFilters,
@@ -32,35 +32,17 @@ export function ViewsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const {
-    items,
-    lastPage,
-    query,
-    reload,
-    setFilters,
-    setPage,
-    setSearch,
-    status,
-    total,
-  } = usePagedList(fetchAdminViews, onSessionExpired);
-
-  const paging: ServerPaging = {
-    limit: query.limit,
-    onChange: ({ filters, limit, page }) => {
-      const kind = filters.kind?.[0] as AdminViewFilters["kind"] | undefined;
-      if (kind !== query.kind) setFilters({ kind });
-      else setPage(page, limit);
-    },
-    page: query.page,
-  };
+  const list = usePagedList(fetchAdminViews, onSessionExpired);
+  const { items, lastPage, query, setFilters } = list;
+  const paging = serverPaging(list, (filters) => ({
+    kind: filters.kind?.[0] as AdminViewFilters["kind"] | undefined,
+  }));
 
   const columns: ColumnsType<ViewRow> = [
     nameColumn<ViewRow>("Page", (item) => `/${item.kind}/${item.id}`),
     {
       dataIndex: "kind",
-      filteredValue: query.kind ? [query.kind] : null,
-      filterMultiple: false,
-      filters: KINDS.map((kind) => ({ text: kind, value: kind })),
+      ...serverFilter(query.kind, KINDS),
       key: "kind",
       render: (kind: ContentViewKind) => (
         <Tag color={kind === "news" ? "blue" : "green"}>{kind}</Tag>
@@ -104,15 +86,15 @@ export function ViewsPage({
       }
       columns={columns}
       noun="pages"
-      onQuery={setSearch}
-      onReload={reload}
+      onQuery={list.setSearch}
+      onReload={list.reload}
       paging={paging}
       rowKey="key"
       rows={items.map((item) => ({ ...item, key: `${item.kind}:${item.id}` }))}
       searchPlaceholder="Name or id"
-      status={status}
+      status={list.status}
       title="Views"
-      total={total}
+      total={list.total}
     />
   );
 }

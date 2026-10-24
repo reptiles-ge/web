@@ -1,6 +1,11 @@
+import { type PageParams, toPage } from "@/lib/pagination";
+
 import type { ApiDatabase } from "./database";
 import type { SpeciesRecord } from "./speciesRows";
 import type { SpeciesRevision } from "./speciesWrite";
+
+import { readPage } from "./paging";
+import { containsPattern } from "./search";
 
 export type DraftStatus = "approved" | "pending" | "rejected";
 
@@ -88,16 +93,21 @@ export async function insertDraft(
 
 export async function listDrafts(
   db: ApiDatabase,
-  status: DraftStatus,
-  limit: number,
+  filters: { q?: string; status: DraftStatus },
+  page: PageParams,
 ) {
-  const { results } = await db
-    .prepare(
-      "SELECT d.id, d.species_id, d.base_version, d.source, d.actor, d.summary, d.status, d.created_at, d.decided_at, d.decided_by, s.version AS species_version, s.scientific_name, k.common_name AS common_name_ka FROM species_drafts d JOIN species s ON s.id = d.species_id JOIN species_texts k ON k.species_id = d.species_id AND k.locale = 'ka' WHERE d.status = ? ORDER BY d.id DESC LIMIT ?",
-    )
-    .bind(status, limit)
-    .all<DraftListRow>();
-  return results.map((row) => ({
+  const { rows, total } = await readPage<DraftListRow>(
+    db,
+    {
+      from: "FROM species_drafts d JOIN species s ON s.id = d.species_id JOIN species_texts k ON k.species_id = d.species_id AND k.locale = 'ka' WHERE d.status = ?1 AND (?2 IS NULL OR d.species_id LIKE ?2 ESCAPE '\\' OR s.scientific_name LIKE ?2 ESCAPE '\\' OR k.common_name LIKE ?2 ESCAPE '\\' OR d.summary LIKE ?2 ESCAPE '\\' OR d.actor LIKE ?2 ESCAPE '\\')",
+      order: "d.id DESC",
+      select:
+        "d.id, d.species_id, d.base_version, d.source, d.actor, d.summary, d.status, d.created_at, d.decided_at, d.decided_by, s.version AS species_version, s.scientific_name, k.common_name AS common_name_ka",
+    },
+    [filters.status, containsPattern(filters.q)],
+    page,
+  );
+  const data = rows.map((row) => ({
     actor: row.actor,
     baseVersion: row.base_version,
     commonName: row.common_name_ka,
@@ -112,6 +122,7 @@ export async function listDrafts(
     status: row.status,
     summary: row.summary,
   }));
+  return toPage(data, total, page);
 }
 
 export async function listPendingDrafts(db: ApiDatabase, speciesId: string) {

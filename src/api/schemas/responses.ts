@@ -1,12 +1,13 @@
 import { z } from "zod";
 
 import { locales } from "@/i18n/locales";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
 import { REGION_IDS } from "../lib/catalogFilter";
 import { AFFILIATIONS, AUTHOR_JOB_TITLES } from "./authors";
-import { ANIMAL_GROUPS } from "./species";
 import { HABITATS, PHOTO_CONFIDENCE } from "./speciesRecord";
 
 export const responseSchemas = z.registry<{ id: string }>();
@@ -475,7 +476,7 @@ export const speciesResponse = component(
     locale: resolvedLocale,
     views: doc(
       z.int().min(0),
-      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
+      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
     ),
   }),
   "One species profile.",
@@ -559,7 +560,7 @@ export const catalogFullResponse = component(
 
 const authorId = doc(
   z.string(),
-  "Stable author id, lowercase and hyphenated. For a contributor it is also the slug of their page on reptiles.ge.",
+  "Stable author id, lowercase and hyphenated. For a contributor it is also the slug of their page on Reptiles.ge.",
   ["sandro-khakhva"],
 );
 
@@ -581,7 +582,7 @@ const authorRole = doc(
 
 const isContributor = doc(
   z.boolean(),
-  "`true` when the author has a contributor page on reptiles.ge. Other authors are only credited on photos.",
+  "`true` when the author has a contributor page on Reptiles.ge. Other authors are only credited on photos.",
 );
 
 const authorPhotoCount = doc(
@@ -643,7 +644,7 @@ const authorProfileFields = {
   photoCount: authorPhotoCount,
   portraitClass: doc(
     z.string().nullable(),
-    "CSS `object-position` hint used to crop the portrait on reptiles.ge.",
+    "CSS `object-position` hint used to crop the portrait on Reptiles.ge.",
   ),
   portraitSrc: doc(
     z.string().nullable(),
@@ -667,7 +668,7 @@ const contributorProfile = component(
       "Number of published species with at least one photo credited to this contributor.",
     ),
   }),
-  "A contributor's profile with the counts shown on reptiles.ge.",
+  "A contributor's profile with the counts shown on Reptiles.ge.",
 );
 
 export const authorListResponse = component(
@@ -714,7 +715,7 @@ const plain = (description: string, examples?: string[]) =>
 
 const newsSlug = doc(
   z.string(),
-  "Article slug: lowercase Latin words joined by hyphens. The same in every locale; also the URL part on reptiles.ge (`/news/{slug}`).",
+  "Article slug: lowercase Latin words joined by hyphens. The same in every locale; also the URL part on Reptiles.ge (`/news/{slug}`).",
   ["lagodekhi-iucn-mwvane-sia"],
 );
 
@@ -881,8 +882,22 @@ export const newsListResponse = component(
   "NewsListResponse",
   z.strictObject({
     data: z.array(newsSummary),
+    facets: doc(
+      z.strictObject({
+        hub: facetCounts(
+          Object.keys(GROUP_HUBS) as GroupHubId[],
+          "Matches for each `hub` value, with the other filters and `q` applied.",
+        ),
+      }),
+      "Counts for the topic filter.",
+    ),
+    limit: doc(z.int().min(1), "Page size."),
     locale: resolvedLocale,
-    nextCursor,
+    page: doc(z.int().min(1), "Page number, from 1."),
+    pageCount: doc(
+      z.int().min(1),
+      "Number of pages for these filters. A page past the end has empty `data`.",
+    ),
     total: doc(z.int().min(0), "Number of matching articles, on every page."),
   }),
   "Published articles in the requested locale, newest first.",
@@ -895,6 +910,10 @@ export const newsResponse = component(
     locale: doc(
       locale,
       "Locale of the texts in `data`. `ka` when the article has no text in the requested locale.",
+    ),
+    views: doc(
+      z.int().min(0),
+      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
     ),
   }),
   "One news article.",

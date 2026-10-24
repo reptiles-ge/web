@@ -8,11 +8,10 @@ import { NewsListCard } from "@/components/NewsIndexCards";
 import { NewsMonthSection } from "@/components/NewsMonthSection";
 import { NewsPagination } from "@/components/NewsPagination";
 import { Link } from "@/i18n/navigation";
-import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
+import { formatContentDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
-import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
+import { newsBrowserEntries } from "@/lib/newsBrowserItems";
 import { groupNewsByMonth } from "@/lib/newsMonthGroups";
-import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
@@ -27,30 +26,20 @@ export async function NewsArchivePage({
   newsPage: NewsPage<NewsListArticle>;
 }) {
   const { articles, first, last, page, pageCount, total } = newsPage;
-  const [t, tNav, tShared, visuals] = await Promise.all([
+  const [t, tNav, tShared, browser] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    loadNewsVisuals(articles, locale),
+    newsBrowserEntries(articles, locale),
   ]);
   const newest = articles[0];
   const oldest = articles.at(-1);
-
-  const monthLabels: Record<string, string> = {};
-  const items = articles.map((article, index) => {
-    const monthKey = article.publishedAt.slice(0, 7);
-    monthLabels[monthKey] ??= formatContentMonth(article.publishedAt, locale);
-    const entry = toNewsIndexEntry(
-      article,
-      locale,
-      {
-        readLabel: (minutes) => t("readTime", { minutes }),
-        topicLabel: (hub) => tNav(hub),
-      },
-      visuals[index],
-    );
-    return { card: <NewsListCard entry={entry} />, id: article.id, monthKey };
-  });
+  const { monthLabels } = browser;
+  const items = browser.items.map(({ entry, id, monthKey }) => ({
+    card: <NewsListCard entry={entry} />,
+    id,
+    monthKey,
+  }));
 
   return (
     <div className="editorial-page min-h-screen bg-background pb-14 text-(--nw-ink) antialiased md:pb-28">

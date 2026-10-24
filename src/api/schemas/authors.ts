@@ -3,7 +3,7 @@ import { z } from "zod";
 import { locales } from "@/i18n/locales";
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 
-import { pageQuery, speciesIdText } from "./common";
+import { listSearch, pageQuery, speciesIdText } from "./common";
 
 export const AUTHOR_JOB_TITLES = [
   "director",
@@ -45,7 +45,7 @@ export const adminAuthorListQuery = pageQuery.extend({
     .optional()
     .transform((value) => (value === undefined ? undefined : value === "true")),
   kind: z.enum(AUTHOR_KINDS).optional(),
-  q: z.string().trim().max(100).optional(),
+  q: listSearch,
   role: z.enum(AUTHOR_ROLES).optional(),
 });
 

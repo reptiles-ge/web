@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   formatContentDate,
+  formatContentDateShort,
   formatContentMonth,
   formatPhotoDate,
 } from "@/lib/formatDate";
@@ -38,6 +39,36 @@ describe("formatContentDate", () => {
     expect(formatContentDate("2026-09-04", "ka")).toBe("4 სექტემბერი 2026");
     expect(formatContentDate("2026-09-04", "ru")).toBe("4 сентября 2026");
     expect(formatContentDate("2026-09-04", "tr")).toBe("4 Eylül 2026");
+  });
+});
+
+describe("formatContentDateShort", () => {
+  const now = new Date("2026-10-24T12:00:00.000Z");
+
+  it("formats a short date in each live locale", () => {
+    expect(formatContentDateShort("2026-09-27", "en")).toBe("27 Sep 2026");
+    expect(formatContentDateShort("2026-09-27", "ka")).toBe("27 სექ 2026");
+    expect(formatContentDateShort("2026-09-27", "ru")).toBe("27 сент. 2026");
+    expect(formatContentDateShort("2026-09-27", "tr")).toBe("27 Eyl 2026");
+  });
+
+  it("drops the year only within the current year", () => {
+    expect(
+      formatContentDateShort("2026-10-14", "ka", {
+        now,
+        omitCurrentYear: true,
+      }),
+    ).toBe("14 ოქტ");
+    expect(
+      formatContentDateShort("2025-10-14", "ka", {
+        now,
+        omitCurrentYear: true,
+      }),
+    ).toBe("14 ოქტ 2025");
+  });
+
+  it("returns an unparseable value unchanged", () => {
+    expect(formatContentDateShort("soon", "en")).toBe("soon");
   });
 });
 

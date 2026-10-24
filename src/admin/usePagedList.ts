@@ -2,11 +2,14 @@ import { useEffect, useEffectEvent, useState } from "react";
 
 import { DEFAULT_PAGE_SIZE, type Page } from "@/lib/pagination";
 
+import type { ServerPaging } from "./AdminListView";
 import type { PagedQuery } from "./pagination";
 
 import { SessionExpiredError } from "./adminResponse";
 
 const SEARCH_DELAY_MS = 300;
+
+type FilterValues = Parameters<ServerPaging["onChange"]>[0]["filters"];
 
 type Request<F> = { attempt: number; query: PagedQuery<F> };
 
@@ -15,6 +18,28 @@ type Result<T, F, E> = {
   request?: Request<F>;
   status: "error" | "ready";
 };
+
+export function serverPaging<F>(
+  list: {
+    query: PagedQuery<F>;
+    setFilters: (filters: Partial<F>) => void;
+    setPage: (page: number, limit: number) => void;
+  },
+  readFilters: (filters: FilterValues) => Partial<F> = () => ({}),
+): ServerPaging {
+  return {
+    limit: list.query.limit,
+    onChange: ({ filters, limit, page }) => {
+      const next = readFilters(filters);
+      const changed = (Object.keys(next) as Array<keyof F>).some(
+        (key) => next[key] !== list.query[key],
+      );
+      if (changed) list.setFilters(next);
+      else list.setPage(page, limit);
+    },
+    page: list.query.page,
+  };
+}
 
 export function usePagedList<T, F, E = unknown>(
   load: (query: PagedQuery<F>) => Promise<E & Page<T>>,

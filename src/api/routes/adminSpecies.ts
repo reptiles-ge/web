@@ -46,6 +46,7 @@ import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import { photoUploadForm } from "../schemas/photoUpload";
+import { adminSpeciesListQuery } from "../schemas/species";
 import {
   draftCreateBody,
   draftDecisionBody,
@@ -61,11 +62,17 @@ import {
 } from "../schemas/speciesRecord";
 
 export const adminSpecies = new Hono<ApiEnv>()
-  .get("/", requireAdmin, async (c) => {
-    const data = await listAdminSpecies(c.env.DB);
-    c.header("Cache-Control", NO_STORE);
-    return c.json({ data, total: data.length }, 200);
-  })
+  .get(
+    "/",
+    requireAdmin,
+    validate("query", adminSpeciesListQuery),
+    async (c) => {
+      const { limit, page, ...filters } = c.req.valid("query");
+      const result = await listAdminSpecies(c.env.DB, filters, { limit, page });
+      c.header("Cache-Control", NO_STORE);
+      return c.json(result, 200);
+    },
+  )
   .get("/:id", requireAdmin, validate("param", speciesIdParam), async (c) => {
     const found = await readSpeciesRecord(c.env.DB, c.req.valid("param").id);
     if (!found) throw new ApiError(404, "not_found", "Species not found");

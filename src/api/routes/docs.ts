@@ -14,7 +14,7 @@ const reference = Scalar<ApiEnv>({
   agent: { disabled: true },
   cdn: SCALAR_CDN,
   mcp: { disabled: true },
-  pageTitle: "reptiles.ge API",
+  pageTitle: "Reptiles.ge API",
   url: SPEC_PATH,
 });
 

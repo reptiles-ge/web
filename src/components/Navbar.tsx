@@ -218,6 +218,7 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
   if (GUIDE_ARTICLE_PATH_SET.has(pathname)) return false;
   if (pathname === "/") return true;
+  if (pathname === "/developers") return true;
   if (pathname === "/venomous-snakes") return true;
   if (pathname === "/snakes-in-the-yard") return true;
   if (

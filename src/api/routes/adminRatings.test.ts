@@ -25,7 +25,9 @@ type ListBody = {
     path: string;
     rating: number;
   }>;
-  nextCursor: null | number;
+  limit: number;
+  page: number;
+  pageCount: number;
   summary: {
     average: null | number;
     byRating: Record<string, number>;
@@ -84,8 +86,7 @@ describe("GET /v1/admin/ratings", () => {
       path: "/xvlikebi",
       rating: 2,
     });
-    expect(body.total).toBe(3);
-    expect(body.nextCursor).toBeNull();
+    expect(body).toMatchObject({ limit: 50, page: 1, pageCount: 1, total: 3 });
     expect(body.summary).toEqual({
       average: 3.67,
       byRating: { 1: 0, 2: 1, 3: 0, 4: 1, 5: 1 },
@@ -93,13 +94,14 @@ describe("GET /v1/admin/ratings", () => {
     });
   });
 
-  it("pages with limit and cursor", async () => {
+  it("pages with limit and page", async () => {
     const first = await list("?limit=2");
     expect(first.body.data.map(({ id }) => id)).toEqual([3, 2]);
-    expect(first.body.nextCursor).toBe(2);
-    const second = await list(`?limit=2&cursor=${first.body.nextCursor}`);
+    expect(first.body).toMatchObject({ page: 1, pageCount: 2, total: 3 });
+    const second = await list("?limit=2&page=2");
     expect(second.body.data.map(({ id }) => id)).toEqual([1]);
-    expect(second.body.nextCursor).toBeNull();
+    const past = await list("?limit=2&page=3");
+    expect(past.body).toMatchObject({ data: [], total: 3 });
   });
 
   it("filters by rating and counts the matches", async () => {
@@ -109,18 +111,28 @@ describe("GET /v1/admin/ratings", () => {
     expect(body.summary.count).toBe(3);
   });
 
+  it("searches feedback and page paths", async () => {
+    const byFeedback = await list(`?q=${encodeURIComponent("ფოტო")}`);
+    expect(byFeedback.body.data.map(({ id }) => id)).toEqual([2]);
+    expect(byFeedback.body.total).toBe(1);
+    const byPath = await list("?q=kuebi&rating=4");
+    expect(byPath.body.data.map(({ id }) => id)).toEqual([3]);
+    const none = await list("?q=kuebi&rating=5");
+    expect(none.body).toMatchObject({ data: [], total: 0 });
+  });
+
   it("answers an empty list when there are no ratings", async () => {
     sqlite.exec("DELETE FROM site_ratings");
     const { body } = await list();
     expect(body).toMatchObject({
       data: [],
-      nextCursor: null,
+      pageCount: 1,
       summary: { average: null, count: 0 },
       total: 0,
     });
   });
 
-  it.each(["?limit=0", "?limit=101", "?rating=6", "?cursor=abc"])(
+  it.each(["?limit=0", "?limit=101", "?rating=6", "?page=abc"])(
     "rejects %s",
     async (query) => {
       const { body, response } = await list(query);

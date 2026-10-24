@@ -10,6 +10,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { createApiClient } from "@/lib/apiClient";
+import { MAX_PAGE_SIZE, type PageParams } from "@/lib/pagination";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
 type ApiPhoto = Omit<NewsPhoto, "alt"> & { alt: string };
@@ -29,47 +30,49 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
 
 export const HOME_NEWS_LIMIT = 5;
 
+export type NewsListQuery = PageParams & { hub?: GroupHubId; q?: string };
+
+type NewsListItem = Awaited<ReturnType<typeof fetchNewsPage>>["data"][number];
+
 export const getNewsList = cache(async (locale: AppLocale, limit?: number) => {
-  const response = await createApiClient().v1.news.$get(
-    {
-      header: { "x-locale": locale },
-      query: limit === undefined ? {} : { limit: String(limit) },
-    },
-    speciesFetchOptions(["news"]),
-  );
-  if (!response.ok) {
-    throw new Error(`News API answered ${response.status}`);
+  if (limit !== undefined) {
+    return (await fetchNewsPage(locale, { limit, page: 1 })).data;
   }
-  return (await response.json()).data;
+  const first = await fetchNewsPage(locale, { limit: MAX_PAGE_SIZE, page: 1 });
+  const rest = await Promise.all(
+    Array.from({ length: first.pageCount - 1 }, (_, index) =>
+      fetchNewsPage(locale, { limit: MAX_PAGE_SIZE, page: index + 2 }),
+    ),
+  );
+  return [first, ...rest].flatMap((result) => result.data);
 });
 
 export const getNewsListArticles = cache(
   async (locale: AppLocale, limit?: number): Promise<NewsListArticle[]> =>
-    (await getNewsList(locale, limit)).map((item) => ({
-      dek: item.dek,
-      id: item.slug,
-      ...(item.image
-        ? {
-            image: {
-              ...item.image,
-              alt: { [locale]: item.image.alt } as NewsPhoto["alt"],
-            },
-          }
-        : {}),
-      lead: item.lead,
-      publishedAt: item.publishedAt,
-      readMinutes: item.readMinutes,
-      relatedHubIds: item.relatedHubIds as GroupHubId[],
-      relatedRegionIds: item.relatedRegionIds,
-      relatedSpeciesIds: item.relatedSpeciesIds,
-      ...(item.series
-        ? { series: item.series.id as NewsArticle["series"] & string }
-        : {}),
-      slug: item.slug,
-      sources: item.sources,
-      title: item.title,
-      ...(item.updatedAt ? { updatedAt: item.updatedAt } : {}),
-    })),
+    (await getNewsList(locale, limit)).map((item) =>
+      toNewsListArticle(item, locale),
+    ),
+);
+
+export const getNewsListArticlesPage = cache(
+  async (
+    locale: AppLocale,
+    page: number,
+    limit: number,
+    hub?: GroupHubId,
+    q?: string,
+  ) => {
+    const { data, ...result } = await fetchNewsPage(locale, {
+      hub,
+      limit,
+      page,
+      q,
+    });
+    return {
+      ...result,
+      articles: data.map((item) => toNewsListArticle(item, locale)),
+    };
+  },
 );
 
 export const getNewsArticle = cache(
@@ -130,9 +133,32 @@ export const getNewsArticle = cache(
       ),
       status: "published",
       ...(base.updatedAt ? { updatedAt: base.updatedAt } : {}),
+      views: ka.views,
     };
   },
 );
+
+async function fetchNewsPage(
+  locale: AppLocale,
+  { hub, limit, page, q }: NewsListQuery,
+) {
+  const response = await createApiClient().v1.news.$get(
+    {
+      header: { "x-locale": locale },
+      query: {
+        ...(hub ? { hub } : {}),
+        limit: String(limit),
+        page: String(page),
+        ...(q ? { q } : {}),
+      },
+    },
+    speciesFetchOptions(["news"]),
+  );
+  if (!response.ok) {
+    throw new Error(`News API answered ${response.status}`);
+  }
+  return response.json();
+}
 
 function localizedSource(
   url: string,
@@ -143,5 +169,36 @@ function localizedSource(
   return {
     name: Object.fromEntries(names) as Record<AppLocale, string>,
     url,
+  };
+}
+
+function toNewsListArticle(
+  item: NewsListItem,
+  locale: AppLocale,
+): NewsListArticle {
+  return {
+    dek: item.dek,
+    id: item.slug,
+    ...(item.image
+      ? {
+          image: {
+            ...item.image,
+            alt: { [locale]: item.image.alt } as NewsPhoto["alt"],
+          },
+        }
+      : {}),
+    lead: item.lead,
+    publishedAt: item.publishedAt,
+    readMinutes: item.readMinutes,
+    relatedHubIds: item.relatedHubIds as GroupHubId[],
+    relatedRegionIds: item.relatedRegionIds,
+    relatedSpeciesIds: item.relatedSpeciesIds,
+    ...(item.series
+      ? { series: item.series.id as NewsArticle["series"] & string }
+      : {}),
+    slug: item.slug,
+    sources: item.sources,
+    title: item.title,
+    ...(item.updatedAt ? { updatedAt: item.updatedAt } : {}),
   };
 }

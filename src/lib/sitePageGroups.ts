@@ -42,6 +42,12 @@ export const SITE_PAGE_GROUPS: SitePageGroup[] = [
     routes: [page("/[locale]/contact")],
   },
   {
+    description: "The page for developers with the API access request form.",
+    id: "developers",
+    label: "Developers",
+    routes: [page("/[locale]/developers")],
+  },
+  {
     description: "Privacy, terms and conditions, and photo use.",
     id: "legal",
     label: "Privacy, terms and photo use",

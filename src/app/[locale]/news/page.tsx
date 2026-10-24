@@ -4,6 +4,8 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { NewsTopicFacets } from "@/lib/newsBrowserQuery";
+
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -16,6 +18,21 @@ import {
 import { getNewsListPage, newsListingJsonLd } from "@/lib/newsPages";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { absoluteUrl, localePath } from "@/lib/site";
+
+const EMPTY_FACETS: NewsTopicFacets = {
+  hub: {
+    all: 0,
+    amphibians: 0,
+    birds: 0,
+    insects: 0,
+    lizards: 0,
+    mammals: 0,
+    scorpions: 0,
+    snakes: 0,
+    spiders: 0,
+    turtles: 0,
+  },
+};
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -78,6 +95,7 @@ export default async function NewsIndexRoute({ params }: Props) {
       <JsonLd data={jsonLd} />
       <NewsIndexPage
         articles={articles}
+        facets={newsPage?.facets ?? EMPTY_FACETS}
         locale={locale}
         pageCount={newsPage?.pageCount ?? 1}
         total={newsPage?.total ?? 0}

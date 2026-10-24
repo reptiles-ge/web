@@ -71,6 +71,7 @@ const companyLinks = [
   { href: "/privacy" as const, labelKey: "privacy" as const },
   { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
   { href: "/photo-use" as const, labelKey: "photoUse" as const },
+  { href: "/developers" as const, labelKey: "developers" as const },
 ];
 
 const biteGuide = getGuideArticles().find(

@@ -438,7 +438,8 @@
     "biteGuide": "Bite guide",
     "backToTop": "Top",
     "backToTopLabel": "Back to top",
-    "photoUse": "Photo use"
+    "photoUse": "Photo use",
+    "developers": "For developers"
   },
   "legal": {
     "privacy": {
@@ -539,6 +540,8 @@
     "viewPhotos": "{count, plural, one {View # photo} other {View # photos}}",
     "lastUpdated": "Last updated",
     "updatedOn": "Updated:",
+    "updatedShort": "Updated {date}",
+    "viewCount": "{count, plural, one {# view} other {# views}}",
     "sourcesEyebrow": "References",
     "sourcesTitle": "Sources",
     "sourcesProfileTitle": "What this profile is based on",
@@ -927,6 +930,8 @@
     "clear": "Clear",
     "latest": "Latest",
     "readTime": "{minutes} min read",
+    "readTimeShort": "{minutes} min",
+    "viewCount": "{count, plural, one {# view} other {# views}}",
     "howWeWriteEyebrow": "How we write",
     "howWeWrite": "Every article cites a primary source — a scientific paper, a field survey or an official statement.",
     "methodologyLink": "Standards & sources",
@@ -4284,6 +4289,138 @@
         "q": "Can I quote the text?",
         "a": "Yes, briefly. A short quotation that cites the source and Reptiles.ge is allowed; any other reuse of the text needs permission. See the <terms>terms of use</terms>."
       }
+    }
+  },
+  "developers": {
+    "metaTitle": "API for developers",
+    "metaDescription": "The Reptiles.ge API: species profiles, risk levels and credited photos of Georgia's animals as JSON, in four languages. Request an API key.",
+    "brand": "For developers",
+    "version": "API v1",
+    "title": "Georgia's wildlife, in your app",
+    "body": "Species profiles, regions, risk levels and credited field photos — as structured JSON, in four languages.",
+    "bodyShort": "Species, regions, risk levels and credited photos — as JSON, in four languages.",
+    "docs": "Documentation",
+    "newTab": "(opens in a new tab)",
+    "requestAccess": "Request access",
+    "statsLabel": "The API in numbers",
+    "stats": {
+      "species": "{count, plural, other {species}}",
+      "regions": "{count, plural, one {region} other {regions}}",
+      "photos": "{count, plural, one {photo} other {photos}}",
+      "languages": "{count, plural, one {language} other {languages}}"
+    },
+    "sample": {
+      "label": "Example API request and response",
+      "tabs": "Code language"
+    },
+    "endpoints": {
+      "eyebrow": "endpoints",
+      "title": "What you can get",
+      "intro": "A REST API with JSON responses. On every endpoint, the <code>X-Locale</code> header picks the language.",
+      "docsLink": "Full list in the documentation",
+      "list": "The species list — filter by group.",
+      "detail": "One species profile: names, risk, texts, credited photos, sources.",
+      "records": "Dated field records of the species in Georgia.",
+      "news": "Atlas news — filter by species, region and series."
+    },
+    "uses": {
+      "eyebrow": "use cases",
+      "title": "Who it is for",
+      "tourism": {
+        "title": "Tourism and hiking",
+        "body": "Show the venomous species of a route's region and link to the bite guide."
+      },
+      "education": {
+        "title": "Education",
+        "body": "School and university platforms, quizzes and study cards."
+      },
+      "research": {
+        "title": "Research and media",
+        "body": "Structured, sourced data for articles and analysis."
+      }
+    },
+    "terms": {
+      "eyebrow": "terms",
+      "title": "The same standard as the site",
+      "credit": {
+        "title": "Attribution",
+        "body": "On every display — Reptiles.ge and the photographer. Photos always carry a credit."
+      },
+      "languages": {
+        "title": "Four languages",
+        "body": "ka, en, ru, tr. The Georgian text is canonical."
+      },
+      "verified": {
+        "title": "Verified only",
+        "body": "An empty field beats an invented one — what the atlas has not published comes back empty."
+      },
+      "safety": {
+        "title": "Safety",
+        "body": "Risk data is educational and does not replace calling 112."
+      }
+    },
+    "badge": {
+      "eyebrow": "attribution",
+      "title": "One line on your site",
+      "body": "Approved partners get a badge, and we add them to the partner list on our page.",
+      "bodyShort": "Approved partners get a badge.",
+      "preview": "How it looks",
+      "data": "Data:",
+      "photo": "Photo: {name}"
+    },
+    "access": {
+      "eyebrow": "access",
+      "title": "Become an API partner",
+      "body": "Fill in the form — we review the request and send you an API key. We agree on limits and terms to suit your project.",
+      "bodyShort": "We review the request and send you an API key.",
+      "stepRequest": "Request",
+      "stepReview": "Review and reply by email",
+      "stepKey": "API key and badge"
+    },
+    "form": {
+      "required": "required",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "name@example.com",
+      "organization": "Organization or project",
+      "organizationPlaceholder": "e.g. Trails Georgia",
+      "website": "Website",
+      "websitePlaceholder": "https://",
+      "projectType": "Project type",
+      "types": {
+        "tourism": "Tourism",
+        "education": "Education",
+        "research": "Research",
+        "media": "Media",
+        "other": "Other"
+      },
+      "data": "What data do you need?",
+      "dataTypes": {
+        "species": "Species",
+        "regions": "Regions",
+        "photos": "Photos",
+        "risk": "Risk information"
+      },
+      "volume": "Requests a month (estimate)",
+      "volumes": {
+        "under10k": "Up to 10k",
+        "10kTo100k": "10–100k",
+        "over100k": "Over 100k"
+      },
+      "description": "How will you use it?",
+      "descriptionPlaceholder": "Briefly describe the project and where the data will appear",
+      "consent": "I agree to use the data <b>with attribution</b> — crediting Reptiles.ge and the photographer.",
+      "errorRequired": "Fill in this field",
+      "errorEmail": "Enter a valid email",
+      "errorConsent": "You need to agree to the terms",
+      "submit": "Send request",
+      "sending": "Sending…",
+      "replyFrom": "You will hear from {email}.",
+      "failed": "The request was not sent. Try again or write to {email}.",
+      "sentTitle": "Request received",
+      "sentBody": "We will review it and reply by email about <b>{site}</b>. Meanwhile, have a look at the documentation.",
+      "again": "New request"
     }
   }
 }
