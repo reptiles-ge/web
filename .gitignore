@@ -64,3 +64,5 @@ cdn-unused-images.txt
 .wrangler/
 progress.md
 .dev.vars*
+
+.drafts/

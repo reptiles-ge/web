@@ -31,30 +31,31 @@ Do not add code comments. Do not invent UI copy in one locale only.
 
 ## Read first
 
-| Task                          | Start here                                                                                  |
-| ----------------------------- | ------------------------------------------------------------------------------------------- |
-| Species content (D1)          | `.agents/skills/api/SKILL.md`, then `src/lib/speciesProfileApi.ts` / `speciesCatalogApi.ts` |
-| Writing style (all prose)     | `src/prompts/writing-style.md` — binding house style; AI prompts load it                    |
-| Publish list                  | `src/data/speciesPublish.ts`                                                                |
-| Group (snake/lizard/…)        | `src/data/speciesAtlas.ts`                                                                  |
-| Public URL / slug             | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`                                |
-| Localized pathnames           | `src/i18n/pathnames.ts`                                                                     |
-| Group hubs                    | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                   |
-| Cluster guides                | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                           |
-| Guide articles (bat, wasp, …) | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`             |
-| Species page factory          | `src/lib/createSpeciesRoute.tsx`                                                            |
-| Regions + map IDs             | `src/data/regions.ts` — **never infer** `speciesIds`                                        |
-| Checklist authority           | `src/data/herpetofauna-checklist.ts`                                                        |
-| Quiz registry                 | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                |
-| Contributors                  | `src/lib/authorsApi.ts` (`/v1/contributors`, `/v1/authors`), `src/lib/creditAuthors.ts`     |
-| News                          | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`        |
-| 301 map                       | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                     |
-| UI strings                    | `messages/ka.json` + `messages/en.json` (same keys)                                         |
-| Maintenance mode              | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                          |
-| Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                       |
-| Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                  |
-| API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`             |
-| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                |
+| Task                          | Start here                                                                                    |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| Species content (D1)          | `.agents/skills/api/SKILL.md`, then `src/lib/speciesProfileApi.ts` / `speciesCatalogApi.ts`   |
+| AI edits to a species page    | `.agents/skills/species-drafts/SKILL.md` — `pnpm species:draft` pull → edit → push as a draft |
+| Writing style (all prose)     | `src/prompts/writing-style.md` — binding house style; AI prompts load it                      |
+| Publish list                  | `src/data/speciesPublish.ts`                                                                  |
+| Group (snake/lizard/…)        | `src/data/speciesAtlas.ts`                                                                    |
+| Public URL / slug             | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`                                  |
+| Localized pathnames           | `src/i18n/pathnames.ts`                                                                       |
+| Group hubs                    | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                     |
+| Cluster guides                | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                             |
+| Guide articles (bat, wasp, …) | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`               |
+| Species page factory          | `src/lib/createSpeciesRoute.tsx`                                                              |
+| Regions + map IDs             | `src/data/regions.ts` — **never infer** `speciesIds`                                          |
+| Checklist authority           | `src/data/herpetofauna-checklist.ts`                                                          |
+| Quiz registry                 | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                  |
+| Contributors                  | `src/lib/authorsApi.ts` (`/v1/contributors`, `/v1/authors`), `src/lib/creditAuthors.ts`       |
+| News                          | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`          |
+| 301 map                       | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                       |
+| UI strings                    | `messages/ka.json` + `messages/en.json` (same keys)                                           |
+| Maintenance mode              | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                            |
+| Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                         |
+| Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                    |
+| API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`               |
+| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                  |
 
 ## Architecture
 
@@ -97,7 +98,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 There is no species MDX. Species content lives in D1 and is served by `reptiles-api`; the site renders it on the server. Read `.agents/skills/api/SKILL.md` before changing anything about it.
 
-1. Edit through the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts for approval, reviewed and merged on the **Drafts** page of `admin.reptiles.ge` (or the local admin); cover, crop, reorder, remove and coordinates write through the API. New gallery photos are added in the admin app (`admin.reptiles.ge`, **Add photos** on a species page; see "Admin app"). Adding field records, AI analysis and workflow, and new species creation answer 503 until the admin phase moves them to the API.
+1. AI changes to a species page go only through `pnpm species:draft` (`.agents/skills/species-drafts/SKILL.md`): pull the record, edit it locally, push it as a draft for the owner to merge. Edit through the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts for approval, reviewed and merged on the **Drafts** page of `admin.reptiles.ge` (or the local admin); cover, crop, reorder, remove and coordinates write through the API. New gallery photos are added in the admin app (`admin.reptiles.ge`, **Add photos** on a species page; see "Admin app"). Adding field records, AI analysis and workflow, and new species creation answer 503 until the admin phase moves them to the API.
 2. The record rules are enforced by `src/api/schemas/speciesRecord.ts`: KA owns taxonomy, `danger`, images and `sources`; `en` / `ru` / `tr` translate the text and may re-credit KA photos by `src`; `faq`, `facts`, `stats` and `identification.traits` counts and `identification.colors` match KA.
 3. Lookalikes live in D1 (`species_lookalikes`, part of the species record). Every catalog view returns them both ways (`lookalikes`), and the site reads them from there for the lookalike and related cards, the quiz and `llms`. Still in code and read by the site: `speciesAtlasMeta` (group, habitats), `featuredSpeciesIds` / `unpublishedSpeciesIds` in `src/data/speciesPublish.ts`, and the KA slug rules (`KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`). A species needs these entries too until the admin phase moves them.
 4. `pnpm slugs:compile` (part of `compile`) builds the gitignored slug table from the API card catalog, so a slug change or a new species reaches `src/proxy.ts` on the next deploy. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
@@ -270,6 +271,7 @@ pnpm content:compile      # content dates and release version
 pnpm slugs:compile        # slug table from the API card catalog
 pnpm images:compile       # AVIF/WebP sizes of API-uploaded photos from GET /v1/images
 pnpm news:compile         # news MDX → src/data/news.generated.ts
+pnpm species:draft pull <id> / push <id> --summary "…" [--dry-run]   # AI species edits as drafts
 pnpm i18n:check           # locale key parity + ICU argument check (KA is the source)
 pnpm i18n:usage           # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
 pnpm test:coverage        # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
