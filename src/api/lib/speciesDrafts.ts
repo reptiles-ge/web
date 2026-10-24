@@ -3,6 +3,7 @@ import type { SpeciesRecord } from "../db/speciesRows";
 
 import { decideDraftStatement, readDraft } from "../db/speciesDrafts";
 import {
+  readSpeciesRecord,
   readSpeciesVersion,
   type SpeciesRevision,
   writeSpeciesRecord,
@@ -28,13 +29,17 @@ export async function approveSpeciesDraft(
   }
   const current = await readSpeciesVersion(db, draft.speciesId);
   if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
+  const baseRecord =
+    draft.baseRecord ??
+    (await readSpeciesRecord(db, draft.speciesId))?.record ??
+    null;
   try {
     return await saveSpeciesRecord(
       db,
       draft.record,
       draft.baseVersion,
       { actor, source: draft.source, summary: draft.summary },
-      [decideDraftStatement(db, draft.id, "approved", actor)],
+      [decideDraftStatement(db, draft.id, "approved", actor, baseRecord)],
     );
   } catch (error) {
     await ensureStillPending(db, draft.id);

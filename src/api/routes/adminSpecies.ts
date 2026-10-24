@@ -306,13 +306,16 @@ export const adminSpecies = new Hono<ApiEnv>()
           "Body id does not match the URL",
         );
       }
-      const current = await readSpeciesVersion(c.env.DB, id);
+      const current = await readSpeciesRecord(c.env.DB, id);
       if (current === null) {
         throw new ApiError(404, "not_found", "Species not found");
       }
-      if (current !== baseVersion) throw versionConflict(current);
+      if (current.version !== baseVersion) {
+        throw versionConflict(current.version);
+      }
       const draftId = await insertDraft(c.env.DB, {
         actor,
+        baseRecord: current.record,
         baseVersion,
         record,
         source,
