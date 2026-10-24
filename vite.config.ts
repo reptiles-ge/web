@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import vinext from "vinext";
 import { defineConfig } from "vite";
 
-const responseStore = responseStoreAdapter();
+const responseStore = responseStoreAdapter({ locationHint: "eeur" });
 
 const EMPTY_SEARCH_INDEX = "\0reptiles:empty-search-index";
 const SEARCH_INDEX_MODULE =
