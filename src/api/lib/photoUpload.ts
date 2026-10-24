@@ -94,8 +94,10 @@ export async function checkPhotoFiles(
     ),
   );
   const checked: CheckedPhoto["derivatives"] = [];
-  for (const file of derivatives) {
-    const bytes = new Uint8Array(await file.arrayBuffer());
+  const contents = await Promise.all(
+    derivatives.map(async (file) => new Uint8Array(await file.arrayBuffer())),
+  );
+  for (const bytes of contents) {
     const probe = probeImage(bytes);
     if (!probe || (probe.format !== "avif" && probe.format !== "webp")) {
       throw invalid("Every derivative must be an AVIF or WebP image");

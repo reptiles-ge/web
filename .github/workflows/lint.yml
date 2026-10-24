@@ -34,8 +34,12 @@ jobs:
       - run: pnpm content:compile
 
       - run: pnpm slugs:compile
+        env:
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
 
       - run: pnpm images:compile
+        env:
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
 
       - run: pnpm format:check
 
@@ -72,3 +76,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build:vinext
+        env:
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
