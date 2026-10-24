@@ -1,6 +1,16 @@
+import type { MouseEvent } from "react";
+
 import { useSyncExternalStore } from "react";
 
 const NAVIGATE_EVENT = "admin:navigate";
+
+export function followLink(event: MouseEvent, path: string) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+    return;
+  }
+  event.preventDefault();
+  navigate(path);
+}
 
 export function navigate(path: string, { replace = false } = {}) {
   if (window.location.pathname === path) return;

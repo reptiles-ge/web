@@ -4,15 +4,17 @@ import { Badge, Space, Tag, Typography } from "antd";
 import { useMemo, useState } from "react";
 
 import { AdminListView } from "./AdminListView";
+import { ClearCacheButton } from "./ClearCacheButton";
 import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
-import { type AdminSpecies, fetchAdminSpecies } from "./species";
+import { followLink } from "./router";
+import { clearSiteCache } from "./site";
+import {
+  type AdminSpecies,
+  clearSpeciesCache,
+  fetchAdminSpecies,
+  SPECIES_STATUS_COLORS,
+} from "./species";
 import { includesQuery, unique, useAdminList } from "./useAdminList";
-
-const STATUS_COLORS: Record<AdminSpecies["status"], string> = {
-  draft: "gold",
-  published: "green",
-  unpublished: "default",
-};
 
 export function SpeciesPage({
   onSessionExpired,
@@ -47,7 +49,13 @@ export function SpeciesPage({
       key: "name",
       render: (_, item) => (
         <Space orientation="vertical" size={0}>
-          <Typography.Text strong>{item.commonName.ka}</Typography.Text>
+          <Typography.Link
+            href={`/species/${item.id}`}
+            onClick={(event) => followLink(event, `/species/${item.id}`)}
+            strong
+          >
+            {item.commonName.ka}
+          </Typography.Link>
           <Typography.Text type="secondary">
             {item.commonName.en ?? "—"} · <i>{item.scientificName}</i>
           </Typography.Text>
@@ -79,7 +87,7 @@ export function SpeciesPage({
       key: "status",
       onFilter: (value, item) => item.status === value,
       render: (status: AdminSpecies["status"]) => (
-        <Tag color={STATUS_COLORS[status]}>{status}</Tag>
+        <Tag color={SPECIES_STATUS_COLORS[status]}>{status}</Tag>
       ),
       title: "Status",
     },
@@ -100,10 +108,44 @@ export function SpeciesPage({
       title: "Drafts",
     },
     ...revisionColumns<AdminSpecies>(),
+    {
+      fixed: "right",
+      key: "actions",
+      render: (_, item) => (
+        <ClearCacheButton
+          description="This species' profile pages on reptiles.ge render fresh on their next visit, in every language. Hubs, lists and cards are not cleared."
+          failure="The species cache could not be cleared. Try again in a minute."
+          label="Clear cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            await clearSpeciesCache(item.id);
+            return `Cache cleared for ${item.id}.`;
+          }}
+          size="small"
+          title="Clear this species' cache?"
+        />
+      ),
+      title: "Actions",
+    },
   ];
 
   return (
     <AdminListView<AdminSpecies>
+      actions={
+        <ClearCacheButton
+          description="Every species page on reptiles.ge renders fresh on its next visit: profiles, hubs, lists and cards. Species edited in the last 24 hours are refetched from the API. This is most of the site."
+          failure="The species cache could not be cleared. Try again in a minute."
+          label="Clear species cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            const species = await clearSiteCache();
+            return species.length === 0
+              ? "Species cache cleared."
+              : `Species cache cleared. ${species.length} recently edited species refetched.`;
+          }}
+          title="Clear the whole species cache?"
+        />
+      }
       columns={columns}
       noun="species"
       onQuery={setQuery}

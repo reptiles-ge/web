@@ -1,4 +1,9 @@
-import { SessionExpiredError } from "./species";
+export class SessionExpiredError extends Error {
+  constructor() {
+    super("Session expired");
+    this.name = "SessionExpiredError";
+  }
+}
 
 export function checkAdminResponse(
   response: { ok: boolean; status: number },

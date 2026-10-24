@@ -1,14 +1,14 @@
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
 import { AuthorsPage } from "./AuthorsPage";
-import { ClearSiteCacheButton } from "./ClearSiteCacheButton";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
-import { navigate, usePathname } from "./router";
+import { followLink, navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
+import { SpeciesDetailPage } from "./SpeciesDetailPage";
 import { SpeciesPage } from "./SpeciesPage";
 
 type SectionProps = { onSessionExpired: () => void };
@@ -26,6 +26,8 @@ const SECTIONS: Array<{
 
 const HOME_PATH = SECTIONS[0].path;
 
+const SPECIES_DETAIL = /^\/species\/([a-z0-9-]+)$/;
+
 const TITLE = "reptiles.ge admin";
 
 export function Dashboard({
@@ -37,7 +39,10 @@ export function Dashboard({
 }) {
   const [pending, setPending] = useState(false);
   const pathname = usePathname();
-  const section = SECTIONS.find(({ path }) => path === pathname);
+  const speciesId = SPECIES_DETAIL.exec(pathname)?.[1];
+  const section = SECTIONS.find(
+    ({ path }) => path === pathname || (speciesId && path === HOME_PATH),
+  );
 
   useEffect(() => {
     if (pathname === "/") navigate(HOME_PATH, { replace: true });
@@ -57,14 +62,6 @@ export function Dashboard({
     }
   }
 
-  function open(event: MouseEvent, path: string) {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-      return;
-    }
-    event.preventDefault();
-    navigate(path);
-  }
-
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout.Sider breakpoint="lg" collapsedWidth={0} theme="light">
@@ -75,7 +72,7 @@ export function Dashboard({
           items={SECTIONS.map(({ label, path }) => ({
             key: path,
             label: (
-              <a href={path} onClick={(event) => open(event, path)}>
+              <a href={path} onClick={(event) => followLink(event, path)}>
                 {label}
               </a>
             ),
@@ -106,21 +103,26 @@ export function Dashboard({
             >
               {user.email}
             </Typography.Text>
-            <ClearSiteCacheButton onSessionExpired={onSignedOut} />
             <Button loading={pending} onClick={logout}>
               Sign out
             </Button>
           </Space>
         </Layout.Header>
         <Layout.Content style={{ padding: 24 }}>
-          {section ? (
+          {speciesId ? (
+            <SpeciesDetailPage
+              id={speciesId}
+              key={speciesId}
+              onSessionExpired={onSignedOut}
+            />
+          ) : section ? (
             <section.page onSessionExpired={onSignedOut} />
           ) : pathname === "/" ? null : (
             <Result
               extra={
                 <Button
                   href={HOME_PATH}
-                  onClick={(event) => open(event, HOME_PATH)}
+                  onClick={(event) => followLink(event, HOME_PATH)}
                   type="primary"
                 >
                   Open species
