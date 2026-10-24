@@ -1,9 +1,29 @@
 import type { ApiBindings } from "../env";
 
+import { ApiError } from "./errors";
+
 const MAX_TAGS_PER_REQUEST = 20;
+
+export async function ensureSiteRevalidated(pending: Promise<boolean>) {
+  if (!(await pending)) {
+    throw new ApiError(
+      502,
+      "site_unavailable",
+      "The site could not be revalidated",
+    );
+  }
+}
 
 export function revalidateAuthorPages(env: ApiBindings, id: string) {
   return revalidateSite(env, ["authors", `author:${id}`, "species", "news"]);
+}
+
+export function revalidateAuthorsSection(env: ApiBindings) {
+  return revalidateSite(env, ["authors"]);
+}
+
+export function revalidateContributorPage(env: ApiBindings, id: string) {
+  return revalidateSite(env, [`author:${id}`]);
 }
 
 export function revalidateNewsArticle(env: ApiBindings, slug: string) {

@@ -33,6 +33,19 @@ const AUTHOR_TABLES = [
   },
 ] as const;
 
+type AdminAuthorRow = {
+  alias_count: number;
+  id: string;
+  image: null | string;
+  is_contributor: number;
+  job_title_id: null | string;
+  kind_id: string;
+  name_en: null | string;
+  name_ka: null | string;
+  photo_count: number;
+  role_id: null | string;
+};
+
 export const RELINK_NEWS_MEDIA_AUTHORS =
   "UPDATE news_media SET author_id = (SELECT author_id FROM author_aliases WHERE alias = news_media.credit_person);";
 
@@ -102,6 +115,15 @@ type TextRow = {
 const AUTHOR_SELECT =
   "SELECT id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url FROM authors";
 
+export async function authorExists(db: ApiDatabase, id: string) {
+  return (
+    (await db
+      .prepare("SELECT 1 AS found FROM authors WHERE id = ?")
+      .bind(id)
+      .first<{ found: number }>()) !== null
+  );
+}
+
 export async function findAliasOwners(
   db: ApiDatabase,
   aliases: readonly string[],
@@ -147,6 +169,25 @@ export async function getContributorDetail(
     ...authorProfile(record, locale, counts?.photos ?? 0),
     speciesCount: counts?.species ?? 0,
   };
+}
+
+export async function listAdminAuthors(db: ApiDatabase) {
+  const { results } = await db
+    .prepare(
+      "SELECT a.id, a.kind_id, a.role_id, a.job_title_id, a.is_contributor, a.portrait_src AS image, k.name AS name_ka, e.name AS name_en, (SELECT COUNT(*) FROM author_aliases al WHERE al.author_id = a.id) AS alias_count, (SELECT COUNT(DISTINCT m.src) FROM species_media m WHERE m.author_id = a.id AND m.role != 'audio') AS photo_count FROM authors a LEFT JOIN author_texts k ON k.author_id = a.id AND k.locale = 'ka' LEFT JOIN author_texts e ON e.author_id = a.id AND e.locale = 'en' ORDER BY a.is_contributor DESC, photo_count DESC, a.id",
+    )
+    .all<AdminAuthorRow>();
+  return results.map((row) => ({
+    aliasCount: row.alias_count,
+    id: row.id,
+    image: row.image,
+    isContributor: row.is_contributor === 1,
+    jobTitle: row.job_title_id,
+    kind: row.kind_id,
+    name: { en: row.name_en, ka: row.name_ka },
+    photoCount: row.photo_count,
+    role: row.role_id,
+  }));
 }
 
 export async function listAuthors(

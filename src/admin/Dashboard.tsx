@@ -3,6 +3,7 @@ import type { MouseEvent, ReactNode } from "react";
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { AuthorsPage } from "./AuthorsPage";
 import { ClearSiteCacheButton } from "./ClearSiteCacheButton";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
@@ -19,6 +20,7 @@ const SECTIONS: Array<{
 }> = [
   { label: "Species", page: SpeciesPage, path: "/species" },
   { label: "News", page: NewsPage, path: "/news" },
+  { label: "Authors", page: AuthorsPage, path: "/authors" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
 ];
 

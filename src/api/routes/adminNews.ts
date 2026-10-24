@@ -19,6 +19,7 @@ import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
 import {
+  ensureSiteRevalidated,
   revalidateNewsArticle,
   revalidateNewsPages,
   revalidateNewsSection,
@@ -51,13 +52,7 @@ export const adminNews = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      if (!(await revalidateNewsSection(c.env))) {
-        throw new ApiError(
-          502,
-          "site_unavailable",
-          "The site could not be revalidated",
-        );
-      }
+      await ensureSiteRevalidated(revalidateNewsSection(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["news"] } }, 200);
     },
@@ -73,13 +68,7 @@ export const adminNews = new Hono<ApiEnv>()
       if (!(await readNewsState(c.env.DB, slug))) {
         throw new ApiError(404, "not_found", "Article not found");
       }
-      if (!(await revalidateNewsArticle(c.env, slug))) {
-        throw new ApiError(
-          502,
-          "site_unavailable",
-          "The site could not be revalidated",
-        );
-      }
+      await ensureSiteRevalidated(revalidateNewsArticle(c.env, slug));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id: slug } }, 200);
     },
