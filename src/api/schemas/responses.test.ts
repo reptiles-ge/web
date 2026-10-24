@@ -16,6 +16,7 @@ import {
   catalogFullResponse,
   catalogPhotosResponse,
   catalogQuizResponse,
+  contributorListResponse,
   errorResponse,
   fieldRecordsResponse,
   newsListResponse,
@@ -83,6 +84,16 @@ describe("documented response schemas", () => {
       ).data) {
         const { body } = await getJson(`/v1/authors/${id}`, locale);
         expectValid(authorResponse, body, `authors/${id} ${locale}`);
+      }
+    }
+    for (const locale of locales) {
+      for (const query of ["", "?limit=2"]) {
+        const { body } = await getJson(`/v1/contributors${query}`, locale);
+        expectValid(
+          contributorListResponse,
+          body,
+          `contributors${query} ${locale}`,
+        );
       }
     }
     const { body } = await getJson("/v1/authors");

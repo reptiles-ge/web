@@ -557,51 +557,65 @@ const authorSummary = component(
   "An author credited on atlas photos.",
 );
 
+const authorProfileFields = {
+  affiliations: doc(
+    z.array(z.enum(AFFILIATIONS)),
+    "Ids of the institutions the author is affiliated with, in display order.",
+  ),
+  aliases: authorAliases,
+  bio: doc(
+    z.string(),
+    "Short biography in plain text, in the requested locale or Georgian.",
+  ).optional(),
+  id: authorId,
+  isContributor,
+  jobTitle: doc(
+    z.enum(AUTHOR_JOB_TITLES).nullable(),
+    "Job title, when the contributor page shows one.",
+  ),
+  kind: authorKind,
+  links: doc(
+    z.strictObject({
+      facebook: z.string().optional(),
+      inaturalist: z.string().optional(),
+      instagram: z.string().optional(),
+      researchGate: z.string().optional(),
+    }),
+    "Public profile links. Empty when there are none.",
+  ),
+  metaDescription: doc(
+    z.string(),
+    "Short page description for search results, in the requested locale.",
+  ).optional(),
+  name: authorName,
+  photoCount: authorPhotoCount,
+  portraitClass: doc(
+    z.string().nullable(),
+    "CSS `object-position` hint used to crop the portrait on reptiles.ge.",
+  ),
+  portraitSrc: doc(
+    z.string().nullable(),
+    "Portrait image URL. Set for contributors.",
+  ),
+  role: authorRole,
+};
+
 const authorProfile = component(
   "Author",
-  z.strictObject({
-    affiliations: doc(
-      z.array(z.enum(AFFILIATIONS)),
-      "Ids of the institutions the author is affiliated with, in display order.",
-    ),
-    aliases: authorAliases,
-    bio: doc(
-      z.string(),
-      "Short biography in plain text, in the requested locale or Georgian.",
-    ).optional(),
-    id: authorId,
-    isContributor,
-    jobTitle: doc(
-      z.enum(AUTHOR_JOB_TITLES).nullable(),
-      "Job title, when the contributor page shows one.",
-    ),
-    kind: authorKind,
-    links: doc(
-      z.strictObject({
-        facebook: z.string().optional(),
-        inaturalist: z.string().optional(),
-        instagram: z.string().optional(),
-        researchGate: z.string().optional(),
-      }),
-      "Public profile links. Empty when there are none.",
-    ),
-    metaDescription: doc(
-      z.string(),
-      "Short page description for search results, in the requested locale.",
-    ).optional(),
-    name: authorName,
-    photoCount: authorPhotoCount,
-    portraitClass: doc(
-      z.string().nullable(),
-      "CSS `object-position` hint used to crop the portrait on reptiles.ge.",
-    ),
-    portraitSrc: doc(
-      z.string().nullable(),
-      "Portrait image URL. Set for contributors.",
-    ),
-    role: authorRole,
-  }),
+  z.strictObject(authorProfileFields),
   "An author's profile.",
+);
+
+const contributorProfile = component(
+  "Contributor",
+  z.strictObject({
+    ...authorProfileFields,
+    speciesCount: doc(
+      z.int().min(0),
+      "Number of published species with at least one photo credited to this contributor.",
+    ),
+  }),
+  "A contributor's profile with the counts shown on reptiles.ge.",
 );
 
 export const authorListResponse = component(
@@ -612,6 +626,19 @@ export const authorListResponse = component(
     total,
   }),
   "Authors ordered by id.",
+);
+
+export const contributorListResponse = component(
+  "ContributorListResponse",
+  z.strictObject({
+    data: z.array(contributorProfile),
+    locale: resolvedLocale,
+    total: doc(
+      z.int().min(0),
+      "Number of contributors, including those left out by `limit`.",
+    ),
+  }),
+  "Contributors, most photos first.",
 );
 
 export const authorResponse = component(

@@ -1,22 +1,31 @@
 import { cache } from "react";
 
-import type { AuthorProfile, ContributorProfile } from "@/data/authors";
+import type { ContributorProfile } from "@/data/authors";
 import type { AppLocale } from "@/i18n/routing";
 
 import { createApiClient } from "@/lib/apiClient";
 import { contributorDirectory } from "@/lib/contributorCredits";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
-const getAuthorProfile = cache(
-  async (id: string, locale: AppLocale): Promise<AuthorProfile> => {
-    const response = await createApiClient().v1.authors[":id"].$get(
-      { header: { "x-locale": locale }, param: { id } },
-      speciesFetchOptions(["authors", `author:${id}`]),
+const listContributorProfiles = cache(
+  async (locale: AppLocale, limit?: number) => {
+    const response = await createApiClient().v1.contributors.$get(
+      {
+        header: { "x-locale": locale },
+        query: limit === undefined ? {} : { limit: String(limit) },
+      },
+      speciesFetchOptions(["authors"]),
     );
     if (!response.ok) {
-      throw new Error(`Authors API answered ${response.status} for ${id}`);
+      throw new Error(`Contributors API answered ${response.status}`);
     }
-    return (await response.json()).data as AuthorProfile;
+    const { data, total } = await response.json();
+    return {
+      contributors: data as Array<
+        ContributorProfile & { speciesCount: number }
+      >,
+      total,
+    };
   },
 );
 
@@ -33,12 +42,12 @@ const listContributors = cache(async (locale: AppLocale) => {
 
 export const getContributors = cache(
   async (locale: AppLocale): Promise<ContributorProfile[]> =>
-    (await Promise.all(
-      (await listContributors(locale)).map(({ id }) =>
-        getAuthorProfile(id, locale),
-      ),
-    )) as ContributorProfile[],
+    (await listContributorProfiles(locale)).contributors,
 );
+
+export function getTopContributors(locale: AppLocale, limit: number) {
+  return listContributorProfiles(locale, limit);
+}
 
 export const getContributorDirectory = cache(async (locale: AppLocale) => {
   const contributors = await listContributors(locale);

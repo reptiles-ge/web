@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { authorListQuery, authorParam } from "../schemas/authors";
+import {
+  authorListQuery,
+  authorParam,
+  contributorListQuery,
+} from "../schemas/authors";
 import { catalogQuery } from "../schemas/catalog";
 import { LOCALE_HEADER, localeHeader } from "../schemas/common";
 import { newsListQuery, newsParam } from "../schemas/news";
@@ -340,6 +344,28 @@ const OPERATIONS: Operation[] = [
       schema: ref("AuthorResponse"),
     },
     summary: "Get an author",
+    tag: "Authors",
+  },
+  {
+    description:
+      "Every contributor with a page on reptiles.ge, as full profiles, most credited photos first (ties by id). `photoCount` and `speciesCount` count photos of published species. Pass `limit` for only the first contributors; `total` always counts all of them.",
+    errors: [400],
+    header: localeHeader,
+    method: "get",
+    operationId: "listContributors",
+    path: "/v1/contributors",
+    query: contributorListQuery,
+    success: {
+      description: "Contributors.",
+      examples: {
+        top: {
+          summary: "limit=1",
+          value: RESPONSE_EXAMPLES.contributorList,
+        },
+      },
+      schema: ref("ContributorListResponse"),
+    },
+    summary: "List contributors",
     tag: "Authors",
   },
   {
