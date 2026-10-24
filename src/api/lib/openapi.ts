@@ -10,6 +10,7 @@ import { LOCALE_HEADER, localeHeader } from "../schemas/common";
 import { newsListQuery, newsParam } from "../schemas/news";
 import { responseSchemas } from "../schemas/responses";
 import { speciesListQuery, speciesParam } from "../schemas/species";
+import { API_KEY_HEADER } from "./apiKeys";
 import { PUBLIC_CACHE } from "./cache";
 import { RESPONSE_EXAMPLES } from "./openapiExamples";
 
@@ -148,11 +149,11 @@ It serves the same published species profiles as the site: amphibians and reptil
 ## Quick start
 
 \`\`\`bash
-curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species?group=snake"
-curl -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
+curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/species?group=snake"
+curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
 \`\`\`
 
-No key or sign-up is needed. CORS allows every origin, so you can call it from a browser.
+Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the contact page](https://reptiles.ge/en/contact). Keep the key on your server: do not put it in browser code. To try a request here, enter the key under "Authentication".
 
 ## Versioning
 
@@ -191,7 +192,7 @@ Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at t
 
 ## Errors
 
-Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`.
+Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`. A missing, revoked or expired key answers \`401 unauthorized\`, and too many requests for one key answer \`429 rate_limited\`.
 
 ## About the content
 
@@ -516,8 +517,25 @@ export function buildOpenApiDocument() {
           description: "The `If-None-Match` ETag still matches. Empty body.",
           headers: { ETag: { $ref: "#/components/headers/ETag" } },
         },
+        TooManyRequests: errorResponse("Too many requests for this API key.", {
+          error: {
+            code: "rate_limited",
+            message: "Too many requests for this key",
+          },
+        }),
+        Unauthorized: errorResponse("Missing or invalid API key.", {
+          error: { code: "unauthorized", message: "Missing API key" },
+        }),
       },
       schemas: componentSchemas(),
+      securitySchemes: {
+        ApiKey: {
+          description: "API key of a registered client.",
+          in: "header",
+          name: API_KEY_HEADER,
+          type: "apiKey",
+        },
+      },
     },
     externalDocs: {
       description: "reptiles.ge, the atlas these data come from",
@@ -531,7 +549,7 @@ export function buildOpenApiDocument() {
     },
     openapi: "3.1.0",
     paths,
-    security: [],
+    security: [{ ApiKey: [] }],
     servers: [
       { description: "This server", url: "/" },
       { description: "Production", url: "https://api.reptiles.ge" },
@@ -614,6 +632,8 @@ function operation(entry: Operation) {
         },
       },
       304: { $ref: "#/components/responses/NotModified" },
+      401: { $ref: "#/components/responses/Unauthorized" },
+      429: { $ref: "#/components/responses/TooManyRequests" },
       ...Object.fromEntries(
         entry.errors.map((status) => [
           status,

@@ -34,8 +34,13 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
 
       - run: pnpm build:vinext
+        env:
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
 
       - run: pnpm test:e2e
+        env:
+          CLOUDFLARE_INCLUDE_PROCESS_ENV: "true"
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
 
       - if: failure()
         uses: actions/upload-artifact@v7

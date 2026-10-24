@@ -17,6 +17,13 @@
           "react-doctor/no-undeferred-third-party",
           "react-doctor/rendering-script-defer-async"
         ]
+      },
+      {
+        "files": [
+          "src/admin/PhotoUploadButton.tsx",
+          "src/admin/photoEncoding.ts"
+        ],
+        "rules": ["react-doctor/async-await-in-loop"]
       }
     ]
   },
