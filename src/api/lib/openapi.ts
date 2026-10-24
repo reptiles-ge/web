@@ -33,7 +33,7 @@ type Operation = {
     schema: JsonSchema;
   };
   summary: string;
-  tag: "Authors" | "Catalog" | "News" | "Species";
+  tag: "Authors" | "Catalog" | "Images" | "News" | "Species";
 };
 
 type ParameterDoc = { description: string; example: string };
@@ -183,7 +183,7 @@ An empty string, an empty array or a missing optional field means the atlas has 
 
 ## Images, audio and credits
 
-Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`.
+Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`. Resized AVIF and WebP copies of photos uploaded through the API are listed in \`/v1/images\`.
 
 ## Caching
 
@@ -436,12 +436,33 @@ const OPERATIONS: Operation[] = [
     summary: "Get a news article",
     tag: "News",
   },
+  {
+    description:
+      "Photos uploaded through the API that have resized AVIF and WebP copies, ordered by `src`. Photos optimized before uploads moved to the API are not listed. Use it to build `srcset` for an `image` or `gallery[].src` you already have.",
+    errors: [],
+    method: "get",
+    operationId: "listImages",
+    path: "/v1/images",
+    success: {
+      description: "Optimized photos.",
+      examples: {
+        levantineViper: {
+          summary: "One photo",
+          value: RESPONSE_EXAMPLES.images,
+        },
+      },
+      schema: ref("OptimizedImageListResponse"),
+    },
+    summary: "List optimized photos",
+    tag: "Images",
+  },
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = [
   "/v1/admin/",
   "/v1/auth/",
   "/v1/ratings",
+  "/v1/views",
 ];
 
 export const documentedOperations = OPERATIONS.map(({ method, path }) => ({
@@ -531,6 +552,10 @@ export function buildOpenApiDocument() {
       {
         description: "Published news articles of the atlas.",
         name: "News",
+      },
+      {
+        description: "Resized AVIF and WebP copies of uploaded photos.",
+        name: "Images",
       },
     ],
   };

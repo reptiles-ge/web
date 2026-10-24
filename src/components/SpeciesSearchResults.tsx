@@ -1,6 +1,6 @@
 "use client";
 
-import { EmptyState } from "@/components/SpeciesSearchEmpty";
+import { EmptyState, LoadingState } from "@/components/SpeciesSearchEmpty";
 import { GroupLabel } from "@/components/SpeciesSearchGroupLabel";
 import { ResultRow } from "@/components/SpeciesSearchRow";
 import {
@@ -18,6 +18,7 @@ export function SearchResultsList({
   groups,
   listId,
   listLabel,
+  loadingLabel,
   onHover,
   onPickSuggestion,
   onSelect,
@@ -33,6 +34,7 @@ export function SearchResultsList({
   groups: SearchGroup[];
   listId: string;
   listLabel: string;
+  loadingLabel: string;
   onHover: (index: number) => void;
   onPickSuggestion: (value: string) => void;
   onSelect: (item: SearchDocument) => void;
@@ -44,11 +46,12 @@ export function SearchResultsList({
 }) {
   let cursor = 0;
   const empty = groups.every((group) => group.items.length === 0);
-  const showEmpty = empty && (ready || query.length > 0);
 
   return (
     <div aria-label={listLabel} id={listId} role="listbox">
-      {showEmpty ? (
+      {!ready ? (
+        <LoadingState label={loadingLabel} />
+      ) : empty ? (
         <EmptyState
           hint={emptyHint}
           onPick={onPickSuggestion}

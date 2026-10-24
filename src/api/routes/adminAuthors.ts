@@ -10,6 +10,7 @@ import {
   listAuthorPhotos,
   readAuthor,
   writeAuthor,
+  writeAuthorTexts,
 } from "../db/authors";
 import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
@@ -26,14 +27,29 @@ import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
-import { authorParam, authorWriteBody } from "../schemas/authors";
+import {
+  adminAuthorListQuery,
+  authorParam,
+  authorRecordSchema,
+  authorTextsBody,
+  authorWriteBody,
+} from "../schemas/authors";
 
 export const adminAuthors = new Hono<ApiEnv>()
-  .get("/", requireAdmin, async (c) => {
-    const data = await listAdminAuthors(c.env.DB);
-    c.header("Cache-Control", NO_STORE);
-    return c.json({ data, total: data.length }, 200);
-  })
+  .get(
+    "/",
+    requireAdmin,
+    validate("query", adminAuthorListQuery),
+    async (c) => {
+      const { limit, page, ...filters } = c.req.valid("query");
+      const result = await listAdminAuthors(c.env.DB, filters, {
+        limit,
+        page,
+      });
+      c.header("Cache-Control", NO_STORE);
+      return c.json(result, 200);
+    },
+  )
   .post(
     "/revalidate",
     requireSiteOrigin,
@@ -79,6 +95,34 @@ export const adminAuthors = new Hono<ApiEnv>()
       const data = await listAuthorPhotos(c.env.DB, id);
       c.header("Cache-Control", NO_STORE);
       return c.json({ data, id, total: data.length }, 200);
+    },
+  )
+  .post(
+    "/:id/texts",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", authorParam),
+    validate("json", authorTextsBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const current = await readAuthor(c.env.DB, id);
+      if (!current) throw new ApiError(404, "not_found", "Author not found");
+      const checked = authorRecordSchema.safeParse({
+        ...current,
+        texts: c.req.valid("json").texts,
+      });
+      if (!checked.success) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "The change breaks a content rule",
+          checked.error.issues,
+        );
+      }
+      await writeAuthorTexts(c.env.DB, checked.data as AuthorRecord);
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id } }, 200);
     },
   )
   .use(requireToken)

@@ -1,12 +1,22 @@
-import type { InferResponseType } from "hono/client";
+import type { InferRequestType, InferResponseType } from "hono/client";
 
-import { checkAdminResponse } from "./adminResponse";
+import type { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
+import type { Page } from "@/lib/pagination";
+
+import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
+import { type PagedQuery, toQueryParams } from "./pagination";
 
 export type AdminAuthor = InferResponseType<
   typeof api.v1.admin.authors.$get,
   200
 >["data"][number];
+
+export type AdminAuthorFilters = {
+  contributor: boolean;
+  kind: (typeof AUTHOR_KINDS)[number];
+  role: (typeof AUTHOR_ROLES)[number];
+};
 
 export type AdminAuthorPhoto = InferResponseType<
   (typeof api.v1.admin.authors)[":id"]["photos"]["$get"],
@@ -17,6 +27,10 @@ export type AdminAuthorRecord = InferResponseType<
   (typeof api.v1.admin.authors)[":id"]["$get"],
   200
 >["data"];
+
+export type AuthorTextsInput = InferRequestType<
+  (typeof api.v1.admin.authors)[":id"]["texts"]["$post"]
+>["json"]["texts"];
 
 export async function clearAuthorCache(id: string) {
   checkAdminResponse(
@@ -54,8 +68,20 @@ export async function fetchAdminAuthorRecord(
   return (await response.json()).data;
 }
 
-export async function fetchAdminAuthors(): Promise<AdminAuthor[]> {
-  const response = await api.v1.admin.authors.$get();
+export async function fetchAdminAuthors(
+  query: PagedQuery<AdminAuthorFilters>,
+): Promise<Page<AdminAuthor>> {
+  const response = await api.v1.admin.authors.$get({
+    query: toQueryParams(query),
+  });
   checkAdminResponse(response, "Authors list failed");
-  return (await response.json()).data;
+  return response.json();
+}
+
+export async function saveAuthorTexts(id: string, texts: AuthorTextsInput) {
+  const response = await api.v1.admin.authors[":id"].texts.$post({
+    json: { texts },
+    param: { id },
+  });
+  await checkAdminSave(response, "Author texts save failed");
 }

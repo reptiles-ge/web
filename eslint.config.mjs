@@ -169,9 +169,21 @@ const eslintConfig = defineConfig([
               message:
                 "antd is for the admin app (src/admin) only. It must never reach the reptiles.ge bundle.",
             },
+            {
+              group: ["@tiptap/*"],
+              message:
+                "TipTap is the admin text editor (src/admin) only. It must never reach the reptiles.ge bundle.",
+            },
           ],
         },
       ],
+    },
+  },
+  {
+    files: ["src/admin/**/*.{ts,tsx}"],
+    rules: {
+      "@next/next/no-img-element": "off",
+      "tailwindcss/no-custom-classname": "off",
     },
   },
   {
@@ -253,6 +265,7 @@ const eslintConfig = defineConfig([
     "src/data/search-index.*.generated.ts",
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
+    "src/data/optimizedImages.api.generated.ts",
     "src/data/localeSwitchIndex.generated.ts",
     "src/data/releaseVersion.generated.ts",
     "scripts/**",

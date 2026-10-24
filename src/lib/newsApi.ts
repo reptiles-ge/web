@@ -27,9 +27,14 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
   return response.json();
 });
 
-export const getNewsList = cache(async (locale: AppLocale) => {
+export const HOME_NEWS_LIMIT = 5;
+
+export const getNewsList = cache(async (locale: AppLocale, limit?: number) => {
   const response = await createApiClient().v1.news.$get(
-    { header: { "x-locale": locale }, query: {} },
+    {
+      header: { "x-locale": locale },
+      query: limit === undefined ? {} : { limit: String(limit) },
+    },
     speciesFetchOptions(["news"]),
   );
   if (!response.ok) {
@@ -39,8 +44,8 @@ export const getNewsList = cache(async (locale: AppLocale) => {
 });
 
 export const getNewsListArticles = cache(
-  async (locale: AppLocale): Promise<NewsListArticle[]> =>
-    (await getNewsList(locale)).map((item) => ({
+  async (locale: AppLocale, limit?: number): Promise<NewsListArticle[]> =>
+    (await getNewsList(locale, limit)).map((item) => ({
       dek: item.dek,
       id: item.slug,
       ...(item.image

@@ -1,15 +1,11 @@
 import { z } from "zod";
 
 import { locales } from "@/i18n/locales";
+import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
 import { REGION_IDS } from "../lib/catalogFilter";
-import {
-  AFFILIATIONS,
-  AUTHOR_JOB_TITLES,
-  AUTHOR_KINDS,
-  AUTHOR_ROLES,
-} from "./authors";
+import { AFFILIATIONS, AUTHOR_JOB_TITLES } from "./authors";
 import { ANIMAL_GROUPS } from "./species";
 import { HABITATS, PHOTO_CONFIDENCE } from "./speciesRecord";
 
@@ -435,7 +431,14 @@ export const speciesListResponse = component(
 
 export const speciesResponse = component(
   "SpeciesResponse",
-  z.strictObject({ data: species, locale: resolvedLocale }),
+  z.strictObject({
+    data: species,
+    locale: resolvedLocale,
+    views: doc(
+      z.int().min(0),
+      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to a few hours.",
+    ),
+  }),
   "One species profile.",
 );
 
@@ -846,6 +849,47 @@ export const newsResponse = component(
     ),
   }),
   "One news article.",
+);
+
+const optimizedImage = component(
+  "OptimizedImage",
+  z.strictObject({
+    formats: doc(
+      z.array(z.enum(["avif", "webp"])),
+      "Formats the derivatives exist in.",
+      [["avif", "webp"]],
+    ),
+    height: doc(
+      z.int().min(1),
+      "Height in pixels of the widest derivative.",
+      [1066],
+    ),
+    path: doc(
+      z.string(),
+      "Derivative path under `https://cdn.reptiles.ge/optimized/`, without width or extension. A derivative is at `https://cdn.reptiles.ge/optimized/{path}-{width}.{format}`.",
+      ["macrovipera-lebetina-laura-1"],
+    ),
+    src: doc(
+      z.string(),
+      "Absolute URL of the original photo, as it appears in `image`, `mobileImage` or `gallery[].src`.",
+      ["https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg"],
+    ),
+    width: doc(
+      z.int().min(1),
+      "Width in pixels of the widest derivative.",
+      [1600],
+    ),
+    widths: doc(z.array(z.int().min(1)), "Every derivative width, ascending.", [
+      [320, 400, 640, 800, 1200, 1600],
+    ]),
+  }),
+  "Resized AVIF and WebP copies of one photo.",
+);
+
+export const optimizedImageListResponse = component(
+  "OptimizedImageListResponse",
+  z.strictObject({ data: z.array(optimizedImage), total }),
+  "Photos uploaded through the API that have resized AVIF and WebP copies, ordered by `src`.",
 );
 
 export const errorResponse = component(

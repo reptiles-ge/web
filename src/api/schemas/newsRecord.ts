@@ -56,6 +56,13 @@ const copy = z.strictObject({
   title: required,
 });
 
+const articleCopy = z.strictObject({
+  en: copy.optional(),
+  ka: copy,
+  ru: copy.optional(),
+  tr: copy.optional(),
+});
+
 const photo = z.strictObject({
   alt: z.strictObject({
     en: required.optional(),
@@ -81,12 +88,7 @@ const source = z.strictObject({
 
 export const newsArticleSchema = z
   .strictObject({
-    copy: z.strictObject({
-      en: copy.optional(),
-      ka: copy,
-      ru: copy.optional(),
-      tr: copy.optional(),
-    }),
+    copy: articleCopy,
     gallery: z.array(photo).min(1).optional(),
     id: required,
     image: photo.optional(),
@@ -129,5 +131,11 @@ export const newsStatusBody = z.strictObject({
   expectedVersion: z.int().min(1),
   source: z.enum(["admin", "ai", "api", "import"]),
   status: z.enum(["draft", "published"]),
+  summary,
+});
+
+export const newsCopyBody = z.strictObject({
+  copy: articleCopy,
+  expectedVersion: z.int().min(1),
   summary,
 });

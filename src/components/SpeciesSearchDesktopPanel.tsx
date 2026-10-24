@@ -25,6 +25,7 @@ export function SearchDesktopPanel({
   groups,
   listId,
   listLabel,
+  loadingLabel,
   navigateLabel,
   onFilterChange,
   onHover,
@@ -46,6 +47,7 @@ export function SearchDesktopPanel({
   groups: SearchGroup[];
   listId: string;
   listLabel: string;
+  loadingLabel: string;
   navigateLabel: string;
   onFilterChange: (value: SearchFilter) => void;
   onHover: (index: number) => void;
@@ -76,6 +78,7 @@ export function SearchDesktopPanel({
           groups={groups}
           listId={listId}
           listLabel={listLabel}
+          loadingLabel={loadingLabel}
           onHover={onHover}
           onPickSuggestion={onPickSuggestion}
           onSelect={onSelect}

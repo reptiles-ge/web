@@ -243,7 +243,27 @@ export const draftCreateBody = z.strictObject({
 
 export const draftDecisionBody = z.strictObject({ actor });
 
+export const draftIdParam = z.object({
+  draftId: z.coerce.number().int().min(1),
+});
+
+export const draftListQuery = z.object({
+  status: z.enum(["approved", "pending", "rejected"]).default("pending"),
+});
+
 export const draftParam = z.object({
   draftId: z.coerce.number().int().min(1),
   id: z.string().regex(SLUG).max(100),
+});
+
+const SPECIES_TEXT_LOCALES = ["ka", ...TRANSLATION_LOCALES] as const;
+
+export const speciesTextsBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  locale: z.enum(SPECIES_TEXT_LOCALES),
+  summary: z.string().trim().min(1).max(500),
+  texts: z.strictObject({
+    ...textFields,
+    identification: identification.omit({ colors: true }).optional(),
+  }),
 });

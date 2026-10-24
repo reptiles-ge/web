@@ -48,6 +48,8 @@ export default defineConfig({
         "src/app/RootDocument.tsx",
         "src/i18n/request.ts",
         "src/admin/main.tsx",
+        "src/admin/photoCodecs.ts",
+        "src/admin/photoEncoder.worker.ts",
       ],
       include: ["src/**/*.{ts,tsx}"],
       provider: "v8",
@@ -96,7 +98,7 @@ export default defineConfig({
       {
         extends: true,
         test: {
-          environment: "happy-dom",
+          environment: "./tests/setup/happyDomEnvironment.ts",
           fileParallelism: false,
           include: ["src/**/*.test.tsx"],
           name: "dom",

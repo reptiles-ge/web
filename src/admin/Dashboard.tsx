@@ -3,9 +3,13 @@ import type { ReactNode } from "react";
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { ApiKeysPage } from "./ApiKeysPage";
 import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
 import { CachePage } from "./CachePage";
+import { DraftDetailPage } from "./DraftDetailPage";
+import { DraftsPage } from "./DraftsPage";
+import { NewsDetailPage } from "./NewsDetailPage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { followLink, navigate, usePathname } from "./router";
@@ -21,10 +25,12 @@ const SECTIONS: Array<{
   path: string;
 }> = [
   { label: "Species", page: SpeciesPage, path: "/species" },
+  { label: "Drafts", page: DraftsPage, path: "/drafts" },
   { label: "News", page: NewsPage, path: "/news" },
   { label: "Authors", page: AuthorsPage, path: "/authors" },
   { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
+  { label: "API keys", page: ApiKeysPage, path: "/api-keys" },
 ];
 
 const HOME_PATH = SECTIONS[0].path;
@@ -36,6 +42,8 @@ const DETAILS: Array<{
   path: string;
 }> = [
   { page: SpeciesDetailPage, path: "/species" },
+  { page: NewsDetailPage, path: "/news" },
+  { page: DraftDetailPage, path: "/drafts" },
   { page: AuthorDetailPage, path: "/authors" },
 ];
 

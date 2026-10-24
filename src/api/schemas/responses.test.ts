@@ -8,7 +8,10 @@ import { fieldRecordsFixture } from "../../../tests/fixtures/speciesCatalog";
 import { app } from "../app";
 import { buildOpenApiDocument } from "../lib/openapi";
 import { RESPONSE_EXAMPLES } from "../lib/openapiExamples";
-import { createNewsTestDatabase } from "../testing/sqliteDatabase";
+import {
+  createNewsTestDatabase,
+  createTestDatabase,
+} from "../testing/sqliteDatabase";
 import {
   authorListResponse,
   authorResponse,
@@ -22,6 +25,7 @@ import {
   fieldRecordsResponse,
   newsListResponse,
   newsResponse,
+  optimizedImageListResponse,
   speciesListResponse,
   speciesResponse,
 } from "./responses";
@@ -129,6 +133,28 @@ describe("documented response schemas", () => {
         expectValid(newsResponse, body, `news/${slug} ${locale}`);
       }
     }
+  });
+
+  it("describe the optimized photo list", async () => {
+    const { db, sqlite } = createTestDatabase();
+    const image = RESPONSE_EXAMPLES.images.data[0]!;
+    sqlite
+      .prepare(
+        "INSERT INTO optimized_images (src, path, width, height, widths, formats, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      )
+      .run(
+        image.src,
+        image.path,
+        image.width,
+        image.height,
+        JSON.stringify(image.widths),
+        JSON.stringify(image.formats),
+        "2026-10-24T10:00:00.000Z",
+      );
+    const response = await app.request("/v1/images", {}, { DB: db });
+    const body = (await response.json()) as unknown;
+    expectValid(optimizedImageListResponse, body, "images");
+    expect(body).toStrictEqual(RESPONSE_EXAMPLES.images);
   });
 
   it("describe the error responses exactly", async () => {

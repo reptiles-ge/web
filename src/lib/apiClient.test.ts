@@ -28,13 +28,34 @@ describe("createApiClient", () => {
 
   it("sends a bearer token when given one", async () => {
     const fetch = vi.fn(async () => new Response(null));
-    await createApiClient({ fetch, token: "secret" }).v1.ratings.summary.$get({
+    await createApiClient({ fetch, token: "secret" }).v1.admin.ratings.$get({
       query: {},
     });
     const [, init] = fetch.mock.calls[0] as unknown as [string, RequestInit];
     expect(new Headers(init.headers).get("Authorization")).toBe(
       "Bearer secret",
     );
+  });
+
+  it("sends the site API key from the server only", async () => {
+    const fetch = vi.fn(async () => new Response(null));
+    await createApiClient({ fetch }).v1.admin.ratings.$get({ query: {} });
+    vi.stubEnv("SITE_API_KEY", "site-key");
+    await createApiClient({ fetch, token: "secret" }).v1.admin.ratings.$get({
+      query: {},
+    });
+    vi.stubGlobal("window", {});
+    await createApiClient({ fetch }).v1.admin.ratings.$get({ query: {} });
+    vi.unstubAllGlobals();
+    const sent = (fetch.mock.calls as unknown as [string, RequestInit][]).map(
+      ([, init]) => new Headers(init.headers),
+    );
+    expect(sent.map((headers) => headers.get("X-Api-Key"))).toEqual([
+      null,
+      "site-key",
+      null,
+    ]);
+    expect(sent[1]?.get("Authorization")).toBe("Bearer secret");
   });
 
   it("targets api.reptiles.ge unless NEXT_PUBLIC_API_ORIGIN is set", () => {
@@ -54,13 +75,13 @@ describe("createApiClient", () => {
     vi.stubEnv("NODE_ENV", "development");
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const fetch = vi.fn(async () => new Response(null, { status: 204 }));
-    await createApiClient({ fetch, token: "secret" }).v1.ratings.summary.$get({
+    await createApiClient({ fetch, token: "secret" }).v1.admin.ratings.$get({
       query: {},
     });
     expect(fetch).toHaveBeenCalledOnce();
     expect(info).toHaveBeenCalledOnce();
     expect(info.mock.calls[0][0]).toMatch(
-      /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/ratings\/summary → 204 \(\d+ ms\)$/,
+      /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/admin\/ratings → 204 \(\d+ ms\)$/,
     );
     expect(JSON.stringify(info.mock.calls)).not.toContain("secret");
     vi.restoreAllMocks();
@@ -70,7 +91,7 @@ describe("createApiClient", () => {
     vi.stubEnv("NODE_ENV", "production");
     const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const fetch = vi.fn(async () => new Response(null));
-    await createApiClient({ fetch }).v1.ratings.summary.$get({ query: {} });
+    await createApiClient({ fetch }).v1.admin.ratings.$get({ query: {} });
     expect(info).not.toHaveBeenCalled();
     vi.restoreAllMocks();
   });

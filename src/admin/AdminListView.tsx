@@ -1,7 +1,20 @@
 import type { ColumnsType } from "antd/es/table";
+import type { FilterValue } from "antd/es/table/interface";
 import type { ReactNode } from "react";
 
 import { Alert, Button, Flex, Input, Space, Table, Typography } from "antd";
+
+import { PAGE_SIZE_OPTIONS } from "@/lib/pagination";
+
+export type ServerPaging = {
+  limit: number;
+  onChange: (change: {
+    filters: Record<string, FilterValue | null>;
+    limit: number;
+    page: number;
+  }) => void;
+  page: number;
+};
 
 export function AdminListView<T extends object>({
   actions,
@@ -9,6 +22,7 @@ export function AdminListView<T extends object>({
   noun,
   onQuery,
   onReload,
+  paging,
   rowKey,
   rows,
   searchPlaceholder,
@@ -21,6 +35,7 @@ export function AdminListView<T extends object>({
   noun: string;
   onQuery: (query: string) => void;
   onReload: () => void;
+  paging?: ServerPaging;
   rowKey: keyof T & string;
   rows: T[];
   searchPlaceholder: string;
@@ -59,9 +74,31 @@ export function AdminListView<T extends object>({
         <Table<T>
           columns={columns}
           dataSource={rows}
-          footer={() => `${rows.length} of ${total} ${noun}`}
+          footer={() =>
+            `${paging ? pageRange(paging, rows.length) : rows.length} of ${total} ${noun}`
+          }
           loading={status === "loading"}
-          pagination={{ defaultPageSize: 50, showSizeChanger: true }}
+          onChange={
+            paging
+              ? (pagination, filters) =>
+                  paging.onChange({
+                    filters,
+                    limit: pagination.pageSize ?? paging.limit,
+                    page: pagination.current ?? 1,
+                  })
+              : undefined
+          }
+          pagination={
+            paging
+              ? {
+                  current: paging.page,
+                  pageSize: paging.limit,
+                  pageSizeOptions: [...PAGE_SIZE_OPTIONS],
+                  showSizeChanger: true,
+                  total,
+                }
+              : { defaultPageSize: 50, showSizeChanger: true }
+          }
           rowKey={rowKey}
           scroll={{ x: 900 }}
           size="small"
@@ -69,4 +106,9 @@ export function AdminListView<T extends object>({
       )}
     </Space>
   );
+}
+
+function pageRange({ limit, page }: ServerPaging, shown: number) {
+  const first = (page - 1) * limit + 1;
+  return shown === 0 ? "0" : `${first}–${first + shown - 1}`;
 }

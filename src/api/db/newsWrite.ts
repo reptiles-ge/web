@@ -2,7 +2,7 @@ import type { NewsArticle } from "@/data/newsTypes";
 
 import type { ApiDatabase } from "./database";
 
-import { newsRecordRows } from "./newsRows";
+import { type NewsRecord, newsRecordRows } from "./newsRows";
 import { NEWS_TABLES } from "./newsSchema";
 import { renderBoundInserts } from "./sqlRender";
 
@@ -85,6 +85,47 @@ export async function setNewsStatus(
         "UPDATE news_articles SET status = ?, version = version + 1 WHERE id = ? AND version = ?",
       )
       .bind(status, id, expectedVersion),
+  ]);
+  return expectedVersion + 1;
+}
+
+const COPY_TABLES = NEWS_TABLES.filter(
+  (table) => table.name === "news_texts" || table.name === "news_sections",
+);
+
+export async function writeNewsCopy(
+  db: ApiDatabase,
+  record: NewsRecord,
+  expectedVersion: number,
+  revision: NewsRevision,
+) {
+  const id = record.article.id;
+  const rows = newsRecordRows(record);
+  await db.batch([
+    db
+      .prepare(
+        "INSERT INTO news_revisions (article_id, version, actor, source, summary) VALUES (?, (SELECT version + 1 FROM news_articles WHERE id = ? AND version = ?), ?, ?, ?)",
+      )
+      .bind(
+        id,
+        id,
+        expectedVersion,
+        revision.actor,
+        revision.source,
+        revision.summary,
+      ),
+    db
+      .prepare(
+        "UPDATE news_articles SET version = version + 1 WHERE id = ? AND version = ?",
+      )
+      .bind(id, expectedVersion),
+    db.prepare("DELETE FROM news_sections WHERE article_id = ?").bind(id),
+    db.prepare("DELETE FROM news_texts WHERE article_id = ?").bind(id),
+    ...COPY_TABLES.flatMap((table) =>
+      renderBoundInserts(table.name, table.columns, rows.get(table.name)!).map(
+        ({ sql, values }) => db.prepare(sql).bind(...values),
+      ),
+    ),
   ]);
   return expectedVersion + 1;
 }

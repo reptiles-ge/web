@@ -9,6 +9,7 @@ import type { ContributorDirectory } from "@/lib/contributorCredits";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
+import { ContentViewBeacon } from "@/components/ContentViewBeacon";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
@@ -258,6 +259,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           mobileHeroSrc={mobileSlideSrc}
         />
         <JsonLd data={structuredData} />
+        <ContentViewBeacon id={raw.id} kind="species" />
         <ClientMessagesProvider
           locale={locale}
           namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}

@@ -93,6 +93,7 @@
     "placeholder": "Species, page, region…",
     "noResults": "Nothing found",
     "noResultsHint": "Try a name, a guide topic, or a region",
+    "loading": "Loading…",
     "featured": "Featured species",
     "suggested": "Suggested pages",
     "recent": "Recently opened",

@@ -59,7 +59,7 @@ describe("refreshSpeciesApiCache", () => {
     ]);
   });
 
-  it("refreshes the news list and an article in every locale", async () => {
+  it("refreshes the news list, the home page list and an article in every locale", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
     const seen = recordBypass();
     await refreshSpeciesApiCache(["news", "news:lagodekhi-iucn-mwvane-sia"]);
@@ -67,12 +67,19 @@ describe("refreshSpeciesApiCache", () => {
       new Set(["fresh-secret"]),
     );
     expect(
-      seen.map(({ locale, url }) => `${locale} ${new URL(url).pathname}`),
+      seen.map(({ locale, url }) => {
+        const { pathname, search } = new URL(url);
+        return `${locale} ${pathname}${search}`;
+      }),
     ).toEqual([
       "ka /v1/news",
+      "ka /v1/news?limit=5",
       "en /v1/news",
+      "en /v1/news?limit=5",
       "ru /v1/news",
+      "ru /v1/news?limit=5",
       "tr /v1/news",
+      "tr /v1/news?limit=5",
       "ka /v1/news/lagodekhi-iucn-mwvane-sia",
       "en /v1/news/lagodekhi-iucn-mwvane-sia",
       "ru /v1/news/lagodekhi-iucn-mwvane-sia",
