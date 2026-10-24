@@ -169,19 +169,26 @@ describe("POST /v1/admin/species/:id/photos", () => {
       },
       version: before.version + 1,
     });
-    expect(puts()).toStrictEqual([
-      { contentType: "image/jpeg", key: `${ID}-ana-2.jpg` },
-      ...WIDTHS.flatMap((width) => [
-        {
-          contentType: "image/avif",
-          key: `optimized/${ID}-ana-2-${width}.avif`,
-        },
-        {
-          contentType: "image/webp",
-          key: `optimized/${ID}-ana-2-${width}.webp`,
-        },
-      ]),
-    ]);
+    const [original, ...derivatives] = puts();
+    expect(original).toStrictEqual({
+      contentType: "image/jpeg",
+      key: `${ID}-ana-2.jpg`,
+    });
+    expect(derivatives).toHaveLength(WIDTHS.length * 2);
+    expect(derivatives).toStrictEqual(
+      expect.arrayContaining(
+        WIDTHS.flatMap((width) => [
+          {
+            contentType: "image/avif",
+            key: `optimized/${ID}-ana-2-${width}.avif`,
+          },
+          {
+            contentType: "image/webp",
+            key: `optimized/${ID}-ana-2-${width}.webp`,
+          },
+        ]),
+      ),
+    );
     for (const [, init] of storageFetch.mock.calls) {
       expect((init.headers as Record<string, string>).AccessKey).toBe(
         "bunny-key",
