@@ -26,14 +26,27 @@ import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
-import { authorParam, authorWriteBody } from "../schemas/authors";
+import {
+  adminAuthorListQuery,
+  authorParam,
+  authorWriteBody,
+} from "../schemas/authors";
 
 export const adminAuthors = new Hono<ApiEnv>()
-  .get("/", requireAdmin, async (c) => {
-    const data = await listAdminAuthors(c.env.DB);
-    c.header("Cache-Control", NO_STORE);
-    return c.json({ data, total: data.length }, 200);
-  })
+  .get(
+    "/",
+    requireAdmin,
+    validate("query", adminAuthorListQuery),
+    async (c) => {
+      const { limit, page, ...filters } = c.req.valid("query");
+      const result = await listAdminAuthors(c.env.DB, filters, {
+        limit,
+        page,
+      });
+      c.header("Cache-Control", NO_STORE);
+      return c.json(result, 200);
+    },
+  )
   .post(
     "/revalidate",
     requireSiteOrigin,

@@ -17,21 +17,42 @@ describe("admin authors client", () => {
   it("loads the list and posts both clears with credentials", async () => {
     const seen: Array<{ credentials: string; method: string; path: string }> =
       [];
+    const page = {
+      data: [{ id: "sandro-khakhva" }],
+      limit: 20,
+      page: 2,
+      pageCount: 3,
+      total: 41,
+    };
     server.use(
       http.all(`${URL}*`, ({ request }) => {
+        const url = new globalThis.URL(request.url);
         seen.push({
           credentials: request.credentials,
           method: request.method,
-          path: new globalThis.URL(request.url).pathname,
+          path: `${url.pathname}${url.search}`,
         });
-        return HttpResponse.json({ data: [{ id: "sandro-khakhva" }] });
+        return HttpResponse.json(page);
       }),
     );
-    expect(await fetchAdminAuthors()).toEqual([{ id: "sandro-khakhva" }]);
+    expect(
+      await fetchAdminAuthors({
+        contributor: false,
+        kind: undefined,
+        limit: 20,
+        page: 2,
+        q: "",
+        role: "photographer",
+      }),
+    ).toEqual(page);
     await clearAuthorCache("sandro-khakhva");
     await clearAuthorsCache();
     expect(seen).toEqual([
-      { credentials: "include", method: "GET", path: "/v1/admin/authors" },
+      {
+        credentials: "include",
+        method: "GET",
+        path: "/v1/admin/authors?contributor=false&limit=20&page=2&role=photographer",
+      },
       {
         credentials: "include",
         method: "POST",
@@ -47,9 +68,9 @@ describe("admin authors client", () => {
 
   it("reports an expired session and other failures", async () => {
     server.use(http.get(URL, () => new HttpResponse(null, { status: 401 })));
-    await expect(fetchAdminAuthors()).rejects.toBeInstanceOf(
-      SessionExpiredError,
-    );
+    await expect(
+      fetchAdminAuthors({ limit: 50, page: 1 }),
+    ).rejects.toBeInstanceOf(SessionExpiredError);
     server.use(
       http.post(
         `${URL}/revalidate`,

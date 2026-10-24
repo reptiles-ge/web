@@ -1,19 +1,21 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Space, Tag, Typography } from "antd";
-import { useMemo, useState } from "react";
+
+import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 
 import { AdminLink } from "./AdminLink";
-import { AdminListView } from "./AdminListView";
+import { AdminListView, type ServerPaging } from "./AdminListView";
 import {
   type AdminAuthor,
+  type AdminAuthorFilters,
   clearAuthorCache,
   clearAuthorsCache,
   fetchAdminAuthors,
 } from "./authors";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { imageColumn, photoCountColumn } from "./listColumns";
-import { includesQuery, unique, useAdminList } from "./useAdminList";
+import { imageColumn } from "./listColumns";
+import { usePagedList } from "./usePagedList";
 
 export function AuthorsPage({
   onSessionExpired,
@@ -22,17 +24,35 @@ export function AuthorsPage({
 }) {
   const {
     items: authors,
+    query,
     reload,
+    setFilters,
+    setPage,
+    setSearch,
     status,
-  } = useAdminList(fetchAdminAuthors, onSessionExpired);
-  const [query, setQuery] = useState("");
-  const visible = useMemo(
-    () =>
-      authors.filter((item) =>
-        includesQuery([item.id, item.name.ka ?? "", item.name.en ?? ""], query),
-      ),
-    [authors, query],
-  );
+    total,
+  } = usePagedList(fetchAdminAuthors, onSessionExpired);
+
+  const paging: ServerPaging = {
+    limit: query.limit,
+    onChange: ({ filters, limit, page }) => {
+      const next: Partial<AdminAuthorFilters> = {
+        contributor: filters.isContributor?.[0] as boolean | undefined,
+        kind: filters.kind?.[0] as AdminAuthorFilters["kind"] | undefined,
+        role: filters.role?.[0] as AdminAuthorFilters["role"] | undefined,
+      };
+      if (
+        next.contributor !== query.contributor ||
+        next.kind !== query.kind ||
+        next.role !== query.role
+      ) {
+        setFilters(next);
+      } else {
+        setPage(page, limit);
+      }
+    },
+    page: query.page,
+  };
 
   const columns: ColumnsType<AdminAuthor> = [
     imageColumn<AdminAuthor>("Portrait"),
@@ -55,34 +75,32 @@ export function AuthorsPage({
     },
     {
       dataIndex: "isContributor",
+      filteredValue: selected(query.contributor),
+      filterMultiple: false,
       filters: [
         { text: "Contributor", value: true },
         { text: "Photo credit only", value: false },
       ],
       key: "isContributor",
-      onFilter: (value, item) => item.isContributor === value,
       render: (isContributor: boolean) =>
         isContributor ? <Tag color="green">contributor</Tag> : "—",
       title: "Page",
     },
     {
       dataIndex: "kind",
-      filters: unique(authors.map((item) => item.kind)).map((value) => ({
-        text: value,
-        value,
-      })),
+      filteredValue: selected(query.kind),
+      filterMultiple: false,
+      filters: options(AUTHOR_KINDS),
       key: "kind",
-      onFilter: (value, item) => item.kind === value,
       render: (kind: string) => <Tag>{kind}</Tag>,
       title: "Kind",
     },
     {
       dataIndex: "role",
-      filters: unique(
-        authors.flatMap((item) => (item.role ? [item.role] : [])),
-      ).map((value) => ({ text: value, value })),
+      filteredValue: selected(query.role),
+      filterMultiple: false,
+      filters: options(AUTHOR_ROLES),
       key: "role",
-      onFilter: (value, item) => item.role === value,
       render: (role: null | string) => role ?? "—",
       title: "Role",
     },
@@ -92,12 +110,16 @@ export function AuthorsPage({
       render: (jobTitle: null | string) => jobTitle ?? "—",
       title: "Job title",
     },
-    photoCountColumn<AdminAuthor>(),
+    {
+      align: "right",
+      dataIndex: "photoCount",
+      key: "photoCount",
+      title: "Photos",
+    },
     {
       align: "right",
       dataIndex: "aliasCount",
       key: "aliasCount",
-      sorter: (a, b) => a.aliasCount - b.aliasCount,
       title: "Aliases",
     },
     {
@@ -139,14 +161,23 @@ export function AuthorsPage({
       }
       columns={columns}
       noun="authors"
-      onQuery={setQuery}
+      onQuery={setSearch}
       onReload={reload}
+      paging={paging}
       rowKey="id"
-      rows={visible}
+      rows={authors}
       searchPlaceholder="Name or id"
       status={status}
       title="Authors"
-      total={authors.length}
+      total={total}
     />
   );
+}
+
+function options(values: readonly string[]) {
+  return values.map((value) => ({ text: value, value }));
+}
+
+function selected(value: boolean | string | undefined) {
+  return value === undefined ? null : [value];
 }

@@ -1,6 +1,8 @@
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditPersonNames } from "@/i18n/speciesTranslation";
 
+import { pageOffset, type PageParams, toPage } from "@/lib/pagination";
+
 import type { ApiDatabase } from "./database";
 
 import { renderBoundInserts } from "./sqlRender";
@@ -126,6 +128,13 @@ type TextRow = {
 const AUTHOR_SELECT =
   "SELECT id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url FROM authors";
 
+export type AdminAuthorFilters = {
+  contributor?: boolean;
+  kind?: string;
+  q?: string;
+  role?: string;
+};
+
 export async function authorExists(db: ApiDatabase, id: string) {
   return (
     (await db
@@ -182,13 +191,33 @@ export async function getContributorDetail(
   };
 }
 
-export async function listAdminAuthors(db: ApiDatabase) {
-  const { results } = await db
-    .prepare(
-      "SELECT a.id, a.kind_id, a.role_id, a.job_title_id, a.is_contributor, a.portrait_src AS image, k.name AS name_ka, e.name AS name_en, (SELECT COUNT(*) FROM author_aliases al WHERE al.author_id = a.id) AS alias_count, (SELECT COUNT(DISTINCT m.src) FROM species_media m WHERE m.author_id = a.id AND m.role != 'audio') AS photo_count FROM authors a LEFT JOIN author_texts k ON k.author_id = a.id AND k.locale = 'ka' LEFT JOIN author_texts e ON e.author_id = a.id AND e.locale = 'en' ORDER BY a.is_contributor DESC, photo_count DESC, a.id",
-    )
-    .all<AdminAuthorRow>();
-  return results.map((row) => ({
+const ADMIN_AUTHOR_FROM =
+  "FROM authors a LEFT JOIN author_texts k ON k.author_id = a.id AND k.locale = 'ka' LEFT JOIN author_texts e ON e.author_id = a.id AND e.locale = 'en' WHERE (?1 IS NULL OR a.is_contributor = ?1) AND (?2 IS NULL OR a.kind_id = ?2) AND (?3 IS NULL OR a.role_id = ?3) AND (?4 IS NULL OR a.id LIKE ?4 ESCAPE '\\' OR k.name LIKE ?4 ESCAPE '\\' OR e.name LIKE ?4 ESCAPE '\\')";
+
+export async function listAdminAuthors(
+  db: ApiDatabase,
+  filters: AdminAuthorFilters,
+  page: PageParams,
+) {
+  const where = [
+    filters.contributor === undefined ? null : Number(filters.contributor),
+    filters.kind ?? null,
+    filters.role ?? null,
+    containsPattern(filters.q),
+  ];
+  const [rows, count] = await Promise.all([
+    db
+      .prepare(
+        `SELECT a.id, a.kind_id, a.role_id, a.job_title_id, a.is_contributor, a.portrait_src AS image, k.name AS name_ka, e.name AS name_en, (SELECT COUNT(*) FROM author_aliases al WHERE al.author_id = a.id) AS alias_count, (SELECT COUNT(DISTINCT m.src) FROM species_media m WHERE m.author_id = a.id AND m.role != 'audio') AS photo_count ${ADMIN_AUTHOR_FROM} ORDER BY a.is_contributor DESC, photo_count DESC, a.id LIMIT ?5 OFFSET ?6`,
+      )
+      .bind(...where, page.limit, pageOffset(page))
+      .all<AdminAuthorRow>(),
+    db
+      .prepare(`SELECT COUNT(*) AS total ${ADMIN_AUTHOR_FROM}`)
+      .bind(...where)
+      .first<{ total: number }>(),
+  ]);
+  const data = rows.results.map((row) => ({
     aliasCount: row.alias_count,
     id: row.id,
     image: row.image,
@@ -199,6 +228,7 @@ export async function listAdminAuthors(db: ApiDatabase) {
     photoCount: row.photo_count,
     role: row.role_id,
   }));
+  return toPage(data, count?.total ?? 0, page);
 }
 
 export async function listAuthorPhotos(db: ApiDatabase, id: string) {
@@ -497,6 +527,10 @@ function compactLinks(row: AuthorRow): AuthorLinks {
   if (row.instagram_url) links.instagram = row.instagram_url;
   if (row.research_gate_url) links.researchGate = row.research_gate_url;
   return links;
+}
+
+function containsPattern(text: string | undefined) {
+  return text ? `%${text.replace(/[\\%_]/g, "\\$&")}%` : null;
 }
 
 async function countPublishedPhotos(db: ApiDatabase, id?: string) {

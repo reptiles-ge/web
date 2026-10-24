@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { defaultLocale, locales } from "@/i18n/locales";
+import { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "@/lib/pagination";
 
 export const LOCALE_HEADER = "X-Locale";
 
@@ -16,3 +17,13 @@ export const speciesIdText = z
   .max(100);
 
 export const sitePageGroupParam = z.object({ id: speciesIdText });
+
+export const pageQuery = z.object({
+  limit: z.coerce
+    .number()
+    .int()
+    .min(1)
+    .max(MAX_PAGE_SIZE)
+    .default(DEFAULT_PAGE_SIZE),
+  page: z.coerce.number().int().min(1).default(1),
+});
