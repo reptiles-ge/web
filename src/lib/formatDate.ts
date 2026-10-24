@@ -86,10 +86,87 @@ const MONTHS_STANDALONE: Record<AppLocale, string[]> = {
   ],
 };
 
+const MONTHS_SHORT: Record<AppLocale, string[]> = {
+  en: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
+  ka: [
+    "იან",
+    "თებ",
+    "მარ",
+    "აპრ",
+    "მაი",
+    "ივნ",
+    "ივლ",
+    "აგვ",
+    "სექ",
+    "ოქტ",
+    "ნოე",
+    "დეკ",
+  ],
+  ru: [
+    "янв.",
+    "февр.",
+    "мар.",
+    "апр.",
+    "мая",
+    "июн.",
+    "июл.",
+    "авг.",
+    "сент.",
+    "окт.",
+    "нояб.",
+    "дек.",
+  ],
+  tr: [
+    "Oca",
+    "Şub",
+    "Mar",
+    "Nis",
+    "May",
+    "Haz",
+    "Tem",
+    "Ağu",
+    "Eyl",
+    "Eki",
+    "Kas",
+    "Ara",
+  ],
+};
+
 export function formatContentDate(isoDate: string, locale: AppLocale): string {
   const parts = dateParts(isoDate);
   if (!parts) return isoDate;
   return `${parts.day} ${MONTHS[locale][parts.monthIndex]} ${parts.year}`;
+}
+
+export function formatContentDateShort(
+  isoDate: string,
+  locale: AppLocale,
+  {
+    now,
+    omitCurrentYear = false,
+  }: { now?: Date; omitCurrentYear?: boolean } = {},
+): string {
+  const parts = dateParts(isoDate);
+  if (!parts) return isoDate;
+  const dayMonth = `${parts.day} ${MONTHS_SHORT[locale][parts.monthIndex]}`;
+  if (omitCurrentYear) {
+    const current = dateParts((now ?? new Date()).toISOString());
+    if (current?.year === parts.year) return dayMonth;
+  }
+  return `${dayMonth} ${parts.year}`;
 }
 
 export function formatContentMonth(isoDate: string, locale: AppLocale): string {

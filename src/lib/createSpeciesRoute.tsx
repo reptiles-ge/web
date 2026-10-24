@@ -217,7 +217,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     if (!loaded) {
       notFound();
     }
-    const { item, raw } = loaded;
+    const { item, raw, views } = loaded;
     const [catalog, tProfile, tHubs, contributors] = await Promise.all([
       getSpeciesCatalog(locale),
       getTranslations({ locale, namespace: "profile" }),
@@ -269,6 +269,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             lookalikes={lookalikes}
             related={related}
             species={item}
+            views={views}
           />
         </ClientMessagesProvider>
         <NewsRelatedBlock
@@ -300,7 +301,12 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
     getSpeciesProfile(id, locale),
   ]);
   if (!base || !localized) return null;
-  return { group: localized.group, item: localized.species, raw: base.species };
+  return {
+    group: localized.group,
+    item: localized.species,
+    raw: base.species,
+    views: localized.views,
+  };
 }
 
 function sourceCreativeWork(source: SpeciesSource) {

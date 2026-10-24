@@ -539,6 +539,8 @@
     "viewPhotos": "Смотреть {count} фото",
     "lastUpdated": "Обновлено",
     "updatedOn": "Обновлено:",
+    "updatedShort": "Обновлено {date}",
+    "viewCount": "{count, plural, one {# просмотр} few {# просмотра} many {# просмотров} other {# просмотра}}",
     "sourcesEyebrow": "Литература",
     "sourcesTitle": "Источники",
     "sourcesProfileTitle": "На чём основан профиль",

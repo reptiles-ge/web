@@ -107,7 +107,7 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 
 ### Original plan
 
-- `GET /v1/news` (`X-Locale`): published articles, newest first (then `position`), **without sections**: slug, title, dek, lead, dates, series, cover photo, related ids, source names. About 31 × a few KB per locale. Optional filters `hub`, `region`, `species`, `author` (credit author id from `news_media.author_id` and `CreditAuthor` marks), `series`. Optional `limit` / `cursor`, same rules as `/v1/catalog`.
+- `GET /v1/news` (`X-Locale`): published articles, newest first (then `position`), **without sections**: slug, title, dek, lead, dates, series, cover photo, related ids, source names. About 31 × a few KB per locale. Optional filters `hub`, `region`, `species`, `author` (credit author id from `news_media.author_id` and `CreditAuthor` marks), `series`. Search `q`; `page` / `limit` (default 50) with `pageCount` and `facets.hub` in the response.
 - `GET /v1/news/:slug` (`X-Locale`): the full article in that locale with a KA fallback for missing locales (today's `getNewsCopy` behaviour), plus `locales` (which locales really exist) for hreflang.
 - Both public, `edgeCache`, `PUBLIC_CACHE`, `X-Cache-Bypass`, entries in `OPERATIONS` and `schemas/responses.ts` with descriptions, tests against the fixture in all four locales.
 - Drafts never appear in either response.

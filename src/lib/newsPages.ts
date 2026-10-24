@@ -9,7 +9,8 @@ import {
   newsDateTime,
   newsIndexHref,
 } from "@/lib/news";
-import { getNewsListArticles } from "@/lib/newsApi";
+import { getNewsListArticlesPage, type NewsListQuery } from "@/lib/newsApi";
+import { pageOffset } from "@/lib/pagination";
 import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 
 export type NewsPage<T = NewsArticle> = {
@@ -37,8 +38,30 @@ export const NEWS_PAGE_SIZE = 24;
 
 type NewsPageCounts = Record<AppLocale, number>;
 
-export async function getNewsListPage(locale: AppLocale, page: number) {
-  return newsPageOf(await getNewsListArticles(locale), page);
+export async function getNewsListPage(
+  locale: AppLocale,
+  page: number,
+  filters: Pick<NewsListQuery, "hub" | "q"> = {},
+) {
+  if (!Number.isSafeInteger(page) || page < 1) return null;
+  const { articles, facets, pageCount, total } = await getNewsListArticlesPage(
+    locale,
+    page,
+    NEWS_PAGE_SIZE,
+    filters.hub,
+    filters.q,
+  );
+  if (page > pageCount) return null;
+  const start = pageOffset({ limit: NEWS_PAGE_SIZE, page });
+  return {
+    articles,
+    facets,
+    first: articles.length > 0 ? start + 1 : 0,
+    last: start + articles.length,
+    page,
+    pageCount,
+    total,
+  };
 }
 
 export async function getNewsListPageCounts() {
@@ -47,7 +70,7 @@ export async function getNewsListPageCounts() {
       async (locale) =>
         [
           locale,
-          pageCountFor((await getNewsListArticles(locale)).length),
+          (await getNewsListArticlesPage(locale, 1, NEWS_PAGE_SIZE)).pageCount,
         ] as const,
     ),
   );

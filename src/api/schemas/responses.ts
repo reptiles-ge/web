@@ -3,6 +3,7 @@ import { z } from "zod";
 import { locales } from "@/i18n/locales";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
 import { REGION_IDS } from "../lib/catalogFilter";
@@ -881,8 +882,22 @@ export const newsListResponse = component(
   "NewsListResponse",
   z.strictObject({
     data: z.array(newsSummary),
+    facets: doc(
+      z.strictObject({
+        hub: facetCounts(
+          Object.keys(GROUP_HUBS) as GroupHubId[],
+          "Matches for each `hub` value, with the other filters and `q` applied.",
+        ),
+      }),
+      "Counts for the topic filter.",
+    ),
+    limit: doc(z.int().min(1), "Page size."),
     locale: resolvedLocale,
-    nextCursor,
+    page: doc(z.int().min(1), "Page number, from 1."),
+    pageCount: doc(
+      z.int().min(1),
+      "Number of pages for these filters. A page past the end has empty `data`.",
+    ),
     total: doc(z.int().min(0), "Number of matching articles, on every page."),
   }),
   "Published articles in the requested locale, newest first.",
