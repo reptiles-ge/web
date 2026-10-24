@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import { routing } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
 
 import en from "../../../../messages/en.json";
@@ -26,9 +26,15 @@ vi.mock("next-intl/server", () => ({
   setRequestLocale: () => undefined,
 }));
 
-vi.mock("@/data/news", async (importOriginal) => {
-  const { withManyNews } = await import("../../../../tests/fixtures/manyNews");
-  return withManyNews(await importOriginal());
+vi.mock("@/lib/newsApi", async () => {
+  const { manyNewsListArticles } =
+    await import("../../../../tests/fixtures/manyNews");
+  const actual =
+    await vi.importActual<typeof import("@/data/news")>("@/data/news");
+  return {
+    getNewsListArticles: async (locale: AppLocale) =>
+      manyNewsListArticles(actual, locale),
+  };
 });
 
 describe("news index metadata", () => {

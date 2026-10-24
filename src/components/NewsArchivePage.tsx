@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { NewsPage } from "@/lib/newsPages";
 
@@ -23,7 +24,7 @@ export async function NewsArchivePage({
   newsPage,
 }: {
   locale: AppLocale;
-  newsPage: NewsPage;
+  newsPage: NewsPage<NewsListArticle>;
 }) {
   const { articles, first, last, page, pageCount, total } = newsPage;
   const [t, tNav, tShared, visuals] = await Promise.all([

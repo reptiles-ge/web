@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -23,7 +23,7 @@ import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
 import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 type NewsIndexPageProps = {
-  articles: NewsArticle[];
+  articles: NewsListArticle[];
   locale: AppLocale;
   pageCount: number;
   total: number;

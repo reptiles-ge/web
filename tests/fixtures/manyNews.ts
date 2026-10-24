@@ -1,5 +1,8 @@
 import type * as NewsModule from "@/data/news";
+import type { NewsArticle, NewsListArticle, NewsPhoto } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
+
+import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 
 export const MANY_NEWS_TOTAL = 53;
 export const MANY_NEWS_TR_TOTAL = 30;
@@ -25,6 +28,50 @@ export function fakeGetPathname({
         );
   if (locale === "ka") return path;
   return path === "/" ? `/${locale}` : `/${locale}${path}`;
+}
+
+export function manyNewsListArticles(
+  actual: typeof NewsModule,
+  locale: AppLocale,
+) {
+  return withManyNews(actual)
+    .getPublishedNewsArticles(locale)
+    .map((article) => toNewsListArticle(article, locale));
+}
+
+export function toNewsListArticle(
+  article: NewsArticle,
+  locale: AppLocale,
+): NewsListArticle {
+  const copy = article.copy[locale];
+  return {
+    dek: copy.dek,
+    id: article.id,
+    ...(article.image
+      ? {
+          image: {
+            ...article.image,
+            alt: {
+              [locale]: article.image.alt[locale] ?? article.image.alt.ka,
+            } as NewsPhoto["alt"],
+          },
+        }
+      : {}),
+    lead: copy.lead,
+    publishedAt: article.publishedAt,
+    readMinutes: newsCopyReadMinutes(copy),
+    relatedHubIds: article.relatedHubIds,
+    relatedRegionIds: article.relatedRegionIds,
+    relatedSpeciesIds: article.relatedSpeciesIds,
+    ...(article.series ? { series: article.series } : {}),
+    slug: article.slug,
+    sources: article.sources.map((source) => ({
+      name: typeof source.name === "string" ? source.name : source.name[locale],
+      url: source.url,
+    })),
+    title: copy.title,
+    ...(article.updatedAt ? { updatedAt: article.updatedAt } : {}),
+  };
 }
 
 export function withManyNews(actual: typeof NewsModule): typeof NewsModule {

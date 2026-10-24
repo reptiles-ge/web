@@ -774,6 +774,11 @@ const newsSummary = component(
     publishedAt: doc(z.string(), "Publication date, `YYYY-MM-DD`.", [
       "2026-10-17",
     ]),
+    readMinutes: doc(
+      z.int().min(1),
+      "Estimated reading time in minutes, from the title, lead and body at 150 words a minute.",
+      [4],
+    ),
     relatedHubIds: doc(z.array(z.string()), "Group hubs the article is about."),
     relatedRegionIds: doc(
       z.array(z.string()),

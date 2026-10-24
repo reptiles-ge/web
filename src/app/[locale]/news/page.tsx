@@ -13,7 +13,7 @@ import {
   newsIndexUrl,
   newsOgImageUrl,
 } from "@/lib/news";
-import { getNewsPage, newsListingJsonLd } from "@/lib/newsPages";
+import { getNewsListPage, newsListingJsonLd } from "@/lib/newsPages";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { absoluteUrl, localePath } from "@/lib/site";
 
@@ -55,7 +55,7 @@ export default async function NewsIndexRoute({ params }: Props) {
     locale,
     namespace: "groupHubShared",
   });
-  const newsPage = getNewsPage(locale, 1);
+  const newsPage = await getNewsListPage(locale, 1);
   const articles = newsPage?.articles ?? [];
   const url = newsIndexUrl(locale);
   const jsonLd = newsListingJsonLd({

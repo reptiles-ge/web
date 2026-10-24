@@ -139,14 +139,16 @@ export function newsRelatedHubs(article: NewsArticle) {
   return article.relatedHubIds.map((id) => GROUP_HUBS[id]);
 }
 
-export function newsRelatedRegions(article: NewsArticle) {
+export function newsRelatedRegions(
+  article: Pick<NewsArticle, "relatedRegionIds">,
+) {
   return article.relatedRegionIds
     .map((id) => getRegionById(id))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 }
 
 export function newsRelatedSpecies<T extends { id: string }>(
-  article: NewsArticle,
+  article: Pick<NewsArticle, "relatedSpeciesIds">,
   catalog: readonly T[],
 ) {
   const byId = new Map(catalog.map((item) => [item.id, item]));

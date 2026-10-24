@@ -10,6 +10,7 @@ import {
   getPublishedNewsForSpecies,
 } from "@/data/news";
 import { locales } from "@/i18n/locales";
+import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 
 import type { NewsSummaryView } from "../db/newsView";
 
@@ -57,6 +58,11 @@ describe("GET /v1/news", () => {
       expect(body.nextCursor).toBeNull();
       expect(body.data.map((item) => item.title)).toEqual(
         expected.map((article) => getNewsCopy(article, locale).title),
+      );
+      expect(body.data.map((item) => item.readMinutes)).toEqual(
+        expected.map((article) =>
+          newsCopyReadMinutes(getNewsCopy(article, locale)),
+        ),
       );
       expect(JSON.stringify(body)).not.toContain('"sections"');
     },

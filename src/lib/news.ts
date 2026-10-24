@@ -1,4 +1,3 @@
-import type { NewsMark } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -11,6 +10,7 @@ import {
 } from "@/data/news";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { getPathname } from "@/i18n/navigation";
+import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 import { getNewsImageSrc, type NewsSpecies } from "@/lib/newsVisual";
 import {
   absoluteUrl,
@@ -45,7 +45,9 @@ export function newsArticleHref(slug: string) {
   };
 }
 
-export function newsArticleModifiedDateTime(article: NewsArticle) {
+export function newsArticleModifiedDateTime(
+  article: Pick<NewsArticle, "publishedAt" | "updatedAt">,
+) {
   return newsDateTime(article.updatedAt ?? article.publishedAt);
 }
 
@@ -67,7 +69,10 @@ export function newsIndexAlternates(locale: AppLocale) {
 
 export function newsIndexDateFields(
   locale: AppLocale,
-  articles: readonly NewsArticle[] = getPublishedNewsArticles(locale),
+  articles: readonly Pick<
+    NewsArticle,
+    "publishedAt" | "updatedAt"
+  >[] = getPublishedNewsArticles(locale),
 ) {
   const datePublished = sitemapPathDatePublished(newsIndexHref());
   return {
@@ -122,20 +127,11 @@ export function newsOgImageUrl(
 }
 
 export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
-  const copy = getNewsCopy(article, locale) ?? article.copy.ka;
-  const texts = [copy.title, copy.lead];
-  for (const section of copy.sections) {
-    texts.push(section.heading);
-    for (const block of section.blocks) {
-      if (block.type === "p") texts.push(...block.parts.map(newsMarkText));
-    }
-  }
-  const words = texts.join(" ").split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / NEWS_WORDS_PER_MINUTE));
+  return newsCopyReadMinutes(getNewsCopy(article, locale) ?? article.copy.ka);
 }
 
 export function newsSourceBadges(
-  articles: readonly NewsArticle[],
+  articles: readonly Pick<NewsArticle, "sources">[],
   locale: AppLocale,
   limit = NEWS_SOURCE_BADGE_LIMIT,
 ) {
@@ -166,9 +162,9 @@ export function newsSourceBadges(
 
 const NEWS_SOURCE_BADGE_LIMIT = 4;
 
-const NEWS_WORDS_PER_MINUTE = 150;
-
-export function newestNewsDateTime(articles: readonly NewsArticle[]) {
+export function newestNewsDateTime(
+  articles: readonly Pick<NewsArticle, "publishedAt" | "updatedAt">[],
+) {
   let newest: null | string = null;
   let newestTime = Number.NEGATIVE_INFINITY;
   for (const article of articles) {
@@ -183,9 +179,4 @@ export function newestNewsDateTime(articles: readonly NewsArticle[]) {
 
 function newsIndexPath(locale: AppLocale) {
   return getPathname({ href: newsIndexHref(), locale });
-}
-
-function newsMarkText(mark: NewsMark) {
-  if (typeof mark === "string") return mark;
-  return "label" in mark ? mark.label : mark.name;
 }

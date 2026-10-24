@@ -4,6 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { newsSeriesName } from "@/data/newsSeries";
 import { newsMentionsCreditAuthor } from "@/lib/newsAuthorMentions";
+import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 import { newsArticleLocales, newsBodyLinks } from "@/lib/newsRules";
 
 import type { ApiDatabase } from "./database";
@@ -32,6 +33,7 @@ export type NewsSummaryView = {
   lead: string;
   locales: AppLocale[];
   publishedAt: string;
+  readMinutes: number;
   relatedHubIds: string[];
   relatedRegionIds: string[];
   relatedSpeciesIds: string[];
@@ -140,6 +142,7 @@ function newsSummary(article: NewsArticle, locale: AppLocale): NewsSummaryView {
     lead: copy.lead,
     locales: newsArticleLocales(article),
     publishedAt: article.publishedAt,
+    readMinutes: newsCopyReadMinutes(copy),
     relatedHubIds: [...article.relatedHubIds],
     relatedRegionIds: [...article.relatedRegionIds],
     relatedSpeciesIds: [...article.relatedSpeciesIds],

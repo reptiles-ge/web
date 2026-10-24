@@ -19,6 +19,25 @@ export type NewsArticle = {
   updatedAt?: string;
 };
 
+export type NewsListArticle = Pick<
+  NewsArticle,
+  | "id"
+  | "image"
+  | "publishedAt"
+  | "relatedHubIds"
+  | "relatedRegionIds"
+  | "relatedSpeciesIds"
+  | "series"
+  | "slug"
+  | "sources"
+  | "updatedAt"
+> & {
+  dek: string;
+  lead: string;
+  readMinutes: number;
+  title: string;
+};
+
 export type NewsMark =
   | string
   | { href: string; label: string; type: "external" }

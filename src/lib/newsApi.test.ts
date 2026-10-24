@@ -4,16 +4,21 @@ import { describe, expect, it } from "vitest";
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 import { getPublishedNewsArticles } from "@/data/news";
+import { routing } from "@/i18n/routing";
 
+import { toNewsListArticle } from "../../tests/fixtures/manyNews";
 import { server } from "../../tests/msw/server";
-import { getNewsArticle, getNewsList } from "./newsApi";
+import { getNewsArticle, getNewsList, getNewsListArticles } from "./newsApi";
 
-function withoutAuthorIds(article: NewsArticle): NewsArticle {
-  const strip = (photo: NewsPhoto): NewsPhoto => {
-    if (!photo.credit?.authorId) return photo;
-    const { authorId: _authorId, ...credit } = photo.credit;
-    return { ...photo, credit };
-  };
+function strip(photo: NewsPhoto): NewsPhoto {
+  if (!photo.credit?.authorId) return photo;
+  const { authorId: _authorId, ...credit } = photo.credit;
+  return { ...photo, credit };
+}
+
+function withoutAuthorIds<T extends Pick<NewsArticle, "gallery" | "image">>(
+  article: T,
+): T {
   return {
     ...article,
     ...(article.image ? { image: strip(article.image) } : {}),
@@ -65,4 +70,18 @@ describe("getNewsList", () => {
     );
     await expect(getNewsList("ru")).rejects.toThrow("News API answered 503");
   });
+});
+
+describe("getNewsListArticles", () => {
+  it.each(routing.locales)(
+    "rebuilds the %s list articles the index and archive render",
+    async (locale) => {
+      const found = await getNewsListArticles(locale);
+      expect(found.map(withoutAuthorIds)).toStrictEqual(
+        getPublishedNewsArticles(locale).map((article) =>
+          toNewsListArticle(article, locale),
+        ),
+      );
+    },
+  );
 });
