@@ -8,6 +8,15 @@ export type AdminNews = InferResponseType<
   200
 >["data"][number];
 
+export async function clearNewsCache(slug: string) {
+  const response = await api.v1.admin.news[":slug"].revalidate.$post({
+    param: { slug },
+  });
+  const status: number = response.status;
+  if (status === 401 || status === 403) throw new SessionExpiredError();
+  if (!response.ok) throw new Error(`Article cache clear failed: ${status}`);
+}
+
 export async function fetchAdminNews(): Promise<AdminNews[]> {
   const response = await api.v1.admin.news.$get();
   const status: number = response.status;

@@ -3,16 +3,11 @@ import type { ColumnsType } from "antd/es/table";
 import { Space, Tag, Typography } from "antd";
 import { useMemo, useState } from "react";
 
-import {
-  AdminListView,
-  imageColumn,
-  includesQuery,
-  photoCountColumn,
-  revisionColumns,
-  unique,
-  useAdminList,
-} from "./AdminList";
-import { type AdminNews, fetchAdminNews } from "./news";
+import { AdminListView } from "./AdminListView";
+import { ClearCacheButton } from "./ClearCacheButton";
+import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
+import { type AdminNews, clearNewsCache, fetchAdminNews } from "./news";
+import { includesQuery, unique, useAdminList } from "./useAdminList";
 
 const STATUS_COLORS: Record<AdminNews["status"], string> = {
   draft: "gold",
@@ -101,6 +96,25 @@ export function NewsPage({
     },
     photoCountColumn(),
     ...revisionColumns<AdminNews>(),
+    {
+      fixed: "right",
+      key: "actions",
+      render: (_, item) => (
+        <ClearCacheButton
+          description="This article's pages on reptiles.ge render fresh on their next visit, in every language. News lists are not cleared."
+          failure="The article cache could not be cleared. Try again in a minute."
+          label="Clear cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            await clearNewsCache(item.id);
+            return `Cache cleared for ${item.id}.`;
+          }}
+          size="small"
+          title="Clear this article's cache?"
+        />
+      ),
+      title: "Actions",
+    },
   ];
 
   return (

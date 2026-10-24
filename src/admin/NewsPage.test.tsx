@@ -2,11 +2,14 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { type AdminNews, fetchAdminNews } from "./news";
+import { type AdminNews, clearNewsCache, fetchAdminNews } from "./news";
 import { NewsPage } from "./NewsPage";
 import { SessionExpiredError } from "./species";
 
-vi.mock("./news", () => ({ fetchAdminNews: vi.fn() }));
+vi.mock("./news", () => ({
+  clearNewsCache: vi.fn(),
+  fetchAdminNews: vi.fn(),
+}));
 
 const PUBLISHED: AdminNews = {
   id: "batumi-raptor-count",
@@ -40,7 +43,21 @@ function show(onSessionExpired = vi.fn()) {
 
 beforeEach(() => {
   vi.mocked(fetchAdminNews).mockReset();
+  vi.mocked(clearNewsCache).mockReset();
 });
+
+async function clearRow(slug: string) {
+  const row = (await screen.findByText(slug)).closest("tr")!;
+  await userEvent.click(
+    within(row).getByRole("button", { name: "Clear cache" }),
+  );
+  const popup = (
+    await screen.findByText("Clear this article's cache?")
+  ).closest(".ant-popover") as HTMLElement;
+  await userEvent.click(
+    within(popup).getByRole("button", { name: "Clear cache" }),
+  );
+}
 
 describe("NewsPage", () => {
   it("lists drafts and published articles with their locales", async () => {
@@ -82,5 +99,43 @@ describe("NewsPage", () => {
     await userEvent.click(retry!);
     expect(await screen.findByText("cave-isopods")).toBeInTheDocument();
     expect(fetchAdminNews).toHaveBeenCalledTimes(2);
+  });
+
+  it("clears one article's cache from its row after confirmation", async () => {
+    vi.mocked(fetchAdminNews).mockResolvedValue([PUBLISHED, DRAFT]);
+    vi.mocked(clearNewsCache).mockResolvedValue();
+    show();
+    await clearRow("batumi-raptor-count");
+    expect(clearNewsCache).toHaveBeenCalledExactlyOnceWith(
+      "batumi-raptor-count",
+    );
+    expect(
+      await screen.findByText("Cache cleared for batumi-raptor-count."),
+    ).toBeInTheDocument();
+  });
+
+  it("reports a failed clear", async () => {
+    vi.mocked(fetchAdminNews).mockResolvedValue([PUBLISHED]);
+    vi.mocked(clearNewsCache).mockImplementation(async () => {
+      throw new Error("502");
+    });
+    const expired = show();
+    await clearRow("batumi-raptor-count");
+    expect(
+      await screen.findByText(
+        "The article cache could not be cleared. Try again in a minute.",
+      ),
+    ).toBeInTheDocument();
+    expect(expired).not.toHaveBeenCalled();
+  });
+
+  it("sends an expired session back to sign-in from a row action", async () => {
+    vi.mocked(fetchAdminNews).mockResolvedValue([PUBLISHED]);
+    vi.mocked(clearNewsCache).mockImplementation(async () => {
+      throw new SessionExpiredError();
+    });
+    const expired = show();
+    await clearRow("batumi-raptor-count");
+    await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
   });
 });

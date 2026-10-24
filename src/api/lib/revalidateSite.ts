@@ -6,6 +6,10 @@ export function revalidateAuthorPages(env: ApiBindings, id: string) {
   return revalidateSite(env, ["authors", `author:${id}`, "species", "news"]);
 }
 
+export function revalidateNewsArticle(env: ApiBindings, slug: string) {
+  return revalidateSite(env, [`news:${slug}`]);
+}
+
 export function revalidateNewsPages(env: ApiBindings, slug: string) {
   return revalidateSite(env, ["news", `news:${slug}`]);
 }

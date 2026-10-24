@@ -316,3 +316,79 @@ describe("GET /v1/admin/news", () => {
     expect(Object.keys(document.paths).join()).not.toContain("/admin/news");
   });
 });
+
+describe("POST /v1/admin/news/:slug/revalidate", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+  async function revalidate(
+    slug: string,
+    headers: Record<string, string> | undefined = undefined,
+  ) {
+    return requestJson<ErrorBody & { data: { id: string } }>(
+      `/v1/admin/news/${slug}/revalidate`,
+      env,
+      {
+        headers: headers ?? {
+          ...(await adminSessionHeaders(sqlite)),
+          Origin: ADMIN_ORIGIN,
+        },
+        method: "POST",
+      },
+    );
+  }
+
+  beforeEach(() => {
+    useDatabase(createNewsTestDatabase());
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  it("revalidates only that article's pages on the site", async () => {
+    const { body, response } = await revalidate(article.id);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: article.id });
+    expect(siteFetch).toHaveBeenCalledTimes(1);
+    const [request] = siteFetch.mock.calls[0]!;
+    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
+    expect(await request.json()).toEqual({ tags: [`news:${article.id}`] });
+  });
+
+  it("answers 404 for an unknown article and 502 when the site fails", async () => {
+    const missing = await revalidate("no-such-article");
+    expect(missing.response.status).toBe(404);
+    expect(siteFetch).not.toHaveBeenCalled();
+
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    const failed = await revalidate(article.id);
+    expect(failed.response.status).toBe(502);
+    expect(failed.body.error.code).toBe("site_unavailable");
+    log.mockRestore();
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    const cases: Array<[Record<string, string>, number]> = [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+      [
+        {
+          ...(await adminSessionHeaders(sqlite, "editor")),
+          Origin: ADMIN_ORIGIN,
+        },
+        403,
+      ],
+    ];
+    for (const [headers, status] of cases) {
+      expect((await revalidate(article.id, headers)).response.status).toBe(
+        status,
+      );
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await revalidate(article.id)).response.status).toBe(429);
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+});
