@@ -2,11 +2,19 @@ import { routing } from "@/i18n/routing";
 import { createApiClient } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
 import { HOME_NEWS_LIMIT } from "@/lib/newsApi";
+import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
+import { MAX_PAGE_SIZE } from "@/lib/pagination";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const AUTHOR_TAG_PREFIX = "author:";
 
 const CATALOG_VIEWS = ["card", "full", "photos", "quiz"] as const;
+
+const NEWS_LIST_PAGINGS = [
+  { every: false, limit: HOME_NEWS_LIMIT },
+  { every: true, limit: NEWS_PAGE_SIZE },
+  { every: true, limit: MAX_PAGE_SIZE },
+] as const;
 
 const NEWS_TAG_PREFIX = "news:";
 
@@ -53,13 +61,20 @@ export async function refreshSpeciesApiCache(tags: string[]) {
     ]);
   const newsList = tags.includes("news")
     ? routing.locales.flatMap((locale) =>
-        [{}, { limit: String(HOME_NEWS_LIMIT) }].map(
-          (query) => () =>
-            api.v1.news.$get(
-              { header: { "x-locale": locale }, query },
+        NEWS_LIST_PAGINGS.map(({ every, limit }) => async () => {
+          let pageCount = 1;
+          for (let page = 1; page <= pageCount; page += 1) {
+            const response = await api.v1.news.$get(
+              {
+                header: { "x-locale": locale },
+                query: { limit: String(limit), page: String(page) },
+              },
               options,
-            ),
-        ),
+            );
+            if (!every || !response.ok) return;
+            pageCount = (await response.json()).pageCount;
+          }
+        }),
       )
     : [];
   const newsArticles = tags
