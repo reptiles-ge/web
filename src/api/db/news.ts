@@ -7,8 +7,24 @@ import type {
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { locales } from "@/i18n/locales";
+
 import type { ApiDatabase } from "./database";
 import type { NewsRecord } from "./newsRows";
+
+type AdminListRow = {
+  id: string;
+  image: null | string;
+  last_edited_at: null | string;
+  photo_count: number;
+  published_at: string;
+  series_id: null | string;
+  status: NewsArticle["status"];
+  updated_at: null | string;
+  version: number;
+};
+
+type AdminTitleRow = { article_id: string; locale: AppLocale; title: string };
 
 type AltRow = { alt: string; locale: AppLocale; media_id: number };
 
@@ -68,6 +84,41 @@ type TextRow = {
   meta_title: string;
   title: string;
 };
+
+export async function listAdminNews(db: ApiDatabase) {
+  const [articles, titles] = await Promise.all([
+    db
+      .prepare(
+        "SELECT a.id, a.status, a.published_at, a.updated_at, a.series_id, a.version, c.src AS image, (SELECT COUNT(*) FROM news_media g WHERE g.article_id = a.id AND g.role = 'gallery') AS photo_count, (SELECT r.created_at FROM news_revisions r WHERE r.article_id = a.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at FROM news_articles a LEFT JOIN news_media c ON c.article_id = a.id AND c.role = 'cover' ORDER BY a.published_at DESC, a.position",
+      )
+      .all<AdminListRow>(),
+    db
+      .prepare("SELECT article_id, locale, title FROM news_texts")
+      .all<AdminTitleRow>(),
+  ]);
+  const byArticle = new Map<string, Map<AppLocale, string>>();
+  for (const row of titles.results) {
+    const texts = byArticle.get(row.article_id) ?? new Map();
+    texts.set(row.locale, row.title);
+    byArticle.set(row.article_id, texts);
+  }
+  return articles.results.map((row) => {
+    const texts = byArticle.get(row.id) ?? new Map<AppLocale, string>();
+    return {
+      id: row.id,
+      image: row.image,
+      lastEditedAt: row.last_edited_at,
+      locales: locales.filter((locale) => texts.has(locale)),
+      photoCount: row.photo_count,
+      publishedAt: row.published_at,
+      series: row.series_id,
+      status: row.status,
+      title: { en: texts.get("en") ?? null, ka: texts.get("ka") ?? null },
+      updatedAt: row.updated_at,
+      version: row.version,
+    };
+  });
+}
 
 export async function readNewsRecords(
   db: ApiDatabase,

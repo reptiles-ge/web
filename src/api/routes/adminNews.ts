@@ -7,6 +7,7 @@ import { newsReferenceIssues } from "@/lib/newsRules";
 
 import type { ApiEnv } from "../env";
 
+import { listAdminNews } from "../db/news";
 import {
   createNewsArticle,
   readNewsKnownIds,
@@ -19,6 +20,7 @@ import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
 import { revalidateNewsPages } from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
+import { requireAdmin } from "../middleware/requireAdmin";
 import { requireToken } from "../middleware/requireToken";
 import { newsParam } from "../schemas/news";
 import {
@@ -31,6 +33,11 @@ const HUB_IDS = new Set(Object.keys(GROUP_HUBS));
 const REGIONS = new Set(REGION_IDS);
 
 export const adminNews = new Hono<ApiEnv>()
+  .get("/", requireAdmin, async (c) => {
+    const data = await listAdminNews(c.env.DB);
+    c.header("Cache-Control", NO_STORE);
+    return c.json({ data, total: data.length }, 200);
+  })
   .use(requireToken)
   .post(
     "/",

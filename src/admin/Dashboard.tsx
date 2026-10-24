@@ -4,6 +4,7 @@ import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
 import { ClearSiteCacheButton } from "./ClearSiteCacheButton";
+import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
@@ -17,6 +18,7 @@ const SECTIONS: Array<{
   path: string;
 }> = [
   { label: "Species", page: SpeciesPage, path: "/species" },
+  { label: "News", page: NewsPage, path: "/news" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
 ];
 
