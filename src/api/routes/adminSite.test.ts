@@ -2,6 +2,8 @@ import type { DatabaseSync } from "node:sqlite";
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { SITE_PAGE_GROUPS } from "@/lib/sitePageGroups";
+
 import type { ApiBindings } from "../env";
 
 import { app } from "../app";
@@ -181,5 +183,82 @@ describe("POST /v1/admin/site/revalidate", () => {
     const response = await app.request("/v1/docs/openapi.json", {}, env);
     const document = (await response.json()) as { paths: object };
     expect(Object.keys(document.paths).join()).not.toContain("/admin/site");
+  });
+});
+
+describe("GET /v1/admin/site/pages", () => {
+  it("lists the page groups for an admin session or the token", async () => {
+    for (const headers of [
+      await adminSessionHeaders(sqlite),
+      { Authorization: "Bearer test-token" },
+    ]) {
+      const { body, response } = await requestJson<{
+        data: typeof SITE_PAGE_GROUPS;
+        total: number;
+      }>("/v1/admin/site/pages", env, { headers });
+      expect(response.status).toBe(200);
+      expect(response.headers.get("Cache-Control")).toBe("no-store");
+      expect(body.data).toEqual(SITE_PAGE_GROUPS);
+      expect(body.total).toBe(SITE_PAGE_GROUPS.length);
+    }
+  });
+
+  it("refuses everyone else", async () => {
+    for (const [headers, status] of [
+      [{}, 401],
+      [await adminSessionHeaders(sqlite, "editor"), 403],
+    ] as Array<[Record<string, string>, number]>) {
+      const { response } = await requestJson("/v1/admin/site/pages", env, {
+        headers,
+      });
+      expect(response.status).toBe(status);
+    }
+  });
+});
+
+describe("POST /v1/admin/site/pages/:id/revalidate", () => {
+  async function clearGroup(id: string, headers?: Record<string, string>) {
+    return requestJson<ErrorBody & { data: { id: string } }>(
+      `/v1/admin/site/pages/${id}/revalidate`,
+      env,
+      { headers: headers ?? (await signedIn()), method: "POST" },
+    );
+  }
+
+  it("asks the site to revalidate that group", async () => {
+    const { body, response } = await clearGroup("about");
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: "about" });
+    const [request] = siteFetch.mock.calls[0]!;
+    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
+    expect(await request.json()).toEqual({ groups: ["about"] });
+  });
+
+  it("answers 404 for an unknown group and 502 when the site fails", async () => {
+    expect((await clearGroup("nope")).response.status).toBe(404);
+    expect(siteFetch).not.toHaveBeenCalled();
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    const { body, response } = await clearGroup("site");
+    expect(response.status).toBe(502);
+    expect(body.error.code).toBe("site_unavailable");
+    log.mockRestore();
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    for (const [headers, status] of [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: "Bearer test-token", Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await clearGroup("about", headers)).response.status).toBe(status);
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await clearGroup("about")).response.status).toBe(429);
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 });

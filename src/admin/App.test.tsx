@@ -20,6 +20,12 @@ vi.mock("./authors", () => ({
   fetchAdminAuthors: vi.fn(async () => []),
 }));
 
+vi.mock("./site", () => ({
+  clearPageGroupCache: vi.fn(),
+  clearSiteCache: vi.fn(),
+  fetchPageGroups: vi.fn(async () => []),
+}));
+
 vi.mock("./ratings", () => ({
   fetchAdminRatings: vi.fn(async () => ({
     data: [],
@@ -144,6 +150,18 @@ describe("admin App", () => {
       screen.getByRole("link", { name: "Authors" }).closest("li"),
     ).toHaveClass("ant-menu-item-selected");
     expect(document.title).toBe("Authors — reptiles.ge admin");
+  });
+
+  it("opens the cache page from the menu at /cache", async () => {
+    vi.mocked(fetchCurrentUser).mockResolvedValue(ADMIN);
+    render(<App />);
+    const cache = await screen.findByRole("link", { name: "Cache" });
+    expect(cache).toHaveAttribute("href", "/cache");
+    await userEvent.setup().click(cache);
+    expect(
+      await screen.findByRole("heading", { name: "Cache" }),
+    ).toBeInTheDocument();
+    expect(document.title).toBe("Cache — reptiles.ge admin");
   });
 
   it("navigates between pages and follows the back button", async () => {

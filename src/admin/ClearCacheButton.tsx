@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SessionExpiredError } from "./adminResponse";
 
 export function ClearCacheButton({
+  danger,
   description,
   failure,
   label,
@@ -12,6 +13,7 @@ export function ClearCacheButton({
   size,
   title,
 }: {
+  danger?: boolean;
   description: string;
   failure: string;
   label: string;
@@ -47,7 +49,7 @@ export function ClearCacheButton({
         onConfirm={clear}
         title={title}
       >
-        <Button loading={pending} size={size}>
+        <Button danger={danger} loading={pending} size={size}>
           {label}
         </Button>
       </Popconfirm>
