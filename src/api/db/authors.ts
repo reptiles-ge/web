@@ -128,6 +128,27 @@ export async function getAuthorDetail(
   return record ? authorProfile(record, locale, photoCount) : null;
 }
 
+export async function getContributorDetail(
+  db: ApiDatabase,
+  id: string,
+  locale: AppLocale,
+) {
+  const [record, counts] = await Promise.all([
+    readAuthor(db, id),
+    db
+      .prepare(
+        "SELECT COUNT(DISTINCT m.src) AS photos, COUNT(DISTINCT m.species_id) AS species FROM species_media m JOIN species s ON s.id = m.species_id WHERE m.author_id = ? AND m.role != 'audio' AND s.status = 'published'",
+      )
+      .bind(id)
+      .first<{ photos: number; species: number }>(),
+  ]);
+  if (!record?.isContributor) return null;
+  return {
+    ...authorProfile(record, locale, counts?.photos ?? 0),
+    speciesCount: counts?.species ?? 0,
+  };
+}
+
 export async function listAuthors(
   db: ApiDatabase,
   locale: AppLocale,

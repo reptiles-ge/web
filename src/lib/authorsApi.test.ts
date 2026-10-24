@@ -5,6 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { recordRequests, server } from "../../tests/msw/server";
 import {
+  getContributor,
   getContributorDirectory,
   getContributors,
   getTopContributors,
@@ -39,6 +40,38 @@ describe("getContributors", () => {
     );
     await expect(getContributors("ka")).rejects.toThrow(
       "Contributors API answered 500",
+    );
+  });
+});
+
+describe("getContributor", () => {
+  it("loads one contributor in one request", async () => {
+    const requests = recordRequests();
+    const author = await getContributor("zauri-khachidze", "en");
+    requests.stop();
+    expect(requests.urls).toEqual([`${CONTRIBUTORS_URL}/zauri-khachidze`]);
+    expect(author).toMatchObject({
+      id: "zauri-khachidze",
+      name: "Zauri Khachidze",
+      speciesCount: expect.any(Number),
+    });
+  });
+
+  it("returns null for an unknown contributor", async () => {
+    expect(await getContributor("nobody", "ka")).toBeNull();
+  });
+
+  it("fails loudly when the API errors", async () => {
+    server.use(
+      http.get(`${CONTRIBUTORS_URL}/:id`, () =>
+        HttpResponse.json(
+          { error: { code: "internal_error" } },
+          { status: 500 },
+        ),
+      ),
+    );
+    await expect(getContributor("zauri-khachidze", "ka")).rejects.toThrow(
+      "Contributors API answered 500 for zauri-khachidze",
     );
   });
 });

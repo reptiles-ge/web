@@ -249,6 +249,25 @@ export const RESPONSE_EXAMPLES = {
     total: 145,
     view: "quiz",
   },
+  contributor: {
+    data: {
+      affiliations: ["borjomi-kharagauli-national-park"],
+      aliases: ["Zauri Khachidze", "Заури Хачидзе", "ზაური ხაჩიძე"],
+      bio: "Ranger at Borjomi-Kharagauli National Park and wildlife photographer.",
+      id: "zauri-khachidze",
+      isContributor: true,
+      jobTitle: "ranger",
+      kind: "person",
+      links: { facebook: "https://www.facebook.com/zauri.xachidze/" },
+      name: "Zauri Khachidze",
+      photoCount: 67,
+      portraitClass: "object-[50%_32%]",
+      portraitSrc: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
+      role: "ranger",
+      speciesCount: 27,
+    },
+    locale: "en",
+  },
   contributorList: {
     data: [
       {

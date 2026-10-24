@@ -641,6 +641,12 @@ export const contributorListResponse = component(
   "Contributors, most photos first.",
 );
 
+export const contributorResponse = component(
+  "ContributorResponse",
+  z.strictObject({ data: contributorProfile, locale: resolvedLocale }),
+  "One contributor's profile.",
+);
+
 export const authorResponse = component(
   "AuthorResponse",
   z.strictObject({ data: authorProfile, locale: resolvedLocale }),

@@ -97,3 +97,47 @@ describe("GET /v1/contributors", () => {
     expect(response.status).toBe(400);
   });
 });
+
+describe("GET /v1/contributors/:id", () => {
+  it.each(["ka", "en", "ru", "tr"])(
+    "returns the same profile as the list (%s)",
+    async (locale) => {
+      const { body } = await list("", locale);
+      for (const entry of body.data) {
+        const single = await requestJson<{ data: Contributor; locale: string }>(
+          `/v1/contributors/${entry.id}`,
+          env,
+          { headers: { "X-Locale": locale } },
+        );
+        expect(single.response.status).toBe(200);
+        expect(single.response.headers.get("Content-Language")).toBe(locale);
+        expect(single.body).toStrictEqual({ data: entry, locale });
+      }
+    },
+  );
+
+  it("answers 404 for an author without a contributor page", async () => {
+    const { body: authors } = await requestJson<{
+      data: Array<{ id: string; isContributor: boolean }>;
+    }>("/v1/authors", env);
+    const credited = authors.data.find((author) => !author.isContributor);
+    expect(credited).toBeDefined();
+    const { body, response } = await requestJson<ErrorBody>(
+      `/v1/contributors/${credited!.id}`,
+      env,
+    );
+    expect(response.status).toBe(404);
+    expect(body.error.code).toBe("not_found");
+  });
+
+  it("answers 404 for an unknown id and 400 for a malformed one", async () => {
+    const missing = await requestJson<ErrorBody>(
+      "/v1/contributors/nobody",
+      env,
+    );
+    expect(missing.response.status).toBe(404);
+    const bad = await requestJson<ErrorBody>("/v1/contributors/Bad_Id!", env);
+    expect(bad.response.status).toBe(400);
+    expect(bad.body.error.code).toBe("invalid_request");
+  });
+});

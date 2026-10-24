@@ -370,6 +370,28 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
+      "One contributor's profile, the same fields as an entry in `/v1/contributors`. Authors who are only credited on photos (no page on reptiles.ge) answer 404; use `/v1/authors/{id}` for them.",
+    errors: [400, 404],
+    header: localeHeader,
+    method: "get",
+    operationId: "getContributor",
+    param: authorParam,
+    path: "/v1/contributors/{id}",
+    success: {
+      description: "Contributor profile.",
+      examples: {
+        zauriKhachidze: {
+          summary: "A contributor",
+          value: RESPONSE_EXAMPLES.contributor,
+        },
+      },
+      schema: ref("ContributorResponse"),
+    },
+    summary: "Get a contributor",
+    tag: "Authors",
+  },
+  {
+    description:
       "Published news articles in the requested locale, newest first, without their body. Only articles written in that locale are listed. Filter with `hub`, `region`, `species`, `series` or `author`; filters combine. Pagination is optional: pass `limit`, then each response's `nextCursor` as `cursor` until it is `null`.",
     errors: [400],
     header: localeHeader,

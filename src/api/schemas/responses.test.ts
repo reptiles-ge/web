@@ -17,6 +17,7 @@ import {
   catalogPhotosResponse,
   catalogQuizResponse,
   contributorListResponse,
+  contributorResponse,
   errorResponse,
   fieldRecordsResponse,
   newsListResponse,
@@ -95,6 +96,11 @@ describe("documented response schemas", () => {
           `contributors${query} ${locale}`,
         );
       }
+      const { body: one } = await getJson(
+        "/v1/contributors/zauri-khachidze",
+        locale,
+      );
+      expectValid(contributorResponse, one, `contributors/zauri ${locale}`);
     }
     const { body } = await getJson("/v1/authors");
     for (const { id } of (body as { data: Array<{ id: string }> }).data) {
