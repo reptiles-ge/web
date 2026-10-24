@@ -3,6 +3,7 @@ import type { MouseEvent, ReactNode } from "react";
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { ClearSiteCacheButton } from "./ClearSiteCacheButton";
 import { RatingsPage } from "./RatingsPage";
 import { navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
@@ -101,6 +102,7 @@ export function Dashboard({
             >
               {user.email}
             </Typography.Text>
+            <ClearSiteCacheButton onSessionExpired={onSignedOut} />
             <Button loading={pending} onClick={logout}>
               Sign out
             </Button>

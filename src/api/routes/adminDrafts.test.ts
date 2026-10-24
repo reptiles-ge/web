@@ -122,7 +122,7 @@ describe("species drafts", () => {
     expect(invalid.response.status).toBe(400);
   });
 
-  it("publishes an approved draft as a revision and revalidates the site", async () => {
+  it("publishes an approved draft as a revision without revalidating the site", async () => {
     const { body } = await propose((record) => {
       record.base.overview = "AI overview";
     });
@@ -142,7 +142,7 @@ describe("species drafts", () => {
       sqlite.prepare("SELECT status, decided_by FROM species_drafts").all(),
     ).toEqual([{ decided_by: "nika", status: "approved" }]);
     await Promise.all(pending);
-    expect(siteFetch).toHaveBeenCalledTimes(1);
+    expect(siteFetch).not.toHaveBeenCalled();
     const again = await post<ErrorBody>(
       `/drafts/${body.data.draftId}/approve`,
       {

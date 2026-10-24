@@ -18,10 +18,8 @@ import {
   type SpeciesRevision,
   writeSpeciesRecord,
 } from "../db/speciesWrite";
-import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
-import { revalidateSpeciesPages } from "../lib/revalidateSite";
 import {
   removePhoto,
   reorderPhotos,
@@ -308,7 +306,6 @@ async function save(
     if (now !== null && now !== expectedVersion) throw versionConflict(now);
     throw error;
   }
-  inBackground(c, revalidateSpeciesPages(c.env, id));
   return version;
 }
 
