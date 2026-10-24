@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
 import { CachePage } from "./CachePage";
+import { NewsDetailPage } from "./NewsDetailPage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { followLink, navigate, usePathname } from "./router";
@@ -36,6 +37,7 @@ const DETAILS: Array<{
   path: string;
 }> = [
   { page: SpeciesDetailPage, path: "/species" },
+  { page: NewsDetailPage, path: "/news" },
   { page: AuthorDetailPage, path: "/authors" },
 ];
 

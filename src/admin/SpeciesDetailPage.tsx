@@ -1,6 +1,7 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Button, Table, Tabs, Tag, Typography } from "antd";
+import { useState } from "react";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
 import { AdminLink } from "./AdminLink";
@@ -14,6 +15,7 @@ import {
   fetchAdminSpeciesRecord,
   SPECIES_STATUS_COLORS,
 } from "./species";
+import { SpeciesTextsEditor } from "./SpeciesTextsEditor";
 import { useAdminData } from "./useAdminList";
 
 type Base = AdminSpeciesRecord["record"]["base"];
@@ -147,6 +149,7 @@ export function SpeciesDetailPage({
       Promise.all([fetchAdminSpeciesRecord(id), fetchAdminFieldRecords(id)]),
     onSessionExpired,
   );
+  const [savedVersion, setSavedVersion] = useState<null | number>(null);
   const value =
     data === undefined
       ? undefined
@@ -197,7 +200,7 @@ export function SpeciesDetailPage({
                     {record.status}
                   </Tag>
                   <Tag>{record.group}</Tag>
-                  <Tag>version {version}</Tag>
+                  <Tag>version {savedVersion ?? version}</Tag>
                 </>
               }
               title={record.base.commonName}
@@ -217,6 +220,19 @@ export function SpeciesDetailPage({
                   ),
                   key: "photos",
                   label: `Photos (${photos.length})`,
+                },
+                {
+                  children: (
+                    <SpeciesTextsEditor
+                      id={id}
+                      onSaved={setSavedVersion}
+                      onSessionExpired={onSessionExpired}
+                      record={record}
+                      version={version}
+                    />
+                  ),
+                  key: "texts",
+                  label: "Texts",
                 },
                 {
                   children: (

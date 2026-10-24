@@ -3,6 +3,7 @@ import type { ColumnsType } from "antd/es/table";
 import { Space, Tag, Typography } from "antd";
 import { useMemo, useState } from "react";
 
+import { AdminLink } from "./AdminLink";
 import { AdminListView } from "./AdminListView";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
@@ -47,7 +48,9 @@ export function NewsPage({
       key: "title",
       render: (_, item) => (
         <Space orientation="vertical" size={0}>
-          <Typography.Text strong>{item.title.ka ?? "—"}</Typography.Text>
+          <AdminLink path={`/news/${item.id}`} strong>
+            {item.title.ka ?? item.id}
+          </AdminLink>
           <Typography.Text type="secondary">
             {item.title.en ?? "—"}
           </Typography.Text>

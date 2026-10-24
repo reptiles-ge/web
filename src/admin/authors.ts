@@ -1,6 +1,6 @@
-import type { InferResponseType } from "hono/client";
+import type { InferRequestType, InferResponseType } from "hono/client";
 
-import { checkAdminResponse } from "./adminResponse";
+import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
 
 export type AdminAuthor = InferResponseType<
@@ -17,6 +17,10 @@ export type AdminAuthorRecord = InferResponseType<
   (typeof api.v1.admin.authors)[":id"]["$get"],
   200
 >["data"];
+
+export type AuthorTextsInput = InferRequestType<
+  (typeof api.v1.admin.authors)[":id"]["texts"]["$post"]
+>["json"]["texts"];
 
 export async function clearAuthorCache(id: string) {
   checkAdminResponse(
@@ -58,4 +62,12 @@ export async function fetchAdminAuthors(): Promise<AdminAuthor[]> {
   const response = await api.v1.admin.authors.$get();
   checkAdminResponse(response, "Authors list failed");
   return (await response.json()).data;
+}
+
+export async function saveAuthorTexts(id: string, texts: AuthorTextsInput) {
+  const response = await api.v1.admin.authors[":id"].texts.$post({
+    json: { texts },
+    param: { id },
+  });
+  await checkAdminSave(response, "Author texts save failed");
 }

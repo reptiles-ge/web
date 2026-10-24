@@ -2,7 +2,7 @@ import type { DatabaseSync } from "node:sqlite";
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsMark } from "@/data/newsTypes";
 
 import { NEWS_ARTICLES } from "@/data/news.generated";
 
@@ -447,5 +447,169 @@ describe("POST /v1/admin/news/revalidate", () => {
     env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
     expect((await clearSection()).response.status).toBe(429);
     expect(siteFetch).not.toHaveBeenCalled();
+  });
+});
+
+describe("admin news text edits", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+  beforeEach(() => {
+    useDatabase(createNewsTestDatabase());
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  async function read(slug: string, headers?: Record<string, string>) {
+    return requestJson<
+      ErrorBody & { data: { article: NewsArticle; version: number } }
+    >(`/v1/admin/news/${slug}`, env, {
+      headers: headers ?? (await adminSessionHeaders(sqlite)),
+    });
+  }
+
+  async function edit(
+    slug: string,
+    body: unknown,
+    headers?: Record<string, string>,
+  ) {
+    return requestJson<ErrorBody & { data: { id: string; version: number } }>(
+      `/v1/admin/news/${slug}/copy`,
+      env,
+      {
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+          ...(headers ?? {
+            ...(await adminSessionHeaders(sqlite)),
+            Origin: ADMIN_ORIGIN,
+          }),
+        },
+        method: "POST",
+      },
+    );
+  }
+
+  function firstParagraph(copy: NewsArticle["copy"]) {
+    const block = copy.ka.sections
+      .flatMap((section) => section.blocks)
+      .find((item) => item.type === "p");
+    if (!block || block.type !== "p") throw new Error("No paragraph");
+    return block as { parts: NewsMark[]; type: "p" };
+  }
+
+  it("reads the whole article with its version", async () => {
+    const { body, response } = await read(article.id);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data.version).toBe(1);
+    expect(body.data.article.copy).toEqual(article.copy);
+    expect(body.data.article.gallery?.length).toBe(article.gallery?.length);
+    expect((await read("no-such-article")).response.status).toBe(404);
+    expect((await read(article.id, {})).response.status).toBe(401);
+  });
+
+  it("saves new text as a revision without touching photos or the site", async () => {
+    const before = (await read(article.id)).body.data.article;
+    const copy = structuredClone(article.copy);
+    copy.ka.title = "ახალი სათაური";
+    firstParagraph(copy).parts.unshift("ახალი ტექსტი. ");
+    const { body, response } = await edit(article.id, {
+      copy,
+      expectedVersion: 1,
+      summary: "Fix the title",
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: article.id, version: 2 });
+    const after = (await read(article.id)).body;
+    expect(after.data.version).toBe(2);
+    expect(after.data.article).toEqual({ ...before, copy });
+    expect(
+      sqlite
+        .prepare(
+          "SELECT version, actor, source, summary FROM news_revisions WHERE article_id = ?",
+        )
+        .all(article.id),
+    ).toEqual([
+      { actor: "Admin", source: "admin", summary: "Fix the title", version: 2 },
+    ]);
+    expect(siteFetch).not.toHaveBeenCalled();
+
+    const stale = await edit(article.id, {
+      copy,
+      expectedVersion: 1,
+      summary: "Again",
+    });
+    expect(stale.response.status).toBe(409);
+    expect(stale.body.error.code).toBe("version_conflict");
+  });
+
+  it("refuses a change to photos, sections, locales or links", async () => {
+    const withoutFigure = structuredClone(article.copy);
+    for (const section of withoutFigure.ka.sections) {
+      const blocks = section.blocks.filter((item) => item.type !== "figure");
+      section.blocks =
+        blocks.length > 0 ? blocks : [{ parts: ["x"], type: "p" }];
+    }
+    const extraSection = structuredClone(article.copy);
+    extraSection.ka.sections.push({
+      blocks: [{ parts: ["x"], type: "p" }],
+      heading: "x",
+    });
+    const noEnglish: Partial<NewsArticle["copy"]> = structuredClone(
+      article.copy,
+    );
+    delete noEnglish.en;
+    const unknownSpecies = structuredClone(article.copy);
+    firstParagraph(unknownSpecies).parts.push({
+      id: "no-such-species",
+      label: "x",
+      type: "species",
+    });
+    for (const copy of [
+      withoutFigure,
+      extraSection,
+      noEnglish,
+      unknownSpecies,
+    ]) {
+      const { body, response } = await edit(article.id, {
+        copy,
+        expectedVersion: 1,
+        summary: "x",
+      });
+      expect(response.status).toBe(400);
+      expect(body.error.code).toBe("invalid_request");
+    }
+    expect(
+      (await edit(article.id, { copy: article.copy, summary: "x" })).response
+        .status,
+    ).toBe(400);
+    expect(
+      (
+        await edit("no-such-article", {
+          copy: article.copy,
+          expectedVersion: 1,
+          summary: "x",
+        })
+      ).response.status,
+    ).toBe(404);
+    expect((await read(article.id)).body.data.version).toBe(1);
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const body = { copy: article.copy, expectedVersion: 1, summary: "x" };
+    const session = await adminSessionHeaders(sqlite);
+    const cases: Array<[Record<string, string>, number]> = [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ];
+    for (const [headers, status] of cases) {
+      expect((await edit(article.id, body, headers)).response.status).toBe(
+        status,
+      );
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await edit(article.id, body)).response.status).toBe(429);
   });
 });

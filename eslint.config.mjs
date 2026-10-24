@@ -169,9 +169,21 @@ const eslintConfig = defineConfig([
               message:
                 "antd is for the admin app (src/admin) only. It must never reach the reptiles.ge bundle.",
             },
+            {
+              group: ["@tiptap/*"],
+              message:
+                "TipTap is the admin text editor (src/admin) only. It must never reach the reptiles.ge bundle.",
+            },
           ],
         },
       ],
+    },
+  },
+  {
+    files: ["src/admin/**/*.{ts,tsx}"],
+    rules: {
+      "@next/next/no-img-element": "off",
+      "tailwindcss/no-custom-classname": "off",
     },
   },
   {

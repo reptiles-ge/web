@@ -1,6 +1,6 @@
-import type { InferResponseType } from "hono/client";
+import type { InferRequestType, InferResponseType } from "hono/client";
 
-import { checkAdminResponse } from "./adminResponse";
+import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
 
 export { SessionExpiredError } from "./adminResponse";
@@ -17,6 +17,15 @@ export type AdminSpecies = InferResponseType<
 
 export type AdminSpeciesRecord = InferResponseType<
   (typeof api.v1.admin.species)[":id"]["$get"],
+  200
+>["data"];
+
+export type SpeciesTextsInput = InferRequestType<
+  (typeof api.v1.admin.species)[":id"]["texts"]["$post"]
+>["json"];
+
+type SpeciesTextsSaved = InferResponseType<
+  (typeof api.v1.admin.species)[":id"]["texts"]["$post"],
   200
 >["data"];
 
@@ -59,4 +68,16 @@ export async function fetchAdminSpeciesRecord(
   if (status === 404) return null;
   checkAdminResponse(response, "Species record failed");
   return (await response.json()).data;
+}
+
+export async function saveSpeciesTexts(
+  id: string,
+  json: SpeciesTextsInput,
+): Promise<SpeciesTextsSaved> {
+  const response = await api.v1.admin.species[":id"].texts.$post({
+    json,
+    param: { id },
+  });
+  await checkAdminSave(response, "Species texts save failed");
+  return ((await response.json()) as { data: SpeciesTextsSaved }).data;
 }

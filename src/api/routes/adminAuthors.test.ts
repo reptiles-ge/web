@@ -455,3 +455,78 @@ describe("GET /v1/admin/authors/:id and /:id/photos", () => {
     ).toBe(403);
   });
 });
+
+describe("POST /v1/admin/authors/:id/texts", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+  const ID = "sandro-khakhva";
+
+  beforeEach(() => {
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  async function saveTexts(
+    texts: unknown,
+    headers?: Record<string, string>,
+    id = ID,
+  ) {
+    return requestJson<ErrorBody & { data: { id: string } }>(
+      `/v1/admin/authors/${id}/texts`,
+      env,
+      {
+        body: JSON.stringify({ texts }),
+        headers: {
+          "Content-Type": "application/json",
+          ...(headers ?? {
+            ...(await adminSessionHeaders(sqlite)),
+            Origin: ADMIN_ORIGIN,
+          }),
+        },
+        method: "POST",
+      },
+    );
+  }
+
+  it("replaces the texts and keeps the rest of the author", async () => {
+    const before = (await getAuthor(ID)).body.data;
+    const texts = {
+      ...before.texts,
+      en: { ...before.texts.en, bio: "A new English bio.", name: "Sandro" },
+    };
+    const { body, response } = await saveTexts(texts);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: ID });
+    expect((await getAuthor(ID)).body.data).toEqual({ ...before, texts });
+    expect(linkedMedia(ID)).toBeGreaterThan(0);
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("refuses invalid texts and unknown authors", async () => {
+    const before = (await getAuthor(ID)).body.data;
+    const noGeorgian = { en: before.texts.en };
+    for (const texts of [noGeorgian, { ka: { name: "" } }, { xx: {} }]) {
+      const { body, response } = await saveTexts(texts);
+      expect(response.status).toBe(400);
+      expect(body.error.code).toBe("invalid_request");
+    }
+    expect(
+      (await saveTexts(before.texts, undefined, "nobody")).response.status,
+    ).toBe(404);
+    expect((await getAuthor(ID)).body.data).toEqual(before);
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const { texts } = (await getAuthor(ID)).body.data;
+    const session = await adminSessionHeaders(sqlite);
+    for (const [headers, status] of [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await saveTexts(texts, headers)).response.status).toBe(status);
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await saveTexts(texts)).response.status).toBe(429);
+  });
+});
