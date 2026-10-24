@@ -67,3 +67,4 @@ jobs:
           BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
           BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
           BUNNY_STORAGE_REGION: ${{ vars.BUNNY_STORAGE_REGION }}
+          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
