@@ -62,7 +62,7 @@
     "map:compile": "tsx scripts/compile-georgia-map.ts",
     "images:check": "pnpm run slugs:compile && tsx scripts/check-image-urls.ts",
     "images:check-og": "pnpm run slugs:compile && tsx scripts/check-og-images.ts",
-    "images:og-missing": "pnpm run slugs:compile && tsx scripts/generate-missing-og.ts",
+    "images:og-missing": "pnpm run slugs:compile && pnpm run images:compile && tsx scripts/generate-missing-og.ts",
     "images:og-guides": "tsx scripts/generate-guide-og.ts",
     "images:news-schema": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && tsx scripts/generate-news-schema-images.ts",
     "images:unused": "node scripts/remove-unused-images.js",
