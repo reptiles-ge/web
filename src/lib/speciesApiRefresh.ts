@@ -3,6 +3,8 @@ import { createApiClient } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
+const AUTHOR_TAG_PREFIX = "author:";
+
 const CATALOG_VIEWS = ["card", "full", "photos", "quiz"] as const;
 
 const NEWS_TAG_PREFIX = "news:";
@@ -69,9 +71,35 @@ export async function refreshSpeciesApiCache(tags: string[]) {
           ),
       ),
     );
-  await [...catalog, ...profiles, ...newsList, ...newsArticles].reduce<
-    Promise<void>
-  >(
+  const contributorList = tags.includes("authors")
+    ? routing.locales.map(
+        (locale) => () =>
+          api.v1.contributors.$get(
+            { header: { "x-locale": locale }, query: {} },
+            options,
+          ),
+      )
+    : [];
+  const contributors = tags
+    .filter((tag) => tag.startsWith(AUTHOR_TAG_PREFIX))
+    .map((tag) => tag.slice(AUTHOR_TAG_PREFIX.length))
+    .flatMap((id) =>
+      routing.locales.map(
+        (locale) => () =>
+          api.v1.contributors[":id"].$get(
+            { header: { "x-locale": locale }, param: { id } },
+            options,
+          ),
+      ),
+    );
+  await [
+    ...catalog,
+    ...profiles,
+    ...newsList,
+    ...newsArticles,
+    ...contributorList,
+    ...contributors,
+  ].reduce<Promise<void>>(
     (previous, request) =>
       previous.then(() =>
         request().then(

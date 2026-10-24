@@ -8,8 +8,10 @@ import {
   readAuthor,
   writeAuthor,
 } from "../db/authors";
+import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
+import { revalidateAuthorPages } from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
 import { requireToken } from "../middleware/requireToken";
 import { authorParam, authorWriteBody } from "../schemas/authors";
@@ -51,6 +53,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
+      inBackground(c, revalidateAuthorPages(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
