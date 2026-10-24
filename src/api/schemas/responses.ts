@@ -476,7 +476,7 @@ export const speciesResponse = component(
     locale: resolvedLocale,
     views: doc(
       z.int().min(0),
-      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
+      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
     ),
   }),
   "One species profile.",
@@ -560,7 +560,7 @@ export const catalogFullResponse = component(
 
 const authorId = doc(
   z.string(),
-  "Stable author id, lowercase and hyphenated. For a contributor it is also the slug of their page on reptiles.ge.",
+  "Stable author id, lowercase and hyphenated. For a contributor it is also the slug of their page on Reptiles.ge.",
   ["sandro-khakhva"],
 );
 
@@ -582,7 +582,7 @@ const authorRole = doc(
 
 const isContributor = doc(
   z.boolean(),
-  "`true` when the author has a contributor page on reptiles.ge. Other authors are only credited on photos.",
+  "`true` when the author has a contributor page on Reptiles.ge. Other authors are only credited on photos.",
 );
 
 const authorPhotoCount = doc(
@@ -644,7 +644,7 @@ const authorProfileFields = {
   photoCount: authorPhotoCount,
   portraitClass: doc(
     z.string().nullable(),
-    "CSS `object-position` hint used to crop the portrait on reptiles.ge.",
+    "CSS `object-position` hint used to crop the portrait on Reptiles.ge.",
   ),
   portraitSrc: doc(
     z.string().nullable(),
@@ -668,7 +668,7 @@ const contributorProfile = component(
       "Number of published species with at least one photo credited to this contributor.",
     ),
   }),
-  "A contributor's profile with the counts shown on reptiles.ge.",
+  "A contributor's profile with the counts shown on Reptiles.ge.",
 );
 
 export const authorListResponse = component(
@@ -715,7 +715,7 @@ const plain = (description: string, examples?: string[]) =>
 
 const newsSlug = doc(
   z.string(),
-  "Article slug: lowercase Latin words joined by hyphens. The same in every locale; also the URL part on reptiles.ge (`/news/{slug}`).",
+  "Article slug: lowercase Latin words joined by hyphens. The same in every locale; also the URL part on Reptiles.ge (`/news/{slug}`).",
   ["lagodekhi-iucn-mwvane-sia"],
 );
 
@@ -913,7 +913,7 @@ export const newsResponse = component(
     ),
     views: doc(
       z.int().min(0),
-      "Views of this article on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
+      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
     ),
   }),
   "One news article.",
