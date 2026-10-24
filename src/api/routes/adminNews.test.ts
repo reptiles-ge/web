@@ -8,7 +8,12 @@ import { NEWS_ARTICLES } from "@/data/news.generated";
 
 import type { ApiBindings } from "../env";
 
+import { app } from "../app";
 import { readNewsRecords } from "../db/news";
+import {
+  ADMIN_SESSION_COOKIE,
+  adminSessionHeaders,
+} from "../testing/adminSession";
 import { type ErrorBody, requestJson } from "../testing/request";
 import {
   createNewsTestDatabase,
@@ -209,5 +214,105 @@ describe("POST /v1/admin/news/:slug/status", () => {
     const missing = await publish("no-such-article", 1);
     expect(missing.response.status).toBe(404);
     expect(siteFetch).not.toHaveBeenCalled();
+  });
+});
+
+type AdminNewsList = {
+  data: Array<{
+    id: string;
+    image: null | string;
+    lastEditedAt: null | string;
+    locales: string[];
+    photoCount: number;
+    publishedAt: string;
+    series: null | string;
+    status: string;
+    title: { en: null | string; ka: null | string };
+    updatedAt: null | string;
+    version: number;
+  }>;
+  total: number;
+};
+
+function list(
+  headers: Record<string, string> = { Authorization: `Bearer ${TOKEN}` },
+) {
+  return requestJson<AdminNewsList & ErrorBody>("/v1/admin/news", env, {
+    headers,
+  });
+}
+
+describe("GET /v1/admin/news", () => {
+  it("lists every article newest first with its admin fields", async () => {
+    useDatabase(createNewsTestDatabase());
+    const { body, response } = await list();
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    const order = sqlite
+      .prepare(
+        "SELECT id FROM news_articles ORDER BY published_at DESC, position",
+      )
+      .all() as Array<{ id: string }>;
+    expect(body.data.map(({ id }) => id)).toEqual(order.map(({ id }) => id));
+    expect(body.total).toBe(order.length);
+    const item = body.data.find(({ id }) => id === article.id)!;
+    expect(item).toEqual({
+      id: article.id,
+      image: article.image?.src ?? null,
+      lastEditedAt: null,
+      locales: ["ka", "en", "ru", "tr"].filter(
+        (locale) => locale in article.copy,
+      ),
+      photoCount: article.gallery?.length ?? 0,
+      publishedAt: article.publishedAt,
+      series: article.series ?? null,
+      status: article.status,
+      title: { en: article.copy.en.title, ka: article.copy.ka.title },
+      updatedAt: article.updatedAt ?? null,
+      version: 1,
+    });
+  });
+
+  it("shows a draft with its last revision", async () => {
+    expect((await create()).response.status).toBe(201);
+    const { body } = await list();
+    expect(body.data).toHaveLength(1);
+    expect(body.data[0]).toMatchObject({
+      id: article.id,
+      status: "draft",
+      version: 1,
+    });
+    expect(body.data[0]!.lastEditedAt).toEqual(expect.any(String));
+  });
+
+  it("lets a signed-in admin read the list, but not write", async () => {
+    const session = await adminSessionHeaders(sqlite);
+    expect((await list(session)).response.status).toBe(200);
+    const write = await requestJson<ErrorBody>("/v1/admin/news", env, {
+      body: JSON.stringify({}),
+      headers: { ...session, "Content-Type": "application/json" },
+      method: "POST",
+    });
+    expect(write.response.status).toBe(401);
+  });
+
+  it("refuses everyone else", async () => {
+    const cases: Array<[Record<string, string>, number]> = [
+      [{}, 401],
+      [{ Authorization: "Bearer wrong" }, 401],
+      [{ Cookie: `${ADMIN_SESSION_COOKIE}=made-up` }, 401],
+      [await adminSessionHeaders(sqlite, "editor"), 403],
+    ];
+    for (const [headers, status] of cases) {
+      const { body, response } = await list(headers);
+      expect(response.status).toBe(status);
+      expect(body.data).toBeUndefined();
+    }
+  });
+
+  it("stays out of the public API document", async () => {
+    const response = await app.request("/v1/docs/openapi.json", {}, env);
+    const document = (await response.json()) as { paths: object };
+    expect(Object.keys(document.paths).join()).not.toContain("/admin/news");
   });
 });
