@@ -156,7 +156,7 @@ Two generated files are tracked in Git. Do not edit them by hand; regenerate the
 
 | Output                                  | Source                         | Script                                       |
 | --------------------------------------- | ------------------------------ | -------------------------------------------- |
-| `src/data/georgia-paths.generated.ts`   | `src/assets/maps/georgia.svg`  | `pnpm map:compile` (also part of `compile`)  |
+| `src/data/georgia-paths.generated.ts`   | `src/assets/maps/georgia.svg`  | `pnpm map:compile` (run after an SVG change) |
 | `src/data/optimizedImages.generated.ts` | `src/data/image-manifest.json` | `pnpm images:emit` or `pnpm images:optimize` |
 
 If TypeScript reports a missing `*.generated.ts` module, run `pnpm compile`.
@@ -310,32 +310,32 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 
 ## Command reference
 
-| Command                  | Purpose                                                                 |
-| ------------------------ | ----------------------------------------------------------------------- |
-| `pnpm dev`               | Compile generated data, then start Next.js on port 3333                 |
-| `pnpm build`             | Next.js production build                                                |
-| `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                  |
-| `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler       |
-| `pnpm compile`           | `news:compile`, `content:compile`, `slugs:compile`, and `map:compile`   |
-| `pnpm content:compile`   | Content dates and release version                                       |
-| `pnpm slugs:compile`     | Slug table from the API card catalog                                    |
-| `pnpm map:compile`       | Georgia SVG to map paths                                                |
-| `pnpm lint` / `lint:fix` | ESLint                                                                  |
-| `pnpm typecheck`         | TypeScript                                                              |
-| `pnpm test`              | Vitest and the proxy cacheability test                                  |
-| `pnpm test:watch`        | Vitest in watch mode                                                    |
-| `pnpm test:coverage`     | Vitest with coverage thresholds                                         |
-| `pnpm test:e2e`          | Playwright end-to-end and accessibility tests                           |
-| `pnpm doctor`            | React Doctor health scan (`doctor:changed` scans only your diff)        |
-| `pnpm knip`              | Unused code and dependencies                                            |
-| `pnpm cpd`               | Copy-paste detection                                                    |
-| `pnpm i18n:check`        | Locale parity                                                           |
-| `pnpm i18n:usage`        | Unused or undefined message keys                                        |
-| `pnpm images:*`          | Image checks, optimization, and OG generation (see `scripts/README.md`) |
-| `pnpm seo:*`             | SEO audits and the SEO graph export                                     |
-| `pnpm analyze`           | Bundle analyzer                                                         |
-| `pnpm format`            | Prettier on the whole repository                                        |
-| `pnpm format:check`      | Fails on any file Prettier would change (runs in CI)                    |
+| Command                  | Purpose                                                                  |
+| ------------------------ | ------------------------------------------------------------------------ |
+| `pnpm dev`               | Compile generated data, then start Next.js on port 3333                  |
+| `pnpm build`             | Next.js production build                                                 |
+| `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                   |
+| `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler        |
+| `pnpm compile`           | `news:compile`, `content:compile`, `slugs:compile`, and `images:compile` |
+| `pnpm content:compile`   | Content dates and release version                                        |
+| `pnpm slugs:compile`     | Slug table from the API card catalog                                     |
+| `pnpm map:compile`       | Georgia SVG to map paths (output is committed; not part of `compile`)    |
+| `pnpm lint` / `lint:fix` | ESLint                                                                   |
+| `pnpm typecheck`         | TypeScript                                                               |
+| `pnpm test`              | Vitest and the proxy cacheability test                                   |
+| `pnpm test:watch`        | Vitest in watch mode                                                     |
+| `pnpm test:coverage`     | Vitest with coverage thresholds                                          |
+| `pnpm test:e2e`          | Playwright end-to-end and accessibility tests                            |
+| `pnpm doctor`            | React Doctor health scan (`doctor:changed` scans only your diff)         |
+| `pnpm knip`              | Unused code and dependencies                                             |
+| `pnpm cpd`               | Copy-paste detection                                                     |
+| `pnpm i18n:check`        | Locale parity                                                            |
+| `pnpm i18n:usage`        | Unused or undefined message keys                                         |
+| `pnpm images:*`          | Image checks, optimization, and OG generation (see `scripts/README.md`)  |
+| `pnpm seo:*`             | SEO audits and the SEO graph export                                      |
+| `pnpm analyze`           | Bundle analyzer                                                          |
+| `pnpm format`            | Prettier on the whole repository                                         |
+| `pnpm format:check`      | Fails on any file Prettier would change (runs in CI)                     |
 
 ## Further documentation
 

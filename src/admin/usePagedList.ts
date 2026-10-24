@@ -10,21 +10,21 @@ const SEARCH_DELAY_MS = 300;
 
 type Request<F> = { attempt: number; query: PagedQuery<F> };
 
-type Result<T, F> = {
-  page?: Page<T>;
+type Result<T, F, E> = {
+  page?: E & Page<T>;
   request?: Request<F>;
   status: "error" | "ready";
 };
 
-export function usePagedList<T, F>(
-  load: (query: PagedQuery<F>) => Promise<Page<T>>,
+export function usePagedList<T, F, E = unknown>(
+  load: (query: PagedQuery<F>) => Promise<E & Page<T>>,
   onSessionExpired: () => void,
 ) {
   const [request, setRequest] = useState<Request<F>>(() => ({
     attempt: 0,
     query: { limit: DEFAULT_PAGE_SIZE, page: 1 } as PagedQuery<F>,
   }));
-  const [result, setResult] = useState<Result<T, F>>({ status: "ready" });
+  const [result, setResult] = useState<Result<T, F, E>>({ status: "ready" });
   const [search, setSearch] = useState("");
   const expire = useEffectEvent(onSessionExpired);
   const fetchPage = useEffectEvent(() => load(request.query));
@@ -67,6 +67,7 @@ export function usePagedList<T, F>(
 
   return {
     items: result.page?.data ?? [],
+    lastPage: result.page,
     query: request.query,
     reload: () =>
       setRequest((last) => ({ ...last, attempt: last.attempt + 1 })),

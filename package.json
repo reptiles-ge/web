@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile && pnpm run map:compile",
+    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile",
     "predev": "pnpm run compile",
     "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
@@ -53,8 +53,9 @@
     "test:e2e": "playwright test",
     "news:compile": "tsx scripts/compile-news.ts",
     "news:import": "tsx scripts/news-import.ts",
-    "slugs:compile": "tsx scripts/compile-species-slugs.ts",
-    "images:compile": "tsx scripts/compile-optimized-images.ts",
+    "species:draft": "tsx scripts/species-draft.ts",
+    "slugs:compile": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/compile-species-slugs.ts",
+    "images:compile": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/compile-optimized-images.ts",
     "content:compile": "tsx scripts/compile-content-dates.ts && tsx scripts/compile-release-version.ts",
     "taxon:ids": "tsx scripts/fetch-taxon-identifiers.ts",
     "photos:licenses": "tsx scripts/fetch-photo-licenses.ts",

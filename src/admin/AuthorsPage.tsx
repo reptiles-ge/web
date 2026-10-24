@@ -1,10 +1,9 @@
 import type { ColumnsType } from "antd/es/table";
 
-import { Space, Tag, Typography } from "antd";
+import { Tag } from "antd";
 
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 
-import { AdminLink } from "./AdminLink";
 import { AdminListView, type ServerPaging } from "./AdminListView";
 import {
   type AdminAuthor,
@@ -14,7 +13,7 @@ import {
   fetchAdminAuthors,
 } from "./authors";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { imageColumn } from "./listColumns";
+import { imageColumn, nameColumn } from "./listColumns";
 import { usePagedList } from "./usePagedList";
 
 export function AuthorsPage({
@@ -56,23 +55,7 @@ export function AuthorsPage({
 
   const columns: ColumnsType<AdminAuthor> = [
     imageColumn<AdminAuthor>("Portrait"),
-    {
-      key: "name",
-      render: (_, item) => (
-        <Space orientation="vertical" size={0}>
-          <AdminLink path={`/authors/${item.id}`} strong>
-            {item.name.ka ?? item.id}
-          </AdminLink>
-          <Typography.Text type="secondary">
-            {item.name.en ?? "—"}
-          </Typography.Text>
-          <Typography.Text style={{ fontSize: 12 }} type="secondary">
-            {item.id}
-          </Typography.Text>
-        </Space>
-      ),
-      title: "Author",
-    },
+    nameColumn<AdminAuthor>("Author", (item) => `/authors/${item.id}`),
     {
       dataIndex: "isContributor",
       filteredValue: selected(query.contributor),

@@ -36,26 +36,6 @@ const REMOVED = { background: "#fff1f0", textDecoration: "line-through" };
 
 const ADDED = { background: "#f6ffed" };
 
-const changeColumns: ColumnsType<DraftChange> = [
-  {
-    dataIndex: "path",
-    key: "path",
-    render: (path: string) => <Typography.Text code>{path}</Typography.Text>,
-    title: "Field",
-    width: 240,
-  },
-  {
-    key: "before",
-    render: (_, change) => <ChangeText change={change} side="before" />,
-    title: "Live",
-  },
-  {
-    key: "after",
-    render: (_, change) => <ChangeText change={change} side="after" />,
-    title: "Proposed",
-  },
-];
-
 export function DraftDetailPage({
   id,
   onSessionExpired,
@@ -93,6 +73,28 @@ export function DraftDetailPage({
       </AdminDetailGate>
     </>
   );
+}
+
+function changeColumns(before: string): ColumnsType<DraftChange> {
+  return [
+    {
+      dataIndex: "path",
+      key: "path",
+      render: (path: string) => <Typography.Text code>{path}</Typography.Text>,
+      title: "Field",
+      width: 240,
+    },
+    {
+      key: "before",
+      render: (_, change) => <ChangeText change={change} side="before" />,
+      title: before,
+    },
+    {
+      key: "after",
+      render: (_, change) => <ChangeText change={change} side="after" />,
+      title: "Proposed",
+    },
+  ];
 }
 
 function ChangeText({
@@ -139,7 +141,8 @@ function DraftReview({
   onSessionExpired: () => void;
 }) {
   const [pending, setPending] = useState<"merge" | "reject" | null>(null);
-  const changes = diffSpeciesRecords(current.record, draft.record);
+  const base = draft.baseRecord;
+  const changes = diffSpeciesRecords(base ?? current.record, draft.record);
   const open = draft.status === "pending";
   const stale = open && isStale(draft, current.version);
 
@@ -242,9 +245,21 @@ function DraftReview({
           type="warning"
         />
       ) : null}
-      {open ? null : (
+      {base ? (
+        open ? null : (
+          <Alert
+            message={`This draft is already decided. The table shows what it changed from version ${draft.baseVersion}.`}
+            showIcon
+            type="info"
+          />
+        )
+      ) : (
         <Alert
-          message="This draft is already decided. The table compares it with the live record as it is now."
+          message={
+            open
+              ? "No copy of the record from when this draft was made was kept. The table compares it with the live record."
+              : "This draft is already decided. No copy of the record from before it was kept, so the table compares it with the live record as it is now."
+          }
           showIcon
           type="info"
         />
@@ -277,7 +292,9 @@ function DraftReview({
         size="small"
       />
       <Table<DraftChange>
-        columns={changeColumns}
+        columns={changeColumns(
+          base ? `Before (v${draft.baseVersion})` : "Live",
+        )}
         dataSource={changes}
         footer={() => `${changes.length} changed fields`}
         locale={{ emptyText: "No differences from the live record." }}
