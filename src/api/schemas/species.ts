@@ -4,7 +4,7 @@ import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 
 import { listSearch, pageQuery, speciesIdText } from "./common";
 
-export const SPECIES_STATUSES = ["draft", "published", "unpublished"] as const;
+const SPECIES_STATUSES = ["draft", "published", "unpublished"] as const;
 
 export const adminSpeciesListQuery = pageQuery.extend({
   group: z.enum(ANIMAL_GROUPS).optional(),
