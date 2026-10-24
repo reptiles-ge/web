@@ -1,7 +1,8 @@
 import type { InferResponseType } from "hono/client";
 
+import { checkAdminResponse } from "./adminResponse";
 import { api } from "./apiClient";
-import { SessionExpiredError } from "./species";
+import { type PagedQuery, toQueryParams } from "./pagination";
 
 export type AdminRating = AdminRatingsPage["data"][number];
 
@@ -10,21 +11,12 @@ export type AdminRatingsPage = InferResponseType<
   200
 >;
 
-export async function fetchAdminRatings({
-  cursor,
-  rating,
-}: {
-  cursor?: number;
-  rating?: number;
-}): Promise<AdminRatingsPage> {
+export async function fetchAdminRatings(
+  query: PagedQuery<{ rating: number }>,
+): Promise<AdminRatingsPage> {
   const response = await api.v1.admin.ratings.$get({
-    query: {
-      cursor: cursor === undefined ? undefined : String(cursor),
-      rating: rating === undefined ? undefined : String(rating),
-    },
+    query: toQueryParams(query),
   });
-  const status: number = response.status;
-  if (status === 401 || status === 403) throw new SessionExpiredError();
-  if (!response.ok) throw new Error(`Ratings list failed: ${status}`);
+  checkAdminResponse(response, "Ratings list failed");
   return response.json();
 }

@@ -1,10 +1,9 @@
+import { type PageParams, toPage } from "@/lib/pagination";
+
 import type { ApiDatabase } from "./database";
 
-export type AdminRatingsFilter = {
-  cursor: number | undefined;
-  limit: number;
-  rating: number | undefined;
-};
+import { readPage } from "./paging";
+import { containsPattern } from "./search";
 
 export type StoredRating = {
   country: null | string;
@@ -29,30 +28,34 @@ export async function insertRating(db: ApiDatabase, rating: StoredRating) {
     .run();
 }
 
-export async function listRatings(db: ApiDatabase, filter: AdminRatingsFilter) {
-  const { results } = await db
-    .prepare(
-      "SELECT id, rating, path, locale, feedback, country, created_at FROM site_ratings WHERE rating BETWEEN ? AND ? AND id < ? ORDER BY id DESC LIMIT ?",
-    )
-    .bind(
-      filter.rating ?? 1,
-      filter.rating ?? 5,
-      filter.cursor ?? Number.MAX_SAFE_INTEGER,
-      filter.limit,
-    )
-    .all<{
-      country: null | string;
-      created_at: string;
-      feedback: null | string;
-      id: number;
-      locale: string;
-      path: string;
-      rating: number;
-    }>();
-  return results.map(({ created_at, ...row }) => ({
+export async function listRatings(
+  db: ApiDatabase,
+  filters: { q?: string; rating?: number },
+  page: PageParams,
+) {
+  const { rows, total } = await readPage<{
+    country: null | string;
+    created_at: string;
+    feedback: null | string;
+    id: number;
+    locale: string;
+    path: string;
+    rating: number;
+  }>(
+    db,
+    {
+      from: "FROM site_ratings WHERE (?1 IS NULL OR rating = ?1) AND (?2 IS NULL OR feedback LIKE ?2 ESCAPE '\\' OR path LIKE ?2 ESCAPE '\\')",
+      order: "id DESC",
+      select: "id, rating, path, locale, feedback, country, created_at",
+    },
+    [filters.rating ?? null, containsPattern(filters.q)],
+    page,
+  );
+  const data = rows.map(({ created_at, ...row }) => ({
     ...row,
     createdAt: created_at,
   }));
+  return toPage(data, total, page);
 }
 
 export async function ratingCounts(db: ApiDatabase) {

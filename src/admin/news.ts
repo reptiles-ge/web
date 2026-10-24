@@ -1,12 +1,21 @@
 import type { InferRequestType, InferResponseType } from "hono/client";
 
+import type { NewsSeriesId } from "@/data/newsSeries";
+import type { Page } from "@/lib/pagination";
+
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
+import { type PagedQuery, toQueryParams } from "./pagination";
 
 export type AdminNews = InferResponseType<
   typeof api.v1.admin.news.$get,
   200
 >["data"][number];
+
+export type AdminNewsFilters = {
+  series: NewsSeriesId;
+  status: AdminNews["status"];
+};
 
 export type AdminNewsRecord = InferResponseType<
   (typeof api.v1.admin.news)[":slug"]["$get"],
@@ -31,10 +40,14 @@ export async function clearNewsSectionCache() {
   );
 }
 
-export async function fetchAdminNews(): Promise<AdminNews[]> {
-  const response = await api.v1.admin.news.$get();
+export async function fetchAdminNews(
+  query: PagedQuery<AdminNewsFilters>,
+): Promise<Page<AdminNews>> {
+  const response = await api.v1.admin.news.$get({
+    query: toQueryParams(query),
+  });
   checkAdminResponse(response, "News list failed");
-  return (await response.json()).data;
+  return response.json();
 }
 
 export async function fetchAdminNewsRecord(

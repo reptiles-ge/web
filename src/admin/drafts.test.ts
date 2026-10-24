@@ -15,18 +15,32 @@ import {
 const BASE = "https://api.reptiles.ge/v1/admin/drafts";
 
 describe("drafts client", () => {
-  it("lists drafts by status with credentials", async () => {
-    let seen: null | string = null;
+  it("lists a page of drafts by status with credentials", async () => {
+    let seen = "";
     let credentials: string | undefined;
+    const page = {
+      data: [{ id: 3 }],
+      limit: 50,
+      page: 2,
+      pageCount: 2,
+      total: 51,
+    };
     server.use(
       http.get(BASE, ({ request }) => {
-        seen = new URL(request.url).searchParams.get("status");
+        seen = new URL(request.url).search;
         credentials = request.credentials;
-        return HttpResponse.json({ data: [{ id: 3 }], total: 1 });
+        return HttpResponse.json(page);
       }),
     );
-    expect(await fetchDrafts("rejected")).toEqual([{ id: 3 }]);
-    expect(seen).toBe("rejected");
+    expect(
+      await fetchDrafts({
+        limit: 50,
+        page: 2,
+        q: "vipera",
+        status: "rejected",
+      }),
+    ).toEqual(page);
+    expect(seen).toBe("?limit=50&page=2&q=vipera&status=rejected");
     expect(credentials).toBe("include");
   });
 
@@ -44,9 +58,9 @@ describe("drafts client", () => {
 
   it("reports an expired session", async () => {
     server.use(http.get(BASE, () => new HttpResponse(null, { status: 401 })));
-    await expect(fetchDrafts("pending")).rejects.toBeInstanceOf(
-      SessionExpiredError,
-    );
+    await expect(
+      fetchDrafts({ limit: 50, page: 1, status: "pending" }),
+    ).rejects.toBeInstanceOf(SessionExpiredError);
     server.use(
       http.post(
         `${BASE}/:id/merge`,

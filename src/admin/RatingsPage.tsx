@@ -1,34 +1,25 @@
 import type { ColumnsType } from "antd/es/table";
 
 import {
-  Alert,
-  Button,
   Card,
   Flex,
   Progress,
   Rate,
   Select,
-  Space,
   Statistic,
-  Table,
   Tag,
   Typography,
 } from "antd";
-import { useEffect, useEffectEvent, useState } from "react";
 
 import { publicEnv } from "@/lib/env";
 
+import { AdminListView } from "./AdminListView";
 import {
   type AdminRating,
   type AdminRatingsPage,
   fetchAdminRatings,
 } from "./ratings";
-import { SessionExpiredError } from "./species";
-
-type LoadState =
-  | { page: AdminRatingsPage; status: "ready" }
-  | { status: "error" }
-  | { status: "loading" };
+import { serverPaging, usePagedList } from "./usePagedList";
 
 const STARS = [5, 4, 3, 2, 1];
 
@@ -106,132 +97,41 @@ export function RatingsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const [state, setState] = useState<LoadState>({ status: "loading" });
-  const [attempt, setAttempt] = useState(0);
-  const [rating, setRating] = useState<number | undefined>();
-  const [loadingMore, setLoadingMore] = useState(false);
-  const [moreFailed, setMoreFailed] = useState(false);
-  const expire = useEffectEvent(onSessionExpired);
-  const fail = useEffectEvent((error: unknown) => {
-    if (error instanceof SessionExpiredError) expire();
-    else setState({ status: "error" });
-  });
-
-  useEffect(() => {
-    let active = true;
-    fetchAdminRatings({ rating }).then(
-      (page) => {
-        if (active) setState({ page, status: "ready" });
-      },
-      (error: unknown) => {
-        if (active) fail(error);
-      },
-    );
-    return () => {
-      active = false;
-    };
-  }, [attempt, rating]);
-
-  function reload() {
-    setState({ status: "loading" });
-    setMoreFailed(false);
-    setAttempt((count) => count + 1);
-  }
-
-  function filter(value: "all" | number) {
-    setState({ status: "loading" });
-    setMoreFailed(false);
-    setRating(value === "all" ? undefined : value);
-  }
-
-  async function loadMore() {
-    if (state.status !== "ready" || state.page.nextCursor === null) return;
-    const current = state.page;
-    setLoadingMore(true);
-    setMoreFailed(false);
-    try {
-      const next = await fetchAdminRatings({
-        cursor: current.nextCursor ?? undefined,
-        rating,
-      });
-      setState({
-        page: { ...next, data: [...current.data, ...next.data] },
-        status: "ready",
-      });
-    } catch (error) {
-      if (error instanceof SessionExpiredError) onSessionExpired();
-      else setMoreFailed(true);
-    } finally {
-      setLoadingMore(false);
-    }
-  }
-
-  const page = state.status === "ready" ? state.page : null;
+  const list = usePagedList(fetchAdminRatings, onSessionExpired);
+  const { lastPage, query, setFilters } = list;
 
   return (
-    <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
-      <Flex align="center" gap="middle" justify="space-between" wrap>
-        <Typography.Title level={3} style={{ margin: 0 }}>
-          Ratings
-        </Typography.Title>
-        <Space wrap>
-          <Select<"all" | number>
-            aria-label="Filter by rating"
-            onChange={filter}
-            options={[
-              { label: "All ratings", value: "all" },
-              ...STARS.map((stars) => ({
-                label: `${stars} ★`,
-                value: stars,
-              })),
-            ]}
-            style={{ width: 140 }}
-            value={rating ?? "all"}
-          />
-          <Button loading={state.status === "loading"} onClick={reload}>
-            Reload
-          </Button>
-        </Space>
-      </Flex>
-      {state.status === "error" ? (
-        <Alert
-          action={<Button onClick={reload}>Retry</Button>}
-          message="Could not load ratings."
-          showIcon
-          type="error"
+    <AdminListView<AdminRating>
+      actions={
+        <Select<"all" | number>
+          aria-label="Filter by rating"
+          onChange={(value) =>
+            setFilters({ rating: value === "all" ? undefined : value })
+          }
+          options={[
+            { label: "All ratings", value: "all" },
+            ...STARS.map((stars) => ({
+              label: `${stars} ★`,
+              value: stars,
+            })),
+          ]}
+          style={{ width: 140 }}
+          value={query.rating ?? "all"}
         />
-      ) : (
-        <>
-          {page ? <RatingsSummary summary={page.summary} /> : null}
-          <Table<AdminRating>
-            columns={columns}
-            dataSource={page?.data ?? []}
-            footer={() =>
-              page ? `${page.data.length} of ${page.total} ratings` : null
-            }
-            loading={state.status === "loading"}
-            pagination={false}
-            rowKey="id"
-            scroll={{ x: 900 }}
-            size="small"
-          />
-          {moreFailed ? (
-            <Alert
-              message="Could not load more ratings."
-              showIcon
-              type="error"
-            />
-          ) : null}
-          {page?.nextCursor ? (
-            <Flex justify="center">
-              <Button loading={loadingMore} onClick={loadMore}>
-                Load more
-              </Button>
-            </Flex>
-          ) : null}
-        </>
-      )}
-    </Space>
+      }
+      columns={columns}
+      noun="ratings"
+      onQuery={list.setSearch}
+      onReload={list.reload}
+      paging={serverPaging(list)}
+      rowKey="id"
+      rows={list.items}
+      searchPlaceholder="Feedback or page"
+      status={list.status}
+      summary={lastPage ? <RatingsSummary summary={lastPage.summary} /> : null}
+      title="Ratings"
+      total={list.total}
+    />
   );
 }
 

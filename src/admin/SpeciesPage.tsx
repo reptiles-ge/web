@@ -1,47 +1,41 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Badge, Space, Tag, Typography } from "antd";
-import { useMemo, useState } from "react";
+
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 
 import { AdminLink } from "./AdminLink";
 import { AdminListView } from "./AdminListView";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
+import {
+  imageColumn,
+  photoCountColumn,
+  revisionColumns,
+  serverFilter,
+} from "./listColumns";
 import { clearSiteCache } from "./site";
 import {
   type AdminSpecies,
+  type AdminSpeciesFilters,
   clearSpeciesCache,
   fetchAdminSpecies,
   SPECIES_STATUS_COLORS,
 } from "./species";
-import { includesQuery, unique, useAdminList } from "./useAdminList";
+import { serverPaging, usePagedList } from "./usePagedList";
+
+const STATUSES = Object.keys(SPECIES_STATUS_COLORS);
 
 export function SpeciesPage({
   onSessionExpired,
 }: {
   onSessionExpired: () => void;
 }) {
-  const {
-    items: species,
-    reload,
-    status,
-  } = useAdminList(fetchAdminSpecies, onSessionExpired);
-  const [query, setQuery] = useState("");
-  const visible = useMemo(
-    () =>
-      species.filter((item) =>
-        includesQuery(
-          [
-            item.id,
-            item.scientificName,
-            item.commonName.ka,
-            item.commonName.en ?? "",
-          ],
-          query,
-        ),
-      ),
-    [species, query],
-  );
+  const list = usePagedList(fetchAdminSpecies, onSessionExpired);
+  const { query } = list;
+  const paging = serverPaging(list, (filters) => ({
+    group: filters.group?.[0] as AdminSpeciesFilters["group"] | undefined,
+    status: filters.status?.[0] as AdminSpeciesFilters["status"] | undefined,
+  }));
 
   const columns: ColumnsType<AdminSpecies> = [
     imageColumn<AdminSpecies>("Photo"),
@@ -60,28 +54,19 @@ export function SpeciesPage({
           </Typography.Text>
         </Space>
       ),
-      sorter: (a, b) => a.scientificName.localeCompare(b.scientificName),
       title: "Species",
     },
     {
       dataIndex: "group",
-      filters: unique(species.map((item) => item.group)).map((group) => ({
-        text: group,
-        value: group,
-      })),
+      ...serverFilter(query.group, ANIMAL_GROUPS),
       key: "group",
-      onFilter: (value, item) => item.group === value,
       render: (group: string) => <Tag>{group}</Tag>,
       title: "Group",
     },
     {
       dataIndex: "status",
-      filters: unique(species.map((item) => item.status)).map((status) => ({
-        text: status,
-        value: status,
-      })),
+      ...serverFilter(query.status, STATUSES),
       key: "status",
-      onFilter: (value, item) => item.status === value,
       render: (status: AdminSpecies["status"]) => (
         <Tag color={SPECIES_STATUS_COLORS[status]}>{status}</Tag>
       ),
@@ -100,7 +85,6 @@ export function SpeciesPage({
       key: "pendingDrafts",
       render: (count: number) =>
         count ? <Badge count={count} /> : <Typography.Text>0</Typography.Text>,
-      sorter: (a, b) => a.pendingDrafts - b.pendingDrafts,
       title: "Drafts",
     },
     ...revisionColumns<AdminSpecies>(),
@@ -144,14 +128,15 @@ export function SpeciesPage({
       }
       columns={columns}
       noun="species"
-      onQuery={setQuery}
-      onReload={reload}
+      onQuery={list.setSearch}
+      onReload={list.reload}
+      paging={paging}
       rowKey="id"
-      rows={visible}
+      rows={list.items}
       searchPlaceholder="Name, scientific name or id"
-      status={status}
+      status={list.status}
       title="Species"
-      total={species.length}
+      total={list.total}
     />
   );
 }

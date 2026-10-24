@@ -8,26 +8,47 @@ import { SessionExpiredError } from "./species";
 const URL = "https://api.reptiles.ge/v1/admin/news";
 
 describe("fetchAdminNews", () => {
-  it("loads the list with credentials", async () => {
+  it("loads one page with its filters and credentials", async () => {
     let credentials: string | undefined;
+    let search = "";
+    const page = {
+      data: [{ id: "batumi" }],
+      limit: 50,
+      page: 1,
+      pageCount: 1,
+      total: 1,
+    };
     server.use(
       http.get(URL, ({ request }) => {
         credentials = request.credentials;
-        return HttpResponse.json({ data: [{ id: "batumi" }], total: 1 });
+        search = new globalThis.URL(request.url).search;
+        return HttpResponse.json(page);
       }),
     );
-    expect(await fetchAdminNews()).toEqual([{ id: "batumi" }]);
+    expect(
+      await fetchAdminNews({
+        limit: 50,
+        page: 1,
+        series: "rioni-sturgeon",
+        status: "draft",
+      }),
+    ).toEqual(page);
     expect(credentials).toBe("include");
+    expect(search).toBe("?limit=50&page=1&series=rioni-sturgeon&status=draft");
   });
 
   it.each([401, 403])("reports an expired session on %i", async (status) => {
     server.use(http.get(URL, () => new HttpResponse(null, { status })));
-    await expect(fetchAdminNews()).rejects.toBeInstanceOf(SessionExpiredError);
+    await expect(fetchAdminNews({ limit: 50, page: 1 })).rejects.toBeInstanceOf(
+      SessionExpiredError,
+    );
   });
 
   it("fails loudly on any other error", async () => {
     server.use(http.get(URL, () => new HttpResponse(null, { status: 500 })));
-    await expect(fetchAdminNews()).rejects.toThrow("News list failed: 500");
+    await expect(fetchAdminNews({ limit: 50, page: 1 })).rejects.toThrow(
+      "News list failed: 500",
+    );
   });
 });
 

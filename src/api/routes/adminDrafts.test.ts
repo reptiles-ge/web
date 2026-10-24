@@ -156,6 +156,44 @@ describe("GET /v1/admin/drafts", () => {
     expect(bad.response.status).toBe(400);
   });
 
+  it("pages and searches drafts", async () => {
+    const first = await propose((record) => {
+      record.base.overview = "one";
+    });
+    const second = await propose((record) => {
+      record.base.overview = "two";
+    });
+    const headers = await signedIn();
+    const page = await requestJson<{
+      data: Array<{ id: number }>;
+      limit: number;
+      page: number;
+      pageCount: number;
+      total: number;
+    }>("/v1/admin/drafts?limit=1&page=2", env, { headers });
+    expect(page.body).toMatchObject({
+      data: [{ id: first }],
+      limit: 1,
+      page: 2,
+      pageCount: 2,
+      total: 2,
+    });
+    for (const q of [ID, "graeca", "rewrite", "claude"]) {
+      const found = await requestJson<{ data: Array<{ id: number }> }>(
+        `/v1/admin/drafts?q=${encodeURIComponent(q)}`,
+        env,
+        { headers },
+      );
+      expect(found.body.data.map(({ id }) => id)).toEqual([second, first]);
+    }
+    const none = await requestJson<{ data: unknown[]; total: number }>(
+      "/v1/admin/drafts?q=nothing-like-this",
+      env,
+      { headers },
+    );
+    expect(none.body).toMatchObject({ data: [], total: 0 });
+  });
+
   it("needs an admin session or the token", async () => {
     expect((await app.request("/v1/admin/drafts", {}, env)).status).toBe(401);
     expect(

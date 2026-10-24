@@ -2,6 +2,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { toPage } from "@/lib/pagination";
+
 import { SessionExpiredError } from "./adminResponse";
 import { type AdminDraft, fetchDrafts } from "./drafts";
 import { DraftsPage } from "./DraftsPage";
@@ -33,27 +35,32 @@ function draft(overrides: Partial<AdminDraft>): AdminDraft {
 beforeEach(() => {
   vi.mocked(fetchDrafts)
     .mockReset()
-    .mockImplementation(async (status) =>
-      status === "pending"
-        ? [
-            draft({ id: 2 }),
-            draft({
-              commonName: "კავკასიური აგამა",
-              id: 1,
-              speciesId: "paralaudakia-caucasia",
-              speciesVersion: 5,
-              summary: "Fix facts",
-            }),
-          ]
-        : [
-            draft({
-              decidedAt: "2026-10-21T09:00:00.000Z",
-              decidedBy: "Nika",
-              id: 7,
-              status,
-            }),
-          ],
-    );
+    .mockImplementation(async ({ limit, page, q, status }) => {
+      const data =
+        status === "pending"
+          ? [
+              draft({ id: 2 }),
+              draft({
+                commonName: "კავკასიური აგამა",
+                id: 1,
+                speciesId: "paralaudakia-caucasia",
+                speciesVersion: 5,
+                summary: "Fix facts",
+              }),
+            ]
+          : [
+              draft({
+                decidedAt: "2026-10-21T09:00:00.000Z",
+                decidedBy: "Nika",
+                id: 7,
+                status,
+              }),
+            ];
+      const found = q
+        ? data.filter((item) => item.speciesId.includes(q))
+        : data;
+      return toPage(found, found.length, { limit, page });
+    });
 });
 
 describe("DraftsPage", () => {
@@ -65,9 +72,24 @@ describe("DraftsPage", () => {
     expect(within(ready).getByText("#2")).toHaveAttribute("href", "/drafts/2");
     const stale = screen.getByText("#1").closest("tr")!;
     expect(within(stale).getByText("stale · v3 → v5")).toBeInTheDocument();
-    expect(fetchDrafts).toHaveBeenCalledWith("pending");
-    await userEvent.type(screen.getByLabelText("Search drafts"), "agama");
+    expect(fetchDrafts).toHaveBeenCalledExactlyOnceWith({
+      limit: 50,
+      page: 1,
+      status: "pending",
+    });
+    expect(screen.getByText("1–2 of 2 drafts")).toBeInTheDocument();
+    await userEvent.type(
+      screen.getByLabelText("Search drafts"),
+      "paralaudakia",
+    );
+    expect(await screen.findByText("1–1 of 1 drafts")).toBeInTheDocument();
     expect(screen.queryByText("#2")).toBeNull();
+    expect(fetchDrafts).toHaveBeenLastCalledWith({
+      limit: 50,
+      page: 1,
+      q: "paralaudakia",
+      status: "pending",
+    });
   });
 
   it("switches to decided drafts", async () => {
@@ -76,7 +98,11 @@ describe("DraftsPage", () => {
     await userEvent.click(screen.getByText("approved"));
     const row = (await screen.findByText("#7")).closest("tr")!;
     expect(within(row).getByText("Nika")).toBeInTheDocument();
-    expect(fetchDrafts).toHaveBeenLastCalledWith("approved");
+    expect(fetchDrafts).toHaveBeenLastCalledWith({
+      limit: 50,
+      page: 1,
+      status: "approved",
+    });
   });
 
   it("sends an expired session back to sign-in", async () => {

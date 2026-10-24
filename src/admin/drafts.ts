@@ -1,7 +1,10 @@
 import type { InferResponseType } from "hono/client";
 
+import type { Page } from "@/lib/pagination";
+
 import { checkAdminResponse, SessionExpiredError } from "./adminResponse";
 import { api } from "./apiClient";
+import { type PagedQuery, toQueryParams } from "./pagination";
 
 export type AdminDraft = InferResponseType<
   typeof api.v1.admin.drafts.$get,
@@ -38,10 +41,14 @@ export async function fetchDraft(id: string): Promise<AdminDraftDetail | null> {
   return (await response.json()).data;
 }
 
-export async function fetchDrafts(status: DraftStatus): Promise<AdminDraft[]> {
-  const response = await api.v1.admin.drafts.$get({ query: { status } });
+export async function fetchDrafts(
+  query: PagedQuery<{ status: DraftStatus }>,
+): Promise<Page<AdminDraft>> {
+  const response = await api.v1.admin.drafts.$get({
+    query: toQueryParams(query),
+  });
   checkAdminResponse(response, "Drafts list failed");
-  return (await response.json()).data;
+  return response.json();
 }
 
 export function isStale(draft: { baseVersion: number }, version: number) {

@@ -2,6 +2,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { toPage } from "@/lib/pagination";
+
 import { clearSiteCache } from "./site";
 import {
   type AdminSpecies,
@@ -46,6 +48,8 @@ function species(overrides: Partial<AdminSpecies>): AdminSpecies {
   };
 }
 
+const FIRST = { limit: 50, page: 1 };
+
 const LIST = [
   species({}),
   species({
@@ -60,6 +64,8 @@ const LIST = [
   }),
 ];
 
+const PAGE = toPage(LIST, LIST.length, FIRST);
+
 beforeEach(() => {
   vi.mocked(fetchAdminSpecies).mockReset();
   vi.mocked(clearSpeciesCache).mockReset();
@@ -68,21 +74,57 @@ beforeEach(() => {
 
 describe("SpeciesPage", () => {
   it("lists every species with its status and drafts", async () => {
-    vi.mocked(fetchAdminSpecies).mockResolvedValue(LIST);
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     expect(await screen.findByText("გიურზა")).toBeInTheDocument();
     expect(screen.getByText("ბუ")).toBeInTheDocument();
     expect(screen.getByText("unpublished")).toBeInTheDocument();
-    expect(screen.getByText("2 of 2 species")).toBeInTheDocument();
+    expect(screen.getByText("1–2 of 2 species")).toBeInTheDocument();
+    expect(fetchAdminSpecies).toHaveBeenCalledExactlyOnceWith(FIRST);
   });
 
-  it("searches by name, scientific name or id", async () => {
-    vi.mocked(fetchAdminSpecies).mockResolvedValue(LIST);
+  it("asks the API for the search once typing stops", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     await screen.findByText("გიურზა");
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(
+      toPage(LIST.slice(1), 1, FIRST),
+    );
     await userEvent.type(screen.getByLabelText("Search species"), "bubo");
+    expect(await screen.findByText("1–1 of 1 species")).toBeInTheDocument();
     expect(screen.queryByText("გიურზა")).toBeNull();
-    expect(screen.getByText("1 of 2 species")).toBeInTheDocument();
+    expect(fetchAdminSpecies).toHaveBeenLastCalledWith({ ...FIRST, q: "bubo" });
+  });
+
+  it("loads the next page from the API", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(toPage(LIST, 146, FIRST));
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("1–2 of 146 species")).toBeInTheDocument();
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(
+      toPage(LIST.slice(1), 146, { limit: 50, page: 3 }),
+    );
+    await userEvent.click(screen.getByTitle("3"));
+    expect(
+      await screen.findByText("101–101 of 146 species"),
+    ).toBeInTheDocument();
+    expect(fetchAdminSpecies).toHaveBeenLastCalledWith({ limit: 50, page: 3 });
+  });
+
+  it("filters by group on the server from page one", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    await screen.findByText("გიურზა");
+    const header = screen.getByRole("columnheader", { name: /Group/ });
+    await userEvent.click(within(header).getByRole("button"));
+    await userEvent.click(await screen.findByText("turtle"));
+    await userEvent.click(screen.getByRole("button", { name: "OK" }));
+    await vi.waitFor(() =>
+      expect(fetchAdminSpecies).toHaveBeenLastCalledWith({
+        ...FIRST,
+        group: "turtle",
+        status: undefined,
+      }),
+    );
   });
 
   it("returns to sign-in when the session has expired", async () => {
@@ -95,7 +137,7 @@ describe("SpeciesPage", () => {
   it("offers a retry when loading fails", async () => {
     vi.mocked(fetchAdminSpecies)
       .mockRejectedValueOnce(new Error("offline"))
-      .mockResolvedValueOnce(LIST);
+      .mockResolvedValueOnce(PAGE);
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     const alert = await screen.findByText("Could not load species.");
     await userEvent.click(
@@ -108,7 +150,7 @@ describe("SpeciesPage", () => {
   });
 
   it("links each species to its detail page", async () => {
-    vi.mocked(fetchAdminSpecies).mockResolvedValue(LIST);
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     expect(await screen.findByRole("link", { name: "გიურზა" })).toHaveAttribute(
       "href",
@@ -117,7 +159,7 @@ describe("SpeciesPage", () => {
   });
 
   it("clears one species from its row", async () => {
-    vi.mocked(fetchAdminSpecies).mockResolvedValue(LIST);
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
     vi.mocked(clearSpeciesCache).mockResolvedValue();
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     const row = (await screen.findByText("bubo-bubo")).closest("tr")!;
@@ -132,7 +174,7 @@ describe("SpeciesPage", () => {
   });
 
   it("clears every species page from the header", async () => {
-    vi.mocked(fetchAdminSpecies).mockResolvedValue(LIST);
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
     vi.mocked(clearSiteCache).mockResolvedValue(["bubo-bubo"]);
     render(<SpeciesPage onSessionExpired={vi.fn()} />);
     await screen.findByText("bubo-bubo");

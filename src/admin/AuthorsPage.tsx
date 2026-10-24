@@ -4,7 +4,7 @@ import { Tag } from "antd";
 
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 
-import { AdminListView, type ServerPaging } from "./AdminListView";
+import { AdminListView } from "./AdminListView";
 import {
   type AdminAuthor,
   type AdminAuthorFilters,
@@ -13,57 +13,31 @@ import {
   fetchAdminAuthors,
 } from "./authors";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { imageColumn, nameColumn } from "./listColumns";
-import { usePagedList } from "./usePagedList";
+import { imageColumn, nameColumn, serverFilter } from "./listColumns";
+import { serverPaging, usePagedList } from "./usePagedList";
 
 export function AuthorsPage({
   onSessionExpired,
 }: {
   onSessionExpired: () => void;
 }) {
-  const {
-    items: authors,
-    query,
-    reload,
-    setFilters,
-    setPage,
-    setSearch,
-    status,
-    total,
-  } = usePagedList(fetchAdminAuthors, onSessionExpired);
-
-  const paging: ServerPaging = {
-    limit: query.limit,
-    onChange: ({ filters, limit, page }) => {
-      const next: Partial<AdminAuthorFilters> = {
-        contributor: filters.isContributor?.[0] as boolean | undefined,
-        kind: filters.kind?.[0] as AdminAuthorFilters["kind"] | undefined,
-        role: filters.role?.[0] as AdminAuthorFilters["role"] | undefined,
-      };
-      if (
-        next.contributor !== query.contributor ||
-        next.kind !== query.kind ||
-        next.role !== query.role
-      ) {
-        setFilters(next);
-      } else {
-        setPage(page, limit);
-      }
-    },
-    page: query.page,
-  };
+  const list = usePagedList(fetchAdminAuthors, onSessionExpired);
+  const { query } = list;
+  const paging = serverPaging(list, (filters) => ({
+    contributor: filters.isContributor?.[0] as boolean | undefined,
+    kind: filters.kind?.[0] as AdminAuthorFilters["kind"] | undefined,
+    role: filters.role?.[0] as AdminAuthorFilters["role"] | undefined,
+  }));
 
   const columns: ColumnsType<AdminAuthor> = [
     imageColumn<AdminAuthor>("Portrait"),
     nameColumn<AdminAuthor>("Author", (item) => `/authors/${item.id}`),
     {
       dataIndex: "isContributor",
-      filteredValue: selected(query.contributor),
-      filterMultiple: false,
-      filters: [
+      ...serverFilter(query.contributor, [
         { text: "Contributor", value: true },
         { text: "Photo credit only", value: false },
-      ],
+      ]),
       key: "isContributor",
       render: (isContributor: boolean) =>
         isContributor ? <Tag color="green">contributor</Tag> : "—",
@@ -71,18 +45,14 @@ export function AuthorsPage({
     },
     {
       dataIndex: "kind",
-      filteredValue: selected(query.kind),
-      filterMultiple: false,
-      filters: options(AUTHOR_KINDS),
+      ...serverFilter(query.kind, AUTHOR_KINDS),
       key: "kind",
       render: (kind: string) => <Tag>{kind}</Tag>,
       title: "Kind",
     },
     {
       dataIndex: "role",
-      filteredValue: selected(query.role),
-      filterMultiple: false,
-      filters: options(AUTHOR_ROLES),
+      ...serverFilter(query.role, AUTHOR_ROLES),
       key: "role",
       render: (role: null | string) => role ?? "—",
       title: "Role",
@@ -144,23 +114,15 @@ export function AuthorsPage({
       }
       columns={columns}
       noun="authors"
-      onQuery={setSearch}
-      onReload={reload}
+      onQuery={list.setSearch}
+      onReload={list.reload}
       paging={paging}
       rowKey="id"
-      rows={authors}
+      rows={list.items}
       searchPlaceholder="Name or id"
-      status={status}
+      status={list.status}
       title="Authors"
-      total={total}
+      total={list.total}
     />
   );
-}
-
-function options(values: readonly string[]) {
-  return values.map((value) => ({ text: value, value }));
-}
-
-function selected(value: boolean | string | undefined) {
-  return value === undefined ? null : [value];
 }

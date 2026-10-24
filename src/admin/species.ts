@@ -1,7 +1,10 @@
 import type { InferRequestType, InferResponseType } from "hono/client";
 
+import type { Page } from "@/lib/pagination";
+
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
+import { fetchAllPages, type PagedQuery, toQueryParams } from "./pagination";
 
 export { SessionExpiredError } from "./adminResponse";
 
@@ -14,6 +17,11 @@ export type AdminSpecies = InferResponseType<
   typeof api.v1.admin.species.$get,
   200
 >["data"][number];
+
+export type AdminSpeciesFilters = {
+  group: AdminSpecies["group"];
+  status: AdminSpecies["status"];
+};
 
 export type AdminSpeciesRecord = InferResponseType<
   (typeof api.v1.admin.species)[":id"]["$get"],
@@ -54,10 +62,14 @@ export async function fetchAdminFieldRecords(
   return (await response.json()).data;
 }
 
-export async function fetchAdminSpecies(): Promise<AdminSpecies[]> {
-  const response = await api.v1.admin.species.$get();
+export async function fetchAdminSpecies(
+  query: PagedQuery<AdminSpeciesFilters>,
+): Promise<Page<AdminSpecies>> {
+  const response = await api.v1.admin.species.$get({
+    query: toQueryParams(query),
+  });
   checkAdminResponse(response, "Species list failed");
-  return (await response.json()).data;
+  return response.json();
 }
 
 export async function fetchAdminSpeciesRecord(
@@ -68,6 +80,10 @@ export async function fetchAdminSpeciesRecord(
   if (status === 404) return null;
   checkAdminResponse(response, "Species record failed");
   return (await response.json()).data;
+}
+
+export function fetchAllAdminSpecies() {
+  return fetchAllPages(fetchAdminSpecies);
 }
 
 export async function saveSpeciesTexts(

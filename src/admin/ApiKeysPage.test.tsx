@@ -2,6 +2,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { toPage } from "@/lib/pagination";
+
 import { SessionExpiredError } from "./adminResponse";
 import {
   type AdminApiKey,
@@ -39,7 +41,14 @@ const REVOKED: AdminApiKey = {
 };
 
 beforeEach(() => {
-  vi.mocked(fetchApiKeys).mockReset().mockResolvedValue([ACTIVE, REVOKED]);
+  vi.mocked(fetchApiKeys)
+    .mockReset()
+    .mockImplementation(async ({ limit, page, q }) => {
+      const data = [ACTIVE, REVOKED].filter(
+        (key) => !q || `${key.name} ${key.note}`.toLowerCase().includes(q),
+      );
+      return toPage(data, data.length, { limit, page });
+    });
   vi.mocked(createApiKey).mockReset();
   vi.mocked(revokeApiKey).mockReset();
 });
@@ -57,7 +66,13 @@ describe("ApiKeysPage", () => {
       within(revoked).queryByRole("button", { name: "Revoke" }),
     ).toBeNull();
     await userEvent.type(screen.getByLabelText("Search API keys"), "kiosk");
+    expect(await screen.findByText("1–1 of 1 API keys")).toBeInTheDocument();
     expect(screen.queryByText("Old partner")).toBeNull();
+    expect(fetchApiKeys).toHaveBeenLastCalledWith({
+      limit: 50,
+      page: 1,
+      q: "kiosk",
+    });
   });
 
   it("creates a key and shows it once", async () => {

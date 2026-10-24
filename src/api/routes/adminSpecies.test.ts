@@ -308,31 +308,42 @@ describe("GET /v1/admin/species", () => {
       status: string;
       version: number;
     }>;
+    limit: number;
+    page: number;
+    pageCount: number;
     total: number;
   };
+
+  const auth = { Authorization: `Bearer ${TOKEN}` };
 
   function signIn(role?: string, expiresInMs?: number) {
     return adminSessionHeaders(sqlite, role, expiresInMs);
   }
 
-  function list(headers: Record<string, string> = {}) {
-    return requestJson<ErrorBody & ListBody>("/v1/admin/species", env, {
+  function list(headers: Record<string, string> = {}, query = "") {
+    return requestJson<ErrorBody & ListBody>(`/v1/admin/species${query}`, env, {
       headers,
     });
   }
 
-  it("lists every species, published or not, in catalog order", async () => {
-    const { body, response } = await list({
-      Authorization: `Bearer ${TOKEN}`,
-    });
-    expect(response.status).toBe(200);
-    expect(response.headers.get("Cache-Control")).toBe("no-store");
+  it("lists every species, published or not, in catalog order by page", async () => {
     const rows = sqlite
       .prepare("SELECT id, status FROM species ORDER BY catalog_position")
       .all() as Array<{ id: string; status: string }>;
-    expect(body.total).toBe(rows.length);
-    expect(body.data.map(({ id, status }) => ({ id, status }))).toEqual(rows);
-    expect(body.data.some(({ status }) => status !== "published")).toBe(true);
+    const first = await list(auth, "?limit=100");
+    expect(first.response.status).toBe(200);
+    expect(first.response.headers.get("Cache-Control")).toBe("no-store");
+    expect(first.body).toMatchObject({
+      limit: 100,
+      page: 1,
+      pageCount: Math.ceil(rows.length / 100),
+      total: rows.length,
+    });
+    const second = await list(auth, "?limit=100&page=2");
+    const listed = [...first.body.data, ...second.body.data];
+    expect(listed.map(({ id, status }) => ({ id, status }))).toEqual(rows);
+    expect(listed.some(({ status }) => status !== "published")).toBe(true);
+    const { body } = first;
     expect(body.data.find(({ id }) => id === ID)).toMatchObject({
       commonName: { en: expect.any(String), ka: "გიურზა" },
       group: "snake",
@@ -342,6 +353,41 @@ describe("GET /v1/admin/species", () => {
       version: 1,
     });
   });
+
+  it("pages with the default size", async () => {
+    const { body } = await list(auth);
+    expect(body.limit).toBe(50);
+    expect(body.data).toHaveLength(50);
+  });
+
+  it("filters by group and status and searches names", async () => {
+    const snakes = await list(auth, "?group=snake&limit=100");
+    expect(snakes.body.data.length).toBeGreaterThan(0);
+    expect(snakes.body.data.every(({ group }) => group === "snake")).toBe(true);
+    expect(snakes.body.total).toBe(snakes.body.data.length);
+    const hidden = await list(auth, "?status=unpublished&limit=100");
+    expect(hidden.body.data.map(({ id }) => id)).toContain(
+      "dolichophis-caspius",
+    );
+    expect(
+      hidden.body.data.every(({ status }) => status === "unpublished"),
+    ).toBe(true);
+    for (const q of ["გიურზა", "lebetin", ID]) {
+      const found = await list(auth, `?q=${encodeURIComponent(q)}`);
+      expect(found.body.data.map(({ id }) => id)).toContain(ID);
+    }
+    const none = await list(auth, "?q=%25");
+    expect(none.body).toMatchObject({ data: [], total: 0 });
+  });
+
+  it.each(["?page=0", "?limit=101", "?group=fish", "?status=gone"])(
+    "rejects %s",
+    async (query) => {
+      const { body, response } = await list(auth, query);
+      expect(response.status).toBe(400);
+      expect(body.error.code).toBe("invalid_request");
+    },
+  );
 
   it("counts pending drafts and shows the last edit", async () => {
     sqlite
@@ -354,7 +400,7 @@ describe("GET /v1/admin/species", () => {
         "INSERT INTO species_revisions (species_id, version, actor, source, summary, created_at) VALUES (?, 2, 'nika', 'admin', 'Edit', '2026-10-23T10:00:00.000Z')",
       )
       .run(ID);
-    const { body } = await list({ Authorization: `Bearer ${TOKEN}` });
+    const { body } = await list(auth, `?q=${ID}`);
     expect(body.data.find(({ id }) => id === ID)).toMatchObject({
       lastEditedAt: "2026-10-23T10:00:00.000Z",
       pendingDrafts: 1,
