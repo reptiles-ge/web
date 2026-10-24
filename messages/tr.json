@@ -930,6 +930,8 @@
     "clear": "Temizle",
     "latest": "Yeni",
     "readTime": "{minutes} dk okuma",
+    "readTimeShort": "{minutes} dk",
+    "viewCount": "{count, plural, other {# görüntülenme}}",
     "howWeWriteEyebrow": "Nasıl yazıyoruz",
     "howWeWrite": "Her makaleye birincil kaynak eşlik eder — bilimsel bir çalışma, saha sayımı veya resmî bir açıklama.",
     "methodologyLink": "Standartlar ve kaynaklar",

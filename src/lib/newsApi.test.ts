@@ -36,12 +36,11 @@ describe("getNewsArticle", () => {
   it("rebuilds every published article from the API in all its locales", async () => {
     for (const article of getPublishedNewsArticles()) {
       const found = await getNewsArticle(article.slug);
-      expect(found && withoutAuthorIds(found), article.slug).toStrictEqual(
-        article,
-      );
+      expect(found?.views, article.slug).toBe(0);
+      const { views: _views, ...rest } = found!;
+      expect(withoutAuthorIds(rest), article.slug).toStrictEqual(article);
     }
   });
-
   it("keeps the author link of a credited photo", async () => {
     const articles = await Promise.all(
       getPublishedNewsArticles().map(({ slug }) => getNewsArticle(slug)),

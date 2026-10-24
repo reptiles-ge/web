@@ -930,6 +930,8 @@
     "clear": "გასუფთავება",
     "latest": "ახალი",
     "readTime": "{minutes} წთ კითხვა",
+    "readTimeShort": "{minutes} წთ",
+    "viewCount": "{count, plural, other {# ნახვა}}",
     "howWeWriteEyebrow": "როგორ ვწერთ",
     "howWeWrite": "ყოველ სტატიას თან ერთვის პირველწყარო — სამეცნიერო ნაშრომი, საველე აღრიცხვა ან ოფიციალური ცნობა.",
     "methodologyLink": "სტანდარტები და წყაროები",

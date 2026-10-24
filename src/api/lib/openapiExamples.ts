@@ -370,6 +370,7 @@ export const RESPONSE_EXAMPLES = {
       ],
     },
     locale: "en",
+    views: 0,
   },
   newsList: {
     data: [

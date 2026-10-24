@@ -16,6 +16,7 @@ import { NewsArticleToc } from "@/components/NewsArticleToc";
 import { NewsRichText } from "@/components/NewsRichText";
 import { NewsSeriesBlock } from "@/components/NewsSeriesBlock";
 import { NewsShareButtons } from "@/components/NewsShareButtons";
+import { ViewCount } from "@/components/ViewCount";
 import {
   getNewsCopy,
   getPublishedNewsArticles,
@@ -34,7 +35,11 @@ import { hasPhotoCredit } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
-import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
+import {
+  formatContentDate,
+  formatContentDateShort,
+  formatPhotoDate,
+} from "@/lib/formatDate";
 import {
   newsArticleHref,
   newsArticlePath,
@@ -323,15 +328,40 @@ async function NewsArticleHeader({
           ) : null}
           <span className="inline-flex items-center gap-2 whitespace-nowrap md:gap-2.5">
             <time dateTime={article.publishedAt}>
-              {formatContentDate(article.publishedAt, locale)}
+              <span className="md:hidden">
+                {formatContentDateShort(article.publishedAt, locale)}
+              </span>
+              <span className="max-md:hidden">
+                {formatContentDate(article.publishedAt, locale)}
+              </span>
             </time>
             <span
               aria-hidden="true"
               className="size-[3px] rounded-full bg-(--nw-sep)"
             />
-            <span>
+            <span className="md:hidden">
+              {t("readTimeShort", {
+                minutes: newsReadMinutes(article, locale),
+              })}
+            </span>
+            <span className="max-md:hidden">
               {t("readTime", { minutes: newsReadMinutes(article, locale) })}
             </span>
+            {article.views ? (
+              <>
+                <span
+                  aria-hidden="true"
+                  className="size-[3px] rounded-full bg-(--nw-sep)"
+                />
+                <ViewCount
+                  className="gap-[5px] md:gap-1.5"
+                  count={article.views}
+                  iconClassName="size-[13px] md:size-[15px]"
+                  label={t("viewCount", { count: article.views })}
+                  locale={locale}
+                />
+              </>
+            ) : null}
           </span>
         </div>
         <h1
