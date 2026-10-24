@@ -2,6 +2,7 @@ import { Hono } from "hono";
 
 import { formatRatingNotification } from "@/lib/ratingNotification";
 import { sendTelegramMessage } from "@/lib/telegram";
+import { VISITOR_COUNTRY_HEADER } from "@/lib/visitorHeaders";
 
 import type { ApiEnv } from "../env";
 
@@ -9,18 +10,22 @@ import { insertRating } from "../db/ratings";
 import { inBackground } from "../lib/background";
 import { validate } from "../lib/validate";
 import { rateLimitRatings } from "../middleware/rateLimitRatings";
+import { requireSiteKey } from "../middleware/requireSiteKey";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { ratingBody } from "../schemas/ratings";
 
 export const ratings = new Hono<ApiEnv>().post(
   "/",
+  requireSiteKey,
   requireSiteOrigin,
   rateLimitRatings,
   validate("json", ratingBody),
   async (c) => {
     const body = c.req.valid("json");
     const origin = new URL(c.req.header("Origin") ?? "https://reptiles.ge");
-    const country = countryCode(c.req.header("cf-ipcountry"));
+    const country = countryCode(
+      c.req.header(VISITOR_COUNTRY_HEADER) ?? c.req.header("cf-ipcountry"),
+    );
     await insertRating(c.env.DB, {
       country,
       feedback: body.feedback,
