@@ -19,6 +19,7 @@ import {
   fetchAdminAuthorPhotos,
   fetchAdminAuthorRecord,
 } from "./authors";
+import { AuthorTextsEditor } from "./AuthorTextsEditor";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { PhotoThumbnail } from "./PhotoThumbnail";
 import { SPECIES_STATUS_COLORS } from "./species";
@@ -218,6 +219,16 @@ export function AuthorDetailPage({
                 ),
                 key: "profile",
                 label: "Profile",
+              },
+              {
+                children: (
+                  <AuthorTextsEditor
+                    author={author}
+                    onSessionExpired={onSessionExpired}
+                  />
+                ),
+                key: "texts",
+                label: "Texts",
               },
               {
                 children: (

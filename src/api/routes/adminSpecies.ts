@@ -37,6 +37,7 @@ import {
   setCover,
   setPhotoCoordinates,
 } from "../lib/speciesPhotos";
+import { applySpeciesTexts } from "../lib/speciesTexts";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { rateLimitUpload } from "../middleware/rateLimitUpload";
@@ -55,6 +56,7 @@ import {
   photoRemoveBody,
   speciesIdParam,
   speciesRecordSchema,
+  speciesTextsBody,
   speciesWriteBody,
 } from "../schemas/speciesRecord";
 
@@ -98,6 +100,46 @@ export const adminSpecies = new Hono<ApiEnv>()
       await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
+    },
+  )
+  .post(
+    "/:id/texts",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", speciesTextsBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, locale, summary, texts } = c.req.valid("json");
+      const current = await readSpeciesRecord(c.env.DB, id);
+      if (!current) throw new ApiError(404, "not_found", "Species not found");
+      if (current.version !== expectedVersion) {
+        throw versionConflict(current.version);
+      }
+      const record = structuredClone(current.record);
+      applySpeciesTexts(record, locale, texts);
+      const checked = speciesRecordSchema.safeParse(record);
+      if (!checked.success) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "The change breaks a content rule",
+          checked.error.issues,
+        );
+      }
+      const version = await saveSpeciesRecord(
+        c.env.DB,
+        record,
+        expectedVersion,
+        {
+          actor: c.var.user!.name,
+          source: "admin",
+          summary,
+        },
+      );
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id, locale, version } }, 200);
     },
   )
   .post(

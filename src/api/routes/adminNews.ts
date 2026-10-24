@@ -5,19 +5,22 @@ import type { NewsArticle } from "@/data/newsTypes";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { newsReferenceIssues } from "@/lib/newsRules";
 
+import type { ApiDatabase } from "../db/database";
 import type { ApiEnv } from "../env";
 
-import { listAdminNews } from "../db/news";
+import { listAdminNews, readNewsRecords } from "../db/news";
 import {
   createNewsArticle,
   readNewsKnownIds,
   readNewsState,
   setNewsStatus,
+  writeNewsCopy,
 } from "../db/newsWrite";
 import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
+import { newsCopyIssues } from "../lib/newsCopy";
 import {
   ensureSiteRevalidated,
   revalidateNewsArticle,
@@ -32,6 +35,8 @@ import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
 import { newsParam } from "../schemas/news";
 import {
+  newsArticleSchema,
+  newsCopyBody,
   newsCreateBody,
   newsCreateQuery,
   newsStatusBody,
@@ -73,6 +78,71 @@ export const adminNews = new Hono<ApiEnv>()
       return c.json({ data: { id: slug } }, 200);
     },
   )
+  .get("/:slug", requireAdmin, validate("param", newsParam), async (c) => {
+    const { slug } = c.req.valid("param");
+    const { found, state } = await readArticle(c.env.DB, slug);
+    c.header("Cache-Control", NO_STORE);
+    return c.json(
+      { data: { article: found.article, version: state.version } },
+      200,
+    );
+  })
+  .post(
+    "/:slug/copy",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", newsParam),
+    validate("json", newsCopyBody),
+    async (c) => {
+      const { slug } = c.req.valid("param");
+      const { copy, expectedVersion, summary } = c.req.valid("json");
+      const { found, state } = await readArticle(c.env.DB, slug);
+      if (state.version !== expectedVersion) {
+        throw versionConflict(state.version);
+      }
+      const structure = newsCopyIssues(found.article.copy, copy);
+      if (structure.length > 0) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "A text edit cannot change the article's structure",
+          structure.map(issuePath("")),
+        );
+      }
+      const checked = newsArticleSchema.safeParse({
+        ...found.article,
+        copy,
+      });
+      if (!checked.success) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          "The change breaks a content rule",
+          checked.error.issues,
+        );
+      }
+      const article = checked.data as NewsArticle;
+      await checkReferences(c.env.DB, article, "");
+      let version: number;
+      try {
+        version = await writeNewsCopy(
+          c.env.DB,
+          { article, position: found.position },
+          expectedVersion,
+          { actor: c.var.user!.name, source: "admin", summary },
+        );
+      } catch (error) {
+        const now = await readNewsState(c.env.DB, slug);
+        if (now && now.version !== expectedVersion) {
+          throw versionConflict(now.version);
+        }
+        throw error;
+      }
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { id: slug, version } }, 200);
+    },
+  )
   .use(requireToken)
   .post(
     "/",
@@ -81,23 +151,7 @@ export const adminNews = new Hono<ApiEnv>()
     async (c) => {
       const { actor, article, source, summary } = c.req.valid("json");
       const dryRun = c.req.valid("query").dryRun === "true";
-      const known = await readNewsKnownIds(c.env.DB);
-      const issues = newsReferenceIssues(article, {
-        ...known,
-        hubIds: HUB_IDS,
-        regionIds: REGIONS,
-      });
-      if (issues.length > 0) {
-        throw new ApiError(
-          400,
-          "invalid_request",
-          "Article links to unknown ids",
-          issues.map((issue) => ({
-            message: issue.message,
-            path: ["article", ...issue.path].join("."),
-          })),
-        );
-      }
+      await checkReferences(c.env.DB, article, "article");
       if (await readNewsState(c.env.DB, article.id)) {
         throw new ApiError(409, "conflict", "Article already exists");
       }
@@ -147,6 +201,45 @@ export const adminNews = new Hono<ApiEnv>()
       return c.json({ data: { id: slug, status, version } }, 200);
     },
   );
+
+async function checkReferences(
+  db: ApiDatabase,
+  article: Parameters<typeof newsReferenceIssues>[0],
+  prefix: string,
+) {
+  const known = await readNewsKnownIds(db);
+  const issues = newsReferenceIssues(article, {
+    ...known,
+    hubIds: HUB_IDS,
+    regionIds: REGIONS,
+  });
+  if (issues.length > 0) {
+    throw new ApiError(
+      400,
+      "invalid_request",
+      "Article links to unknown ids",
+      issues.map(issuePath(prefix)),
+    );
+  }
+}
+
+function issuePath(prefix: string) {
+  return (issue: { message: string; path: (number | string)[] }) => ({
+    message: issue.message,
+    path: (prefix ? [prefix, ...issue.path] : issue.path).join("."),
+  });
+}
+
+async function readArticle(db: ApiDatabase, slug: string) {
+  const [[found], state] = await Promise.all([
+    readNewsRecords(db, slug),
+    readNewsState(db, slug),
+  ]);
+  if (!found || !state) {
+    throw new ApiError(404, "not_found", "Article not found");
+  }
+  return { found, state };
+}
 
 function versionConflict(currentVersion: number) {
   return new ApiError(

@@ -9,6 +9,7 @@ import { AuthorsPage } from "./AuthorsPage";
 import { CachePage } from "./CachePage";
 import { DraftDetailPage } from "./DraftDetailPage";
 import { DraftsPage } from "./DraftsPage";
+import { NewsDetailPage } from "./NewsDetailPage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { followLink, navigate, usePathname } from "./router";
@@ -41,6 +42,7 @@ const DETAILS: Array<{
   path: string;
 }> = [
   { page: SpeciesDetailPage, path: "/species" },
+  { page: NewsDetailPage, path: "/news" },
   { page: DraftDetailPage, path: "/drafts" },
   { page: AuthorDetailPage, path: "/authors" },
 ];

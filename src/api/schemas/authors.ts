@@ -96,3 +96,7 @@ export const authorRecordSchema = z
   );
 
 export const authorWriteBody = z.strictObject({ author: authorRecordSchema });
+
+export const authorTextsBody = z.strictObject({
+  texts: authorRecordSchema.shape.texts,
+});

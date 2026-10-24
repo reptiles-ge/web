@@ -521,3 +521,172 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 });
+
+describe("POST /v1/admin/species/:id/texts", () => {
+  const ADMIN_ORIGIN = "https://admin.reptiles.ge";
+
+  type Texts = Record<string, unknown>;
+
+  function textsOf(target: SpeciesRecord["base"]): Texts {
+    const identification = target.identification
+      ? {
+          ...(target.identification.coloration === undefined
+            ? {}
+            : { coloration: target.identification.coloration }),
+          summary: target.identification.summary,
+          traits: target.identification.traits,
+        }
+      : undefined;
+    return {
+      behavior: target.behavior,
+      commonName: target.commonName,
+      conservation: target.conservation,
+      description: target.description,
+      diet: target.diet,
+      facts: target.facts,
+      ...(target.faq ? { faq: target.faq } : {}),
+      habitat: target.habitat,
+      ...(identification ? { identification } : {}),
+      ...(target.interaction === undefined
+        ? {}
+        : { interaction: target.interaction }),
+      location: target.location,
+      overview: target.overview,
+      stats: target.stats,
+    };
+  }
+
+  async function saveTexts(
+    body: Record<string, unknown>,
+    headers?: Record<string, string>,
+    id = ID,
+  ) {
+    return requestJson<
+      ErrorBody & { data: { id: string; locale: string; version: number } }
+    >(`/v1/admin/species/${id}/texts`, env, {
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+        ...(headers ?? {
+          ...(await adminSessionHeaders(sqlite)),
+          Origin: ADMIN_ORIGIN,
+        }),
+      },
+      method: "POST",
+    });
+  }
+
+  beforeEach(() => {
+    env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
+  });
+
+  it("saves one locale's texts and keeps everything else", async () => {
+    const before = (await getRecord()).body.data.record;
+    const texts = textsOf(before.translations.en as SpeciesRecord["base"]);
+    texts.overview = "A new English overview.";
+    texts.facts = (texts.facts as string[]).map((fact) => `${fact}!`);
+    const { body, response } = await saveTexts({
+      expectedVersion: 1,
+      locale: "en",
+      summary: "Edit English texts",
+      texts,
+    });
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
+    expect(body.data).toEqual({ id: ID, locale: "en", version: 2 });
+    const after = (await getRecord()).body.data;
+    expect(after.version).toBe(2);
+    expect(after.record.translations.en.overview).toBe(
+      "A new English overview.",
+    );
+    expect(after.record.translations.en.facts).toEqual(texts.facts);
+    expect(after.record.base).toEqual(before.base);
+    expect(after.record.translations.ru).toEqual(before.translations.ru);
+    expect(after.record.translations.en.gallery).toEqual(
+      before.translations.en.gallery,
+    );
+    expect(
+      sqlite
+        .prepare(
+          "SELECT actor, source, summary FROM species_revisions WHERE species_id = ? AND version = 2",
+        )
+        .get(ID),
+    ).toEqual({
+      actor: "Admin",
+      source: "admin",
+      summary: "Edit English texts",
+    });
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("keeps Georgian colours and photos on a Georgian edit", async () => {
+    const before = (await getRecord()).body.data.record;
+    const texts = textsOf(before.base);
+    texts.commonName = "ახალი სახელი";
+    expect(
+      (
+        await saveTexts({
+          expectedVersion: 1,
+          locale: "ka",
+          summary: "Rename",
+          texts,
+        })
+      ).response.status,
+    ).toBe(200);
+    const after = (await getRecord()).body.data.record;
+    expect(after.base).toEqual({ ...before.base, commonName: "ახალი სახელი" });
+  });
+
+  it("refuses list changes, stale versions and unknown species", async () => {
+    const before = (await getRecord()).body.data.record;
+    const texts = textsOf(before.base);
+    const stats = texts.stats as unknown[];
+    expect(stats.length).toBeGreaterThan(0);
+    const refused = await saveTexts({
+      expectedVersion: 1,
+      locale: "ka",
+      summary: "x",
+      texts: { ...texts, stats: stats.slice(1) },
+    });
+    expect(refused.response.status).toBe(400);
+    expect(refused.body.error.code).toBe("invalid_request");
+    const emptyName = await saveTexts({
+      expectedVersion: 1,
+      locale: "ka",
+      summary: "x",
+      texts: { ...texts, commonName: "" },
+    });
+    expect(emptyName.response.status).toBe(400);
+    const stale = await saveTexts({
+      expectedVersion: 7,
+      locale: "ka",
+      summary: "x",
+      texts,
+    });
+    expect(stale.response.status).toBe(409);
+    expect(stale.body.error.code).toBe("version_conflict");
+    const missing = await saveTexts(
+      { expectedVersion: 1, locale: "ka", summary: "x", texts },
+      undefined,
+      "no-such-species",
+    );
+    expect(missing.response.status).toBe(404);
+    expect((await getRecord()).body.data.version).toBe(1);
+  });
+
+  it("needs an admin session from an allowed origin and is rate limited", async () => {
+    const texts = textsOf((await getRecord()).body.data.record.base);
+    const body = { expectedVersion: 1, locale: "ka", summary: "x", texts };
+    const session = await adminSessionHeaders(sqlite);
+    for (const [headers, status] of [
+      [{ Origin: ADMIN_ORIGIN }, 401],
+      [{ Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN }, 401],
+      [session, 403],
+      [{ ...session, Origin: "https://evil.example" }, 403],
+    ] as Array<[Record<string, string>, number]>) {
+      expect((await saveTexts(body, headers)).response.status).toBe(status);
+    }
+    env.ADMIN_LIMITER = { limit: async () => ({ success: false }) };
+    expect((await saveTexts(body)).response.status).toBe(429);
+  });
+});

@@ -35,6 +35,8 @@ jobs:
 
       - run: pnpm slugs:compile
 
+      - run: pnpm images:compile
+
       - run: pnpm format:check
 
       - run: pnpm knip

@@ -437,6 +437,18 @@ export async function writeAuthor(db: ApiDatabase, author: AuthorRecord) {
   ]);
 }
 
+export async function writeAuthorTexts(db: ApiDatabase, author: AuthorRecord) {
+  const table = AUTHOR_TABLES[1];
+  await db.batch([
+    db.prepare("DELETE FROM author_texts WHERE author_id = ?").bind(author.id),
+    ...renderBoundInserts(
+      table.name,
+      table.columns,
+      authorRows(author)[table.name],
+    ).map(({ sql, values }) => db.prepare(sql).bind(...values)),
+  ]);
+}
+
 function authorProfile(
   record: AuthorRecord,
   locale: AppLocale,
