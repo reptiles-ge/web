@@ -1,19 +1,19 @@
 # News content: MDX → D1 migration plan
 
-Status as of 2026-10-23. Phases 1 and 2, slice 3.1 and the `news:import` create path are built; none of it is in production yet. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
+Status as of 2026-10-24. Phases 1 and 2, slices 3.1 and 3.2 and the `news:import` create path are built. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
 
 ## Where things stand
 
-| Phase | What                                                                                                  | State                                     |
-| ----- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                 |
-| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production   |
-| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                              |
-| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                |
-| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳ 3.1 code done (article page)           |
-| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                        |
-| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done |
-| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                        |
+| Phase | What                                                                                                  | State                                            |
+| ----- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                        |
+| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production          |
+| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                     |
+| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                       |
+| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳ 3.1 + 3.2 code done (article, index, archive) |
+| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                               |
+| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done        |
+| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                               |
 
 Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can each be split into several PRs. Exception: the create path of `news:import` (`POST /v1/admin/news` + the script) must ship **before** phase 3 switches the site to the API. From then on the site no longer reads MDX, so an article written in MDX reaches the site only through the import. Until phase 3, new articles are added both ways: MDX on `main` as today, and `news:import` into D1.
 
@@ -125,6 +125,16 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 - Still on the compiled data inside the article page: the series block and "continue reading" (both lists), until 3.2 brings the list consumers over.
 - Checked in the browser against a local API (`pnpm dev:api`, local D1 with `db:import:news`) and `NEXT_PUBLIC_API_ORIGIN=http://localhost:8787`: the Georgian and English pages render, with hreflang, JSON-LD and every section, and an unknown slug gives the `noindex` 404.
 - **Order before merging to `main`:** production must have the news tables, the data and the API (`db:migrate:remote`, `db:import:news:remote`, `deploy:api`). Otherwise every article page 404s. And per the order note above, `news:import` (create path) should exist first: from 3.1 on, an article added only as MDX is listed by the compiled index but has no article page.
+
+### 3.2 — index and archive, done (code only)
+
+- `GET /v1/news` items carry `readMinutes`, counted by `newsCopyReadMinutes` (`src/lib/newsReadTime.ts`), the same function behind the site's `newsReadMinutes`. The list has no body, so the cards need it from the API.
+- `getNewsListArticles(locale)` in `src/lib/newsApi.ts` turns the list into `NewsListArticle` (`src/data/newsTypes.ts`): the summary fields in one locale (`title`, `dek`, `lead`, `readMinutes`), cover photo, sources, dates and related ids. `newsApi.test.ts` checks it against the compiled articles in all four locales.
+- `newsPages.ts`: `newsPageOf(list, page)` pages any list. `getNewsListPage(locale, page)` and `getNewsListPageCounts()` page the API list; `getNewsPage` and `newsPageCounts()` keep paging the compiled data for the sitemap. `newsArchiveAlternates`, `newsArchivePages` and `newsArchiveStaticParams` take the page counts, and `newsPageDateModified` takes the newest article, so each caller says which source it uses.
+- `news/page.tsx` and `news/page/[page]/page.tsx` read the API list. The archive's `dynamicParams` is now `true` and `generateStaticParams` comes from the API counts, so an import that adds an archive page needs no deploy; a page past the end is still a 404.
+- `NewsIndexPage`, `NewsArchivePage`, `toNewsIndexEntry` and `newsListingJsonLd` take `NewsListArticle`. The visual, source-badge and date helpers (`getNewsVisual`, `newsCategoryHub`, `newsSourceBadges`, `newsIndexDateFields`, `newestNewsDateTime`, `newsRelatedSpecies`, `newsRelatedRegions`) take only the fields they read, so both shapes fit.
+- Still on the compiled data: the sitemap's news entries, including archive pages (phase 4), and every 3.3 consumer.
+- **Order before merging to `main`:** `pnpm deploy:api` first, so production answers `readMinutes`. Without it the cards show no read time.
 
 ### Original plan
 

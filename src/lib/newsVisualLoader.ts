@@ -6,11 +6,16 @@ import { NO_CONTRIBUTORS } from "@/lib/contributorCredits";
 import { getNewsVisual, newsAtlasSpecies } from "@/lib/newsVisual";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
+type VisualArticle = Pick<
+  NewsArticle,
+  "image" | "relatedRegionIds" | "relatedSpeciesIds"
+>;
+
 export async function loadNewsVisuals(
-  articles: readonly (NewsArticle | null | undefined)[],
+  articles: readonly (null | undefined | VisualArticle)[],
   locale: AppLocale,
 ) {
-  const unillustrated = articles.filter((article): article is NewsArticle =>
+  const unillustrated = articles.filter((article): article is VisualArticle =>
     Boolean(article && !article.image),
   );
   const catalog =

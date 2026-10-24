@@ -31,6 +31,7 @@ import {
   getNewsPage,
   newsArchiveAlternates,
   newsArchivePages,
+  newsPageCounts,
   newsPageDateModified,
   newsPageUrl,
 } from "@/lib/newsPages";
@@ -86,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
     pending.push(entry);
+  const archivePageCounts = newsPageCounts();
 
   routing.locales.forEach((locale, index) => {
     const cards = catalogs[index] ?? [];
@@ -106,14 +108,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     add(page("/photo-use"));
     for (const path of Object.values(LEGAL_PATHS)) add(page(path));
     add(page("/news", newsIndexDateFields(locale).dateModified));
-    for (const newsPageNumber of newsArchivePages(locale)) {
+    for (const newsPageNumber of newsArchivePages(locale, archivePageCounts)) {
       const newsPage = getNewsPage(locale, newsPageNumber);
       add({
         alternates: {
-          languages: newsArchiveAlternates(locale, newsPageNumber).languages,
+          languages: newsArchiveAlternates(
+            locale,
+            newsPageNumber,
+            archivePageCounts,
+          ).languages,
         },
         lastModified: toLastModified(
-          newsPageDateModified(locale, newsPage?.articles ?? []),
+          newsPageDateModified(
+            getPublishedNewsArticles(locale)[0],
+            newsPage?.articles ?? [],
+          ),
         ),
         url: newsPageUrl(locale, newsPageNumber),
       });

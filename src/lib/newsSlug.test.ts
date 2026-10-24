@@ -4,7 +4,11 @@ import { getAllNewsArticles } from "@/data/news";
 import { newsSlugs } from "@/data/newsPublish";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
-import { getNewsPage, newsArchiveStaticParams } from "@/lib/newsPages";
+import {
+  getNewsPage,
+  newsArchiveStaticParams,
+  newsPageCounts,
+} from "@/lib/newsPages";
 import {
   NEWS_ARCHIVE_SEGMENT,
   NEWS_RESERVED_SLUGS,
@@ -54,7 +58,7 @@ describe("news slugs never shadow news archive URLs", () => {
   });
 
   it("emits no empty archive page for today's articles", () => {
-    for (const param of newsArchiveStaticParams()) {
+    for (const param of newsArchiveStaticParams(newsPageCounts())) {
       expect(
         getNewsPage(param.locale, Number(param.page))?.articles.length,
         `${param.locale} ${param.page}`,

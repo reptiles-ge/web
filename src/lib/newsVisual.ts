@@ -33,8 +33,13 @@ export type NewsVisual = {
   src: string;
 };
 
+type NewsVisualSource = Pick<
+  NewsArticle,
+  "image" | "relatedRegionIds" | "relatedSpeciesIds"
+>;
+
 export function getNewsImageSrc(
-  article: NewsArticle,
+  article: NewsVisualSource,
   catalog: readonly NewsSpecies[],
 ): null | string {
   if (article.image?.src) return article.image.src;
@@ -51,7 +56,7 @@ export function getNewsImageSrc(
 }
 
 export function getNewsVisual(
-  article: NewsArticle,
+  article: NewsVisualSource,
   locale: AppLocale,
   catalog: readonly NewsSpecies[],
   contributors: ContributorDirectory,
@@ -104,14 +109,16 @@ export function localizeNewsPhoto(
 }
 
 export function newsAtlasSpecies<T extends NewsSpecies>(
-  article: NewsArticle,
+  article: Pick<NewsArticle, "relatedSpeciesIds">,
   catalog: readonly T[],
 ): T | undefined {
   const species = newsRelatedSpecies(article, catalog)[0];
   return species && !isPlaceholderMedia(species.image) ? species : undefined;
 }
 
-export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
+export function newsCategoryHub(
+  article: Pick<NewsArticle, "relatedHubIds">,
+): GroupHubId | undefined {
   return article.relatedHubIds[0];
 }
 

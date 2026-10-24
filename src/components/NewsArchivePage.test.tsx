@@ -7,6 +7,7 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { formatContentMonth } from "@/lib/formatDate";
 
 import en from "../../messages/en.json";
+import { toNewsListArticle } from "../../tests/fixtures/manyNews";
 
 vi.mock("next-intl/server", () => ({
   getTranslations: async ({ namespace }: { namespace: "news" }) =>
@@ -27,7 +28,9 @@ vi.mock("@/components/NewsPagination", () => ({
   ),
 }));
 
-const articles = getPublishedNewsArticles("en").slice(0, 6);
+const articles = getPublishedNewsArticles("en")
+  .slice(0, 6)
+  .map((article) => toNewsListArticle(article, "en"));
 
 describe("NewsArchivePage", () => {
   it("renders the page heading, a breadcrumb, month groups and the pagination", async () => {

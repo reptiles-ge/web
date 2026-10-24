@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import { routing } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
 
 import en from "../../../../../../messages/en.json";
@@ -35,10 +35,15 @@ vi.mock("@/i18n/navigation", async () => {
   return { getPathname: fakeGetPathname };
 });
 
-vi.mock("@/data/news", async (importOriginal) => {
-  const { withManyNews } =
+vi.mock("@/lib/newsApi", async () => {
+  const { manyNewsListArticles } =
     await import("../../../../../../tests/fixtures/manyNews");
-  return withManyNews(await importOriginal());
+  const actual =
+    await vi.importActual<typeof import("@/data/news")>("@/data/news");
+  return {
+    getNewsListArticles: async (locale: AppLocale) =>
+      manyNewsListArticles(actual, locale),
+  };
 });
 
 function params(locale: string, page: string) {
@@ -46,9 +51,9 @@ function params(locale: string, page: string) {
 }
 
 describe("news archive route", () => {
-  it("404s anything it did not generate", () => {
-    expect(dynamicParams).toBe(false);
-    expect(generateStaticParams()).toEqual([
+  it("prerenders the archive pages the API list fills and renders new ones on demand", async () => {
+    expect(dynamicParams).toBe(true);
+    expect(await generateStaticParams()).toEqual([
       { locale: "ka", page: "2" },
       { locale: "ka", page: "3" },
       { locale: "en", page: "2" },
