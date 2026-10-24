@@ -2,12 +2,18 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { type AdminNews, clearNewsCache, fetchAdminNews } from "./news";
+import {
+  type AdminNews,
+  clearNewsCache,
+  clearNewsSectionCache,
+  fetchAdminNews,
+} from "./news";
 import { NewsPage } from "./NewsPage";
 import { SessionExpiredError } from "./species";
 
 vi.mock("./news", () => ({
   clearNewsCache: vi.fn(),
+  clearNewsSectionCache: vi.fn(),
   fetchAdminNews: vi.fn(),
 }));
 
@@ -44,6 +50,7 @@ function show(onSessionExpired = vi.fn()) {
 beforeEach(() => {
   vi.mocked(fetchAdminNews).mockReset();
   vi.mocked(clearNewsCache).mockReset();
+  vi.mocked(clearNewsSectionCache).mockReset();
 });
 
 async function clearRow(slug: string) {
@@ -137,5 +144,24 @@ describe("NewsPage", () => {
     const expired = show();
     await clearRow("batumi-raptor-count");
     await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
+  });
+
+  it("clears the whole news section from the header after confirmation", async () => {
+    vi.mocked(fetchAdminNews).mockResolvedValue([PUBLISHED]);
+    vi.mocked(clearNewsSectionCache).mockResolvedValue();
+    show();
+    await screen.findByText("batumi-raptor-count");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Clear news cache" }),
+    );
+    const popup = (
+      await screen.findByText("Clear the whole news cache?")
+    ).closest(".ant-popover") as HTMLElement;
+    await userEvent.click(
+      within(popup).getByRole("button", { name: "Clear cache" }),
+    );
+    expect(clearNewsSectionCache).toHaveBeenCalledOnce();
+    expect(clearNewsCache).not.toHaveBeenCalled();
+    expect(await screen.findByText("News cache cleared.")).toBeInTheDocument();
   });
 });

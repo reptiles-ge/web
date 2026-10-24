@@ -21,6 +21,7 @@ import { ApiError } from "../lib/errors";
 import {
   revalidateNewsArticle,
   revalidateNewsPages,
+  revalidateNewsSection,
 } from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
@@ -44,6 +45,23 @@ export const adminNews = new Hono<ApiEnv>()
     c.header("Cache-Control", NO_STORE);
     return c.json({ data, total: data.length }, 200);
   })
+  .post(
+    "/revalidate",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    async (c) => {
+      if (!(await revalidateNewsSection(c.env))) {
+        throw new ApiError(
+          502,
+          "site_unavailable",
+          "The site could not be revalidated",
+        );
+      }
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { tags: ["news"] } }, 200);
+    },
+  )
   .post(
     "/:slug/revalidate",
     requireSiteOrigin,

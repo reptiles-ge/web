@@ -6,7 +6,12 @@ import { useMemo, useState } from "react";
 import { AdminListView } from "./AdminListView";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
-import { type AdminNews, clearNewsCache, fetchAdminNews } from "./news";
+import {
+  type AdminNews,
+  clearNewsCache,
+  clearNewsSectionCache,
+  fetchAdminNews,
+} from "./news";
 import { includesQuery, unique, useAdminList } from "./useAdminList";
 
 const STATUS_COLORS: Record<AdminNews["status"], string> = {
@@ -119,6 +124,19 @@ export function NewsPage({
 
   return (
     <AdminListView<AdminNews>
+      actions={
+        <ClearCacheButton
+          description="Every news page on reptiles.ge renders fresh on its next visit: the news index, the archive pages and all articles, in every language. The home page and other pages that list news change only on deploy."
+          failure="The news cache could not be cleared. Try again in a minute."
+          label="Clear news cache"
+          onSessionExpired={onSessionExpired}
+          run={async () => {
+            await clearNewsSectionCache();
+            return "News cache cleared.";
+          }}
+          title="Clear the whole news cache?"
+        />
+      }
       columns={columns}
       noun="articles"
       onQuery={setQuery}
