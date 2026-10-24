@@ -1,7 +1,7 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Segmented, Space, Tag, Typography } from "antd";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { AdminLink } from "./AdminLink";
 import { AdminListView } from "./AdminListView";
@@ -12,7 +12,8 @@ import {
   fetchDrafts,
   isStale,
 } from "./drafts";
-import { includesQuery, useAdminList } from "./useAdminList";
+import { type PagedQuery } from "./pagination";
+import { serverPaging, usePagedList } from "./usePagedList";
 
 const STATUSES: DraftStatus[] = ["pending", "approved", "rejected"];
 
@@ -41,27 +42,9 @@ function DraftsList({
   onStatus: (status: DraftStatus) => void;
   status: DraftStatus;
 }) {
-  const {
-    items: drafts,
-    reload,
-    status: loadStatus,
-  } = useAdminList(() => fetchDrafts(status), onSessionExpired);
-  const [query, setQuery] = useState("");
-  const visible = useMemo(
-    () =>
-      drafts.filter((draft) =>
-        includesQuery(
-          [
-            draft.speciesId,
-            draft.commonName,
-            draft.scientificName,
-            draft.summary,
-            draft.actor,
-          ],
-          query,
-        ),
-      ),
-    [drafts, query],
+  const list = usePagedList(
+    (query: PagedQuery<object>) => fetchDrafts({ ...query, status }),
+    onSessionExpired,
   );
 
   const columns: ColumnsType<AdminDraft> = [
@@ -148,14 +131,15 @@ function DraftsList({
       }
       columns={columns}
       noun="drafts"
-      onQuery={setQuery}
-      onReload={reload}
+      onQuery={list.setSearch}
+      onReload={list.reload}
+      paging={serverPaging(list)}
       rowKey="id"
-      rows={visible}
+      rows={list.items}
       searchPlaceholder="Species, summary or author"
-      status={loadStatus}
+      status={list.status}
       title="Drafts"
-      total={drafts.length}
+      total={list.total}
     />
   );
 }

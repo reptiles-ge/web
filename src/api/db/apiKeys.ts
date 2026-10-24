@@ -1,4 +1,9 @@
+import { type PageParams, toPage } from "@/lib/pagination";
+
 import type { ApiDatabase } from "./database";
+
+import { readPage } from "./paging";
+import { containsPattern } from "./search";
 
 export type ApiKey = {
   createdAt: string;
@@ -76,11 +81,22 @@ export async function insertApiKey(
     .run();
 }
 
-export async function listApiKeys(db: ApiDatabase) {
-  const { results } = await db
-    .prepare(`SELECT ${COLUMNS} FROM api_keys ORDER BY created_at DESC, id`)
-    .all<ApiKeyRow>();
-  return results.map(toApiKey);
+export async function listApiKeys(
+  db: ApiDatabase,
+  filters: { q?: string },
+  page: PageParams,
+) {
+  const { rows, total } = await readPage<ApiKeyRow>(
+    db,
+    {
+      from: "FROM api_keys WHERE (?1 IS NULL OR name LIKE ?1 ESCAPE '\\' OR note LIKE ?1 ESCAPE '\\' OR key_prefix LIKE ?1 ESCAPE '\\')",
+      order: "created_at DESC, id",
+      select: COLUMNS,
+    },
+    [containsPattern(filters.q)],
+    page,
+  );
+  return toPage(rows.map(toApiKey), total, page);
 }
 
 export async function revokeApiKey(db: ApiDatabase, id: string, now: string) {

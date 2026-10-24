@@ -27,7 +27,7 @@ import {
 } from "./newsDoc";
 import { NewsPreview } from "./NewsPreview";
 import { PhotoThumbnail } from "./PhotoThumbnail";
-import { type AdminSpecies, fetchAdminSpecies } from "./species";
+import { type AdminSpecies, fetchAllAdminSpecies } from "./species";
 import { LocaleSwitch, SaveBar, TextField } from "./TextEditKit";
 import {
   EDIT_LOCALES,
@@ -84,7 +84,7 @@ export function NewsDetailPage({
     () =>
       Promise.all([
         fetchAdminNewsRecord(id),
-        fetchAdminSpecies(),
+        fetchAllAdminSpecies(),
         fetchAdminAuthors({
           contributor: true,
           limit: MAX_PAGE_SIZE,

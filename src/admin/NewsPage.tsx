@@ -1,19 +1,26 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Space, Tag, Typography } from "antd";
-import { useMemo, useState } from "react";
+
+import { newsSeriesIds } from "@/data/newsSeries";
 
 import { AdminLink } from "./AdminLink";
 import { AdminListView } from "./AdminListView";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
+import {
+  imageColumn,
+  photoCountColumn,
+  revisionColumns,
+  serverFilter,
+} from "./listColumns";
 import {
   type AdminNews,
+  type AdminNewsFilters,
   clearNewsCache,
   clearNewsSectionCache,
   fetchAdminNews,
 } from "./news";
-import { includesQuery, unique, useAdminList } from "./useAdminList";
+import { serverPaging, usePagedList } from "./usePagedList";
 
 const STATUS_COLORS: Record<AdminNews["status"], string> = {
   draft: "gold",
@@ -25,22 +32,12 @@ export function NewsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const {
-    items: news,
-    reload,
-    status,
-  } = useAdminList(fetchAdminNews, onSessionExpired);
-  const [query, setQuery] = useState("");
-  const visible = useMemo(
-    () =>
-      news.filter((item) =>
-        includesQuery(
-          [item.id, item.title.ka ?? "", item.title.en ?? ""],
-          query,
-        ),
-      ),
-    [news, query],
-  );
+  const list = usePagedList(fetchAdminNews, onSessionExpired);
+  const { query } = list;
+  const paging = serverPaging(list, (filters) => ({
+    series: filters.series?.[0] as AdminNewsFilters["series"] | undefined,
+    status: filters.status?.[0] as AdminNewsFilters["status"] | undefined,
+  }));
 
   const columns: ColumnsType<AdminNews> = [
     imageColumn<AdminNews>("Cover"),
@@ -63,12 +60,8 @@ export function NewsPage({
     },
     {
       dataIndex: "status",
-      filters: unique(news.map((item) => item.status)).map((value) => ({
-        text: value,
-        value,
-      })),
+      ...serverFilter(query.status, Object.keys(STATUS_COLORS)),
       key: "status",
-      onFilter: (value, item) => item.status === value,
       render: (value: AdminNews["status"]) => (
         <Tag color={STATUS_COLORS[value]}>{value}</Tag>
       ),
@@ -77,16 +70,12 @@ export function NewsPage({
     {
       dataIndex: "publishedAt",
       key: "publishedAt",
-      sorter: (a, b) => a.publishedAt.localeCompare(b.publishedAt),
       title: "Published",
     },
     {
       dataIndex: "series",
-      filters: unique(
-        news.flatMap((item) => (item.series ? [item.series] : [])),
-      ).map((value) => ({ text: value, value })),
+      ...serverFilter(query.series, newsSeriesIds),
       key: "series",
-      onFilter: (value, item) => item.series === value,
       render: (value: null | string) => (value ? <Tag>{value}</Tag> : "—"),
       title: "Series",
     },
@@ -142,14 +131,15 @@ export function NewsPage({
       }
       columns={columns}
       noun="articles"
-      onQuery={setQuery}
-      onReload={reload}
+      onQuery={list.setSearch}
+      onReload={list.reload}
+      paging={paging}
       rowKey="id"
-      rows={visible}
+      rows={list.items}
       searchPlaceholder="Title or slug"
-      status={status}
+      status={list.status}
       title="News"
-      total={news.length}
+      total={list.total}
     />
   );
 }

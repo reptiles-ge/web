@@ -236,8 +236,9 @@ type AdminNewsList = {
 
 function list(
   headers: Record<string, string> = { Authorization: `Bearer ${TOKEN}` },
+  query = "",
 ) {
-  return requestJson<AdminNewsList & ErrorBody>("/v1/admin/news", env, {
+  return requestJson<AdminNewsList & ErrorBody>(`/v1/admin/news${query}`, env, {
     headers,
   });
 }
@@ -271,6 +272,40 @@ describe("GET /v1/admin/news", () => {
       updatedAt: article.updatedAt ?? null,
       version: 1,
     });
+  });
+
+  it("pages, filters and searches articles", async () => {
+    useDatabase(createNewsTestDatabase());
+    const auth = { Authorization: `Bearer ${TOKEN}` };
+    const order = sqlite
+      .prepare(
+        "SELECT id, series_id FROM news_articles ORDER BY published_at DESC, position",
+      )
+      .all() as Array<{ id: string; series_id: null | string }>;
+    const second = await list(auth, "?limit=1&page=2");
+    expect(second.body).toMatchObject({
+      limit: 1,
+      page: 2,
+      pageCount: order.length,
+      total: order.length,
+    });
+    expect(second.body.data.map(({ id }) => id)).toEqual([order[1]!.id]);
+    const series = order.find((row) => row.series_id)!.series_id!;
+    const inSeries = await list(auth, `?series=${series}`);
+    expect(inSeries.body.data.map(({ id }) => id)).toEqual(
+      order.filter((row) => row.series_id === series).map(({ id }) => id),
+    );
+    const drafts = await list(auth, "?status=draft");
+    expect(drafts.body).toMatchObject({ data: [], total: 0 });
+    for (const q of [
+      article.id,
+      article.copy.ka.title,
+      article.copy.en.title,
+    ]) {
+      const found = await list(auth, `?q=${encodeURIComponent(q)}`);
+      expect(found.body.data.map(({ id }) => id)).toContain(article.id);
+    }
+    expect((await list(auth, "?series=unknown")).response.status).toBe(400);
   });
 
   it("shows a draft with its last revision", async () => {

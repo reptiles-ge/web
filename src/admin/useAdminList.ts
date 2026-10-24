@@ -11,10 +11,6 @@ export function includesQuery(values: string[], query: string) {
   return values.some((value) => value.toLowerCase().includes(needle));
 }
 
-export function unique<T>(values: T[]) {
-  return [...new Set(values)].sort();
-}
-
 export function useAdminData<T>(
   load: () => Promise<T>,
   onSessionExpired: () => void,

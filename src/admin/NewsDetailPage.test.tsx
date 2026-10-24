@@ -12,7 +12,7 @@ import {
   saveNewsCopy,
 } from "./news";
 import { NewsDetailPage } from "./NewsDetailPage";
-import { type AdminSpecies, fetchAdminSpecies } from "./species";
+import { type AdminSpecies, fetchAllAdminSpecies } from "./species";
 
 vi.mock("./news", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./news")>()),
@@ -22,7 +22,7 @@ vi.mock("./news", async (importOriginal) => ({
 }));
 vi.mock("./species", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./species")>()),
-  fetchAdminSpecies: vi.fn(),
+  fetchAllAdminSpecies: vi.fn(),
 }));
 vi.mock("./authors", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./authors")>()),
@@ -106,7 +106,7 @@ function show(onSessionExpired = vi.fn()) {
 
 beforeEach(() => {
   vi.mocked(fetchAdminNewsRecord).mockReset().mockResolvedValue(RECORD);
-  vi.mocked(fetchAdminSpecies)
+  vi.mocked(fetchAllAdminSpecies)
     .mockReset()
     .mockResolvedValue([
       {

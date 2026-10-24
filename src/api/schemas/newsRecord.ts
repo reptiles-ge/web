@@ -4,6 +4,7 @@ import { newsSeriesIds } from "@/data/newsSeries";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { newsArticleIssues } from "@/lib/newsRules";
 
+import { listSearch, pageQuery } from "./common";
 import { photoCredit } from "./speciesRecord";
 
 const required = z.string().trim().min(1);
@@ -138,4 +139,10 @@ export const newsCopyBody = z.strictObject({
   copy: articleCopy,
   expectedVersion: z.int().min(1),
   summary,
+});
+
+export const adminNewsListQuery = pageQuery.extend({
+  q: listSearch,
+  series: z.enum(newsSeriesIds).optional(),
+  status: z.enum(["draft", "published"]).optional(),
 });

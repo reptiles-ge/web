@@ -3,11 +3,20 @@ import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
+import { type PageParams, toPage } from "@/lib/pagination";
 
 import type { ApiDatabase } from "./database";
 
 import { readCreditPersonNames } from "./authors";
+import { readPage } from "./paging";
+import { containsPattern } from "./search";
 import { readSpeciesCatalog } from "./speciesCatalog";
+
+export type AdminSpeciesFilters = {
+  group?: AnimalGroup;
+  q?: string;
+  status?: AdminListRow["status"];
+};
 
 type AdminListRow = {
   common_name_en: null | string;
@@ -82,13 +91,23 @@ export async function getSpeciesDetail(
   };
 }
 
-export async function listAdminSpecies(db: ApiDatabase) {
-  const { results } = await db
-    .prepare(
-      "SELECT s.id, s.scientific_name, s.group_id, s.danger_id, s.status, s.slug_ka, s.version, k.common_name AS common_name_ka, e.common_name AS common_name_en, h.src AS image, (SELECT COUNT(*) FROM species_media g WHERE g.species_id = s.id AND g.role = 'gallery') AS photo_count, (SELECT COUNT(*) FROM species_drafts d WHERE d.species_id = s.id AND d.status = 'pending') AS pending_drafts, (SELECT r.created_at FROM species_revisions r WHERE r.species_id = s.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at FROM species s JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' LEFT JOIN species_texts e ON e.species_id = s.id AND e.locale = 'en' LEFT JOIN species_media h ON h.species_id = s.id AND h.role = 'hero' ORDER BY s.catalog_position",
-    )
-    .all<AdminListRow>();
-  return results.map((row) => ({
+export async function listAdminSpecies(
+  db: ApiDatabase,
+  filters: AdminSpeciesFilters,
+  page: PageParams,
+) {
+  const { rows, total } = await readPage<AdminListRow>(
+    db,
+    {
+      from: "FROM species s JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' LEFT JOIN species_texts e ON e.species_id = s.id AND e.locale = 'en' LEFT JOIN species_media h ON h.species_id = s.id AND h.role = 'hero' WHERE (?1 IS NULL OR s.group_id = ?1) AND (?2 IS NULL OR s.status = ?2) AND (?3 IS NULL OR s.id LIKE ?3 ESCAPE '\\' OR s.scientific_name LIKE ?3 ESCAPE '\\' OR k.common_name LIKE ?3 ESCAPE '\\' OR e.common_name LIKE ?3 ESCAPE '\\')",
+      order: "s.catalog_position",
+      select:
+        "s.id, s.scientific_name, s.group_id, s.danger_id, s.status, s.slug_ka, s.version, k.common_name AS common_name_ka, e.common_name AS common_name_en, h.src AS image, (SELECT COUNT(*) FROM species_media g WHERE g.species_id = s.id AND g.role = 'gallery') AS photo_count, (SELECT COUNT(*) FROM species_drafts d WHERE d.species_id = s.id AND d.status = 'pending') AS pending_drafts, (SELECT r.created_at FROM species_revisions r WHERE r.species_id = s.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at",
+    },
+    [filters.group ?? null, filters.status ?? null, containsPattern(filters.q)],
+    page,
+  );
+  const data = rows.map((row) => ({
     commonName: { en: row.common_name_en, ka: row.common_name_ka },
     danger: row.danger_id,
     group: row.group_id,
@@ -102,6 +121,7 @@ export async function listAdminSpecies(db: ApiDatabase) {
     status: row.status,
     version: row.version,
   }));
+  return toPage(data, total, page);
 }
 
 export async function listPublishedSpecies(

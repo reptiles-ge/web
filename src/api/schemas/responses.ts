@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 import { locales } from "@/i18n/locales";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 
 import { REGION_IDS } from "../lib/catalogFilter";
 import { AFFILIATIONS, AUTHOR_JOB_TITLES } from "./authors";
-import { ANIMAL_GROUPS } from "./species";
 import { HABITATS, PHOTO_CONFIDENCE } from "./speciesRecord";
 
 export const responseSchemas = z.registry<{ id: string }>();

@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { listSearch, pageQuery } from "./common";
+
 export const apiKeyCreateBody = z.object({
   expiresAt: z.iso
     .datetime()
@@ -17,5 +19,7 @@ export const apiKeyCreateBody = z.object({
     .nullable()
     .default(null),
 });
+
+export const apiKeyListQuery = pageQuery.extend({ q: listSearch });
 
 export const apiKeyParam = z.object({ id: z.uuid() });

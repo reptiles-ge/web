@@ -12,7 +12,7 @@ import {
   Tag,
   Typography,
 } from "antd";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { AdminListView } from "./AdminListView";
 import { SessionExpiredError } from "./adminResponse";
@@ -23,7 +23,7 @@ import {
   fetchApiKeys,
   revokeApiKey,
 } from "./apiKeys";
-import { includesQuery, useAdminList } from "./useAdminList";
+import { serverPaging, usePagedList } from "./usePagedList";
 
 type KeyForm = { expiresOn?: string; name: string; note?: string };
 
@@ -32,24 +32,13 @@ export function ApiKeysPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const {
-    items: keys,
-    reload,
-    status,
-  } = useAdminList(fetchApiKeys, onSessionExpired);
-  const [query, setQuery] = useState("");
+  const list = usePagedList(fetchApiKeys, onSessionExpired);
+  const { reload } = list;
   const [creating, setCreating] = useState(false);
   const [pending, setPending] = useState(false);
   const [created, setCreated] = useState<CreatedApiKey | null>(null);
   const [form] = Form.useForm<KeyForm>();
   const [messages, contextHolder] = message.useMessage();
-  const visible = useMemo(
-    () =>
-      keys.filter((key) =>
-        includesQuery([key.name, key.note ?? "", key.keyPrefix], query),
-      ),
-    [keys, query],
-  );
 
   async function submit({ expiresOn, name, note }: KeyForm) {
     setPending(true);
@@ -173,14 +162,15 @@ export function ApiKeysPage({
         }
         columns={columns}
         noun="API keys"
-        onQuery={setQuery}
+        onQuery={list.setSearch}
         onReload={reload}
+        paging={serverPaging(list)}
         rowKey="id"
-        rows={visible}
+        rows={list.items}
         searchPlaceholder="Client, note or key prefix"
-        status={status}
+        status={list.status}
         title="API keys"
-        total={keys.length}
+        total={list.total}
       />
       <Modal
         confirmLoading={pending}

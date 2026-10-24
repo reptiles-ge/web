@@ -8,23 +8,34 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { locales } from "@/i18n/locales";
+import { type PageParams, toPage } from "@/lib/pagination";
 
 import type { ApiDatabase } from "./database";
 import type { NewsRecord } from "./newsRows";
+
+import { readPage } from "./paging";
+import { containsPattern } from "./search";
+
+export type AdminNewsFilters = {
+  q?: string;
+  series?: string;
+  status?: NewsArticle["status"];
+};
 
 type AdminListRow = {
   id: string;
   image: null | string;
   last_edited_at: null | string;
+  locales: null | string;
   photo_count: number;
   published_at: string;
   series_id: null | string;
   status: NewsArticle["status"];
+  title_en: null | string;
+  title_ka: null | string;
   updated_at: null | string;
   version: number;
 };
-
-type AdminTitleRow = { article_id: string; locale: AppLocale; title: string };
 
 type AltRow = { alt: string; locale: AppLocale; media_id: number };
 
@@ -85,39 +96,43 @@ type TextRow = {
   title: string;
 };
 
-export async function listAdminNews(db: ApiDatabase) {
-  const [articles, titles] = await Promise.all([
-    db
-      .prepare(
-        "SELECT a.id, a.status, a.published_at, a.updated_at, a.series_id, a.version, c.src AS image, (SELECT COUNT(*) FROM news_media g WHERE g.article_id = a.id AND g.role = 'gallery') AS photo_count, (SELECT r.created_at FROM news_revisions r WHERE r.article_id = a.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at FROM news_articles a LEFT JOIN news_media c ON c.article_id = a.id AND c.role = 'cover' ORDER BY a.published_at DESC, a.position",
-      )
-      .all<AdminListRow>(),
-    db
-      .prepare("SELECT article_id, locale, title FROM news_texts")
-      .all<AdminTitleRow>(),
-  ]);
-  const byArticle = new Map<string, Map<AppLocale, string>>();
-  for (const row of titles.results) {
-    const texts = byArticle.get(row.article_id) ?? new Map();
-    texts.set(row.locale, row.title);
-    byArticle.set(row.article_id, texts);
-  }
-  return articles.results.map((row) => {
-    const texts = byArticle.get(row.id) ?? new Map<AppLocale, string>();
+export async function listAdminNews(
+  db: ApiDatabase,
+  filters: AdminNewsFilters,
+  page: PageParams,
+) {
+  const { rows, total } = await readPage<AdminListRow>(
+    db,
+    {
+      from: "FROM news_articles a LEFT JOIN news_media c ON c.article_id = a.id AND c.role = 'cover' LEFT JOIN news_texts k ON k.article_id = a.id AND k.locale = 'ka' LEFT JOIN news_texts e ON e.article_id = a.id AND e.locale = 'en' WHERE (?1 IS NULL OR a.status = ?1) AND (?2 IS NULL OR a.series_id = ?2) AND (?3 IS NULL OR a.id LIKE ?3 ESCAPE '\\' OR k.title LIKE ?3 ESCAPE '\\' OR e.title LIKE ?3 ESCAPE '\\')",
+      order: "a.published_at DESC, a.position",
+      select:
+        "a.id, a.status, a.published_at, a.updated_at, a.series_id, a.version, c.src AS image, k.title AS title_ka, e.title AS title_en, (SELECT GROUP_CONCAT(t.locale) FROM news_texts t WHERE t.article_id = a.id) AS locales, (SELECT COUNT(*) FROM news_media g WHERE g.article_id = a.id AND g.role = 'gallery') AS photo_count, (SELECT r.created_at FROM news_revisions r WHERE r.article_id = a.id ORDER BY r.version DESC LIMIT 1) AS last_edited_at",
+    },
+    [
+      filters.status ?? null,
+      filters.series ?? null,
+      containsPattern(filters.q),
+    ],
+    page,
+  );
+  const data = rows.map((row) => {
+    const written = new Set(row.locales?.split(",") ?? []);
     return {
       id: row.id,
       image: row.image,
       lastEditedAt: row.last_edited_at,
-      locales: locales.filter((locale) => texts.has(locale)),
+      locales: locales.filter((locale) => written.has(locale)),
       photoCount: row.photo_count,
       publishedAt: row.published_at,
       series: row.series_id,
       status: row.status,
-      title: { en: texts.get("en") ?? null, ka: texts.get("ka") ?? null },
+      title: { en: row.title_en, ka: row.title_ka },
       updatedAt: row.updated_at,
       version: row.version,
     };
   });
+  return toPage(data, total, page);
 }
 
 export async function readNewsRecords(

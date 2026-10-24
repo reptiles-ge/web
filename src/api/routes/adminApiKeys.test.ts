@@ -148,6 +148,33 @@ describe("GET /v1/admin/api-keys", () => {
     expect(body.data.every((key) => !("key" in key))).toBe(true);
   });
 
+  it("pages and searches by client, note or prefix", async () => {
+    await createKey({ name: "First" });
+    await createKey({ name: "Second", note: "Mobile app" });
+    const headers = { Authorization: "Bearer test-token" };
+    const page = await requestJson<{
+      data: ApiKeyBody["data"][];
+      pageCount: number;
+      total: number;
+    }>("/v1/admin/api-keys?limit=1&page=2", env, { headers });
+    expect(page.body.data).toHaveLength(1);
+    expect(page.body).toMatchObject({ pageCount: 2, total: 2 });
+    for (const q of ["seco", "mobile"]) {
+      const found = await requestJson<{
+        data: ApiKeyBody["data"][];
+        total: number;
+      }>(`/v1/admin/api-keys?q=${q}`, env, { headers });
+      expect(found.body.data.map((key) => key.name)).toEqual(["Second"]);
+      expect(found.body.total).toBe(1);
+    }
+    const bad = await app.request(
+      "/v1/admin/api-keys?limit=0",
+      { headers },
+      env,
+    );
+    expect(bad.status).toBe(400);
+  });
+
   it("needs an admin", async () => {
     const response = await app.request("/v1/admin/api-keys", {}, env);
     expect(response.status).toBe(401);

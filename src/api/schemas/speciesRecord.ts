@@ -1,21 +1,13 @@
 import { z } from "zod";
 
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { sourcesAreValid } from "@/lib/speciesSources";
 
+import { listSearch, pageQuery } from "./common";
+
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const ANIMAL_GROUPS = [
-  "amphibian",
-  "bird",
-  "insect",
-  "lizard",
-  "mammal",
-  "scorpion",
-  "snake",
-  "spider",
-  "turtle",
-] as const;
 export const HABITATS = ["forest", "grassland", "mountain", "wetland"] as const;
 export const PHOTO_CONFIDENCE = z.enum([
   "georgia-field",
@@ -283,7 +275,8 @@ export const draftIdParam = z.object({
   draftId: z.coerce.number().int().min(1),
 });
 
-export const draftListQuery = z.object({
+export const draftListQuery = pageQuery.extend({
+  q: listSearch,
   status: z.enum(["approved", "pending", "rejected"]).default("pending"),
 });
 
