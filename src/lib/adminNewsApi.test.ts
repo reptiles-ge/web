@@ -46,7 +46,10 @@ describe("admin news API", () => {
   it("reports the API's problems with their paths", async () => {
     await expect(
       createAdminNews(
-        { ...fresh, relatedSpeciesIds: ["no-such-species"] },
+        {
+          ...fresh,
+          relatedSpeciesIds: [...fresh.relatedSpeciesIds, "no-such-species"],
+        },
         { ...options, dryRun: true },
       ),
     ).rejects.toThrow(
