@@ -7,16 +7,14 @@ import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { creditAuthorHref, creditAuthorIndexHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
-import { getTopContributors } from "@/lib/authorsApi";
+import { getContributors } from "@/lib/authorsApi";
 import { HOME_CONTRIBUTOR_LIMIT } from "@/lib/creditAuthors";
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 
 export async function HomeContributors({ locale }: { locale: AppLocale }) {
-  const { contributors, total } = await getTopContributors(
-    locale,
-    HOME_CONTRIBUTOR_LIMIT,
-  );
-  if (contributors.length === 0) return null;
+  const all = await getContributors(locale);
+  if (all.length === 0) return null;
+  const contributors = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
   const [t, tAuthor] = await Promise.all([
     getTranslations({ locale, namespace: "home.contributors" }),
     getTranslations({ locale, namespace: "author" }),
@@ -76,7 +74,7 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
             );
           })}
         </ul>
-        {total > contributors.length ? (
+        {all.length > contributors.length ? (
           <Link
             className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:mt-7"
             href={creditAuthorIndexHref()}
