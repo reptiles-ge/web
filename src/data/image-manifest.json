@@ -124265,6 +124265,263 @@
         }
       ],
       "updatedAt": "2026-08-28T22:02:36.689Z"
+    },
+    "news-zangezuri-gemigaya-1.jpg": {
+      "sourceHash": "1f760170dd9f9aa946d058b0a33b7db42a895790a3ac0f328063403ba9869c36",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-gemigaya-1.jpg",
+      "originalSize": 429454,
+      "width": 1572,
+      "height": 1068,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 217,
+          "byteSize": 8138
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 217,
+          "byteSize": 10212
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 11990
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 15328
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 435,
+          "byteSize": 30748
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 435,
+          "byteSize": 38546
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 44468
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 55808
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 85880
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 105076
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1572.avif",
+          "format": "avif",
+          "width": 1572,
+          "height": 1068,
+          "byteSize": 131813
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1572.webp",
+          "format": "webp",
+          "width": 1572,
+          "height": 1068,
+          "byteSize": 159844
+        }
+      ],
+      "updatedAt": "2026-10-24T06:14:20.972Z"
+    },
+    "news-zangezuri-jiqi-bokvrebi-idea-1.jpg": {
+      "sourceHash": "bdc6021981a55cbd6fc84349354cb0fd385cc36830ca06cd84bba8e9e76b54b4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-jiqi-bokvrebi-idea-1.jpg",
+      "originalSize": 512551,
+      "width": 1200,
+      "height": 679,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 181,
+          "byteSize": 15662
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 181,
+          "byteSize": 24422
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 226,
+          "byteSize": 24102
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 226,
+          "byteSize": 37508
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 362,
+          "byteSize": 58736
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 362,
+          "byteSize": 94552
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 453,
+          "byteSize": 83534
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 453,
+          "byteSize": 136496
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 679,
+          "byteSize": 145800
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 679,
+          "byteSize": 253420
+        }
+      ],
+      "updatedAt": "2026-10-24T06:14:21.696Z"
+    },
+    "news-zangezuri-jiqi-bokvrebi-ministry-1.jpg": {
+      "sourceHash": "f9f9c964ccffdc888f09aac2e7092c84a1559bae5cdc3189f2a38689f5695e53",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-jiqi-bokvrebi-ministry-1.jpg",
+      "originalSize": 374160,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13783
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19658
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20847
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 29750
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 45891
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 66738
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61961
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 91628
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 102530
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 152412
+        }
+      ],
+      "updatedAt": "2026-10-24T06:14:20.370Z"
     }
   }
 }

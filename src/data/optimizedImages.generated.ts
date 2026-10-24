@@ -7620,6 +7620,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-zangezuri-gemigaya-1.jpg": {
+    "path": "news-zangezuri-gemigaya-1",
+    "width": 1572,
+    "height": 1068,
+    "widths": [320, 400, 640, 800, 1200, 1572],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-zangezuri-jiqi-bokvrebi-idea-1.jpg": {
+    "path": "news-zangezuri-jiqi-bokvrebi-idea-1",
+    "width": 1200,
+    "height": 679,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-zangezuri-jiqi-bokvrebi-ministry-1.jpg": {
+    "path": "news-zangezuri-jiqi-bokvrebi-ministry-1",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
     "path": "olivierus-caucasicus-evgeny-1",
     "width": 1024,
