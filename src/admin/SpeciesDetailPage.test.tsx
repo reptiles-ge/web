@@ -26,6 +26,7 @@ const RECORD = {
       gallery: [
         {
           credit: {
+            authorId: "laura-bobby-bok",
             date: "2024-05-01",
             lat: 41.5,
             lng: 45.1,
@@ -85,8 +86,13 @@ describe("SpeciesDetailPage", () => {
     }
     expect(screen.getByRole("link", { name: "Laura" })).toHaveAttribute(
       "href",
-      "https://example.org/laura",
+      "/authors/laura-bobby-bok",
     );
+    expect(screen.getByText("Sandro").closest("a")).toBeNull();
+    const galleryRow = screen.getByText("Gallery 1").closest("tr")!;
+    expect(
+      within(galleryRow).getByRole("link", { name: "link" }),
+    ).toHaveAttribute("href", "https://example.org/laura");
     expect(screen.getByText("georgia-field")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "← Species" })).toHaveAttribute(
       "href",

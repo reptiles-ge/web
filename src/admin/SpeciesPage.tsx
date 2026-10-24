@@ -3,10 +3,10 @@ import type { ColumnsType } from "antd/es/table";
 import { Badge, Space, Tag, Typography } from "antd";
 import { useMemo, useState } from "react";
 
+import { AdminLink } from "./AdminLink";
 import { AdminListView } from "./AdminListView";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { imageColumn, photoCountColumn, revisionColumns } from "./listColumns";
-import { followLink } from "./router";
 import { clearSiteCache } from "./site";
 import {
   type AdminSpecies,
@@ -49,13 +49,9 @@ export function SpeciesPage({
       key: "name",
       render: (_, item) => (
         <Space orientation="vertical" size={0}>
-          <Typography.Link
-            href={`/species/${item.id}`}
-            onClick={(event) => followLink(event, `/species/${item.id}`)}
-            strong
-          >
+          <AdminLink path={`/species/${item.id}`} strong>
             {item.commonName.ka}
-          </Typography.Link>
+          </AdminLink>
           <Typography.Text type="secondary">
             {item.commonName.en ?? "—"} · <i>{item.scientificName}</i>
           </Typography.Text>

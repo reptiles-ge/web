@@ -1,23 +1,11 @@
 import type { ColumnsType } from "antd/es/table";
 
-import {
-  Alert,
-  Button,
-  Flex,
-  Image,
-  Result,
-  Skeleton,
-  Space,
-  Table,
-  Tabs,
-  Tag,
-  Typography,
-} from "antd";
+import { Button, Table, Tabs, Tag, Typography } from "antd";
 
-import { optimizedImgSrc } from "@/data/optimizedImages";
-
+import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
+import { AdminLink } from "./AdminLink";
 import { ClearCacheButton } from "./ClearCacheButton";
-import { followLink } from "./router";
+import { PhotoThumbnail } from "./PhotoThumbnail";
 import {
   type AdminFieldRecord,
   type AdminSpeciesRecord,
@@ -46,16 +34,7 @@ const photoColumns: ColumnsType<PhotoRow> = [
   {
     dataIndex: "src",
     key: "src",
-    render: (src: string) => (
-      <Image
-        alt=""
-        height={56}
-        preview={{ src: optimizedImgSrc(src, 1600) }}
-        src={optimizedImgSrc(src, 320)}
-        style={{ objectFit: "cover" }}
-        width={84}
-      />
-    ),
+    render: (src: string) => <PhotoThumbnail src={src} />,
     title: "Photo",
     width: 100,
   },
@@ -68,14 +47,26 @@ const photoColumns: ColumnsType<PhotoRow> = [
   {
     key: "photographer",
     render: (_, row) =>
-      row.credit?.url ? (
-        <Typography.Link href={row.credit.url} rel="noreferrer" target="_blank">
-          {row.credit.photographer ?? row.credit.url}
-        </Typography.Link>
+      row.credit?.authorId ? (
+        <AdminLink path={`/authors/${row.credit.authorId}`}>
+          {row.credit.photographer ?? row.credit.authorId}
+        </AdminLink>
       ) : (
         (row.credit?.photographer ?? "—")
       ),
     title: "Photographer",
+  },
+  {
+    key: "source",
+    render: (_, row) =>
+      row.credit?.url ? (
+        <Typography.Link href={row.credit.url} rel="noreferrer" target="_blank">
+          link
+        </Typography.Link>
+      ) : (
+        "—"
+      ),
+    title: "Source",
   },
   {
     key: "location",
@@ -156,113 +147,100 @@ export function SpeciesDetailPage({
       Promise.all([fetchAdminSpeciesRecord(id), fetchAdminFieldRecords(id)]),
     onSessionExpired,
   );
-  const back = (
-    <Typography.Link
-      href={LIST_PATH}
-      onClick={(event) => followLink(event, LIST_PATH)}
-    >
-      ← Species
-    </Typography.Link>
-  );
-
-  if (status === "error") {
-    return (
-      <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
-        {back}
-        <Alert
-          action={<Button onClick={reload}>Retry</Button>}
-          message="Could not load this species."
-          showIcon
-          type="error"
-        />
-      </Space>
-    );
-  }
-  if (!data) return <Skeleton active />;
-  const [found, fieldRecords] = data;
-  if (!found) {
-    return (
-      <Result
-        extra={back}
-        status="404"
-        subTitle={id}
-        title="Species not found"
-      />
-    );
-  }
-
-  const { record, version } = found;
-  const photos = photoRows(record.base);
-  const locations = fieldRecords ?? [];
+  const value =
+    data === undefined
+      ? undefined
+      : data[0]
+        ? { fieldRecords: data[1] ?? [], found: data[0] }
+        : null;
 
   return (
-    <Space orientation="vertical" size="middle" style={{ width: "100%" }}>
-      {back}
-      <Flex align="start" gap="middle" justify="space-between" wrap>
-        <Space orientation="vertical" size={4}>
-          <Typography.Title level={3} style={{ margin: 0 }}>
-            {record.base.commonName}
-          </Typography.Title>
-          <Typography.Text type="secondary">
-            {record.translations.en.commonName} ·{" "}
-            <i>{record.base.scientificName}</i> · {id}
-          </Typography.Text>
-          <Space size={4} wrap>
-            <Tag color={SPECIES_STATUS_COLORS[record.status]}>
-              {record.status}
-            </Tag>
-            <Tag>{record.group}</Tag>
-            <Tag>version {version}</Tag>
-          </Space>
-        </Space>
-        <Space wrap>
-          <Button onClick={reload}>Reload</Button>
-          <ClearCacheButton
-            description="This species' profile pages on reptiles.ge render fresh on their next visit, in every language. Hubs, lists and cards are not cleared."
-            failure="The species cache could not be cleared. Try again in a minute."
-            label="Clear cache"
-            onSessionExpired={onSessionExpired}
-            run={async () => {
-              await clearSpeciesCache(id);
-              return `Cache cleared for ${id}.`;
-            }}
-            title="Clear this species' cache?"
-          />
-        </Space>
-      </Flex>
-      <Tabs
-        items={[
-          {
-            children: (
-              <Table<PhotoRow>
-                columns={photoColumns}
-                dataSource={photos}
-                pagination={false}
-                rowKey="key"
-                scroll={{ x: 900 }}
-                size="small"
-              />
-            ),
-            key: "photos",
-            label: `Photos (${photos.length})`,
-          },
-          {
-            children: (
-              <Table<AdminFieldRecord>
-                columns={locationColumns}
-                dataSource={locations}
-                pagination={{ defaultPageSize: 50, showSizeChanger: true }}
-                rowKey={(row) => `${row.locality}:${row.lat}:${row.lng}`}
-                scroll={{ x: 900 }}
-                size="small"
-              />
-            ),
-            key: "locations",
-            label: `Locations (${locations.length})`,
-          },
-        ]}
-      />
-    </Space>
+    <AdminDetailGate
+      back={<AdminLink path={LIST_PATH}>← Species</AdminLink>}
+      data={value}
+      failure="Could not load this species."
+      id={id}
+      notFoundTitle="Species not found"
+      onReload={reload}
+      status={status}
+    >
+      {({ fieldRecords, found: { record, version } }) => {
+        const photos = photoRows(record.base);
+        return (
+          <>
+            <AdminDetailHeader
+              actions={
+                <>
+                  <Button onClick={reload}>Reload</Button>
+                  <ClearCacheButton
+                    description="This species' profile pages on reptiles.ge render fresh on their next visit, in every language. Hubs, lists and cards are not cleared."
+                    failure="The species cache could not be cleared. Try again in a minute."
+                    label="Clear cache"
+                    onSessionExpired={onSessionExpired}
+                    run={async () => {
+                      await clearSpeciesCache(id);
+                      return `Cache cleared for ${id}.`;
+                    }}
+                    title="Clear this species' cache?"
+                  />
+                </>
+              }
+              subtitle={
+                <>
+                  {record.translations.en.commonName} ·{" "}
+                  <i>{record.base.scientificName}</i> · {id}
+                </>
+              }
+              tags={
+                <>
+                  <Tag color={SPECIES_STATUS_COLORS[record.status]}>
+                    {record.status}
+                  </Tag>
+                  <Tag>{record.group}</Tag>
+                  <Tag>version {version}</Tag>
+                </>
+              }
+              title={record.base.commonName}
+            />
+            <Tabs
+              items={[
+                {
+                  children: (
+                    <Table<PhotoRow>
+                      columns={photoColumns}
+                      dataSource={photos}
+                      pagination={false}
+                      rowKey="key"
+                      scroll={{ x: 900 }}
+                      size="small"
+                    />
+                  ),
+                  key: "photos",
+                  label: `Photos (${photos.length})`,
+                },
+                {
+                  children: (
+                    <Table<AdminFieldRecord>
+                      columns={locationColumns}
+                      dataSource={fieldRecords}
+                      pagination={{
+                        defaultPageSize: 50,
+                        showSizeChanger: true,
+                      }}
+                      rowKey={(row) => `${row.locality}:${row.lat}:${row.lng}`}
+                      scroll={{ x: 900 }}
+                      size="small"
+                    />
+                  ),
+                  key: "locations",
+                  label: `Locations (${fieldRecords.length})`,
+                },
+              ]}
+            />
+          </>
+        );
+      }}
+    </AdminDetailGate>
   );
 }
 

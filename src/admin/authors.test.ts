@@ -5,6 +5,8 @@ import { server } from "../../tests/msw/server";
 import {
   clearAuthorCache,
   clearAuthorsCache,
+  fetchAdminAuthorPhotos,
+  fetchAdminAuthorRecord,
   fetchAdminAuthors,
 } from "./authors";
 import { SessionExpiredError } from "./species";
@@ -56,6 +58,48 @@ describe("admin authors client", () => {
     );
     await expect(clearAuthorsCache()).rejects.toThrow(
       "Authors cache clear failed: 502",
+    );
+  });
+});
+
+describe("admin author detail client", () => {
+  it("reads the record and the credited photos with credentials", async () => {
+    const seen: string[] = [];
+    server.use(
+      http.get(`${URL}/*`, ({ request }) => {
+        seen.push(
+          `${new globalThis.URL(request.url).pathname} ${request.credentials}`,
+        );
+        return HttpResponse.json({
+          data: request.url.endsWith("/photos")
+            ? [{ speciesId: "bubo-bubo" }]
+            : { id: "sandro-khakhva" },
+        });
+      }),
+    );
+    expect(await fetchAdminAuthorRecord("sandro-khakhva")).toEqual({
+      id: "sandro-khakhva",
+    });
+    expect(await fetchAdminAuthorPhotos("sandro-khakhva")).toEqual([
+      { speciesId: "bubo-bubo" },
+    ]);
+    expect(seen).toEqual([
+      "/v1/admin/authors/sandro-khakhva include",
+      "/v1/admin/authors/sandro-khakhva/photos include",
+    ]);
+  });
+
+  it("returns null for an unknown author and reports other failures", async () => {
+    server.use(
+      http.get(`${URL}/*`, () => new HttpResponse(null, { status: 404 })),
+    );
+    expect(await fetchAdminAuthorRecord("nobody")).toBeNull();
+    expect(await fetchAdminAuthorPhotos("nobody")).toBeNull();
+    server.use(
+      http.get(`${URL}/*`, () => new HttpResponse(null, { status: 500 })),
+    );
+    await expect(fetchAdminAuthorRecord("sandro-khakhva")).rejects.toThrow(
+      "Author record failed: 500",
     );
   });
 });
