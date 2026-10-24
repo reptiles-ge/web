@@ -438,7 +438,8 @@
     "biteGuide": "Isırık rehberi",
     "backToTop": "Yukarı",
     "backToTopLabel": "Başa dön",
-    "photoUse": "Fotoğraf kullanımı"
+    "photoUse": "Fotoğraf kullanımı",
+    "developers": "Geliştiriciler için"
   },
   "legal": {
     "privacy": {
@@ -4284,6 +4285,138 @@
         "q": "Metinden alıntı yapabilir miyim?",
         "a": "Evet, kısaca. Kaynağı ve Reptiles.ge'yi belirten kısa bir alıntı serbesttir; metnin başka her türlü kullanımı izin gerektirir. Bkz. <terms>kullanım koşulları</terms>."
       }
+    }
+  },
+  "developers": {
+    "metaTitle": "Geliştiriciler için API",
+    "metaDescription": "Reptiles.ge API'si: Gürcistan hayvanlarının tür profilleri, risk düzeyleri ve kaynak gösterilmiş fotoğrafları JSON olarak, dört dilde. API anahtarı isteyin.",
+    "brand": "Geliştiriciler için",
+    "version": "API v1 · beta",
+    "title": "Gürcistan'ın faunası, uygulamanızda",
+    "body": "Tür profilleri, bölgeler, risk düzeyleri ve kaynak gösterilmiş saha fotoğrafları — yapılandırılmış JSON olarak, dört dilde.",
+    "bodyShort": "Türler, bölgeler, risk düzeyleri ve kaynak gösterilmiş fotoğraflar — JSON olarak, dört dilde.",
+    "docs": "Dokümantasyon",
+    "newTab": "(yeni sekmede açılır)",
+    "requestAccess": "Erişim iste",
+    "statsLabel": "Rakamlarla API",
+    "stats": {
+      "species": "{count, plural, other {tür}}",
+      "regions": "{count, plural, other {bölge}}",
+      "photos": "{count, plural, other {fotoğraf}}",
+      "languages": "{count, plural, other {dil}}"
+    },
+    "sample": {
+      "label": "Örnek API isteği ve yanıtı",
+      "tabs": "Kod dili"
+    },
+    "endpoints": {
+      "eyebrow": "endpoints",
+      "title": "Neler alabilirsiniz",
+      "intro": "JSON yanıtlı bir REST API. Her endpoint'te dili <code>X-Locale</code> başlığı seçer.",
+      "docsLink": "Tam liste dokümantasyonda",
+      "list": "Tür listesi — gruba göre filtreyle.",
+      "detail": "Tek bir türün profili: adlar, risk, metinler, kaynak gösterilmiş fotoğraflar, kaynaklar.",
+      "records": "Türün Gürcistan'daki tarihli saha kayıtları.",
+      "news": "Atlas haberleri — türe, bölgeye ve seriye göre filtreyle."
+    },
+    "uses": {
+      "eyebrow": "kullanım",
+      "title": "Kimler için",
+      "tourism": {
+        "title": "Turizm ve doğa yürüyüşü",
+        "body": "Rotanın bölgesindeki zehirli türleri gösterin ve ısırık rehberine bağlantı verin."
+      },
+      "education": {
+        "title": "Eğitim",
+        "body": "Okul ve üniversite platformları, testler ve çalışma kartları."
+      },
+      "research": {
+        "title": "Araştırma ve medya",
+        "body": "Makaleler ve analizler için yapılandırılmış, kaynaklı veriler."
+      }
+    },
+    "terms": {
+      "eyebrow": "koşullar",
+      "title": "Sitedeki standardın aynısı",
+      "credit": {
+        "title": "Kaynak gösterme",
+        "body": "Her gösterimde — Reptiles.ge ve fotoğrafçı. Fotoğrafların her zaman bir kaynağı vardır."
+      },
+      "languages": {
+        "title": "Dört dil",
+        "body": "ka, en, ru, tr. Gürcüce metin esastır."
+      },
+      "verified": {
+        "title": "Yalnızca doğrulanmış",
+        "body": "Boş alan uydurulmuş alandan iyidir — atlasın yayımlamadığı şey boş gelir."
+      },
+      "safety": {
+        "title": "Güvenlik",
+        "body": "Risk verileri eğitim amaçlıdır ve 112'yi aramanın yerini tutmaz."
+      }
+    },
+    "badge": {
+      "eyebrow": "kaynak gösterme",
+      "title": "Sitenizde tek bir satır",
+      "body": "Onaylanan ortaklara bir rozet veriyor ve onları sayfamızdaki ortaklar listesine ekliyoruz.",
+      "bodyShort": "Onaylanan ortaklara bir rozet veriyoruz.",
+      "preview": "Böyle görünür",
+      "data": "Veriler:",
+      "photo": "Fotoğraf: {name}"
+    },
+    "access": {
+      "eyebrow": "erişim",
+      "title": "API ortağı olun",
+      "body": "Formu doldurun — isteği inceleyip size bir API anahtarı gönderelim. Limitleri ve koşulları projenize göre birlikte belirleriz.",
+      "bodyShort": "İsteği inceleyip size bir API anahtarı göndeririz.",
+      "stepRequest": "İstek",
+      "stepReview": "İnceleme ve e-postayla yanıt",
+      "stepKey": "API anahtarı ve rozet"
+    },
+    "form": {
+      "required": "zorunlu",
+      "name": "Ad",
+      "namePlaceholder": "Adınız",
+      "email": "E-posta",
+      "emailPlaceholder": "name@example.com",
+      "organization": "Kuruluş veya proje",
+      "organizationPlaceholder": "ör. Trails Georgia",
+      "website": "Site adresi",
+      "websitePlaceholder": "https://",
+      "projectType": "Proje türü",
+      "types": {
+        "tourism": "Turizm",
+        "education": "Eğitim",
+        "research": "Araştırma",
+        "media": "Medya",
+        "other": "Diğer"
+      },
+      "data": "Hangi verilere ihtiyacınız var?",
+      "dataTypes": {
+        "species": "Türler",
+        "regions": "Bölgeler",
+        "photos": "Fotoğraflar",
+        "risk": "Risk bilgisi"
+      },
+      "volume": "Aylık istek (tahmini)",
+      "volumes": {
+        "under10k": "10 bine kadar",
+        "10kTo100k": "10–100 bin",
+        "over100k": "100 binden fazla"
+      },
+      "description": "Nasıl kullanacaksınız?",
+      "descriptionPlaceholder": "Projeyi ve verilerin nerede görüneceğini kısaca anlatın",
+      "consent": "Verileri <b>kaynak göstererek</b> — Reptiles.ge'yi ve fotoğrafçıyı belirterek — kullanmayı kabul ediyorum.",
+      "errorRequired": "Bu alanı doldurun",
+      "errorEmail": "Geçerli bir e-posta girin",
+      "errorConsent": "Koşulları kabul etmeniz gerekiyor",
+      "submit": "İsteği gönder",
+      "sending": "Gönderiliyor…",
+      "replyFrom": "Yanıt {email} adresinden gelecek.",
+      "failed": "İstek gönderilemedi. Tekrar deneyin veya {email} adresine yazın.",
+      "sentTitle": "İstek alındı",
+      "sentBody": "İnceleyip <b>{site}</b> hakkında e-postayla yanıt vereceğiz. Bu arada dokümantasyona göz atabilirsiniz.",
+      "again": "Yeni istek"
     }
   }
 }

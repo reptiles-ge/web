@@ -5,7 +5,7 @@ import type { AppType } from "@/api/app";
 import { loggedFetch } from "@/lib/apiRequestLog";
 import { publicEnv, serverEnv } from "@/lib/env";
 
-const API_ORIGIN = "https://api.reptiles.ge";
+export const API_ORIGIN = "https://api.reptiles.ge";
 
 type ApiClientOptions = {
   fetch?: typeof fetch;

@@ -5,6 +5,7 @@ import { HTTPException } from "hono/http-exception";
 
 export type ApiErrorCode =
   | "conflict"
+  | "delivery_failed"
   | "forbidden"
   | "internal_error"
   | "invalid_request"

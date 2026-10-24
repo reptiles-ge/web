@@ -2,6 +2,8 @@ import type { ApiDatabase } from "./db/database";
 import type { SessionUser } from "./db/users";
 
 export type ApiBindings = {
+  ACCESS_REQUEST_GLOBAL_LIMITER?: RateLimiter;
+  ACCESS_REQUEST_VISITOR_LIMITER?: RateLimiter;
   ADMIN_LIMITER?: RateLimiter;
   ALLOWED_ORIGINS?: string;
   API_KEY_LIMITER?: RateLimiter;

@@ -420,6 +420,7 @@ export function buildLlmsIndexText(
     "## Secondary resources",
     "",
     `- [Contact](${url("/contact")}): Corrections and questions.`,
+    `- [Developers](${url("/developers")}): Read-only JSON API of the atlas and the form to request an API key.`,
     `- [Quizzes](${url("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
     `- [Which snake?](${quizUrl(locale, "snake")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
     `- [Which lizard?](${quizUrl(locale, "lizard")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,
