@@ -265,6 +265,7 @@ const eslintConfig = defineConfig([
     "src/data/search-index.*.generated.ts",
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
+    "src/data/optimizedImages.api.generated.ts",
     "src/data/localeSwitchIndex.generated.ts",
     "src/data/releaseVersion.generated.ts",
     "scripts/**",

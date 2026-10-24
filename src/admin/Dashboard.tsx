@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Button, Layout, Menu, Result, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 
+import { ApiKeysPage } from "./ApiKeysPage";
 import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
 import { CachePage } from "./CachePage";
@@ -29,6 +30,7 @@ const SECTIONS: Array<{
   { label: "Authors", page: AuthorsPage, path: "/authors" },
   { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
+  { label: "API keys", page: ApiKeysPage, path: "/api-keys" },
 ];
 
 const HOME_PATH = SECTIONS[0].path;

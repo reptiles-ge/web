@@ -38,6 +38,20 @@ export async function readViewSalt(
   return row?.salt ?? candidate;
 }
 
+export async function readViewTotal(
+  db: ApiDatabase,
+  kind: ContentViewKind,
+  id: string,
+) {
+  const row = await db
+    .prepare(
+      "SELECT COALESCE(SUM(views), 0) AS views FROM content_views WHERE kind = ? AND target_id = ?",
+    )
+    .bind(kind, id)
+    .first<{ views: number }>();
+  return row?.views ?? 0;
+}
+
 export async function recordView(db: ApiDatabase, view: ContentView) {
   const { results } = await db
     .prepare(

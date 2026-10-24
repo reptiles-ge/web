@@ -6,7 +6,11 @@ import {
   type ResolvedImageEntry,
 } from "@/lib/optimizedImageSources";
 
-import { optimizedBaseUrl, optimizedImages } from "./optimizedImages.generated";
+import { uploadedOptimizedImages } from "./optimizedImages.api.generated";
+import {
+  optimizedImages as committedOptimizedImages,
+  optimizedBaseUrl,
+} from "./optimizedImages.generated";
 
 export type {
   OptimizedImageEntry,
@@ -15,6 +19,11 @@ export type {
   ResolvedImageEntry,
 } from "@/lib/optimizedImageSources";
 export { srcSetPreloadUrl } from "@/lib/optimizedImageSources";
+
+const optimizedImages = {
+  ...uploadedOptimizedImages,
+  ...committedOptimizedImages,
+};
 
 export function allOptimizedImageEntries(): ResolvedImageEntries {
   return optimizedImageEntries(Object.keys(optimizedImages));

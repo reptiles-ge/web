@@ -1,12 +1,13 @@
 import type { ColumnsType } from "antd/es/table";
 
-import { Button, Table, Tabs, Tag, Typography } from "antd";
+import { Button, Space, Table, Tabs, Tag, Typography } from "antd";
 import { useState } from "react";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
 import { AdminLink } from "./AdminLink";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { PhotoThumbnail } from "./PhotoThumbnail";
+import { PhotoUploadButton } from "./PhotoUploadButton";
 import {
   type AdminFieldRecord,
   type AdminSpeciesRecord,
@@ -209,14 +210,21 @@ export function SpeciesDetailPage({
               items={[
                 {
                   children: (
-                    <Table<PhotoRow>
-                      columns={photoColumns}
-                      dataSource={photos}
-                      pagination={false}
-                      rowKey="key"
-                      scroll={{ x: 900 }}
-                      size="small"
-                    />
+                    <Space orientation="vertical" style={{ width: "100%" }}>
+                      <PhotoUploadButton
+                        id={id}
+                        onSessionExpired={onSessionExpired}
+                        onUploaded={reload}
+                      />
+                      <Table<PhotoRow>
+                        columns={photoColumns}
+                        dataSource={photos}
+                        pagination={false}
+                        rowKey="key"
+                        scroll={{ x: 900 }}
+                        size="small"
+                      />
+                    </Space>
                   ),
                   key: "photos",
                   label: `Photos (${photos.length})`,
