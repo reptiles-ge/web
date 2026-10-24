@@ -430,6 +430,7 @@ export const RESPONSE_EXAMPLES = {
       ],
     },
     locale: "en",
+    views: 0,
   },
   speciesList: {
     data: [

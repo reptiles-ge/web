@@ -176,6 +176,26 @@ describe("GET /v1/species/:slug", () => {
     }
   });
 
+  it("returns the profile's views summed over every day", async () => {
+    const database = createSpeciesTestDatabase();
+    database.sqlite.exec(
+      "INSERT INTO content_views (kind, target_id, day, views) VALUES ('species', 'macrovipera-lebetina', '2026-10-23', 4), ('species', 'macrovipera-lebetina', '2026-10-24', 3), ('species', 'pseudopus-apodus', '2026-10-24', 9), ('news', 'macrovipera-lebetina', '2026-10-24', 5)",
+    );
+    const viewed = await requestJson<DetailBody & { views: number }>(
+      "/v1/species/giurza",
+      { DB: database.db },
+    );
+    const unseen = await requestJson<DetailBody & { views: number }>(
+      "/v1/species/paralaudakia-caucasia",
+      { DB: database.db },
+      { headers: { "X-Locale": "en" } },
+    );
+
+    expect(viewed.body.data.id).toBe("macrovipera-lebetina");
+    expect(viewed.body.views).toBe(7);
+    expect(unseen.body.views).toBe(0);
+  });
+
   it("rejects a malformed slug or locale", async () => {
     for (const [url, headers] of [
       ["/v1/species/bad_slug!", {}],

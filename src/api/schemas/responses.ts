@@ -431,7 +431,14 @@ export const speciesListResponse = component(
 
 export const speciesResponse = component(
   "SpeciesResponse",
-  z.strictObject({ data: species, locale: resolvedLocale }),
+  z.strictObject({
+    data: species,
+    locale: resolvedLocale,
+    views: doc(
+      z.int().min(0),
+      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to a few hours.",
+    ),
+  }),
   "One species profile.",
 );
 

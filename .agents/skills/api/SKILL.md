@@ -191,6 +191,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - The visitor is `SHA-256(daily salt, IP, User-Agent, Accept-Language)`, kept in `content_view_visitors` for that day only. The salt is 32 random bytes per day in `content_view_salts`. Each count deletes visitors and salts from earlier days, so a stored hash cannot be linked to an IP or to another day. No IP address or user agent is stored.
 - Only published targets count (`EXISTS` on `species.status` / `news_articles.status`). An unknown id is still answered `202`.
 - `/v1/views` is in `UNDOCUMENTED_PATH_PREFIXES`.
+- `GET /v1/species/:slug` returns the profile's total as top-level `views` (`readViewTotal`, every day and locale), next to `data` and `locale`. It is cached with the profile (API edge and the site's fetch, up to an hour each), which is fine for a counter. The site loader passes it on as `getSpeciesProfile(...).views`.
 
 ### Species writes (phase 2)
 
