@@ -37,7 +37,7 @@ const RECORD = {
           src: "https://cdn.reptiles.ge/images/giurza-2.jpg",
         },
       ],
-      image: "https://cdn.reptiles.ge/images/giurza-1.jpg",
+      image: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
       imageCredit: { photographer: "Sandro" },
       mobileImage: "https://cdn.reptiles.ge/images/giurza-m.jpg",
       scientificName: "Macrovipera lebetinus",
@@ -162,5 +162,28 @@ describe("SpeciesDetailPage", () => {
     );
     const expired = show();
     await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
+  });
+
+  it("previews a photo through its optimized variant, not the original", async () => {
+    show();
+    const row = (await screen.findByText("Desktop cover")).closest("tr")!;
+    const thumbnail = row.querySelector("img")!;
+    expect(thumbnail).toHaveAttribute(
+      "src",
+      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-laura-1-320.webp",
+    );
+    await userEvent.click(thumbnail);
+    await vi.waitFor(() =>
+      expect(
+        document.querySelector(
+          'img[src="https://cdn.reptiles.ge/optimized/macrovipera-lebetina-laura-1-1600.webp"]',
+        ),
+      ).not.toBeNull(),
+    );
+    expect(
+      document.querySelector(
+        'img[src="https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg"]',
+      ),
+    ).toBeNull();
   });
 });
