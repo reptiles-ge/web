@@ -56,20 +56,85 @@ async function confirmIn(popupTitle: string) {
 }
 
 function open(onSessionExpired = vi.fn()) {
-  vi.mocked(fetchAdminAuthors).mockResolvedValue([CONTRIBUTOR, CREDIT_ONLY]);
+  vi.mocked(fetchAdminAuthors).mockResolvedValue(
+    pageOf([CONTRIBUTOR, CREDIT_ONLY]),
+  );
   render(<AuthorsPage onSessionExpired={onSessionExpired} />);
   return onSessionExpired;
 }
 
+function pageOf(data: AdminAuthor[], total = data.length, page = 1) {
+  return { data, limit: 50, page, pageCount: Math.ceil(total / 50), total };
+}
+
 describe("AuthorsPage", () => {
-  it("lists contributors and credit-only authors", async () => {
+  it("lists contributors and credit-only authors from the first page", async () => {
     open();
     expect(await screen.findByText("სანდრო ხახვა")).toBeInTheDocument();
     expect(screen.getByText("ჩარლზ შარპი")).toBeInTheDocument();
     expect(screen.getByText("contributor")).toBeInTheDocument();
-    expect(screen.getByText("2 of 2 authors")).toBeInTheDocument();
+    expect(screen.getByText("1–2 of 2 authors")).toBeInTheDocument();
+    expect(fetchAdminAuthors).toHaveBeenCalledExactlyOnceWith({
+      limit: 50,
+      page: 1,
+    });
+  });
+
+  it("asks the API for the search once typing stops, from page one", async () => {
+    open();
+    await screen.findByText("სანდრო ხახვა");
+    vi.mocked(fetchAdminAuthors).mockResolvedValue(pageOf([CREDIT_ONLY]));
     await userEvent.type(screen.getByLabelText("Search authors"), "sharp");
-    expect(screen.getByText("1 of 2 authors")).toBeInTheDocument();
+    expect(await screen.findByText("1–1 of 1 authors")).toBeInTheDocument();
+    expect(fetchAdminAuthors).toHaveBeenCalledTimes(2);
+    expect(fetchAdminAuthors).toHaveBeenLastCalledWith({
+      limit: 50,
+      page: 1,
+      q: "sharp",
+    });
+  });
+
+  it("loads the next page from the API", async () => {
+    vi.mocked(fetchAdminAuthors).mockResolvedValue(
+      pageOf([CONTRIBUTOR, CREDIT_ONLY], 120),
+    );
+    render(<AuthorsPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("1–2 of 120 authors")).toBeInTheDocument();
+    vi.mocked(fetchAdminAuthors).mockResolvedValue(
+      pageOf([CREDIT_ONLY], 120, 2),
+    );
+    await userEvent.click(screen.getByTitle("2"));
+    expect(await screen.findByText("51–51 of 120 authors")).toBeInTheDocument();
+    expect(fetchAdminAuthors).toHaveBeenLastCalledWith({ limit: 50, page: 2 });
+  });
+
+  it("filters on the server and starts again from page one", async () => {
+    open();
+    await screen.findByText("სანდრო ხახვა");
+    const header = screen.getByRole("columnheader", { name: /Page/ });
+    await userEvent.click(within(header).getByRole("button"));
+    await userEvent.click(await screen.findByText("Photo credit only"));
+    await userEvent.click(screen.getByRole("button", { name: "OK" }));
+    await vi.waitFor(() =>
+      expect(fetchAdminAuthors).toHaveBeenLastCalledWith({
+        contributor: false,
+        kind: undefined,
+        limit: 50,
+        page: 1,
+        role: undefined,
+      }),
+    );
+  });
+
+  it("shows an error with a retry", async () => {
+    vi.mocked(fetchAdminAuthors).mockRejectedValue(new Error("down"));
+    render(<AuthorsPage onSessionExpired={vi.fn()} />);
+    expect(
+      await screen.findByText("Could not load authors."),
+    ).toBeInTheDocument();
+    vi.mocked(fetchAdminAuthors).mockResolvedValue(pageOf([CONTRIBUTOR]));
+    await userEvent.click(screen.getByRole("button", { name: "Retry" }));
+    expect(await screen.findByText("სანდრო ხახვა")).toBeInTheDocument();
   });
 
   it("offers a row clear only on contributor rows", async () => {
