@@ -48,6 +48,12 @@ export const authorListQuery = z.object({
     .transform((value) => value === "true"),
 });
 
+const CONTRIBUTOR_MAX_LIMIT = 100;
+
+export const contributorListQuery = z.object({
+  limit: z.coerce.number().int().min(1).max(CONTRIBUTOR_MAX_LIMIT).optional(),
+});
+
 export const authorRecordSchema = z
   .strictObject({
     affiliations: z.array(z.enum(AFFILIATIONS)).max(10),

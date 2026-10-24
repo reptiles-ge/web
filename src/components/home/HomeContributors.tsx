@@ -7,22 +7,16 @@ import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { creditAuthorHref, creditAuthorIndexHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
-import { getContributors } from "@/lib/authorsApi";
-import {
-  getCreditAuthorCards,
-  HOME_CONTRIBUTOR_LIMIT,
-} from "@/lib/creditAuthors";
+import { getTopContributors } from "@/lib/authorsApi";
+import { HOME_CONTRIBUTOR_LIMIT } from "@/lib/creditAuthors";
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
-import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 
 export async function HomeContributors({ locale }: { locale: AppLocale }) {
-  const [contributors, creditPhotos] = await Promise.all([
-    getContributors(locale),
-    getCreditPhotoCatalog(),
-  ]);
-  const all = getCreditAuthorCards(contributors, creditPhotos);
-  if (all.length === 0) return null;
-  const cards = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
+  const { contributors, total } = await getTopContributors(
+    locale,
+    HOME_CONTRIBUTOR_LIMIT,
+  );
+  if (contributors.length === 0) return null;
   const [t, tAuthor] = await Promise.all([
     getTranslations({ locale, namespace: "home.contributors" }),
     getTranslations({ locale, namespace: "author" }),
@@ -38,27 +32,27 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
         />
 
         <ul className="mt-6 grid gap-3 lg:mt-11 lg:grid-cols-2 lg:gap-6">
-          {cards.map((card) => {
-            const name = card.author.name;
-            const bio = card.author.bio;
+          {contributors.map((author) => {
+            const name = author.name;
+            const bio = author.bio;
             return (
-              <li key={card.author.id}>
+              <li key={author.id}>
                 <Link
                   className="group flex h-full gap-4 rounded-[26px] bg-card p-5 shadow-[0_16px_40px_rgba(14,20,17,0.06)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:gap-[22px] lg:rounded-[32px] lg:p-[30px]"
-                  href={creditAuthorHref(card.author.id)}
+                  href={creditAuthorHref(author.id)}
                 >
                   <span className="relative size-16 shrink-0 overflow-hidden rounded-full bg-ink ring-4 ring-surface lg:size-[84px]">
                     <CoverImage
                       alt={tAuthor("portraitAlt", { name })}
-                      className={`object-cover ${card.author.portraitClass ?? "object-[50%_18%]"}`}
+                      className={`object-cover ${author.portraitClass ?? "object-[50%_18%]"}`}
                       defer
                       sizes={HOME_CONTRIBUTOR_PORTRAIT_SIZES}
-                      src={card.author.portraitSrc}
+                      src={author.portraitSrc}
                     />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                      {tAuthor(`roles.${card.author.role}`)}
+                      {tAuthor(`roles.${author.role}`)}
                     </span>
                     <span className="mt-1.5 flex items-center gap-1.5 font-display text-[18px] leading-tight font-semibold text-foreground lg:text-[20px]">
                       {name}
@@ -68,8 +62,8 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
                       />
                     </span>
                     <span className="mt-1.5 block text-[13px] font-medium text-primary">
-                      {card.photoCount} {tAuthor("statPhotos")} ·{" "}
-                      {card.speciesCount} {tAuthor("statSpecies")}
+                      {author.photoCount} {tAuthor("statPhotos")} ·{" "}
+                      {author.speciesCount} {tAuthor("statSpecies")}
                     </span>
                     {bio ? (
                       <span className="mt-2.5 line-clamp-3 text-[13.5px] leading-[1.55] text-muted-foreground lg:text-[14px]">
@@ -82,7 +76,7 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
             );
           })}
         </ul>
-        {all.length > cards.length ? (
+        {total > contributors.length ? (
           <Link
             className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:mt-7"
             href={creditAuthorIndexHref()}

@@ -17,6 +17,7 @@ import { adminUsers } from "./routes/adminUsers";
 import { auth } from "./routes/auth";
 import { authors } from "./routes/authors";
 import { catalog } from "./routes/catalog";
+import { contributors } from "./routes/contributors";
 import { docs } from "./routes/docs";
 import { news } from "./routes/news";
 import { ratings } from "./routes/ratings";
@@ -56,6 +57,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/species", species)
   .route("/v1/catalog", catalog)
   .route("/v1/authors", authors)
+  .route("/v1/contributors", contributors)
   .route("/v1/news", news)
   .route("/v1/ratings", ratings)
   .route("/v1/auth", auth)
