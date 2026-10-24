@@ -5,39 +5,27 @@ import type { AppLocale } from "@/i18n/routing";
 
 import {
   type AdminAuthorRecord,
-  type AuthorTextsInput,
   clearAuthorCache,
   saveAuthorTexts,
 } from "./authors";
+import {
+  type AuthorDraft,
+  type AuthorDrafts,
+  authorTextIssues,
+  authorTextsInput,
+} from "./authorTexts";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { PhotoThumbnail } from "./PhotoThumbnail";
+import { LocaleSwitch, SaveBar, TextField } from "./TextEditKit";
 import {
   EDIT_LOCALES,
-  LocaleSwitch,
   runSave,
   sameValue,
-  SaveBar,
   type SaveFailure,
-  TextField,
   useLeaveWarning,
-} from "./TextEditKit";
-
-type AuthorDraft = { bio: string; metaDescription: string; name: string };
-
-type Drafts = Record<AppLocale, AuthorDraft>;
+} from "./textEdits";
 
 const LOCALES = EDIT_LOCALES.map(({ value }) => value);
-
-export function authorTextIssues(drafts: Drafts) {
-  return LOCALES.flatMap((locale) => {
-    const draft = drafts[locale];
-    if (draft.name.trim()) return [];
-    if (locale === "ka") return ["ka: the Georgian name is required."];
-    return draft.bio.trim() || draft.metaDescription.trim()
-      ? [`${locale}: add a name, or clear the bio and meta description.`]
-      : [];
-  });
-}
 
 export function AuthorTextsEditor({
   author,
@@ -69,18 +57,15 @@ export function AuthorTextsEditor({
   }
 
   async function save() {
-    setSaving(true);
-    setFailure(null);
     const sent = drafts;
     const ok = await runSave(
       () => saveAuthorTexts(author.id, authorTextsInput(sent)),
-      { onFailure: setFailure, onSessionExpired },
+      { onFailure: setFailure, onSessionExpired, setSaving },
     );
     if (ok) {
       setSaved(sent);
       setDone(true);
     }
-    setSaving(false);
   }
 
   return (
@@ -161,26 +146,7 @@ export function AuthorTextsEditor({
   );
 }
 
-export function authorTextsInput(drafts: Drafts): AuthorTextsInput {
-  return Object.fromEntries(
-    LOCALES.flatMap((locale) => {
-      const { bio, metaDescription, name } = drafts[locale];
-      if (locale !== "ka" && !name.trim()) return [];
-      return [
-        [
-          locale,
-          {
-            ...(bio.trim() ? { bio } : {}),
-            ...(metaDescription.trim() ? { metaDescription } : {}),
-            name,
-          },
-        ],
-      ];
-    }),
-  ) as AuthorTextsInput;
-}
-
-function draftsOf(author: AdminAuthorRecord): Drafts {
+function draftsOf(author: AdminAuthorRecord): AuthorDrafts {
   return Object.fromEntries(
     LOCALES.map((locale) => {
       const text = author.texts[locale];
@@ -193,5 +159,5 @@ function draftsOf(author: AdminAuthorRecord): Drafts {
         },
       ];
     }),
-  ) as Drafts;
+  ) as AuthorDrafts;
 }

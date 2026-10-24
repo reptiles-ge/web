@@ -34,24 +34,24 @@ export function NewsPreview({
       <Typography.Paragraph strong style={{ fontSize: 17 }}>
         {copy.lead}
       </Typography.Paragraph>
-      {copy.sections.map((section, index) => (
-        <section key={index}>
+      {copy.sections.map((section, position) => (
+        <section key={`${section.heading}:${position}`}>
           <Typography.Title level={2} style={{ fontSize: 22 }}>
             {section.heading}
           </Typography.Title>
           {section.blocks.map((block, at) =>
             block.type === "figure" ? (
               <PreviewFigure
-                key={at}
+                key={`figure:${at}`}
                 locale={locale}
                 photo={
                   photos.get(block.src) ?? { alt: { ka: "" }, src: block.src }
                 }
               />
             ) : (
-              <Typography.Paragraph key={at}>
+              <Typography.Paragraph key={`p:${at}`}>
                 {block.parts.map((part, partIndex) => (
-                  <PreviewMark key={partIndex} part={part} />
+                  <PreviewMark key={`part:${partIndex}`} part={part} />
                 ))}
               </Typography.Paragraph>
             ),

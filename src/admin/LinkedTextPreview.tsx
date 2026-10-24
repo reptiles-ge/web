@@ -20,13 +20,16 @@ export function LinkedTextPreview({ text }: { text: string }) {
       <Typography.Text style={{ fontSize: 12 }} type="secondary">
         Preview
       </Typography.Text>
-      {text.split("\n").map((line, index) => (
-        <Typography.Paragraph key={index} style={{ margin: "2px 0" }}>
+      {text.split("\n").map((line, position) => (
+        <Typography.Paragraph
+          key={`${position}:${line}`}
+          style={{ margin: "2px 0" }}
+        >
           {linkedTextPieces(line).map((piece, at) =>
             piece.target ? (
               <Typography.Link
                 href={href(piece.target, site)}
-                key={at}
+                key={`${at}:${piece.label}`}
                 rel="noreferrer"
                 target="_blank"
                 title={piece.target}
@@ -34,7 +37,7 @@ export function LinkedTextPreview({ text }: { text: string }) {
                 {piece.label}
               </Typography.Link>
             ) : (
-              <span key={at}>{piece.label}</span>
+              <span key={`${at}:${piece.label}`}>{piece.label}</span>
             ),
           )}
         </Typography.Paragraph>

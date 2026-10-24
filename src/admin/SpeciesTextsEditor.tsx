@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { Card, Col, Flex, Image, Row, Space, Typography } from "antd";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -19,16 +19,14 @@ import {
   type SpeciesTexts,
   speciesTextsOf,
 } from "./speciesTexts";
+import { LocaleSwitch, SaveBar, TextField } from "./TextEditKit";
 import {
   EDIT_LOCALES,
-  LocaleSwitch,
   runSave,
   sameValue,
-  SaveBar,
   type SaveFailure,
-  TextField,
   useLeaveWarning,
-} from "./TextEditKit";
+} from "./textEdits";
 
 type Drafts = Record<AppLocale, SpeciesTexts>;
 
@@ -51,7 +49,7 @@ export function SpeciesTextsEditor({
   const [saved, setSaved] = useState(initial);
   const [drafts, setDrafts] = useState(initial);
   const [locale, setLocale] = useState<AppLocale>("ka");
-  const [version, setVersion] = useState(loadedVersion);
+  const version = useRef(loadedVersion);
   const [saving, setSaving] = useState(false);
   const [failure, setFailure] = useState<null | SaveFailure>(null);
   const [savedVersion, setSavedVersion] = useState<null | number>(null);
@@ -88,9 +86,7 @@ export function SpeciesTextsEditor({
   }
 
   async function save(summary: string) {
-    setSaving(true);
-    setFailure(null);
-    let current = version;
+    let current = version.current;
     await runSave(
       async () => {
         for (const code of LOCALES.filter((item) => dirty.has(item))) {
@@ -101,15 +97,14 @@ export function SpeciesTextsEditor({
             texts: drafts[code],
           });
           current = result.version;
-          setVersion(current);
+          version.current = current;
           setSaved((before) => ({ ...before, [code]: drafts[code] }));
         }
         setSavedVersion(current);
         onSaved(current);
       },
-      { onFailure: setFailure, onSessionExpired },
+      { onFailure: setFailure, onSessionExpired, setSaving },
     );
-    setSaving(false);
   }
 
   return (
@@ -170,18 +165,18 @@ export function SpeciesTextsEditor({
                 reference={reference?.identification?.coloration}
                 value={texts.identification.coloration ?? ""}
               />
-              {texts.identification.traits.map((trait, index) => (
+              {texts.identification.traits.map((trait, position) => (
                 <TextField
-                  key={index}
-                  label={`Trait ${index + 1}`}
+                  key={`trait-${position}`}
+                  label={`Trait ${position + 1}`}
                   linked
                   onChange={(value) =>
                     update(
                       (next) =>
-                        void (next.identification!.traits[index] = value),
+                        void (next.identification!.traits[position] = value),
                     )
                   }
-                  reference={reference?.identification?.traits[index]}
+                  reference={reference?.identification?.traits[position]}
                   value={trait}
                 />
               ))}
@@ -189,15 +184,15 @@ export function SpeciesTextsEditor({
           ) : null}
           {texts.facts.length > 0 ? (
             <Group title="Facts">
-              {texts.facts.map((fact, index) => (
+              {texts.facts.map((fact, position) => (
                 <TextField
-                  key={index}
-                  label={`Fact ${index + 1}`}
+                  key={`fact-${position}`}
+                  label={`Fact ${position + 1}`}
                   linked
                   onChange={(value) =>
-                    update((next) => void (next.facts[index] = value))
+                    update((next) => void (next.facts[position] = value))
                   }
-                  reference={reference?.facts[index]}
+                  reference={reference?.facts[position]}
                   required
                   value={fact}
                 />
@@ -206,32 +201,32 @@ export function SpeciesTextsEditor({
           ) : null}
           {texts.stats.length > 0 ? (
             <Group title="Quick stats">
-              {texts.stats.map((stat, index) => (
-                <Row gutter={12} key={index}>
+              {texts.stats.map((stat, position) => (
+                <Row gutter={12} key={`stat-${position}`}>
                   <Col sm={10} xs={24}>
                     <TextField
-                      label={`Label ${index + 1}`}
+                      label={`Label ${position + 1}`}
                       multiline={false}
                       onChange={(value) =>
                         update(
-                          (next) => void (next.stats[index]!.label = value),
+                          (next) => void (next.stats[position]!.label = value),
                         )
                       }
-                      reference={reference?.stats[index]?.label}
+                      reference={reference?.stats[position]?.label}
                       required
                       value={stat.label}
                     />
                   </Col>
                   <Col sm={14} xs={24}>
                     <TextField
-                      label={`Value ${index + 1}`}
+                      label={`Value ${position + 1}`}
                       multiline={false}
                       onChange={(value) =>
                         update(
-                          (next) => void (next.stats[index]!.value = value),
+                          (next) => void (next.stats[position]!.value = value),
                         )
                       }
-                      reference={reference?.stats[index]?.value}
+                      reference={reference?.stats[position]?.value}
                       required
                       value={stat.value}
                     />
@@ -242,32 +237,34 @@ export function SpeciesTextsEditor({
           ) : null}
           {texts.faq && texts.faq.length > 0 ? (
             <Group title="Questions and answers">
-              {texts.faq.map((item, index) => (
+              {texts.faq.map((item, position) => (
                 <Space
-                  key={index}
+                  key={`faq-${position}`}
                   orientation="vertical"
                   size="small"
                   style={{ width: "100%" }}
                 >
                   <TextField
-                    label={`Question ${index + 1}`}
+                    label={`Question ${position + 1}`}
                     multiline={false}
                     onChange={(value) =>
                       update(
-                        (next) => void (next.faq![index]!.question = value),
+                        (next) => void (next.faq![position]!.question = value),
                       )
                     }
-                    reference={reference?.faq?.[index]?.question}
+                    reference={reference?.faq?.[position]?.question}
                     required
                     value={item.question}
                   />
                   <TextField
-                    label={`Answer ${index + 1}`}
+                    label={`Answer ${position + 1}`}
                     linked
                     onChange={(value) =>
-                      update((next) => void (next.faq![index]!.answer = value))
+                      update(
+                        (next) => void (next.faq![position]!.answer = value),
+                      )
                     }
-                    reference={reference?.faq?.[index]?.answer}
+                    reference={reference?.faq?.[position]?.answer}
                     required
                     value={item.answer}
                   />

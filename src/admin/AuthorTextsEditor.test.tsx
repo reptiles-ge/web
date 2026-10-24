@@ -4,11 +4,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { AdminSaveError, SessionExpiredError } from "./adminResponse";
 import { type AdminAuthorRecord, saveAuthorTexts } from "./authors";
-import {
-  authorTextIssues,
-  AuthorTextsEditor,
-  authorTextsInput,
-} from "./AuthorTextsEditor";
+import { authorTextIssues, authorTextsInput } from "./authorTexts";
+import { AuthorTextsEditor } from "./AuthorTextsEditor";
 
 vi.mock("./authors", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./authors")>()),

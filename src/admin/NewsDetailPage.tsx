@@ -28,16 +28,14 @@ import {
 import { NewsPreview } from "./NewsPreview";
 import { PhotoThumbnail } from "./PhotoThumbnail";
 import { type AdminSpecies, fetchAdminSpecies } from "./species";
+import { LocaleSwitch, SaveBar, TextField } from "./TextEditKit";
 import {
   EDIT_LOCALES,
-  LocaleSwitch,
   runSave,
   sameValue,
-  SaveBar,
   type SaveFailure,
-  TextField,
   useLeaveWarning,
-} from "./TextEditKit";
+} from "./textEdits";
 import { useAdminData } from "./useAdminList";
 
 type Article = AdminNewsRecord["article"];
@@ -246,8 +244,6 @@ function NewsArticleEditor({
   }
 
   async function save(summary: string) {
-    setSaving(true);
-    setFailure(null);
     const copy = Object.fromEntries(
       locales.map((code) => [
         code,
@@ -265,9 +261,8 @@ function NewsArticleEditor({
         setSavedVersion(next);
         setSaved(copy);
       },
-      { onFailure: setFailure, onSessionExpired },
+      { onFailure: setFailure, onSessionExpired, setSaving },
     );
-    setSaving(false);
   }
 
   const title = saved.ka.title;
