@@ -11,6 +11,7 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 type SpeciesProfile = {
   group: AnimalGroup;
   species: Species;
+  views: number;
 };
 
 export const getSpeciesProfile = cache(
@@ -27,7 +28,7 @@ export const getSpeciesProfile = cache(
       if (status === 404) return null;
       throw new Error(`Species API answered ${status} for ${id}`);
     }
-    const { data } = await response.json();
+    const { data, views } = await response.json();
     const {
       group,
       habitats: _habitats,
@@ -35,6 +36,6 @@ export const getSpeciesProfile = cache(
       slug: _slug,
       ...species
     } = data;
-    return { group, species: species as Species };
+    return { group, species: species as Species, views };
   },
 );
