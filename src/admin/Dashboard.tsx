@@ -16,6 +16,7 @@ import { followLink, navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
 import { SpeciesPage } from "./SpeciesPage";
+import { ViewsPage } from "./ViewsPage";
 
 type SectionProps = { onSessionExpired: () => void };
 
@@ -30,6 +31,7 @@ const SECTIONS: Array<{
   { label: "Authors", page: AuthorsPage, path: "/authors" },
   { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
+  { label: "Views", page: ViewsPage, path: "/views" },
   { label: "API keys", page: ApiKeysPage, path: "/api-keys" },
 ];
 

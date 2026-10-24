@@ -158,9 +158,9 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Page-numbered lists (admin tables) use the shared helper. Do not write offset, page count or limit code per route.
   - Constants, types and the response builder live in `src/lib/pagination.ts`, shared with the admin app: `DEFAULT_PAGE_SIZE` (50), `MAX_PAGE_SIZE` (100), `PAGE_SIZE_OPTIONS`, `PageParams`, `Page<T>`, `pageOffset()` and `toPage()`.
   - Query: extend `pageQuery` from `schemas/common.ts` (`page` from 1, default 1; `limit` 1–100, default 50) with the route's filters.
-  - SQL: `LIMIT ? OFFSET ?` bound with `limit` and `pageOffset(page)`, plus a `COUNT(*)` with the same `WHERE`, in `db/`. Return `toPage(data, total, page)`.
+  - SQL: `LIMIT ? OFFSET ?` bound with `limit` and `pageOffset(page)`, plus a `COUNT(*)` with the same `WHERE`, in `db/`. Return `toPage(data, total, page)`. A `q` substring search binds `containsPattern(q)` from `db/search.ts` with `LIKE ? ESCAPE '\\'`.
   - Response: `{ data, limit, page, pageCount, total }`. A page past the end is an empty `data`, not an error.
-- Admin app: fetch functions take a `PagedQuery<Filters>` and send it with `toQueryParams()` (`src/admin/pagination.ts`). Pages use `usePagedList(fetch, onSessionExpired)` (`src/admin/usePagedList.ts`: page, size, server filters, search debounced by 300 ms) and pass `paging` to `AdminListView`.
+- Admin app: fetch functions take a `PagedQuery<Filters>` and send it with `toQueryParams()` (`src/admin/pagination.ts`). Pages use `usePagedList(fetch, onSessionExpired)` (`src/admin/usePagedList.ts`: page, size, server filters, search debounced by 300 ms; `lastPage` keeps any extra response field, such as the views total) and pass `paging` to `AdminListView`.
 - Public lists that are read in full or followed page by page (`/v1/catalog`, `/v1/news`, `/v1/admin/ratings`) keep their `cursor` pagination.
 
 ## Caching
@@ -195,6 +195,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - The visitor is `SHA-256(daily salt, IP, User-Agent, Accept-Language)`, kept in `content_view_visitors` for that day only. The salt is 32 random bytes per day in `content_view_salts`. Each count deletes visitors and salts from earlier days, so a stored hash cannot be linked to an IP or to another day. No IP address or user agent is stored.
 - Only published targets count (`EXISTS` on `species.status` / `news_articles.status`). An unknown id is still answered `202`.
 - `/v1/views` is in `UNDOCUMENTED_PATH_PREFIXES`.
+- `GET /v1/admin/views` (`requireAdmin`, `NO_STORE`, `routes/adminViews.ts`, `listAdminViews` in `db/views.ts`) lists counted pages one page at a time (see "Pagination"): `kind`, `id`, KA and EN `name` (species common name or news title, `null` once the target is gone), `views` and `lastDay`, most viewed first, then by last day, kind and id. Filters `days` (`1`, `7` or `30`: today and the days before it, UTC), `kind` and `q` (id or KA/EN name, substring) run in SQL and combine. Next to the page fields it returns `views`, the sum over every match. The admin **Views** page reads it.
 - `GET /v1/species/:slug` returns the profile's total as top-level `views` (`readViewTotal`, every day and locale), next to `data` and `locale`. It is cached with the profile (API edge and the site's fetch, up to an hour each), which is fine for a counter. The site loader passes it on as `getSpeciesProfile(...).views`.
 
 ### Species writes (phase 2)
