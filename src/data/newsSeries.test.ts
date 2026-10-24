@@ -79,6 +79,7 @@ describe("getPublishedNewsArticlesInSeries", () => {
       "crested-honey-buzzard-batumi-2026",
       "batumi-milioni-mtatsebeli-39-darghveva",
       "batumi-raptor-count-2026-season-ends",
+      "brc-frinvelebis-banaki-ajara",
     ]);
     const dates = series.map((item) => item.publishedAt);
     expect(dates).toEqual([...dates].sort());
