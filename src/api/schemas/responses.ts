@@ -436,7 +436,7 @@ export const speciesResponse = component(
     locale: resolvedLocale,
     views: doc(
       z.int().min(0),
-      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to a few hours.",
+      "Views of this species profile on reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
     ),
   }),
   "One species profile.",
