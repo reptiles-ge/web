@@ -50,7 +50,7 @@ const photoColumns: ColumnsType<PhotoRow> = [
       <Image
         alt=""
         height={56}
-        preview={{ src }}
+        preview={{ src: optimizedImgSrc(src, 1600) }}
         src={optimizedImgSrc(src, 320)}
         style={{ objectFit: "cover" }}
         width={84}
