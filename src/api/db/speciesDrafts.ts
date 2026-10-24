@@ -2,32 +2,44 @@ import type { ApiDatabase } from "./database";
 import type { SpeciesRecord } from "./speciesRows";
 import type { SpeciesRevision } from "./speciesWrite";
 
+export type DraftStatus = "approved" | "pending" | "rejected";
+
 export type SpeciesDraft = {
   actor: string;
   baseVersion: number;
   createdAt: string;
+  decidedAt: null | string;
+  decidedBy: null | string;
   id: number;
   record: SpeciesRecord;
   source: SpeciesRevision["source"];
   speciesId: string;
-  status: "approved" | "pending" | "rejected";
+  status: DraftStatus;
   summary: string;
+};
+
+type DraftListRow = Omit<DraftRow, "record"> & {
+  common_name_ka: string;
+  scientific_name: string;
+  species_version: number;
 };
 
 type DraftRow = {
   actor: string;
   base_version: number;
   created_at: string;
+  decided_at: null | string;
+  decided_by: null | string;
   id: number;
   record: string;
   source: SpeciesRevision["source"];
   species_id: string;
-  status: SpeciesDraft["status"];
+  status: DraftStatus;
   summary: string;
 };
 
 const COLUMNS =
-  "id, species_id, base_version, source, actor, summary, record, status, created_at";
+  "id, species_id, base_version, source, actor, summary, record, status, created_at, decided_at, decided_by";
 
 export function decideDraftStatement(
   db: ApiDatabase,
@@ -37,14 +49,17 @@ export function decideDraftStatement(
 ) {
   return db
     .prepare(
-      "UPDATE species_drafts SET status = ?, decided_by = ?, decided_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now') WHERE id = ? AND status = 'pending'",
+      "UPDATE species_drafts SET status = ?, decided_by = CASE WHEN status = 'pending' THEN ? END, decided_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now') WHERE id = ?",
     )
     .bind(status, actor, draftId);
 }
 
 export async function insertDraft(
   db: ApiDatabase,
-  draft: Omit<SpeciesDraft, "createdAt" | "id" | "speciesId" | "status">,
+  draft: Omit<
+    SpeciesDraft,
+    "createdAt" | "decidedAt" | "decidedBy" | "id" | "speciesId" | "status"
+  >,
 ) {
   const row = await db
     .prepare(
@@ -60,6 +75,34 @@ export async function insertDraft(
     )
     .first<{ id: number }>();
   return row!.id;
+}
+
+export async function listDrafts(
+  db: ApiDatabase,
+  status: DraftStatus,
+  limit: number,
+) {
+  const { results } = await db
+    .prepare(
+      "SELECT d.id, d.species_id, d.base_version, d.source, d.actor, d.summary, d.status, d.created_at, d.decided_at, d.decided_by, s.version AS species_version, s.scientific_name, k.common_name AS common_name_ka FROM species_drafts d JOIN species s ON s.id = d.species_id JOIN species_texts k ON k.species_id = d.species_id AND k.locale = 'ka' WHERE d.status = ? ORDER BY d.id DESC LIMIT ?",
+    )
+    .bind(status, limit)
+    .all<DraftListRow>();
+  return results.map((row) => ({
+    actor: row.actor,
+    baseVersion: row.base_version,
+    commonName: row.common_name_ka,
+    createdAt: row.created_at,
+    decidedAt: row.decided_at,
+    decidedBy: row.decided_by,
+    id: row.id,
+    scientificName: row.scientific_name,
+    source: row.source,
+    speciesId: row.species_id,
+    speciesVersion: row.species_version,
+    status: row.status,
+    summary: row.summary,
+  }));
 }
 
 export async function listPendingDrafts(db: ApiDatabase, speciesId: string) {
@@ -85,6 +128,8 @@ function toDraft(row: DraftRow): SpeciesDraft {
     actor: row.actor,
     baseVersion: row.base_version,
     createdAt: row.created_at,
+    decidedAt: row.decided_at,
+    decidedBy: row.decided_by,
     id: row.id,
     record: JSON.parse(row.record) as SpeciesRecord,
     source: row.source,
