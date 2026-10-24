@@ -309,6 +309,19 @@ export const RESPONSE_EXAMPLES = {
     id: "macrovipera-lebetina",
     total: 1,
   },
+  images: {
+    data: [
+      {
+        formats: ["avif", "webp"],
+        height: 1066,
+        path: "macrovipera-lebetina-laura-1",
+        src: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+        width: 1600,
+        widths: [320, 400, 640, 800, 1200, 1600],
+      },
+    ],
+    total: 1,
+  },
   invalidRequest: {
     error: {
       code: "invalid_request",

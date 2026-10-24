@@ -13,15 +13,26 @@ import path from "node:path";
 
 import type { OptimizedImageEntry } from "@/data/optimizedImages";
 
-const MAX_WIDTH = 2400;
-const ADDITIONAL_WIDTHS = [320, 400, 640, 800, 1200];
-const FORMATS = ["avif", "webp"] as const;
+import {
+  OPTIMIZED_PREFIX,
+  PHOTO_ADDITIONAL_WIDTHS,
+  PHOTO_ENCODING,
+  PHOTO_FORMATS,
+  PHOTO_MAX_WIDTH,
+} from "@/lib/photoDerivatives";
+
 const MANIFEST_KEY = "image-manifest.json";
 const GENERATED_REL = "src/data/optimizedImages.generated.ts";
 
 const SPECIES_IMAGE_CONFIG = resolveImageConfig({
-  additionalWidths: ADDITIONAL_WIDTHS,
-  maxWidth: MAX_WIDTH,
+  additionalWidths: [...PHOTO_ADDITIONAL_WIDTHS],
+  avifChromaSubsampling: PHOTO_ENCODING.avifChromaSubsampling,
+  avifEffort: PHOTO_ENCODING.avifEffort,
+  avifQuality: PHOTO_ENCODING.avifQuality,
+  maxWidth: PHOTO_MAX_WIDTH,
+  optimizedPrefix: OPTIMIZED_PREFIX,
+  webpEffort: PHOTO_ENCODING.webpEffort,
+  webpQuality: PHOTO_ENCODING.webpQuality,
 });
 
 export type OptimizeCatalogUpdate = {
@@ -75,7 +86,7 @@ export function compactAsset(
     entry.derivatives.map((item) => [`${item.format}@${item.width}`, item]),
   );
 
-  const formats = FORMATS.filter((format) => {
+  const formats = PHOTO_FORMATS.filter((format) => {
     const widest = entry.derivatives
       .filter((item) => item.format === format)
       .reduce<ManifestEntry["derivatives"][number] | null>(

@@ -48,6 +48,8 @@ export default defineConfig({
         "src/app/RootDocument.tsx",
         "src/i18n/request.ts",
         "src/admin/main.tsx",
+        "src/admin/photoCodecs.ts",
+        "src/admin/photoEncoder.worker.ts",
       ],
       include: ["src/**/*.{ts,tsx}"],
       provider: "v8",

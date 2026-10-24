@@ -36,6 +36,11 @@
       "namespace_id": "1233",
       "simple": { "limit": 5, "period": 60 },
     },
+    {
+      "name": "UPLOAD_LIMITER",
+      "namespace_id": "1234",
+      "simple": { "limit": 30, "period": 60 },
+    },
   ],
   "services": [
     {

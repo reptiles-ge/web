@@ -5,6 +5,10 @@ export type ApiBindings = {
   ADMIN_LIMITER?: RateLimiter;
   ALLOWED_ORIGINS?: string;
   API_WRITE_TOKEN?: string;
+  BUNNY_CDN_BASE_URL?: string;
+  BUNNY_STORAGE_ACCESS_KEY?: string;
+  BUNNY_STORAGE_REGION?: string;
+  BUNNY_STORAGE_ZONE?: string;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;
@@ -13,6 +17,7 @@ export type ApiBindings = {
   SITE?: { fetch: (request: Request) => Promise<Response> };
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
+  UPLOAD_LIMITER?: RateLimiter;
 };
 
 export type ApiEnv = {

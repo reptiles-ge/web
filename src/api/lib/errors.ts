@@ -12,6 +12,8 @@ export type ApiErrorCode =
   | "payload_too_large"
   | "rate_limited"
   | "site_unavailable"
+  | "storage_failed"
+  | "storage_unavailable"
   | "unauthorized"
   | "version_conflict";
 

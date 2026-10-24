@@ -24,11 +24,20 @@ export default defineConfig(({ mode }) => {
         JSON.stringify(env[key] ?? ""),
       ]),
     ),
+    optimizeDeps: {
+      exclude: [
+        "@jsquash/avif",
+        "@jsquash/jpeg",
+        "@jsquash/resize",
+        "@jsquash/webp",
+      ],
+    },
     plugins: [react()],
     resolve: {
       alias: { "@": path.join(root, "src") },
     },
     root: path.join(root, "src/admin"),
     server: { port: 3002, strictPort: true },
+    worker: { format: "es" },
   };
 });

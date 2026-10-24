@@ -6,6 +6,7 @@ import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
 
 import { readFieldRecords } from "../db/fieldRecords";
+import { upsertOptimizedImageStatement } from "../db/optimizedImages";
 import { listAdminSpecies } from "../db/species";
 import {
   decideDraftStatement,
@@ -19,8 +20,16 @@ import {
   type SpeciesRevision,
   writeSpeciesRecord,
 } from "../db/speciesWrite";
+import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
+import {
+  addGalleryPhoto,
+  checkPhotoFiles,
+  optimizedImage,
+  photoCredits,
+  storePhoto,
+} from "../lib/photoUpload";
 import {
   ensureSiteRevalidated,
   revalidateSpeciesPage,
@@ -33,10 +42,12 @@ import {
 } from "../lib/speciesPhotos";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
+import { rateLimitUpload } from "../middleware/rateLimitUpload";
 import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
+import { photoUploadForm } from "../schemas/photoUpload";
 import {
   draftCreateBody,
   draftDecisionBody,
@@ -90,6 +101,56 @@ export const adminSpecies = new Hono<ApiEnv>()
       await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos",
+    requireSiteOrigin,
+    rateLimitUpload,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("form", photoUploadForm),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { derivatives, georgiaField, original, ...credit } =
+        c.req.valid("form");
+      const current = await readSpeciesRecord(c.env.DB, id);
+      if (!current) throw new ApiError(404, "not_found", "Species not found");
+      const storage = bunnyStorage(c.env);
+      const credits = photoCredits({
+        ...credit,
+        georgiaField: georgiaField === "1",
+      });
+      const photo = await checkPhotoFiles(original, derivatives);
+      const key = await storePhoto(
+        storage,
+        photo,
+        current.record,
+        credit.photographer,
+      );
+      const src = storage.urlFor(key);
+      const optimized = optimizedImage(photo, key, storage);
+      const { result, version } = await change(
+        c,
+        id,
+        c.var.user!.email,
+        "Add gallery photo",
+        (record) => addGalleryPhoto(record, src, credits),
+        optimized
+          ? [
+              upsertOptimizedImageStatement(
+                c.env.DB,
+                optimized,
+                new Date().toISOString(),
+              ),
+            ]
+          : [],
+        current,
+      );
+      return c.json(
+        { data: { optimized: optimized !== null, photo: result, version } },
+        201,
+      );
     },
   )
   .use(requireToken)
@@ -274,8 +335,10 @@ async function change<T>(
   actor: string,
   summary: string,
   apply: (record: SpeciesRecord) => T,
+  alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
+  read?: Awaited<ReturnType<typeof readSpeciesRecord>>,
 ) {
-  const current = await readSpeciesRecord(c.env.DB, id);
+  const current = read ?? (await readSpeciesRecord(c.env.DB, id));
   if (!current) throw new ApiError(404, "not_found", "Species not found");
   const record = structuredClone(current.record);
   const result = apply(record);
@@ -288,11 +351,13 @@ async function change<T>(
       checked.error.issues,
     );
   }
-  const version = await save(c, record, current.version, {
-    actor,
-    source: "admin",
-    summary,
-  });
+  const version = await save(
+    c,
+    record,
+    current.version,
+    { actor, source: "admin", summary },
+    alsoRun,
+  );
   c.header("Cache-Control", NO_STORE);
   return { record, result, version };
 }
