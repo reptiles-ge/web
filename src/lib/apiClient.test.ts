@@ -37,6 +37,27 @@ describe("createApiClient", () => {
     );
   });
 
+  it("sends the site API key from the server only", async () => {
+    const fetch = vi.fn(async () => new Response(null));
+    await createApiClient({ fetch }).v1.admin.ratings.$get({ query: {} });
+    vi.stubEnv("SITE_API_KEY", "site-key");
+    await createApiClient({ fetch, token: "secret" }).v1.admin.ratings.$get({
+      query: {},
+    });
+    vi.stubGlobal("window", {});
+    await createApiClient({ fetch }).v1.admin.ratings.$get({ query: {} });
+    vi.unstubAllGlobals();
+    const sent = (fetch.mock.calls as unknown as [string, RequestInit][]).map(
+      ([, init]) => new Headers(init.headers),
+    );
+    expect(sent.map((headers) => headers.get("X-Api-Key"))).toEqual([
+      null,
+      "site-key",
+      null,
+    ]);
+    expect(sent[1]?.get("Authorization")).toBe("Bearer secret");
+  });
+
   it("targets api.reptiles.ge unless NEXT_PUBLIC_API_ORIGIN is set", () => {
     expect(apiOrigin()).toBe("https://api.reptiles.ge");
     expect(createApiClient().v1.species.$url().href).toBe(

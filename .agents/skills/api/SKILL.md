@@ -113,6 +113,18 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - `app.ts` keeps `secureHeaders()`, `noindex` (`X-Robots-Tag: noindex`), CORS (`GET`/`POST`/`OPTIONS`, echoes an `ALLOWED_ORIGINS` origin with `Access-Control-Allow-Credentials: true`, `*` otherwise, preflight cached 24 h), `bodyLimit` (16 KB), `etag()`, and `onError(handleError)`. Do not remove them. The guard test checks each one.
 - The D1 `database_id` in `wrangler.api.jsonc` is an identifier, not a secret. It stays in the repo.
 
+### API keys (public data for registered clients)
+
+- Migration `0015_api_keys.sql`: `api_keys` (UUID id, `name`, `note`, `key_prefix`, unique `key_hash`, `created_by`, `created_at`, `expires_at`, `revoked_at`, `last_used_at`). One row is one key; rotate by creating a new key and revoking the old one. No contact emails or other personal data.
+- A key is `rpt_` plus 32 random bytes in base64url (`lib/apiKeys.ts`). D1 keeps only its SHA-256. The full key is returned once, by the create call; lists show `keyPrefix` only.
+- Clients send it in `X-Api-Key`, never `Authorization`: `edgeCache` skips the cache for any request with `Authorization`, so a bearer key would send every request to D1. CORS does not allow `X-Api-Key`, so keys cannot be used from browser code.
+- `requireApiKey` (`middleware/requireApiKey.ts`) runs from `app.ts` on every `/v1/` path except `/v1/admin`, `/v1/auth`, `/v1/docs`, `/v1/ratings` and `/v1/views` (browser beacons with their own origin and rate limit checks) (`needsApiKey`). A new public route needs a key by default.
+- `API_KEY_MODE` (var in `wrangler.api.jsonc`): `off` (default, nothing checked), `log` (requests without a valid key are answered and logged with `console.warn`), `enforce` (401 `unauthorized`: `Missing API key` / `Invalid API key`). A revoked or expired key is invalid.
+- The site and the build scripts send `SITE_API_KEY` (a secret on both `reptiles-api` and the site Worker, and in CI for `pnpm compile`). `createApiClient` adds it on the server only (`typeof window === "undefined"`); browser calls never carry it. The site key has no rate limit.
+- Client keys are rate limited per key id with `API_KEY_LIMITER` (120/min). Lookups are cached per isolate for 60 s, so a revoke takes effect within a minute. `last_used_at` is updated at most once a day per key, in the background.
+- Admin (`routes/adminApiKeys.ts`, undocumented): `GET /v1/admin/api-keys` (`requireAdmin`, `NO_STORE`) lists keys newest first; `POST /v1/admin/api-keys` (`{ name, note?, expiresAt? }`) and `POST /v1/admin/api-keys/:id/revoke` are guarded like the cache endpoints (`requireSiteOrigin`, `rateLimitAdmin`, `requireAdminSession`), so the admin app's API keys page can call them. The token alone cannot create keys.
+- Rollout: set `SITE_API_KEY` on both Workers and in CI, deploy, switch to `log`, issue client keys, read the logs, then `enforce`. Before `enforce`, add the `X-Api-Key` scheme and a quick-start note to `DESCRIPTION` and the OpenAPI document so Scalar's "Test Request" can send it.
+
 ### Admin users and sessions
 
 - Migration `0009_users.sql`: `users` (UUID id, lowercased unique `email`, `name`, `role_id`, `password_hash`, `disabled`), the `user_roles` lookup (`admin` for now; a new role is an `INSERT` in a new migration) and `user_sessions`. No IP addresses or user agents.
