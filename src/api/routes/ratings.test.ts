@@ -244,59 +244,13 @@ describe("POST /v1/ratings", () => {
   });
 });
 
-describe("GET /v1/ratings/summary", () => {
-  it("summarises recent ratings only", async () => {
+describe("GET /v1/ratings", () => {
+  it("has no read endpoint outside the admin API", async () => {
     await post({ locale: "ka", path: "/", rating: 5 });
-    await post({ locale: "ka", path: "/", rating: 5 });
-    await post({ feedback: "ნელია", locale: "ka", path: "/", rating: 2 });
-    sqlite
-      .prepare(
-        "INSERT INTO site_ratings (rating, path, locale, created_at) VALUES (1, '/', 'ka', '2020-01-01T00:00:00.000Z')",
-      )
-      .run();
-    const { body, response } = await requestJson<{
-      data: {
-        average: number;
-        byRating: Record<string, number>;
-        count: number;
-      };
-    }>("/v1/ratings/summary?days=30", env, auth);
-    expect(response.status).toBe(200);
-    expect(response.headers.get("Cache-Control")).toBe("no-store");
-    expect(body.data).toMatchObject({
-      average: 4,
-      byRating: { 1: 0, 2: 1, 3: 0, 4: 0, 5: 2 },
-      count: 3,
-    });
-  });
-
-  it("requires the token and rejects a bad range", async () => {
-    const empty = await requestJson<{ data: { average: null; count: number } }>(
-      "/v1/ratings/summary",
-      env,
-      auth,
-    );
-    expect(empty.body.data).toMatchObject({ average: null, count: 0 });
-    for (const days of ["0", "366", "x"]) {
-      const response = await app.request(
-        `/v1/ratings/summary?days=${days}`,
-        auth,
-        env,
-      );
-      expect(response.status).toBe(400);
+    for (const path of ["/v1/ratings", "/v1/ratings/summary"]) {
+      const { body, response } = await requestJson<ErrorBody>(path, env, auth);
+      expect(response.status).toBe(404);
+      expect(body.error.code).toBe("not_found");
     }
-    for (const init of [{}, { headers: { Authorization: "Bearer wrong" } }]) {
-      const { body, response } = await requestJson<ErrorBody>(
-        "/v1/ratings/summary",
-        env,
-        init,
-      );
-      expect(response.status).toBe(401);
-      expect(body.error.code).toBe("unauthorized");
-    }
-    env.API_WRITE_TOKEN = undefined;
-    expect((await app.request("/v1/ratings/summary", auth, env)).status).toBe(
-      401,
-    );
   });
 });
