@@ -5,6 +5,7 @@ import { pageOffset, type PageParams, toPage } from "@/lib/pagination";
 
 import type { ApiDatabase } from "./database";
 
+import { containsPattern } from "./search";
 import { renderBoundInserts } from "./sqlRender";
 
 const AUTHOR_TABLES = [
@@ -539,10 +540,6 @@ function compactLinks(row: AuthorRow): AuthorLinks {
   if (row.instagram_url) links.instagram = row.instagram_url;
   if (row.research_gate_url) links.researchGate = row.research_gate_url;
   return links;
-}
-
-function containsPattern(text: string | undefined) {
-  return text ? `%${text.replace(/[\\%_]/g, "\\$&")}%` : null;
 }
 
 async function countPublishedPhotos(db: ApiDatabase, id?: string) {

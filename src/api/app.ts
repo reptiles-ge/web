@@ -19,6 +19,7 @@ import { adminRatings } from "./routes/adminRatings";
 import { adminSite } from "./routes/adminSite";
 import { adminSpecies } from "./routes/adminSpecies";
 import { adminUsers } from "./routes/adminUsers";
+import { adminViews } from "./routes/adminViews";
 import { auth } from "./routes/auth";
 import { authors } from "./routes/authors";
 import { catalog } from "./routes/catalog";
@@ -80,6 +81,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/admin/site", adminSite)
   .route("/v1/admin/species", adminSpecies)
   .route("/v1/admin/users", adminUsers)
+  .route("/v1/admin/views", adminViews)
   .route("/v1/docs", docs)
   .notFound((c) => errorResponse(c, 404, "not_found", "Not found"))
   .onError(handleError);

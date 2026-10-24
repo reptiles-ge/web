@@ -1,8 +1,10 @@
 import type { ColumnsType, ColumnType } from "antd/es/table";
 
-import { Image } from "antd";
+import { Image, Space, Typography } from "antd";
 
 import { optimizedImgSrc } from "@/data/optimizedImages";
+
+import { AdminLink } from "./AdminLink";
 
 export function imageColumn<T extends { image: null | string }>(
   title: string,
@@ -23,6 +25,28 @@ export function imageColumn<T extends { image: null | string }>(
       ) : null,
     title,
     width: 72,
+  };
+}
+
+export function nameColumn<
+  T extends { id: string; name: { en: null | string; ka: null | string } },
+>(title: string, path: (item: T) => string): ColumnType<T> {
+  return {
+    key: "name",
+    render: (_, item) => (
+      <Space orientation="vertical" size={0}>
+        <AdminLink path={path(item)} strong>
+          {item.name.ka ?? item.id}
+        </AdminLink>
+        <Typography.Text type="secondary">
+          {item.name.en ?? "—"}
+        </Typography.Text>
+        <Typography.Text style={{ fontSize: 12 }} type="secondary">
+          {item.id}
+        </Typography.Text>
+      </Space>
+    ),
+    title,
   };
 }
 
