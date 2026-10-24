@@ -2,6 +2,10 @@ import type { ApiBindings } from "../env";
 
 const MAX_TAGS_PER_REQUEST = 20;
 
+export function revalidateAuthorPages(env: ApiBindings, id: string) {
+  return revalidateSite(env, ["authors", `author:${id}`, "species", "news"]);
+}
+
 export function revalidateNewsPages(env: ApiBindings, slug: string) {
   return revalidateSite(env, ["news", `news:${slug}`]);
 }

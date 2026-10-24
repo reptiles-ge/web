@@ -1,6 +1,6 @@
 import type { DatabaseSync } from "node:sqlite";
 
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { AuthorRecord } from "../db/authors";
 import type { ApiBindings } from "../env";
@@ -13,15 +13,21 @@ const TOKEN = "test-token";
 
 let sqlite: DatabaseSync;
 let env: ApiBindings;
+let siteFetch: ReturnType<
+  typeof vi.fn<(request: Request) => Promise<Response>>
+>;
 
 beforeEach(() => {
   const database = createSpeciesTestDatabase();
   sqlite = database.sqlite;
+  siteFetch = vi.fn<(request: Request) => Promise<Response>>(
+    async () => new Response(null, { status: 204 }),
+  );
   env = {
     API_WRITE_TOKEN: TOKEN,
     DB: database.db,
     REVALIDATE_TOKEN: "site-secret",
-    SITE: { fetch: async () => new Response(null, { status: 204 }) },
+    SITE: { fetch: siteFetch },
   };
 });
 
@@ -141,6 +147,18 @@ describe("PUT /v1/admin/authors/:id", () => {
     expect((await getAuthor("test-person")).body.data).toEqual(author);
   });
 
+  it("revalidates the contributor, species and news pages after a write", async () => {
+    const { body } = await getAuthor("charles-j-sharp");
+    expect((await put("charles-j-sharp", body.data)).response.status).toBe(200);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
+    const [request] = siteFetch.mock.calls[0]!;
+    expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
+    expect(await request.json()).toEqual({
+      tags: ["authors", "author:charles-j-sharp", "species", "news"],
+    });
+  });
+
   it("refuses an alias that belongs to another author", async () => {
     const { body } = await getAuthor("charles-j-sharp");
     const { body: error, response } = await put("charles-j-sharp", {
@@ -162,6 +180,7 @@ describe("PUT /v1/admin/authors/:id", () => {
       const { response } = await put(id, author);
       expect(response.status, id).toBe(400);
     }
+    expect(siteFetch).not.toHaveBeenCalled();
   });
 
   it("needs the token and answers 404 for an unknown author", async () => {

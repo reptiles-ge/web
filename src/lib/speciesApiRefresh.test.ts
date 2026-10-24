@@ -80,6 +80,27 @@ describe("refreshSpeciesApiCache", () => {
     ]);
   });
 
+  it("refreshes the contributor list and one contributor in every locale", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    const seen = recordBypass();
+    await refreshSpeciesApiCache(["authors", "author:sandro-khakhva"]);
+    expect(new Set(seen.map(({ bypass }) => bypass))).toEqual(
+      new Set(["fresh-secret"]),
+    );
+    expect(
+      seen.map(({ locale, url }) => `${locale} ${new URL(url).pathname}`),
+    ).toEqual([
+      "ka /v1/contributors",
+      "en /v1/contributors",
+      "ru /v1/contributors",
+      "tr /v1/contributors",
+      "ka /v1/contributors/sandro-khakhva",
+      "en /v1/contributors/sandro-khakhva",
+      "ru /v1/contributors/sandro-khakhva",
+      "tr /v1/contributors/sandro-khakhva",
+    ]);
+  });
+
   it("does nothing without a secret", async () => {
     const seen = recordBypass();
     await refreshSpeciesApiCache(["species", "species:macrovipera-lebetina"]);
