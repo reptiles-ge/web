@@ -1,23 +1,32 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 
 import { serverEnv } from "@/lib/env";
+import { findSitePageGroup, SITE_PAGE_GROUP_IDS } from "@/lib/sitePageGroups";
 import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 
-const body = z.strictObject({
-  tags: z
-    .array(
-      z
-        .string()
-        .regex(
-          /^(?:authors|news|species|(?:author|news|species):[a-z0-9]+(?:-[a-z0-9]+)*)$/,
-        ),
-    )
-    .min(1)
-    .max(20),
-});
+const body = z
+  .strictObject({
+    groups: z
+      .array(z.enum(SITE_PAGE_GROUP_IDS as [string, ...string[]]))
+      .min(1)
+      .max(SITE_PAGE_GROUP_IDS.length)
+      .optional(),
+    tags: z
+      .array(
+        z
+          .string()
+          .regex(
+            /^(?:authors|news|species|(?:author|news|species):[a-z0-9]+(?:-[a-z0-9]+)*)$/,
+          ),
+      )
+      .min(1)
+      .max(20)
+      .optional(),
+  })
+  .refine((value) => value.groups || value.tags);
 
 export async function POST(request: Request) {
   const token = serverEnv().REVALIDATE_TOKEN;
@@ -33,12 +42,18 @@ export async function POST(request: Request) {
   const parsed = body.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json(
-      { error: "Invalid tags" },
+      { error: "Invalid tags or groups" },
       { headers: noindex, status: 400 },
     );
   }
-  await refreshSpeciesApiCache(parsed.data.tags);
-  for (const tag of parsed.data.tags) revalidateTag(tag, "max");
+  const { groups = [], tags = [] } = parsed.data;
+  if (tags.length > 0) await refreshSpeciesApiCache(tags);
+  for (const tag of tags) revalidateTag(tag, "max");
+  for (const id of groups) {
+    for (const route of findSitePageGroup(id)?.routes ?? []) {
+      revalidatePath(route.path, route.type);
+    }
+  }
   return new Response(null, { headers: noindex, status: 204 });
 }
 

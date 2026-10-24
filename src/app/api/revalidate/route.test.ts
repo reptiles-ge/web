@@ -1,11 +1,14 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 
 import { POST } from "./route";
 
-vi.mock("next/cache", () => ({ revalidateTag: vi.fn() }));
+vi.mock("next/cache", () => ({
+  revalidatePath: vi.fn(),
+  revalidateTag: vi.fn(),
+}));
 vi.mock("@/lib/speciesApiRefresh", () => ({
   refreshSpeciesApiCache: vi.fn(),
 }));
@@ -100,5 +103,44 @@ describe("POST /api/revalidate", () => {
     }
     expect((await POST(request(null, "secret"))).status).toBe(400);
     expect(revalidateTag).not.toHaveBeenCalled();
+  });
+
+  it("revalidates the routes of page groups by path", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    const response = await POST(
+      request({ groups: ["about", "legal", "snakes"] }, "secret"),
+    );
+    expect(response.status).toBe(204);
+    expect(vi.mocked(revalidatePath).mock.calls).toEqual([
+      ["/[locale]/about", "page"],
+      ["/[locale]/privacy", "page"],
+      ["/[locale]/terms-and-conditions", "page"],
+      ["/[locale]/photo-use", "page"],
+      ["/[locale]/snakes", "layout"],
+    ]);
+    expect(revalidateTag).not.toHaveBeenCalled();
+    expect(refreshSpeciesApiCache).not.toHaveBeenCalled();
+  });
+
+  it("revalidates the whole site from the root layout", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    expect((await POST(request({ groups: ["site"] }, "secret"))).status).toBe(
+      204,
+    );
+    expect(revalidatePath).toHaveBeenCalledExactlyOnceWith("/", "layout");
+  });
+
+  it("refuses unknown groups, free paths and an empty body", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    for (const value of [
+      { groups: ["nope"] },
+      { groups: ["/[locale]/about"] },
+      { groups: [] },
+      {},
+      { paths: ["/"] },
+    ]) {
+      expect((await POST(request(value, "secret"))).status).toBe(400);
+    }
+    expect(revalidatePath).not.toHaveBeenCalled();
   });
 });

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { AuthorDetailPage } from "./AuthorDetailPage";
 import { AuthorsPage } from "./AuthorsPage";
+import { CachePage } from "./CachePage";
 import { NewsPage } from "./NewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { followLink, navigate, usePathname } from "./router";
@@ -22,6 +23,7 @@ const SECTIONS: Array<{
   { label: "Species", page: SpeciesPage, path: "/species" },
   { label: "News", page: NewsPage, path: "/news" },
   { label: "Authors", page: AuthorsPage, path: "/authors" },
+  { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
 ];
 

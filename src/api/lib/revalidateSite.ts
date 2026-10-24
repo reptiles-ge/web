@@ -15,46 +15,54 @@ export async function ensureSiteRevalidated(pending: Promise<boolean>) {
 }
 
 export function revalidateAuthorPages(env: ApiBindings, id: string) {
-  return revalidateSite(env, ["authors", `author:${id}`, "species", "news"]);
+  return revalidateSite(env, {
+    tags: ["authors", `author:${id}`, "species", "news"],
+  });
 }
 
 export function revalidateAuthorsSection(env: ApiBindings) {
-  return revalidateSite(env, ["authors"]);
+  return revalidateSite(env, { tags: ["authors"] });
 }
 
 export function revalidateContributorPage(env: ApiBindings, id: string) {
-  return revalidateSite(env, [`author:${id}`]);
+  return revalidateSite(env, { tags: [`author:${id}`] });
 }
 
 export function revalidateNewsArticle(env: ApiBindings, slug: string) {
-  return revalidateSite(env, [`news:${slug}`]);
+  return revalidateSite(env, { tags: [`news:${slug}`] });
 }
 
 export function revalidateNewsPages(env: ApiBindings, slug: string) {
-  return revalidateSite(env, ["news", `news:${slug}`]);
+  return revalidateSite(env, { tags: ["news", `news:${slug}`] });
 }
 
 export function revalidateNewsSection(env: ApiBindings) {
-  return revalidateSite(env, ["news"]);
+  return revalidateSite(env, { tags: ["news"] });
+}
+
+export function revalidatePageGroup(env: ApiBindings, id: string) {
+  return revalidateSite(env, { groups: [id] });
 }
 
 export function revalidateSpeciesPage(env: ApiBindings, id: string) {
-  return revalidateSite(env, [`species:${id}`]);
+  return revalidateSite(env, { tags: [`species:${id}`] });
 }
 
 export async function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
   const tags = ["species", ...ids.map((id) => `species:${id}`)];
   for (let start = 0; start < tags.length; start += MAX_TAGS_PER_REQUEST) {
-    const ok = await revalidateSite(
-      env,
-      tags.slice(start, start + MAX_TAGS_PER_REQUEST),
-    );
+    const ok = await revalidateSite(env, {
+      tags: tags.slice(start, start + MAX_TAGS_PER_REQUEST),
+    });
     if (!ok) return false;
   }
   return true;
 }
 
-async function revalidateSite(env: ApiBindings, tags: string[]) {
+async function revalidateSite(
+  env: ApiBindings,
+  payload: { groups: string[] } | { tags: string[] },
+) {
   if (!env.SITE || !env.REVALIDATE_TOKEN) {
     console.error("Site revalidation is not configured");
     return false;
@@ -62,7 +70,7 @@ async function revalidateSite(env: ApiBindings, tags: string[]) {
   try {
     const response = await env.SITE.fetch(
       new Request("https://reptiles.ge/api/revalidate", {
-        body: JSON.stringify({ tags }),
+        body: JSON.stringify(payload),
         headers: {
           Authorization: `Bearer ${env.REVALIDATE_TOKEN}`,
           "Content-Type": "application/json",
