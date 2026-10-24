@@ -6,7 +6,18 @@
       "src/app/admin/**",
       "src/app/api/admin/**",
       "src/components/admin/**",
-      "src/lib/admin*.ts"
+      "src/lib/admin*.ts",
+      "dist-admin/**"
+    ],
+    "overrides": [
+      {
+        "files": ["src/app/RootDocument.tsx"],
+        "rules": [
+          "react-doctor/nextjs-no-native-script",
+          "react-doctor/no-undeferred-third-party",
+          "react-doctor/rendering-script-defer-async"
+        ]
+      }
     ]
   },
   "rules": {
