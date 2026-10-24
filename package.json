@@ -89,6 +89,7 @@
     "dev:api": "wrangler dev --config wrangler.api.jsonc --port 8787",
     "deploy:api": "wrangler deploy --config wrangler.api.jsonc",
     "dev:admin": "vite --config vite.admin.config.ts",
+    "prebuild:admin": "pnpm run images:compile",
     "build:admin": "vite build --config vite.admin.config.ts",
     "preview:admin": "pnpm run build:admin && wrangler dev --config wrangler.admin.jsonc --port 3003",
     "deploy:admin": "pnpm run build:admin && wrangler deploy --config wrangler.admin.jsonc",
