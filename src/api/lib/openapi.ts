@@ -92,7 +92,7 @@ const PARAMETER_DOCS: Record<string, ParameterDoc> = {
   },
   view: {
     description:
-      "`card` (default, about 130–210 KB) has what lists and cards need. `full` adds every text field and is several MB (up to about 3.6 MB for `ka`); use it only when you need all texts at once.",
+      "`card` (default, about 200–300 KB without `limit`) has what lists and cards need. `photos` adds the gallery (about 0.5 MB), `quiz` adds identification, facts and gallery (about 0.8–1.4 MB). `full` adds every text field and is several MB (about 2 MB for `en`, 3.7 MB for `ka`); use it only when you need all texts at once. Georgian responses are the largest.",
     example: "card",
   },
   "x-locale": {
@@ -153,7 +153,9 @@ curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/speci
 curl -H "X-Api-Key: rpt_…" -H "X-Locale: en" "https://api.reptiles.ge/v1/species/giurza"
 \`\`\`
 
-Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the contact page](https://reptiles.ge/en/contact). Keep the key on your server: do not put it in browser code. To try a request here, enter the key under "Authentication".
+Every request needs an API key in the \`${API_KEY_HEADER}\` header. Ask for one through [the contact page](https://reptiles.ge/en/contact). Keys start with \`rpt_\` and can expire or be revoked. Keep the key on your server: do not put it in browser code. Browsers on other sites cannot send the header anyway, because cross-origin requests do not allow it. To try a request here, enter the key under "Authentication".
+
+Each key may make 120 requests per minute. Responses served from the edge cache count too.
 
 ## Versioning
 
@@ -161,7 +163,7 @@ Every path starts with \`/v1\`. A breaking change gets a new version (\`/v2\`) i
 
 ## Locales
 
-Send the \`${LOCALE_HEADER}\` request header: \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). There is no \`locale\` query parameter. Georgian is the canonical text; the other locales translate it. Names, texts, stat labels and photo places come back in that locale; scientific names, ids and URLs are the same in every locale. \`updatedAt\` is the date of that locale's text. Every response echoes the \`locale\` it used, in the body and in \`Content-Language\`.
+Send the \`${LOCALE_HEADER}\` request header: \`ka\`, \`en\`, \`ru\` or \`tr\` (default \`ka\`). There is no \`locale\` query parameter. Georgian is the canonical text; the other locales translate it. Names, texts, stat labels and photo places come back in that locale; scientific names, ids and URLs are the same in every locale. \`updatedAt\` is the date of that locale's text. Every response with localized text echoes the \`locale\` it used, in the body and in \`Content-Language\`; \`/v1/species/{slug}/field-records\` and \`/v1/images\` have no localized text and send neither.
 
 ## Ids and slugs
 
@@ -192,7 +194,7 @@ Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at t
 
 ## Errors
 
-Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`. A missing, revoked or expired key answers \`401 unauthorized\`, and too many requests for one key answer \`429 rate_limited\`.
+Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`. A missing, revoked or expired key answers \`401 unauthorized\`, checked before any other input. More than 120 requests in a minute for one key answer \`429 rate_limited\`; wait a minute and retry.
 
 ## About the content
 
@@ -560,7 +562,8 @@ export function buildOpenApiDocument() {
         name: "Species",
       },
       {
-        description: "All published species in one response.",
+        description:
+          "Published species with filters, counts per filter and optional pagination.",
         name: "Catalog",
       },
       {
