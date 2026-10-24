@@ -10,6 +10,7 @@ import { createTestDatabase } from "../testing/sqliteDatabase";
 
 const TOKEN = "test-token";
 const SITE = "https://reptiles.ge";
+const SITE_KEY = "site-key";
 const auth = { headers: { Authorization: `Bearer ${TOKEN}` } };
 
 let sqlite: DatabaseSync;
@@ -38,6 +39,7 @@ function post(body: unknown, headers: Record<string, string> = {}) {
         "cf-ipcountry": "GE",
         "Content-Type": "application/json",
         Origin: SITE,
+        "X-Api-Key": SITE_KEY,
         ...headers,
       },
       method: "POST",
@@ -59,7 +61,7 @@ beforeEach(() => {
   const database = createTestDatabase();
   sqlite = database.sqlite;
   pending = [];
-  env = { API_WRITE_TOKEN: TOKEN, DB: database.db };
+  env = { API_WRITE_TOKEN: TOKEN, DB: database.db, SITE_API_KEY: SITE_KEY };
   vi.stubGlobal(
     "fetch",
     vi.fn(async () => Response.json({ ok: true })),
@@ -137,6 +139,44 @@ describe("POST /v1/ratings", () => {
     expect(rows().map((row) => (row as { country: unknown }).country)).toEqual([
       null,
       null,
+    ]);
+  });
+
+  it("rejects ratings without the site key", async () => {
+    for (const key of ["", "wrong-key", "rpt_client-key"]) {
+      const response = await post(
+        { locale: "ka", path: "/", rating: 5 },
+        { "X-Api-Key": key },
+      );
+      expect(response.status).toBe(401);
+      expect(((await response.json()) as ErrorBody).error.code).toBe(
+        "unauthorized",
+      );
+    }
+    delete env.SITE_API_KEY;
+    expect((await post({ locale: "ka", path: "/", rating: 5 })).status).toBe(
+      401,
+    );
+    expect(rows()).toEqual([]);
+  });
+
+  it("takes the visitor IP and country from the site proxy", async () => {
+    env.RATING_VISITOR_LIMITER = limiter(true);
+    const response = await post(
+      { locale: "ka", path: "/", rating: 5 },
+      {
+        "cf-connecting-ip": "2a06:98c0:3600::103",
+        "cf-ipcountry": "US",
+        "X-Visitor-Country": "GE",
+        "X-Visitor-Ip": "203.0.113.9",
+      },
+    );
+    expect(response.status).toBe(201);
+    expect(env.RATING_VISITOR_LIMITER.limit).toHaveBeenCalledWith({
+      key: "203.0.113.9",
+    });
+    expect(rows().map((row) => (row as { country: unknown }).country)).toEqual([
+      "GE",
     ]);
   });
 

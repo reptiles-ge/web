@@ -184,7 +184,7 @@ describe("POST /v1/admin/api-keys/:id/revoke", () => {
 });
 
 describe("API keys on public routes", () => {
-  it("keeps admin, auth, docs and ratings keyless", () => {
+  it("keeps admin, auth, docs and views keyless", () => {
     expect(needsApiKey("/v1/species")).toBe(true);
     expect(needsApiKey("/v1/species/giurza")).toBe(true);
     expect(needsApiKey("/v1/catalog")).toBe(true);
@@ -193,9 +193,9 @@ describe("API keys on public routes", () => {
     expect(needsApiKey("/v1/auth/login")).toBe(false);
     expect(needsApiKey("/v1/docs")).toBe(false);
     expect(needsApiKey("/v1/docs/openapi.json")).toBe(false);
-    expect(needsApiKey("/v1/ratings")).toBe(false);
+    expect(needsApiKey("/v1/ratings")).toBe(true);
     expect(needsApiKey("/v1/views")).toBe(false);
-    expect(needsApiKey("/v1/ratingsx")).toBe(true);
+    expect(needsApiKey("/v1/viewsx")).toBe(true);
   });
 
   it("lets everyone through when the mode is off", async () => {

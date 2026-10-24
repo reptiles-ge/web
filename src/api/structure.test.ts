@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -187,7 +187,15 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
   });
 
   it("keeps rating writes in the API, not the site Worker", () => {
-    expect(existsSync(path.join(ROOT, "src/app/api/rating"))).toBe(false);
+    const proxy = readFileSync(
+      path.join(ROOT, "src/app/api/rating/route.ts"),
+      "utf8",
+    );
+    expect(proxy).toContain("createApiClient().v1.ratings.$post(");
+    expect(proxy).not.toMatch(/telegram|insertRating|LIMITER|\bDB\b/i);
+    expect(
+      readFileSync(path.join(ROOT, "src/api/routes/ratings.ts"), "utf8"),
+    ).toContain("requireSiteKey");
     const apiConfig = readFileSync(
       path.join(ROOT, "wrangler.api.jsonc"),
       "utf8",
