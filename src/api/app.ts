@@ -23,6 +23,7 @@ import { docs } from "./routes/docs";
 import { news } from "./routes/news";
 import { ratings } from "./routes/ratings";
 import { species } from "./routes/species";
+import { views } from "./routes/views";
 import { LOCALE_HEADER } from "./schemas/common";
 
 const MAX_BODY_BYTES = 16 * 1024;
@@ -61,6 +62,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/contributors", contributors)
   .route("/v1/news", news)
   .route("/v1/ratings", ratings)
+  .route("/v1/views", views)
   .route("/v1/auth", auth)
   .route("/v1/admin/authors", adminAuthors)
   .route("/v1/admin/news", adminNews)

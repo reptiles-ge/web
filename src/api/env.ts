@@ -13,6 +13,7 @@ export type ApiBindings = {
   SITE?: { fetch: (request: Request) => Promise<Response> };
   TELEGRAM_BOT_TOKEN?: string;
   TELEGRAM_CHAT_ID?: string;
+  VIEW_LIMITER?: RateLimiter;
 };
 
 export type ApiEnv = {

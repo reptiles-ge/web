@@ -187,6 +187,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings straight to `https://api.reptiles.ge/v1/ratings` through `src/lib/apiClient.ts`. The API checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site has no `/api/rating` route and no rating bindings.
+- Species and news page views are counted from the browser (`ContentViewBeacon` → `POST /v1/views`), because cached pages never reach the server. One visitor counts once per page per UTC day, identified by a daily-salted hash that is deleted the next day. See "View counts" in `.agents/skills/api/SKILL.md`.
 
 ## Admin app
 
