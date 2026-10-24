@@ -4,7 +4,7 @@ import { contentViewInputSchema } from "@/lib/contentViewInput";
 
 import { pageQuery } from "./common";
 
-export const VIEW_PERIOD_DAYS = ["1", "7", "30"] as const;
+const VIEW_PERIOD_DAYS = ["1", "7", "30"] as const;
 
 export const viewBody = contentViewInputSchema;
 
