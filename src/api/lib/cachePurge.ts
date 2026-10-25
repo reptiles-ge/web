@@ -35,10 +35,14 @@ export async function purgeApiCache(
           method: "POST",
         },
       );
+      if (!response.ok) {
+        console.error(`API cache purge answered ${response.status}`);
+        return "failed";
+      }
       const body = (await response.json().catch(() => null)) as null | {
         success?: boolean;
       };
-      if (!response.ok || body?.success !== true) {
+      if (body?.success !== true) {
         console.error(`API cache purge answered ${response.status}`);
         return "failed";
       }

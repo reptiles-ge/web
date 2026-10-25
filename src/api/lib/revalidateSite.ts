@@ -76,14 +76,15 @@ export async function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
   return purged !== "failed";
 }
 
-async function clearCaches(
+function clearCaches(
   env: ApiBindings,
   apiTags: string[],
   payload: { groups: string[] } | { tags: string[] },
 ) {
-  const purged = await purgeApiCache(env, apiTags);
-  const revalidated = await revalidateSite(env, payload);
-  return revalidated && purged !== "failed";
+  return purgeApiCache(env, apiTags).then(
+    async (purged) =>
+      (await revalidateSite(env, payload)) && purged !== "failed",
+  );
 }
 
 async function revalidateSite(
