@@ -2,6 +2,7 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
+import { formatList } from "@/lib/formatList";
 
 export type HubFaqValues = { candidates: string; count: number };
 
@@ -18,10 +19,11 @@ export function hubFaqValues(
   locale: AppLocale,
 ): HubFaqValues {
   return {
-    candidates: new Intl.ListFormat(locale, { type: "conjunction" }).format(
+    candidates: formatList(
       hubCandidateSpecies(species).map((item) =>
         listName(item.commonName, locale),
       ),
+      locale,
     ),
     count: species.length,
   };

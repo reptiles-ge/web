@@ -59,6 +59,9 @@ describe("hub FAQ checklist candidates", () => {
         const species = speciesGroupFixture(GROUP_HUBS[hubId].group, locale);
         const { candidates } = hubFaqValues(species, locale);
         const lower = candidates.toLocaleLowerCase(locale);
+        if (locale !== "en") {
+          expect(candidates, `${locale} ${hubId}`).not.toMatch(/\band\b/);
+        }
         for (const item of species) {
           const name = item.commonName.toLocaleLowerCase(locale);
           const isCandidate =

@@ -10,6 +10,7 @@ import {
   type Region,
 } from "@/data/regions";
 import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { formatList } from "@/lib/formatList";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const GROUP_ORDER = [
@@ -44,7 +45,6 @@ export async function getRegionSummary(
   ]);
   const content = getRegionContent(region.id);
   const facts = regionSummaryFacts(region, catalog);
-  const list = new Intl.ListFormat(locale, { type: "conjunction" });
   const nameIn = localizeRegionText(region.nameIn, locale);
 
   const landscape = [
@@ -57,8 +57,9 @@ export async function getRegionSummary(
     }),
     t("counts", {
       count: facts.total,
-      groups: list.format(
+      groups: formatList(
         facts.groups.map(({ count, group }) => t(`group.${group}`, { count })),
+        locale,
       ),
       nameIn,
     }),
@@ -70,10 +71,11 @@ export async function getRegionSummary(
       ? [
           t("venomous", {
             count: facts.venomous.length,
-            species: list.format(
+            species: formatList(
               facts.venomous.map(
                 (item) => `${item.commonName} (${item.scientificName})`,
               ),
+              locale,
             ),
           }),
           t("safety"),
@@ -88,7 +90,7 @@ export async function getRegionSummary(
   const scope = [
     t("scope", { nameIn }),
     ...(related.length > 0
-      ? [t("related", { regions: list.format(related) })]
+      ? [t("related", { regions: formatList(related, locale) })]
       : []),
   ];
 
