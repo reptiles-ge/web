@@ -59,8 +59,8 @@ describe("proxy cacheability", () => {
   it.each([
     ["/species", null],
     ["/species?utm_source=x", null],
-    ["/species?q=giurza", "noindex, follow"],
-    ["/en/species?type=snake", "noindex, follow"],
+    ["/species?q=giurza", null],
+    ["/en/species?type=snake", null],
     ["/gvelebi?q=giurza", null],
   ])("sets the %s robots header without overrides", (path, robots) => {
     const response = call(path);

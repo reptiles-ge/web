@@ -16,7 +16,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const NEWS_FEED_HEADERS = {
   "Cache-Control":
-    "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+    "public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800",
   "Content-Type": "application/atom+xml; charset=utf-8",
 };
 
