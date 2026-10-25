@@ -23,7 +23,9 @@ export type AuthorProfile = {
   photoCount: number;
   portraitClass: null | string;
   portraitSrc: null | string;
+  publishedAt: null | string;
   role: AuthorRole | null;
+  updatedAt: null | string;
 };
 
 export type AuthorRole =

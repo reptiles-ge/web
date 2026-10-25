@@ -36,6 +36,12 @@ beforeEach(() => {
   };
 });
 
+function authorDates(id: string) {
+  return sqlite
+    .prepare("SELECT published_at, updated_at FROM authors WHERE id = ?")
+    .get(id) as { published_at: null | string; updated_at: null | string };
+}
+
 async function getAuthor(id: string, token: null | string = TOKEN) {
   return requestJson<ErrorBody & { data: AuthorRecord }>(
     `/v1/admin/authors/${id}`,
@@ -150,6 +156,38 @@ describe("PUT /v1/admin/authors/:id", () => {
     };
     expect((await put("test-person", author)).response.status).toBe(200);
     expect((await getAuthor("test-person")).body.data).toEqual(author);
+  });
+
+  it("dates a new contributor page and keeps that date on later writes", async () => {
+    expect(authorDates("charles-j-sharp")).toEqual({
+      published_at: null,
+      updated_at: null,
+    });
+    const { body } = await getAuthor("charles-j-sharp");
+    await put("charles-j-sharp", body.data);
+    const plain = authorDates("charles-j-sharp");
+    expect(plain.published_at).toBeNull();
+    expect(plain.updated_at).toMatch(/^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/);
+
+    const contributor: AuthorRecord = {
+      ...body.data,
+      isContributor: true,
+      portraitSrc: "https://cdn.reptiles.ge/authors/charles-j-sharp.jpg",
+      role: "photographer",
+    };
+    await put("charles-j-sharp", contributor);
+    const first = authorDates("charles-j-sharp");
+    expect(first.published_at).toBe(first.updated_at);
+
+    sqlite
+      .prepare(
+        "UPDATE authors SET published_at = '2026-01-01T00:00:00.000Z', updated_at = '2026-01-01T00:00:00.000Z' WHERE id = 'charles-j-sharp'",
+      )
+      .run();
+    await put("charles-j-sharp", contributor);
+    const later = authorDates("charles-j-sharp");
+    expect(later.published_at).toBe("2026-01-01T00:00:00.000Z");
+    expect(later.updated_at! > "2026-01-01T00:00:00.000Z").toBe(true);
   });
 
   it("revalidates the contributor, species and news pages after a write", async () => {
@@ -577,6 +615,8 @@ describe("POST /v1/admin/authors/:id/texts", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({ id: ID });
     expect((await getAuthor(ID)).body.data).toEqual({ ...before, texts });
+    expect(authorDates(ID).updated_at! > "2026-09-16T13:17:00.000Z").toBe(true);
+    expect(authorDates(ID).published_at).toBe("2026-09-16T13:17:00.000Z");
     expect(linkedMedia(ID)).toBeGreaterThan(0);
     expect(siteFetch).not.toHaveBeenCalled();
   });

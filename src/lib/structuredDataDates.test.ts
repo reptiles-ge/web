@@ -119,9 +119,7 @@ describe("member-derived dates", () => {
       );
       if (members.length === 0) continue;
       expect(
-        Date.parse(
-          (await await authorDateFields(author.id, "en")).dateModified,
-        ),
+        Date.parse((await authorDateFields(author, "en")).dateModified!),
         author.id,
       ).toBeGreaterThanOrEqual(newest(members, "en"));
     }
@@ -189,7 +187,7 @@ describe.each([
   ["pageDateFields", () => pageDateFields("/species", "ka")],
   ["quizDateFields", () => quizDateFields("snake", "en")],
   ["regionDateFields", () => regionDateFields("kakheti", "ru")],
-  ["authorDateFields", () => authorDateFields("sandro-khakhva", "tr")],
+  ["authorDateFields", () => authorDateFields(sandroKhakhva(), "tr")],
 ])("%s", (_name, fields) => {
   it("returns a modified and a published date", async () => {
     const result = await fields();
@@ -197,7 +195,11 @@ describe.each([
       "dateModified",
       "datePublished",
     ]);
-    expect(Number.isNaN(Date.parse(result.datePublished))).toBe(false);
-    expect(Number.isNaN(Date.parse(result.dateModified))).toBe(false);
+    expect(Number.isNaN(Date.parse(result.datePublished!))).toBe(false);
+    expect(Number.isNaN(Date.parse(result.dateModified!))).toBe(false);
   });
 });
+
+function sandroKhakhva() {
+  return contributorsFixture().find(({ id }) => id === "sandro-khakhva")!;
+}

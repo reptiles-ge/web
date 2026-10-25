@@ -10,7 +10,7 @@ import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
 import { contributorsFixture } from "../../../../../tests/fixtures/speciesCatalog";
-import { generateMetadata } from "./page";
+import { dynamicParams, generateMetadata } from "./page";
 
 const messages = { en, ka, ru, tr };
 
@@ -100,6 +100,15 @@ describe("contributor profile metadata", () => {
       expect(metadata.robots).toMatchObject({ follow: true, index: true });
     },
   );
+
+  it("renders a contributor added after the deploy and treats other slugs as not found", async () => {
+    expect(dynamicParams).toBe(true);
+    for (const slug of ["no-such-contributor", "charles-j-sharp", "Bad_Slug"]) {
+      const metadata = await metadataFor(slug, "en");
+      expect(metadata.robots, slug).toBeNull();
+      expect(metadata.title, slug).toBe(en.author.notFound);
+    }
+  });
 
   it("keeps canonical and hreflang alternates for every locale", async () => {
     const metadata = await metadataFor("zauri-khachidze", "en");

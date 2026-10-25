@@ -107,34 +107,6 @@ const SITEMAP_PATH_DATE_PUBLISHED: Record<string, string> = {
   "/venomous-snakes": "2026-09-20T02:45:00+04:00",
 };
 
-const SITEMAP_AUTHOR_LAST_MODIFIED: Partial<Record<string, string>> = {
-  "giorgi-natsvlishvili": "2026-10-03T12:00:00+04:00",
-  "giorgi-sheklashvili": "2026-10-10T11:20:00+04:00",
-  "kakhaber-sukhitashvili": "2026-09-23T14:37:00+04:00",
-  "nika-kerdikoshvili": "2026-09-20T01:30:00+04:00",
-};
-
-const SITEMAP_AUTHOR_DATE_PUBLISHED: Record<string, string> = {
-  "armen-seropian": "2026-09-16T16:00:00+04:00",
-  "arvidas-merkelis": "2026-10-21T15:00:00+04:00",
-  "david-tarkhnishvili": "2026-09-16T16:11:00+04:00",
-  "giorgi-iankoshvili": "2026-09-16T16:22:00+04:00",
-  "giorgi-natsvlishvili": "2026-10-03T12:00:00+04:00",
-  "giorgi-sheklashvili": "2026-09-20T20:05:00+04:00",
-  "ioane-rostiashvili": "2026-09-16T16:33:00+04:00",
-  "kakhaber-sukhitashvili": "2026-09-23T14:37:00+04:00",
-  "lasha-gogodze": "2026-09-16T16:44:00+04:00",
-  "nika-kerdikoshvili": "2026-09-20T01:30:00+04:00",
-  "nika-melikishvili": "2026-09-16T16:55:00+04:00",
-  "nikita-tiunov": "2026-10-25T16:00:00+04:00",
-  "saba-todua": "2026-09-16T17:06:00+04:00",
-  "sandro-khakhva": "2026-09-16T17:17:00+04:00",
-  "shota-zandukeli": "2026-09-16T17:28:00+04:00",
-  "velur-bunebastan-axlos": "2026-09-16T17:39:00+04:00",
-  "zakro-songulashvili": "2026-09-16T17:50:00+04:00",
-  "zauri-khachidze": "2026-09-16T18:01:00+04:00",
-};
-
 const SITEMAP_QUIZ_DATE_PUBLISHED: Record<string, string> = {
   lizard: "2026-09-16T18:12:00+04:00",
   snake: "2026-09-16T18:23:00+04:00",
@@ -159,14 +131,6 @@ const SITEMAP_REGION_DATE_PUBLISHED: Record<string, string> = {
   "shida-kartli": "2026-09-16T20:24:00+04:00",
   tbilisi: "2026-09-16T20:35:00+04:00",
 };
-
-export function sitemapAuthorDatePublished(slug: string) {
-  return required(SITEMAP_AUTHOR_DATE_PUBLISHED, slug);
-}
-
-export function sitemapAuthorLastModified(slug: string): null | string {
-  return SITEMAP_AUTHOR_LAST_MODIFIED[slug] ?? null;
-}
 
 export function sitemapPathDatePublished(path: string) {
   return required(SITEMAP_PATH_DATE_PUBLISHED, path);

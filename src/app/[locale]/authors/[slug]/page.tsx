@@ -41,7 +41,7 @@ type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export default async function AuthorRoute({ params }: Props) {
   const { locale: localeParam, slug } = await params;
@@ -122,7 +122,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
-    ...(await authorDateFields(author.id, locale)),
+    ...(await authorDateFields(author, locale)),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
