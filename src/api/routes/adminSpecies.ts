@@ -1,6 +1,13 @@
 import type { Context } from "hono";
+import type { ContentfulStatusCode } from "hono/utils/http-status";
 
 import { Hono } from "hono";
+
+import {
+  fetchINaturalistPhoto,
+  type INaturalistPhotoFailure,
+  iNaturalistPhotoFormData,
+} from "@/lib/inaturalistPhoto";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
@@ -12,7 +19,7 @@ import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
 import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
-import { ApiError } from "../lib/errors";
+import { ApiError, type ApiErrorCode } from "../lib/errors";
 import {
   addGalleryPhoto,
   checkPhotoFiles,
@@ -46,7 +53,7 @@ import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
-import { photoUploadForm } from "../schemas/photoUpload";
+import { inaturalistPhotoBody, photoUploadForm } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
 import {
   draftCreateBody,
@@ -199,6 +206,27 @@ export const adminSpecies = new Hono<ApiEnv>()
         { data: { optimized: optimized !== null, photo: result, version } },
         201,
       );
+    },
+  )
+  .post(
+    "/:id/photos/inaturalist",
+    requireSiteOrigin,
+    rateLimitUpload,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", inaturalistPhotoBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      if ((await readSpeciesVersion(c.env.DB, id)) === null) {
+        throw new ApiError(404, "not_found", "Species not found");
+      }
+      const result = await fetchINaturalistPhoto(c.req.valid("json").url);
+      if (!result.ok) throw iNaturalistFailure(result.reason);
+      const response = new Response(iNaturalistPhotoFormData(result));
+      return c.body(await response.arrayBuffer(), 200, {
+        "Cache-Control": NO_STORE,
+        "Content-Type": response.headers.get("Content-Type") ?? "",
+      });
     },
   )
   .use(requireToken)
@@ -404,4 +432,38 @@ async function readForWrite(
   if (current.version !== version) throw versionConflict(current.version);
   assertNoAddedPageTalk(current.record, record);
   return current;
+}
+
+const INATURALIST_FAILURES: Record<
+  INaturalistPhotoFailure,
+  [ContentfulStatusCode, ApiErrorCode, string]
+> = {
+  download_failed: [
+    502,
+    "upstream_failed",
+    "Could not download the iNaturalist photo",
+  ],
+  invalid_url: [400, "invalid_request", "Paste an iNaturalist observation URL"],
+  no_photo: [422, "invalid_request", "The observation has no usable photo"],
+  no_photographer: [
+    422,
+    "invalid_request",
+    "The observation has no photographer username",
+  ],
+  not_found: [404, "not_found", "iNaturalist observation not found"],
+  too_large: [
+    422,
+    "invalid_request",
+    "The photo is empty or larger than 12 MB",
+  ],
+  unreachable: [502, "upstream_failed", "Could not reach iNaturalist"],
+  unsupported_format: [
+    422,
+    "invalid_request",
+    "The photo format is not supported",
+  ],
+};
+
+function iNaturalistFailure(reason: INaturalistPhotoFailure) {
+  return new ApiError(...INATURALIST_FAILURES[reason]);
 }
