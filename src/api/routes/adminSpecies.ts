@@ -4,9 +4,8 @@ import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { Hono } from "hono";
 
 import {
-  fetchINaturalistPhoto,
-  type INaturalistPhotoFailure,
-  iNaturalistPhotoFormData,
+  downloadINaturalistPhoto,
+  type INaturalistDownloadResult,
 } from "@/lib/inaturalistPhoto";
 
 import type { SpeciesRecord } from "../db/speciesRows";
@@ -58,6 +57,8 @@ import {
   inaturalistPhotoBody,
   photoCreditBody,
   photoDeleteBody,
+  photoReorderBody,
+  photoSetCoverBody,
   photoUploadForm,
 } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
@@ -226,12 +227,13 @@ export const adminSpecies = new Hono<ApiEnv>()
       if ((await readSpeciesVersion(c.env.DB, id)) === null) {
         throw new ApiError(404, "not_found", "Species not found");
       }
-      const result = await fetchINaturalistPhoto(c.req.valid("json").url);
+      const result = await downloadINaturalistPhoto(
+        c.req.valid("json").photoUrl,
+      );
       if (!result.ok) throw iNaturalistFailure(result.reason);
-      const response = new Response(iNaturalistPhotoFormData(result));
-      return c.body(await response.arrayBuffer(), 200, {
+      return c.body(await result.file.arrayBuffer(), 200, {
         "Cache-Control": NO_STORE,
-        "Content-Type": response.headers.get("Content-Type") ?? "",
+        "Content-Type": result.type,
       });
     },
   )
@@ -280,6 +282,52 @@ export const adminSpecies = new Hono<ApiEnv>()
         current,
       );
       return c.json({ data: { ...result, ...covers(record), version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/reorder",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoReorderBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, srcs } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Reorder gallery",
+        (record) => reorderPhotos(record, srcs),
+        [],
+        current,
+      );
+      return c.json({ data: { version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/set-cover",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoSetCoverBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, src, target } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { record, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        `Set ${target} cover`,
+        (draft) => setCover(draft, target, src),
+        [],
+        current,
+      );
+      return c.json({ data: { ...covers(record), version } }, 200);
     },
   )
   .use(requireToken)
@@ -501,7 +549,7 @@ async function readForWrite(
 }
 
 const INATURALIST_FAILURES: Record<
-  INaturalistPhotoFailure,
+  Extract<INaturalistDownloadResult, { ok: false }>["reason"],
   [ContentfulStatusCode, ApiErrorCode, string]
 > = {
   download_failed: [
@@ -509,14 +557,11 @@ const INATURALIST_FAILURES: Record<
     "upstream_failed",
     "Could not download the iNaturalist photo",
   ],
-  invalid_url: [400, "invalid_request", "Paste an iNaturalist observation URL"],
-  no_photo: [422, "invalid_request", "The observation has no usable photo"],
-  no_photographer: [
-    422,
+  invalid_url: [
+    400,
     "invalid_request",
-    "The observation has no photographer username",
+    "Not an iNaturalist original photo URL",
   ],
-  not_found: [404, "not_found", "iNaturalist observation not found"],
   too_large: [
     422,
     "invalid_request",
@@ -530,6 +575,8 @@ const INATURALIST_FAILURES: Record<
   ],
 };
 
-function iNaturalistFailure(reason: INaturalistPhotoFailure) {
+function iNaturalistFailure(
+  reason: Extract<INaturalistDownloadResult, { ok: false }>["reason"],
+) {
   return new ApiError(...INATURALIST_FAILURES[reason]);
 }

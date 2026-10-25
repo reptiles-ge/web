@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { isINaturalistPhotoUrl } from "@/lib/inaturalistPhoto";
 import { PHOTO_ADDITIONAL_WIDTHS, PHOTO_FORMATS } from "@/lib/photoDerivatives";
 
 const text = (max: number) => z.string().trim().max(max).optional();
@@ -40,6 +41,21 @@ export const photoDeleteBody = z.strictObject({
   src: photoSrc,
 });
 
+export const photoSetCoverBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  src: photoSrc,
+  target: z.enum(["both", "desktop", "mobile"]),
+});
+
+export const photoReorderBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  srcs: z.array(photoSrc).min(2).max(200),
+});
+
 export const inaturalistPhotoBody = z.strictObject({
-  url: z.string().trim().min(1).max(500),
+  photoUrl: z
+    .string()
+    .trim()
+    .max(500)
+    .refine(isINaturalistPhotoUrl, "Not an iNaturalist original photo URL"),
 });

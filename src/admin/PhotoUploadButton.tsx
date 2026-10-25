@@ -30,6 +30,8 @@ type FileState = {
   uid: string;
 };
 
+const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
+
 const STATUS_TAGS: Record<
   FileState["status"],
   { color: string; label: string }
@@ -40,8 +42,6 @@ const STATUS_TAGS: Record<
   uploading: { color: "processing", label: "Uploading" },
   waiting: { color: "default", label: "Waiting" },
 };
-
-const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
 
 export function PhotoUploadButton({
   id,

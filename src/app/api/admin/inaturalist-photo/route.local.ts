@@ -27,6 +27,10 @@ const FAILURES: Record<
     status: 422,
   },
   not_found: { error: "iNaturalist-ის დაკვირვება ვერ მოიძებნა", status: 404 },
+  rate_limited: {
+    error: "iNaturalist ახლა მოთხოვნებს ზღუდავს, სცადე ერთ წუთში",
+    status: 503,
+  },
   too_large: { error: "ფოტო 12 MB-ზე დიდია ან ცარიელია", status: 422 },
   unreachable: {
     error: "iNaturalist-თან დაკავშირება ვერ მოხერხდა",

@@ -564,7 +564,8 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     env.ALLOWED_ORIGINS = `https://reptiles.ge,${ADMIN_ORIGIN}`;
   });
 
-  it("revalidates only that species' profile pages", async () => {
+  it("revalidates that species' pages and the pages built from the catalog", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
     const { body, response } = await revalidate(ID);
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
@@ -572,7 +573,67 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({ tags: [`species:${ID}`] });
+    expect(await request.json()).toEqual({
+      tags: ["species", `species:${ID}`],
+    });
+    expect(log).toHaveBeenCalledWith("API cache purge is not configured");
+    log.mockRestore();
+  });
+
+  it("purges the species and catalog API cache in every data center before revalidating the site", async () => {
+    const order: string[] = [];
+    const purge = vi.fn<(url: string, init: RequestInit) => Promise<Response>>(
+      async () => {
+        order.push("purge");
+        return Response.json({ success: true });
+      },
+    );
+    vi.stubGlobal("fetch", purge);
+    siteFetch.mockImplementation(async () => {
+      order.push("site");
+      return new Response(null, { status: 204 });
+    });
+    env.CACHE_PURGE_TOKEN = "purge-token";
+    env.CACHE_PURGE_ZONE_ID = "zone-1";
+    try {
+      expect((await revalidate(ID)).response.status).toBe(200);
+      expect(order).toEqual(["purge", "site"]);
+      const [url, init] = purge.mock.calls[0]!;
+      expect(url).toBe(
+        "https://api.cloudflare.com/client/v4/zones/zone-1/purge_cache",
+      );
+      expect((init.headers as Record<string, string>).Authorization).toBe(
+        "Bearer purge-token",
+      );
+      expect(JSON.parse(init.body as string)).toEqual({
+        tags: [`api:species:${ID}`, "api:catalog", "api:images"],
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("still revalidates the site but answers 502 when the purge fails", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => Response.json({ success: false }, { status: 429 })),
+    );
+    env.CACHE_PURGE_TOKEN = "purge-token";
+    env.CACHE_PURGE_ZONE_ID = "zone-1";
+    try {
+      const { body, response } = await revalidate(ID);
+      expect(response.status).toBe(502);
+      expect(body.error).toMatchObject({
+        code: "site_unavailable",
+        message: "The cache could not be cleared",
+      });
+      expect(siteFetch).toHaveBeenCalledOnce();
+      expect(log).toHaveBeenCalledWith("API cache purge answered 429");
+    } finally {
+      vi.unstubAllGlobals();
+      log.mockRestore();
+    }
   });
 
   it("answers 404 for an unknown species and 502 when the site fails", async () => {

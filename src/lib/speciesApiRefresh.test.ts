@@ -29,19 +29,11 @@ afterEach(() => {
 });
 
 describe("refreshSpeciesApiCache", () => {
-  it("refreshes every catalog view in every locale with the bypass secret", async () => {
+  it("leaves the catalog to the API purge instead of refetching it", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
     const seen = recordBypass();
     await refreshSpeciesApiCache(["species"]);
-    expect(seen).toHaveLength(16);
-    expect(new Set(seen.map(({ bypass }) => bypass))).toEqual(
-      new Set(["fresh-secret"]),
-    );
-    expect(
-      seen
-        .filter(({ locale }) => locale === "ka")
-        .map(({ url }) => new URL(url).search),
-    ).toEqual(["?view=card", "?view=full", "?view=photos", "?view=quiz"]);
+    expect(seen).toEqual([]);
   });
 
   it("refreshes the profile in each locale and the field records of a species tag", async () => {
@@ -148,8 +140,8 @@ describe("refreshSpeciesApiCache", () => {
         return calls === 1 ? HttpResponse.error() : HttpResponse.json({});
       }),
     );
-    await refreshSpeciesApiCache(["species"]);
-    expect(calls).toBe(16);
+    await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
+    expect(calls).toBe(5);
     expect(error).toHaveBeenCalledWith(
       "Species API cache refresh failed",
       expect.any(Error),
