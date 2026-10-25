@@ -1,9 +1,16 @@
 import type { InferResponseType } from "hono/client";
 
+import type { INaturalistPhotoMetadata } from "@/lib/inaturalistPhoto";
+
 import type { EncodedPhoto } from "./photoEncoding";
 
-import { checkAdminResponse } from "./adminResponse";
+import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
+
+export type INaturalistImport = {
+  file: File;
+  metadata: INaturalistPhotoMetadata;
+};
 
 export type PhotoCreditFields = {
   date?: string;
@@ -41,6 +48,27 @@ export function encodePhotoFile(file: File): Promise<EncodedPhoto> {
     };
     worker.postMessage(file);
   });
+}
+
+export async function importINaturalistPhoto(
+  id: string,
+  url: string,
+): Promise<INaturalistImport> {
+  const response = await api.v1.admin.species[":id"].photos.inaturalist.$post({
+    json: { url },
+    param: { id },
+  });
+  await checkAdminSave(response, "iNaturalist import failed");
+  const form = await response.formData();
+  const file = form.get("photo");
+  const metadata = form.get("metadata");
+  if (!(file instanceof File) || typeof metadata !== "string") {
+    throw new Error("iNaturalist sent an incomplete answer");
+  }
+  return {
+    file,
+    metadata: JSON.parse(metadata) as INaturalistPhotoMetadata,
+  };
 }
 
 export async function uploadSpeciesPhoto(

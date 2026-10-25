@@ -5,11 +5,16 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { EncodedPhoto } from "./photoEncoding";
 
 import { SessionExpiredError } from "./adminResponse";
-import { encodePhotoFile, uploadSpeciesPhoto } from "./photos";
+import {
+  encodePhotoFile,
+  importINaturalistPhoto,
+  uploadSpeciesPhoto,
+} from "./photos";
 import { PhotoUploadButton } from "./PhotoUploadButton";
 
 vi.mock("./photos", () => ({
   encodePhotoFile: vi.fn(),
+  importINaturalistPhoto: vi.fn(),
   uploadSpeciesPhoto: vi.fn(),
 }));
 
@@ -45,6 +50,7 @@ function setup() {
 }
 
 beforeEach(() => {
+  vi.mocked(importINaturalistPhoto).mockReset();
   vi.mocked(encodePhotoFile).mockReset().mockResolvedValue(ENCODED);
   vi.mocked(uploadSpeciesPhoto)
     .mockReset()
@@ -124,5 +130,86 @@ describe("PhotoUploadButton", () => {
     await user.click(screen.getByRole("button", { name: "Cancel" }));
     await user.click(screen.getByRole("button", { name: "Add photos" }));
     expect(screen.getByRole("button", { name: "Upload" })).toBeDisabled();
+  });
+
+  it("fills the photo and credit from an iNaturalist observation", async () => {
+    const file = new File(["x"], "inaturalist-42-7.jpg", {
+      type: "image/jpeg",
+    });
+    vi.mocked(importINaturalistPhoto).mockResolvedValue({
+      file,
+      metadata: {
+        date: "2026-05-10",
+        georgiaField: true,
+        lat: 41.81667,
+        license: "cc-by",
+        lng: 45.35,
+        location: "Vashlovani",
+        photographer: "ana",
+        url: "https://www.inaturalist.org/photos/7",
+      },
+    });
+    const { user } = setup();
+    await user.click(screen.getByRole("button", { name: "Add photos" }));
+    await user.type(
+      screen.getByLabelText("iNaturalist observation"),
+      "https://www.inaturalist.org/observations/42{Enter}",
+    );
+    await screen.findByText(
+      "Filled in from iNaturalist. Photo licence: cc-by.",
+    );
+    expect(importINaturalistPhoto).toHaveBeenCalledWith(
+      "bufo-viridis",
+      "https://www.inaturalist.org/observations/42",
+    );
+    expect(screen.getByText("inaturalist-42-7.jpg")).toBeInTheDocument();
+    expect(screen.getByLabelText("Place (English)")).toHaveValue("Vashlovani");
+    expect(
+      screen.getByLabelText("Taken in Georgia (needs a place)"),
+    ).toBeChecked();
+    expect(uploadSpeciesPhoto).not.toHaveBeenCalled();
+    await user.click(screen.getByRole("button", { name: "Upload" }));
+    await screen.findByText(/1 photo added to the gallery/);
+    expect(encodePhotoFile).toHaveBeenCalledWith(file);
+    expect(uploadSpeciesPhoto).toHaveBeenCalledWith(
+      "bufo-viridis",
+      expect.objectContaining({
+        date: "2026-05-10",
+        lat: "41.81667",
+        lng: "45.35",
+        photographer: "ana",
+        url: "https://www.inaturalist.org/photos/7",
+      }),
+      ENCODED,
+    );
+  });
+
+  it("shows why an iNaturalist import failed", async () => {
+    vi.mocked(importINaturalistPhoto).mockRejectedValue(
+      new Error("iNaturalist observation not found"),
+    );
+    const { user } = setup();
+    await user.click(screen.getByRole("button", { name: "Add photos" }));
+    await user.type(
+      screen.getByLabelText("iNaturalist observation"),
+      "https://www.inaturalist.org/observations/1",
+    );
+    await user.click(screen.getByRole("button", { name: "Fetch" }));
+    await screen.findByText("iNaturalist observation not found");
+    expect(screen.getByRole("button", { name: "Upload" })).toBeDisabled();
+  });
+
+  it("sends an expired session from the iNaturalist import back to sign-in", async () => {
+    vi.mocked(importINaturalistPhoto).mockRejectedValue(
+      new SessionExpiredError(),
+    );
+    const { onSessionExpired, user } = setup();
+    await user.click(screen.getByRole("button", { name: "Add photos" }));
+    await user.type(
+      screen.getByLabelText("iNaturalist observation"),
+      "https://www.inaturalist.org/observations/1",
+    );
+    await user.click(screen.getByRole("button", { name: "Fetch" }));
+    await waitFor(() => expect(onSessionExpired).toHaveBeenCalled());
   });
 });

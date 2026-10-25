@@ -1,12 +1,24 @@
 import type { UploadFile } from "antd/es/upload/interface";
 
-import { Alert, Button, Form, List, Modal, Tag, Upload } from "antd";
+import {
+  Alert,
+  Button,
+  Form,
+  Input,
+  List,
+  Modal,
+  Space,
+  Tag,
+  Upload,
+} from "antd";
 import { useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
 import {
   encodePhotoFile,
+  importINaturalistPhoto,
+  type INaturalistImport,
   type PhotoCreditFields,
   uploadSpeciesPhoto,
 } from "./photos";
@@ -43,6 +55,10 @@ export function PhotoUploadButton({
   const [files, setFiles] = useState<UploadFile[]>([]);
   const [states, setStates] = useState<FileState[]>([]);
   const [running, setRunning] = useState(false);
+  const [observationUrl, setObservationUrl] = useState("");
+  const [importing, setImporting] = useState(false);
+  const [imported, setImported] = useState<INaturalistImport | null>(null);
+  const [importError, setImportError] = useState<null | string>(null);
   const added = states.filter((item) => item.status === "added").length;
   const finished = !running && states.length > 0 && states.every(isSettled);
 
@@ -57,7 +73,50 @@ export function PhotoUploadButton({
     setOpen(false);
     setFiles([]);
     setStates([]);
+    setObservationUrl("");
+    setImported(null);
+    setImportError(null);
     form.resetFields();
+  }
+
+  async function importObservation() {
+    setImporting(true);
+    setImportError(null);
+    setImported(null);
+    try {
+      const result = await importINaturalistPhoto(id, observationUrl);
+      const { file, metadata } = result;
+      setFiles([
+        {
+          name: file.name,
+          originFileObj: file as UploadFile["originFileObj"],
+          status: "done",
+          uid: file.name,
+        },
+      ]);
+      form.setFieldsValue({
+        date: metadata.date,
+        georgiaField: metadata.georgiaField,
+        lat: String(metadata.lat),
+        lng: String(metadata.lng),
+        location: metadata.location,
+        locationEn: metadata.location,
+        photographer: metadata.photographer,
+        photographerEn: metadata.photographer,
+        url: metadata.url,
+      });
+      setImported(result);
+    } catch (error) {
+      if (error instanceof SessionExpiredError) {
+        onSessionExpired();
+        return;
+      }
+      setImportError(
+        error instanceof Error ? error.message : "iNaturalist import failed",
+      );
+    } finally {
+      setImporting(false);
+    }
   }
 
   async function upload(credit: PhotoCreditFields) {
@@ -124,12 +183,56 @@ export function PhotoUploadButton({
           layout="vertical"
           onFinish={upload}
         >
+          <Form.Item
+            extra="Fills in the observation's first photo and its photographer, place, date, coordinates and link. Hidden coordinates stay empty. Check the Georgian fields before you upload."
+            label="iNaturalist observation"
+          >
+            <Space.Compact style={{ width: "100%" }}>
+              <Input
+                aria-label="iNaturalist observation"
+                maxLength={500}
+                onChange={(event) => setObservationUrl(event.target.value)}
+                onPressEnter={(event) => {
+                  event.preventDefault();
+                  if (observationUrl.trim()) void importObservation();
+                }}
+                placeholder="https://www.inaturalist.org/observations/123456"
+                value={observationUrl}
+              />
+              <Button
+                disabled={!observationUrl.trim()}
+                loading={importing}
+                onClick={() => void importObservation()}
+              >
+                Fetch
+              </Button>
+            </Space.Compact>
+          </Form.Item>
+          {importError ? (
+            <Alert
+              showIcon
+              style={{ marginBottom: 16 }}
+              title={importError}
+              type="error"
+            />
+          ) : null}
+          {imported ? (
+            <Alert
+              showIcon
+              style={{ marginBottom: 16 }}
+              title={`Filled in from iNaturalist. Photo licence: ${imported.metadata.license}.`}
+              type="info"
+            />
+          ) : null}
           <Upload.Dragger
             accept="image/jpeg,image/png,image/webp,image/avif,image/heic"
             beforeUpload={() => false}
             fileList={files}
             multiple
-            onChange={({ fileList }) => setFiles(fileList)}
+            onChange={({ fileList }) => {
+              setFiles(fileList);
+              setImported(null);
+            }}
           >
             <p>Drop photos here or click to choose them.</p>
             <p>
