@@ -118,10 +118,28 @@ describe("sitePageLd", () => {
     });
   });
 
-  it("omits about and mainEntity unless given", () => {
+  it("omits about, citation and mainEntity unless given", () => {
     const ld = sitePageLd(base);
     expect(ld).not.toHaveProperty("about");
+    expect(ld).not.toHaveProperty("citation");
     expect(ld).not.toHaveProperty("mainEntity");
+    expect(sitePageLd({ ...base, citation: [] })).not.toHaveProperty(
+      "citation",
+    );
+  });
+
+  it("lists each source as a cited CreativeWork", () => {
+    const ld = sitePageLd({
+      ...base,
+      citation: [{ name: "Checklist", url: "https://doi.org/10.1/x" }],
+    });
+    expect(ld.citation).toEqual([
+      {
+        "@type": "CreativeWork",
+        name: "Checklist",
+        url: "https://doi.org/10.1/x",
+      },
+    ]);
   });
 
   it("includes about, mainEntity and the page type when given", () => {

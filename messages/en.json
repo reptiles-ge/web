@@ -1373,7 +1373,7 @@
     "featuredEyebrow": "Highest risk",
     "featuredWestEyebrow": "Western viper",
     "mostVenomousTitle": "Which is the most venomous snake in Georgia?",
-    "mostVenomousBody": "The <giurza>Levantine viper (Macrovipera lebetinus)</giurza> is Georgia’s largest high-risk venomous snake. The nose-horned viper is also high risk. The other vipers are moderate risk.",
+    "mostVenomousBody": "The atlas ranks snakes by risk to people, not by venom strength. Two species are high risk: the <giurza>Levantine viper (Macrovipera lebetinus)</giurza> and the <transcaucasiana>nose-horned viper</transcaucasiana>. The other four vipers and the eastern Montpellier snake are moderate risk.",
     "vipersTitle": "Vipers (Viperidae)",
     "vipersBody": "Georgia has six medically significant vipers: the <giurza>Levantine viper</giurza> and five species in the genus Vipera. Western Georgia’s humid Colchic forests are home to the <kaznakovi>Caucasus viper (Vipera kaznakovi)</kaznakovi>, whose risk to people is moderate.",
     "rearFangedTitle": "Rear-fanged",
@@ -1537,7 +1537,7 @@
       },
       "venomous": {
         "eyebrow": "Safety",
-        "title": "Venomous snakes in Georgia",
+        "title": "Levantine viper, vipers and risk levels",
         "body": "The Levantine viper, other vipers, and one rear-fanged species — risk and full profiles.",
         "cta": "Venomous snakes"
       },
@@ -1907,7 +1907,7 @@
   },
   "snakes": {
     "metaTitle": "Snakes in Georgia (Caucasus): species with photos and ID",
-    "metaDescription": "Snakes of Georgia, the Caucasus country: {count} species with photos — which are venomous, which are harmless, and how to tell them apart. If bitten, call 112.",
+    "metaDescription": "Snakes of Georgia, the Caucasus country: {count} species with photos — which are venomous and which are harmless. If bitten, call 112.",
     "keywords": "snakes in Georgia, Georgia snakes, harmless snakes, vipers, racers, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",

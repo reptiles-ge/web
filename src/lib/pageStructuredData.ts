@@ -19,6 +19,7 @@ type ListedSpecies = {
 
 type SitePageLdInput = {
   about?: Record<string, unknown>;
+  citation?: readonly { name: string; url: string }[];
   dates: Record<string, unknown>;
   description: string;
   locale: string;
@@ -61,6 +62,7 @@ export function localePageUrl(
 
 export function sitePageLd({
   about,
+  citation,
   dates,
   description,
   locale,
@@ -74,6 +76,15 @@ export function sitePageLd({
     "@type": type,
     ...(about ? { about } : {}),
     author: { "@id": siteEntityId("organization") },
+    ...(citation?.length
+      ? {
+          citation: citation.map((source) => ({
+            "@type": "CreativeWork",
+            name: source.name,
+            url: source.url,
+          })),
+        }
+      : {}),
     ...dates,
     description,
     inLanguage: locale,

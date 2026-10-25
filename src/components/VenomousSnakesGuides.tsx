@@ -45,11 +45,13 @@ const EDITORIAL_UPDATED = "2026-09-07";
 
 type VenomousSnakesGuidesProps = {
   locale: AppLocale;
+  quiz: ReactNode;
   relatedGuides: HubClusterCard[];
 };
 
 export async function VenomousSnakesGuides({
   locale,
+  quiz,
   relatedGuides,
 }: VenomousSnakesGuidesProps) {
   const t = await getTranslations({ locale, namespace: "venomousSnakes" });
@@ -73,6 +75,8 @@ export async function VenomousSnakesGuides({
           }))}
         />
       </ClusterContentSection>
+
+      {quiz}
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
