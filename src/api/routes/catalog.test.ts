@@ -91,6 +91,24 @@ describe("GET /v1/catalog", () => {
     }
   });
 
+  it("leaves out draft species and draft lookalikes in every view", async () => {
+    const { db, sqlite } = createSpeciesTestDatabase();
+    sqlite
+      .prepare("UPDATE species SET status = 'draft' WHERE id = ?")
+      .run("elaphe-urartica");
+    for (const view of ["card", "full", "photos", "quiz"] as const) {
+      const { body } = await requestJson<CatalogBody>(
+        `/v1/catalog?view=${view}`,
+        { DB: db },
+      );
+      expect(ids(body)).toContain("macrovipera-lebetina");
+      expect(ids(body)).not.toContain("elaphe-urartica");
+      for (const entry of body.data) {
+        expect(entry.lookalikes ?? []).not.toContain("elaphe-urartica");
+      }
+    }
+  });
+
   it("defaults to the Georgian card view, cached at the edge", async () => {
     const { body, response } = await requestJson<CatalogBody>(
       "/v1/catalog",
