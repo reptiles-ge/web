@@ -716,10 +716,16 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
   },
   "turtle-land": {
     icon: "guide",
-    keywords: ["ხმელეთის კუ", "land turtle", "tortoise", "testudo"],
+    keywords: [
+      "ხმელეთის კუ",
+      "land turtle",
+      "tortoise",
+      "testudo",
+      "spur-thighed tortoise",
+    ],
     subtitle: {
-      en: "The spur-thighed tortoise",
-      ka: "ხმელეთის კუ — Spur-thighed tortoise",
+      en: "The Mediterranean tortoise",
+      ka: "ხმელთაშუაზღვეთის კუ",
     },
     title: { en: "Land turtles of Georgia", ka: "ხმელეთის კუები საქართველოში" },
   },
