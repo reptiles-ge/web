@@ -17,6 +17,7 @@ import {
   authorDateFields,
   hasMeaningfulUpdate,
   pageDateFields,
+  pageModifiedDate,
   quizDateFields,
   regionDateFields,
 } from "@/lib/structuredDataDates";
@@ -135,11 +136,18 @@ describe("member-derived dates", () => {
     ).toBeGreaterThanOrEqual(newest(pool, "ka"));
   });
 
-  it("keeps fixed pages on their own date", async () => {
-    expect(await pageDateFields("/contact", "en")).toEqual(
-      await pageDateFields("/contact", "ka"),
-    );
-  });
+  it.each(routing.locales)(
+    "keeps fixed pages on their own date in %s",
+    async (locale) => {
+      const fresh = speciesCatalogFixture(locale).map((item) => ({
+        ...item,
+        updatedAt: "2099-01-01T00:00:00+04:00",
+      }));
+      expect(await pageModifiedDate("/contact", locale, fresh)).toBe(
+        await pageModifiedDate("/contact", locale, []),
+      );
+    },
+  );
 });
 
 describe("fixtureUpdatedAt", () => {
