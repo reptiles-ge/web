@@ -1,3 +1,4 @@
+import type { AuthorProfile } from "@/data/authors";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -11,8 +12,6 @@ import {
   REGION_MESSAGE_NAMESPACES,
 } from "@/data/pageContentSources";
 import {
-  sitemapAuthorDatePublished,
-  sitemapAuthorLastModified,
   sitemapPathDatePublished,
   sitemapPathLastModified,
   sitemapQuizDatePublished,
@@ -36,6 +35,8 @@ import {
   getSpeciesCatalog,
 } from "@/lib/speciesCatalogApi";
 
+type AuthorDates = Pick<AuthorProfile, "id" | "publishedAt" | "updatedAt">;
+
 type DateFields = { dateModified: string; datePublished: string };
 
 let pathNamespaces: Map<string, readonly string[]> | null = null;
@@ -47,24 +48,26 @@ export function atlasDateFields(locale: AppLocale, lastUpdated: null | string) {
   );
 }
 
-export async function authorDateFields(slug: string, locale: AppLocale) {
-  return withFloor(
-    await authorModifiedDate(slug, locale),
-    sitemapAuthorDatePublished(slug),
-  );
+export async function authorDateFields(
+  author: AuthorDates,
+  locale: AppLocale,
+): Promise<Partial<DateFields>> {
+  const dateModified = await authorModifiedDate(author, locale);
+  if (author.publishedAt) return withFloor(dateModified, author.publishedAt);
+  return dateModified ? { dateModified } : {};
 }
 
 export async function authorModifiedDate(
-  slug: string,
+  author: AuthorDates,
   locale: AppLocale,
   catalog?: readonly CatalogCard[],
   creditPhotos?: readonly CreditPhotoSource[],
 ) {
   return latestDate([
-    sitemapAuthorLastModified(slug),
+    author.updatedAt,
     messagesDate(AUTHOR_MESSAGE_NAMESPACES, locale),
     authorMembersDate(
-      slug,
+      author.id,
       catalog ?? (await getSpeciesCatalog(locale)),
       creditPhotos ?? (await getCreditPhotoCatalog()),
     ),
@@ -111,9 +114,7 @@ export async function pageModifiedDate(
       path === "/authors"
         ? (creditPhotos ?? (await getCreditPhotoCatalog()))
         : [],
-      path === "/authors"
-        ? (await getContributors(locale)).map((author) => author.id)
-        : [],
+      path === "/authors" ? await getContributors(locale) : [],
     ),
   ]);
 }
@@ -219,7 +220,7 @@ function pageMembersDate(
   path: string,
   catalog: readonly CatalogCard[],
   creditPhotos: readonly CreditPhotoSource[],
-  authorIds: readonly string[],
+  authors: readonly AuthorDates[],
 ) {
   if (path === "/regions") {
     return latestDate(
@@ -228,7 +229,10 @@ function pageMembersDate(
   }
   if (path === "/authors") {
     return latestDate(
-      authorIds.map((id) => authorMembersDate(id, catalog, creditPhotos)),
+      authors.flatMap((author) => [
+        author.updatedAt,
+        authorMembersDate(author.id, catalog, creditPhotos),
+      ]),
     );
   }
   if (path === "/quiz") {

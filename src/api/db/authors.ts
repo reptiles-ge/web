@@ -89,6 +89,11 @@ export type AuthorRecord = {
   texts: Partial<Record<AppLocale, AuthorText>> & { ka: AuthorText };
 };
 
+type AuthorDates = {
+  publishedAt: null | string;
+  updatedAt: null | string;
+};
+
 type AuthorKind = "page" | "person";
 
 type AuthorLinks = {
@@ -108,8 +113,10 @@ type AuthorRow = {
   kind_id: AuthorKind;
   portrait_class: null | string;
   portrait_src: null | string;
+  published_at: null | string;
   research_gate_url: null | string;
   role_id: null | string;
+  updated_at: null | string;
 };
 
 type AuthorText = {
@@ -127,7 +134,9 @@ type TextRow = {
 };
 
 const AUTHOR_SELECT =
-  "SELECT id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url FROM authors";
+  "SELECT id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url, published_at, updated_at FROM authors";
+
+const NOW = "strftime('%Y-%m-%dT%H:%M:%fZ', 'now')";
 
 export type AdminAuthorFilters = {
   contributor?: boolean;
@@ -164,11 +173,13 @@ export async function getAuthorDetail(
   id: string,
   locale: AppLocale,
 ) {
-  const [record, photoCount] = await Promise.all([
-    readAuthor(db, id),
+  const [stored, photoCount] = await Promise.all([
+    readStoredAuthor(db, id),
     readAuthorPhotoCount(db, id),
   ]);
-  return record ? authorProfile(record, locale, photoCount) : null;
+  return stored
+    ? authorProfile(stored.record, locale, photoCount, stored.dates)
+    : null;
 }
 
 export async function getContributorDetail(
@@ -176,8 +187,8 @@ export async function getContributorDetail(
   id: string,
   locale: AppLocale,
 ) {
-  const [record, counts] = await Promise.all([
-    readAuthor(db, id),
+  const [stored, counts] = await Promise.all([
+    readStoredAuthor(db, id),
     db
       .prepare(
         "SELECT COUNT(DISTINCT m.src) AS photos, COUNT(DISTINCT m.species_id) AS species FROM species_media m JOIN species s ON s.id = m.species_id WHERE m.author_id = ? AND m.role != 'audio' AND s.status = 'published'",
@@ -185,9 +196,9 @@ export async function getContributorDetail(
       .bind(id)
       .first<{ photos: number; species: number }>(),
   ]);
-  if (!record?.isContributor) return null;
+  if (!stored?.record.isContributor) return null;
   return {
-    ...authorProfile(record, locale, counts?.photos ?? 0),
+    ...authorProfile(stored.record, locale, counts?.photos ?? 0, stored.dates),
     speciesCount: counts?.species ?? 0,
   };
 }
@@ -335,6 +346,9 @@ export async function listContributors(
   const records = new Map<string, AuthorRecord>(
     authors.results.map((row) => [row.id, authorRecord(row)]),
   );
+  const dates = new Map(
+    authors.results.map((row) => [row.id, authorDates(row)]),
+  );
   for (const text of texts.results) {
     const record = records.get(text.author_id);
     if (record) record.texts[text.locale] = authorText(text);
@@ -350,7 +364,12 @@ export async function listContributors(
     .map((record) => {
       const count = totals.get(record.id);
       return {
-        ...authorProfile(record, locale, count?.photos ?? 0),
+        ...authorProfile(
+          record,
+          locale,
+          count?.photos ?? 0,
+          dates.get(record.id)!,
+        ),
         speciesCount: count?.species ?? 0,
       };
     })
@@ -359,37 +378,7 @@ export async function listContributors(
 }
 
 export async function readAuthor(db: ApiDatabase, id: string) {
-  const [row, texts, aliases, affiliations] = await db.batch([
-    db.prepare(`${AUTHOR_SELECT} WHERE id = ?`).bind(id),
-    db
-      .prepare(
-        "SELECT author_id, locale, name, bio, meta_description FROM author_texts WHERE author_id = ? ORDER BY locale",
-      )
-      .bind(id),
-    db
-      .prepare(
-        "SELECT alias FROM author_aliases WHERE author_id = ? ORDER BY alias",
-      )
-      .bind(id),
-    db
-      .prepare(
-        "SELECT affiliation_id FROM author_affiliations WHERE author_id = ? ORDER BY position",
-      )
-      .bind(id),
-  ]);
-  const author = row!.results[0] as AuthorRow | undefined;
-  if (!author) return null;
-  const record = authorRecord(author);
-  record.affiliations = (
-    affiliations!.results as Array<{ affiliation_id: string }>
-  ).map((entry) => entry.affiliation_id);
-  record.aliases = (aliases!.results as Array<{ alias: string }>).map(
-    (entry) => entry.alias,
-  );
-  for (const text of texts!.results as TextRow[]) {
-    record.texts[text.locale] = authorText(text);
-  }
-  return record;
+  return (await readStoredAuthor(db, id))?.record ?? null;
 }
 
 export async function readCreditPersonNames(
@@ -426,7 +415,7 @@ export async function writeAuthor(db: ApiDatabase, author: AuthorRecord) {
     db.prepare("DELETE FROM author_texts WHERE author_id = ?").bind(author.id),
     db
       .prepare(
-        "INSERT INTO authors (id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET kind_id = excluded.kind_id, role_id = excluded.role_id, job_title_id = excluded.job_title_id, is_contributor = excluded.is_contributor, portrait_src = excluded.portrait_src, portrait_class = excluded.portrait_class, facebook_url = excluded.facebook_url, inaturalist_url = excluded.inaturalist_url, instagram_url = excluded.instagram_url, research_gate_url = excluded.research_gate_url",
+        `INSERT INTO authors (id, kind_id, role_id, job_title_id, is_contributor, portrait_src, portrait_class, facebook_url, inaturalist_url, instagram_url, research_gate_url, published_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, CASE WHEN ?5 = 1 THEN ${NOW} END, ${NOW}) ON CONFLICT (id) DO UPDATE SET kind_id = excluded.kind_id, role_id = excluded.role_id, job_title_id = excluded.job_title_id, is_contributor = excluded.is_contributor, portrait_src = excluded.portrait_src, portrait_class = excluded.portrait_class, facebook_url = excluded.facebook_url, inaturalist_url = excluded.inaturalist_url, instagram_url = excluded.instagram_url, research_gate_url = excluded.research_gate_url, published_at = COALESCE(authors.published_at, excluded.published_at), updated_at = excluded.updated_at`,
       )
       .bind(...rows.authors[0]!),
     ...AUTHOR_TABLES.slice(1).flatMap((table) =>
@@ -442,6 +431,9 @@ export async function writeAuthorTexts(db: ApiDatabase, author: AuthorRecord) {
   const table = AUTHOR_TABLES[1];
   await db.batch([
     db.prepare("DELETE FROM author_texts WHERE author_id = ?").bind(author.id),
+    db
+      .prepare(`UPDATE authors SET updated_at = ${NOW} WHERE id = ?`)
+      .bind(author.id),
     ...renderBoundInserts(
       table.name,
       table.columns,
@@ -450,10 +442,15 @@ export async function writeAuthorTexts(db: ApiDatabase, author: AuthorRecord) {
   ]);
 }
 
+function authorDates(row: AuthorRow): AuthorDates {
+  return { publishedAt: row.published_at, updatedAt: row.updated_at };
+}
+
 function authorProfile(
   record: AuthorRecord,
   locale: AppLocale,
   photoCount: number,
+  dates: AuthorDates,
 ) {
   const text = record.texts[locale];
   const bio = text?.bio ?? record.texts.ka.bio;
@@ -472,7 +469,9 @@ function authorProfile(
     photoCount,
     portraitClass: record.portraitClass,
     portraitSrc: record.portraitSrc,
+    publishedAt: dates.publishedAt,
     role: record.role,
+    updatedAt: dates.updatedAt,
   };
 }
 
@@ -554,4 +553,38 @@ async function countPublishedPhotos(db: ApiDatabase, id?: string) {
 
 async function readAuthorPhotoCount(db: ApiDatabase, id: string) {
   return (await countPublishedPhotos(db, id)).get(id) ?? 0;
+}
+
+async function readStoredAuthor(db: ApiDatabase, id: string) {
+  const [row, texts, aliases, affiliations] = await db.batch([
+    db.prepare(`${AUTHOR_SELECT} WHERE id = ?`).bind(id),
+    db
+      .prepare(
+        "SELECT author_id, locale, name, bio, meta_description FROM author_texts WHERE author_id = ? ORDER BY locale",
+      )
+      .bind(id),
+    db
+      .prepare(
+        "SELECT alias FROM author_aliases WHERE author_id = ? ORDER BY alias",
+      )
+      .bind(id),
+    db
+      .prepare(
+        "SELECT affiliation_id FROM author_affiliations WHERE author_id = ? ORDER BY position",
+      )
+      .bind(id),
+  ]);
+  const author = row!.results[0] as AuthorRow | undefined;
+  if (!author) return null;
+  const record = authorRecord(author);
+  record.affiliations = (
+    affiliations!.results as Array<{ affiliation_id: string }>
+  ).map((entry) => entry.affiliation_id);
+  record.aliases = (aliases!.results as Array<{ alias: string }>).map(
+    (entry) => entry.alias,
+  );
+  for (const text of texts!.results as TextRow[]) {
+    record.texts[text.locale] = authorText(text);
+  }
+  return { dates: authorDates(author), record };
 }

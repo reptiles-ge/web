@@ -1,0 +1,21 @@
+ALTER TABLE authors ADD COLUMN published_at TEXT;
+ALTER TABLE authors ADD COLUMN updated_at TEXT;
+
+UPDATE authors SET published_at = '2026-09-16T12:00:00.000Z', updated_at = '2026-09-16T12:00:00.000Z' WHERE id = 'armen-seropian';
+UPDATE authors SET published_at = '2026-10-21T11:00:00.000Z', updated_at = '2026-10-21T11:00:00.000Z' WHERE id = 'arvidas-merkelis';
+UPDATE authors SET published_at = '2026-09-16T12:11:00.000Z', updated_at = '2026-09-16T12:11:00.000Z' WHERE id = 'david-tarkhnishvili';
+UPDATE authors SET published_at = '2026-09-16T12:22:00.000Z', updated_at = '2026-09-16T12:22:00.000Z' WHERE id = 'giorgi-iankoshvili';
+UPDATE authors SET published_at = '2026-10-03T08:00:00.000Z', updated_at = '2026-10-03T08:00:00.000Z' WHERE id = 'giorgi-natsvlishvili';
+UPDATE authors SET published_at = '2026-09-20T16:05:00.000Z', updated_at = '2026-10-10T07:20:00.000Z' WHERE id = 'giorgi-sheklashvili';
+UPDATE authors SET published_at = '2026-09-16T12:33:00.000Z', updated_at = '2026-09-16T12:33:00.000Z' WHERE id = 'ioane-rostiashvili';
+UPDATE authors SET published_at = '2026-09-23T10:37:00.000Z', updated_at = '2026-09-23T10:37:00.000Z' WHERE id = 'kakhaber-sukhitashvili';
+UPDATE authors SET published_at = '2026-09-16T12:44:00.000Z', updated_at = '2026-09-16T12:44:00.000Z' WHERE id = 'lasha-gogodze';
+UPDATE authors SET published_at = '2026-09-19T21:30:00.000Z', updated_at = '2026-09-19T21:30:00.000Z' WHERE id = 'nika-kerdikoshvili';
+UPDATE authors SET published_at = '2026-09-16T12:55:00.000Z', updated_at = '2026-09-16T12:55:00.000Z' WHERE id = 'nika-melikishvili';
+UPDATE authors SET published_at = '2026-10-25T11:52:00.000Z', updated_at = '2026-10-25T11:52:00.000Z' WHERE id = 'nikita-tiunov';
+UPDATE authors SET published_at = '2026-09-16T13:06:00.000Z', updated_at = '2026-09-16T13:06:00.000Z' WHERE id = 'saba-todua';
+UPDATE authors SET published_at = '2026-09-16T13:17:00.000Z', updated_at = '2026-09-16T13:17:00.000Z' WHERE id = 'sandro-khakhva';
+UPDATE authors SET published_at = '2026-09-16T13:28:00.000Z', updated_at = '2026-09-16T13:28:00.000Z' WHERE id = 'shota-zandukeli';
+UPDATE authors SET published_at = '2026-09-16T13:39:00.000Z', updated_at = '2026-09-16T13:39:00.000Z' WHERE id = 'velur-bunebastan-axlos';
+UPDATE authors SET published_at = '2026-09-16T13:50:00.000Z', updated_at = '2026-09-16T13:50:00.000Z' WHERE id = 'zakro-songulashvili';
+UPDATE authors SET published_at = '2026-09-16T14:01:00.000Z', updated_at = '2026-09-16T14:01:00.000Z' WHERE id = 'zauri-khachidze';

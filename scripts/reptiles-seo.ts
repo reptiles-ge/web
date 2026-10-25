@@ -5,7 +5,6 @@ import path from "node:path";
 import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
-  sitemapAuthorDatePublished,
   sitemapPathDatePublished,
   sitemapQuizDatePublished,
   sitemapRegionDatePublished,
@@ -1393,8 +1392,8 @@ async function authorInventory(): Promise<InventoryItem[]> {
           indexable: true,
           internalLinksIn: null,
           internalLinksOut: null,
-          datePublished: sitemapAuthorDatePublished(author.id),
-          lastModified: await authorModifiedDate(author.id, locale),
+          datePublished: author.publishedAt,
+          lastModified: await authorModifiedDate(author, locale),
           locale,
           pageType: "author",
           path: new URL(creditAuthorUrl(locale, author.id)).pathname,
