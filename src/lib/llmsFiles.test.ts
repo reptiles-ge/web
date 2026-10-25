@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getPublishedNewsArticles } from "@/data/news";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
   buildLlmsFullText,
@@ -15,12 +16,15 @@ import {
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-const LLMS = createLlmsSpecies({
-  en: speciesCatalogFixture("en"),
-  ka: speciesCatalogFixture("ka"),
-  ru: speciesCatalogFixture("ru"),
-  tr: speciesCatalogFixture("tr"),
-});
+const LLMS = createLlmsSpecies(
+  {
+    en: speciesCatalogFixture("en"),
+    ka: speciesCatalogFixture("ka"),
+    ru: speciesCatalogFixture("ru"),
+    tr: speciesCatalogFixture("tr"),
+  },
+  getPublishedNewsArticles(),
+);
 
 const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
 const DEEP_GROUPS = new Set([

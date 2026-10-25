@@ -74,6 +74,13 @@ export type NewsSource = {
   url: string;
 };
 
+export type NewsSummary = Pick<
+  NewsArticle,
+  "id" | "publishedAt" | "slug" | "sources" | "status" | "updatedAt"
+> & {
+  copy: Partial<Record<AppLocale, NewsSummaryCopy>> & { ka: NewsSummaryCopy };
+};
+
 type NewsArticleStatus = "draft" | "published";
 
 type NewsLocaleCopy = {
@@ -86,3 +93,5 @@ type NewsLocaleCopy = {
 };
 
 type NewsSourceName = Record<AppLocale, string> | string;
+
+type NewsSummaryCopy = Pick<NewsLocaleCopy, "dek" | "metaTitle" | "title">;

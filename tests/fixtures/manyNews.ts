@@ -105,19 +105,26 @@ export function toNewsListArticle(
 
 export function withManyNews(actual: typeof NewsModule): typeof NewsModule {
   const base = actual.getPublishedNewsArticles();
-  const many = Array.from({ length: MANY_NEWS_TOTAL }, (_, index) => ({
-    ...base[index % base.length],
-    id: `archive-fixture-${index + 1}`,
-    publishedAt: new Date(NEWEST_MS - index * DAY_MS)
-      .toISOString()
-      .slice(0, 10),
-    slug: `archive-fixture-${index + 1}`,
-    updatedAt:
-      index === MANY_NEWS_EDITED_INDEX ? MANY_NEWS_EDITED_AT : undefined,
-  }));
+  const many = Array.from({ length: MANY_NEWS_TOTAL }, (_, index) => {
+    const article = base[index % base.length]!;
+    const { tr: _tr, ...withoutTr } = article.copy;
+    return {
+      ...article,
+      copy: (index < MANY_NEWS_TR_TOTAL
+        ? article.copy
+        : withoutTr) as NewsArticle["copy"],
+      id: `archive-fixture-${index + 1}`,
+      publishedAt: new Date(NEWEST_MS - index * DAY_MS)
+        .toISOString()
+        .slice(0, 10),
+      slug: `archive-fixture-${index + 1}`,
+      updatedAt:
+        index === MANY_NEWS_EDITED_INDEX ? MANY_NEWS_EDITED_AT : undefined,
+    };
+  });
   return {
     ...actual,
     getPublishedNewsArticles: (locale?: AppLocale) =>
-      locale === "tr" ? many.slice(0, MANY_NEWS_TR_TOTAL) : many,
+      locale ? many.filter((article) => article.copy[locale]) : many,
   };
 }

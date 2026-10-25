@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getPublishedNewsArticles } from "@/data/news";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 import { flattenGroups, searchIndex } from "@/lib/siteSearch";
 
@@ -12,11 +13,13 @@ const kaIndex = buildSearchIndex(
   "ka",
   searchCatalogsFixture(),
   searchContributorsFixture(),
+  getPublishedNewsArticles(),
 );
 const ruIndex = buildSearchIndex(
   "ru",
   searchCatalogsFixture(),
   searchContributorsFixture(),
+  getPublishedNewsArticles(),
 );
 
 describe("search scoring", () => {

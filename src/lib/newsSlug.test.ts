@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getAllNewsArticles } from "@/data/news";
+import { getAllNewsArticles, getPublishedNewsArticles } from "@/data/news";
 import { newsSlugs } from "@/data/newsPublish";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
@@ -58,9 +58,12 @@ describe("news slugs never shadow news archive URLs", () => {
   });
 
   it("emits no empty archive page for today's articles", () => {
-    for (const param of newsArchiveStaticParams(newsPageCounts())) {
+    for (const param of newsArchiveStaticParams(
+      newsPageCounts(getPublishedNewsArticles()),
+    )) {
       expect(
-        getNewsPage(param.locale, Number(param.page))?.articles.length,
+        getNewsPage(getPublishedNewsArticles(param.locale), Number(param.page))
+          ?.articles.length,
         `${param.locale} ${param.page}`,
       ).toBeGreaterThan(0);
     }

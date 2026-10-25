@@ -1,5 +1,10 @@
 import type { AuthorProfile } from "@/data/authors";
-import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
+import type {
+  NewsArticle,
+  NewsPhoto,
+  NewsSource,
+  NewsSummary,
+} from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -11,7 +16,12 @@ import {
   newsSourceNames,
 } from "@/lib/newsAuthorMentions";
 
-export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
+export type {
+  NewsArticle,
+  NewsPhoto,
+  NewsSource,
+  NewsSummary,
+} from "@/data/newsTypes";
 
 const bySlug = new Map<string, NewsArticle>();
 
@@ -26,7 +36,7 @@ export function getAllNewsArticles() {
   return NEWS_ARTICLES;
 }
 
-export function getNewsArticleLocales(article: Pick<NewsArticle, "copy">) {
+export function getNewsArticleLocales(article: Pick<NewsSummary, "copy">) {
   return Object.keys(article.copy) as AppLocale[];
 }
 
@@ -122,12 +132,18 @@ export function newsLinkedSpeciesIds(article: NewsArticle, locale: AppLocale) {
   return ids;
 }
 
-export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale)?.dek ?? article.copy.ka.dek;
+export function newsLocalizedDek(
+  article: Pick<NewsSummary, "copy">,
+  locale: AppLocale,
+) {
+  return (article.copy[locale] ?? article.copy.ka).dek;
 }
 
-export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale)?.title ?? article.copy.ka.title;
+export function newsLocalizedTitle(
+  article: Pick<NewsSummary, "copy">,
+  locale: AppLocale,
+) {
+  return (article.copy[locale] ?? article.copy.ka).title;
 }
 
 export function newsPhotoBySrc(article: NewsArticle, src: string) {
@@ -158,7 +174,9 @@ export function newsRelatedSpecies<T extends { id: string }>(
   });
 }
 
-export function newsSearchKeywords(article: NewsArticle) {
+export function newsSearchKeywords(
+  article: Pick<NewsSummary, "copy" | "slug" | "sources">,
+) {
   return [
     article.slug,
     ...Object.values(article.copy).flatMap((copy) => [
