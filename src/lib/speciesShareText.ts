@@ -7,6 +7,7 @@ import {
   isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
 import { localePath } from "@/lib/site";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const SHARE_ORIGIN = "https://reptiles.ge";
@@ -65,7 +66,7 @@ export function speciesShareText({
   status?: null | string;
   url: string;
 }) {
-  const names = `${commonName} (${scientificName})`;
+  const names = `${speciesNameWithScientific(commonName, scientificName)}`;
   const heading = status ? `${names} - ${status}` : names;
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
 }

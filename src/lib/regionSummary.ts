@@ -12,6 +12,7 @@ import {
 import { type AnimalGroup, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { formatList } from "@/lib/formatList";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 const GROUP_ORDER = [
   "snake",
@@ -73,7 +74,8 @@ export async function getRegionSummary(
             count: facts.venomous.length,
             species: formatList(
               facts.venomous.map(
-                (item) => `${item.commonName} (${item.scientificName})`,
+                (item) =>
+                  `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
               ),
               locale,
             ),

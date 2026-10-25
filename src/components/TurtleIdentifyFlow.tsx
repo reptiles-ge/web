@@ -10,6 +10,7 @@ import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 type TurtleIdentifyFlowProps = {
   emys?: SpeciesCard;
@@ -216,7 +217,7 @@ function SpeciesResult({
         href={useSpeciesHref(species.id, locale)}
       >
         <ClientCoverImage
-          alt={`${species.commonName} (${species.scientificName})`}
+          alt={`${speciesNameWithScientific(species.commonName, species.scientificName)}`}
           className="object-cover"
           sizes="180px"
           src={species.mobileImage ?? species.image}

@@ -347,7 +347,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   },
   tr: {
     description:
-      "Evde hamam böceği mi var? Saklandıkları yerleri kontrol edin, yiyecek ve nemi azaltın, yapışkan tuzaklarla izleyin, yemi güvenle kullanın; gerekirse uzman çağırın.",
+      "Evde hamam böceği mi var? Saklandıkları yerleri kontrol edin, yiyecek ve nemi azaltın, yapışkan tuzakla izleyin, yemi güvenle kullanın; gerekirse uzman çağırın.",
     faq: [
       {
         answer:

@@ -12,6 +12,7 @@ import {
   LIZARD_LOOKALIKE_PAIRS,
   SNAKE_LOOKALIKE_PAIRS,
 } from "@/lib/clusterGuides";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const LOOKALIKE_BODIES = [
@@ -78,7 +79,10 @@ export async function QuizLanding({
                   className="text-foreground underline-offset-4 hover:underline"
                   href={speciesHref(item.id, locale)}
                 >
-                  {item.commonName} ({item.scientificName})
+                  {speciesNameWithScientific(
+                    item.commonName,
+                    item.scientificName,
+                  )}
                 </Link>
               </li>
             ))}

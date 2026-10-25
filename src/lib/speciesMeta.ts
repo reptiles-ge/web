@@ -11,6 +11,7 @@ import {
   metaDescriptionLimit,
   sentenceMetaDescription,
 } from "@/lib/metaDescription";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,
@@ -41,7 +42,7 @@ function speciesMetaTitle(
   scientificName: string,
   intent: string,
 ) {
-  return `${commonName} (${scientificName}) | ${intent}`;
+  return `${speciesNameWithScientific(commonName, scientificName)} | ${intent}`;
 }
 
 export const TARGET_META_TITLE_LENGTH = 60;
@@ -82,7 +83,7 @@ function fittedSpeciesMetaTitle(
 ) {
   const title = speciesMetaTitle(commonName, scientificName, intent);
   if (title.length <= TARGET_META_TITLE_LENGTH) return title;
-  const name = `${commonName} (${scientificName})`;
+  const name = `${speciesNameWithScientific(commonName, scientificName)}`;
   const shortTitle = `${name} ${shortIntent}`;
   return shortTitle.length <= TARGET_META_TITLE_LENGTH ? shortTitle : name;
 }
@@ -454,7 +455,7 @@ export function speciesImageAlt(
   scientificName: string,
   location: string,
 ) {
-  return `${commonName} (${scientificName}) ${location}`;
+  return `${speciesNameWithScientific(commonName, scientificName)} ${location}`;
 }
 
 export function speciesMetaDescription(
@@ -496,7 +497,7 @@ export function speciesPhotoAlt(
   contributors: ContributorDirectory,
 ) {
   const place = credit?.location?.trim();
-  const parts = [`${commonName} (${scientificName})`];
+  const parts = [`${speciesNameWithScientific(commonName, scientificName)}`];
   if (place) parts.push(place);
   if (credit?.photographer) {
     parts.push(

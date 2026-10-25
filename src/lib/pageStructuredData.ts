@@ -5,6 +5,7 @@ import {
   siteEntityId,
   speciesPageUrl,
 } from "@/lib/site";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 type BreadcrumbCrumb = {
   item: string;
@@ -104,7 +105,7 @@ export function speciesItemListLd(
     "@type": "ItemList",
     itemListElement: species.map((item, index) => ({
       "@type": "ListItem",
-      name: `${item.commonName} (${item.scientificName})`,
+      name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
       position: index + 1,
       url: speciesPageUrl(locale, item.id),
     })),

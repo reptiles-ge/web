@@ -625,7 +625,7 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     rank: 4,
     subtitle: {
       en: "Call 112 — do not cut or suck the bite",
-      ka: "დარეკე 112 — ნუ გაჭრი და ნუ ამოწოვ",
+      ka: "დარეკეთ 112 — ნუ გაჭრით და ნუ ამოწოვთ",
       ru: "Звоните 112 — не режьте и не отсасывайте",
       tr: "112’yi arayın — kesmeyin, emmeyin",
     },

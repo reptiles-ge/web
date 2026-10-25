@@ -734,7 +734,7 @@
     "ariaLabel": "Map of Georgia"
   },
   "regions": {
-    "metaTitle": "Regions",
+    "metaTitle": "Regions of Georgia: animals by region",
     "metaDescription": "Animals of Georgia by region — confirmed records, regional maps, habitats, and venomous species by place.",
     "eyebrow": "Regional atlas",
     "title": "Regions of Georgia",
@@ -823,7 +823,7 @@
     }
   },
   "contact": {
-    "metaTitle": "Contact",
+    "metaTitle": "Contact us: records, corrections and photos",
     "metaDescription": "Contact Reptiles.ge — range records with place and date, misidentifications, photo credits and photo-use requests.",
     "brand": "Reptiles.ge",
     "title": "Contact",
