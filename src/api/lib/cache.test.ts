@@ -104,4 +104,43 @@ describe("edgeCache", () => {
       "changed",
     );
   });
+
+  it("tags every stored entry so a clear can purge it in every data center", async () => {
+    async function storedTags(url: string) {
+      const pending: Array<Promise<unknown>> = [];
+      const response = await app.request(
+        url,
+        { headers: { "X-Locale": "en" } },
+        env,
+        {
+          passThroughOnException: () => {},
+          props: {},
+          waitUntil: (promise: Promise<unknown>) => {
+            pending.push(promise);
+          },
+        },
+      );
+      await Promise.all(pending);
+      expect(response.status).toBe(200);
+      const entries = [...stores.values()].flatMap((store) => [
+        ...(store as unknown as { entries: Map<string, Response> }).entries,
+      ]);
+      const entry = entries.find(([key]) => key.includes(url.split("?")[0]!));
+      return entry?.[1].headers.get("Cache-Tag");
+    }
+
+    expect(await storedTags(URL)).toBe(
+      "api:species,api:species:cheiracanthium-punctorium",
+    );
+    stores.clear();
+    expect(await storedTags(`${URL}/field-records`)).toBe(
+      "api:species,api:species:cheiracanthium-punctorium",
+    );
+    stores.clear();
+    expect(await storedTags("/v1/species")).toBe("api:species,api:catalog");
+    stores.clear();
+    expect(await storedTags("/v1/catalog")).toBe("api:catalog");
+    stores.clear();
+    expect(await storedTags("/v1/contributors")).toBe("api:authors");
+  });
 });

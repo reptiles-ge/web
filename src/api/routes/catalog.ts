@@ -16,7 +16,7 @@ import { catalogQuery } from "../schemas/catalog";
 import { localeHeader } from "../schemas/common";
 
 export const catalog = new Hono<ApiEnv>()
-  .use(edgeCache("reptiles-api-catalog"))
+  .use(edgeCache("reptiles-api-catalog", ["catalog"]))
   .get(
     "/",
     validate("header", localeHeader),

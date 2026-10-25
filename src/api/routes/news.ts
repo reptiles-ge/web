@@ -4,14 +4,14 @@ import type { ApiEnv } from "../env";
 
 import { getPublishedNews, listPublishedNews } from "../db/newsView";
 import { readViewTotal } from "../db/views";
-import { edgeCache, PUBLIC_CACHE } from "../lib/cache";
+import { cacheTags, edgeCache, PUBLIC_CACHE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import { validate } from "../lib/validate";
 import { localeHeader } from "../schemas/common";
 import { newsListQuery, newsParam } from "../schemas/news";
 
 export const news = new Hono<ApiEnv>()
-  .use(edgeCache("reptiles-api-news"))
+  .use(edgeCache("reptiles-api-news", ["news"]))
   .get(
     "/",
     validate("header", localeHeader),
@@ -39,6 +39,7 @@ export const news = new Hono<ApiEnv>()
         readViewTotal(c.env.DB, "news", slug),
       ]);
       if (!found) throw new ApiError(404, "not_found", "Article not found");
+      cacheTags(c, `news:${slug}`);
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", found.locale);
       return c.json({ ...found, views }, 200);

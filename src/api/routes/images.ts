@@ -6,7 +6,7 @@ import { listOptimizedImages } from "../db/optimizedImages";
 import { edgeCache, PUBLIC_CACHE } from "../lib/cache";
 
 export const images = new Hono<ApiEnv>()
-  .use(edgeCache("reptiles-api-images"))
+  .use(edgeCache("reptiles-api-images", ["images"]))
   .get("/", async (c) => {
     const data = await listOptimizedImages(c.env.DB);
     c.header("Cache-Control", PUBLIC_CACHE);

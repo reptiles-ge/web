@@ -13,6 +13,8 @@ export type ApiBindings = {
   BUNNY_STORAGE_ACCESS_KEY?: string;
   BUNNY_STORAGE_REGION?: string;
   BUNNY_STORAGE_ZONE?: string;
+  CACHE_PURGE_TOKEN?: string;
+  CACHE_PURGE_ZONE_ID?: string;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;
@@ -28,7 +30,7 @@ export type ApiBindings = {
 
 export type ApiEnv = {
   Bindings: ApiBindings;
-  Variables: { user?: SessionUser };
+  Variables: { cacheTags?: string[]; user?: SessionUser };
 };
 
 export type RateLimiter = {
