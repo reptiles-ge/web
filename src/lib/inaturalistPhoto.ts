@@ -72,7 +72,7 @@ export async function fetchINaturalistPhoto(
       `https://api.inaturalist.org/v1/observations/${observationId}`,
       {
         cache: "no-store",
-        redirect: "error",
+        redirect: "manual",
         signal: AbortSignal.timeout(15_000),
       },
     );
@@ -92,7 +92,7 @@ export async function fetchINaturalistPhoto(
     if (!photographer) return { ok: false, reason: "no_photographer" };
 
     const photoResponse = await fetch(photoUrl, {
-      redirect: "error",
+      redirect: "manual",
       signal: AbortSignal.timeout(20_000),
     });
     if (!photoResponse.ok) return { ok: false, reason: "download_failed" };
