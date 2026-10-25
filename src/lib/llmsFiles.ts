@@ -215,14 +215,20 @@ export function buildLlmsFullText(
   parts.push("## Practical guides");
   parts.push("");
   for (const article of getGuideArticles()) {
-    const copy = article.copy[proseLocale(locale)];
+    const copy = article.copy[locale];
+    const english = canonical ? article.copy.en : undefined;
     parts.push(`### ${copy.title}`);
     parts.push("");
     parts.push(`- URL: ${pageUrl(locale, article.pathname)}`);
     parts.push(
       alternateLine(locale, pageUrl(alternateLocale(locale), article.pathname)),
     );
+    if (english) parts.push(`- English title: ${english.title}`);
     parts.push(`- ${absoluteLinks(copy.summary, locale, catalog)}`);
+    if (english)
+      parts.push(
+        `- English summary: ${absoluteLinks(truncateText(english.summary, MAX_OVERVIEW_COMPACT), "en", catalog)}`,
+      );
     for (const item of copy.faq) {
       parts.push(
         `- Q: ${absoluteLinks(item.question, locale, catalog)} A: ${absoluteLinks(item.answer, locale, catalog)}`,
