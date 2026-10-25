@@ -208,4 +208,8 @@ describe("NEWS_FEED_HEADERS", () => {
       "application/atom+xml; charset=utf-8",
     );
   });
+
+  it("lets the edge keep a feed for an hour, so a new article shows up soon", () => {
+    expect(NEWS_FEED_HEADERS["Cache-Control"]).toContain("s-maxage=3600");
+  });
 });

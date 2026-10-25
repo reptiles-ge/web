@@ -55,7 +55,7 @@ export function buildRobotsTxt() {
 export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
   return {
     "Cache-Control":
-      "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+      "public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800",
     "Content-Type": "text/plain; charset=utf-8",
     ...(options?.noindex ? { "X-Robots-Tag": "noindex, follow" } : {}),
   };

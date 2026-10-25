@@ -20,6 +20,7 @@ describe("locale llms routes", () => {
         "text/plain; charset=utf-8",
       );
       expect(index.headers.get("X-Robots-Tag")).toBeNull();
+      expect(index.headers.get("Cache-Control")).toContain("s-maxage=3600");
       expect(await index.text()).toContain(
         `https://reptiles.ge/${locale}/llms-full.txt`,
       );

@@ -323,12 +323,13 @@ describe("internal pathname redirects", () => {
 });
 
 describe("filtered atlas requests", () => {
-  it("marks filtered atlas URLs noindex,follow", () => {
-    const response = call("/species?type=snake");
-    expect(response.headers.get("X-Robots-Tag")).toBe("noindex, follow");
-  });
-
-  it("leaves the plain atlas indexable", () => {
-    expect(call("/species").headers.get("X-Robots-Tag")).toBeNull();
+  it("leaves filtered atlas URLs to their canonical, without a robots header", () => {
+    for (const path of [
+      "/species",
+      "/species?danger=venomous",
+      "/en/species?q=giurza",
+    ]) {
+      expect(call(path).headers.get("X-Robots-Tag"), path).toBeNull();
+    }
   });
 });
