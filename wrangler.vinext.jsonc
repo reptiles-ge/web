@@ -27,6 +27,10 @@
       "service": "reptiles-response-store",
       "entrypoint": "ResponseStoreService",
     },
+    {
+      "binding": "API",
+      "service": "reptiles-api",
+    },
   ],
   "observability": {
     "logs": {
