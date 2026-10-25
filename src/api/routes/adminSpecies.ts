@@ -44,6 +44,7 @@ import {
   reorderPhotos,
   setCover,
   setPhotoCoordinates,
+  setPhotoCredits,
 } from "../lib/speciesPhotos";
 import { applySpeciesTexts } from "../lib/speciesTexts";
 import { validate } from "../lib/validate";
@@ -53,7 +54,12 @@ import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
-import { inaturalistPhotoBody, photoUploadForm } from "../schemas/photoUpload";
+import {
+  inaturalistPhotoBody,
+  photoCreditBody,
+  photoDeleteBody,
+  photoUploadForm,
+} from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
 import {
   draftCreateBody,
@@ -227,6 +233,53 @@ export const adminSpecies = new Hono<ApiEnv>()
         "Cache-Control": NO_STORE,
         "Content-Type": response.headers.get("Content-Type") ?? "",
       });
+    },
+  )
+  .post(
+    "/:id/photos/credit",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoCreditBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { credit, expectedVersion, src } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const credits = photoCredits(credit);
+      const { result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Edit photo credit",
+        (record) => setPhotoCredits(record, src, credits),
+        [],
+        current,
+      );
+      return c.json({ data: { credit: result ?? {}, version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/delete",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoDeleteBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, src } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { record, result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Remove gallery photo",
+        (draft) => removePhoto(draft, src),
+        [],
+        current,
+      );
+      return c.json({ data: { ...result, ...covers(record), version } }, 200);
     },
   )
   .use(requireToken)
@@ -410,6 +463,19 @@ function covers(record: SpeciesRecord) {
     image: record.base.image,
     mobileImage: record.base.mobileImage ?? "",
   };
+}
+
+async function readCurrent(
+  c: Context<ApiEnv>,
+  id: string,
+  expectedVersion: number,
+) {
+  const current = await readSpeciesRecord(c.env.DB, id);
+  if (!current) throw new ApiError(404, "not_found", "Species not found");
+  if (current.version !== expectedVersion) {
+    throw versionConflict(current.version);
+  }
+  return current;
 }
 
 async function readForWrite(
