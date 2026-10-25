@@ -165,6 +165,23 @@ describe("PUT /v1/admin/species/:id", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 
+  it("refuses a write that adds page talk and names the field", async () => {
+    const { record } = (await getRecord()).body.data;
+    record.translations.en.diet = "Diet is not given on this page.";
+    const response = await put(ID, edit(record));
+    expect(response.status).toBe(400);
+    expect(((await response.json()) as ErrorBody).error).toMatchObject({
+      code: "invalid_request",
+      details: [
+        {
+          message: "Page talk: “not given on this page”",
+          path: ["translations", "en", "diet"],
+        },
+      ],
+    });
+    expect((await getRecord()).body.data.version).toBe(1);
+  });
+
   it("refuses a stale version without changing anything", async () => {
     const { record } = (await getRecord()).body.data;
     record.base.overview = "first";
@@ -181,13 +198,30 @@ describe("PUT /v1/admin/species/:id", () => {
   it("answers 409 when another write wins the race", async () => {
     const { record } = (await getRecord()).body.data;
     const real = env.DB;
+    const writes = new WeakSet<object>();
+    const tag = (query: string, statement: object): object => {
+      if (/^\s*(?:DELETE|INSERT|UPDATE)/i.test(query)) writes.add(statement);
+      return statement;
+    };
     env.DB = {
       ...real,
       batch: async (statements) => {
-        sqlite
-          .prepare("UPDATE species SET version = version + 1 WHERE id = ?")
-          .run(ID);
+        if (statements.some((statement) => writes.has(statement))) {
+          sqlite
+            .prepare("UPDATE species SET version = version + 1 WHERE id = ?")
+            .run(ID);
+        }
         return real.batch(statements);
+      },
+      prepare: (query) => {
+        const statement = real.prepare(query);
+        return {
+          ...statement,
+          bind: (...values: unknown[]) =>
+            tag(query, statement.bind(...values)) as ReturnType<
+              typeof statement.bind
+            >,
+        };
       },
     };
     record.base.overview = "late";

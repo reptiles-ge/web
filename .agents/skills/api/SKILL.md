@@ -216,6 +216,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
   - colors equal across locales;
   - overlay gallery srcs that exist in KA;
   - no duplicates or self lookalikes.
+- Draft creation, `PUT` and text saves also refuse text that **adds** page talk ("on this page", "this atlas", "the records table" and the KA/RU/TR forms; `src/lib/pageTalkProse.ts`, `lib/speciesPageTalk.ts`) compared with the stored record: 400 `invalid_request` with the locale and field paths. Page talk that is already stored may stay or be removed. `pnpm species:draft push` runs the same check locally.
 - `db/speciesWrite.ts` writes the whole record in **one D1 batch** (one transaction):
   1. a `species_revisions` row, whose `version` comes from `(SELECT version + 1 … WHERE version = expected)`, so a stale version fails `NOT NULL` and aborts the batch;
   2. the `species` update;
