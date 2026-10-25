@@ -210,21 +210,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       const { id } = c.req.valid("param");
       const { actor, expectedVersion, record, source, summary } =
         c.req.valid("json");
-      if (record.base.id !== id) {
-        throw new ApiError(
-          400,
-          "invalid_request",
-          "Body id does not match the URL",
-        );
-      }
-      const current = await readSpeciesRecord(c.env.DB, id);
-      if (current === null) {
-        throw new ApiError(404, "not_found", "Species not found");
-      }
-      if (current.version !== expectedVersion) {
-        throw versionConflict(current.version);
-      }
-      assertNoAddedPageTalk(current.record, record);
+      await readForWrite(c, id, record, expectedVersion);
       const version = await saveSpeciesRecord(
         c.env.DB,
         record,
@@ -311,21 +297,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       const { id } = c.req.valid("param");
       const { actor, baseVersion, record, source, summary } =
         c.req.valid("json");
-      if (record.base.id !== id) {
-        throw new ApiError(
-          400,
-          "invalid_request",
-          "Body id does not match the URL",
-        );
-      }
-      const current = await readSpeciesRecord(c.env.DB, id);
-      if (current === null) {
-        throw new ApiError(404, "not_found", "Species not found");
-      }
-      if (current.version !== baseVersion) {
-        throw versionConflict(current.version);
-      }
-      assertNoAddedPageTalk(current.record, record);
+      const current = await readForWrite(c, id, record, baseVersion);
       const draftId = await insertDraft(c.env.DB, {
         actor,
         baseRecord: current.record,
@@ -410,4 +382,26 @@ function covers(record: SpeciesRecord) {
     image: record.base.image,
     mobileImage: record.base.mobileImage ?? "",
   };
+}
+
+async function readForWrite(
+  c: Context<ApiEnv>,
+  id: string,
+  record: SpeciesRecord,
+  version: number,
+) {
+  if (record.base.id !== id) {
+    throw new ApiError(
+      400,
+      "invalid_request",
+      "Body id does not match the URL",
+    );
+  }
+  const current = await readSpeciesRecord(c.env.DB, id);
+  if (current === null) {
+    throw new ApiError(404, "not_found", "Species not found");
+  }
+  if (current.version !== version) throw versionConflict(current.version);
+  assertNoAddedPageTalk(current.record, record);
+  return current;
 }
