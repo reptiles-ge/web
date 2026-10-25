@@ -126,6 +126,7 @@ const SITEMAP_AUTHOR_DATE_PUBLISHED: Record<string, string> = {
   "lasha-gogodze": "2026-09-16T16:44:00+04:00",
   "nika-kerdikoshvili": "2026-09-20T01:30:00+04:00",
   "nika-melikishvili": "2026-09-16T16:55:00+04:00",
+  "nikita-tiunov": "2026-10-25T16:00:00+04:00",
   "saba-todua": "2026-09-16T17:06:00+04:00",
   "sandro-khakhva": "2026-09-16T17:17:00+04:00",
   "shota-zandukeli": "2026-09-16T17:28:00+04:00",
