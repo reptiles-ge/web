@@ -9,6 +9,7 @@ import {
 } from "../src/lib/adminSpeciesApi";
 import { apiOrigin } from "../src/lib/apiClient";
 import { getOccurrenceSummary } from "../src/lib/occurrenceSummaries";
+import { addedPageTalk } from "../src/lib/pageTalkProse";
 import { toSiteDateTime } from "../src/lib/siteTime";
 import { diffSpeciesRecords } from "../src/lib/speciesDraftDiff";
 import { loadEnv } from "./scriptUtils";
@@ -174,6 +175,14 @@ async function push(
   }
   const record = checked.data;
   if (record.base.id !== id) fail(`${id}: base.id is ${record.base.id}.`);
+  const pageTalk = addedPageTalk(live.record, record);
+  if (pageTalk.length > 0) {
+    fail(
+      `${id}: the change adds text about the page, map or sources instead of the animal:\n${pageTalk
+        .map((hit) => `  ${hit.locale} ${hit.field}: “${hit.match}”`)
+        .join("\n")}`,
+    );
+  }
   record.base.updatedAt = toSiteDateTime(new Date());
 
   const fieldChanges = changes.filter((change) =>

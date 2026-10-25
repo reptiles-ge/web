@@ -31,6 +31,7 @@ import {
   saveSpeciesRecord,
   versionConflict,
 } from "../lib/speciesDrafts";
+import { assertNoAddedPageTalk } from "../lib/speciesPageTalk";
 import {
   removePhoto,
   reorderPhotos,
@@ -135,6 +136,7 @@ export const adminSpecies = new Hono<ApiEnv>()
           checked.error.issues,
         );
       }
+      assertNoAddedPageTalk(current.record, record);
       const version = await saveSpeciesRecord(
         c.env.DB,
         record,
@@ -215,11 +217,14 @@ export const adminSpecies = new Hono<ApiEnv>()
           "Body id does not match the URL",
         );
       }
-      const current = await readSpeciesVersion(c.env.DB, id);
+      const current = await readSpeciesRecord(c.env.DB, id);
       if (current === null) {
         throw new ApiError(404, "not_found", "Species not found");
       }
-      if (current !== expectedVersion) throw versionConflict(current);
+      if (current.version !== expectedVersion) {
+        throw versionConflict(current.version);
+      }
+      assertNoAddedPageTalk(current.record, record);
       const version = await saveSpeciesRecord(
         c.env.DB,
         record,
@@ -320,6 +325,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       if (current.version !== baseVersion) {
         throw versionConflict(current.version);
       }
+      assertNoAddedPageTalk(current.record, record);
       const draftId = await insertDraft(c.env.DB, {
         actor,
         baseRecord: current.record,
