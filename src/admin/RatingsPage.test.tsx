@@ -73,6 +73,15 @@ describe("RatingsPage", () => {
     expect(await screen.findByText("/%E0")).toBeInTheDocument();
   });
 
+  it("shows a stored path that leaves the site as text, not a link", async () => {
+    vi.mocked(fetchAdminRatings).mockResolvedValue(
+      page({ data: [rating({ id: 5, path: "/\\example.test/x" })], total: 1 }),
+    );
+    render(<RatingsPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("/\\example.test/x")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /example\.test/ })).toBeNull();
+  });
+
   it("shows a dash when there are no ratings yet", async () => {
     vi.mocked(fetchAdminRatings).mockResolvedValue(
       page({
