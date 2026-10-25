@@ -30,6 +30,8 @@ type FileState = {
   uid: string;
 };
 
+const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
+
 const STATUS_TAGS: Record<
   FileState["status"],
   { color: string; label: string }
@@ -96,14 +98,13 @@ export function PhotoUploadButton({
       ]);
       form.setFieldsValue({
         date: metadata.date,
-        georgiaField: metadata.georgiaField,
         lat: String(metadata.lat),
         lng: String(metadata.lng),
         location: metadata.location,
         locationEn: metadata.location,
         photographer: metadata.photographer,
         photographerEn: metadata.photographer,
-        url: metadata.url,
+        url: "",
       });
       setImported(result);
     } catch (error) {
@@ -180,11 +181,12 @@ export function PhotoUploadButton({
         <Form<PhotoCreditFields>
           disabled={running || finished}
           form={form}
+          initialValues={INITIAL_CREDIT}
           layout="vertical"
           onFinish={upload}
         >
           <Form.Item
-            extra="Fills in the observation's first photo and its photographer, place, date, coordinates and link. Hidden coordinates stay empty. Check the Georgian fields before you upload."
+            extra="Fills in the observation's first photo and its photographer, place, date and coordinates. Hidden coordinates stay empty. The source link stays empty. Check the Georgian fields before you upload."
             label="iNaturalist observation"
           >
             <Space.Compact style={{ width: "100%" }}>

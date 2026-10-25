@@ -67,7 +67,6 @@ describe("PhotoUploadButton", () => {
     await choose(user, ["one.jpg", "two.jpg"]);
     await user.type(screen.getByLabelText("Photographer (Georgian)"), "ანა");
     await user.type(screen.getByLabelText("Place (Georgian)"), "ვაშლოვანი");
-    await user.click(screen.getByLabelText("Taken in Georgia (needs a place)"));
     await user.click(screen.getByRole("button", { name: "Upload" }));
     await screen.findByText(
       /2 photos added to the gallery\. The site shows them after you clear this species' cache/,
@@ -85,6 +84,43 @@ describe("PhotoUploadButton", () => {
     expect(screen.getAllByText("Added")).toHaveLength(2);
     expect(onUploaded).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("button", { name: "Upload" })).toBeDisabled();
+  });
+
+  it("opens with Taken in Georgia checked", async () => {
+    const { user } = setup();
+    await user.click(screen.getByRole("button", { name: "Add photos" }));
+    expect(
+      screen.getByLabelText("Taken in Georgia (needs a place)"),
+    ).toBeChecked();
+  });
+
+  it("fills in an iNaturalist photo but leaves the source link empty", async () => {
+    vi.mocked(importINaturalistPhoto).mockResolvedValue({
+      file: new File(["x"], "inaturalist-7.jpg", { type: "image/jpeg" }),
+      metadata: {
+        date: "2025-05-01",
+        georgiaField: false,
+        lat: 41.8,
+        license: "cc-by",
+        lng: 45.3,
+        location: "Vashlovani",
+        photographer: "Ana",
+        url: "https://www.inaturalist.org/photos/7",
+      },
+    });
+    const { user } = setup();
+    await user.click(screen.getByRole("button", { name: "Add photos" }));
+    await user.type(
+      screen.getByLabelText("iNaturalist observation"),
+      "https://www.inaturalist.org/observations/42",
+    );
+    await user.click(screen.getByRole("button", { name: "Fetch" }));
+    await screen.findByText(/Filled in from iNaturalist/);
+    expect(screen.getByLabelText("Photographer (Georgian)")).toHaveValue("Ana");
+    expect(screen.getByLabelText("Source link")).toHaveValue("");
+    expect(
+      screen.getByLabelText("Taken in Georgia (needs a place)"),
+    ).toBeChecked();
   });
 
   it("shows why a photo failed and keeps going", async () => {
@@ -178,7 +214,7 @@ describe("PhotoUploadButton", () => {
         lat: "41.81667",
         lng: "45.35",
         photographer: "ana",
-        url: "https://www.inaturalist.org/photos/7",
+        url: "",
       }),
       ENCODED,
     );
