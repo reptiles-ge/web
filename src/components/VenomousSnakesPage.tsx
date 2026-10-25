@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import { ContentAttribution } from "@/components/ContentAttribution";
@@ -18,9 +19,7 @@ import {
   getHubPageRelatedGuides,
   getRearFangedSpecies,
   getViperSpecies,
-  REAR_FANGED_SPECIES_IDS,
 } from "@/lib/clusterGuides";
-import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
@@ -42,19 +41,9 @@ export async function VenomousSnakesPage({
   species,
   updatedAt,
 }: VenomousSnakesPageProps) {
-  const [t, catalog] = await Promise.all([
-    getTranslations({ locale, namespace: "venomousSnakes" }),
-    getSpeciesCatalog(locale),
-  ]);
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
   const vipers = getViperSpecies(species);
-  const listed = new Set(species.map((item) => item.id));
-  const byId = new Map(catalog.map((item) => [item.id, item]));
-  const rearFangedPool = [...species];
-  for (const id of REAR_FANGED_SPECIES_IDS) {
-    const extra = listed.has(id) ? undefined : byId.get(id);
-    if (extra) rearFangedPool.push(extra);
-  }
-  const rearFanged = getRearFangedSpecies(rearFangedPool);
+  const rearFanged = getRearFangedSpecies(species);
   const highCount = species.filter((item) => item.danger === "High").length;
   const moderateCount = species.filter(
     (item) => item.danger === "Moderate",
@@ -107,16 +96,20 @@ export async function VenomousSnakesPage({
           vipers={toSpeciesCards(vipers)}
         />
 
-        <QuizPracticeCta
-          body={t("quizCtaBody")}
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
+        <VenomousSnakesGuides
           locale={locale}
-          source="other"
-          title={t("quizCtaTitle")}
+          quiz={
+            <QuizPracticeCta
+              body={t("quizCtaBody")}
+              cta={t("quizCta")}
+              eyebrow={t("quizCtaEyebrow")}
+              locale={locale}
+              source="other"
+              title={t("quizCtaTitle")}
+            />
+          }
+          relatedGuides={relatedGuides}
         />
-
-        <VenomousSnakesGuides locale={locale} relatedGuides={relatedGuides} />
 
         <ClusterFaqSection
           intro={{

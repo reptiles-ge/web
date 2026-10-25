@@ -1375,7 +1375,7 @@
     "featuredEyebrow": "En yüksek risk",
     "featuredWestEyebrow": "Batı engereği",
     "mostVenomousTitle": "Gürcistan'da en zehirli yılan hangisidir?",
-    "mostVenomousBody": "<giurza>Levant engereği (Macrovipera lebetinus)</giurza> Gürcistan’ın en büyük, yüksek riskli zehirli yılanıdır. Boynuzlu engerek de yüksek risktir. Diğer engereklerin riski orta düzeydedir.",
+    "mostVenomousBody": "Atlas yılanları zehir gücüne göre değil, insanlar için taşıdıkları riske göre sıralar. İki tür yüksek risklidir: <giurza>Levant engereği (Macrovipera lebetinus)</giurza> ve <transcaucasiana>boynuzlu engerek</transcaucasiana>. Diğer dört engerek ve doğu Montpellier yılanı orta risklidir.",
     "vipersTitle": "Engerekler (Viperidae)",
     "vipersBody": "Gürcistan’da tıbbi öneme sahip altı engerek vardır: <giurza>Levant engereği</giurza> ve Vipera cinsinden beş tür. Batı Gürcistan’ın nemli Kolhis ormanlarında <kaznakovi>Kafkas engereği (Vipera kaznakovi)</kaznakovi> görülür; insanlar için riski orta düzeydedir.",
     "rearFangedTitle": "Arka dişli",
@@ -1539,7 +1539,7 @@
       },
       "venomous": {
         "eyebrow": "Güvenlik",
-        "title": "Gürcistan’da zehirli yılanlar",
+        "title": "Levant engereği, engerekler ve risk düzeyleri",
         "body": "Levant engereği, diğer engerekler ve bir arka dişli tür — risk ve tam profiller.",
         "cta": "Zehirli yılanlar"
       },
@@ -1909,7 +1909,7 @@
   },
   "snakes": {
     "metaTitle": "Gürcistan yılanları — türler, fotoğraflar ve tanıma",
-    "metaDescription": "Gürcistan yılanları: fotoğraflı {count} tür — hangileri zehirli, hangileri zararsız ve nasıl ayırt edilir. Isırılırsanız 112’yi arayın.",
+    "metaDescription": "Gürcistan yılanları: fotoğraflı {count} tür — hangileri zehirli, hangileri zararsız. Isırılırsanız 112’yi arayın.",
     "keywords": "Gürcistan’da yılanlar, Gürcistan yılanları, zararsız yılanlar, engerekler, yılanlar, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Yılanlar",
     "heroImageAlt": "Kayalık Kafkas habitatında Dinnik engereği",
