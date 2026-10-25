@@ -56,7 +56,7 @@ export async function AuthorPage({
             className="flex items-center gap-3"
           >
             <Link
-              className="inline-flex h-9 items-center gap-1 rounded-full bg-card pr-[15px] pl-[9px] text-[13.5px] font-medium text-foreground transition-colors hover:text-primary"
+              className="inline-flex h-11 items-center gap-1 rounded-full bg-card pr-[15px] pl-[9px] text-[13.5px] font-medium text-foreground transition-colors hover:text-primary"
               href={creditAuthorIndexHref()}
             >
               <ArrowLeft aria-hidden="true" className="size-4" />

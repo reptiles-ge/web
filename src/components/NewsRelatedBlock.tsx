@@ -33,7 +33,7 @@ export async function NewsRelatedBlock({
             </h2>
           </div>
           <Link
-            className="text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+            className="tap-target text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
             href={newsIndexHref()}
           >
             {t("allNews")}
