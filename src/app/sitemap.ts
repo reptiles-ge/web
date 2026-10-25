@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
 import {
   sitemapAuthorDatePublished,
   sitemapPathDatePublished,
@@ -27,6 +26,7 @@ import {
   newsDateTime,
   newsIndexDateFields,
 } from "@/lib/news";
+import { getNewsSummaries } from "@/lib/newsApi";
 import {
   getNewsPage,
   newsArchiveAlternates,
@@ -78,19 +78,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
-  const [catalogs, creditPhotos, contributors] = await Promise.all([
+  const [catalogs, creditPhotos, contributors, news] = await Promise.all([
     Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
     getCreditPhotoCatalog(),
     getContributors(routing.defaultLocale),
+    getNewsSummaries(),
   ]);
   const photosById = new Map(creditPhotos.map((item) => [item.id, item]));
   const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
     pending.push(entry);
-  const archivePageCounts = newsPageCounts();
+  const archivePageCounts = newsPageCounts(news);
 
   routing.locales.forEach((locale, index) => {
     const cards = catalogs[index] ?? [];
+    const localeNews = news.filter((article) => article.copy[locale]);
     const page = (
       href: Parameters<typeof localePath>[1],
       lastModified?: null | string,
@@ -108,9 +110,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     add(page("/about"));
     add(page("/photo-use"));
     for (const path of Object.values(LEGAL_PATHS)) add(page(path));
-    add(page("/news", newsIndexDateFields(locale).dateModified));
+    add(page("/news", newsIndexDateFields(localeNews).dateModified));
     for (const newsPageNumber of newsArchivePages(locale, archivePageCounts)) {
-      const newsPage = getNewsPage(locale, newsPageNumber);
+      const newsPage = getNewsPage(localeNews, newsPageNumber);
       add({
         alternates: {
           languages: newsArchiveAlternates(
@@ -120,10 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ).languages,
         },
         lastModified: toLastModified(
-          newsPageDateModified(
-            getPublishedNewsArticles(locale)[0],
-            newsPage?.articles ?? [],
-          ),
+          newsPageDateModified(localeNews[0], newsPage?.articles ?? []),
         ),
         url: newsPageUrl(locale, newsPageNumber),
       });
@@ -211,7 +210,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       );
     }
 
-    for (const article of getPublishedNewsArticles(locale)) {
+    for (const article of localeNews) {
       const { languages } = newsArticleAlternates(locale, article);
       add({
         alternates: { languages },

@@ -7,6 +7,7 @@ import {
   createLlmsSpecies,
 } from "@/lib/llmsFiles";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
+import { getNewsSummaries } from "@/lib/newsApi";
 import { llmsTextResponseHeaders } from "@/lib/robotsTxt";
 import { absoluteUrl } from "@/lib/site";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
@@ -45,10 +46,12 @@ export async function loadLlmsSpecies(locale: AppLocale) {
   const locales = [
     ...new Set<AppLocale>(["en", locale, routing.defaultLocale]),
   ];
-  const lists = await Promise.all(
-    locales.map((item) => getSpeciesCatalog(item, "full")),
-  );
+  const [lists, news] = await Promise.all([
+    Promise.all(locales.map((item) => getSpeciesCatalog(item, "full"))),
+    getNewsSummaries(),
+  ]);
   return createLlmsSpecies(
     Object.fromEntries(locales.map((item, index) => [item, lists[index]])),
+    news,
   );
 }

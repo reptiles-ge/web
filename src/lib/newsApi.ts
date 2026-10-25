@@ -5,10 +5,11 @@ import type {
   NewsListArticle,
   NewsPhoto,
   NewsSource,
+  NewsSummary,
 } from "@/data/newsTypes";
-import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
+import { type AppLocale, routing } from "@/i18n/routing";
 import { createApiClient } from "@/lib/apiClient";
 import { MAX_PAGE_SIZE, type PageParams } from "@/lib/pagination";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
@@ -53,6 +54,49 @@ export const getNewsListArticles = cache(
       toNewsListArticle(item, locale),
     ),
 );
+
+export const getNewsSummaries = cache(async (): Promise<NewsSummary[]> => {
+  const lists = await Promise.all(
+    routing.locales.map(
+      async (locale) =>
+        [
+          locale,
+          new Map((await getNewsList(locale)).map((item) => [item.slug, item])),
+        ] as const,
+    ),
+  );
+  const byLocale = new Map(lists);
+  return [...(byLocale.get(routing.defaultLocale)?.values() ?? [])].map(
+    (base) => {
+      const items = base.locales.map((locale) => {
+        const item = byLocale.get(locale)?.get(base.slug);
+        if (!item) {
+          throw new Error(`News API has no ${locale} text for ${base.slug}`);
+        }
+        return [locale, item] as const;
+      });
+      return {
+        copy: Object.fromEntries(
+          items.map(([locale, item]) => [
+            locale,
+            { dek: item.dek, metaTitle: item.metaTitle, title: item.title },
+          ]),
+        ) as NewsSummary["copy"],
+        id: base.slug,
+        publishedAt: base.publishedAt,
+        slug: base.slug,
+        sources: base.sources.map((source, index) =>
+          localizedSource(
+            source.url,
+            items.map(([locale, item]) => [locale, item.sources[index]!.name]),
+          ),
+        ),
+        status: "published",
+        ...(base.updatedAt ? { updatedAt: base.updatedAt } : {}),
+      };
+    },
+  );
+});
 
 export const getNewsListArticlesPage = cache(
   async (

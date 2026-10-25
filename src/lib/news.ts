@@ -3,10 +3,10 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   getNewsArticleLocales,
   getNewsCopy,
-  getPublishedNewsArticles,
   type NewsArticle,
   newsSourceName,
   newsSourceOrgName,
+  type NewsSummary,
 } from "@/data/news";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { getPathname } from "@/i18n/navigation";
@@ -23,7 +23,7 @@ import { parseToSiteDateTime } from "@/lib/siteTime";
 
 export function newsArticleAlternates(
   locale: AppLocale,
-  article: Pick<NewsArticle, "copy" | "slug">,
+  article: Pick<NewsSummary, "copy" | "slug">,
 ) {
   const languages: Record<string, string> = {
     "x-default": newsArticleUrl("ka", article.slug),
@@ -68,11 +68,7 @@ export function newsIndexAlternates(locale: AppLocale) {
 }
 
 export function newsIndexDateFields(
-  locale: AppLocale,
-  articles: readonly Pick<
-    NewsArticle,
-    "publishedAt" | "updatedAt"
-  >[] = getPublishedNewsArticles(locale),
+  articles: readonly Pick<NewsArticle, "publishedAt" | "updatedAt">[],
 ) {
   const datePublished = sitemapPathDatePublished(newsIndexHref());
   return {

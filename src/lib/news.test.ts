@@ -127,7 +127,7 @@ describe("newsIndexDateFields", () => {
   }
 
   it("dates the index by the newest article update, then publish date", () => {
-    const fields = newsIndexDateFields("en", [
+    const fields = newsIndexDateFields([
       withDates("2026-09-01", "2026-09-20"),
       withDates("2026-09-10T12:30:00+04:00"),
     ]);
@@ -135,7 +135,7 @@ describe("newsIndexDateFields", () => {
   });
 
   it("compares instants across time zones, not strings", () => {
-    const fields = newsIndexDateFields("en", [
+    const fields = newsIndexDateFields([
       withDates("2026-09-10T23:30:00Z"),
       withDates("2026-09-11T02:00:00+04:00"),
     ]);
@@ -143,9 +143,9 @@ describe("newsIndexDateFields", () => {
   });
 
   it("falls back to the index publish date with no dated articles", () => {
-    const fields = newsIndexDateFields("en", []);
+    const fields = newsIndexDateFields([]);
     expect(fields.dateModified).toBe(fields.datePublished);
-    expect(newsIndexDateFields("en", [withDates("bad")]).dateModified).toBe(
+    expect(newsIndexDateFields([withDates("bad")]).dateModified).toBe(
       fields.datePublished,
     );
   });
@@ -156,7 +156,11 @@ describe("newsIndexDateFields", () => {
         Date.parse(newsArticleModifiedDateTime(item)),
       ),
     );
-    expect(Date.parse(newsIndexDateFields("ka").dateModified)).toBe(newest);
+    expect(
+      Date.parse(
+        newsIndexDateFields(getPublishedNewsArticles("ka")).dateModified,
+      ),
+    ).toBe(newest);
   });
 });
 

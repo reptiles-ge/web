@@ -824,6 +824,7 @@ const newsSummary = component(
       z.array(locale),
       "Locales the article is written in. Georgian is always first.",
     ),
+    metaTitle: plain("Title for search results."),
     publishedAt: doc(z.string(), "Publication date, `YYYY-MM-DD`.", [
       "2026-10-17",
     ]),
@@ -872,7 +873,6 @@ const newsArticle = component(
   newsSummary.extend({
     gallery: doc(z.array(newsPhoto), "Further photos, in order. May be empty."),
     metaDescription: plain("Description for search results."),
-    metaTitle: plain("Title for search results."),
     sections: doc(z.array(newsSection), "Article body."),
   }),
   "A published news article with its body.",

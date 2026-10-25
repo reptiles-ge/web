@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
+import { getPublishedNewsArticles } from "@/data/news";
 import {
   buildLlmsFullText,
   buildLlmsIndexText,
@@ -8,12 +9,15 @@ import {
 
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
-const LLMS = createLlmsSpecies({
-  en: speciesCatalogFixture("en"),
-  ka: speciesCatalogFixture("ka"),
-  ru: speciesCatalogFixture("ru"),
-  tr: speciesCatalogFixture("tr"),
-});
+const LLMS = createLlmsSpecies(
+  {
+    en: speciesCatalogFixture("en"),
+    ka: speciesCatalogFixture("ka"),
+    ru: speciesCatalogFixture("ru"),
+    tr: speciesCatalogFixture("tr"),
+  },
+  getPublishedNewsArticles(),
+);
 
 const { slug } = vi.hoisted(() => ({ slug: "batumi-19300-raptors-2026" }));
 

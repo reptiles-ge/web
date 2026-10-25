@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 
@@ -14,6 +15,7 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
     locale,
     searchCatalogsFixture(),
     searchContributorsFixture(),
+    getPublishedNewsArticles(),
   );
 
   it("is not empty and every document has the basics", () => {
@@ -67,6 +69,7 @@ describe("buildSearchIndex across locales", () => {
         locale,
         searchCatalogsFixture(),
         searchContributorsFixture(),
+        getPublishedNewsArticles(),
       )
         .map((doc) => doc.key)
         .sort(),

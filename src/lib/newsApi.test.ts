@@ -13,6 +13,7 @@ import {
   getNewsList,
   getNewsListArticles,
   getNewsListArticlesPage,
+  getNewsSummaries,
   HOME_NEWS_LIMIT,
 } from "./newsApi";
 
@@ -123,5 +124,39 @@ describe("getNewsListArticlesPage", () => {
     expect(queries).toEqual(["?hub=birds&limit=3&page=2&q=count"]);
     expect(found).toMatchObject({ limit: 3, page: 2 });
     expect(found.facets.hub.birds).toBeGreaterThanOrEqual(found.total);
+  });
+});
+
+describe("getNewsSummaries", () => {
+  it("merges the locale lists into the same summary the compiled articles give", async () => {
+    expect(await getNewsSummaries()).toStrictEqual(
+      getPublishedNewsArticles().map((article) => ({
+        copy: Object.fromEntries(
+          Object.entries(article.copy).map(([locale, copy]) => [
+            locale,
+            { dek: copy.dek, metaTitle: copy.metaTitle, title: copy.title },
+          ]),
+        ),
+        id: article.id,
+        publishedAt: article.publishedAt,
+        slug: article.slug,
+        sources: article.sources,
+        status: "published",
+        ...(article.updatedAt ? { updatedAt: article.updatedAt } : {}),
+      })),
+    );
+  });
+
+  it("refuses a locale the article lists but the locale list lacks", async () => {
+    server.use(
+      http.get("https://api.reptiles.ge/v1/news", ({ request }) =>
+        request.headers.get("x-locale") === "en"
+          ? HttpResponse.json({ data: [], pageCount: 1 })
+          : undefined,
+      ),
+    );
+    await expect(getNewsSummaries()).rejects.toThrow(
+      `News API has no en text for ${getPublishedNewsArticles()[0]!.slug}`,
+    );
   });
 });

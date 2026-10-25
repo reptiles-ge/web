@@ -1,8 +1,7 @@
-import type { NewsListArticle } from "@/data/newsTypes";
-import type { AppLocale } from "@/i18n/routing";
+import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle, NewsSummary } from "@/data/newsTypes";
 
-import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
-import { routing } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   newestNewsDateTime,
   newsArticleUrl,
@@ -77,8 +76,8 @@ export async function getNewsListPageCounts() {
   return Object.fromEntries(counts) as NewsPageCounts;
 }
 
-export function getNewsPage(locale: AppLocale, page: number) {
-  return newsPageOf(getPublishedNewsArticles(locale), page);
+export function getNewsPage<T>(articles: readonly T[], page: number) {
+  return newsPageOf(articles, page);
 }
 
 export function newsArchiveAlternates(
@@ -167,13 +166,14 @@ export function newsListingJsonLd({
   return [breadcrumbLd, collectionLd];
 }
 
-export function newsPageCount(locale: AppLocale) {
-  return pageCountFor(getPublishedNewsArticles(locale).length);
-}
-
-export function newsPageCounts(): NewsPageCounts {
+export function newsPageCounts(
+  articles: readonly Pick<NewsSummary, "copy">[],
+): NewsPageCounts {
   return Object.fromEntries(
-    routing.locales.map((locale) => [locale, newsPageCount(locale)]),
+    routing.locales.map((locale) => [
+      locale,
+      pageCountFor(articles.filter((article) => article.copy[locale]).length),
+    ]),
   ) as NewsPageCounts;
 }
 
