@@ -29,6 +29,7 @@ import {
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { liveQuizzes } from "@/lib/quizzes";
+import { parseToSiteDateTime } from "@/lib/siteTime";
 import {
   type CatalogCard,
   getCreditPhotoCatalog,
@@ -183,7 +184,8 @@ function latestDate(values: Array<null | string | undefined>) {
     if (!value || Number.isNaN(Date.parse(value))) continue;
     latest = latest ? laterDate(latest, value) : value;
   }
-  return latest;
+  if (!latest?.includes("T")) return latest;
+  return parseToSiteDateTime(latest) ?? latest;
 }
 
 function membersForPath(path: string, catalog: readonly CatalogCard[]) {

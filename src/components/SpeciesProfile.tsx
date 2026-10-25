@@ -17,6 +17,7 @@ import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { GROUP_HUBS } from "@/lib/groupHubs";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -101,7 +102,11 @@ export async function SpeciesProfile({
     ]);
   const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
-  const groupLabel = tHubs(`hubs.${parent.hubId}`);
+  const tParent = await getTranslations({
+    locale,
+    namespace: GROUP_HUBS[parent.hubId].messageKey,
+  });
+  const groupLabel = tParent("breadcrumbCurrent");
   const breadcrumbs = buildSpeciesBreadcrumbs({
     groupLabel,
     homeLabel: t("breadcrumbHome"),

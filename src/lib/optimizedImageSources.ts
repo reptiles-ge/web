@@ -28,6 +28,18 @@ export type PictureSource = {
   };
 };
 
+export function entryImgSize(
+  entry: null | OptimizedImageEntry | undefined,
+  minWidth = 1200,
+): null | { height: number; width: number } {
+  if (!entry?.width || !entry.height) return null;
+  const width = entryImgWidth(entry, minWidth);
+  return {
+    height: Math.round((entry.height * width) / entry.width),
+    width,
+  };
+}
+
 export function entryImgSrc(
   src: string,
   entry: null | ResolvedImageEntry | undefined,
@@ -35,10 +47,7 @@ export function entryImgSrc(
 ): string {
   if (!entry) return src;
   const format = entry.formats.includes("webp") ? "webp" : entry.formats[0];
-  const width =
-    entry.widths.find((item) => item >= minWidth) ??
-    entry.widths[entry.widths.length - 1];
-  return `${entry.baseUrl}${entry.path}-${width}.${format}`;
+  return `${entry.baseUrl}${entry.path}-${entryImgWidth(entry, minWidth)}.${format}`;
 }
 
 export function entryPictureSources(
@@ -76,6 +85,13 @@ export function srcSetPreloadUrl(srcSet: string) {
     candidates.find((item) => item.width >= 800)?.url ??
     candidates[candidates.length - 1]?.url ??
     candidates[0]?.url
+  );
+}
+
+function entryImgWidth(entry: OptimizedImageEntry, minWidth: number) {
+  return (
+    entry.widths.find((item) => item >= minWidth) ??
+    entry.widths[entry.widths.length - 1]
   );
 }
 
