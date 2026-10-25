@@ -19,7 +19,6 @@ export type HalyomorphaRangeCopy = {
   officialRegionLabel: string;
   photoRecordLabel: string;
   rangeTitle: string;
-  recordedOnlyStatusLabel: string;
   regionPageLabel: (regionName: string) => string;
   regionRecordsLabel: string;
   regionsMetricLabel: string;
@@ -53,7 +52,6 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
     rangeTitle: "Brown marmorated stink bug: where it occurs in Georgia",
-    recordedOnlyStatusLabel: "Too few records",
     regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",
     regionsMetricLabel: "regions",
@@ -85,7 +83,6 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
-    recordedOnlyStatusLabel: "ჩანაწერები ცოტაა",
     regionPageLabel: (regionName) => `${regionName} — რეგიონის გვერდი`,
     regionRecordsLabel: "საველე ჩანაწერი",
     regionsMetricLabel: "რეგიონი",
@@ -116,7 +113,6 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
-    recordedOnlyStatusLabel: "Мало записей",
     regionPageLabel: (regionName) => `Страница региона: ${regionName}`,
     regionRecordsLabel: "полевых записей",
     regionsMetricLabel: "регионов",
@@ -148,7 +144,6 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
-    recordedOnlyStatusLabel: "Kayıt az",
     regionPageLabel: (regionName) => `${regionName} bölge sayfası`,
     regionRecordsLabel: "arazi kaydı",
     regionsMetricLabel: "bölge",

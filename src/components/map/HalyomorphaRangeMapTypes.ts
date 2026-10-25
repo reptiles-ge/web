@@ -52,7 +52,6 @@ export type HalyomorphaRangeMapCopy = {
   noRegionRecordsLabel: string;
   officialRegionLabel: string;
   photoRecordLabel: string;
-  recordedOnlyStatusLabel: string;
   regionRecordsLabel: string;
   regionsMetricLabel: string;
   regionSummaryTitle: string;
