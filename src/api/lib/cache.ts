@@ -15,7 +15,7 @@ const CACHE_BYPASS_HEADER = "X-Cache-Bypass";
 
 const CACHE_TAG_HEADER = "Cache-Tag";
 
-export const API_CACHE_TAG_PREFIX = "api:";
+const API_CACHE_TAG_PREFIX = "api:";
 
 export function apiCacheTag(tag: string) {
   return `${API_CACHE_TAG_PREFIX}${tag}`;
