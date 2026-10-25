@@ -17,7 +17,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/lizards": "2026-10-10T02:56:00+04:00",
   "/mammals": "2026-10-10T02:56:00+04:00",
   "/mammals/datvi-shekhvedra": "2026-09-20T02:45:00+04:00",
-  "/mammals/ghamura-sakhlshi": "2026-10-14T11:30:00+04:00",
+  "/mammals/ghamura-sakhlshi": "2026-10-25T12:00:00+04:00",
   "/mammals/tagvi-sakhlshi": "2026-10-14T11:30:00+04:00",
   "/photo-use": "2026-10-13T12:00:00+04:00",
   "/privacy": "2026-10-14T11:30:00+04:00",
