@@ -11,7 +11,7 @@ type ImageKey = "adult" | "larva";
 const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
-      "Found damage on clothes or a moth in the closet? Check fabrics and hidden corners, choose care by the label, store cleaned items safely, and avoid risky pesticides.",
+      "Found damage on clothes or a moth in the closet? Check fabrics and hidden corners, clean by the label, store items safely, and avoid risky pesticides.",
     faq: [
       {
         answer:
@@ -275,7 +275,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   },
   ru: {
     description:
-      "Нашли повреждение одежды или моль в шкафу? Осмотрите ткани и укромные места, выберите уход по ярлыку, храните очищенные вещи правильно и избегайте опасных средств.",
+      "Нашли повреждение одежды или моль в шкафу? Осмотрите ткани и укромные места, чистите вещи по ярлыку, храните их правильно и избегайте опасных средств.",
     faq: [
       {
         answer:

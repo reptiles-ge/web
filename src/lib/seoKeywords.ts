@@ -2,6 +2,7 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { caucasusPlaceName, georgiaPlaceName } from "@/i18n/localeMeta";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 const SPECIES_ALIASES: Record<
   string,
@@ -1449,7 +1450,7 @@ export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {
 }
 
 export function speciesSeoAnchor(commonName: string, scientificName: string) {
-  return `${commonName} (${scientificName})`;
+  return speciesNameWithScientific(commonName, scientificName);
 }
 
 export function speciesSeoKeywords(species: Species, locale: AppLocale) {

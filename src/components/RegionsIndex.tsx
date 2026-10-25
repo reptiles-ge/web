@@ -43,7 +43,7 @@ export function RegionsIndex({
             aria-hidden
             className="object-cover object-[58%_45%]"
             priority
-            sizes="100vw"
+            sizes="(max-aspect-ratio: 1/1) 88vh, 100vw"
             src={REGIONS_INDEX_HERO_IMAGE}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />

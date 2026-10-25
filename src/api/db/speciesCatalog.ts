@@ -191,7 +191,7 @@ export async function readSpeciesCatalog(
     species: [],
     translations: { en: {}, ru: {}, tr: {} },
     unpublishedIds: species
-      .filter((row) => row.status === "unpublished")
+      .filter((row) => row.status !== "published")
       .map((row) => row.id),
   };
 

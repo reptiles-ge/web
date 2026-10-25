@@ -1,4 +1,8 @@
+import type { Context } from "hono";
+
 import { timingSafeEqual } from "hono/utils/buffer";
+
+import type { ApiEnv } from "../env";
 
 import { factory } from "../factory";
 import { LOCALE_HEADER } from "../schemas/common";
@@ -9,11 +13,23 @@ export const NO_STORE = "no-store";
 
 const CACHE_BYPASS_HEADER = "X-Cache-Bypass";
 
+const CACHE_TAG_HEADER = "Cache-Tag";
+
+const API_CACHE_TAG_PREFIX = "api:";
+
+export function apiCacheTag(tag: string) {
+  return `${API_CACHE_TAG_PREFIX}${tag}`;
+}
+
+export function cacheTags(c: Context<ApiEnv>, ...tags: string[]) {
+  c.set("cacheTags", [...(c.get("cacheTags") ?? []), ...tags]);
+}
+
 const VARY = ["origin", LOCALE_HEADER.toLowerCase()];
 
 const UNCACHEABLE = /(?:^|,\s*)(?:private|no-(?:store|cache))(?:\s*(?:=|,|$))/i;
 
-export const edgeCache = (cacheName: string) =>
+export const edgeCache = (cacheName: string, baseTags: string[]) =>
   factory.createMiddleware(async (c, next) => {
     if (
       !globalThis.caches ||
@@ -42,6 +58,8 @@ export const edgeCache = (cacheName: string) =>
     ) {
       return;
     }
+    const tags = [...new Set([...baseTags, ...(c.get("cacheTags") ?? [])])];
+    c.header(CACHE_TAG_HEADER, tags.map(apiCacheTag).join(","));
     const put = store.put(key, c.res.clone());
     if (refresh) await put;
     else c.executionCtx.waitUntil(put);

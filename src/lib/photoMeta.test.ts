@@ -164,4 +164,30 @@ describe("species photo JSON-LD URLs", () => {
       }
     }
   });
+
+  it("gives every optimized catalog photo the size of its published file", () => {
+    for (const species of catalogSpeciesFixture()) {
+      for (const photo of species.gallery) {
+        const entry = optimizedEntry(photo.src);
+        if (!entry) continue;
+        const data = galleryImageObject(photo, species, "ka", contributors);
+        const width = Number(data.contentUrl.match(/-(\d+)\.\w+$/)?.[1]);
+        expect(data.width, photo.src).toBe(width);
+        expect(data.height, photo.src).toBe(
+          Math.round((entry.height * width) / entry.width),
+        );
+      }
+    }
+  });
+
+  it("leaves the size out when the photo is not in the manifest", () => {
+    const data = galleryImageObject(
+      { src: "https://cdn.reptiles.ge/not-in-manifest.jpg" },
+      { commonName: "x", scientificName: "y" },
+      "en",
+      contributors,
+    );
+    expect(data).not.toHaveProperty("width");
+    expect(data).not.toHaveProperty("height");
+  });
 });

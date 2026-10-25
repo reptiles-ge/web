@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
@@ -100,6 +101,19 @@ describe("buildLlmsIndexText", () => {
     expect(body).toContain("## Insects species");
     expect(body).toContain("/mtserebi/aziuri-farosana");
   });
+
+  it("lists the API reference and the OpenAPI spec", () => {
+    for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
+      const body = buildLlmsIndexText(LLMS, locale);
+      expect(body, locale).toContain("(https://reptiles.ge/docs)");
+      expect(body, locale).toContain(
+        "(https://reptiles.ge/v1/docs/openapi.json)",
+      );
+      expect(body, locale).toContain(
+        "https://reptiles.ge/.well-known/api-catalog",
+      );
+    }
+  });
 });
 
 describe("buildLlmsFullText", () => {
@@ -137,12 +151,37 @@ describe("buildLlmsFullText", () => {
   });
 
   it("keeps bite pages educational and omits medical schema claims", () => {
-    const body = buildLlmsFullText(LLMS);
+    const body = buildLlmsFullText(LLMS, "en");
 
     expect(body).toContain(
       "Symptoms may be absent early; medical staff must assess the bite.",
     );
+    expect(buildLlmsFullText(LLMS)).not.toContain("MedicalWebPage");
     expect(body).not.toContain("MedicalWebPage");
+  });
+
+  it("prints the practical guides in Georgian with an English title and summary", () => {
+    const body = buildLlmsFullText(LLMS);
+    const guides = body.slice(
+      body.indexOf("## Practical guides"),
+      body.indexOf("## News"),
+    );
+
+    for (const article of getGuideArticles()) {
+      expect(guides, article.id).toContain(`### ${article.copy.ka.title}\n`);
+      expect(guides, article.id).toContain(
+        `- English title: ${article.copy.en.title}\n`,
+      );
+      expect(guides, article.id).toContain(
+        `- Q: ${article.copy.ka.faq[0].question}`,
+      );
+      expect(guides, article.id).not.toContain(
+        `- Q: ${article.copy.en.faq[0].question}`,
+      );
+    }
+    for (const line of guides.split("\n")) {
+      if (line.startsWith("- Q: ")) expect(line).toMatch(/[\u10D0-\u10FF]/);
+    }
   });
 
   it("links only to absolute URLs", () => {

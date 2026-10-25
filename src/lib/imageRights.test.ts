@@ -53,6 +53,22 @@ function collectImageObjects(value: unknown, found: ImageObject[] = []) {
   return found;
 }
 
+function collectNamedNodes(
+  value: unknown,
+  found = new Map<string, ImageObject["creator"]>(),
+) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectNamedNodes(item, found);
+  } else if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    if (typeof record["@id"] === "string" && record["@type"]) {
+      found.set(record["@id"], record as ImageObject["creator"]);
+    }
+    for (const child of Object.values(record)) collectNamedNodes(child, found);
+  }
+  return found;
+}
+
 function expectAttributed(image: Partial<ImageObject>, label: string) {
   if (image.creator?.["@id"] === ORGANIZATION_ID) {
     expect(image.creator, label).toEqual({ "@id": ORGANIZATION_ID });
@@ -327,10 +343,20 @@ describe("species ImageObjects", () => {
           pageUrl: speciesPageUrl(locale, item.id),
           raw,
         });
+        const nodes = collectNamedNodes(data);
         for (const image of collectImageObjects(data)) {
           const label = `${locale} ${raw.id} ${image.contentUrl}`;
           expectLicensed(image, label);
-          if (image.creator) expectAttributed(image, label);
+          if (!image.creator) continue;
+          const sharedId = image.creator["@type"]
+            ? undefined
+            : image.creator["@id"];
+          const creator =
+            sharedId && sharedId !== ORGANIZATION_ID
+              ? nodes.get(sharedId)
+              : image.creator;
+          expect(creator, label).toBeDefined();
+          expectAttributed({ ...image, creator }, label);
         }
       }
     }

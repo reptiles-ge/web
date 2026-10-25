@@ -170,7 +170,7 @@ export function Navbar({ images, stats }: NavbarData) {
             label: t("venomousSnakes"),
           },
           {
-            href: "/snakes-in-the-yard",
+            href: "/snakes/gveli-ezoshi",
             icon: "yard",
             label: t("snakeYard"),
           },
@@ -220,7 +220,6 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname === "/") return true;
   if (pathname === "/developers") return true;
   if (pathname === "/venomous-snakes") return true;
-  if (pathname === "/snakes-in-the-yard") return true;
   if (
     pathname === "/snakes" ||
     pathname.startsWith("/snakes/") ||

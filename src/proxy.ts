@@ -131,6 +131,7 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/turtles/species": "/kuebi/saxeoebebi",
   "/turtles/tsqlis-kuebi": "/kuebi/tsqlis-kuebi",
   "/turtles/xmelis-kuebi": "/kuebi/xmelis-kuebi",
+  "/v1/docs": "/docs",
   "/venomous-snakes": "/gvelebi/shxamiani-gvelebi",
   "/xvlikebi/xvliki-saxlshi": "/xvlikebi/xvliki-sakhlshi",
 };

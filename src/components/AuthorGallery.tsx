@@ -18,6 +18,7 @@ import { getCreditAuthorGroupStats } from "@/lib/creditAuthors";
 import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const TILE_SIZES = "(max-width: 1023px) 50vw, 330px";
@@ -45,8 +46,8 @@ export async function AuthorGallery({
     return [
       {
         alt: photo.credit?.location?.trim()
-          ? `${localized.commonName} (${localized.scientificName}) — ${photo.credit.location.trim()}`
-          : `${localized.commonName} (${localized.scientificName})`,
+          ? `${speciesNameWithScientific(localized.commonName, localized.scientificName)} — ${photo.credit.location.trim()}`
+          : `${speciesNameWithScientific(localized.commonName, localized.scientificName)}`,
         credit: photo.credit,
         group: ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(photo.speciesId).group],
         height: entry?.height,

@@ -15,9 +15,9 @@ import { getContributorDirectory } from "@/lib/authorsApi";
 import {
   newsArticleAlternates,
   newsArticleUrl,
-  newsDateTime,
   newsIndexUrl,
   newsOgImageUrl,
+  newsSchemaDate,
 } from "@/lib/news";
 import { getNewsArticle, getNewsList } from "@/lib/newsApi";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = newsArticleUrl(locale, article.slug);
   const description = copy.metaDescription;
   const ogImage = newsOgImageUrl(article, await getSpeciesCatalog(locale));
-  const published = newsDateTime(article.publishedAt);
+  const published = newsSchemaDate(article.publishedAt);
 
   return {
     alternates: newsArticleAlternates(locale, article),
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url,
       ...(article.updatedAt
-        ? { modifiedTime: newsDateTime(article.updatedAt) }
+        ? { modifiedTime: newsSchemaDate(article.updatedAt) }
         : {}),
       images: [openGraphJpeg(ogImage, title)],
     },
@@ -130,8 +130,8 @@ export default async function NewsArticleRoute({ params }: Props) {
       getContributorDirectory(locale),
     ]);
   const url = newsArticleUrl(locale, article.slug);
-  const published = newsDateTime(article.publishedAt);
-  const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
+  const published = newsSchemaDate(article.publishedAt);
+  const modified = newsSchemaDate(article.updatedAt ?? article.publishedAt);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",

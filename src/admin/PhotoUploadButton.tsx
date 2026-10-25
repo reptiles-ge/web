@@ -3,21 +3,22 @@ import type { UploadFile } from "antd/es/upload/interface";
 import {
   Alert,
   Button,
-  Checkbox,
-  Col,
   Form,
   Input,
   List,
   Modal,
-  Row,
+  Space,
   Tag,
   Upload,
 } from "antd";
 import { useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
+import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
 import {
   encodePhotoFile,
+  importINaturalistPhoto,
+  type INaturalistImport,
   type PhotoCreditFields,
   uploadSpeciesPhoto,
 } from "./photos";
@@ -28,6 +29,8 @@ type FileState = {
   status: "added" | "compressing" | "failed" | "uploading" | "waiting";
   uid: string;
 };
+
+const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
 
 const STATUS_TAGS: Record<
   FileState["status"],
@@ -54,6 +57,10 @@ export function PhotoUploadButton({
   const [files, setFiles] = useState<UploadFile[]>([]);
   const [states, setStates] = useState<FileState[]>([]);
   const [running, setRunning] = useState(false);
+  const [observationUrl, setObservationUrl] = useState("");
+  const [importing, setImporting] = useState(false);
+  const [imported, setImported] = useState<INaturalistImport | null>(null);
+  const [importError, setImportError] = useState<null | string>(null);
   const added = states.filter((item) => item.status === "added").length;
   const finished = !running && states.length > 0 && states.every(isSettled);
 
@@ -68,7 +75,49 @@ export function PhotoUploadButton({
     setOpen(false);
     setFiles([]);
     setStates([]);
+    setObservationUrl("");
+    setImported(null);
+    setImportError(null);
     form.resetFields();
+  }
+
+  async function importObservation() {
+    setImporting(true);
+    setImportError(null);
+    setImported(null);
+    try {
+      const result = await importINaturalistPhoto(id, observationUrl);
+      const { file, metadata } = result;
+      setFiles([
+        {
+          name: file.name,
+          originFileObj: file as UploadFile["originFileObj"],
+          status: "done",
+          uid: file.name,
+        },
+      ]);
+      form.setFieldsValue({
+        date: metadata.date,
+        lat: String(metadata.lat),
+        lng: String(metadata.lng),
+        location: metadata.location,
+        locationEn: metadata.location,
+        photographer: metadata.photographer,
+        photographerEn: metadata.photographer,
+        url: "",
+      });
+      setImported(result);
+    } catch (error) {
+      if (error instanceof SessionExpiredError) {
+        onSessionExpired();
+        return;
+      }
+      setImportError(
+        error instanceof Error ? error.message : "iNaturalist import failed",
+      );
+    } finally {
+      setImporting(false);
+    }
   }
 
   async function upload(credit: PhotoCreditFields) {
@@ -132,15 +181,60 @@ export function PhotoUploadButton({
         <Form<PhotoCreditFields>
           disabled={running || finished}
           form={form}
+          initialValues={INITIAL_CREDIT}
           layout="vertical"
           onFinish={upload}
         >
+          <Form.Item
+            extra="Fills in the observation's first photo and its photographer, place, date and coordinates. Hidden coordinates stay empty. The source link stays empty. Check the Georgian fields before you upload."
+            label="iNaturalist observation"
+          >
+            <Space.Compact style={{ width: "100%" }}>
+              <Input
+                aria-label="iNaturalist observation"
+                maxLength={500}
+                onChange={(event) => setObservationUrl(event.target.value)}
+                onPressEnter={(event) => {
+                  event.preventDefault();
+                  if (observationUrl.trim()) void importObservation();
+                }}
+                placeholder="https://www.inaturalist.org/observations/123456"
+                value={observationUrl}
+              />
+              <Button
+                disabled={!observationUrl.trim()}
+                loading={importing}
+                onClick={() => void importObservation()}
+              >
+                Fetch
+              </Button>
+            </Space.Compact>
+          </Form.Item>
+          {importError ? (
+            <Alert
+              showIcon
+              style={{ marginBottom: 16 }}
+              title={importError}
+              type="error"
+            />
+          ) : null}
+          {imported ? (
+            <Alert
+              showIcon
+              style={{ marginBottom: 16 }}
+              title={`Filled in from iNaturalist. Photo licence: ${imported.metadata.license}.`}
+              type="info"
+            />
+          ) : null}
           <Upload.Dragger
             accept="image/jpeg,image/png,image/webp,image/avif,image/heic"
             beforeUpload={() => false}
             fileList={files}
             multiple
-            onChange={({ fileList }) => setFiles(fileList)}
+            onChange={({ fileList }) => {
+              setFiles(fileList);
+              setImported(null);
+            }}
           >
             <p>Drop photos here or click to choose them.</p>
             <p>
@@ -148,51 +242,7 @@ export function PhotoUploadButton({
               320–2400 px, then stored on the CDN.
             </p>
           </Upload.Dragger>
-          <Row gutter={12} style={{ marginTop: 16 }}>
-            <Col span={12}>
-              <Form.Item label="Photographer (Georgian)" name="photographer">
-                <Input maxLength={200} />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item label="Photographer (English)" name="photographerEn">
-                <Input maxLength={200} />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item label="Place (Georgian)" name="location">
-                <Input maxLength={300} />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item label="Place (English)" name="locationEn">
-                <Input maxLength={300} />
-              </Form.Item>
-            </Col>
-            <Col span={8}>
-              <Form.Item label="Date" name="date">
-                <Input maxLength={40} placeholder="2026-05-10" />
-              </Form.Item>
-            </Col>
-            <Col span={8}>
-              <Form.Item label="Latitude" name="lat">
-                <Input maxLength={40} placeholder="41.81667" />
-              </Form.Item>
-            </Col>
-            <Col span={8}>
-              <Form.Item label="Longitude" name="lng">
-                <Input maxLength={40} placeholder="45.35" />
-              </Form.Item>
-            </Col>
-            <Col span={24}>
-              <Form.Item label="Source link" name="url">
-                <Input maxLength={500} placeholder="https://" />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Form.Item name="georgiaField" valuePropName="checked">
-            <Checkbox>Taken in Georgia (needs a place)</Checkbox>
-          </Form.Item>
+          <PhotoCreditFormFields />
         </Form>
         {states.length > 0 ? (
           <List

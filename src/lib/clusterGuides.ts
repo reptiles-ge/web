@@ -581,7 +581,6 @@ export type HubClusterCard =
         | "/mammals"
         | "/scorpions"
         | "/snakes"
-        | "/snakes-in-the-yard"
         | "/spiders"
         | "/venomous-snakes"
         | ClusterGuidePath
@@ -739,7 +738,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite", kind: "page" },
     { href: "/snakes/gavrtseleba", key: "range", kind: "page" },
     { href: "/snakes/didi-gvelebi", key: "largest", kind: "page" },
-    { href: "/snakes-in-the-yard", key: "yard", kind: "page" },
+    { href: "/snakes/gveli-ezoshi", key: "yard", kind: "page" },
     { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
   ],
   spiders: [
@@ -975,7 +974,7 @@ export function getSpeciesGuideLinks(
         kind: "page",
       });
       links.push({
-        href: "/snakes-in-the-yard",
+        href: "/snakes/gveli-ezoshi",
         key: "yard",
         kind: "page",
       });
@@ -986,7 +985,7 @@ export function getSpeciesGuideLinks(
         kind: "page",
       });
       links.push({
-        href: "/snakes-in-the-yard",
+        href: "/snakes/gveli-ezoshi",
         key: "yard",
         kind: "page",
       });

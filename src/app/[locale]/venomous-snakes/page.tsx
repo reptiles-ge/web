@@ -10,6 +10,7 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
+import { HERPETOFAUNA_CHECKLIST_SOURCE } from "@/data/herpetofauna-checklist";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { SPECIES_GUIDE_ROW_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
@@ -78,6 +79,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
   const dates = await pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     about: { "@type": "Place", name: georgiaPlaceName(locale) },
+    citation: [HERPETOFAUNA_CHECKLIST_SOURCE],
     dates,
     description: t("metaDescription"),
     locale,

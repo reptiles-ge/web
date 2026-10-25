@@ -8,6 +8,11 @@ import { regions } from "@/data/regions";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
+import {
+  API_CATALOG_PATH,
+  API_DOCS_PATH,
+  OPENAPI_SPEC_PATH,
+} from "@/lib/apiDocsPaths";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
@@ -210,14 +215,20 @@ export function buildLlmsFullText(
   parts.push("## Practical guides");
   parts.push("");
   for (const article of getGuideArticles()) {
-    const copy = article.copy[proseLocale(locale)];
+    const copy = article.copy[locale];
+    const english = canonical ? article.copy.en : undefined;
     parts.push(`### ${copy.title}`);
     parts.push("");
     parts.push(`- URL: ${pageUrl(locale, article.pathname)}`);
     parts.push(
       alternateLine(locale, pageUrl(alternateLocale(locale), article.pathname)),
     );
+    if (english) parts.push(`- English title: ${english.title}`);
     parts.push(`- ${absoluteLinks(copy.summary, locale, catalog)}`);
+    if (english)
+      parts.push(
+        `- English summary: ${absoluteLinks(truncateText(english.summary, MAX_OVERVIEW_COMPACT), "en", catalog)}`,
+      );
     for (const item of copy.faq) {
       parts.push(
         `- Q: ${absoluteLinks(item.question, locale, catalog)} A: ${absoluteLinks(item.answer, locale, catalog)}`,
@@ -369,7 +380,6 @@ export function buildLlmsIndexText(
     "## Safety",
     "",
     `- [Venomous snakes in Georgia](${url("/venomous-snakes")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
-    `- [Snakes in the yard](${url("/snakes-in-the-yard")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
     `- [Risk to humans](${url("/risk-to-humans")}): What Harmless, Moderate, and High mean on atlas profiles.`,
     ...getGuideArticles().map(
       (article) =>
@@ -424,6 +434,8 @@ export function buildLlmsIndexText(
     "",
     `- [Contact](${url("/contact")}): Corrections and questions.`,
     `- [Developers](${url("/developers")}): Read-only JSON API of the atlas and the form to request an API key.`,
+    `- [API reference](${absoluteUrl(API_DOCS_PATH)}): Endpoints, parameters and response schemas of the API.`,
+    `- [OpenAPI spec](${absoluteUrl(OPENAPI_SPEC_PATH)}): OpenAPI 3.1 description of the API, also listed in ${absoluteUrl(API_CATALOG_PATH)}.`,
     `- [Quizzes](${url("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
     `- [Which snake?](${quizUrl(locale, "snake")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
     `- [Which lizard?](${quizUrl(locale, "lizard")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,

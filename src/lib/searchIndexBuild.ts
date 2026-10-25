@@ -625,7 +625,7 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     rank: 4,
     subtitle: {
       en: "Call 112 — do not cut or suck the bite",
-      ka: "დარეკე 112 — ნუ გაჭრი და ნუ ამოწოვ",
+      ka: "დარეკეთ 112 — ნუ გაჭრით და ნუ ამოწოვთ",
       ru: "Звоните 112 — не режьте и не отсасывайте",
       tr: "112’yi arayın — kesmeyin, emmeyin",
     },
@@ -859,31 +859,6 @@ const STATIC_PAGES: Array<
       ka: "საშიში და შხამიანი ცხოველები საქართველოში",
       ru: "Опасные и ядовитые животные Грузии",
       tr: "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
-    },
-  },
-  {
-    heroSpeciesId: "natrix-natrix",
-    href: "/snakes-in-the-yard",
-    icon: "yard",
-    id: "snakes-in-yard",
-    keywords: [
-      "ეზო",
-      "ezoshi",
-      "yard",
-      "garden",
-      "დასაფრთხობი",
-      "repellent",
-      "გოგირდი",
-    ],
-    rank: 6,
-    subtitle: {
-      en: "What works, what doesn’t — a practical guide",
-      ka: "რა მუშაობს, რა არა — პრაქტიკული გიდი",
-    },
-    suggested: true,
-    title: {
-      en: "How do we get snakes out of the yard?",
-      ka: "როგორ მოვიშოროთ გველი ეზოდან?",
     },
   },
   {

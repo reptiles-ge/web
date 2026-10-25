@@ -119,7 +119,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Which snakes in Georgia are medically relevant?",
         paragraphs: [
           "The atlas describes Georgia's [venomous snakes](/venomous-snakes), including the [Levantine viper](macrovipera-lebetina). For a known or strongly suspected bite from that species, see the [Levantine viper bite article](/snakes/giurzas-nakbeni). The rear-fanged [Montpellier snake](malpolon-insignitus) has a different atlas risk label. These labels describe species profiles; they cannot grade an individual bite.",
-          "After medical help is underway, use the [snake species index](/snakes/saxeoebebi) and [range guide](/snakes/gavrtseleba) for context. The [yard guide](/snakes-in-the-yard) covers prevention and encounters, not bite treatment.",
+          "After medical help is underway, use the [snake species index](/snakes/saxeoebebi) and [range guide](/snakes/gavrtseleba) for context. The [yard guide](/snakes/gveli-ezoshi) covers prevention and encounters, not bite treatment.",
         ],
       },
       {
@@ -137,60 +137,60 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
   },
   ka: {
     description:
-      "გველის ნაკბენი საქართველოში: თუ გველი შხამიანია ან უცნობია, დარეკე 112-ზე. ნუ გაჭრი, ნუ ამოიწოვ და ნუ გაიკეთებ მჭიდრო ტურნიკეტს.",
+      "გველის ნაკბენი საქართველოში: თუ გველი შხამიანია ან უცნობია, დარეკეთ 112-ზე. ნუ გაჭრით, ნუ ამოიწოვთ და ნუ გაიკეთებთ მჭიდრო ტურნიკეტს.",
     faq: [
       {
         answer:
-          "თუ გველი შხამიანია ან სახეობაში დარწმუნებული არ ხარ, საქართველოში დაუყოვნებლივ დარეკე 112-ზე და ნუ დაელოდები სიმპტომებს. მოშორდი გველს და დახმარების ორგანიზებამდე დაკბენილი კიდური უძრავად შეინარჩუნე.",
+          "თუ გველი შხამიანია ან სახეობაში დარწმუნებული არ ხართ, საქართველოში დაუყოვნებლივ დარეკეთ 112-ზე და ნუ დაელოდებით სიმპტომებს. მოშორდით გველს და დახმარების ორგანიზებამდე დაკბენილი კიდური უძრავად შეინარჩუნეთ.",
         question: "გველის ნაკბენის დროს პირველ რიგში რა უნდა გავაკეთო?",
       },
       {
         answer:
-          "არა. CDC არ გირჩევს ჭრილობის გაჭრას ან შხამის ამოწოვას. ეს ქმედებები ვერ ჩაანაცვლებს დროულ სამედიცინო შეფასებას.",
+          "არა. CDC არ გირჩევთ ჭრილობის გაჭრას ან შხამის ამოწოვას. ეს ქმედებები ვერ ჩაანაცვლებს დროულ სამედიცინო შეფასებას.",
         question: "შეიძლება ნაკბენის გაჭრა ან შხამის ამოწოვა?",
       },
       {
         answer:
-          "არა. მჭიდრო არტერიული ტურნიკეტი რეკომენდებული არ არის. თვითნებურად არც ზეწოლითი სახვევი გაიკეთო: ეს მეთოდი გველის სახეობაზეა დამოკიდებული და საქართველოში ნებისმიერი ნაკბენის უნივერსალური პირველადი დახმარება არ არის.",
+          "არა. მჭიდრო არტერიული ტურნიკეტი რეკომენდებული არ არის. თვითნებურად არც ზეწოლითი სახვევი გაიკეთოთ: ეს მეთოდი გველის სახეობაზეა დამოკიდებული და საქართველოში ნებისმიერი ნაკბენის უნივერსალური პირველადი დახმარება არ არის.",
         question: "უნდა გამოვიყენო ტურნიკეტი ან ზეწოლითი სახვევი?",
       },
       {
         answer:
-          "არა. გველს ნუ შეეხები, თუნდაც მკვდარი ჩანდეს. უსაფრთხო მანძილიდან გადაღებული ფოტო შეიძლება მოგვიანებით გამოდგეს, მაგრამ მან არ უნდა შეაფერხოს 112-ზე დარეკვა ან სამედიცინო დახმარება.",
+          "არა. გველს ნუ შეეხებით, თუნდაც მკვდარი ჩანდეს. უსაფრთხო მანძილიდან გადაღებული ფოტო შეიძლება მოგვიანებით გამოდგეს, მაგრამ მან არ უნდა შეაფერხოს 112-ზე დარეკვა ან სამედიცინო დახმარება.",
         question: "უნდა დავიჭირო გველი სახეობის დასადგენად?",
       },
       {
         answer:
-          "არა. საქართველოში ბევრი გველი სამედიცინოდ შხამიანი არ არის, თუმცა ნაკბენმა კანი მაინც შეიძლება დააზიანოს. თუ სახეობა უცნობია, სიმპტომების არარსებობით ნუ გადაწყვეტ, რომ დახმარება შეიძლება გადაიდოს.",
+          "არა. საქართველოში ბევრი გველი სამედიცინოდ შხამიანი არ არის, თუმცა ნაკბენმა კანი მაინც შეიძლება დააზიანოს. თუ სახეობა უცნობია, სიმპტომების არარსებობით ნუ გადაწყვეტთ, რომ დახმარება შეიძლება გადაიდოს.",
         question: "ყველა გველის ნაკბენი შხამიანია?",
       },
       {
         answer:
-          "არა. სიმპტომები განსხვავდება და შეიძლება მაშინვე არ გამოჩნდეს. თუ შესაძლოა შხამიანმა ან უცნობმა გველმა გიკბინა, დარეკე 112-ზე და სიმპტომების სიის შემოწმებას ნუ დაელოდები.",
+          "არა. სიმპტომები განსხვავდება და შეიძლება მაშინვე არ გამოჩნდეს. თუ შესაძლოა შხამიანმა ან უცნობმა გველმა გიკბინათ, დარეკეთ 112-ზე და სიმპტომების სიის შემოწმებას ნუ დაელოდებით.",
         question: "შეშუპების არქონა ნიშნავს, რომ ნაკბენი უსაფრთხოა?",
       },
     ],
     intro:
-      "თუ საქართველოში შხამიანმა ან უცნობმა გველმა გიკბინა, მოშორდი მას და გადაუდებელი სამედიცინო დახმარებისთვის დარეკე 112-ზე. შეამცირე მოძრაობა და მოიხსენი ბეჭედი ან სხვა მჭიდრო ნივთი ნაკბენთან ახლოს. ნუ გაჭრი ჭრილობას, ნუ ამოიწოვ შხამს და ნუ გაიკეთებ მჭიდრო ტურნიკეტს.",
-    metaTitle: "გველის ნაკბენი საქართველოში — დარეკე 112 | რა არ გააკეთო",
+      "თუ საქართველოში შხამიანმა ან უცნობმა გველმა გიკბინათ, მოშორდით მას და გადაუდებელი სამედიცინო დახმარებისთვის დარეკეთ 112-ზე. შეამცირეთ მოძრაობა და მოიხსენით ბეჭედი ან სხვა მჭიდრო ნივთი ნაკბენთან ახლოს. ნუ გაჭრით ჭრილობას, ნუ ამოიწოვთ შხამს და ნუ გაიკეთებთ მჭიდრო ტურნიკეტს.",
+    metaTitle: "გველის ნაკბენი საქართველოში — დარეკეთ 112 | რა არ გააკეთოთ",
     notice:
-      "გიურზამ გიკბინა? ამ სახეობის ნაკბენის შესახებ წაიკითხე [გიურზას ნაკბენის გიდი](/snakes/giurzas-nakbeni). თუ არ იცი, რომელმა გველმა გიკბინა, მიჰყევი ამ გვერდს და დარეკე 112-ზე.",
+      "გიურზამ გიკბინათ? ამ სახეობის ნაკბენის შესახებ წაიკითხეთ [გიურზას ნაკბენის გიდი](/snakes/giurzas-nakbeni). თუ არ იცით, რომელმა გველმა გიკბინათ, დარეკეთ 112-ზე და მიჰყევით ქვემოთ მოცემულ ნაბიჯებს.",
     sections: [
       {
         heading: "გველმა მიკბინა — რა გავაკეთო დაუყოვნებლივ?",
         image: "remove-ring",
         list: {
           items: [
-            "მოშორდი გველს და გადადი უსაფრთხო ადგილას. მას ხელახლა ნუ მიუახლოვდები.",
-            "თუ გველი შხამიანია ან სახეობაში დარწმუნებული არ ხარ, საქართველოში დარეკე 112-ზე და აუხსენი, რა მოხდა და სად იმყოფები. ნუ დაელოდები სიმპტომებს.",
-            "უსაფრთხო ადგილას დაჯექი ან დაწექი, შეამცირე ზედმეტი მოძრაობა და დაკბენილი ხელი ან ფეხი კომფორტულ მდგომარეობაში უძრავად შეინარჩუნე.",
-            "შეშუპების დაწყებამდე მოიხსენი ბეჭედი, საათი, სამაჯური ან მჭიდრო ტანსაცმელი ნაკბენთან ახლოს.",
-            "უზრუნველყავი დროული სამედიცინო შეფასება. თუ შესაძლებელია, მანქანა თავად არ მართო: შეიძლება თავბრუსხვევა ან გონების დაკარგვა განვითარდეს.",
+            "მოშორდით გველს და გადადით უსაფრთხო ადგილას. მას ხელახლა ნუ მიუახლოვდებით.",
+            "თუ გველი შხამიანია ან სახეობაში დარწმუნებული არ ხართ, საქართველოში დარეკეთ 112-ზე და აუხსენით, რა მოხდა და სად იმყოფებით. ნუ დაელოდებით სიმპტომებს.",
+            "უსაფრთხო ადგილას დაჯექით ან დაწექით, შეამცირეთ ზედმეტი მოძრაობა და დაკბენილი ხელი ან ფეხი კომფორტულ მდგომარეობაში უძრავად შეინარჩუნეთ.",
+            "შეშუპების დაწყებამდე მოიხსენით ბეჭედი, საათი, სამაჯური ან მჭიდრო ტანსაცმელი ნაკბენთან ახლოს.",
+            "უზრუნველყავით დროული სამედიცინო შეფასება. თუ შესაძლებელია, მანქანა თავად არ მართოთ: შეიძლება თავბრუსხვევა ან გონების დაკარგვა განვითარდეს.",
           ],
           ordered: true,
         },
         paragraphs: [
-          "შხამიანი ნაკბენის ეჭვისას რეკომენდებულია სამედიცინო დაწესებულებაში სწრაფი გადაყვანა. საქართველოში 112 გადაუდებელი დახმარების ნომერია და არა ზოგადი საინფორმაციო ხაზი. დახმარების მოლოდინში მიჰყევი ოპერატორის მითითებებს.",
+          "შხამიანი ნაკბენის ეჭვისას რეკომენდებულია სამედიცინო დაწესებულებაში სწრაფი გადაყვანა. საქართველოში 112 გადაუდებელი დახმარების ნომერია და არა ზოგადი საინფორმაციო ხაზი. დახმარების მოლოდინში მიჰყევით ოპერატორის მითითებებს.",
         ],
       },
       {
@@ -198,14 +198,14 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         image: "keep-distance",
         list: {
           items: [
-            "ნუ გაჭრი ან ამოკვეთ ჭრილობას და ნუ ეცდები შხამის პირით ან მოწყობილობით ამოწოვას.",
-            "ნუ გამოიყენებ მჭიდრო არტერიულ ტურნიკეტს. ზეწოლითი იმობილიზაციის სახვევი ყველა გველის ნაკბენზე არ გამოიყენება; ადგილზე თვითნებურად ნუ გაიკეთებ.",
-            "ნუ გამოიყენებ ყინულს ან ელექტროშოკს, ნუ დალევ ალკოჰოლს სამკურნალოდ და ნუ დაეყრდნობი მცენარეულ თუ სხვა ხალხურ მეთოდებს.",
-            "ნუ დაიჭერ, მოკლავ ან შეეხები გველს, მათ შორის მკვდარს. იდენტიფიკაციისთვის დახმარებას ნუ გადადებ.",
+            "ნუ გაჭრით ან ამოკვეთთ ჭრილობას და ნუ ეცდებით შხამის პირით ან მოწყობილობით ამოწოვას.",
+            "ნუ გამოიყენებთ მჭიდრო არტერიულ ტურნიკეტს. ზეწოლითი იმობილიზაციის სახვევი ყველა გველის ნაკბენზე არ გამოიყენება; ადგილზე თვითნებურად ნუ გაიკეთებთ.",
+            "ნუ გამოიყენებთ ყინულს ან ელექტროშოკს, ნუ დალევთ ალკოჰოლს სამკურნალოდ და ნუ დაეყრდნობით მცენარეულ თუ სხვა ხალხურ მეთოდებს.",
+            "ნუ დაიჭერთ, მოკლავთ ან შეეხებით გველს, მათ შორის მკვდარს. იდენტიფიკაციისთვის დახმარებას ნუ გადადებთ.",
           ],
         },
         paragraphs: [
-          "ამ მეთოდებმა შეიძლება ზიანი გამოიწვიოს ან სამედიცინო დახმარებისთვის საჭირო დრო დაკარგოს. CDC საჯარო პირველადი დახმარების რეკომენდაციებში მათ არ გირჩევს.",
+          "ამ მეთოდებმა შეიძლება ზიანი გამოიწვიოს ან სამედიცინო დახმარებისთვის საჭირო დრო დაკარგოს. CDC საჯარო პირველადი დახმარების რეკომენდაციებში მათ არ გირჩევთ.",
         ],
       },
       {
@@ -224,14 +224,14 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "როდის არის მდგომარეობა განსაკუთრებით საყურადღებო?",
         paragraphs: [
-          "სუნთქვის გაძნელება, გონების დაკარგვა, ძლიერი სისუსტე, უჩვეულო სისხლდენა ან სწრაფად მზარდი შეშუპება გადაუდებელ დახმარებას მოითხოვს. საქართველოში დარეკე 112-ზე. პატარა სხეულის მასის გამო ბავშვებში შხამის ეფექტები შეიძლება უფრო მძიმედ განვითარდეს.",
-          "უცნობი გველის ნაკბენიც დროულ შეფასებას საჭიროებს, მაშინაც კი, თუ ადამიანი თავიდან თავს კარგად გრძნობს. დახმარებას ნუ გადადებ ჭრილობის გარეგნობის ან ნავარაუდევი სახეობის მიხედვით.",
+          "სუნთქვის გაძნელება, გონების დაკარგვა, ძლიერი სისუსტე, უჩვეულო სისხლდენა ან სწრაფად მზარდი შეშუპება გადაუდებელ დახმარებას მოითხოვს. საქართველოში დარეკეთ 112-ზე. პატარა სხეულის მასის გამო ბავშვებში შხამის ეფექტები შეიძლება უფრო მძიმედ განვითარდეს.",
+          "უცნობი გველის ნაკბენიც დროულ შეფასებას საჭიროებს, მაშინაც კი, თუ ადამიანი თავიდან თავს კარგად გრძნობს. დახმარებას ნუ გადადებთ ჭრილობის გარეგნობის ან ნავარაუდევი სახეობის მიხედვით.",
         ],
       },
       {
         heading: "ყველა გველის ნაკბენი შხამიანია?",
         paragraphs: [
-          "არა. საქართველოში ბევრი გველი ადამიანისთვის სამედიცინოდ შხამიანი არ არის, მაგრამ მათმა ნაკბენმა კანი მაინც შეიძლება დააზიანოს. თუ სახეობა უცნობია ან შხამი შესაძლებელია, ჯერ გადაუდებელ შეფასებას მიმართე.",
+          "არა. საქართველოში ბევრი გველი ადამიანისთვის სამედიცინოდ შხამიანი არ არის, მაგრამ მათმა ნაკბენმა კანი მაინც შეიძლება დააზიანოს. თუ სახეობა უცნობია ან შხამი შესაძლებელია, ჯერ გადაუდებელ შეფასებას მიმართეთ.",
           "[შხამიანი გველების გიდი](/venomous-snakes) და [ამოცნობის გიდი](/snakes/shxamiani-gvelis-amocnoba) სახეობებს ადარებს.",
         ],
       },
@@ -239,15 +239,15 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "რა გავაკეთოთ, თუ გველი ვერ დავინახეთ?",
         image: "call-112",
         paragraphs: [
-          "თუ გველის ნაკბენზე ეჭვი გაქვს, მაგრამ ცხოველი ვერ დაინახე, მისი სახეობა უცნობად მიიჩნიე. საქართველოში დარეკე 112-ზე და მოითხოვე გადაუდებელი შეფასება; დახმარების თხოვნამდე გველის ძებნას ნუ დაიწყებ.",
-          "თუ ცხოველი ჯერ კიდევ ჩანს, უსაფრთხო მანძილიდან გადაღებული ფოტო შეიძლება მოგვიანებით გამოდგეს, ოღონდ დახმარებას არ უნდა აყოვნებდეს. ამოცნობისთვის გველს არასოდეს მიუახლოვდე და არ შეეხო.",
+          "თუ გველის ნაკბენზე ეჭვი გაქვთ, მაგრამ ცხოველი ვერ დაინახეთ, მისი სახეობა უცნობად მიიჩნიეთ. საქართველოში დარეკეთ 112-ზე და მოითხოვეთ გადაუდებელი შეფასება; დახმარების თხოვნამდე გველის ძებნას ნუ დაიწყებთ.",
+          "თუ ცხოველი ჯერ კიდევ ჩანს, უსაფრთხო მანძილიდან გადაღებული ფოტო შეიძლება მოგვიანებით გამოდგეს, ოღონდ დახმარებას არ უნდა აყოვნებდეს. ამოცნობისთვის გველს არასოდეს მიუახლოვდეთ და არ შეეხოთ.",
         ],
       },
       {
         heading: "საქართველოში რომელი გველებია სამედიცინოდ მნიშვნელოვანი?",
         paragraphs: [
           "ატლასი აღწერს საქართველოს [შხამიან გველებს](/venomous-snakes), მათ შორის [გიურზას](macrovipera-lebetina). მისი დადასტურებული ან ძლიერ საეჭვო ნაკბენის შესახებ იხილეთ [გიურზას ნაკბენის სტატია](/snakes/giurzas-nakbeni). უკანა შხამკბილა [ხვლიკიჭამია გველს](malpolon-insignitus) ატლასში სხვა რისკის ნიშანი აქვს. ეს ნიშნები სახეობების პროფილებს აღწერს და კონკრეტული ნაკბენის სიმძიმეს ვერ განსაზღვრავს.",
-          "სამედიცინო დახმარების ორგანიზების შემდეგ კონტექსტისთვის ნახე [გველების ინდექსი](/snakes/saxeoebebi) და [გავრცელების გიდი](/snakes/gavrtseleba). [ეზოს გიდი](/snakes-in-the-yard) პრევენციასა და შეხვედრას ეხება და არა ნაკბენის მკურნალობას.",
+          "სამედიცინო დახმარების ორგანიზების შემდეგ კონტექსტისთვის ნახეთ [გველების ინდექსი](/snakes/saxeoebebi) და [გავრცელების გიდი](/snakes/gavrtseleba). [ეზოს გიდი](/snakes/gveli-ezoshi) პრევენციასა და შეხვედრას ეხება და არა ნაკბენის მკურნალობას.",
         ],
       },
       {
@@ -260,7 +260,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
     ],
     summary:
-      "საქართველოში შესაძლო შხამიანი ან უცნობი გველის ნაკბენის შემდეგ მოშორდი გველს და დარეკე 112-ზე. ადამიანი და დაკბენილი კიდური შეძლებისდაგვარად უძრავად შეინარჩუნე, ნაკბენთან მჭიდრო ნივთები მოიხსენი. ნუ გაჭრი, ნუ ამოიწოვ, ნუ გაიკეთებ მჭიდრო ტურნიკეტს და გველის დაჭერისთვის დახმარებას ნუ გადადებ. სიმპტომები შეიძლება თავიდან არ ჩანდეს; ნაკბენი მედიკოსმა უნდა შეაფასოს.",
+      "საქართველოში შესაძლო შხამიანი ან უცნობი გველის ნაკბენის შემდეგ მოშორდით გველს და დარეკეთ 112-ზე. ადამიანი და დაკბენილი კიდური შეძლებისდაგვარად უძრავად შეინარჩუნეთ, ნაკბენთან მჭიდრო ნივთები მოიხსენით. ნუ გაჭრით, ნუ ამოიწოვთ, ნუ გაიკეთებთ მჭიდრო ტურნიკეტს და გველის დაჭერისთვის დახმარებას ნუ გადადებთ. სიმპტომები შეიძლება თავიდან არ ჩანდეს; ნაკბენი მედიკოსმა უნდა შეაფასოს.",
     title: "გველის ნაკბენი — რა უნდა გავაკეთოთ?",
   },
   ru: {
@@ -375,7 +375,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Какие змеи Грузии имеют медицинское значение?",
         paragraphs: [
           "Атлас описывает [ядовитых змей Грузии](/venomous-snakes), включая [гюрзу](macrovipera-lebetina). При подтверждённом или весьма вероятном укусе этого вида читайте [статью об укусе гюрзы](/snakes/giurzas-nakbeni). У заднебороздчатой [ящеричной змеи](malpolon-insignitus) другая отметка риска в атласе. Эти отметки описывают виды, а не тяжесть отдельного укуса.",
-          "После организации медицинской помощи посмотрите [указатель видов](/snakes/saxeoebebi) и [гид по распространению](/snakes/gavrtseleba). [Гид по змеям во дворе](/snakes-in-the-yard) посвящён профилактике и встречам, а не лечению укуса.",
+          "После организации медицинской помощи посмотрите [указатель видов](/snakes/saxeoebebi) и [гид по распространению](/snakes/gavrtseleba). [Гид по змеям во дворе](/snakes/gveli-ezoshi) посвящён профилактике и встречам, а не лечению укуса.",
         ],
       },
       {
@@ -503,7 +503,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Gürcistan’da hangi yılanlar tıbben önemlidir?",
         paragraphs: [
           "Atlas, [Gürcistan’ın zehirli yılanlarını](/venomous-snakes), bunlar arasında [Levant engereğini](macrovipera-lebetina) anlatır. Bu türün kesin veya güçlü şüpheli ısırığı için [Levant engereği ısırığı yazısını](/snakes/giurzas-nakbeni) okuyun. Arka zehir dişli [Montpellier yılanının](malpolon-insignitus) atlas risk etiketi farklıdır. Bu etiketler tür profillerini tanımlar; tek bir ısırığın ağırlığını belirlemez.",
-          "Tıbbi yardım düzenlendikten sonra bağlam için [yılan türleri dizinine](/snakes/saxeoebebi) ve [yayılış rehberine](/snakes/gavrtseleba) bakın. [Bahçe rehberi](/snakes-in-the-yard) önleme ve karşılaşmalarla ilgilidir; ısırık tedavisiyle değil.",
+          "Tıbbi yardım düzenlendikten sonra bağlam için [yılan türleri dizinine](/snakes/saxeoebebi) ve [yayılış rehberine](/snakes/gavrtseleba) bakın. [Bahçe rehberi](/snakes/gveli-ezoshi) önleme ve karşılaşmalarla ilgilidir; ısırık tedavisiyle değil.",
         ],
       },
       {
@@ -521,47 +521,55 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
   },
 };
 
+export const GEORGIA_112_SOURCE: GuideArticleSource = {
+  name: "Georgia 112 — When to call 112",
+  supports: {
+    en: "Georgia's 24-hour emergency dispatch number and the information to give the operator; it is for emergencies, not general advice.",
+    ka: "საქართველოს სადღეღამისო გადაუდებელი დახმარების ნომერი და ოპერატორისთვის მისაწოდებელი ინფორმაცია; 112 ზოგადი რჩევის ხაზი არ არის.",
+    ru: "Круглосуточный номер экстренной помощи в Грузии и сведения для оператора; 112 не является общей справочной линией.",
+    tr: "Gürcistan'ın 24 saat acil yardım numarası ve operatöre verilecek bilgiler; 112 genel danışma hattı değildir.",
+  },
+  url: "https://112.gov.ge/?page_id=1686&lang=en",
+};
+
+export const WHO_SNAKEBITE_TREATMENT_SOURCE: GuideArticleSource = {
+  name: "WHO — Snakebite envenoming: treatment and first aid",
+  supports: {
+    en: "Prompt medical care for suspected venomous bites; move away, remove tight items, immobilize, and avoid incision, suction, tight arterial tourniquets and traditional remedies. Pressure bandaging is species dependent.",
+    ka: "შხამიანი ნაკბენის ეჭვისას სწრაფი სამედიცინო დახმარება; მოშორება, მჭიდრო ნივთების მოხსნა, უძრაობა და ჭრილობის გაჭრის, ამოწოვის, მჭიდრო ტურნიკეტისა და ხალხური მეთოდების არიდება. ზეწოლითი სახვევი სახეობაზეა დამოკიდებული.",
+    ru: "Быстрая медицинская помощь при подозрении на ядовитый укус; удаление от змеи, снятие тесных предметов, обездвиживание и отказ от разрезов, отсасывания, тугого жгута и народных средств. Давящая повязка зависит от вида.",
+    tr: "Zehirli ısırık şüphesinde hızlı tıbbi bakım; yılandan uzaklaşma, sıkı eşyaları çıkarma, hareketsiz tutma; kesme, emme, sıkı turnike ve halk yöntemlerinden kaçınma. Basınçlı bandaj türe bağlıdır.",
+  },
+  url: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
+};
+
+const WHO_SNAKEBITE_FACT_SHEET_SOURCE: GuideArticleSource = {
+  name: "WHO — Snakebite envenoming fact sheet",
+  supports: {
+    en: "Possible serious effects of venom, including breathing and bleeding problems, and the higher severity children may experience because of smaller body mass.",
+    ka: "შხამის შესაძლო მძიმე ეფექტები, მათ შორის სუნთქვისა და სისხლდენის პრობლემები, და ბავშვებში პატარა სხეულის მასასთან დაკავშირებული მეტი სიმძიმე.",
+    ru: "Возможные тяжёлые последствия действия яда, включая нарушения дыхания и кровотечения, а также большую тяжесть у детей из-за меньшей массы тела.",
+    tr: "Zehirin solunum ve kanama sorunları dahil olası ağır etkileri ve küçük vücut kütlesi nedeniyle çocuklarda daha ağır seyir olasılığı.",
+  },
+  url: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
+};
+
+export const CDC_VENOMOUS_SNAKES_SOURCE: GuideArticleSource = {
+  name: "CDC / NIOSH — Venomous Snakes at Work",
+  supports: {
+    en: "Possible bite signs; urgent care without waiting for symptoms; removal of rings, avoiding driving alone, safe-distance photos, and avoiding ice, electric shock, alcohol, incision, suction, tourniquets, or handling the snake.",
+    ka: "ნაკბენის შესაძლო ნიშნები; დახმარება სიმპტომების მოლოდინის გარეშე; ბეჭდების მოხსნა, მანქანის მარტო არ მართვა, შორიდან ფოტო და ყინულის, ელექტროშოკის, ალკოჰოლის, გაჭრის, ამოწოვის, ტურნიკეტისა და გველთან შეხების არიდება.",
+    ru: "Возможные признаки укуса; помощь без ожидания симптомов; снятие колец, отказ от самостоятельного вождения, фото издалека и отказ от льда, электричества, алкоголя, разрезов, отсасывания, жгута и контакта со змеёй.",
+    tr: "Olası ısırık belirtileri; belirtileri beklemeden yardım; yüzükleri çıkarma, tek başına araç kullanmama, uzaktan fotoğraf ve buz, elektrik, alkol, kesme, emme, turnike veya yılana dokunmaktan kaçınma.",
+  },
+  url: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
+};
+
 const SOURCES: readonly GuideArticleSource[] = [
-  {
-    name: "Georgia 112 — When to call 112",
-    supports: {
-      en: "Georgia's 24-hour emergency dispatch number and the information to give the operator; it is for emergencies, not general advice.",
-      ka: "საქართველოს სადღეღამისო გადაუდებელი დახმარების ნომერი და ოპერატორისთვის მისაწოდებელი ინფორმაცია; 112 ზოგადი რჩევის ხაზი არ არის.",
-      ru: "Круглосуточный номер экстренной помощи в Грузии и сведения для оператора; 112 не является общей справочной линией.",
-      tr: "Gürcistan'ın 24 saat acil yardım numarası ve operatöre verilecek bilgiler; 112 genel danışma hattı değildir.",
-    },
-    url: "https://112.gov.ge/?page_id=1686&lang=en",
-  },
-  {
-    name: "WHO — Snakebite envenoming: treatment and first aid",
-    supports: {
-      en: "Prompt medical care for suspected venomous bites; move away, remove tight items, immobilize, and avoid incision, suction, tight arterial tourniquets and traditional remedies. Pressure bandaging is species dependent.",
-      ka: "შხამიანი ნაკბენის ეჭვისას სწრაფი სამედიცინო დახმარება; მოშორება, მჭიდრო ნივთების მოხსნა, უძრაობა და ჭრილობის გაჭრის, ამოწოვის, მჭიდრო ტურნიკეტისა და ხალხური მეთოდების არიდება. ზეწოლითი სახვევი სახეობაზეა დამოკიდებული.",
-      ru: "Быстрая медицинская помощь при подозрении на ядовитый укус; удаление от змеи, снятие тесных предметов, обездвиживание и отказ от разрезов, отсасывания, тугого жгута и народных средств. Давящая повязка зависит от вида.",
-      tr: "Zehirli ısırık şüphesinde hızlı tıbbi bakım; yılandan uzaklaşma, sıkı eşyaları çıkarma, hareketsiz tutma; kesme, emme, sıkı turnike ve halk yöntemlerinden kaçınma. Basınçlı bandaj türe bağlıdır.",
-    },
-    url: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
-  },
-  {
-    name: "WHO — Snakebite envenoming fact sheet",
-    supports: {
-      en: "Possible serious effects of venom, including breathing and bleeding problems, and the higher severity children may experience because of smaller body mass.",
-      ka: "შხამის შესაძლო მძიმე ეფექტები, მათ შორის სუნთქვისა და სისხლდენის პრობლემები, და ბავშვებში პატარა სხეულის მასასთან დაკავშირებული მეტი სიმძიმე.",
-      ru: "Возможные тяжёлые последствия действия яда, включая нарушения дыхания и кровотечения, а также большую тяжесть у детей из-за меньшей массы тела.",
-      tr: "Zehirin solunum ve kanama sorunları dahil olası ağır etkileri ve küçük vücut kütlesi nedeniyle çocuklarda daha ağır seyir olasılığı.",
-    },
-    url: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
-  },
-  {
-    name: "CDC / NIOSH — Venomous Snakes at Work",
-    supports: {
-      en: "Possible bite signs; urgent care without waiting for symptoms; removal of rings, avoiding driving alone, safe-distance photos, and avoiding ice, electric shock, alcohol, incision, suction, tourniquets, or handling the snake.",
-      ka: "ნაკბენის შესაძლო ნიშნები; დახმარება სიმპტომების მოლოდინის გარეშე; ბეჭდების მოხსნა, მანქანის მარტო არ მართვა, შორიდან ფოტო და ყინულის, ელექტროშოკის, ალკოჰოლის, გაჭრის, ამოწოვის, ტურნიკეტისა და გველთან შეხების არიდება.",
-      ru: "Возможные признаки укуса; помощь без ожидания симптомов; снятие колец, отказ от самостоятельного вождения, фото издалека и отказ от льда, электричества, алкоголя, разрезов, отсасывания, жгута и контакта со змеёй.",
-      tr: "Olası ısırık belirtileri; belirtileri beklemeden yardım; yüzükleri çıkarma, tek başına araç kullanmama, uzaktan fotoğraf ve buz, elektrik, alkol, kesme, emme, turnike veya yılana dokunmaktan kaçınma.",
-    },
-    url: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
-  },
+  GEORGIA_112_SOURCE,
+  WHO_SNAKEBITE_TREATMENT_SOURCE,
+  WHO_SNAKEBITE_FACT_SHEET_SOURCE,
+  CDC_VENOMOUS_SNAKES_SOURCE,
 ];
 
 export const SNAKE_BITE = defineGuideArticle({

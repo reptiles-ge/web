@@ -41,13 +41,15 @@ export function SpeciesMobileHeroCredit({
   return (
     <p
       aria-live="polite"
-      className="flex min-h-6 items-center gap-2 px-6 text-[12px] text-muted-foreground lg:hidden"
+      className="flex min-h-6 flex-wrap items-center gap-x-2 px-6 text-[12px] text-muted-foreground lg:hidden"
     >
-      <Camera aria-hidden="true" className="size-3.5 shrink-0" />
-      <span className="min-w-0 flex-1 truncate">
-        {[author ? author.name : photographer, credit.location]
-          .filter(Boolean)
-          .join(" · ")}
+      <span className="flex min-w-0 flex-[1_1_auto] items-center gap-2 py-1 leading-snug">
+        <Camera aria-hidden="true" className="size-3.5 shrink-0" />
+        <span className="min-w-0">
+          {[author ? author.name : photographer, credit.location]
+            .filter(Boolean)
+            .join(" · ")}
+        </span>
       </span>
       {credit.photoConfidence === "georgia-field" ? (
         <span className="inline-flex shrink-0 items-center gap-1 font-medium text-primary">

@@ -14,7 +14,7 @@ const GUIDES = [
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     key: "identify" as const,
   },
-  { href: "/snakes-in-the-yard" as const, key: "yard" as const },
+  { href: "/snakes/gveli-ezoshi" as const, key: "yard" as const },
   { href: null, key: "quiz" as const },
 ];
 

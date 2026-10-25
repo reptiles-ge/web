@@ -131,6 +131,11 @@ export const images = {
     "https://cdn.reptiles.ge/images/guides/snake-bite-keep-distance.jpg",
   snakeBiteRemoveRing:
     "https://cdn.reptiles.ge/images/guides/snake-bite-remove-ring.jpg",
+  snakesInYardHero: "https://cdn.reptiles.ge/telescopus-fallax-armen-1.jpg",
+  snakesInYardHohenackeri:
+    "https://cdn.reptiles.ge/zamenis-hohenackeri-lennart-1.jpg",
+  snakesInYardNatrix: "https://cdn.reptiles.ge/natrix-natrix-louis-1.jpg",
+  snakesInYardShelterFood: "/images/guides/snakes-in-yard-shelter-food.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:

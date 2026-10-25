@@ -51,6 +51,11 @@ export async function VenomousSnakesSpecies({
                     {chunks}
                   </SpeciesInlineLink>
                 ),
+                transcaucasiana: (chunks) => (
+                  <SpeciesInlineLink id="vipera-transcaucasiana">
+                    {chunks}
+                  </SpeciesInlineLink>
+                ),
               })}
             </PhoneLinkedText>
           </p>

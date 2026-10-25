@@ -1,6 +1,12 @@
 import type { Context } from "hono";
+import type { ContentfulStatusCode } from "hono/utils/http-status";
 
 import { Hono } from "hono";
+
+import {
+  downloadINaturalistPhoto,
+  type INaturalistDownloadResult,
+} from "@/lib/inaturalistPhoto";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
@@ -12,7 +18,7 @@ import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
 import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
-import { ApiError } from "../lib/errors";
+import { ApiError, type ApiErrorCode } from "../lib/errors";
 import {
   addGalleryPhoto,
   checkPhotoFiles,
@@ -37,6 +43,7 @@ import {
   reorderPhotos,
   setCover,
   setPhotoCoordinates,
+  setPhotoCredits,
 } from "../lib/speciesPhotos";
 import { applySpeciesTexts } from "../lib/speciesTexts";
 import { validate } from "../lib/validate";
@@ -46,7 +53,14 @@ import { requireAdmin } from "../middleware/requireAdmin";
 import { requireAdminSession } from "../middleware/requireAdminSession";
 import { requireSiteOrigin } from "../middleware/requireSiteOrigin";
 import { requireToken } from "../middleware/requireToken";
-import { photoUploadForm } from "../schemas/photoUpload";
+import {
+  inaturalistPhotoBody,
+  photoCreditBody,
+  photoDeleteBody,
+  photoReorderBody,
+  photoSetCoverBody,
+  photoUploadForm,
+} from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
 import {
   draftCreateBody,
@@ -199,6 +213,121 @@ export const adminSpecies = new Hono<ApiEnv>()
         { data: { optimized: optimized !== null, photo: result, version } },
         201,
       );
+    },
+  )
+  .post(
+    "/:id/photos/inaturalist",
+    requireSiteOrigin,
+    rateLimitUpload,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", inaturalistPhotoBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      if ((await readSpeciesVersion(c.env.DB, id)) === null) {
+        throw new ApiError(404, "not_found", "Species not found");
+      }
+      const result = await downloadINaturalistPhoto(
+        c.req.valid("json").photoUrl,
+      );
+      if (!result.ok) throw iNaturalistFailure(result.reason);
+      return c.body(await result.file.arrayBuffer(), 200, {
+        "Cache-Control": NO_STORE,
+        "Content-Type": result.type,
+      });
+    },
+  )
+  .post(
+    "/:id/photos/credit",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoCreditBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { credit, expectedVersion, src } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const credits = photoCredits(credit);
+      const { result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Edit photo credit",
+        (record) => setPhotoCredits(record, src, credits),
+        [],
+        current,
+      );
+      return c.json({ data: { credit: result ?? {}, version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/delete",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoDeleteBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, src } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { record, result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Remove gallery photo",
+        (draft) => removePhoto(draft, src),
+        [],
+        current,
+      );
+      return c.json({ data: { ...result, ...covers(record), version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/reorder",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoReorderBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, srcs } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Reorder gallery",
+        (record) => reorderPhotos(record, srcs),
+        [],
+        current,
+      );
+      return c.json({ data: { version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/set-cover",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoSetCoverBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, src, target } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { record, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        `Set ${target} cover`,
+        (draft) => setCover(draft, target, src),
+        [],
+        current,
+      );
+      return c.json({ data: { ...covers(record), version } }, 200);
     },
   )
   .use(requireToken)
@@ -384,6 +513,19 @@ function covers(record: SpeciesRecord) {
   };
 }
 
+async function readCurrent(
+  c: Context<ApiEnv>,
+  id: string,
+  expectedVersion: number,
+) {
+  const current = await readSpeciesRecord(c.env.DB, id);
+  if (!current) throw new ApiError(404, "not_found", "Species not found");
+  if (current.version !== expectedVersion) {
+    throw versionConflict(current.version);
+  }
+  return current;
+}
+
 async function readForWrite(
   c: Context<ApiEnv>,
   id: string,
@@ -404,4 +546,37 @@ async function readForWrite(
   if (current.version !== version) throw versionConflict(current.version);
   assertNoAddedPageTalk(current.record, record);
   return current;
+}
+
+const INATURALIST_FAILURES: Record<
+  Extract<INaturalistDownloadResult, { ok: false }>["reason"],
+  [ContentfulStatusCode, ApiErrorCode, string]
+> = {
+  download_failed: [
+    502,
+    "upstream_failed",
+    "Could not download the iNaturalist photo",
+  ],
+  invalid_url: [
+    400,
+    "invalid_request",
+    "Not an iNaturalist original photo URL",
+  ],
+  too_large: [
+    422,
+    "invalid_request",
+    "The photo is empty or larger than 12 MB",
+  ],
+  unreachable: [502, "upstream_failed", "Could not reach iNaturalist"],
+  unsupported_format: [
+    422,
+    "invalid_request",
+    "The photo format is not supported",
+  ],
+};
+
+function iNaturalistFailure(
+  reason: Extract<INaturalistDownloadResult, { ok: false }>["reason"],
+) {
+  return new ApiError(...INATURALIST_FAILURES[reason]);
 }

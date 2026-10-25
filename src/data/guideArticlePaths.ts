@@ -13,6 +13,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/scorpions/morielis-nakbeni",
   "/scorpions/morieli-sakhlshi",
   "/snakes/giurzas-nakbeni",
+  "/snakes/gveli-ezoshi",
   "/snakes/gvelis-nakbeni",
 ] as const;
 

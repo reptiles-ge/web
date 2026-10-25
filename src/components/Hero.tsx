@@ -13,7 +13,7 @@ import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const HERO_IMAGE_SIZES =
-  "(max-width: 639px) 600px, (max-width: 1023px) 100vw, 61vw";
+  "(max-width: 639px) 1080px, (max-width: 1023px) 100vw, 61vw";
 
 export async function Hero({ locale }: { locale: AppLocale }) {
   const [t, tNav, tKnowledge, tSafety, tGroups, catalog] = await Promise.all([
@@ -96,7 +96,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
             <p className="text-[12px] text-white/60 lg:mr-1.5 lg:text-[13px]">
               {t("popular")}
             </p>
-            <ul className="no-scrollbar -mx-6 mt-2.5 flex gap-2 overflow-x-auto px-6 pb-1 lg:mx-0 lg:mt-0 lg:flex-wrap lg:overflow-visible lg:px-0 lg:pb-0">
+            <ul className="no-scrollbar -mx-6 mt-2.5 flex gap-2 overflow-x-auto mask-[linear-gradient(to_right,#000_calc(100%-1.5rem),transparent)] px-6 pb-1 lg:mx-0 lg:mt-0 lg:flex-wrap lg:overflow-visible lg:mask-none lg:px-0 lg:pb-0">
               {popular.map((item) => (
                 <li className="shrink-0" key={item.href}>
                   <Link

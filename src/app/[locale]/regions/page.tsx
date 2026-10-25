@@ -88,8 +88,8 @@ export default async function RegionsPage({ params }: LocalePageProps) {
         data={[
           jsonLd,
           homeChildBreadcrumbLd(locale, "/regions", {
-            home: t("breadcrumbHome"),
-            name: t("allRegions"),
+            home: t("back"),
+            name: t("title"),
           }),
         ]}
       />
