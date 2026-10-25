@@ -40,14 +40,18 @@ const groupLinks = [
   { href: "/insects" as const, labelKey: "insects" as const },
 ];
 
-const footerGuideIds = new Set(["scorpion-sting", "snake-bite", "tick-bite"]);
+const footerGuideIds = new Set([
+  "scorpion-sting",
+  "snake-bite",
+  "snakes-in-yard",
+  "tick-bite",
+]);
 
 const guideLinks = [
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
   },
-  { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
   ...getGuideArticles().flatMap((article) =>
     footerGuideIds.has(article.id)
       ? [{ href: article.pathname, labelKey: article.messageKey }]

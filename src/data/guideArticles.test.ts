@@ -106,7 +106,6 @@ describe("guide structured data", () => {
     for (const file of [
       "src/lib/createGuideArticleRoute.tsx",
       "src/lib/createClusterGuideRoute.tsx",
-      "src/app/[locale]/snakes-in-the-yard/page.tsx",
       "src/app/[locale]/venomous-snakes/page.tsx",
     ]) {
       const source = fs.readFileSync(path.join(process.cwd(), file), "utf8");

@@ -380,7 +380,6 @@ export function buildLlmsIndexText(
     "## Safety",
     "",
     `- [Venomous snakes in Georgia](${url("/venomous-snakes")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
-    `- [Snakes in the yard](${url("/snakes-in-the-yard")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
     `- [Risk to humans](${url("/risk-to-humans")}): What Harmless, Moderate, and High mean on atlas profiles.`,
     ...getGuideArticles().map(
       (article) =>

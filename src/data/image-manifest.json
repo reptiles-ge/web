@@ -57420,6 +57420,87 @@
       ],
       "updatedAt": "2026-09-25T14:08:40.518Z"
     },
+    "images/guides/snakes-in-yard-shelter-food.jpg": {
+      "sourceHash": "f7f702b514c93235bf891141ab018f87e5dc9c1ffaa5fc47bb8fbef2916747f7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snakes-in-yard-shelter-food.jpg",
+      "originalSize": 170365,
+      "width": 851,
+      "height": 554,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 208,
+          "byteSize": 15879
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 208,
+          "byteSize": 25200
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 22368
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 35938
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 417,
+          "byteSize": 44228
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 417,
+          "byteSize": 71540
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 521,
+          "byteSize": 59826
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 521,
+          "byteSize": 97274
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-851.avif",
+          "format": "avif",
+          "width": 851,
+          "height": 554,
+          "byteSize": 67379
+        },
+        {
+          "key": "optimized/images/guides/snakes-in-yard-shelter-food-851.webp",
+          "format": "webp",
+          "width": 851,
+          "height": 554,
+          "byteSize": 108194
+        }
+      ],
+      "updatedAt": "2026-10-25T17:31:38.405Z"
+    },
     "images/guides/stink-bug-house-hero.jpg": {
       "sourceHash": "617ab2c24a1b21b86f97bf83aefc1617ca9b9eeea0b203e5b11d754413c0b851",
       "configFingerprint": "409788ee46c653d8",

@@ -862,31 +862,6 @@ const STATIC_PAGES: Array<
     },
   },
   {
-    heroSpeciesId: "natrix-natrix",
-    href: "/snakes-in-the-yard",
-    icon: "yard",
-    id: "snakes-in-yard",
-    keywords: [
-      "ეზო",
-      "ezoshi",
-      "yard",
-      "garden",
-      "დასაფრთხობი",
-      "repellent",
-      "გოგირდი",
-    ],
-    rank: 6,
-    subtitle: {
-      en: "What works, what doesn’t — a practical guide",
-      ka: "რა მუშაობს, რა არა — პრაქტიკული გიდი",
-    },
-    suggested: true,
-    title: {
-      en: "How do we get snakes out of the yard?",
-      ka: "როგორ მოვიშოროთ გველი ეზოდან?",
-    },
-  },
-  {
     heroImage: GROUP_HUB_ILLUSTRATIONS.snakes,
     href: "/quiz",
     icon: "identify",
