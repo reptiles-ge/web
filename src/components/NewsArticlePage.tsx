@@ -372,7 +372,11 @@ async function NewsArticleHeader({
         <div className="mt-[18px] flex items-center gap-2.5 md:mt-7 md:justify-center md:gap-3.5">
           <Logo className="size-7 shrink-0 md:size-8" size={32} />
           <span className="min-w-0 flex-1 text-[13px] md:flex md:flex-none md:items-center md:gap-3.5 md:text-[14px]">
-            <Link className="font-semibold" href="/about" rel="author">
+            <Link
+              className="tap-target font-semibold"
+              href="/about"
+              rel="author"
+            >
               {t("byline")}
             </Link>
             {article.sources.length > 0 ? (
@@ -385,7 +389,7 @@ async function NewsArticleHeader({
                   className="hidden h-[22px] w-px bg-(--nw-line) md:block"
                 />
                 <a
-                  className="inline-flex items-center gap-1.5 font-medium whitespace-nowrap text-(--nw-accent)"
+                  className="tap-target inline-flex items-center gap-1.5 font-medium whitespace-nowrap text-(--nw-accent)"
                   href="#sources"
                 >
                   <FileText
@@ -908,7 +912,7 @@ function NewsFigureCredit({
             <>
               {" · "}
               <a
-                className="inline-flex items-center gap-0.5 text-(--nw-ink) underline decoration-(--nw-line) underline-offset-[3px] transition-colors hover:decoration-(--nw-accent)"
+                className="tap-target inline-flex items-center gap-0.5 text-(--nw-ink) underline decoration-(--nw-line) underline-offset-[3px] transition-colors hover:decoration-(--nw-accent)"
                 href={credit.url}
                 rel="noopener noreferrer"
                 target="_blank"
