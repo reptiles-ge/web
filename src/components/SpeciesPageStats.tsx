@@ -43,8 +43,8 @@ export async function SpeciesPageStats({
           className={compact ? "gap-2" : "gap-1.5"}
           count={views}
           iconClassName={compact ? "size-3.5" : "size-[15px]"}
-          label={t("viewCount", { count: views })}
           locale={locale}
+          noun={t("viewCountNoun", { count: views })}
         />
       ) : null}
       {showViews && updated ? (
@@ -61,6 +61,7 @@ export async function SpeciesPageStats({
           })}
           locale={locale}
           updated={updated}
+          word={t("updatedWord")}
         />
       ) : null}
     </div>
@@ -72,19 +73,25 @@ function UpdatedDate({
   label,
   locale,
   updated,
+  word,
 }: {
   compact: boolean;
   label: string;
   locale: AppLocale;
   updated: string;
+  word: string;
 }) {
   if (!compact) return <time dateTime={updated}>{label}</time>;
+  const shown = formatContentDateShort(updated, locale, {
+    omitCurrentYear: true,
+  });
+  const full = formatContentDateShort(updated, locale);
+  const rest = full.startsWith(shown) ? full.slice(shown.length) : "";
   return (
     <time dateTime={updated}>
-      <span aria-hidden="true">
-        {formatContentDateShort(updated, locale, { omitCurrentYear: true })}
-      </span>
-      <span className="sr-only">{label}</span>
+      <span className="sr-only">{word} </span>
+      {shown}
+      {rest ? <span className="sr-only">{rest}</span> : null}
     </time>
   );
 }

@@ -1,8 +1,9 @@
 import { API_ORIGIN } from "@/lib/apiClient";
+import { API_DOCS_PATH, OPENAPI_SPEC_PATH } from "@/lib/apiDocsPaths";
 
 const API_DOCS_PATHS: Record<string, string> = {
-  "/docs": "/v1/docs",
-  "/v1/docs/openapi.json": "/v1/docs/openapi.json",
+  [API_DOCS_PATH]: "/v1/docs",
+  [OPENAPI_SPEC_PATH]: OPENAPI_SPEC_PATH,
 };
 
 type ServiceBinding = { fetch: (request: Request) => Promise<Response> };

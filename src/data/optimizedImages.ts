@@ -1,4 +1,5 @@
 import {
+  entryImgSize,
   entryImgSrc,
   entryPictureSources,
   type PictureSource,
@@ -52,6 +53,13 @@ export function optimizedImageEntries(
     if (entry) entries[src] = entry;
   }
   return entries;
+}
+
+export function optimizedImgSize(
+  src: string,
+  minWidth = 1200,
+): null | { height: number; width: number } {
+  return entryImgSize(optimizedEntry(src), minWidth);
 }
 
 export function optimizedImgSrc(src: string, minWidth = 1200): string {

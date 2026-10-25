@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 
+import { ratingPageUrl } from "@/lib/ratingInput";
 import { formatRatingNotification } from "@/lib/ratingNotification";
 import { sendTelegramMessage } from "@/lib/telegram";
 import { VISITOR_COUNTRY_HEADER } from "@/lib/visitorHeaders";
@@ -44,7 +45,7 @@ export const ratings = new Hono<ApiEnv>().post(
           host: origin.host,
           locale: body.locale,
           pages: body.pages,
-          pageUrl: new URL(body.path, origin).href,
+          pageUrl: ratingPageUrl(body.path, origin) ?? origin.href,
           rating: body.rating,
           referrer: body.referrer,
           seconds: body.seconds,

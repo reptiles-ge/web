@@ -9,8 +9,7 @@ import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 type SpeciesOgPageMetadataInput = {
   locale: AppLocale;
-  namespace:
-    "dangerousAnimals" | "riskToHumans" | "snakesInYard" | "venomousSnakes";
+  namespace: "dangerousAnimals" | "riskToHumans" | "venomousSnakes";
   ogSpeciesId: string;
   pagePath: Parameters<typeof localePath>[1];
   titleValues?: Record<string, number>;

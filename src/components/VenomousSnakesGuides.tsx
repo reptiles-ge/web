@@ -45,11 +45,13 @@ const EDITORIAL_UPDATED = "2026-09-07";
 
 type VenomousSnakesGuidesProps = {
   locale: AppLocale;
+  quiz: ReactNode;
   relatedGuides: HubClusterCard[];
 };
 
 export async function VenomousSnakesGuides({
   locale,
+  quiz,
   relatedGuides,
 }: VenomousSnakesGuidesProps) {
   const t = await getTranslations({ locale, namespace: "venomousSnakes" });
@@ -73,6 +75,8 @@ export async function VenomousSnakesGuides({
           }))}
         />
       </ClusterContentSection>
+
+      {quiz}
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -215,7 +219,7 @@ export async function VenomousSnakesGuides({
             <div>
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
-                href="/snakes-in-the-yard"
+                href="/snakes/gveli-ezoshi"
               >
                 {t("yardCta")}
                 <ArrowUpRight className="size-4" />

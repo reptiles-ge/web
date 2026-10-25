@@ -12,7 +12,6 @@ export const PAGE_MESSAGE_NAMESPACES: Readonly<
   "/quiz": ["quizzes"],
   "/regions": ["regions"],
   "/risk-to-humans": ["riskToHumans"],
-  "/snakes-in-the-yard": ["snakesInYard"],
   "/species": ["speciesAtlas"],
   "/terms-and-conditions": ["legal.terms"],
   "/venomous-snakes": ["venomousSnakes"],

@@ -121,9 +121,12 @@ export function newsOgImageUrl(
   }
   return SITE_OG_IMAGE_URL;
 }
-
 export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
   return newsCopyReadMinutes(getNewsCopy(article, locale) ?? article.copy.ka);
+}
+
+export function newsSchemaDate(isoDate: string) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(isoDate) ? isoDate : newsDateTime(isoDate);
 }
 
 export function newsSourceBadges(

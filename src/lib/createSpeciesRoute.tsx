@@ -6,7 +6,6 @@ import { notFound, permanentRedirect } from "next/navigation";
 
 import type { Species } from "@/data/species";
 import type { ContributorDirectory } from "@/lib/contributorCredits";
-import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { ContentViewBeacon } from "@/components/ContentViewBeacon";
@@ -22,8 +21,10 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { shareRepeatedNodes } from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
@@ -34,6 +35,7 @@ import {
 import {
   absoluteUrl,
   localePath,
+  ogImageDimensions,
   openGraphJpeg,
   organizationRef,
   siteConfig,
@@ -52,6 +54,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -163,7 +166,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const ogImageTag = openGraphJpeg(
       ogImage,
-      `${item.commonName} (${item.scientificName})`,
+      `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     );
 
     return {
@@ -227,9 +230,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const lookalikes = getLookalikeSpecies(raw.id, catalog);
     const related = getProfileRelatedSpecies(raw.id, catalog);
     const parent = getSpeciesParentHub(item);
-    const groupLabel = parent.hubId
-      ? tHubs(`hubs.${parent.hubId}`)
-      : tHubs("hubs.snakes");
+    const tParent = await getTranslations({
+      locale,
+      namespace: GROUP_HUBS[parent.hubId].messageKey,
+    });
+    const groupLabel = tParent("breadcrumbCurrent");
     const breadcrumbCrumbs = buildSpeciesBreadcrumbs({
       groupLabel,
       homeLabel: tProfile("breadcrumbHome"),
@@ -421,8 +426,9 @@ function speciesStructuredData({
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
-    name: `${item.commonName} (${item.scientificName})`,
+    name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     url: ogImage,
+    ...ogImageDimensions(ogImage),
     ...(ogImage === speciesOgImageUrl(item.id)
       ? photoRights(ogImage, undefined, locale, contributors)
       : photoRights(item.image, item.imageCredit, locale, contributors)),
@@ -445,7 +451,7 @@ function speciesStructuredData({
           hasPart: { "@id": galleryId },
         }
       : {}),
-    headline: `${item.commonName} (${item.scientificName})`,
+    headline: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
@@ -482,8 +488,10 @@ function speciesStructuredData({
   const faqJsonLd =
     raw.id !== "halyomorpha-halys" && item.faq ? faqPageJsonLd(item.faq) : null;
 
-  return [jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
-    (entry): entry is NonNullable<typeof entry> => Boolean(entry),
+  return shareRepeatedNodes(
+    [jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
+      (entry): entry is NonNullable<typeof entry> => Boolean(entry),
+    ),
   );
 }
 

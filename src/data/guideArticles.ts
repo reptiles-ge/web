@@ -15,6 +15,7 @@ import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { SCORPION_IN_HOUSE } from "@/content/guides/scorpionInHouse";
 import { SCORPION_STING } from "@/content/guides/scorpionSting";
 import { SNAKE_BITE } from "@/content/guides/snakeBite";
+import { SNAKES_IN_YARD } from "@/content/guides/snakesInYard";
 import { STINK_BUG_IN_HOUSE } from "@/content/guides/stinkBugInHouse";
 import { TICK_BITE } from "@/content/guides/tickBite";
 import { WASP_NEST } from "@/content/guides/waspNest";
@@ -41,6 +42,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   SCORPION_IN_HOUSE,
   SCORPION_STING,
   SNAKE_BITE,
+  SNAKES_IN_YARD,
   GYURZA_BITE,
   TICK_BITE,
 ];

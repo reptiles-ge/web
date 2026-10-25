@@ -65,9 +65,18 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     sections: [
       {
         heading: "What to do if a bat flies into your home",
+        list: {
+          items: [
+            "Close doors to other rooms so it cannot move deeper into the building.",
+            "Keep children and pets out.",
+            "Open one or more exterior windows or an exterior door as wide as practical, and clear curtains, blinds, and furniture that block the opening.",
+            "Turn off unnecessary indoor lights so the outdoor exit is easier to find.",
+            "Step back and give it time. Check later — including curtain folds and behind furniture — to confirm it has gone.",
+          ],
+          ordered: true,
+        },
         paragraphs: [
-          "A bat indoors is usually trying to escape, not to attack. Close doors to other rooms so it cannot move deeper into the building. Keep children and pets out. Open one or more exterior windows or an exterior door as wide as practical, clear curtains, blinds, and furniture that block the opening, and turn off unnecessary indoor lights so the outdoor exit is easier to find.",
-          "Then step back. Bat Conservation Trust guidance for a bat flying indoors in the evening is to give it time to orient and leave rather than chasing it around the room. Check later — including curtain folds and behind furniture — to confirm it has gone.",
+          "A bat indoors is usually trying to escape, not to attack. Bat Conservation Trust guidance for a bat flying indoors in the evening is to give it time to orient and leave rather than chasing it around the room.",
         ],
       },
       {
@@ -192,9 +201,18 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     sections: [
       {
         heading: "რა გავაკეთოთ, თუ ღამურა სახლში შემოფრინდა?",
+        list: {
+          items: [
+            "დახურეთ სხვა ოთახებისკენ მიმავალი კარები, რომ ცხოველი უფრო ღრმად არ გადაინაცვლოს.",
+            "ბავშვები და შინაური ცხოველები გამოიყვანეთ.",
+            "ერთი ან რამდენიმე გარე ფანჯარა ან გარე კარი რაც შეიძლება ფართოდ გახსენით და გაასუფთავეთ ფარდები, ჟალუზები და ავეჯი, რომლებიც გასასვლელს ბლოკავს.",
+            "გამორთეთ ზედმეტი შიდა შუქი, რომ გარე ღიობი უფრო ადვილად მოინახოს.",
+            "უკან დაიხიეთ და დრო მიეცით. მოგვიანებით შეამოწმეთ — ფარდების ნაოჭებისა და ავეჯის უკანაც — რომ ცხოველი მართლაც გასულია.",
+          ],
+          ordered: true,
+        },
         paragraphs: [
-          "სახლში შემოფრენილი ღამურა ჩვეულებრივ გასასვლელს ეძებს და არა თავდასხმას. დახურეთ სხვა ოთახებისკენ მიმავალი კარები, რომ ცხოველი უფრო ღრმად არ გადაინაცვლოს. ბავშვები და შინაური ცხოველები გამოიყვანეთ. ერთი ან რამდენიმე გარე ფანჯარა ან გარე კარი რაც შეიძლება ფართოდ გახსენით, გაასუფთავეთ ფარდები, ჟალუზები და ავეჯი, რომლებიც გასასვლელს ბლოკავს, და გამორთეთ ზედმეტი შიდა შუქი, რომ გარე ღიობი უფრო ადვილად მოინახოს.",
-          "შემდეგ უკან დაიხიეთ. Bat Conservation Trust-ის რჩევა საღამოს შიდა ფრენისას არის დროის მიცემა ორიენტაციისა და გასვლისთვის და არა ოთახში დევნა. მოგვიანებით შეამოწმეთ — ფარდების ნაოჭებისა და ავეჯის უკანაც — რომ ცხოველი მართლაც გასულია.",
+          "სახლში შემოფრენილი ღამურა ჩვეულებრივ გასასვლელს ეძებს და არა თავდასხმას. Bat Conservation Trust-ის რჩევა საღამოს შიდა ფრენისას არის დროის მიცემა ორიენტაციისა და გასვლისთვის და არა ოთახში დევნა.",
         ],
       },
       {
@@ -319,9 +337,18 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     sections: [
       {
         heading: "Что делать, если летучая мышь влетела в дом",
+        list: {
+          items: [
+            "Закройте двери в другие комнаты, чтобы она не ушла глубже в здание.",
+            "Уберите детей и животных.",
+            "Широко откройте одно или несколько наружных окон или наружную дверь и уберите шторы, жалюзи и мебель, перекрывающие проём.",
+            "Выключите лишний свет в комнате, чтобы выход наружу было легче найти.",
+            "Отойдите и дайте ей время. Позже проверьте — в том числе складки штор и пространство за мебелью — что она действительно улетела.",
+          ],
+          ordered: true,
+        },
         paragraphs: [
-          "Летучая мышь в помещении обычно ищет выход, а не нападает. Закройте двери в другие комнаты, чтобы она не ушла глубже в здание. Уберите детей и животных. Широко откройте одно или несколько наружных окон или наружную дверь, уберите шторы, жалюзи и мебель, перекрывающие проём, и выключите лишний свет в комнате, чтобы выход наружу было легче найти.",
-          "Затем отойдите. Рекомендация Bat Conservation Trust при вечернем полёте в помещении — дать время сориентироваться и уйти, а не гонять животное по комнате. Позже проверьте — в том числе складки штор и пространство за мебелью — что оно действительно ушло.",
+          "Летучая мышь в помещении обычно ищет выход, а не нападает. Рекомендация Bat Conservation Trust при вечернем полёте в помещении — дать время сориентироваться и уйти, а не гонять животное по комнате.",
         ],
       },
       {
@@ -446,9 +473,18 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     sections: [
       {
         heading: "Eve yarasa girerse ne yapmalı",
+        list: {
+          items: [
+            "Binaya daha derin gitmesin diye diğer odalara giden kapıları kapatın.",
+            "Çocukları ve evcil hayvanları çıkarın.",
+            "Bir veya birkaç dış pencereyi ya da dış kapıyı olabildiğince geniş açın ve çıkışı engelleyen perde, panjur ve mobilyayı kaldırın.",
+            "Dış açıklık daha kolay bulunsun diye gereksiz iç ışıkları kapatın.",
+            "Geri çekilin ve zaman tanıyın. Daha sonra — perde kıvrımları ve mobilya arkası dahil — gerçekten gittiğini kontrol edin.",
+          ],
+          ordered: true,
+        },
         paragraphs: [
-          "İçerideki yarasa genellikle saldırmaz; çıkış arar. Binaya daha derin gitmesin diye diğer odalara giden kapıları kapatın. Çocukları ve evcil hayvanları çıkarın. Bir veya birkaç dış pencereyi ya da dış kapıyı olabildiğince geniş açın, çıkışı engelleyen perde, panjur ve mobilyayı temizleyin ve gereksiz iç ışıkları kapatın ki dış açıklık daha kolay bulunsun.",
-          "Sonra geri çekilin. Bat Conservation Trust’ın akşam iç mekân uçuşu için önerisi, odada kovalamak yerine yönünü bulup çıkması için zaman vermektir. Daha sonra — perde kıvrımları ve mobilya arkası dahil — gerçekten gittiğini kontrol edin.",
+          "İçerideki yarasa genellikle saldırmaz; çıkış arar. Bat Conservation Trust’ın akşam iç mekân uçuşu için önerisi, odada kovalamak yerine yönünü bulup çıkması için zaman vermektir.",
         ],
       },
       {

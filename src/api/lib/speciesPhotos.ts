@@ -11,6 +11,10 @@ export type CoverTarget = "both" | "desktop" | "mobile";
 
 type Coordinates = { lat: number; lng: number };
 
+type PhotoCredits = { en?: PhotoCredit; ka?: PhotoCredit };
+
+const GEORGIA_FIELD = "georgia-field";
+
 export function removePhoto(record: SpeciesRecord, src: string) {
   const { base } = record;
   const index = base.gallery.findIndex((item) => item.src === src);
@@ -94,6 +98,50 @@ export function setPhotoCoordinates(
   return credit;
 }
 
+export function setPhotoCredits(
+  record: SpeciesRecord,
+  src: string,
+  credits: PhotoCredits,
+) {
+  const { base } = record;
+  const item = base.gallery.find((entry) => entry.src === src);
+  if (!item) throw unknownPhoto(src);
+  const previous = item.credit?.photoConfidence;
+  const kept = previous === GEORGIA_FIELD ? undefined : previous;
+  const ka = withConfidence(credits.ka, kept);
+  const en = withConfidence(credits.en, kept);
+  const georgiaField = ka?.photoConfidence === GEORGIA_FIELD;
+  setCredit(item, "credit", ka);
+  if (georgiaField && item.photoConfidence) {
+    item.photoConfidence = GEORGIA_FIELD;
+  } else if (!georgiaField && item.photoConfidence === GEORGIA_FIELD) {
+    delete item.photoConfidence;
+  }
+  const desktop = matchesCoverSource(base.image, src);
+  const mobile = Boolean(
+    base.mobileImage && matchesCoverSource(base.mobileImage, src),
+  );
+  if (desktop) setCredit(base, "imageCredit", ka);
+  if (mobile) setCredit(base, "mobileImageCredit", ka);
+  const overlay =
+    en && JSON.stringify(en) !== JSON.stringify(ka) ? en : undefined;
+  const translation = record.translations.en;
+  const current = translation.gallery ?? [];
+  const entry = { credit: overlay, src };
+  const gallery = current.some((item) => item.src === src)
+    ? current.flatMap((item) =>
+        item.src !== src ? [item] : overlay ? [{ ...item, ...entry }] : [],
+      )
+    : overlay
+      ? [...current, entry]
+      : current;
+  if (gallery.length > 0) translation.gallery = gallery;
+  else delete translation.gallery;
+  if (desktop) setCredit(translation, "imageCredit", overlay);
+  if (mobile) setCredit(translation, "mobileImageCredit", overlay);
+  return ka;
+}
+
 function applyCover(
   record: SpeciesRecord,
   target: CoverTarget,
@@ -150,6 +198,14 @@ function setCredit<K extends string>(
 
 function unknownPhoto(src: string) {
   return new ApiError(404, "not_found", `Unknown gallery src: ${src}`);
+}
+
+function withConfidence(
+  credit: PhotoCredit | undefined,
+  confidence: PhotoCredit["photoConfidence"],
+) {
+  if (!confidence || credit?.photoConfidence) return credit;
+  return { ...credit, photoConfidence: confidence };
 }
 
 function withCoordinates(

@@ -5,6 +5,7 @@ import {
   siteEntityId,
   speciesPageUrl,
 } from "@/lib/site";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 type BreadcrumbCrumb = {
   item: string;
@@ -19,6 +20,7 @@ type ListedSpecies = {
 
 type SitePageLdInput = {
   about?: Record<string, unknown>;
+  citation?: readonly { name: string; url: string }[];
   dates: Record<string, unknown>;
   description: string;
   locale: string;
@@ -59,8 +61,27 @@ export function localePageUrl(
   return absoluteUrl(localePath(locale, path));
 }
 
+export function shareRepeatedNodes<T>(nodes: readonly T[]): T[] {
+  const seen = new Set<unknown>();
+  const visit = (value: unknown, nested: boolean): unknown => {
+    if (Array.isArray(value)) return value.map((item) => visit(item, true));
+    if (!value || typeof value !== "object") return value;
+    const node = value as Record<string, unknown>;
+    const id = node["@id"];
+    if (nested && id && Object.keys(node).length > 1) {
+      if (seen.has(id)) return { "@id": id };
+      seen.add(id);
+    }
+    return Object.fromEntries(
+      Object.entries(node).map(([key, item]) => [key, visit(item, true)]),
+    );
+  };
+  return nodes.map((node) => visit(node, false) as T);
+}
+
 export function sitePageLd({
   about,
+  citation,
   dates,
   description,
   locale,
@@ -74,6 +95,15 @@ export function sitePageLd({
     "@type": type,
     ...(about ? { about } : {}),
     author: { "@id": siteEntityId("organization") },
+    ...(citation?.length
+      ? {
+          citation: citation.map((source) => ({
+            "@type": "CreativeWork",
+            name: source.name,
+            url: source.url,
+          })),
+        }
+      : {}),
     ...dates,
     description,
     inLanguage: locale,
@@ -93,7 +123,7 @@ export function speciesItemListLd(
     "@type": "ItemList",
     itemListElement: species.map((item, index) => ({
       "@type": "ListItem",
-      name: `${item.commonName} (${item.scientificName})`,
+      name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
       position: index + 1,
       url: speciesPageUrl(locale, item.id),
     })),

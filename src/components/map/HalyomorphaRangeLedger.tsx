@@ -153,14 +153,12 @@ function ledgerGroups(
   const names = new Map(regionNames.map((region) => [region.id, region]));
   const recorded = new Set<RegionPathId>();
   const confirmed: LedgerRow[] = [];
-  const recordedOnly: LedgerRow[] = [];
   const official: LedgerRow[] = [];
 
   for (const region of recordsByRegion) {
     const name = names.get(region.id);
-    const rows = region.status === "confirmed" ? confirmed : recordedOnly;
     recorded.add(region.id);
-    rows.push({
+    confirmed.push({
       count: region.count,
       id: region.id,
       name: name?.name ?? region.name,
@@ -183,11 +181,6 @@ function ledgerGroups(
 
   return [
     { id: "confirmed", label: copy.confirmedStatusLabel, rows: confirmed },
-    {
-      id: "recorded-only",
-      label: copy.recordedOnlyStatusLabel,
-      rows: recordedOnly,
-    },
     { id: "official", label: copy.officialRegionLabel, rows: official },
   ].filter((group) => group.rows.length > 0);
 }

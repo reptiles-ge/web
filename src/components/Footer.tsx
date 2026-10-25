@@ -40,14 +40,18 @@ const groupLinks = [
   { href: "/insects" as const, labelKey: "insects" as const },
 ];
 
-const footerGuideIds = new Set(["scorpion-sting", "snake-bite", "tick-bite"]);
+const footerGuideIds = new Set([
+  "scorpion-sting",
+  "snake-bite",
+  "snakes-in-yard",
+  "tick-bite",
+]);
 
 const guideLinks = [
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
   },
-  { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
   ...getGuideArticles().flatMap((article) =>
     footerGuideIds.has(article.id)
       ? [{ href: article.pathname, labelKey: article.messageKey }]
@@ -168,7 +172,7 @@ export async function Footer({
           />
           <FooterColumn
             className="col-span-2 mt-6 lg:order-2 lg:col-span-1 lg:mt-0"
-            linkClassName="inline-flex h-10 items-center rounded-full bg-white/7 px-3.5 text-[14px] text-white/86 transition-colors hover:text-white lg:flex lg:h-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:py-1.5 lg:text-[14.5px] lg:leading-[1.4] lg:text-white/82"
+            linkClassName="tap-target inline-flex h-10 items-center rounded-full bg-white/7 px-3.5 text-[14px] text-white/86 transition-colors hover:text-white lg:flex lg:h-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:py-1.5 lg:text-[14.5px] lg:leading-[1.4] lg:text-white/82"
             links={toLinks(groupLinks)}
             listClassName="mt-1.5 flex flex-wrap gap-2 lg:mt-0 lg:block"
             locale={locale}
@@ -243,7 +247,7 @@ export async function Footer({
               {guides.map((link) => (
                 <li key={link.label}>
                   <LocalizedLink
-                    className="flex min-h-10 items-center text-[14.5px] text-white/86"
+                    className="flex min-h-11 items-center text-[14.5px] text-white/86"
                     href={link.href}
                     locale={locale}
                     prefetch={false}

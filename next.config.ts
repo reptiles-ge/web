@@ -4,6 +4,11 @@ import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
+import {
+  API_CATALOG_LINK,
+  API_CATALOG_PATH,
+  apiDiscoveryLinkHeader,
+} from "./src/lib/apiDocsPaths";
 import { llmsLinkHeader } from "./src/lib/llmsPaths";
 import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
@@ -38,6 +43,19 @@ const nextConfig: NextConfig = {
           source,
         })),
       ),
+      ...(["ka", ...LATIN_LOCALES] as const).map((locale) => ({
+        headers: [
+          {
+            key: "Link",
+            value: `${llmsLinkHeader(locale)}, ${apiDiscoveryLinkHeader()}`,
+          },
+        ],
+        source: locale === "ka" ? "/developers" : `/${locale}/developers`,
+      })),
+      {
+        headers: [{ key: "Link", value: API_CATALOG_LINK }],
+        source: API_CATALOG_PATH,
+      },
       {
         headers: noindexStatic,
         source: "/_next/static/:path*",

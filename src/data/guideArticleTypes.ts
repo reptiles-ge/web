@@ -62,7 +62,8 @@ export type GuideArticleMessageKey =
   | "scorpionSting"
   | "stinkBugInHouse"
   | "tickBite"
-  | "waspNest";
+  | "waspNest"
+  | "yard";
 
 export type GuideArticleSection<ImageKey extends string = string> = {
   heading: string;

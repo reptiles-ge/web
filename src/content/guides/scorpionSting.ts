@@ -359,7 +359,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   },
   tr: {
     description:
-      "Akrep sokmasından sonra ne yapmalı? Güvenli ilk adımları, uyarı belirtilerini, Gürcistan'da doktora ne zaman başvurulacağını ve 112'nin ne zaman aranacağını öğrenin.",
+      "Akrep sokmasından sonra ne yapmalı? Güvenli ilk adımlar, uyarı belirtileri, Gürcistan'da ne zaman doktora gidileceği ve ne zaman 112'nin aranacağı.",
     faq: [
       {
         answer:

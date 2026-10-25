@@ -11,7 +11,7 @@ type QuizCoverPictureProps = {
   playing: boolean;
 };
 
-const COVER_SIZES = "100vw";
+const COVER_SIZES = "(max-aspect-ratio: 3/2) 150vh, 100vw";
 
 export function QuizCoverPicture({
   alt,

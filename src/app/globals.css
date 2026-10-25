@@ -119,6 +119,22 @@
   }
 }
 
+:is(
+  .uppercase,
+  .tracking-wider,
+  .tracking-widest,
+  [class*="tracking-[0.06"],
+  [class*="tracking-[0.1"],
+  [class*="tracking-[0.2"]
+):lang(ka) {
+  letter-spacing: normal;
+  text-transform: none;
+
+  &:is([class*="text-[10"], [class*="text-[11px]"]) {
+    font-size: 12px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

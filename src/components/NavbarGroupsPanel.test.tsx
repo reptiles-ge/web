@@ -37,7 +37,7 @@ function renderPanel(open: boolean, onClose = vi.fn()) {
       otherGroupsLabel="Other animals"
       quickLinks={[
         { href: "/venomous-snakes", icon: "venomous", label: "Venomous" },
-        { href: "/snakes-in-the-yard", icon: "yard", label: "In the yard" },
+        { href: "/snakes/gveli-ezoshi", icon: "yard", label: "In the yard" },
       ]}
       quickLinksLabel="Quick links"
       reptileGroups={[group("snakes", "Snakes", 22)]}

@@ -97,7 +97,7 @@ export async function ContentAttribution({
               <p className="col-span-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium sm:col-span-1 sm:col-start-2">
                 {showSources && sourcesHref ? (
                   <a
-                    className="text-foreground/80 transition-colors hover:text-primary"
+                    className="tap-target text-foreground/80 transition-colors hover:text-primary"
                     href={sourcesHref}
                   >
                     {t("sources")}
@@ -105,7 +105,7 @@ export async function ContentAttribution({
                 ) : null}
                 {showMethodology ? (
                   <Link
-                    className="inline-flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary"
+                    className="tap-target inline-flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary"
                     href={{ hash: "methodology", pathname: "/about" }}
                   >
                     {t("methodology")}

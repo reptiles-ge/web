@@ -12,6 +12,7 @@ import {
 } from "antd";
 
 import { publicEnv } from "@/lib/env";
+import { ratingPageUrl } from "@/lib/ratingInput";
 
 import { AdminListView } from "./AdminListView";
 import {
@@ -63,17 +64,24 @@ const columns: ColumnsType<AdminRating> = [
   {
     dataIndex: "path",
     key: "path",
-    render: (path: string) => (
-      <Typography.Link
-        ellipsis
-        href={new URL(path, SITE_ORIGIN).href}
-        rel="noreferrer"
-        style={{ maxWidth: 260 }}
-        target="_blank"
-      >
-        {readablePath(path)}
-      </Typography.Link>
-    ),
+    render: (path: string) => {
+      const href = ratingPageUrl(path, SITE_ORIGIN);
+      return href ? (
+        <Typography.Link
+          ellipsis
+          href={href}
+          rel="noreferrer"
+          style={{ maxWidth: 260 }}
+          target="_blank"
+        >
+          {readablePath(path)}
+        </Typography.Link>
+      ) : (
+        <Typography.Text ellipsis style={{ maxWidth: 260 }}>
+          {path}
+        </Typography.Text>
+      );
+    },
     title: "Page",
   },
   {

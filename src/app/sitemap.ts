@@ -137,7 +137,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     add(page("/authors"));
     add(page("/species"));
     add(page("/venomous-snakes"));
-    add(page("/snakes-in-the-yard"));
     add(page("/risk-to-humans"));
     add(page("/dangerous-animals"));
     add(page("/quiz"));

@@ -123,6 +123,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/snakes-in-yard-shelter-food.jpg": {
+    "path": "images/guides/snakes-in-yard-shelter-food",
+    "width": 851,
+    "height": 554,
+    "widths": [320, 400, 640, 800, 851],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
