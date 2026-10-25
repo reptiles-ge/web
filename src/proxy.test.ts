@@ -127,6 +127,7 @@ describe("configured redirects", () => {
     ["/snakes-in-the-yard", "/gvelebi/gveli-ezoshi"],
     ["/species/vipera-ammodytes", "/gvelebi/tsxvirrkosani-gvelgesla"],
     ["/terms", "/terms-and-conditions"],
+    ["/v1/docs", "/docs"],
   ])("301s %s to %s", (from, to) => {
     expect(location(from)).toEqual({
       location: `https://reptiles.ge${to}`,

@@ -100,6 +100,19 @@ describe("buildLlmsIndexText", () => {
     expect(body).toContain("## Insects species");
     expect(body).toContain("/mtserebi/aziuri-farosana");
   });
+
+  it("lists the API reference and the OpenAPI spec", () => {
+    for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
+      const body = buildLlmsIndexText(LLMS, locale);
+      expect(body, locale).toContain("(https://reptiles.ge/docs)");
+      expect(body, locale).toContain(
+        "(https://reptiles.ge/v1/docs/openapi.json)",
+      );
+      expect(body, locale).toContain(
+        "https://reptiles.ge/.well-known/api-catalog",
+      );
+    }
+  });
 });
 
 describe("buildLlmsFullText", () => {
