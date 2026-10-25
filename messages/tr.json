@@ -152,7 +152,7 @@
     "subtitle": "Bir hayvanı adına, grubuna veya bölgesine göre bulun.",
     "statSpecies": "{count} tür",
     "statRegions": "{count} bölge",
-    "statPhotos": "{count} saha fotoğrafı",
+    "statPhotos": "{count} fotoğraf",
     "statAnd": "ve",
     "popular": "Sık arananlar",
     "searchSubmit": "Atlasta arayın",
@@ -161,7 +161,7 @@
   "carousel": {
     "eyebrow": "Tür keşfi",
     "title": "Sahada tanıyabileceğiniz türler",
-    "subtitle": "Bilimsel ve yaygın adlar, risk ve saha fotoğrafları — doğrulanmış profiller.",
+    "subtitle": "Bilimsel ve yaygın adlar, risk ve fotoğraflar — tek profilde.",
     "next": "Sonraki tür"
   },
   "card": {
@@ -177,7 +177,7 @@
   "cta": {
     "eyebrow": "Atlas",
     "title": "Tür atlasında devam edin",
-    "subtitle": "Profiller, bölgesel haritalar ve saha fotoğrafları tek yapıda.",
+    "subtitle": "Profiller, bölgesel haritalar ve fotoğraflar tek yapıda.",
     "button": "Türler",
     "secondary": "Zehirli yılanlar",
     "imageAlt": "Alacakaranlıkta sisli Kafkas sırtı"
@@ -262,7 +262,7 @@
     "featured": {
       "eyebrow": "Türler",
       "title": "Atlastan türler",
-      "subtitle": "Bilimsel ve yaygın adlar, risk ve saha fotoğrafları — doğrulanmış profiller."
+      "subtitle": "Bilimsel ve yaygın adlar, risk ve fotoğraflar — tek profilde."
     },
     "fresh": {
       "eyebrow": "Yeni",
@@ -310,7 +310,7 @@
       "eyebrow": "Dijital atlas",
       "title": "Gürcistan hayvanları tek atlasda",
       "p1": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Tanıma, yaşam alanı, bölge ve daha güvenli karşılaşmalar — yürüyüşçüler, öğrenciler ve araştırmacılar için. Sürüngenler hâlâ en derin katmandır.",
-      "p2": "Saha fotoğraflı tür profilleri, on iki bölge için haritalar ve tıbbi açıdan önemli yılanlara rehber. Yeni profiller ve kaynaklar aynı yapıda eklenir.",
+      "p2": "Fotoğraflı tür profilleri, on iki bölge için haritalar ve tıbbi açıdan önemli yılanlara rehber. Yeni profiller ve kaynaklar aynı yapıda eklenir.",
       "directoryExplore": "Türler ve gruplar",
       "directoryGuides": "Rehberler",
       "directoryMore": "Diğer konular",
@@ -355,7 +355,7 @@
     }
   },
   "footer": {
-    "tagline": "Tür profilleri, bölgesel haritalar ve saha fotoğrafçılığı — dört dilde.",
+    "tagline": "Tür profilleri, bölgesel haritalar ve fotoğraflar — dört dilde.",
     "rights": "Tüm hakları saklıdır",
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -529,9 +529,9 @@
     "guidesTitle": "İlgili sayfalarla devam edin",
     "quizCtaEyebrow": "Quiz",
     "quizCtaTitle": "Sırada: bu hangi yılan?",
-    "quizCtaBody": "{name}, Gürcistan yılan quiziinde. On saha fotoğrafı, dört ad — göz alıştırması, saha tanısı değil.",
+    "quizCtaBody": "{name}, Gürcistan yılan quiziinde. On fotoğraf, dört ad — göz alıştırması, saha tanısı değil.",
     "quizCtaTitleLizard": "Sırada: bu hangi kertenkele?",
-    "quizCtaBodyLizard": "{name}, Gürcistan kertenkele quiziinde. On saha fotoğrafı, dört ad — göz alıştırması, saha tanısı değil.",
+    "quizCtaBodyLizard": "{name}, Gürcistan kertenkele quiziinde. On fotoğraf, dört ad — göz alıştırması, saha tanısı değil.",
     "quizCta": "Quiz’e başlayın",
     "range": "Yayılış",
     "rangeTitle": "{name} Gürcistan’da nerede yaşar",
@@ -735,10 +735,10 @@
   },
   "regions": {
     "metaTitle": "Bölgeler",
-    "metaDescription": "Bölgelere göre Gürcistan yılanları ve sürüngenleri — harita, yaşam alanları, zehirli türler ve saha profilleri.",
+    "metaDescription": "Bölgelere göre Gürcistan hayvanları — doğrulanmış kayıtlar, bölgesel haritalar, yaşam alanları ve yerlere göre zehirli türler.",
     "eyebrow": "Bölgesel atlas",
     "title": "Gürcistan bölgeleri",
-    "subtitle": "Gürcistan’ın sürüngenlerini yere göre inceleyin — bölgesel haritalar, yaşam alanları ve doğrulanmış tür profilleri. Bu aşamada bölgesel listelerde çoğunlukla yılanlar ve cam kertenkele yer alır; diğer gruplar, yayılışları kaynaklarla doğrulandığında eklenecektir.",
+    "subtitle": "Gürcistan’ın hayvanlarını yere göre inceleyin — bölgesel haritalar, yaşam alanları ve doğrulanmış tür profilleri. Bölgesel listelerin en eksiksiz kısmı sürüngenler ve amfibilerdir; kuşlar, memeliler ve diğer gruplar, yayılışları kaynaklarla doğrulandığında eklenir.",
     "heroImageAlt": "Bölgelere göre Gürcistan haritası — ormandan dağlara ve kuru doğuya, sürüngenlerle",
     "regionHeroAlt": "{name} — bölgesel peyzaj",
     "back": "Atlas",
@@ -915,7 +915,7 @@
     "readArticle": "Yazıyı oku",
     "featured": "Öne çıkan",
     "atlasCtaTitle": "Belirli bir tür mü arıyorsunuz?",
-    "atlasCtaBody": "Gürcistan hayvan atlasını keşfedin — tür profilleri, bölgesel yayılış ve saha fotoğrafları.",
+    "atlasCtaBody": "Gürcistan hayvan atlasını keşfedin — tür profilleri, bölgesel yayılış ve fotoğraflar.",
     "atlasCta": "Tür atlası",
     "photoFromAtlas": "Atlas fotoğrafı.",
     "photoCredit": "Fotoğraf:",
@@ -979,7 +979,7 @@
     "metaDescription": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Gürcüce kanoniktir; herpetofauna Tarkhnishvili et al. 2026’yı izler.",
     "eyebrow": "Gürcistan hayvanları atlası",
     "title": "Reptiles.ge hakkında",
-    "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
+    "subtitle": "Tür profilleri, bölgesel haritalar ve fotoğraflar — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
     "companyEyebrow": "Biz kimiz",
     "companyTitle": "Atlas neleri kapsıyor",
     "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler, örümcekler, akrepler ve böcekler aynı katalogda daha sınırlı yer alır. Site dört dildedir; Gürcüce metin kanoniktir.",
@@ -1277,7 +1277,7 @@
     "seoEyebrow": "Saha bağlamı",
     "seo": {
       "reptilesTitle": "Gürcistan sürüngenleri",
-      "reptilesP1": "Gürcistan Karadeniz, Büyük Kafkasya ve kuru doğu arasında yer alır — kısa bir coğrafi aralıkta yüksek dağ ve Kolhis ormanı engerekleri, ırmak ve sulak alan su yılanları, kuru eteklerin yılanları ve sıkça yılan sanılan yaygın bir bacaksız kertenkele yaşar. Buradaki sürüngen profilleri Gürcistan’a özgü yayılış notları ve saha fotoğrafçılığıyla yazılır.",
+      "reptilesP1": "Gürcistan Karadeniz, Büyük Kafkasya ve kuru doğu arasında yer alır — kısa bir coğrafi aralıkta yüksek dağ ve Kolhis ormanı engerekleri, ırmak ve sulak alan su yılanları, kuru eteklerin yılanları ve sıkça yılan sanılan yaygın bir bacaksız kertenkele yaşar. Buradaki sürüngen profilleri Gürcistan’a özgü yayılış notları ve fotoğraflarla yazılır.",
       "reptilesP2": "Tür zenginliğini yükseklik, nem ve sığınak habitatları şekillendirir. Batı Kolhis peyzajları Natrix gibi neme bağlı yılanlara elverişlidir; doğu yarı kurak havzalar Macrovipera lebetinus ve hızlı colubridleri barındırır; subalpin kuşak, Tarkhnishvili et al. 2026 kontrol listesinin aday takson olarak işaretlediği Vipera dinniki gibi dağ engereklerini barındırır. Bu bölüm sürüngenler hakkındadır — yılanlar, kertenkeleler ve kaplumbağalar.",
       "amphibiansTitle": "Gürcistan amfibileri",
       "amphibiansP1": "Kurbağalar, kara kurbağaları, semenderler ve Kafkas semenderi aynı katalogda, ayrı rehberlerle durur. Bu tam bir ulusal liste değildir — yalnızca yayımlanmış profiller.",
@@ -1300,7 +1300,7 @@
     "recentSubtitle": "Profiller yeni metin, taksonomi notları veya fotoğrafla yenilenmiştir.",
     "aboutEyebrow": "Güven",
     "aboutTitle": "Bu atlas hakkında",
-    "aboutLead": "Reptiles.ge, saha fotoğrafları, bölgesel haritalar ve anılan biyoçeşitlilik kaynaklarıyla Gürcistan için dört dilde tür anlatıları derler — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
+    "aboutLead": "Reptiles.ge, fotoğraflar, bölgesel haritalar ve anılan biyoçeşitlilik kaynaklarıyla Gürcistan için dört dilde tür anlatıları derler — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
     "lastUpdated": "Katalog son güncelleme {date}",
     "methodTitle": "Yöntem",
     "methodBody": "Her profil taksonomik kimliği, Gürcistan’a özgü yaşam alanı ve davranış notlarını, koruma statüsünü, tanıma özelliklerini ve SSS’yi birleştirir. Yeni literatür ve Kırmızı Liste değişiklikleri geldikçe hesaplar gözden geçirilir.",
@@ -3430,7 +3430,7 @@
   },
   "quizzes": {
     "metaTitle": "Quizler — hangi yılan, hangi kertenkele?",
-    "metaDescription": "İki canlı quiz: Gürcistan yılanları ve kertenkeleleri. On saha fotoğrafı — hesap gerekmez.",
+    "metaDescription": "İki canlı quiz: Gürcistan yılanları ve kertenkeleleri. On fotoğraf — hesap gerekmez.",
     "keywords": "quizler, hangi yılan Gürcistan, hangi kertenkele Gürcistan, yılan quizi, kertenkele quizi",
     "breadcrumbCurrent": "Quizler",
     "eyebrow": "Oynayın ve öğrenin",
@@ -3452,7 +3452,7 @@
     "howEyebrow": "Nasıl işler",
     "howTitle": "Büyük bir fotoğraf, kısa bir seçim, yerinde yanıt.",
     "how1Title": "Fotoğraf",
-    "how1Body": "Her soruda bir saha fotoğrafı vardır — işaretlere bakın.",
+    "how1Body": "Her soruda bir fotoğraf vardır — işaretlere bakın.",
     "how2Title": "Dört tür",
     "how2Body": "Birini seçin. Benzerler bilerek yakındır, böylece keskinleşirsiniz.",
     "how3Title": "Anında geri bildirim",
@@ -3460,7 +3460,7 @@
   },
   "snakeQuiz": {
     "metaTitle": "Bu hangi yılan? — Gürcistan yılan quizi",
-    "metaDescription": "On saha fotoğrafı, dört ad, yerinde skor. Gürcistan yılanları quizi — hesap gerekmez.",
+    "metaDescription": "On fotoğraf, dört ad, yerinde skor. Gürcistan yılanları quizi — hesap gerekmez.",
     "keywords": "hangi yılan Gürcistan, Gürcistan yılan quizi, yılan quizi Gürcistan, Gürcistan yılanları",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbCurrent": "Bu hangi yılan?",
@@ -3536,11 +3536,11 @@
     "faq3Q": "Kaç soru vardır?",
     "faq3A": "Varsayılan tur 10 sorudur. Her birinde bir doğru tür ve üç inandırıcı benzer vardır.",
     "faq4Q": "Fotoğraflar ve adlar nereden gelir?",
-    "faq4A": "Quiz mevcut reptiles.ge tür kataloğunu ve saha fotoğraflarını kullanır — ikinci bir tür veritabanı yoktur."
+    "faq4A": "Quiz mevcut reptiles.ge tür kataloğunu ve fotoğraflarını kullanır — ikinci bir tür veritabanı yoktur."
   },
   "lizardQuiz": {
     "metaTitle": "Bu hangi kertenkele? — Gürcistan kertenkele quizi",
-    "metaDescription": "On saha fotoğrafı, dört ad, yerinde skor. Gürcistan kertenkeleleri quizi — hesap gerekmez.",
+    "metaDescription": "On fotoğraf, dört ad, yerinde skor. Gürcistan kertenkeleleri quizi — hesap gerekmez.",
     "keywords": "hangi kertenkele Gürcistan, Gürcistan kertenkele quizi, lizard quiz Georgia, Darevskia",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbCurrent": "Bu hangi kertenkele?",
@@ -3615,7 +3615,7 @@
     "faq3Q": "Kaç soru vardır?",
     "faq3A": "Varsayılan tur 10 sorudur. Her birinde bir doğru tür ve üç inandırıcı benzer vardır.",
     "faq4Q": "Fotoğraflar ve adlar nereden gelir?",
-    "faq4A": "Quiz, reptiles.ge’nin yayımlanmış kertenkele kataloğunu ve saha fotoğraflarını kullanır — ikinci bir tür veritabanı yoktur. Darevskia türleri ayrı kalır."
+    "faq4A": "Quiz, reptiles.ge’nin yayımlanmış kertenkele kataloğunu ve fotoğraflarını kullanır — ikinci bir tür veritabanı yoktur. Darevskia türleri ayrı kalır."
   },
   "birdIndex": {
     "metaTitle": "Gürcistan kuş türleri — yayımlanmış profiller dizini",
@@ -4299,7 +4299,7 @@
     "brand": "Geliştiriciler için",
     "version": "API v1",
     "title": "Gürcistan'ın faunası, uygulamanızda",
-    "body": "Tür profilleri, bölgeler, risk düzeyleri ve kaynak gösterilmiş saha fotoğrafları — yapılandırılmış JSON olarak, dört dilde.",
+    "body": "Tür profilleri, bölgeler, risk düzeyleri ve kaynak gösterilmiş fotoğraflar — yapılandırılmış JSON olarak, dört dilde.",
     "bodyShort": "Türler, bölgeler, risk düzeyleri ve kaynak gösterilmiş fotoğraflar — JSON olarak, dört dilde.",
     "docs": "Dokümantasyon",
     "newTab": "(yeni sekmede açılır)",

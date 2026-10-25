@@ -249,10 +249,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     metaDescription: {
-      en: "Guria — 18 reptile and amphibian species, range map, Colchic forests, river valleys, habitats, and the venomous snake recorded in the region.",
-      ka: "გურია — ქვეწარმავლებისა და ამფიბიების 18 სახეობა, გავრცელების რუკა, კოლხური ტყეები, მდინარის ხეობები, ჰაბიტატები და რეგიონში გავრცელებული შხამიანი გველი.",
-      ru: "Гурия — 18 видов рептилий и амфибий, карта распространения, колхидские леса, речные долины, местообитания и ядовитая змея региона.",
-      tr: "Gurya — 18 sürüngen ve amfibi türü, yayılış haritası, Kolhis ormanları, nehir vadileri, habitatlar ve bölgede kaydedilen zehirli yılan.",
+      en: "Guria’s reptiles, amphibians, and other animals — range map, Colchic forests, river valleys, habitats, and the venomous snake recorded in the region.",
+      ka: "გურიის ქვეწარმავლები, ამფიბიები და სხვა ცხოველები — გავრცელების რუკა, კოლხური ტყეები, მდინარის ხეობები, ჰაბიტატები და რეგიონში გავრცელებული შხამიანი გველი.",
+      ru: "Рептилии, амфибии и другие животные Гурии — карта распространения, колхидские леса, речные долины, местообитания и ядовитая змея региона.",
+      tr: "Gurya’nın sürüngenleri, amfibileri ve diğer hayvanları — yayılış haritası, Kolhis ormanları, nehir vadileri, habitatlar ve bölgede kaydedilen zehirli yılan.",
     },
     overview: {
       en: "Guria is defined by a humid subtropical climate, Colchic forests, and river valleys. This environment is especially suitable for reptiles tied to moist habitats, while species typical of eastern Georgia’s dry zones are less common here.",

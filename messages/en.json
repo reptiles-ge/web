@@ -152,7 +152,7 @@
     "subtitle": "Find an animal by name, group, or region.",
     "statSpecies": "{count} species",
     "statRegions": "{count} regions",
-    "statPhotos": "{count} field photos",
+    "statPhotos": "{count} photos",
     "statAnd": "and",
     "popular": "Popular searches",
     "searchSubmit": "Search the atlas",
@@ -161,7 +161,7 @@
   "carousel": {
     "eyebrow": "Species discovery",
     "title": "Species you can identify in the field",
-    "subtitle": "Scientific and common names, risk, and field photos — verified profiles.",
+    "subtitle": "Scientific and common names, risk, and photos — in one profile.",
     "next": "Next species"
   },
   "card": {
@@ -177,7 +177,7 @@
   "cta": {
     "eyebrow": "Atlas",
     "title": "Continue in the species atlas",
-    "subtitle": "Profiles, regional maps, and field photos in one structure.",
+    "subtitle": "Profiles, regional maps, and photos in one structure.",
     "button": "Species",
     "secondary": "Venomous snakes",
     "imageAlt": "Misty Caucasus ridge at dusk"
@@ -262,7 +262,7 @@
     "featured": {
       "eyebrow": "Species",
       "title": "Species from the atlas",
-      "subtitle": "Scientific and common names, risk, and field photos — verified profiles."
+      "subtitle": "Scientific and common names, risk, and photos — in one profile."
     },
     "fresh": {
       "eyebrow": "New",
@@ -296,7 +296,7 @@
     "contributors": {
       "eyebrow": "Contributors",
       "title": "Whose photographs are in the atlas",
-      "subtitle": "Photographers whose field photos appear on species profiles — each has a page here.",
+      "subtitle": "Photographers whose photos appear on species profiles — each has a page here.",
       "seeAll": "See more contributors"
     },
     "safety": {
@@ -310,7 +310,7 @@
       "eyebrow": "Digital atlas",
       "title": "Georgia’s animals in one atlas",
       "p1": "Reptiles.ge is a four-language atlas of animals in Georgia. Identification, habitat, region, and safer encounters — for hikers, students, and researchers. Reptiles are still the deepest layer.",
-      "p2": "Species profiles with field photos, maps for twelve regions, and a guide to medically significant snakes. New profiles and sources are added in the same structure.",
+      "p2": "Species profiles with photos, maps for twelve regions, and a guide to medically significant snakes. New profiles and sources are added in the same structure.",
       "directoryExplore": "Species and groups",
       "directoryGuides": "Guides",
       "directoryMore": "More topics",
@@ -355,7 +355,7 @@
     }
   },
   "footer": {
-    "tagline": "Species profiles, regional maps, and field photography — in four languages.",
+    "tagline": "Species profiles, regional maps, and photos — in four languages.",
     "rights": "All rights reserved",
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -529,9 +529,9 @@
     "guidesTitle": "Continue with related pages",
     "quizCtaEyebrow": "Quiz",
     "quizCtaTitle": "Next: which snake is it?",
-    "quizCtaBody": "{name} is in the Georgia snake quiz. Ten field photos, four names — eye practice, not field ID.",
+    "quizCtaBody": "{name} is in the Georgia snake quiz. Ten photos, four names — eye practice, not field ID.",
     "quizCtaTitleLizard": "Next: which lizard is it?",
-    "quizCtaBodyLizard": "{name} is in the Georgia lizard quiz. Ten field photos, four names — eye practice, not field ID.",
+    "quizCtaBodyLizard": "{name} is in the Georgia lizard quiz. Ten photos, four names — eye practice, not field ID.",
     "quizCta": "Start the quiz",
     "range": "Distribution",
     "rangeTitle": "{name}: where it lives in Georgia",
@@ -735,10 +735,10 @@
   },
   "regions": {
     "metaTitle": "Regions",
-    "metaDescription": "Snakes and reptiles of Georgia by region — map, habitats, venomous species, and field profiles.",
+    "metaDescription": "Animals of Georgia by region — confirmed records, regional maps, habitats, and venomous species by place.",
     "eyebrow": "Regional atlas",
     "title": "Regions of Georgia",
-    "subtitle": "Explore Georgia’s reptiles by place — regional maps, habitats, and profiles of confirmed species. At this stage, regional lists mostly include snakes and the glass lizard; other groups will be added when their distribution is confirmed by sources.",
+    "subtitle": "Explore Georgia’s animals by place — regional maps, habitats, and profiles of confirmed species. Reptiles and amphibians are the most complete part of the regional lists; birds, mammals, and other groups are added when sources confirm their distribution.",
     "heroImageAlt": "Map of Georgia by region — from forest to mountains and the dry east, with reptiles",
     "regionHeroAlt": "{name} — regional landscape",
     "back": "Atlas",
@@ -915,7 +915,7 @@
     "readArticle": "Read the article",
     "featured": "Featured",
     "atlasCtaTitle": "Looking for a particular species?",
-    "atlasCtaBody": "Explore the atlas of animals of Georgia — species profiles, regional range, and field photographs.",
+    "atlasCtaBody": "Explore the atlas of animals of Georgia — species profiles, regional range, and photos.",
     "atlasCta": "Species atlas",
     "photoFromAtlas": "Photograph from the atlas.",
     "photoCredit": "Photo:",
@@ -979,7 +979,7 @@
     "metaDescription": "Reptiles.ge is a four-language atlas of Georgia’s animals. Georgian is canonical; herpetofauna follows Tarkhnishvili et al. 2026.",
     "eyebrow": "Atlas of animals of Georgia",
     "title": "About Reptiles.ge",
-    "subtitle": "Species profiles, regional maps, and field photos — for hikers, students, and researchers.",
+    "subtitle": "Species profiles, regional maps, and photos — for hikers, students, and researchers.",
     "companyEyebrow": "Who we are",
     "companyTitle": "What the atlas covers",
     "companyBody1": "Reptiles.ge is an atlas of animals of Georgia. Herpetofauna is the deep layer, following Tarkhnishvili et al. 2026. Birds, mammals, spiders, scorpions, and insects are covered more thinly in the same catalog. The site is published in four languages; Georgian is the canonical text.",
@@ -1098,9 +1098,9 @@
       "empty": "No contributor pages are published yet.",
       "metaTitle": "Contributors — photographers of the atlas",
       "metaDescription": "Photographers whose photos appear on reptiles.ge — portraits, galleries, and the species they documented.",
-      "eyebrow": "Field photo authors",
+      "eyebrow": "Photo authors",
       "statContributors": "Contributors",
-      "statPhotos": "Field photos",
+      "statPhotos": "Photos",
       "sorted": "sorted by number of photos",
       "filterLabel": "Filter by role",
       "all": "All",
@@ -1118,8 +1118,8 @@
     },
     "statGroups": "Groups",
     "summaryLabel": "At a glance",
-    "fieldYears": "Field photos",
-    "galleryTitle": "Field photos in the atlas",
+    "fieldYears": "Photos",
+    "galleryTitle": "Photos in the atlas",
     "galleryAllGroups": "All groups",
     "galleryFilterLabel": "Filter by group",
     "galleryShowAll": "See all {count} photos",
@@ -1277,7 +1277,7 @@
     "seoEyebrow": "Field context",
     "seo": {
       "reptilesTitle": "Reptiles of Georgia",
-      "reptilesP1": "Georgia sits between the Black Sea, the Greater Caucasus, and the arid east — a short geographic span that supports vipers of high mountains and Colchic forests, water snakes of rivers and wetlands, racers of dry foothills, and a widespread legless lizard often mistaken for a snake. Reptile profiles here carry Georgia-specific range notes and field photography.",
+      "reptilesP1": "Georgia sits between the Black Sea, the Greater Caucasus, and the arid east — a short geographic span that supports vipers of high mountains and Colchic forests, water snakes of rivers and wetlands, racers of dry foothills, and a widespread legless lizard often mistaken for a snake. Reptile profiles here carry Georgia-specific range notes and photos.",
       "reptilesP2": "Species richness here is shaped by elevation, humidity, and refuge habitats. Western Colchic landscapes favor moisture-linked snakes such as Natrix; eastern semi-arid basins hold Macrovipera lebetinus and fast colubrids; the subalpine belt holds mountain vipers such as Vipera dinniki, which the Tarkhnishvili et al. 2026 checklist marks as a candidate taxon. This section is about reptiles — snakes, lizards, and turtles.",
       "amphibiansTitle": "Amphibians of Georgia",
       "amphibiansP1": "Frogs, toads, newts, and the Caucasian salamander sit in the same catalog, with dedicated guides. This is not a complete national list — only published profiles.",
@@ -1300,7 +1300,7 @@
     "recentSubtitle": "Profiles refreshed with new text, taxonomy notes, or photography.",
     "aboutEyebrow": "Trust",
     "aboutTitle": "About this atlas",
-    "aboutLead": "Reptiles.ge compiles species accounts for Georgia in Georgian, English, Russian, and Turkish, with field photos, regional maps, and cited biodiversity sources — for hikers, students, and researchers.",
+    "aboutLead": "Reptiles.ge compiles species accounts for Georgia in Georgian, English, Russian, and Turkish, with photos, regional maps, and cited biodiversity sources — for hikers, students, and researchers.",
     "lastUpdated": "Catalog last updated {date}",
     "methodTitle": "Methodology",
     "methodBody": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior notes, conservation status, identification traits, and FAQs. Accounts are reviewed as new literature and Red List changes appear.",
@@ -3430,7 +3430,7 @@
   },
   "quizzes": {
     "metaTitle": "Quizzes — which snake, which lizard?",
-    "metaDescription": "Two live quizzes today: snakes and lizards of Georgia. Ten field photos — no account required.",
+    "metaDescription": "Two live quizzes today: snakes and lizards of Georgia. Ten photos — no account required.",
     "keywords": "quizzes, which snake Georgia, which lizard Georgia, Georgia snake quiz, Georgia lizard quiz",
     "breadcrumbCurrent": "Quizzes",
     "eyebrow": "Play and learn",
@@ -3452,7 +3452,7 @@
     "howEyebrow": "How it works",
     "howTitle": "A large photo, a short choice, an answer on the spot.",
     "how1Title": "Photo",
-    "how1Body": "Each question has one field photo — look for the marks.",
+    "how1Body": "Each question has one photo — look for the marks.",
     "how2Title": "Four species",
     "how2Body": "Pick one. Lookalikes sit close on purpose, so you get sharper.",
     "how3Title": "Instant feedback",
@@ -3460,7 +3460,7 @@
   },
   "snakeQuiz": {
     "metaTitle": "Which snake is it? — Georgia snake quiz",
-    "metaDescription": "Ten field photos, four names, a score on the spot. A quiz on the snakes of Georgia — no account required.",
+    "metaDescription": "Ten photos, four names, a score on the spot. A quiz on the snakes of Georgia — no account required.",
     "keywords": "which snake Georgia, Georgia snake quiz, snake quiz Georgia, snakes of Georgia",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Which snake is it?",
@@ -3536,11 +3536,11 @@
     "faq3Q": "How many questions are there?",
     "faq3A": "The default round is 10 questions. Each has one correct species and three plausible lookalikes.",
     "faq4Q": "Where do the photos and names come from?",
-    "faq4A": "The quiz uses the existing reptiles.ge species catalog and field photos — there is no second species database."
+    "faq4A": "The quiz uses the existing reptiles.ge species catalog and photos — there is no second species database."
   },
   "lizardQuiz": {
     "metaTitle": "Which lizard is it? — Georgia lizard quiz",
-    "metaDescription": "Ten field photos, four names, a score on the spot. A quiz on the lizards of Georgia — no account required.",
+    "metaDescription": "Ten photos, four names, a score on the spot. A quiz on the lizards of Georgia — no account required.",
     "keywords": "which lizard Georgia, Georgia lizard quiz, lizard quiz Georgia, Darevskia",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Which lizard is it?",
@@ -3615,7 +3615,7 @@
     "faq3Q": "How many questions are there?",
     "faq3A": "The default round is 10 questions. Each has one correct species and three plausible lookalikes.",
     "faq4Q": "Where do the photos and names come from?",
-    "faq4A": "The quiz uses the published reptiles.ge lizard catalog and field photos — there is no second species database. Darevskia species stay separate."
+    "faq4A": "The quiz uses the published reptiles.ge lizard catalog and photos — there is no second species database. Darevskia species stay separate."
   },
   "birdIndex": {
     "metaTitle": "Bird species of Georgia — index of published profiles",
@@ -4299,7 +4299,7 @@
     "brand": "For developers",
     "version": "API v1",
     "title": "Georgia's wildlife, in your app",
-    "body": "Species profiles, regions, risk levels and credited field photos — as structured JSON, in four languages.",
+    "body": "Species profiles, regions, risk levels and credited photos — as structured JSON, in four languages.",
     "bodyShort": "Species, regions, risk levels and credited photos — as JSON, in four languages.",
     "docs": "Documentation",
     "newTab": "(opens in a new tab)",
