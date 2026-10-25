@@ -1,11 +1,13 @@
 import type { ColumnsType } from "antd/es/table";
 
 import { Button, message, Space, Table, Tabs, Tag, Typography } from "antd";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
 import { AdminLink } from "./AdminLink";
 import { ClearCacheButton } from "./ClearCacheButton";
+import { CoverPreviewButton } from "./CoverPreview";
+import { movePhoto, sameOrder } from "./galleryOrder";
 import { PhotoActions } from "./PhotoActions";
 import { PhotoThumbnail } from "./PhotoThumbnail";
 import { PhotoUploadButton } from "./PhotoUploadButton";
@@ -15,6 +17,8 @@ import {
   clearSpeciesCache,
   fetchAdminFieldRecords,
   fetchAdminSpeciesRecord,
+  reorderSpeciesPhotos,
+  SessionExpiredError,
   SPECIES_STATUS_COLORS,
 } from "./species";
 import { SpeciesTextsEditor } from "./SpeciesTextsEditor";
@@ -154,7 +158,38 @@ export function SpeciesDetailPage({
     onSessionExpired,
   );
   const [savedVersion, setSavedVersion] = useState<null | number>(null);
+  const [pendingOrder, setPendingOrder] = useState<null | {
+    srcs: string[];
+    version?: number;
+  }>(null);
+  const dragging = useRef<null | string>(null);
   const [messages, contextHolder] = message.useMessage();
+
+  function changed(next: number, notice: string) {
+    void messages.success(notice);
+    setSavedVersion(next);
+    reload();
+  }
+
+  async function saveOrder(srcs: string[], current: string[], version: number) {
+    const saving = pendingOrder !== null && pendingOrder.version === undefined;
+    if (saving || sameOrder(srcs, current)) return;
+    setPendingOrder({ srcs });
+    try {
+      const saved = await reorderSpeciesPhotos(id, srcs, version);
+      setPendingOrder({ srcs, version: saved });
+      changed(saved, "Gallery order saved.");
+    } catch (caught) {
+      setPendingOrder(null);
+      if (caught instanceof SessionExpiredError) {
+        onSessionExpired();
+        return;
+      }
+      void messages.error(
+        caught instanceof Error ? caught.message : "Gallery order save failed",
+      );
+    }
+  }
   const value =
     data === undefined
       ? undefined
@@ -175,30 +210,89 @@ export function SpeciesDetailPage({
         status={status}
       >
         {({ fieldRecords, found: { record, version } }) => {
-          const photos = photoRows(record);
+          const recordOrder = record.base.gallery.map((photo) => photo.src);
+          const ordering =
+            pendingOrder !== null && pendingOrder.version === undefined;
+          const order =
+            pendingOrder &&
+            (pendingOrder.version === undefined ||
+              version < pendingOrder.version)
+              ? pendingOrder.srcs
+              : recordOrder;
+          const photos = photoRows(record, order);
           const galleryCount = record.base.gallery.length;
+          const currentVersion = savedVersion ?? version;
+          const move = (src: string, to: number) =>
+            void saveOrder(movePhoto(order, src, to), order, currentVersion);
           const columns: ColumnsType<PhotoRow> = [
+            {
+              key: "order",
+              render: (_, row) => {
+                if (!row.gallery) return null;
+                const index = order.indexOf(row.src);
+                return (
+                  <Space size={2}>
+                    <span
+                      aria-hidden
+                      style={{ cursor: ordering ? "default" : "grab" }}
+                      title="Drag to reorder"
+                    >
+                      ⠿
+                    </span>
+                    <Button
+                      aria-label={`Move ${row.role} up`}
+                      disabled={ordering || index === 0}
+                      onClick={() => move(row.src, index - 1)}
+                      size="small"
+                      type="text"
+                    >
+                      ↑
+                    </Button>
+                    <Button
+                      aria-label={`Move ${row.role} down`}
+                      disabled={ordering || index === order.length - 1}
+                      onClick={() => move(row.src, index + 1)}
+                      size="small"
+                      type="text"
+                    >
+                      ↓
+                    </Button>
+                  </Space>
+                );
+              },
+              title: "Order",
+              width: 110,
+            },
             ...photoColumns,
             {
               fixed: "right",
               key: "actions",
               render: (_, row) =>
                 row.gallery ? (
-                  <PhotoActions
-                    canDelete={galleryCount > 1}
-                    credit={row.credit}
-                    enCredit={row.enCredit}
-                    georgiaField={row.confidence === "georgia-field"}
-                    id={id}
-                    onChanged={(next, notice) => {
-                      void messages.success(notice);
-                      setSavedVersion(next);
-                      reload();
-                    }}
-                    onSessionExpired={onSessionExpired}
-                    src={row.src}
-                    version={savedVersion ?? version}
-                  />
+                  <Space>
+                    <CoverPreviewButton
+                      commonName={record.base.commonName}
+                      id={id}
+                      image={record.base.image}
+                      mobileImage={record.base.mobileImage}
+                      onChanged={changed}
+                      onSessionExpired={onSessionExpired}
+                      scientificName={record.base.scientificName}
+                      src={row.src}
+                      version={currentVersion}
+                    />
+                    <PhotoActions
+                      canDelete={galleryCount > 1}
+                      credit={row.credit}
+                      enCredit={row.enCredit}
+                      georgiaField={row.confidence === "georgia-field"}
+                      id={id}
+                      onChanged={changed}
+                      onSessionExpired={onSessionExpired}
+                      src={row.src}
+                      version={currentVersion}
+                    />
+                  </Space>
                 ) : null,
               title: "Actions",
             },
@@ -234,7 +328,7 @@ export function SpeciesDetailPage({
                       {record.status}
                     </Tag>
                     <Tag>{record.group}</Tag>
-                    <Tag>version {savedVersion ?? version}</Tag>
+                    <Tag>version {currentVersion}</Tag>
                   </>
                 }
                 title={record.base.commonName}
@@ -249,9 +343,46 @@ export function SpeciesDetailPage({
                           onSessionExpired={onSessionExpired}
                           onUploaded={reload}
                         />
+                        <Typography.Text type="secondary">
+                          Drag gallery rows, or use ↑ ↓, to change the order.
+                          The species page shows the first 5 gallery photos; the
+                          rest open from the gallery.
+                        </Typography.Text>
                         <Table<PhotoRow>
                           columns={columns}
                           dataSource={photos}
+                          onRow={(row) =>
+                            row.gallery && !ordering
+                              ? {
+                                  draggable: true,
+                                  onDragEnd: () => {
+                                    dragging.current = null;
+                                  },
+                                  onDragOver: (event) => {
+                                    if (dragging.current)
+                                      event.preventDefault();
+                                  },
+                                  onDragStart: (event) => {
+                                    event.dataTransfer.effectAllowed = "move";
+                                    event.dataTransfer.setData(
+                                      "text/plain",
+                                      row.src,
+                                    );
+                                    dragging.current = row.src;
+                                  },
+                                  onDrop: (event) => {
+                                    event.preventDefault();
+                                    if (dragging.current) {
+                                      move(
+                                        dragging.current,
+                                        order.indexOf(row.src),
+                                      );
+                                    }
+                                    dragging.current = null;
+                                  },
+                                }
+                              : {}
+                          }
                           pagination={false}
                           rowKey="key"
                           scroll={{ x: 900 }}
@@ -317,10 +448,15 @@ function coordinates(lat?: number, lng?: number) {
   );
 }
 
-function photoRows({
-  base,
-  translations,
-}: AdminSpeciesRecord["record"]): PhotoRow[] {
+function photoRows(
+  { base, translations }: AdminSpeciesRecord["record"],
+  order: string[],
+): PhotoRow[] {
+  const bySrc = new Map(base.gallery.map((photo) => [photo.src, photo]));
+  const gallery = order.flatMap((src) => {
+    const photo = bySrc.get(src);
+    return photo ? [photo] : [];
+  });
   const overlays = new Map(
     (translations.en.gallery ?? []).map((photo) => [photo.src, photo.credit]),
   );
@@ -345,7 +481,7 @@ function photoRows({
           },
         ]
       : []),
-    ...base.gallery.map((photo, index) => ({
+    ...gallery.map((photo, index) => ({
       confidence: photo.photoConfidence ?? photo.credit?.photoConfidence,
       credit: photo.credit,
       enCredit: overlays.get(photo.src),

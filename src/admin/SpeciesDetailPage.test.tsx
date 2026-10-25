@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -9,8 +9,10 @@ import {
   deleteSpeciesPhoto,
   fetchAdminFieldRecords,
   fetchAdminSpeciesRecord,
+  reorderSpeciesPhotos,
   saveSpeciesPhotoCredit,
   SessionExpiredError,
+  setSpeciesCover,
 } from "./species";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
 
@@ -20,7 +22,9 @@ vi.mock("./species", async (importOriginal) => ({
   deleteSpeciesPhoto: vi.fn(),
   fetchAdminFieldRecords: vi.fn(),
   fetchAdminSpeciesRecord: vi.fn(),
+  reorderSpeciesPhotos: vi.fn(),
   saveSpeciesPhotoCredit: vi.fn(),
+  setSpeciesCover: vi.fn(),
 }));
 
 const RECORD = {
@@ -77,7 +81,25 @@ beforeEach(() => {
   vi.mocked(clearSpeciesCache).mockReset();
   vi.mocked(deleteSpeciesPhoto).mockReset().mockResolvedValue(8);
   vi.mocked(saveSpeciesPhotoCredit).mockReset().mockResolvedValue(8);
+  vi.mocked(reorderSpeciesPhotos).mockReset().mockResolvedValue(8);
+  vi.mocked(setSpeciesCover).mockReset().mockResolvedValue(8);
 });
+
+const SECOND = "https://cdn.reptiles.ge/images/giurza-3.jpg";
+const FIRST = "https://cdn.reptiles.ge/images/giurza-2.jpg";
+
+async function coverDialog() {
+  const title = await screen.findByText("Cover preview", {
+    selector: ".ant-modal-title",
+  });
+  return title.closest<HTMLElement>('[role="dialog"]')!;
+}
+
+function galleryRoles() {
+  return screen
+    .getAllByText(/^Gallery \d$/)
+    .map((tag) => tag.closest("tr")!.querySelector("img")!.getAttribute("src"));
+}
 
 function withSecondPhoto(): AdminSpeciesRecord {
   const copy = structuredClone(RECORD);
@@ -320,5 +342,142 @@ describe("SpeciesDetailPage", () => {
       within(popup).getByRole("button", { name: "Delete" }),
     );
     await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
+  });
+
+  it("moves a photo up and saves the new gallery order", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    expect(
+      within(row).getByRole("button", { name: "Move Gallery 2 down" }),
+    ).toBeDisabled();
+    await userEvent.click(
+      within(row).getByRole("button", { name: "Move Gallery 2 up" }),
+    );
+    expect(reorderSpeciesPhotos).toHaveBeenCalledExactlyOnceWith(
+      "macrovipera-lebetina",
+      [SECOND, FIRST],
+      7,
+    );
+    expect(await screen.findByText("Gallery order saved.")).toBeInTheDocument();
+    expect(galleryRoles()[0]).toContain("giurza-3");
+    expect(await screen.findByText("version 8")).toBeInTheDocument();
+  });
+
+  it("reorders the gallery by dragging a row onto another", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    show();
+    const second = (await screen.findByText("Gallery 2")).closest("tr")!;
+    const first = screen.getByText("Gallery 1").closest("tr")!;
+    expect(second).toHaveAttribute("draggable", "true");
+    expect(screen.getByText("Desktop cover").closest("tr")).not.toHaveAttribute(
+      "draggable",
+    );
+    const dataTransfer = { effectAllowed: "", setData: vi.fn() };
+    fireEvent.dragStart(second, { dataTransfer });
+    fireEvent.dragOver(first, { dataTransfer });
+    fireEvent.drop(first, { dataTransfer });
+    expect(dataTransfer.setData).toHaveBeenCalledWith("text/plain", SECOND);
+    await vi.waitFor(() =>
+      expect(reorderSpeciesPhotos).toHaveBeenCalledExactlyOnceWith(
+        "macrovipera-lebetina",
+        [SECOND, FIRST],
+        7,
+      ),
+    );
+  });
+
+  it("puts the order back and explains when the save fails", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    vi.mocked(reorderSpeciesPhotos).mockRejectedValue(
+      new Error("Someone saved a newer version."),
+    );
+    show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(
+      within(row).getByRole("button", { name: "Move Gallery 2 up" }),
+    );
+    expect(
+      await screen.findByText("Someone saved a newer version."),
+    ).toBeInTheDocument();
+    expect(galleryRoles()[0]).toContain("giurza-2");
+  });
+
+  it("previews a photo as desktop and mobile cover and makes it the mobile cover", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Cover" }));
+    const dialog = await coverDialog();
+    const candidate = within(dialog).getByRole("region", {
+      name: "This photo as cover",
+    });
+    expect(
+      within(candidate).getAllByRole("img", { name: /header preview/ }),
+    ).toHaveLength(3);
+    expect(
+      within(candidate)
+        .getByRole("img", { name: "Desktop header preview" })
+        .querySelector("img")!
+        .getAttribute("src"),
+    ).toContain("giurza-3");
+    const now = within(dialog).getByRole("region", { name: "Covers now" });
+    expect(
+      within(now)
+        .getAllByRole("img", { name: "Mobile header preview" })[0]!
+        .querySelector("img")!
+        .getAttribute("src"),
+    ).toContain("giurza-m");
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Make mobile cover" }),
+    );
+    expect(setSpeciesCover).toHaveBeenCalledExactlyOnceWith(
+      "macrovipera-lebetina",
+      SECOND,
+      "mobile",
+      7,
+    );
+    expect(await screen.findByText("Mobile cover saved.")).toBeInTheDocument();
+  });
+
+  it("disables the cover a photo already is and shows a refused save", async () => {
+    const record = withSecondPhoto();
+    record.record.base.image = FIRST;
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(record);
+    vi.mocked(setSpeciesCover).mockRejectedValue(new Error("Cover refused"));
+    show();
+    const row = (await screen.findByText("Gallery 1")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Cover" }));
+    const dialog = await coverDialog();
+    expect(
+      within(dialog).getByRole("button", { name: "Make desktop cover" }),
+    ).toBeDisabled();
+    expect(within(dialog).getByText("this photo")).toBeInTheDocument();
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Make both covers" }),
+    );
+    expect(
+      await within(dialog).findByText("Cover refused"),
+    ).toBeInTheDocument();
+  });
+
+  it("sends an expired session from a cover or order change back to sign-in", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    vi.mocked(setSpeciesCover).mockRejectedValue(new SessionExpiredError());
+    vi.mocked(reorderSpeciesPhotos).mockRejectedValue(
+      new SessionExpiredError(),
+    );
+    const expired = show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(
+      within(row).getByRole("button", { name: "Move Gallery 2 up" }),
+    );
+    await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
+    await userEvent.click(within(row).getByRole("button", { name: "Cover" }));
+    const dialog = await coverDialog();
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Make both covers" }),
+    );
+    await vi.waitFor(() => expect(expired).toHaveBeenCalledTimes(2));
   });
 });

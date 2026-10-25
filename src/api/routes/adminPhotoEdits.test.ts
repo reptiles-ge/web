@@ -21,7 +21,7 @@ let siteFetch: ReturnType<
 >;
 
 async function post<T>(
-  action: "credit" | "delete",
+  action: "credit" | "delete" | "reorder" | "set-cover",
   body: Record<string, unknown>,
   headers: Record<string, string> = { ...session, Origin: ADMIN_ORIGIN },
   id = ID,
@@ -277,5 +277,181 @@ describe("POST /v1/admin/species/:id/photos/delete", () => {
     expect((await record()).record.base.gallery).toHaveLength(
       before.record.base.gallery.length,
     );
+  });
+});
+
+describe("POST /v1/admin/species/:id/photos/reorder", () => {
+  it("saves the new gallery order without touching the covers or the cache", async () => {
+    const before = await record();
+    const srcs = before.record.base.gallery.map((item) => item.src);
+    const reordered = [srcs.at(-1)!, ...srcs.slice(0, -1)];
+    const { body, response } = await post<{ version: number }>("reorder", {
+      expectedVersion: before.version,
+      srcs: reordered,
+    });
+    expect(response.status).toBe(200);
+    expect(body.data).toStrictEqual({ version: before.version + 1 });
+    const after = (await record()).record;
+    expect(after.base.gallery.map((item) => item.src)).toStrictEqual(reordered);
+    expect(after.base.gallery[0]).toStrictEqual(
+      before.record.base.gallery.at(-1),
+    );
+    expect(after.base.image).toBe(before.record.base.image);
+    expect(after.base.mobileImage).toBe(before.record.base.mobileImage);
+    expect(revision(before.version + 1)).toEqual({
+      actor: "Admin",
+      source: "admin",
+      summary: "Reorder gallery",
+    });
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("refuses an order that misses, repeats or adds a photo", async () => {
+    const before = await record();
+    const srcs = before.record.base.gallery.map((item) => item.src);
+    for (const bad of [
+      srcs.slice(1),
+      [srcs[0]!, ...srcs.slice(0, -1)],
+      [...srcs.slice(0, -1), "https://cdn.reptiles.ge/unknown.jpg"],
+    ]) {
+      const { response } = await post("reorder", {
+        expectedVersion: before.version,
+        srcs: bad,
+      });
+      expect([400, 404]).toContain(response.status);
+    }
+    expect((await record()).version).toBe(before.version);
+  });
+
+  it("answers 409 on a stale version and needs a session from the admin origin", async () => {
+    const before = await record();
+    const srcs = before.record.base.gallery.map((item) => item.src).reverse();
+    expect(
+      (await post("reorder", { expectedVersion: before.version + 1, srcs }))
+        .response.status,
+    ).toBe(409);
+    expect(
+      (
+        await post(
+          "reorder",
+          { expectedVersion: before.version, srcs },
+          { Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN },
+        )
+      ).response.status,
+    ).toBe(401);
+    expect(
+      (
+        await post(
+          "reorder",
+          { expectedVersion: before.version, srcs },
+          session,
+        )
+      ).response.status,
+    ).toBe(403);
+    expect((await record()).version).toBe(before.version);
+  });
+});
+
+describe("POST /v1/admin/species/:id/photos/set-cover", () => {
+  it("sets the desktop, the mobile or both covers with the photo's credit", async () => {
+    const start = await record();
+    const photo = start.record.base.gallery.find(
+      (item) =>
+        item.src !== start.record.base.image &&
+        item.src !== start.record.base.mobileImage,
+    )!;
+    const desktop = await post<{
+      image: string;
+      mobileImage: string;
+      version: number;
+    }>("set-cover", {
+      expectedVersion: start.version,
+      src: photo.src,
+      target: "desktop",
+    });
+    expect(desktop.response.status).toBe(200);
+    expect(desktop.body.data.image).toBe(photo.src);
+    let after = (await record()).record.base;
+    expect(after.image).toBe(photo.src);
+    expect(after.imageCredit).toStrictEqual(photo.credit);
+    expect(after.mobileImage).toBe(start.record.base.mobileImage);
+    expect(revision(start.version + 1)).toEqual({
+      actor: "Admin",
+      source: "admin",
+      summary: "Set desktop cover",
+    });
+
+    const other = start.record.base.gallery.find(
+      (item) => item.src !== photo.src,
+    )!;
+    const mobile = await post<{ mobileImage: string; version: number }>(
+      "set-cover",
+      {
+        expectedVersion: desktop.body.data.version,
+        src: other.src,
+        target: "mobile",
+      },
+    );
+    expect(mobile.response.status).toBe(200);
+    after = (await record()).record.base;
+    expect(after.mobileImage).toBe(other.src);
+    expect(after.image).toBe(photo.src);
+
+    const both = await post<{
+      image: string;
+      mobileImage: string;
+      version: number;
+    }>("set-cover", {
+      expectedVersion: mobile.body.data.version,
+      src: other.src,
+      target: "both",
+    });
+    expect(both.response.status).toBe(200);
+    after = (await record()).record.base;
+    expect(after.image).toBe(other.src);
+    expect(after.mobileImage).toBe(other.src);
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("answers 404 for a photo outside the gallery, 409 on a stale version and needs a session", async () => {
+    const before = await record();
+    const src = before.record.base.gallery[0]!.src;
+    expect(
+      (
+        await post("set-cover", {
+          expectedVersion: before.version,
+          src: "https://cdn.reptiles.ge/unknown.jpg",
+          target: "both",
+        })
+      ).response.status,
+    ).toBe(404);
+    expect(
+      (
+        await post("set-cover", {
+          expectedVersion: before.version + 1,
+          src,
+          target: "both",
+        })
+      ).response.status,
+    ).toBe(409);
+    expect(
+      (
+        await post(
+          "set-cover",
+          { expectedVersion: before.version, src, target: "both" },
+          { Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN },
+        )
+      ).response.status,
+    ).toBe(401);
+    expect(
+      (
+        await post("set-cover", {
+          expectedVersion: before.version,
+          src,
+          target: "sideways",
+        })
+      ).response.status,
+    ).toBe(400);
+    expect((await record()).version).toBe(before.version);
   });
 });
