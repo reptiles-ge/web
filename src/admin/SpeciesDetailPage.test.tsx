@@ -6,8 +6,10 @@ import {
   type AdminFieldRecord,
   type AdminSpeciesRecord,
   clearSpeciesCache,
+  deleteSpeciesPhoto,
   fetchAdminFieldRecords,
   fetchAdminSpeciesRecord,
+  saveSpeciesPhotoCredit,
   SessionExpiredError,
 } from "./species";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
@@ -15,8 +17,10 @@ import { SpeciesDetailPage } from "./SpeciesDetailPage";
 vi.mock("./species", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./species")>()),
   clearSpeciesCache: vi.fn(),
+  deleteSpeciesPhoto: vi.fn(),
   fetchAdminFieldRecords: vi.fn(),
   fetchAdminSpeciesRecord: vi.fn(),
+  saveSpeciesPhotoCredit: vi.fn(),
 }));
 
 const RECORD = {
@@ -71,7 +75,24 @@ beforeEach(() => {
   vi.mocked(fetchAdminSpeciesRecord).mockReset().mockResolvedValue(RECORD);
   vi.mocked(fetchAdminFieldRecords).mockReset().mockResolvedValue(LOCATIONS);
   vi.mocked(clearSpeciesCache).mockReset();
+  vi.mocked(deleteSpeciesPhoto).mockReset().mockResolvedValue(8);
+  vi.mocked(saveSpeciesPhotoCredit).mockReset().mockResolvedValue(8);
 });
+
+function withSecondPhoto(): AdminSpeciesRecord {
+  const copy = structuredClone(RECORD);
+  copy.record.base.gallery.push({
+    credit: { photographer: "ნიკა" },
+    src: "https://cdn.reptiles.ge/images/giurza-3.jpg",
+  });
+  copy.record.translations.en.gallery = [
+    {
+      credit: { location: "Shiraki", photographer: "Nika" },
+      src: "https://cdn.reptiles.ge/images/giurza-3.jpg",
+    },
+  ];
+  return copy;
+}
 
 describe("SpeciesDetailPage", () => {
   it("shows the species with its covers and gallery under Photos", async () => {
@@ -191,5 +212,113 @@ describe("SpeciesDetailPage", () => {
         'img[src="https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg"]',
       ),
     ).toBeNull();
+  });
+
+  it("offers edit and delete on gallery photos only", async () => {
+    show();
+    const cover = (await screen.findByText("Desktop cover")).closest("tr")!;
+    expect(within(cover).queryByRole("button", { name: "Edit" })).toBeNull();
+    const gallery = screen.getByText("Gallery 1").closest("tr")!;
+    expect(within(gallery).getByRole("button", { name: "Edit" })).toBeEnabled();
+    expect(
+      within(gallery).getByRole("button", { name: "Delete" }),
+    ).toBeDisabled();
+  });
+
+  it("edits a photo credit with its English overlay and reloads", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Edit" }));
+    const dialog = await screen.findByRole("dialog", {
+      name: "Edit photo credit",
+    });
+    expect(
+      within(dialog).getByLabelText("Photographer (Georgian)"),
+    ).toHaveValue("ნიკა");
+    expect(within(dialog).getByLabelText("Photographer (English)")).toHaveValue(
+      "Nika",
+    );
+    expect(within(dialog).getByLabelText("Place (English)")).toHaveValue(
+      "Shiraki",
+    );
+    const place = within(dialog).getByLabelText("Place (Georgian)");
+    await userEvent.type(place, "შირაქი");
+    await userEvent.click(within(dialog).getByRole("button", { name: "Save" }));
+    await vi.waitFor(() =>
+      expect(saveSpeciesPhotoCredit).toHaveBeenCalledExactlyOnceWith(
+        "macrovipera-lebetina",
+        "https://cdn.reptiles.ge/images/giurza-3.jpg",
+        expect.objectContaining({
+          georgiaField: false,
+          location: "შირაქი",
+          locationEn: "Shiraki",
+          photographer: "ნიკა",
+          photographerEn: "Nika",
+        }),
+        7,
+      ),
+    );
+    expect(await screen.findByText("version 8")).toBeInTheDocument();
+    expect(fetchAdminSpeciesRecord).toHaveBeenCalledTimes(2);
+  });
+
+  it("shows why a credit was refused", async () => {
+    vi.mocked(saveSpeciesPhotoCredit).mockRejectedValue(
+      new Error("საქართველოს ველის ფოტოს ადგილი სავალდებულოა"),
+    );
+    show();
+    const row = (await screen.findByText("Gallery 1")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Edit" }));
+    const dialog = await screen.findByRole("dialog", {
+      name: "Edit photo credit",
+    });
+    expect(
+      within(dialog).getByRole("checkbox", {
+        name: "Taken in Georgia (needs a place)",
+      }),
+    ).toBeChecked();
+    await userEvent.click(within(dialog).getByRole("button", { name: "Save" }));
+    expect(
+      await within(dialog).findByText(
+        "საქართველოს ველის ფოტოს ადგილი სავალდებულოა",
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("deletes a gallery photo after confirmation", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Delete" }));
+    const popup = (await screen.findByText("Delete this photo?")).closest(
+      ".ant-popover",
+    ) as HTMLElement;
+    await userEvent.click(
+      within(popup).getByRole("button", { name: "Delete" }),
+    );
+    expect(deleteSpeciesPhoto).toHaveBeenCalledExactlyOnceWith(
+      "macrovipera-lebetina",
+      "https://cdn.reptiles.ge/images/giurza-3.jpg",
+      7,
+    );
+    expect(
+      await screen.findByText("Photo removed from the gallery."),
+    ).toBeInTheDocument();
+  });
+
+  it("sends an expired session from a photo delete back to sign-in", async () => {
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(withSecondPhoto());
+    vi.mocked(deleteSpeciesPhoto).mockRejectedValue(new SessionExpiredError());
+    const expired = show();
+    const row = (await screen.findByText("Gallery 2")).closest("tr")!;
+    await userEvent.click(within(row).getByRole("button", { name: "Delete" }));
+    const popup = (await screen.findByText("Delete this photo?")).closest(
+      ".ant-popover",
+    ) as HTMLElement;
+    await userEvent.click(
+      within(popup).getByRole("button", { name: "Delete" }),
+    );
+    await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
   });
 });
