@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { server } from "../../tests/msw/server";
 import {
@@ -111,6 +111,31 @@ describe("fetchINaturalistPhoto", () => {
     serve(observation({ captive: true }));
     const captive = await fetchINaturalistPhoto(URL);
     expect(captive.ok && captive.metadata.georgiaField).toBe(false);
+  });
+
+  it("uses only redirect modes the Workers runtime accepts and never follows one", async () => {
+    serve(observation());
+    const spy = vi.spyOn(globalThis, "fetch");
+    try {
+      await fetchINaturalistPhoto(URL);
+      expect(spy).toHaveBeenCalledTimes(2);
+      for (const [, init] of spy.mock.calls) {
+        expect(init?.redirect).toBe("manual");
+      }
+    } finally {
+      spy.mockRestore();
+    }
+    serve(
+      observation(),
+      () =>
+        new HttpResponse(null, {
+          headers: { Location: "https://evil.example/photo.jpg" },
+          status: 302,
+        }),
+    );
+    expect(await fetchINaturalistPhoto(URL)).toMatchObject({
+      reason: "download_failed",
+    });
   });
 
   it("names each failure", async () => {
