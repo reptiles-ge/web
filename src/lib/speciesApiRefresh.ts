@@ -8,8 +8,6 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const AUTHOR_TAG_PREFIX = "author:";
 
-const CATALOG_VIEWS = ["card", "full", "photos", "quiz"] as const;
-
 const NEWS_LIST_PAGINGS = [
   { every: false, limit: HOME_NEWS_LIMIT },
   { every: true, limit: NEWS_PAGE_SIZE },
@@ -28,17 +26,6 @@ export async function refreshSpeciesApiCache(tags: string[]) {
     headers: { "X-Cache-Bypass": token },
     init: { cache: "no-store" as const },
   };
-  const catalog = tags.includes("species")
-    ? routing.locales.flatMap((locale) =>
-        CATALOG_VIEWS.map(
-          (view) => () =>
-            api.v1.catalog.$get(
-              { header: { "x-locale": locale }, query: { view } },
-              options,
-            ),
-        ),
-      )
-    : [];
   const profiles = tags
     .filter((tag) => tag.startsWith(SPECIES_TAG_PREFIX))
     .map((tag) => tag.slice(SPECIES_TAG_PREFIX.length))
@@ -111,7 +98,6 @@ export async function refreshSpeciesApiCache(tags: string[]) {
       ),
     );
   await [
-    ...catalog,
     ...profiles,
     ...newsList,
     ...newsArticles,
