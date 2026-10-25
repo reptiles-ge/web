@@ -129,10 +129,14 @@ test("vipera-ammodytes 301s to vipera-transcaucasiana", async ({ request }) => {
   );
 });
 
-test("filtered atlas is noindex", async ({ page }) => {
+test("filtered atlas canonicalises to the plain atlas", async ({ page }) => {
   const response = await page.goto("/species?type=snake");
   expect(response?.status()).toBe(200);
-  expect(response?.headers()["x-robots-tag"] ?? "").toMatch(/noindex/i);
+  expect(response?.headers()["x-robots-tag"] ?? "").not.toMatch(/noindex/i);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/species$/,
+  );
 });
 
 test("quiz landing is indexable and play stays on the same URL", async ({
