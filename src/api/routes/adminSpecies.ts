@@ -57,6 +57,8 @@ import {
   inaturalistPhotoBody,
   photoCreditBody,
   photoDeleteBody,
+  photoReorderBody,
+  photoSetCoverBody,
   photoUploadForm,
 } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
@@ -280,6 +282,52 @@ export const adminSpecies = new Hono<ApiEnv>()
         current,
       );
       return c.json({ data: { ...result, ...covers(record), version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/reorder",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoReorderBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, srcs } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Reorder gallery",
+        (record) => reorderPhotos(record, srcs),
+        [],
+        current,
+      );
+      return c.json({ data: { version } }, 200);
+    },
+  )
+  .post(
+    "/:id/photos/set-cover",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", photoSetCoverBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, src, target } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      const { record, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        `Set ${target} cover`,
+        (draft) => setCover(draft, target, src),
+        [],
+        current,
+      );
+      return c.json({ data: { ...covers(record), version } }, 200);
     },
   )
   .use(requireToken)

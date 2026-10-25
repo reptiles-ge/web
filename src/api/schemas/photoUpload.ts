@@ -41,6 +41,17 @@ export const photoDeleteBody = z.strictObject({
   src: photoSrc,
 });
 
+export const photoSetCoverBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  src: photoSrc,
+  target: z.enum(["both", "desktop", "mobile"]),
+});
+
+export const photoReorderBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  srcs: z.array(photoSrc).min(2).max(200),
+});
+
 export const inaturalistPhotoBody = z.strictObject({
   photoUrl: z
     .string()
