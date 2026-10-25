@@ -54,6 +54,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -165,7 +166,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const ogImageTag = openGraphJpeg(
       ogImage,
-      `${item.commonName} (${item.scientificName})`,
+      `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     );
 
     return {
@@ -425,7 +426,7 @@ function speciesStructuredData({
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
-    name: `${item.commonName} (${item.scientificName})`,
+    name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     url: ogImage,
     ...ogImageDimensions(ogImage),
     ...(ogImage === speciesOgImageUrl(item.id)
@@ -450,7 +451,7 @@ function speciesStructuredData({
           hasPart: { "@id": galleryId },
         }
       : {}),
-    headline: `${item.commonName} (${item.scientificName})`,
+    headline: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
