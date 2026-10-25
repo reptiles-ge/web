@@ -283,7 +283,7 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
     ).toEqual([{ decided_by: "Admin", status: "approved" }]);
     expect(siteFetch).toHaveBeenCalledOnce();
     expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
-      tags: [`species:${ID}`],
+      tags: ["species", `species:${ID}`],
     });
   });
 

@@ -304,7 +304,7 @@ export function SpeciesDetailPage({
                   <>
                     <Button onClick={reload}>Reload</Button>
                     <ClearCacheButton
-                      description="This species' profile pages on reptiles.ge render fresh on their next visit, in every language. Hubs, lists and cards are not cleared."
+                      description="This species' profile pages, and the hubs, lists and cards that show it, render fresh on reptiles.ge on their next visit, in every language."
                       failure="The species cache could not be cleared. Try again in a minute."
                       label="Clear cache"
                       onSessionExpired={onSessionExpired}

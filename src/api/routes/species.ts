@@ -10,14 +10,14 @@ import {
   listPublishedSpecies,
 } from "../db/species";
 import { readViewTotal } from "../db/views";
-import { edgeCache, PUBLIC_CACHE } from "../lib/cache";
+import { cacheTags, edgeCache, PUBLIC_CACHE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import { validate } from "../lib/validate";
 import { localeHeader } from "../schemas/common";
 import { speciesListQuery, speciesParam } from "../schemas/species";
 
 export const species = new Hono<ApiEnv>()
-  .use(edgeCache("reptiles-api-species"))
+  .use(edgeCache("reptiles-api-species", ["species"]))
   .get(
     "/",
     validate("header", localeHeader),
@@ -26,6 +26,7 @@ export const species = new Hono<ApiEnv>()
       const { "x-locale": locale } = c.req.valid("header");
       const { group } = c.req.valid("query");
       const data = await listPublishedSpecies(c.env.DB, locale, group);
+      cacheTags(c, "catalog");
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", locale);
       return c.json({ data, locale, total: data.length }, 200);
@@ -46,6 +47,7 @@ export const species = new Hono<ApiEnv>()
           ])
         : [null, 0];
       if (!data) throw new ApiError(404, "not_found", "Species not found");
+      cacheTags(c, `species:${id}`);
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", locale);
       return c.json({ data, locale, views }, 200);
@@ -63,6 +65,7 @@ export const species = new Hono<ApiEnv>()
       );
       if (!id) throw new ApiError(404, "not_found", "Species not found");
       const data = await readFieldRecords(c.env.DB, id);
+      cacheTags(c, `species:${id}`);
       c.header("Cache-Control", PUBLIC_CACHE);
       return c.json({ data, id, total: data.length }, 200);
     },
@@ -80,6 +83,7 @@ export const species = new Hono<ApiEnv>()
       );
       if (!id) throw new ApiError(404, "not_found", "Species not found");
       const rangeMap = await readRangeMap(c.env.DB, id);
+      cacheTags(c, `species:${id}`);
       const data = rangeMap
         ? { ...rangeMap, copy: rangeMap.copy[locale] }
         : null;

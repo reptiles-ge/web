@@ -1,54 +1,71 @@
 import type { ApiBindings } from "../env";
 
+import { purgeApiCache } from "./cachePurge";
 import { ApiError } from "./errors";
 
 const MAX_TAGS_PER_REQUEST = 20;
+
+const ALL_API_TAGS = ["species", "catalog", "images", "news", "authors"];
+
+const PAGE_GROUP_API_TAGS: Record<string, string[]> = {
+  atlas: ["catalog"],
+  contributors: ["authors"],
+  home: ["catalog", "news", "authors"],
+  news: ["news"],
+  quizzes: ["catalog"],
+  regions: ["catalog"],
+  safety: ["catalog"],
+  site: ALL_API_TAGS,
+};
 
 export async function ensureSiteRevalidated(pending: Promise<boolean>) {
   if (!(await pending)) {
     throw new ApiError(
       502,
       "site_unavailable",
-      "The site could not be revalidated",
+      "The cache could not be cleared",
     );
   }
 }
 
 export function revalidateAuthorPages(env: ApiBindings, id: string) {
-  return revalidateSite(env, {
-    tags: ["authors", `author:${id}`, "species", "news"],
-  });
+  const tags = ["authors", `author:${id}`, "species", "news"];
+  return clearCaches(env, [...tags, "catalog"], { tags });
 }
 
 export function revalidateAuthorsSection(env: ApiBindings) {
-  return revalidateSite(env, { tags: ["authors"] });
+  return clearCaches(env, ["authors"], { tags: ["authors"] });
 }
 
 export function revalidateContributorPage(env: ApiBindings, id: string) {
-  return revalidateSite(env, { tags: [`author:${id}`] });
+  return clearCaches(env, [`author:${id}`], { tags: [`author:${id}`] });
 }
 
 export function revalidateNewsArticle(env: ApiBindings, slug: string) {
-  return revalidateSite(env, { tags: [`news:${slug}`] });
+  return clearCaches(env, [`news:${slug}`], { tags: [`news:${slug}`] });
 }
 
 export function revalidateNewsPages(env: ApiBindings, slug: string) {
-  return revalidateSite(env, { tags: ["news", `news:${slug}`] });
+  const tags = ["news", `news:${slug}`];
+  return clearCaches(env, tags, { tags });
 }
 
 export function revalidateNewsSection(env: ApiBindings) {
-  return revalidateSite(env, { tags: ["news"] });
+  return clearCaches(env, ["news"], { tags: ["news"] });
 }
 
 export function revalidatePageGroup(env: ApiBindings, id: string) {
-  return revalidateSite(env, { groups: [id] });
+  return clearCaches(env, PAGE_GROUP_API_TAGS[id] ?? [], { groups: [id] });
 }
 
 export function revalidateSpeciesPage(env: ApiBindings, id: string) {
-  return revalidateSite(env, { tags: [`species:${id}`] });
+  return clearCaches(env, [`species:${id}`, "catalog", "images"], {
+    tags: ["species", `species:${id}`],
+  });
 }
 
 export async function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
+  const purged = await purgeApiCache(env, ["species", "catalog", "images"]);
   const tags = ["species", ...ids.map((id) => `species:${id}`)];
   for (let start = 0; start < tags.length; start += MAX_TAGS_PER_REQUEST) {
     const ok = await revalidateSite(env, {
@@ -56,7 +73,17 @@ export async function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
     });
     if (!ok) return false;
   }
-  return true;
+  return purged !== "failed";
+}
+
+async function clearCaches(
+  env: ApiBindings,
+  apiTags: string[],
+  payload: { groups: string[] } | { tags: string[] },
+) {
+  const purged = await purgeApiCache(env, apiTags);
+  const revalidated = await revalidateSite(env, payload);
+  return revalidated && purged !== "failed";
 }
 
 async function revalidateSite(
