@@ -9,6 +9,8 @@ import {
   regionRelatedLinks,
 } from "@/data/regionContent";
 import { getRegionLabels } from "@/data/regions";
+import { routing } from "@/i18n/routing";
+import { KA_META_DESCRIPTION_OVERRIDES } from "@/lib/kaMetaDescriptionOverrides";
 
 describe("getLocalizedRegionContent", () => {
   it("resolves one region in one locale to plain strings", () => {
@@ -79,5 +81,23 @@ describe("getRegionLabels", () => {
     expect(getRegionLabels("ka")).toEqual(
       regions.map((region) => ({ id: region.id, label: region.name.ka })),
     );
+  });
+});
+
+describe("region descriptions", () => {
+  it("never hard-code a species count", () => {
+    const descriptions = regions.flatMap((region) => {
+      const { metaDescription } = getRegionContent(region.id);
+      return [
+        ...routing.locales.flatMap((locale) =>
+          metaDescription?.[locale] ? [metaDescription[locale]] : [],
+        ),
+        KA_META_DESCRIPTION_OVERRIDES[`/regions/${region.id}`] ?? "",
+      ];
+    });
+
+    for (const description of descriptions) {
+      expect(description).not.toMatch(/\d/);
+    }
   });
 });

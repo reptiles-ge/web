@@ -94,7 +94,7 @@ export async function generateMetadata({
       ? localizeRegionTextIfPresent(content.metaDescription, locale)
       : null) ??
     t("regionMetaDescription", {
-      count: region.speciesIds.length,
+      count: getRegionSpecies(region, await getSpeciesCatalog(locale)).length,
       name,
       nameIn,
     });

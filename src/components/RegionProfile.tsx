@@ -576,9 +576,6 @@ function RegionProfileSpecies({
             {t("empty")}
           </p>
         )}
-        <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-          {t("dataGapBody")}
-        </p>
       </div>
     </section>
   );
