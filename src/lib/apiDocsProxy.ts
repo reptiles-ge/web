@@ -1,4 +1,4 @@
-const API_ORIGIN = "https://api.reptiles.ge";
+import { API_ORIGIN } from "@/lib/apiClient";
 
 const API_DOCS_PATHS: Record<string, string> = {
   "/docs": "/v1/docs",
