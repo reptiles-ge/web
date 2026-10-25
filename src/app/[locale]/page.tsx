@@ -98,7 +98,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   );
   const pageLd = {
     "@context": "https://schema.org",
-    "@id": homeUrl,
+    "@id": `${homeUrl}#webpage`,
     "@type": "WebPage",
     ...(await pageDateFields("/", locale)),
     description,

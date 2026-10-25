@@ -60,6 +60,24 @@ export function localePageUrl(
   return absoluteUrl(localePath(locale, path));
 }
 
+export function shareRepeatedNodes<T>(nodes: readonly T[]): T[] {
+  const seen = new Set<unknown>();
+  const visit = (value: unknown, nested: boolean): unknown => {
+    if (Array.isArray(value)) return value.map((item) => visit(item, true));
+    if (!value || typeof value !== "object") return value;
+    const node = value as Record<string, unknown>;
+    const id = node["@id"];
+    if (nested && id && Object.keys(node).length > 1) {
+      if (seen.has(id)) return { "@id": id };
+      seen.add(id);
+    }
+    return Object.fromEntries(
+      Object.entries(node).map(([key, item]) => [key, visit(item, true)]),
+    );
+  };
+  return nodes.map((node) => visit(node, false) as T);
+}
+
 export function sitePageLd({
   about,
   citation,

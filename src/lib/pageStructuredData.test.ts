@@ -4,6 +4,7 @@ import {
   breadcrumbListLd,
   homeChildBreadcrumbLd,
   localePageUrl,
+  shareRepeatedNodes,
   sitePageLd,
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
@@ -154,5 +155,27 @@ describe("sitePageLd", () => {
       about: { "@type": "Place", name: "Georgia" },
       mainEntity: { "@type": "ItemList" },
     });
+  });
+});
+
+describe("shareRepeatedNodes", () => {
+  it("keeps the first nested node in full and references the rest by @id", () => {
+    const person = { "@id": "https://x/#person", "@type": "Person", name: "A" };
+    const [first, second] = shareRepeatedNodes([
+      { "@type": "ImageObject", creator: person },
+      { "@type": "ImageGallery", associatedMedia: [{ creator: person }] },
+    ]);
+    expect(first.creator).toEqual(person);
+    expect(second.associatedMedia).toEqual([
+      { creator: { "@id": "https://x/#person" } },
+    ]);
+  });
+
+  it("never turns a top-level node into a reference", () => {
+    const node = { "@id": "https://x/#a", "@type": "Thing" };
+    expect(shareRepeatedNodes([{ about: node }, node])).toEqual([
+      { about: node },
+      node,
+    ]);
   });
 });

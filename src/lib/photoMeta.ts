@@ -2,7 +2,7 @@ import type { GalleryImage, PhotoCredit, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { ContributorDirectory } from "@/lib/contributorCredits";
 
-import { optimizedImgSrc } from "@/data/optimizedImages";
+import { optimizedImgSize, optimizedImgSrc } from "@/data/optimizedImages";
 import { photoRights } from "@/lib/imageRights";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
@@ -26,6 +26,7 @@ export function galleryImageObject(
     contributors,
   );
   const format = encodingFormat(publishedSrc);
+  const size = optimizedImgSize(photo.src);
   const contentLocation = photoContentLocation(credit);
 
   return {
@@ -36,6 +37,7 @@ export function galleryImageObject(
     name,
     url,
     ...(format ? { encodingFormat: format } : {}),
+    ...size,
     ...photoRights(photo.src, credit, locale, contributors),
     ...(credit?.date ? { dateCreated: credit.date } : {}),
     ...(contentLocation ? { contentLocation } : {}),

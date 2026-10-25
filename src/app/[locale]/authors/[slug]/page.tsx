@@ -30,7 +30,7 @@ import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
-import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
+import { siteConfig, siteEntityId } from "@/lib/site";
 import {
   getCreditPhotoCatalog,
   getSpeciesCatalog,
@@ -55,9 +55,8 @@ export default async function AuthorRoute({ params }: Props) {
   const author = await getContributor(slug, locale);
   if (!author) notFound();
 
-  const [t, tShared, creditPhotos, catalog] = await Promise.all([
+  const [t, creditPhotos, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
     getCreditPhotoCatalog(),
     getSpeciesCatalog(locale),
   ]);
@@ -76,21 +75,15 @@ export default async function AuthorRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
         item: indexUrl,
         name: t("index.breadcrumb"),
-        position: 2,
+        position: 1,
       },
       {
         "@type": "ListItem",
         item: url,
         name,
-        position: 3,
+        position: 2,
       },
     ],
   };
