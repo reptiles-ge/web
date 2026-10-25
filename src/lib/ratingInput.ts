@@ -10,10 +10,20 @@ export const ratingInputSchema = z
     path: z
       .string()
       .max(300)
-      .regex(/^\/(?!\/)\S*$/),
+      .regex(/^\/(?!\/)[^\s\\]*$/),
     rating: z.int().min(1).max(5),
   })
   .refine((value) => !needsFeedback(value.rating) || value.feedback, {
     message: "Feedback is required below 5 stars",
     path: ["feedback"],
   });
+
+export function ratingPageUrl(path: string, origin: string | URL) {
+  try {
+    const base = new URL(origin);
+    const url = new URL(path, base);
+    return url.origin === base.origin ? url.href : null;
+  } catch {
+    return null;
+  }
+}
