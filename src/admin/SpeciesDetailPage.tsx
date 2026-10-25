@@ -44,9 +44,11 @@ const photoColumns: ColumnsType<PhotoRow> = [
   {
     dataIndex: "src",
     key: "src",
-    render: (src: string) => <PhotoThumbnail src={src} />,
+    render: (src: string) => (
+      <PhotoThumbnail height={86} src={src} width={128} />
+    ),
     title: "Photo",
-    width: 100,
+    width: 152,
   },
   {
     dataIndex: "role",
