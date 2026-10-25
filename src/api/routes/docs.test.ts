@@ -65,14 +65,14 @@ describe("docs route", () => {
     expect(html).toContain("/v1/docs/openapi.json");
   });
 
-  it("serves an OpenAPI 3.1 document that tries requests on its own origin", async () => {
+  it("serves an OpenAPI 3.1 document that tries requests on the API origin first", async () => {
     const { document, response } = await loadDocument();
     expect(response.status).toBe(200);
     expect(document.openapi).toBe("3.1.0");
     expect(document.security).toEqual([{ ApiKey: [] }]);
     expect(document.servers.map((server) => server.url)).toEqual([
-      "/",
       "https://api.reptiles.ge",
+      "/",
     ]);
   });
 

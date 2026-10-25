@@ -579,8 +579,8 @@ export function buildOpenApiDocument() {
     paths,
     security: [{ ApiKey: [] }],
     servers: [
-      { description: "This server", url: "/" },
       { description: "Production", url: "https://api.reptiles.ge" },
+      { description: "This server", url: "/" },
     ],
     tags: [
       {
