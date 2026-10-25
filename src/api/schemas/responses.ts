@@ -650,7 +650,15 @@ const authorProfileFields = {
     z.string().nullable(),
     "Portrait image URL. Set for contributors.",
   ),
+  publishedAt: doc(
+    z.string().nullable(),
+    "When the contributor page was first published, as an ISO 8601 UTC timestamp. `null` for authors without a page.",
+  ),
   role: authorRole,
+  updatedAt: doc(
+    z.string().nullable(),
+    "When the author's record was last changed, as an ISO 8601 UTC timestamp. `null` when it has not been changed since dates were recorded.",
+  ),
 };
 
 const authorProfile = component(

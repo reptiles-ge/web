@@ -41,6 +41,7 @@ import {
 
 import {
   catalogSpeciesFixture,
+  contributorsFixture,
   fixtureUpdatedAt,
 } from "../../tests/fixtures/speciesCatalog";
 import sitemap from "./sitemap";
@@ -111,7 +112,12 @@ describe("sitemap", () => {
       );
       const author = byUrl.get(creditAuthorUrl(locale, "sandro-khakhva"));
       expect(author?.lastModified ?? null).toBe(
-        await authorModifiedDate("sandro-khakhva", locale),
+        await authorModifiedDate(
+          contributorsFixture(locale).find(
+            ({ id }) => id === "sandro-khakhva",
+          )!,
+          locale,
+        ),
       );
     }
   });

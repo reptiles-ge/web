@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 
 import { getGuideArticles } from "@/data/guideArticles";
 import {
-  sitemapAuthorDatePublished,
   sitemapPathDatePublished,
   sitemapQuizDatePublished,
   sitemapRegionDatePublished,
@@ -198,10 +197,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const { languages } = creditAuthorAlternates(locale, author.id);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
       add(
-        authorModifiedDate(author.id, locale, cards, creditPhotos).then(
+        authorModifiedDate(author, locale, cards, creditPhotos).then(
           (date) => ({
             alternates: { languages },
-            datePublished: sitemapAuthorDatePublished(author.id),
+            datePublished: author.publishedAt ?? undefined,
             lastModified: toLastModified(date),
             url: creditAuthorUrl(locale, author.id),
             ...(images.length > 0 ? { images } : {}),

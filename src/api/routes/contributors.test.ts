@@ -31,6 +31,14 @@ describe("GET /v1/contributors", () => {
     expect(body.data.every((author) => author.portraitSrc && author.role)).toBe(
       true,
     );
+    expect(
+      body.data.every(
+        (author) =>
+          author.publishedAt &&
+          author.updatedAt &&
+          author.updatedAt >= author.publishedAt,
+      ),
+    ).toBe(true);
     const order = body.data.map(({ id, photoCount }) => ({ id, photoCount }));
     expect(order).toEqual(
       [...order].sort(
