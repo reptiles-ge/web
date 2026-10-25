@@ -102,7 +102,7 @@ export async function NewsIndexPage({
                   {t("status", {
                     count: total,
                     date: formatContentDate(
-                      newsIndexDateFields(locale, articles).dateModified,
+                      newsIndexDateFields(articles).dateModified,
                       locale,
                     ),
                   })}

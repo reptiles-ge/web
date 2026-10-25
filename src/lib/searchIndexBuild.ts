@@ -7,10 +7,10 @@ import {
 } from "@/data/authors";
 import { getGuideArticles } from "@/data/guideArticles";
 import {
-  getPublishedNewsArticles,
   newsLocalizedDek,
   newsLocalizedTitle,
   newsSearchKeywords,
+  type NewsSummary,
 } from "@/data/news";
 import { optimizedImgSrc } from "@/data/optimizedImages";
 import { getRegionHeroImage } from "@/data/regionImages";
@@ -716,10 +716,16 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
   },
   "turtle-land": {
     icon: "guide",
-    keywords: ["ხმელეთის კუ", "land turtle", "tortoise", "testudo"],
+    keywords: [
+      "ხმელეთის კუ",
+      "land turtle",
+      "tortoise",
+      "testudo",
+      "spur-thighed tortoise",
+    ],
     subtitle: {
-      en: "The spur-thighed tortoise",
-      ka: "ხმელეთის კუ — Spur-thighed tortoise",
+      en: "The Mediterranean tortoise",
+      ka: "ხმელთაშუაზღვეთის კუ",
     },
     title: { en: "Land turtles of Georgia", ka: "ხმელეთის კუები საქართველოში" },
   },
@@ -1045,6 +1051,7 @@ export function buildSearchIndex(
   locale: AppLocale,
   catalogs: SearchCatalogs,
   contributors: SearchContributors,
+  news: readonly NewsSummary[],
 ): SearchDocument[] {
   const base = catalogs[routing.defaultLocale];
   const byLocale = Object.fromEntries(
@@ -1160,7 +1167,7 @@ export function buildSearchIndex(
       title: inLocale(locale).name,
     };
   });
-  const newsDocs = getPublishedNewsArticles().map((article) => {
+  const newsDocs = news.map((article) => {
     const title = newsLocalizedTitle(article, locale);
     const dek = newsLocalizedDek(article, locale);
     return {
@@ -1169,7 +1176,9 @@ export function buildSearchIndex(
       id: article.id,
       key: `news:${article.id}`,
       kind: "page" as const,
-      scoreTitles: Object.values(article.copy).map((copy) => copy.title),
+      scoreTitles: Object.values(article.copy).flatMap((copy) =>
+        copy ? [copy.title] : [],
+      ),
       searchText: blob(newsSearchKeywords(article)),
       subtitle: dek,
       title,

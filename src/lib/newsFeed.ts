@@ -1,10 +1,9 @@
 import type { AppLocale } from "@/i18n/routing";
 
 import {
-  getPublishedNewsArticles,
-  type NewsArticle,
   newsLocalizedDek,
   newsLocalizedTitle,
+  type NewsSummary,
 } from "@/data/news";
 import {
   newsArticleModifiedDateTime,
@@ -17,7 +16,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const NEWS_FEED_HEADERS = {
   "Cache-Control":
-    "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+    "public, max-age=3600, s-maxage=3600, stale-while-revalidate=604800",
   "Content-Type": "application/atom+xml; charset=utf-8",
 };
 
@@ -27,15 +26,15 @@ export function buildNewsFeedXml({
   subtitle,
   title,
 }: {
-  articles?: readonly NewsArticle[];
+  articles: readonly NewsSummary[];
   locale: AppLocale;
   subtitle: string;
   title: string;
 }) {
   const indexUrl = newsIndexUrl(locale);
-  const entries = uniqueBySlug(
-    articles ?? getPublishedNewsArticles(locale),
-  ).filter((article) => Boolean(article.copy[locale]));
+  const entries = uniqueBySlug(articles).filter((article) =>
+    Boolean(article.copy[locale]),
+  );
   const lines = [
     '<?xml version="1.0" encoding="utf-8"?>',
     `<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${locale}">`,
@@ -44,7 +43,7 @@ export function buildNewsFeedXml({
     `  <subtitle>${escapeXml(subtitle)}</subtitle>`,
     `  <link href="${escapeXml(indexUrl)}" hreflang="${locale}" rel="alternate" type="text/html"/>`,
     `  <link href="${escapeXml(newsFeedUrl(locale))}" rel="self" type="application/atom+xml"/>`,
-    `  <updated>${newsIndexDateFields(locale, entries).dateModified}</updated>`,
+    `  <updated>${newsIndexDateFields(entries).dateModified}</updated>`,
     "  <author>",
     `    <name>${escapeXml(siteConfig.name)}</name>`,
     `    <uri>${escapeXml(absoluteUrl("/"))}</uri>`,
@@ -90,7 +89,7 @@ export function newsFeedUrl(locale: AppLocale) {
 const INVALID_XML_CHARS =
   /[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g;
 
-function uniqueBySlug(articles: readonly NewsArticle[]) {
+function uniqueBySlug(articles: readonly NewsSummary[]) {
   const seen = new Set<string>();
   return articles.filter((article) => {
     if (article.status !== "published" || seen.has(article.slug)) return false;

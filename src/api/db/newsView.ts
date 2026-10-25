@@ -17,7 +17,6 @@ import { readNewsRecords } from "./news";
 export type NewsDetailView = NewsSummaryView & {
   gallery: NewsPhotoView[];
   metaDescription: string;
-  metaTitle: string;
   sections: NewsSection[];
 };
 
@@ -35,6 +34,7 @@ export type NewsSummaryView = {
   image?: NewsPhotoView;
   lead: string;
   locales: AppLocale[];
+  metaTitle: string;
   publishedAt: string;
   readMinutes: number;
   relatedHubIds: string[];
@@ -119,7 +119,6 @@ function newsDetail(article: NewsArticle, locale: AppLocale): NewsDetailView {
       localizePhoto(photo, locale),
     ),
     metaDescription: copy.metaDescription,
-    metaTitle: copy.metaTitle,
     sections: copy.sections,
   };
 }
@@ -149,6 +148,7 @@ function newsSummary(article: NewsArticle, locale: AppLocale): NewsSummaryView {
     ...(article.image ? { image: localizePhoto(article.image, locale) } : {}),
     lead: copy.lead,
     locales: newsArticleLocales(article),
+    metaTitle: copy.metaTitle,
     publishedAt: article.publishedAt,
     readMinutes: newsCopyReadMinutes(copy),
     relatedHubIds: [...article.relatedHubIds],

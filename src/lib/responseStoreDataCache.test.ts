@@ -70,6 +70,26 @@ describe("NonReplayingResponseStoreCache", () => {
     expect(store.purge).toHaveBeenCalledWith({ tags: [expect.any(String)] });
   });
 
+  it("sends the tags of one revalidation in a single purge", async () => {
+    const { store } = memoryStore();
+    const cache = new NonReplayingResponseStoreCache(store as never);
+    await Promise.all(
+      ["species", "species:giurza", "species:giurza", "news"].map((tag) =>
+        cache.revalidateTag(tag),
+      ),
+    );
+    expect(store.purge).toHaveBeenCalledTimes(1);
+    expect(store.purge.mock.calls[0]![0].tags).toHaveLength(3);
+  });
+
+  it("starts a new purge for tags revalidated after the last one was sent", async () => {
+    const { store } = memoryStore();
+    const cache = new NonReplayingResponseStoreCache(store as never);
+    await cache.revalidateTag("species");
+    await cache.revalidateTag("news");
+    expect(store.purge).toHaveBeenCalledTimes(2);
+  });
+
   it("is what the adapter factory builds", () => {
     expect(() => createResponseStoreDataCache()).toThrow(
       "Workers Response Store adapter must run through its generated Cloudflare worker entry",

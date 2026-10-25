@@ -1,6 +1,6 @@
 # News content: MDX → D1 migration plan
 
-Status as of 2026-10-24. Phases 1 and 2, slices 3.1 and 3.2 and the `news:import` create path are built. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
+Status as of 2026-10-25. Phases 1 and 2, slices 3.1 and 3.2, the `news:import` create path and the phase 4 site consumers (sitemap, feeds, llms files, search index) are built. Binding API rules are in `.agents/skills/api/SKILL.md`; read that first. The species track (`docs/SPECIES-D1-MIGRATION.md`) is the model: same API layout, row builder, round-trip test, versioned writes, revalidation and loaders.
 
 ## Where things stand
 
@@ -11,7 +11,7 @@ Status as of 2026-10-24. Phases 1 and 2, slices 3.1 and 3.2 and the `news:import
 | 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                     |
 | 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                       |
 | 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳ 3.1 + 3.2 code done (article, index, archive) |
-| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳                                               |
+| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳ sitemap, feeds, llms and search done          |
 | 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done        |
 | 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                               |
 
@@ -153,6 +153,16 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
 ---
 
 ## Phase 4 — build-time and SEO consumers
+
+### Done: sitemap, feeds, llms files, search index
+
+- `GET /v1/news` items carry `metaTitle`, which the search index needs. It moved from the article-only fields to the summary.
+- `getNewsSummaries()` in `src/lib/newsApi.ts` reads the list in every locale and merges it into one `NewsSummary` per article (`src/data/newsTypes.ts`: `copy` per locale with `title`, `dek` and `metaTitle`, sources, dates), in the Georgian list's order. `newsApi.test.ts` requires it to equal the compiled articles, so the outputs did not change.
+- `sitemap.ts` (articles, `/news` and archive pages), `newsFeedResponse.ts` (all Atom feeds), `llmsResponse.ts` (`createLlmsSpecies(catalogs, news)`) and the search route (`buildSearchIndex(…, news)`) read it. `newsPageCounts`, `getNewsPage` and `newsIndexDateFields` take the article list instead of reading the compiled data.
+- `src/app/newsDiscovery.test.ts` creates and publishes an article only in D1 and requires it in the sitemap, the feed, the llms files and the search index.
+- Still on the compiled data: the scripts below.
+
+### Original plan
 
 - `sitemap.ts`, `feed.xml` routes (`newsFeed.ts`), `llmsFiles.ts`, `searchIndexBuild.ts`: read `getNewsList` (the list has everything except sections; `llms-full` needs `GET /v1/news/:slug` per article or a `?view=full` list).
 - Scripts: `export-seo-graph.ts`, `reptiles-seo.ts`, `fetch-photo-licenses.ts`, `generate-news-schema-images.ts`, `optimize-images.ts --news`. Load from the API the way S2.12a does for species (`tsx` cannot use React `cache` or `next` fetch options).

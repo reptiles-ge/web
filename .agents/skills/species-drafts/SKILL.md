@@ -96,13 +96,14 @@ The page shades a region only when the record table marks it **confirmed**: it h
 
 ## When the push refuses
 
-| Message                                                 | Do this                                                                                             |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `the species is at version X, the file was pulled at Y` | Someone changed the species. Pull again and redo the edit on the fresh record.                      |
-| `these fields are not changed through AI drafts`        | Undo those fields. If the owner asked for them, explain where they are changed instead (see above). |
-| `the record breaks a content rule` with paths           | Fix the listed paths (usually item counts across locales, or missing `lat`/`lng` pair).             |
-| `nothing changed`                                       | The file matches the live record. Check you edited `record`, not a copy.                            |
-| `API_WRITE_TOKEN is not set`                            | Stop and tell the owner to add it to `.env.local`.                                                  |
+| Message                                                 | Do this                                                                                                              |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `the species is at version X, the file was pulled at Y` | Someone changed the species. Pull again and redo the edit on the fresh record.                                       |
+| `these fields are not changed through AI drafts`        | Undo those fields. If the owner asked for them, explain where they are changed instead (see above).                  |
+| `the record breaks a content rule` with paths           | Fix the listed paths (usually item counts across locales, or missing `lat`/`lng` pair).                              |
+| `the change adds text about the page, map or sources…`  | Rewrite the listed sentences about the animal (house style R6). Do not mention the page, atlas, map or record table. |
+| `nothing changed`                                       | The file matches the live record. Check you edited `record`, not a copy.                                             |
+| `API_WRITE_TOKEN is not set`                            | Stop and tell the owner to add it to `.env.local`.                                                                   |
 
 ## Never
 

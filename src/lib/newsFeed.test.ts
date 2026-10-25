@@ -38,7 +38,7 @@ const article = getPublishedNewsArticles()[0];
 
 function feed(locale: (typeof routing.locales)[number], articles?: never[]) {
   return buildNewsFeedXml({
-    articles,
+    articles: articles ?? getPublishedNewsArticles(),
     locale,
     subtitle: "Subtitle",
     title: "Title",
@@ -88,7 +88,7 @@ describe("buildNewsFeedXml", () => {
         doc.querySelector('feed > link[rel="self"]')?.getAttribute("href"),
       ).toBe(newsFeedUrl(locale));
       expect(doc.querySelector("feed > updated")?.textContent).toBe(
-        newsIndexDateFields(locale).dateModified,
+        newsIndexDateFields(getPublishedNewsArticles(locale)).dateModified,
       );
     }
   });
@@ -197,7 +197,7 @@ describe("buildNewsFeedXml", () => {
     const doc = parse(feed("en", []));
     expect(doc.querySelectorAll("entry")).toHaveLength(0);
     expect(doc.querySelector("feed > updated")?.textContent).toBe(
-      newsIndexDateFields("en", []).dateModified,
+      newsIndexDateFields([]).dateModified,
     );
   });
 });
@@ -207,5 +207,9 @@ describe("NEWS_FEED_HEADERS", () => {
     expect(NEWS_FEED_HEADERS["Content-Type"]).toBe(
       "application/atom+xml; charset=utf-8",
     );
+  });
+
+  it("lets the edge keep a feed for an hour, so a new article shows up soon", () => {
+    expect(NEWS_FEED_HEADERS["Cache-Control"]).toContain("s-maxage=3600");
   });
 });

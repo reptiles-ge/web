@@ -389,6 +389,7 @@ export const RESPONSE_EXAMPLES = {
         },
         lead: "The autumn raptor count at the Batumi bottleneck ended on 21 October 2026, after 71 days.",
         locales: ["ka", "en", "ru", "tr"],
+        metaTitle: "Batumi raptor count 2026: last day and first bird camp",
         publishedAt: "2026-10-23",
         readMinutes: 4,
         relatedHubIds: ["birds", "snakes"],

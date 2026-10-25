@@ -122,6 +122,20 @@ describe("species drafts", () => {
     expect(invalid.response.status).toBe(400);
   });
 
+  it("refuses a draft that adds page talk but takes one that adds none", async () => {
+    const added = await propose((record) => {
+      record.base.diet = "ამ გვერდზე კვების ცხრილი არ არის.";
+    });
+    expect(added.response.status).toBe(400);
+    expect((added.body as unknown as ErrorBody).error.details).toEqual([
+      { message: "Page talk: “ამ გვერდ”", path: ["base", "diet"] },
+    ]);
+    const plain = await propose((record) => {
+      record.base.diet = "მწერებით იკვებება.";
+    });
+    expect(plain.response.status).toBe(201);
+  });
+
   it("publishes an approved draft as a revision without revalidating the site", async () => {
     const { body } = await propose((record) => {
       record.base.overview = "AI overview";

@@ -47,9 +47,11 @@ test("gallery lightbox uses a modal dialog and restores focus", async ({
 });
 
 test("header search overlay has no axe violations", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/about");
   await page.keyboard.press("Control+K");
-  const search = page.getByRole("combobox", { name: "ძებნა" });
+  const search = page
+    .getByRole("banner")
+    .getByRole("combobox", { name: "ძებნა" });
   await expect(search).toBeVisible();
   await expect(async () => {
     await search.fill("");

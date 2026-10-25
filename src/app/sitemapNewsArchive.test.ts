@@ -7,9 +7,15 @@ vi.mock("@/i18n/navigation", async () => {
   return { getPathname: fakeGetPathname };
 });
 
-vi.mock("@/data/news", async (importOriginal) => {
+vi.mock("@/lib/newsApi", async (importOriginal) => {
   const { withManyNews } = await import("../../tests/fixtures/manyNews");
-  return withManyNews(await importOriginal());
+  const news = withManyNews(
+    await vi.importActual<typeof import("@/data/news")>("@/data/news"),
+  );
+  return {
+    ...(await importOriginal<typeof import("@/lib/newsApi")>()),
+    getNewsSummaries: async () => news.getPublishedNewsArticles(),
+  };
 });
 
 describe("sitemap news archive", () => {

@@ -28,7 +28,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
-const API_DOCS_URL = `${API_ORIGIN}/v1/docs`;
+const API_DOCS_URL = "/docs";
 
 const SAMPLE_SPECIES_ID = "macrovipera-lebetina";
 

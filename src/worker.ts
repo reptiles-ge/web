@@ -1,5 +1,6 @@
 import handler from "vinext/server/fetch-handler";
 
+import { apiDocsResponse } from "@/lib/apiDocsProxy";
 import { maintenanceResponse } from "@/lib/maintenance";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { canonicalRscRequest } from "@/lib/rscCanonicalRequest";
@@ -17,6 +18,7 @@ const worker: FetchHandler = {
   ...base,
   fetch: async (request, env, ctx) =>
     maintenanceResponse(request, env) ??
+    (await apiDocsResponse(request, env)) ??
     addScriptNonce(
       request,
       withResponseCacheControl(

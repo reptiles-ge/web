@@ -1,8 +1,9 @@
+import type { NewsSummary } from "@/data/newsTypes";
 import type { Species } from "@/data/species";
 import type { CatalogFullSpecies } from "@/data/speciesCatalogTypes";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles, newsSourceName } from "@/data/news";
+import { newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
@@ -18,10 +19,12 @@ export type LlmsSpecies = {
   base: readonly CatalogFullSpecies[];
   ids: ReadonlySet<string>;
   localized: (item: Species, locale: AppLocale) => Species;
+  news: readonly NewsSummary[];
 };
 
 export function createLlmsSpecies(
   catalogs: Partial<Record<AppLocale, readonly CatalogFullSpecies[]>>,
+  news: readonly NewsSummary[],
 ): LlmsSpecies {
   const base = catalogs[routing.defaultLocale] ?? [];
   const byLocale = new Map(
@@ -34,6 +37,7 @@ export function createLlmsSpecies(
     base,
     ids: new Set(base.map((item) => item.id)),
     localized: (item, locale) => byLocale.get(locale)?.get(item.id) ?? item,
+    news,
   };
 }
 
@@ -160,7 +164,7 @@ export function buildLlmsFullText(
 ) {
   const generatedAt = new Date().toISOString();
   const species = sortSpecies(catalog.base);
-  const news = getPublishedNewsArticles(locale);
+  const news = newsInLocale(catalog.news, locale);
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
 
@@ -228,8 +232,7 @@ export function buildLlmsFullText(
 
   parts.push("## News");
   parts.push("");
-  for (const article of news) {
-    const copy = article.copy[locale];
+  for (const { article, copy } of news) {
     parts.push(`### ${copy.title}`);
     parts.push("");
     parts.push(`- URL: ${localizedNewsUrl(locale, article.slug)}`);
@@ -241,9 +244,10 @@ export function buildLlmsFullText(
     );
     parts.push(`- Published: ${article.publishedAt}`);
     if (article.updatedAt) parts.push(`- Updated: ${article.updatedAt}`);
-    if (canonical) parts.push(`- English title: ${article.copy.en.title}`);
+    const english = canonical ? article.copy.en : undefined;
+    if (english) parts.push(`- English title: ${english.title}`);
     parts.push(`- ${copy.dek}`);
-    if (canonical) parts.push(`- English summary: ${article.copy.en.dek}`);
+    if (english) parts.push(`- English summary: ${english.dek}`);
     if (article.sources.length > 0) {
       parts.push("- Sources:");
       for (const source of article.sources) {
@@ -286,7 +290,7 @@ export function buildLlmsIndexText(
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
   const prose = proseLocale(locale);
-  const news = getPublishedNewsArticles(prose);
+  const news = newsInLocale(catalog.news, prose);
   const url = (path: string) => pageUrl(locale, path);
   const byGroup = new Map<AnimalGroup, Species[]>();
   for (const item of species) {
@@ -393,8 +397,7 @@ export function buildLlmsIndexText(
     "",
     `- [News](${url("/news")}): Index of published articles.`,
   );
-  for (const article of news) {
-    const copy = article.copy[prose];
+  for (const { article, copy } of news) {
     parts.push(
       `- [${copy.title}](${localizedNewsUrl(locale, article.slug)}): ${copy.dek}`,
     );
@@ -734,6 +737,13 @@ function localizedSpeciesUrl(locale: AppLocale, id: string) {
   return absoluteUrl(
     withLocalePrefix(locale, template.replace("[slug]", href.params.slug)),
   );
+}
+
+function newsInLocale(news: readonly NewsSummary[], locale: AppLocale) {
+  return news.flatMap((article) => {
+    const copy = article.copy[locale];
+    return copy ? [{ article, copy }] : [];
+  });
 }
 
 function pageUrl(locale: AppLocale, path: string) {

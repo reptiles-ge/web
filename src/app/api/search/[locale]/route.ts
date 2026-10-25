@@ -2,6 +2,7 @@ import { hasLocale } from "next-intl";
 
 import { routing } from "@/i18n/routing";
 import { getContributors } from "@/lib/authorsApi";
+import { getNewsSummaries } from "@/lib/newsApi";
 import {
   buildSearchIndex,
   type SearchCatalogs,
@@ -25,9 +26,10 @@ export async function GET(
   if (!hasLocale(routing.locales, locale)) {
     return new Response(null, { headers: noindex, status: 404 });
   }
-  const [lists, authorLists] = await Promise.all([
+  const [lists, authorLists, news] = await Promise.all([
     Promise.all(routing.locales.map((item) => getSpeciesCatalog(item))),
     Promise.all(routing.locales.map((item) => getContributors(item))),
+    getNewsSummaries(),
   ]);
   const catalogs = {} as SearchCatalogs;
   const contributors = {} as SearchContributors;
@@ -35,7 +37,7 @@ export async function GET(
     catalogs[item] = lists[index] ?? [];
     contributors[item] = authorLists[index] ?? [];
   }
-  return Response.json(buildSearchIndex(locale, catalogs, contributors), {
+  return Response.json(buildSearchIndex(locale, catalogs, contributors, news), {
     headers: noindex,
   });
 }

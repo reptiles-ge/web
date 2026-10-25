@@ -81,6 +81,7 @@ describe("region summary copy", () => {
       expect(words).toBeGreaterThanOrEqual(120);
       expect(words).toBeLessThanOrEqual(170);
       expect(text).not.toMatch(/\{|\}/);
+      if (locale !== "en") expect(text).not.toMatch(/\band\b/);
       expect(text).toContain(String(region.speciesIds.length));
       for (const item of regionSummaryFacts(region, catalog).venomous) {
         expect(text).toContain(item.scientificName);

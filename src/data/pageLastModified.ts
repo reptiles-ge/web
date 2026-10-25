@@ -4,7 +4,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/dangerous-animals": "2026-10-02T16:30:00+04:00",
   "/developers": "2026-10-24T21:00:00+04:00",
   "/insects": "2026-10-10T02:56:00+04:00",
-  "/insects/baghlinjo-sakhlshi": "2026-10-14T11:30:00+04:00",
+  "/insects/baghlinjo-sakhlshi": "2026-10-25T11:36:00+04:00",
   "/insects/chianchvelebi-sakhlshi": "2026-10-14T11:30:00+04:00",
   "/insects/chrchili-tansatsmelshi": "2026-09-29T15:36:00+04:00",
   "/insects/farosana-sakhlshi": "2026-10-14T11:30:00+04:00",

@@ -32,10 +32,12 @@ const nextConfig: NextConfig = {
         headers: [...security, { key: "Link", value: llmsLinkHeader("ka") }],
         source: SITE_HEADERS_SOURCE,
       },
-      ...LATIN_LOCALES.map((locale) => ({
-        headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
-        source: `/${locale}/:path*`,
-      })),
+      ...LATIN_LOCALES.flatMap((locale) =>
+        [`/${locale}`, `/${locale}/:path*`].map((source) => ({
+          headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
+          source,
+        })),
+      ),
       {
         headers: noindexStatic,
         source: "/_next/static/:path*",

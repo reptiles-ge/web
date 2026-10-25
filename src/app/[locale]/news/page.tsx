@@ -83,7 +83,7 @@ export default async function NewsIndexRoute({ params }: Props) {
       },
       { name: t("breadcrumbNews"), url },
     ],
-    dates: newsIndexDateFields(locale, articles),
+    dates: newsIndexDateFields(articles),
     description: t("metaDescription"),
     locale,
     name: t("metaTitle"),

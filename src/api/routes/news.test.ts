@@ -62,6 +62,9 @@ describe("GET /v1/news", () => {
       expect(body.data.map((item) => item.title)).toEqual(
         expected.map((article) => getNewsCopy(article, locale).title),
       );
+      expect(body.data.map((item) => item.metaTitle)).toEqual(
+        expected.map((article) => getNewsCopy(article, locale).metaTitle),
+      );
       expect(body.data.map((item) => item.readMinutes)).toEqual(
         expected.map((article) =>
           newsCopyReadMinutes(getNewsCopy(article, locale)),
