@@ -22,3 +22,7 @@ export const photoUploadForm = z.strictObject({
   photographerEn: text(200),
   url: text(500),
 });
+
+export const inaturalistPhotoBody = z.strictObject({
+  url: z.string().trim().min(1).max(500),
+});

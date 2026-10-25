@@ -329,7 +329,6 @@ async function HalyomorphaRangeSection({
     noRegionRecordsLabel: copy.noRegionRecordsLabel,
     officialRegionLabel: copy.officialRegionLabel,
     photoRecordLabel: copy.photoRecordLabel,
-    recordedOnlyStatusLabel: copy.recordedOnlyStatusLabel,
     regionRecordsLabel: copy.regionRecordsLabel,
     regionsMetricLabel: copy.regionsMetricLabel,
     regionSummaryTitle: copy.regionSummaryTitle,
@@ -349,17 +348,15 @@ async function HalyomorphaRangeSection({
     ]),
   );
   const officialRegionIdSet = new Set(officialRegionIds);
-  const regionsById = new Map(regions.map((region) => [region.id, region]));
   const confirmedRegions = regions
-    .filter((region) => officialRegionIdSet.has(region.id))
+    .filter(
+      (region) =>
+        officialRegionIdSet.has(region.id) || recordCounts.has(region.id),
+    )
     .sort(
       (left, right) =>
         (recordCounts.get(right.id) ?? 0) - (recordCounts.get(left.id) ?? 0),
     );
-  const recordedRegions = occurrenceSummary.recordsByRegion
-    .filter((record) => !officialRegionIdSet.has(record.id))
-    .map((record) => regionsById.get(record.id))
-    .filter((region): region is (typeof regions)[number] => Boolean(region));
   const rangeRegions = featured
     ? getRegionsForSpecies(speciesId).sort(
         (left, right) =>
@@ -372,7 +369,11 @@ async function HalyomorphaRangeSection({
       dataRevision={updatedAt}
       locale={locale}
       occurrenceSummary={occurrenceSummary}
-      officialRegionIds={officialRegionIds}
+      officialRegionIds={
+        featured
+          ? officialRegionIds
+          : confirmedRegions.map((region) => region.id)
+      }
       regionNames={regions.map((region) => {
         const name = localizeRegionText(region.name, locale);
         return {
@@ -455,36 +456,6 @@ async function HalyomorphaRangeSection({
                 </ul>
               </nav>
             </div>
-          ) : null}
-          {recordedRegions.length > 0 ? (
-            <details className="group order-4 mt-4 lg:mt-6">
-              <summary className="tap-target flex cursor-pointer list-none items-center justify-between gap-3 text-[13px] font-medium text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
-                {copy.recordedOnlyStatusLabel} · {recordedRegions.length}
-                <ChevronDown
-                  aria-hidden="true"
-                  className="size-4 transition-transform group-open:rotate-180"
-                />
-              </summary>
-              <ul className="mt-2">
-                {recordedRegions.map((region) => (
-                  <li className="border-t border-border" key={region.id}>
-                    <Link
-                      className="flex min-h-11 items-center gap-3 text-[14px] text-foreground hover:text-primary"
-                      href={regionHref(region.id)}
-                    >
-                      <span className="min-w-0 flex-1">
-                        {localizeRegionText(region.name, locale)}
-                      </span>
-                      <span className="text-muted-foreground tabular-nums">
-                        {recordCounts.get(region.id)?.toLocaleString(locale) ??
-                          "—"}
-                      </span>
-                      <ArrowRight aria-hidden="true" className="size-4" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
           ) : null}
           <p className="order-6 mt-5 text-[13px] leading-[1.6] text-muted-foreground lg:mt-6">
             {copy.intro}
