@@ -9,13 +9,13 @@ import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
 const ADMIN_ORIGIN = "https://admin.reptiles.ge";
 const ID = "macrovipera-lebetina";
-const OBSERVATION = "https://www.inaturalist.org/observations/42";
-const SQUARE =
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/7/square.jpeg";
+const PHOTO = "https://static.inaturalist.org/photos/421616506/original.jpg";
 
 let env: ApiBindings;
 let session: Record<string, string>;
-let upstream: ReturnType<typeof vi.fn<(url: string) => Promise<Response>>>;
+let upstream: ReturnType<
+  typeof vi.fn<(url: string, init?: RequestInit) => Promise<Response>>
+>;
 
 function post(
   body: unknown,
@@ -35,24 +35,11 @@ function post(
 
 beforeEach(async () => {
   const database = createSpeciesTestDatabase();
-  upstream = vi.fn<(url: string) => Promise<Response>>(async (url) =>
-    url.startsWith("https://api.inaturalist.org/")
-      ? Response.json({
-          results: [
-            {
-              geojson: { coordinates: [45.35, 41.81667] },
-              id: 42,
-              observed_on: "2026-05-10",
-              photos: [{ id: 7, license_code: "cc-by", url: SQUARE }],
-              place_guess: "Vashlovani, Georgia",
-              place_ids: [8857],
-              user: { login: "ana" },
-            },
-          ],
-        })
-      : new Response(new Uint8Array([1, 2, 3]), {
-          headers: { "Content-Type": "image/jpeg" },
-        }),
+  upstream = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(
+    async () =>
+      new Response(new Uint8Array([1, 2, 3]), {
+        headers: { "Content-Type": "image/jpeg" },
+      }),
   );
   vi.stubGlobal("fetch", upstream);
   env = { ALLOWED_ORIGINS: ADMIN_ORIGIN, DB: database.db };
@@ -64,53 +51,56 @@ afterEach(() => {
 });
 
 describe("POST /v1/admin/species/:id/photos/inaturalist", () => {
-  it("returns the observation's first photo and its credit", async () => {
-    const response = await post({ url: OBSERVATION });
+  it("downloads the photo without calling the iNaturalist API", async () => {
+    const response = await post({ photoUrl: PHOTO });
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toContain("no-store");
-    const form = await response.formData();
-    const photo = form.get("photo") as File;
-    expect(photo.name).toBe("inaturalist-42-7.jpg");
-    expect(photo.size).toBe(3);
-    expect(JSON.parse(form.get("metadata") as string)).toStrictEqual({
-      date: "2026-05-10",
-      georgiaField: true,
-      lat: 41.81667,
-      license: "cc-by",
-      lng: 45.35,
-      location: "Vashlovani",
-      photographer: "ana",
-      url: "https://www.inaturalist.org/photos/7",
-    });
-    expect(upstream.mock.calls.map(([url]) => url)).toStrictEqual([
-      "https://api.inaturalist.org/v1/observations/42",
-      "https://inaturalist-open-data.s3.amazonaws.com/photos/7/original.jpeg",
+    expect(response.headers.get("Content-Type")).toBe("image/jpeg");
+    expect([...new Uint8Array(await response.arrayBuffer())]).toStrictEqual([
+      1, 2, 3,
     ]);
+    expect(upstream.mock.calls.map(([url]) => url)).toStrictEqual([PHOTO]);
+    expect(upstream.mock.calls[0]?.[1]?.redirect).toBe("manual");
   });
 
-  it("answers a URL that is not an observation with 400", async () => {
-    const response = await post({ url: "https://example.com/observations/1" });
-    expect(response.status).toBe(400);
-    const body = (await response.json()) as ErrorBody;
-    expect(body.error).toStrictEqual({
-      code: "invalid_request",
-      message: "Paste an iNaturalist observation URL",
-    });
+  it("refuses a URL that is not an iNaturalist original photo", async () => {
+    for (const photoUrl of [
+      "https://evil.example/photos/1/original.jpg",
+      "https://static.inaturalist.org/photos/1/square.jpg",
+      "https://www.inaturalist.org/observations/42",
+    ]) {
+      const response = await post({ photoUrl });
+      expect(response.status).toBe(400);
+      expect(((await response.json()) as ErrorBody).error.code).toBe(
+        "invalid_request",
+      );
+    }
     expect(upstream).not.toHaveBeenCalled();
   });
 
-  it("answers 502 when iNaturalist cannot be reached", async () => {
-    upstream.mockRejectedValue(new TypeError("network"));
-    const response = await post({ url: OBSERVATION });
-    expect(response.status).toBe(502);
-    expect(((await response.json()) as ErrorBody).error.code).toBe(
-      "upstream_failed",
-    );
+  it("answers 502 when the photo cannot be downloaded", async () => {
+    upstream.mockResolvedValueOnce(new Response(null, { status: 403 }));
+    const failed = await post({ photoUrl: PHOTO });
+    expect(failed.status).toBe(502);
+    expect(((await failed.json()) as ErrorBody).error).toStrictEqual({
+      code: "upstream_failed",
+      message: "Could not download the iNaturalist photo",
+    });
+    upstream.mockRejectedValueOnce(new TypeError("network"));
+    const unreachable = await post({ photoUrl: PHOTO });
+    expect(unreachable.status).toBe(502);
   });
 
-  it("answers 404 for an unknown species before calling iNaturalist", async () => {
+  it("answers 422 for a photo it cannot use", async () => {
+    upstream.mockResolvedValueOnce(
+      new Response("<svg/>", { headers: { "Content-Type": "image/svg+xml" } }),
+    );
+    expect((await post({ photoUrl: PHOTO })).status).toBe(422);
+  });
+
+  it("answers 404 for an unknown species before downloading", async () => {
     const response = await post(
-      { url: OBSERVATION },
+      { photoUrl: PHOTO },
       { ...session, Origin: ADMIN_ORIGIN },
       "no-such-species",
     );
@@ -119,15 +109,15 @@ describe("POST /v1/admin/species/:id/photos/inaturalist", () => {
   });
 
   it("needs the admin origin and a session", async () => {
-    expect((await post({ url: OBSERVATION }, { ...session })).status).toBe(403);
+    expect((await post({ photoUrl: PHOTO }, { ...session })).status).toBe(403);
     expect(
-      (await post({ url: OBSERVATION }, { Origin: ADMIN_ORIGIN })).status,
+      (await post({ photoUrl: PHOTO }, { Origin: ADMIN_ORIGIN })).status,
     ).toBe(401);
     const { response } = await requestJson<ErrorBody>(
       `/v1/admin/species/${ID}/photos/inaturalist`,
       env,
       {
-        body: JSON.stringify({ url: OBSERVATION }),
+        body: JSON.stringify({ photoUrl: PHOTO }),
         headers: {
           Authorization: "Bearer token",
           "Content-Type": "application/json",
