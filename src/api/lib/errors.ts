@@ -16,6 +16,7 @@ export type ApiErrorCode =
   | "storage_failed"
   | "storage_unavailable"
   | "unauthorized"
+  | "upstream_failed"
   | "version_conflict";
 
 export class ApiError extends HTTPException {

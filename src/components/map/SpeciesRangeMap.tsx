@@ -369,7 +369,11 @@ async function HalyomorphaRangeSection({
       dataRevision={updatedAt}
       locale={locale}
       occurrenceSummary={occurrenceSummary}
-      officialRegionIds={officialRegionIds}
+      officialRegionIds={
+        featured
+          ? officialRegionIds
+          : confirmedRegions.map((region) => region.id)
+      }
       regionNames={regions.map((region) => {
         const name = localizeRegionText(region.name, locale);
         return {
