@@ -22,20 +22,44 @@ type BlobChange = {
 
 const EMPTY_BLOB = /^0+$/;
 
-function git(args: string[]): null | string {
+let historyStatus: null | string | undefined;
+
+function git(args: string[], input?: string): null | string {
   try {
     return execFileSync("git", args, {
       encoding: "utf8",
+      input,
       maxBuffer: 64 * 1024 * 1024,
-      stdio: ["ignore", "pipe", "ignore"],
-      timeout: 60_000,
+      stdio: [input === undefined ? "ignore" : "pipe", "pipe", "ignore"],
+      timeout: 120_000,
     });
   } catch {
     return null;
   }
 }
 
+function fetchMissingBlobs(shas: string[]) {
+  if (git(["config", "--get", "remote.origin.promisor"])?.trim() !== "true") {
+    return;
+  }
+  git(
+    [
+      "-c",
+      "fetch.negotiationAlgorithm=noop",
+      "fetch",
+      "--quiet",
+      "--no-tags",
+      "--no-write-fetch-head",
+      "--filter=blob:none",
+      "origin",
+      "--stdin",
+    ],
+    `${shas.join("\n")}\n`,
+  );
+}
+
 function gitBlobs(shas: string[]): Buffer | null {
+  fetchMissingBlobs(shas);
   try {
     return execFileSync("git", ["cat-file", "--batch"], {
       input: `${shas.join("\n")}\n`,
@@ -49,10 +73,26 @@ function gitBlobs(shas: string[]): Buffer | null {
 }
 
 function historyUnavailable(): null | string {
+  if (historyStatus === undefined) historyStatus = loadHistory();
+  return historyStatus;
+}
+
+function loadHistory(): null | string {
   const shallow = git(["rev-parse", "--is-shallow-repository"])?.trim();
   if (!shallow) return "no git";
-  if (shallow !== "false") return "shallow clone, skipped";
-  return null;
+  if (shallow === "false") return null;
+  const deepened =
+    git(["config", "remote.origin.promisor", "true"]) !== null &&
+    git(["config", "remote.origin.partialclonefilter", "blob:none"]) !== null &&
+    git([
+      "fetch",
+      "--quiet",
+      "--unshallow",
+      "--filter=blob:none",
+      "--no-tags",
+      "origin",
+    ]) !== null;
+  return deepened ? null : "shallow clone, history fetch failed";
 }
 
 export function readContentGitDates(roots: string[]): ContentGitDates {
