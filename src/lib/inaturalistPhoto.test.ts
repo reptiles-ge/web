@@ -3,8 +3,11 @@ import { describe, expect, it, vi } from "vitest";
 
 import { server } from "../../tests/msw/server";
 import {
+  downloadINaturalistPhoto,
   fetchINaturalistPhoto,
   iNaturalistPhotoFormData,
+  isINaturalistPhotoUrl,
+  lookUpINaturalistObservation,
   observationIdFromUrl,
 } from "./inaturalistPhoto";
 
@@ -57,6 +60,77 @@ describe("observationIdFromUrl", () => {
       null,
     );
     expect(observationIdFromUrl("not a url")).toBe(null);
+  });
+});
+
+describe("isINaturalistPhotoUrl", () => {
+  it("accepts only an original photo on the iNaturalist photo hosts", () => {
+    expect(isINaturalistPhotoUrl(ORIGINAL)).toBe(true);
+    expect(
+      isINaturalistPhotoUrl(
+        "https://static.inaturalist.org/photos/421616506/original.jpg",
+      ),
+    ).toBe(true);
+    expect(isINaturalistPhotoUrl(SQUARE)).toBe(false);
+    expect(isINaturalistPhotoUrl(`${ORIGINAL}?x=1`)).toBe(false);
+    expect(
+      isINaturalistPhotoUrl("https://evil.example/photos/7/original.jpeg"),
+    ).toBe(false);
+    expect(
+      isINaturalistPhotoUrl(
+        "http://static.inaturalist.org/photos/7/original.jpg",
+      ),
+    ).toBe(false);
+    expect(isINaturalistPhotoUrl("not a url")).toBe(false);
+  });
+});
+
+describe("lookUpINaturalistObservation", () => {
+  it("returns the original photo URL and the credit without downloading", async () => {
+    const photo = vi.fn();
+    serve(observation(), photo);
+    const result = await lookUpINaturalistObservation(URL);
+    expect(result).toMatchObject({
+      fileStem: "inaturalist-42-7",
+      ok: true,
+      photoUrl: ORIGINAL,
+    });
+    expect(photo).not.toHaveBeenCalled();
+  });
+
+  it("tells a rate limit apart from a missing observation", async () => {
+    server.use(
+      http.get(OBSERVATION_API, () => new HttpResponse(null, { status: 429 })),
+    );
+    expect(await lookUpINaturalistObservation(URL)).toStrictEqual({
+      ok: false,
+      reason: "rate_limited",
+    });
+    server.use(
+      http.get(OBSERVATION_API, () => new HttpResponse(null, { status: 500 })),
+    );
+    expect(await lookUpINaturalistObservation(URL)).toStrictEqual({
+      ok: false,
+      reason: "unreachable",
+    });
+  });
+});
+
+describe("downloadINaturalistPhoto", () => {
+  it("refuses any other URL without fetching it", async () => {
+    expect(
+      await downloadINaturalistPhoto(
+        "https://evil.example/photos/7/original.jpg",
+      ),
+    ).toStrictEqual({ ok: false, reason: "invalid_url" });
+  });
+
+  it("reports a network error as unreachable", async () => {
+    server.use(http.get(ORIGINAL, () => HttpResponse.error()));
+    expect(await downloadINaturalistPhoto(ORIGINAL)).toStrictEqual({
+      ok: false,
+      reason: "unreachable",
+    });
   });
 });
 

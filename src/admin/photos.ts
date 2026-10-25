@@ -1,11 +1,28 @@
 import type { InferResponseType } from "hono/client";
 
-import type { INaturalistPhotoMetadata } from "@/lib/inaturalistPhoto";
+import {
+  type INaturalistLookupResult,
+  iNaturalistPhotoFile,
+  type INaturalistPhotoMetadata,
+  lookUpINaturalistObservation,
+} from "@/lib/inaturalistPhoto";
 
 import type { EncodedPhoto } from "./photoEncoding";
 
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
+
+const INATURALIST_LOOKUP_ERRORS: Record<
+  Extract<INaturalistLookupResult, { ok: false }>["reason"],
+  string
+> = {
+  invalid_url: "Paste an iNaturalist observation URL",
+  no_photo: "The observation has no usable photo",
+  no_photographer: "The observation has no photographer username",
+  not_found: "iNaturalist observation not found",
+  rate_limited: "iNaturalist is limiting requests. Try again in a minute.",
+  unreachable: "Could not reach iNaturalist",
+};
 
 export type INaturalistImport = {
   file: File;
@@ -52,22 +69,19 @@ export function encodePhotoFile(file: File): Promise<EncodedPhoto> {
 
 export async function importINaturalistPhoto(
   id: string,
-  url: string,
+  observationUrl: string,
 ): Promise<INaturalistImport> {
+  const lookup = await lookUpINaturalistObservation(observationUrl);
+  if (!lookup.ok) throw new Error(INATURALIST_LOOKUP_ERRORS[lookup.reason]);
   const response = await api.v1.admin.species[":id"].photos.inaturalist.$post({
-    json: { url },
+    json: { photoUrl: lookup.photoUrl },
     param: { id },
   });
   await checkAdminSave(response, "iNaturalist import failed");
-  const form = await response.formData();
-  const file = form.get("photo");
-  const metadata = form.get("metadata");
-  if (!(file instanceof File) || typeof metadata !== "string") {
-    throw new Error("iNaturalist sent an incomplete answer");
-  }
+  const file = await response.blob();
   return {
-    file,
-    metadata: JSON.parse(metadata) as INaturalistPhotoMetadata,
+    file: iNaturalistPhotoFile(lookup.fileStem, file, file.type),
+    metadata: lookup.metadata,
   };
 }
 

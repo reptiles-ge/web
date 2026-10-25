@@ -106,73 +106,104 @@ describe("uploadSpeciesPhoto", () => {
 describe("importINaturalistPhoto", () => {
   const IMPORT_URL = `${URL}/inaturalist`;
   const OBSERVATION = "https://www.inaturalist.org/observations/42";
-  const METADATA = {
-    date: "2026-05-10",
-    georgiaField: true,
-    lat: 41.81667,
-    license: "cc-by",
-    lng: 45.35,
-    location: "Vashlovani",
-    photographer: "ana",
-    url: "https://www.inaturalist.org/photos/7",
-  };
+  const OBSERVATION_API = "https://api.inaturalist.org/v1/observations/42";
+  const PHOTO_URL = "https://static.inaturalist.org/photos/7/original.jpg";
 
-  it("posts the URL with credentials and returns the photo and its credit", async () => {
+  function observationFound() {
+    server.use(
+      http.get(OBSERVATION_API, () =>
+        HttpResponse.json({
+          results: [
+            {
+              geojson: { coordinates: [45.35, 41.81667] },
+              id: 42,
+              observed_on: "2026-05-10",
+              photos: [
+                {
+                  id: 7,
+                  url: "https://static.inaturalist.org/photos/7/square.jpg",
+                },
+              ],
+              place_guess: "Vashlovani, Georgia",
+              place_ids: [8857],
+              user: { login: "ana" },
+            },
+          ],
+        }),
+      ),
+    );
+  }
+
+  it("reads the observation itself and asks the API only for the photo", async () => {
+    observationFound();
     let credentials: string | undefined;
     let body: unknown;
     server.use(
       http.post(IMPORT_URL, async ({ request }) => {
         credentials = request.credentials;
         body = await request.json();
-        const form = new FormData();
-        form.set(
-          "photo",
-          new File(["j"], "inaturalist-42-7.jpg", { type: "image/jpeg" }),
-        );
-        form.set("metadata", JSON.stringify(METADATA));
-        return new HttpResponse(form);
+        return new HttpResponse(new Uint8Array([1, 2, 3]), {
+          headers: { "Content-Type": "image/jpeg" },
+        });
       }),
     );
     const result = await importINaturalistPhoto("bufo-viridis", OBSERVATION);
     expect(credentials).toBe("include");
-    expect(body).toStrictEqual({ url: OBSERVATION });
+    expect(body).toStrictEqual({ photoUrl: PHOTO_URL });
     expect(result.file.name).toBe("inaturalist-42-7.jpg");
-    expect(result.metadata).toStrictEqual(METADATA);
+    expect(result.file.type).toBe("image/jpeg");
+    expect(result.file.size).toBe(3);
+    expect(result.metadata).toStrictEqual({
+      date: "2026-05-10",
+      georgiaField: true,
+      lat: 41.81667,
+      license: "all rights reserved",
+      lng: 45.35,
+      location: "Vashlovani",
+      photographer: "ana",
+      url: "https://www.inaturalist.org/photos/7",
+    });
+  });
+
+  it("explains an iNaturalist rate limit without calling the API", async () => {
+    server.use(
+      http.get(OBSERVATION_API, () => new HttpResponse(null, { status: 429 })),
+    );
+    await expect(
+      importINaturalistPhoto("bufo-viridis", OBSERVATION),
+    ).rejects.toThrow(
+      "iNaturalist is limiting requests. Try again in a minute.",
+    );
   });
 
   it("shows the API's reason", async () => {
+    observationFound();
     server.use(
       http.post(IMPORT_URL, () =>
         HttpResponse.json(
           {
             error: {
-              code: "invalid_request",
-              message: "The observation has no usable photo",
+              code: "upstream_failed",
+              message: "Could not download the iNaturalist photo",
             },
           },
-          { status: 422 },
+          { status: 502 },
         ),
       ),
     );
     await expect(
       importINaturalistPhoto("bufo-viridis", OBSERVATION),
-    ).rejects.toThrow("The observation has no usable photo");
+    ).rejects.toThrow("Could not download the iNaturalist photo");
   });
 
   it("reports an expired session", async () => {
+    observationFound();
     server.use(
       http.post(IMPORT_URL, () => new HttpResponse(null, { status: 401 })),
     );
     await expect(
       importINaturalistPhoto("bufo-viridis", OBSERVATION),
     ).rejects.toBeInstanceOf(SessionExpiredError);
-  });
-
-  it("rejects an incomplete answer", async () => {
-    server.use(http.post(IMPORT_URL, () => new HttpResponse(new FormData())));
-    await expect(
-      importINaturalistPhoto("bufo-viridis", OBSERVATION),
-    ).rejects.toThrow("iNaturalist sent an incomplete answer");
   });
 });
 

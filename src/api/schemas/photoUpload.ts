@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { isINaturalistPhotoUrl } from "@/lib/inaturalistPhoto";
 import { PHOTO_ADDITIONAL_WIDTHS, PHOTO_FORMATS } from "@/lib/photoDerivatives";
 
 const text = (max: number) => z.string().trim().max(max).optional();
@@ -41,5 +42,9 @@ export const photoDeleteBody = z.strictObject({
 });
 
 export const inaturalistPhotoBody = z.strictObject({
-  url: z.string().trim().min(1).max(500),
+  photoUrl: z
+    .string()
+    .trim()
+    .max(500)
+    .refine(isINaturalistPhotoUrl, "Not an iNaturalist original photo URL"),
 });

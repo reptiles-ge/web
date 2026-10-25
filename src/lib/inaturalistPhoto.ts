@@ -19,12 +19,47 @@ const COUNTRY_ONLY_PLACES = new Set([
 ]);
 const GEORGIA_PLACE_ID = 8857;
 
+export type INaturalistDownloadResult =
+  | { file: Blob; ok: true; type: string }
+  | {
+      ok: false;
+      reason: Extract<
+        INaturalistPhotoFailure,
+        | "download_failed"
+        | "invalid_url"
+        | "too_large"
+        | "unreachable"
+        | "unsupported_format"
+      >;
+    };
+
+export type INaturalistLookupResult =
+  | {
+      fileStem: string;
+      metadata: INaturalistPhotoMetadata;
+      ok: true;
+      photoUrl: string;
+    }
+  | {
+      ok: false;
+      reason: Extract<
+        INaturalistPhotoFailure,
+        | "invalid_url"
+        | "no_photo"
+        | "no_photographer"
+        | "not_found"
+        | "rate_limited"
+        | "unreachable"
+      >;
+    };
+
 export type INaturalistPhotoFailure =
   | "download_failed"
   | "invalid_url"
   | "no_photo"
   | "no_photographer"
   | "not_found"
+  | "rate_limited"
   | "too_large"
   | "unreachable"
   | "unsupported_format";
@@ -62,86 +97,48 @@ type INaturalistPhoto = {
   url?: null | string;
 };
 
-export async function fetchINaturalistPhoto(
-  observationUrl: string,
-): Promise<INaturalistPhotoResult> {
-  const observationId = observationIdFromUrl(observationUrl);
-  if (!observationId) return { ok: false, reason: "invalid_url" };
+export async function downloadINaturalistPhoto(
+  photoUrl: string,
+): Promise<INaturalistDownloadResult> {
+  if (!isINaturalistPhotoUrl(photoUrl)) {
+    return { ok: false, reason: "invalid_url" };
+  }
   try {
-    const observationResponse = await fetch(
-      `https://api.inaturalist.org/v1/observations/${observationId}`,
-      {
-        cache: "no-store",
-        redirect: "manual",
-        signal: AbortSignal.timeout(15_000),
-      },
-    );
-    if (!observationResponse.ok) return { ok: false, reason: "not_found" };
-    const payload = (await observationResponse.json()) as {
-      results?: INaturalistObservation[];
-    };
-    const observation = payload.results?.find(
-      (item) => item.id === observationId,
-    );
-    if (!observation) return { ok: false, reason: "not_found" };
-
-    const photo = observation.photos?.[0];
-    const photoUrl = photo && originalPhotoUrl(photo);
-    if (!photo || !photoUrl) return { ok: false, reason: "no_photo" };
-    const photographer = observation.user?.login?.trim();
-    if (!photographer) return { ok: false, reason: "no_photographer" };
-
-    const photoResponse = await fetch(photoUrl, {
+    const response = await fetch(photoUrl, {
       redirect: "manual",
       signal: AbortSignal.timeout(20_000),
     });
-    if (!photoResponse.ok) return { ok: false, reason: "download_failed" };
-    const contentType = photoResponse.headers
-      .get("content-type")
-      ?.split(";")[0];
-    const extension = contentType && PHOTO_TYPES.get(contentType);
-    if (!contentType || !extension) {
+    if (!response.ok) return { ok: false, reason: "download_failed" };
+    const type = response.headers.get("content-type")?.split(";")[0];
+    if (!type || !PHOTO_TYPES.has(type)) {
       return { ok: false, reason: "unsupported_format" };
     }
-    const bytes = await readPhotoBytes(photoResponse);
-    if (!bytes) return { ok: false, reason: "too_large" };
-
-    const coordinates = observation.obscured
-      ? undefined
-      : normalizePhotoCoordinates(
-          observation.geojson?.coordinates?.[1],
-          observation.geojson?.coordinates?.[0],
-        );
-    const location = observation.place_guess?.split(",")[0]?.trim() ?? "";
-    return {
-      file: new File(
-        [bytes],
-        `inaturalist-${observationId}-${photo.id}.${extension}`,
-        { type: contentType },
-      ),
-      metadata: {
-        date: /^\d{4}-\d{2}-\d{2}$/.test(observation.observed_on ?? "")
-          ? (observation.observed_on as string)
-          : "",
-        georgiaField: Boolean(
-          observation.place_ids?.includes(GEORGIA_PLACE_ID) &&
-          !observation.captive &&
-          coordinates &&
-          location &&
-          !COUNTRY_ONLY_PLACES.has(location.toLowerCase()),
-        ),
-        lat: coordinates?.lat ?? "",
-        license: photo.license_code ?? "all rights reserved",
-        lng: coordinates?.lng ?? "",
-        location,
-        photographer,
-        url: `https://www.inaturalist.org/photos/${photo.id}`,
-      },
-      ok: true,
-    };
+    const file = await readPhotoBytes(response);
+    if (!file) return { ok: false, reason: "too_large" };
+    return { file, ok: true, type };
   } catch {
     return { ok: false, reason: "unreachable" };
   }
+}
+
+export async function fetchINaturalistPhoto(
+  observationUrl: string,
+): Promise<INaturalistPhotoResult> {
+  const lookup = await lookUpINaturalistObservation(observationUrl);
+  if (!lookup.ok) return lookup;
+  const download = await downloadINaturalistPhoto(lookup.photoUrl);
+  if (!download.ok) return download;
+  return {
+    file: iNaturalistPhotoFile(lookup.fileStem, download.file, download.type),
+    metadata: lookup.metadata,
+    ok: true,
+  };
+}
+
+export function iNaturalistPhotoFile(stem: string, file: Blob, type: string) {
+  return new File([file], `${stem}.${PHOTO_TYPES.get(type) ?? "jpg"}`, {
+    type,
+  });
 }
 
 export function iNaturalistPhotoFormData(
@@ -151,6 +148,89 @@ export function iNaturalistPhotoFormData(
   form.set("photo", result.file);
   form.set("metadata", JSON.stringify(result.metadata));
   return form;
+}
+
+export function isINaturalistPhotoUrl(value: string) {
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === "https:" &&
+      PHOTO_HOSTS.has(url.hostname) &&
+      !url.port &&
+      !url.username &&
+      !url.password &&
+      !url.search &&
+      !url.hash &&
+      /^\/photos\/[1-9]\d*\/original\.(jpe?g|png|webp)$/.test(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
+export async function lookUpINaturalistObservation(
+  observationUrl: string,
+): Promise<INaturalistLookupResult> {
+  const observationId = observationIdFromUrl(observationUrl);
+  if (!observationId) return { ok: false, reason: "invalid_url" };
+  let observation: INaturalistObservation | undefined;
+  try {
+    const response = await fetch(
+      `https://api.inaturalist.org/v1/observations/${observationId}`,
+      {
+        cache: "no-store",
+        redirect: "manual",
+        signal: AbortSignal.timeout(15_000),
+      },
+    );
+    if (response.status === 429) return { ok: false, reason: "rate_limited" };
+    if (response.status === 404) return { ok: false, reason: "not_found" };
+    if (!response.ok) return { ok: false, reason: "unreachable" };
+    const payload = (await response.json()) as {
+      results?: INaturalistObservation[];
+    };
+    observation = payload.results?.find((item) => item.id === observationId);
+  } catch {
+    return { ok: false, reason: "unreachable" };
+  }
+  if (!observation) return { ok: false, reason: "not_found" };
+
+  const photo = observation.photos?.[0];
+  const photoUrl = photo && originalPhotoUrl(photo);
+  if (!photo || !photoUrl) return { ok: false, reason: "no_photo" };
+  const photographer = observation.user?.login?.trim();
+  if (!photographer) return { ok: false, reason: "no_photographer" };
+
+  const coordinates = observation.obscured
+    ? undefined
+    : normalizePhotoCoordinates(
+        observation.geojson?.coordinates?.[1],
+        observation.geojson?.coordinates?.[0],
+      );
+  const location = observation.place_guess?.split(",")[0]?.trim() ?? "";
+  return {
+    fileStem: `inaturalist-${observationId}-${photo.id}`,
+    metadata: {
+      date: /^\d{4}-\d{2}-\d{2}$/.test(observation.observed_on ?? "")
+        ? (observation.observed_on as string)
+        : "",
+      georgiaField: Boolean(
+        observation.place_ids?.includes(GEORGIA_PLACE_ID) &&
+        !observation.captive &&
+        coordinates &&
+        location &&
+        !COUNTRY_ONLY_PLACES.has(location.toLowerCase()),
+      ),
+      lat: coordinates?.lat ?? "",
+      license: photo.license_code ?? "all rights reserved",
+      lng: coordinates?.lng ?? "",
+      location,
+      photographer,
+      url: `https://www.inaturalist.org/photos/${photo.id}`,
+    },
+    ok: true,
+    photoUrl,
+  };
 }
 
 export function observationIdFromUrl(value: string) {
@@ -180,18 +260,10 @@ function originalPhotoUrl(photo: INaturalistPhoto) {
     const match = new RegExp(
       `^/photos/${photo.id}/square\\.(jpe?g|png|webp)$`,
     ).exec(url.pathname);
-    if (
-      url.protocol !== "https:" ||
-      !PHOTO_HOSTS.has(url.hostname) ||
-      url.port ||
-      url.username ||
-      url.password ||
-      !match
-    ) {
-      return null;
-    }
+    if (!match) return null;
     url.pathname = `/photos/${photo.id}/original.${match[1]}`;
-    return url.toString();
+    url.search = "";
+    return isINaturalistPhotoUrl(url.toString()) ? url.toString() : null;
   } catch {
     return null;
   }
