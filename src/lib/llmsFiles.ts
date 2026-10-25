@@ -8,6 +8,11 @@ import { regions } from "@/data/regions";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
+import {
+  API_CATALOG_PATH,
+  API_DOCS_PATH,
+  OPENAPI_SPEC_PATH,
+} from "@/lib/apiDocsPaths";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
@@ -424,6 +429,8 @@ export function buildLlmsIndexText(
     "",
     `- [Contact](${url("/contact")}): Corrections and questions.`,
     `- [Developers](${url("/developers")}): Read-only JSON API of the atlas and the form to request an API key.`,
+    `- [API reference](${absoluteUrl(API_DOCS_PATH)}): Endpoints, parameters and response schemas of the API.`,
+    `- [OpenAPI spec](${absoluteUrl(OPENAPI_SPEC_PATH)}): OpenAPI 3.1 description of the API, also listed in ${absoluteUrl(API_CATALOG_PATH)}.`,
     `- [Quizzes](${url("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
     `- [Which snake?](${quizUrl(locale, "snake")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
     `- [Which lizard?](${quizUrl(locale, "lizard")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,

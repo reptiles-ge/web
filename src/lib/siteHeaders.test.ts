@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { apiDiscoveryLinkHeader } from "@/lib/apiDocsPaths";
 import { llmsLinkHeader } from "@/lib/llmsPaths";
 
 import nextConfig from "../../next.config";
@@ -27,6 +28,26 @@ describe("site headers", () => {
       expect(await headerFor(path, "Link")).toBe(llmsLinkHeader(locale));
     },
   );
+
+  it.each([
+    ["/developers", "ka"],
+    ["/en/developers", "en"],
+    ["/ru/developers", "ru"],
+    ["/tr/developers", "tr"],
+  ] as const)(
+    "points %s at the API description, docs and catalog",
+    async (path, locale) => {
+      expect(await headerFor(path, "Link")).toBe(
+        `${llmsLinkHeader(locale)}, ${apiDiscoveryLinkHeader()}`,
+      );
+    },
+  );
+
+  it("names the api-catalog relation on the catalog itself", async () => {
+    expect(await headerFor("/.well-known/api-catalog", "Link")).toBe(
+      '</.well-known/api-catalog>; rel="api-catalog"',
+    );
+  });
 
   it("sends the security headers on every page", async () => {
     for (const path of ["/", "/en", "/species"]) {
