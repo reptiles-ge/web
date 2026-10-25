@@ -89,22 +89,22 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "Start where people sleep. Bed bugs usually live within about 8 feet (about 2.4 m) of that place, though they will travel farther to feed. They are mostly active at night and can also come out in daylight if they are hungry.",
+          "Start where people sleep. Bed bugs usually live within about 2.4 metres of that place, though they will travel farther to feed. They are mostly active at night and can also come out in daylight if they are hungry.",
           "In a heavy infestation they also use upholstered furniture, so a sofa is part of the search, not a separate kind of insect.",
         ],
       },
       {
         heading: "Bed bug, stink bug, flea, tick, or cockroach?",
         paragraphs: [
-          "A [stink bug in the house](/insects/farosana-sakhlshi) is a different insect: the brown marmorated stink bug is larger, shield-shaped, feeds on plants, and does not suck human blood. A bed bug does not jump the way a flea does; if the problem is fleas, use [fleas in the house](/insects/rtsqilebi-sakhlshi). An adult tick has eight legs and a bed bug has six; a tick on the skin is [a tick bite](/insects/tkipis-nakbeni), not this page.",
+          "A [stink bug in the house](/insects/farosana-sakhlshi) is a different insect: the brown marmorated stink bug is larger, shield-shaped, feeds on plants, and does not suck human blood. A bed bug does not jump the way a flea does; if the problem is fleas, use [fleas in the house](/insects/rtsqilebi-sakhlshi). An adult tick has eight legs and a bed bug has six; a tick attached to the skin is a different problem: see [a tick bite](/insects/tkipis-nakbeni).",
           "A cockroach is a different household insect. If that is what you found, use [cockroaches at home](/insects/taraknebi-sakhlshi). Other insects, including carpet beetles, are easy to mistake for bed bugs, and a wrong identification gives them time to spread. Closely related bed bug species can look alike, so the exact species sometimes needs a specialist. Other indoor insect problems are collected on the [insects](/insects) pages.",
         ],
       },
       {
         heading: "How do you get rid of bed bugs?",
         paragraphs: [
-          "Getting rid of bed bugs starts with finding the insect or its signs, including when the problem is a bed bug in the bed. There is no product name on this page. Using a chemical at random does not replace knowing which insect you have, and removal from a home can be slow and inconvenient.",
-          "Keep any specimen you find. Contact a pest-control company with experience treating bed bugs. Those services typically treat the area with insecticide sprays. This guide does not give a mixture, a dose, or a home heat method. Finding the problem early matters: a minor infestation is less costly and easier than the same one after it has spread.",
+          "Getting rid of bed bugs starts with finding the insect or its signs, including when the problem is a bed bug in the bed. Using a chemical at random does not replace knowing which insect you have, and removal from a home can be slow and inconvenient.",
+          "Keep any specimen you find. Contact a pest-control company with experience treating bed bugs. Those services typically treat the area with insecticide sprays. Leave the product, the dose and any heat treatment to them. Finding the problem early matters: a minor infestation is less costly and easier than the same one after it has spread.",
         ],
       },
       {
@@ -119,7 +119,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: false,
         },
         paragraphs: [
-          "The useful warning is the one the sources support: confirm the insect, then get experienced help. Do not improvise a pesticide or a heat treatment from this page.",
+          "Two steps matter most: confirm the insect first, then get experienced help. Do not mix your own pesticide or improvise a heat treatment.",
         ],
       },
       {
@@ -133,7 +133,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "When do you need a pest-control specialist?",
         paragraphs: [
-          "Contact a professional who has experience with bed bugs when you find a live insect, eggs, shed skins, or the dark spots and stains described above. Keep the specimen so it can be identified. A specialist's insecticide treatment is the control step these sources describe. This page does not name a company and does not promise that one visit will finish the problem.",
+          "Contact a professional who has experience with bed bugs when you find a live insect, eggs, shed skins, or the dark spots and stains described above. Keep the specimen so it can be identified. The usual control step is an insecticide treatment carried out by that specialist.",
         ],
       },
       {
@@ -228,22 +228,22 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "დაიწყეთ იქ, სადაც ადამიანი იძინებს. ბაღლინჯო ჩვეულებრივ ამ ადგილიდან დაახლოებით 8 ფუტის (დაახლოებით 2,4 მეტრის) მანძილზე ცხოვრობს, თუმცა საჭმელად უფრო შორსაც გადის. უმეტესად ღამითაა აქტიური და მშიერი დღისითაც გამოდის.",
+          "დაიწყეთ იქ, სადაც ადამიანი იძინებს. ბაღლინჯო ჩვეულებრივ ამ ადგილიდან დაახლოებით 2,4 მეტრის მანძილზე ცხოვრობს, თუმცა საჭმელად უფრო შორსაც გადის. უმეტესად ღამითაა აქტიური და მშიერი დღისითაც გამოდის.",
           "ძლიერი ინვაზიის დროს რბილ ავეჯსაც იყენებს, ამიტომ დივანი ძებნის ნაწილია და არა სხვა მწერი.",
         ],
       },
       {
         heading: "ბაღლინჯო, ფაროსანა, რწყილი, ტკიპა თუ ტარაკანა?",
         paragraphs: [
-          "[ფაროსანა სახლში](/insects/farosana-sakhlshi) სხვა მწერია: აზიური ფაროსანა უფრო დიდია, ფარის ფორმის სხეული აქვს, მცენარით იკვებება და ადამიანის სისხლს არ წოვს. ბაღლინჯო რწყილივით არ ხტება; თუ საქმე რწყილებია, იხილეთ [რწყილები სახლში](/insects/rtsqilebi-sakhlshi). ზრდასრულ ტკიპას რვა ფეხი აქვს, ბაღლინჯოს — ექვსი; კანზე მიმაგრებული ტკიპა [ტკიპის ნაკბენია](/insects/tkipis-nakbeni) და არა ეს გვერდი.",
+          "[ფაროსანა სახლში](/insects/farosana-sakhlshi) სხვა მწერია: აზიური ფაროსანა უფრო დიდია, ფარის ფორმის სხეული აქვს, მცენარით იკვებება და ადამიანის სისხლს არ წოვს. ბაღლინჯო რწყილივით არ ხტება; თუ საქმე რწყილებია, იხილეთ [რწყილები სახლში](/insects/rtsqilebi-sakhlshi). ზრდასრულ ტკიპას რვა ფეხი აქვს, ბაღლინჯოს — ექვსი; კანზე მიმაგრებული ტკიპა სხვა საქმეა: იხილეთ [ტკიპის ნაკბენი](/insects/tkipis-nakbeni).",
           "ტარაკანა სხვა საყოფაცხოვრებო მწერია. თუ ის იპოვეთ, გახსენით [ტარაკნები სახლში](/insects/taraknebi-sakhlshi). სხვა მწერები, მათ შორის ხალიჩის ხოჭოები, ადვილად ეშლება ბაღლინჯოში, არასწორი ამოცნობა კი გავრცელების დროს აძლევს. ახლო სახეობები ერთმანეთს ჰგავს, ამიტომ ზუსტ სახეობას ზოგჯერ სპეციალისტი სჭირდება. სახლის სხვა მწერები თავმოყრილია [მწერების](/insects) გვერდებზე.",
         ],
       },
       {
         heading: "როგორ მოვიშოროთ ბაღლინჯო?",
         paragraphs: [
-          "ბაღლინჯოს მოშორება იწყება მწერის ან მისი კვალის პოვნით, მათ შორის მაშინ, როცა საქმე საწოლის ბაღლინჯოს მოშორებას ეხება. ამ გვერდზე პროდუქტის სახელი არ არის. ქიმიური საშუალების შემთხვევით გამოყენება იმის ცოდნას ვერ ცვლის, რომელი მწერი გყავთ, სახლიდან მოშორება კი შეიძლება ნელი და მოუხერხებელი იყოს.",
-          "ნაპოვნი ნიმუში შეინახეთ. მიმართეთ კომპანიას, რომელსაც ბაღლინჯოს დამუშავების გამოცდილება აქვს. ასეთი სამსახური, ჩვეულებრივ, ადგილს ინსექტიციდის შესხურებით ამუშავებს. ეს გიდი არ იძლევა ნარევს, დოზას ან სახლის პირობებში გაცხელების წესს. პრობლემის ადრე პოვნას მნიშვნელობა აქვს: მცირე ინვაზია ნაკლებად ძვირი და უფრო იოლია, ვიდრე იგივე უკვე გავრცელებული.",
+          "ბაღლინჯოს მოშორება იწყება მწერის ან მისი კვალის პოვნით, მათ შორის მაშინ, როცა საქმე საწოლის ბაღლინჯოს მოშორებას ეხება. ქიმიური საშუალების შემთხვევით გამოყენება იმის ცოდნას ვერ ცვლის, რომელი მწერი გყავთ, სახლიდან მოშორება კი შეიძლება ნელი და მოუხერხებელი იყოს.",
+          "ნაპოვნი ნიმუში შეინახეთ. მიმართეთ კომპანიას, რომელსაც ბაღლინჯოს დამუშავების გამოცდილება აქვს. ასეთი სამსახური, ჩვეულებრივ, ადგილს ინსექტიციდის შესხურებით ამუშავებს. საშუალების, დოზისა და გაცხელების არჩევა მათ მიანდეთ. პრობლემის ადრე პოვნას მნიშვნელობა აქვს: მცირე ინვაზია ნაკლებად ძვირი და უფრო იოლია, ვიდრე იგივე უკვე გავრცელებული.",
         ],
       },
       {
@@ -258,7 +258,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: false,
         },
         paragraphs: [
-          "სასარგებლო გაფრთხილება ისაა, რასაც წყაროები ამაგრებს: დაადასტურეთ მწერი და მერე მიმართეთ გამოცდილ დახმარებას. ამ გვერდიდან პესტიციდი ან გაცხელება არ მოიგონოთ.",
+          "მთავარი ორი ნაბიჯია: ჯერ დაადასტურეთ მწერი, მერე მიმართეთ გამოცდილ დახმარებას. საკუთარი ნარევით ან გაცხელებით მოშორებას ნუ ეცდებით.",
         ],
       },
       {
@@ -272,7 +272,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "როდის სჭირდება მავნებლების კონტროლის სპეციალისტი?",
         paragraphs: [
-          "მიმართეთ სპეციალისტს, რომელსაც ბაღლინჯოსთან მუშაობის გამოცდილება აქვს, როცა იპოვით ცოცხალ მწერს, კვერცხს, გამოცვლილ კანს ან ზემოთ აღწერილ მუქ ლაქებსა და შეფერილ კვალს. ნიმუში შეინახეთ, რომ ამოცნობა შეძლონ. სპეციალისტის ინსექტიციდით დამუშავება ის საკონტროლო ნაბიჯია, რომელსაც ეს წყაროები აღწერს. ეს გვერდი კომპანიას არ ასახელებს და არ ჰპირდება, რომ ერთი ვიზიტი საქმეს დაასრულებს.",
+          "მიმართეთ სპეციალისტს, რომელსაც ბაღლინჯოსთან მუშაობის გამოცდილება აქვს, როცა იპოვით ცოცხალ მწერს, კვერცხს, გამოცვლილ კანს ან ზემოთ აღწერილ მუქ ლაქებსა და შეფერილ კვალს. ნიმუში შეინახეთ, რომ ამოცნობა შეძლონ. ბრძოლის ჩვეული გზა ინსექტიციდით დამუშავებაა, რომელსაც სპეციალისტი ატარებს.",
         ],
       },
       {
@@ -367,22 +367,22 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "Начните с места, где спят. Клопы обычно живут в пределах примерно 8 футов (около 2,4 м) от него, хотя за пищей отходят дальше. Чаще они активны ночью, а голодные выходят и днём.",
+          "Начните с места, где спят. Клопы обычно живут в пределах примерно 2,4 м от него, хотя за пищей отходят дальше. Чаще они активны ночью, а голодные выходят и днём.",
           "При сильном заселении они используют и мягкую мебель, поэтому диван — часть поиска, а не другой вид.",
         ],
       },
       {
         heading: "Клоп, щитник, блоха, клещ или таракан?",
         paragraphs: [
-          "[Мраморный клоп в доме](/insects/farosana-sakhlshi) — другое насекомое: он крупнее, тело щитковидное, питается растениями и не сосёт человеческую кровь. Постельный клоп не прыгает, как блоха; если дело в блохах, откройте [блохи в доме](/insects/rtsqilebi-sakhlshi). У взрослого клеща восемь ног, у клопа — шесть; клещ на коже — это [укус клеща](/insects/tkipis-nakbeni), а не эта страница.",
+          "[Мраморный клоп в доме](/insects/farosana-sakhlshi) — другое насекомое: он крупнее, тело щитковидное, питается растениями и не сосёт человеческую кровь. Постельный клоп не прыгает, как блоха; если дело в блохах, откройте [блохи в доме](/insects/rtsqilebi-sakhlshi). У взрослого клеща восемь ног, у клопа — шесть; присосавшийся к коже клещ — другой случай: откройте [укус клеща](/insects/tkipis-nakbeni).",
           "Таракан — другое домашнее насекомое. Если нашли его, откройте [тараканы дома](/insects/taraknebi-sakhlshi). Других насекомых, в том числе ковровых жуков, легко принять за клопов, а ошибка даёт им время разойтись. Близкие виды клопов похожи, поэтому точный вид иногда определяет специалист. Другие насекомые в доме собраны на страницах [насекомых](/insects).",
         ],
       },
       {
         heading: "Как вывести клопов?",
         paragraphs: [
-          "Выведение начинается с того, что найдено насекомое или его следы, в том числе когда речь о постельном клопе в кровати. Названия средства на этой странице нет. Случайная химия не заменяет знание, какое насекомое у вас в доме, а удаление из жилья бывает долгим и неудобным.",
-          "Сохраните найденный экземпляр. Обратитесь в службу, у которой есть опыт обработки от клопов. Такая служба обычно обрабатывает место распылением инсектицида. Этот гид не даёт смесь, дозу или домашний прогрев. Ранняя находка важна: небольшое заселение дешевле и проще, чем то же самое после распространения.",
+          "Выведение начинается с того, что найдено насекомое или его следы, в том числе когда речь о постельном клопе в кровати. Случайная химия не заменяет знание, какое насекомое у вас в доме, а удаление из жилья бывает долгим и неудобным.",
+          "Сохраните найденный экземпляр. Обратитесь в службу, у которой есть опыт обработки от клопов. Такая служба обычно обрабатывает место распылением инсектицида. Выбор средства, дозы и прогрева оставьте им. Ранняя находка важна: небольшое заселение дешевле и проще, чем то же самое после распространения.",
         ],
       },
       {
@@ -397,7 +397,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: false,
         },
         paragraphs: [
-          "Полезное предупреждение то, которое поддерживают источники: подтвердите насекомое и затем зовите опытных. Не выдумывайте по этой странице пестицид или прогрев.",
+          "Главное — два шага: сначала подтвердите насекомое, затем зовите опытных специалистов. Не составляйте пестицид сами и не придумывайте прогрев.",
         ],
       },
       {
@@ -411,7 +411,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Когда нужен специалист по вредителям?",
         paragraphs: [
-          "Обратитесь к специалисту с опытом работы с клопами, если нашли живое насекомое, яйца, сброшенные шкурки или описанные выше тёмные пятна и окрашенные следы. Экземпляр сохраните для определения. Обработка инсектицидом силами специалиста — тот шаг контроля, который описывают эти источники. Страница не называет фирму и не обещает, что одного визита хватит.",
+          "Обратитесь к специалисту с опытом работы с клопами, если нашли живое насекомое, яйца, сброшенные шкурки или описанные выше тёмные пятна и окрашенные следы. Экземпляр сохраните для определения. Обычный способ борьбы — обработка инсектицидом, которую проводит специалист.",
         ],
       },
       {
@@ -506,22 +506,22 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "İnsanların uyuduğu yerden başlayın. Tahtakuruları genellikle bu yerin yaklaşık 8 fit (yaklaşık 2,4 metre) yakınında yaşar, fakat beslenmek için daha uzağa da gider. Çoğunlukla gece aktiftir; açsa gündüz de çıkar.",
+          "İnsanların uyuduğu yerden başlayın. Tahtakuruları genellikle bu yerin yaklaşık 2,4 metre yakınında yaşar, fakat beslenmek için daha uzağa da gider. Çoğunlukla gece aktiftir; açsa gündüz de çıkar.",
           "Ağır bir yerleşmede döşemeli mobilyayı da kullanır, bu yüzden kanepe aramanın parçasıdır, başka bir böcek değildir.",
         ],
       },
       {
         heading: "Tahtakurusu, kokarca, pire, kene mi, hamam böceği mi?",
         paragraphs: [
-          "[Evde kokarca böceği](/insects/farosana-sakhlshi) başka bir böcektir: kahverengi marmorlu kokarca daha büyüktür, kalkan biçimli gövdesi vardır, bitkiyle beslenir ve insan kanı emmez. Tahtakurusu pire gibi zıplamaz; sorun pireyse [evde pire](/insects/rtsqilebi-sakhlshi) sayfasına bakın. Ergin kenenin sekiz bacağı, tahtakurusunun altı bacağı vardır; derideki kene [kene ısırığıdır](/insects/tkipis-nakbeni), bu sayfa değildir.",
+          "[Evde kokarca böceği](/insects/farosana-sakhlshi) başka bir böcektir: kahverengi marmorlu kokarca daha büyüktür, kalkan biçimli gövdesi vardır, bitkiyle beslenir ve insan kanı emmez. Tahtakurusu pire gibi zıplamaz; sorun pireyse [evde pire](/insects/rtsqilebi-sakhlshi) sayfasına bakın. Ergin kenenin sekiz bacağı, tahtakurusunun altı bacağı vardır; deriye tutunmuş kene ayrı bir durumdur: [kene ısırığı](/insects/tkipis-nakbeni) sayfasına bakın.",
           "Hamam böceği başka bir ev böceğidir. Onu bulduysanız [evde hamam böceği](/insects/taraknebi-sakhlshi) sayfasını açın. Halı böcekleri dahil başka böcekler tahtakurusuyla kolay karışır; yanlış tanıma onlara yayılma zamanı verir. Yakın türler birbirine benzer, bu yüzden tam türü bazen uzman ayırır. Evdeki diğer böcekler [böcekler](/insects) sayfalarında toplanır.",
         ],
       },
       {
         heading: "Tahtakurusu nasıl uzaklaştırılır?",
         paragraphs: [
-          "Uzaklaştırmak, böceği veya izlerini bulmakla başlar; bu, yataktaki tahtakurusu için de geçerlidir. Bu sayfada bir ürün adı yoktur. Rastgele kimyasal kullanmak, hangi böcekle karşı karşıya olduğunuzu bilmenin yerini tutmaz; evden uzaklaştırmak yavaş ve zahmetli olabilir.",
-          "Bulduğunuz örneği saklayın. Tahtakurusu uygulaması deneyimi olan bir şirkete başvurun. Böyle bir hizmet genellikle alanı böcek ilacı püskürterek işler. Bu rehber karışım, doz veya evde ısıtma yöntemi vermez. Sorunu erken bulmak önemlidir: küçük bir yerleşme, yayılmış olanın aynısından daha ucuz ve daha kolaydır.",
+          "Uzaklaştırmak, böceği veya izlerini bulmakla başlar; bu, yataktaki tahtakurusu için de geçerlidir. Rastgele kimyasal kullanmak, hangi böcekle karşı karşıya olduğunuzu bilmenin yerini tutmaz; evden uzaklaştırmak yavaş ve zahmetli olabilir.",
+          "Bulduğunuz örneği saklayın. Tahtakurusu uygulaması deneyimi olan bir şirkete başvurun. Böyle bir hizmet genellikle alanı böcek ilacı püskürterek işler. Ürün, doz ve ısıtma seçimini onlara bırakın. Sorunu erken bulmak önemlidir: küçük bir yerleşme, yayılmış olanın aynısından daha ucuz ve daha kolaydır.",
         ],
       },
       {
@@ -536,7 +536,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: false,
         },
         paragraphs: [
-          "İşe yarayan uyarı, kaynakların desteklediğidir: böceği doğrulayın, sonra deneyimli yardım alın. Bu sayfadan ilaç veya ısıtma uydurmayın.",
+          "Önemli olan iki adımdır: önce böceği doğrulayın, sonra deneyimli yardım alın. Kendi ilaç karışımınızı veya ısıtma yönteminizi uydurmayın.",
         ],
       },
       {
@@ -550,7 +550,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Zararlı kontrol uzmanı ne zaman gerekir?",
         paragraphs: [
-          "Canlı böcek, yumurta, dökülmüş deri ya da yukarıda anlatılan koyu lekeler ve renkli izler bulduğunuzda tahtakurusu deneyimi olan bir uzmana başvurun. Tanınması için örneği saklayın. Uzmanın böcek ilacıyla uygulaması, bu kaynakların anlattığı kontrol adımıdır. Bu sayfa bir şirket adı vermez ve tek ziyaretin işi bitireceğini vaat etmez.",
+          "Canlı böcek, yumurta, dökülmüş deri ya da yukarıda anlatılan koyu lekeler ve renkli izler bulduğunuzda tahtakurusu deneyimi olan bir uzmana başvurun. Tanınması için örneği saklayın. Olağan mücadele yolu, uzmanın yaptığı böcek ilacı uygulamasıdır.",
         ],
       },
       {
