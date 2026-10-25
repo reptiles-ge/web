@@ -13,7 +13,6 @@ import { generateMetadata as newsIndexMetadata } from "@/app/[locale]/news/page"
 import { generateMetadata as homeMetadata } from "@/app/[locale]/page";
 import { generateMetadata as regionMetadata } from "@/app/[locale]/regions/[id]/page";
 import { generateMetadata as riskToHumansMetadata } from "@/app/[locale]/risk-to-humans/page";
-import { generateMetadata as snakesInYardMetadata } from "@/app/[locale]/snakes-in-the-yard/page";
 import { generateMetadata as venomousSnakesMetadata } from "@/app/[locale]/venomous-snakes/page";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "@/data/news";
@@ -119,10 +118,6 @@ const pageGroups: Record<string, Array<[string, MetadataLoader]>> = {
       (locale) => dangerousAnimalsMetadata(localeParams(locale)),
     ],
     ["risk-to-humans", (locale) => riskToHumansMetadata(localeParams(locale))],
-    [
-      "snakes-in-the-yard",
-      (locale) => snakesInYardMetadata(localeParams(locale)),
-    ],
     [
       "venomous-snakes",
       (locale) => venomousSnakesMetadata(localeParams(locale)),

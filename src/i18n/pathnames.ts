@@ -129,16 +129,16 @@ export const pathnames = {
     "/scorpions/scorpion-sting",
   ),
   "/snakes": kaLatin("/gvelebi", "/snakes"),
-  "/snakes-in-the-yard": kaLatin(
-    "/gvelebi/gveli-ezoshi",
-    "/snakes-in-the-yard",
-  ),
   "/snakes/[slug]": kaLatin("/gvelebi/[slug]", "/snakes/[slug]"),
   "/snakes/didi-gvelebi": kaLatin("/gvelebi/didi-gvelebi", "/snakes/largest"),
   "/snakes/gavrtseleba": kaLatin("/gvelebi/gavrtseleba", "/snakes/range"),
   "/snakes/giurzas-nakbeni": kaLatin(
     "/gvelebi/giurzas-nakbeni",
     "/snakes/blunt-nosed-viper-bite",
+  ),
+  "/snakes/gveli-ezoshi": kaLatin(
+    "/gvelebi/gveli-ezoshi",
+    "/snakes-in-the-yard",
   ),
   "/snakes/gvelis-nakbeni": kaLatin("/gvelebi/gvelis-nakbeni", "/snakes/bite"),
   "/snakes/saxeoebebi": kaLatin("/gvelebi/saxeoebebi", "/snakes/species"),

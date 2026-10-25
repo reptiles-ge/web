@@ -219,7 +219,7 @@ export async function VenomousSnakesGuides({
             <div>
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
-                href="/snakes-in-the-yard"
+                href="/snakes/gveli-ezoshi"
               >
                 {t("yardCta")}
                 <ArrowUpRight className="size-4" />

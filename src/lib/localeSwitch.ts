@@ -83,7 +83,6 @@ const HUB_BY_PATH: Record<
 const STANDALONE_GUIDES = new Set([
   "/dangerous-animals",
   "/risk-to-humans",
-  "/snakes-in-the-yard",
   "/venomous-snakes",
 ]);
 

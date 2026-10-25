@@ -79,7 +79,7 @@ export const SITE_PAGE_GROUPS: SitePageGroup[] = [
     label: "Safety guides",
     routes: [
       page("/[locale]/venomous-snakes"),
-      page("/[locale]/snakes-in-the-yard"),
+      page("/[locale]/snakes/gveli-ezoshi"),
       page("/[locale]/dangerous-animals"),
       page("/[locale]/risk-to-humans"),
     ],

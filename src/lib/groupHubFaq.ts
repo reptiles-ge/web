@@ -33,7 +33,7 @@ const HUB_FAQ_LINKS: Partial<
     2: { venomous: "/venomous-snakes" },
     3: { identify: "/snakes/shxamiani-gvelis-amocnoba" },
     4: { range: "/snakes/gavrtseleba" },
-    5: { bite: "/snakes/gvelis-nakbeni", yard: "/snakes-in-the-yard" },
+    5: { bite: "/snakes/gvelis-nakbeni", yard: "/snakes/gveli-ezoshi" },
   },
   spiders: {
     5: {

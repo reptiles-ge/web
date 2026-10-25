@@ -128,7 +128,6 @@ function addLocalizedStatic() {
     { href: "/quiz", type: "quiz" },
     { href: "/regions", type: "region" },
     { href: "/risk-to-humans", type: "static" },
-    { href: "/snakes-in-the-yard", type: "guide" },
     { href: "/species", type: "static" },
     { href: "/terms-and-conditions", inSitemap: false, type: "legal" },
     { href: "/venomous-snakes", type: "guide" },
