@@ -15,10 +15,17 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
+import { GuideSources } from "@/components/GuideSources";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SnakesInYardHero } from "@/components/SnakesInYardHero";
 import { SnakesInYardSections } from "@/components/SnakesInYardSections";
+import {
+  CDC_VENOMOUS_SNAKES_SOURCE,
+  GEORGIA_112_SOURCE,
+  WHO_SNAKEBITE_TREATMENT_SOURCE,
+} from "@/content/guides/snakeBite";
+import { HERPETOFAUNA_CHECKLIST_SOURCE } from "@/data/herpetofauna-checklist";
 import { Link } from "@/i18n/navigation";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
 import {
@@ -38,6 +45,13 @@ type SnakesInYardPageProps = {
 
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 
+const SNAKES_IN_YARD_SOURCES = [
+  HERPETOFAUNA_CHECKLIST_SOURCE,
+  GEORGIA_112_SOURCE,
+  WHO_SNAKEBITE_TREATMENT_SOURCE,
+  CDC_VENOMOUS_SNAKES_SOURCE,
+] as const;
+
 export async function SnakesInYardPage({
   coverSrc,
   heroSpecies,
@@ -46,7 +60,10 @@ export async function SnakesInYardPage({
   publishedAt,
   updatedAt,
 }: SnakesInYardPageProps) {
-  const t = await getTranslations({ locale, namespace: "snakesInYard" });
+  const [t, tAttribution] = await Promise.all([
+    getTranslations({ locale, namespace: "snakesInYard" }),
+    getTranslations({ locale, namespace: "attribution" }),
+  ]);
   const relatedGuides = getHubPageRelatedGuides(
     "snakes",
     "/snakes-in-the-yard",
@@ -60,9 +77,10 @@ export async function SnakesInYardPage({
           heroSrc={heroSrc}
           locale={locale}
         />
-        <SnakesInYardSections coverSrc={coverSrc} locale={locale} />
-
-        <section className="border-t border-border bg-background py-20 lg:py-28">
+        <section
+          className="scroll-mt-28 border-t border-border bg-background py-20 lg:py-28"
+          id="appear"
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
               <ClusterSectionIntro
@@ -137,6 +155,8 @@ export async function SnakesInYardPage({
           </div>
         </section>
 
+        <SnakesInYardSections coverSrc={coverSrc} locale={locale} />
+
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
@@ -165,6 +185,14 @@ export async function SnakesInYardPage({
           }))}
           surface="background"
         />
+
+        <div className="mx-auto max-w-[1400px] px-6 pb-4 lg:px-10">
+          <GuideSources
+            heading={tAttribution("sources")}
+            locale={locale}
+            sources={SNAKES_IN_YARD_SOURCES}
+          />
+        </div>
 
         <ContentAttribution
           locale={locale}

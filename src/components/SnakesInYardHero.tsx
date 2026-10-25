@@ -62,7 +62,7 @@ export async function SnakesInYardHero({
           <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
             <a
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
-              href="#actions"
+              href="#appear"
             >
               {t("ctaActions")}
               <ArrowRight className="size-4" />
