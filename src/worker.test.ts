@@ -91,6 +91,71 @@ describe("Worker fetch", () => {
     expect(request.headers.get("RSC")).toBe("1");
   });
 
+  it("serves the API docs page from the API binding at /docs", async () => {
+    const apiFetch = vi.fn(
+      async () =>
+        new Response("<html>docs</html>", {
+          headers: { "Cache-Control": "public, max-age=300" },
+        }),
+    );
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/docs?theme=dark", {
+        headers: { "If-None-Match": '"tag"' },
+      }),
+      { API: { fetch: apiFetch } },
+      {},
+    );
+    const [request] = apiFetch.mock.calls[0] as unknown as [Request];
+    expect(request.url).toBe("https://api.reptiles.ge/v1/docs?theme=dark");
+    expect(request.headers.get("If-None-Match")).toBe('"tag"');
+    expect(response.headers.get("Cache-Control")).toBe("public, max-age=300");
+    expect(response.headers.get("Content-Security-Policy")).toBeNull();
+    expect(await response.text()).toBe("<html>docs</html>");
+    expect(baseFetch).not.toHaveBeenCalled();
+  });
+
+  it("serves the OpenAPI document from the API binding", async () => {
+    const apiFetch = vi.fn(async () => Response.json({ openapi: "3.1.0" }));
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/v1/docs/openapi.json"),
+      { API: { fetch: apiFetch } },
+      {},
+    );
+    const [request] = apiFetch.mock.calls[0] as unknown as [Request];
+    expect(request.url).toBe("https://api.reptiles.ge/v1/docs/openapi.json");
+    expect(await response.json()).toEqual({ openapi: "3.1.0" });
+    expect(baseFetch).not.toHaveBeenCalled();
+  });
+
+  it("keeps other API paths on the app", async () => {
+    const apiFetch = vi.fn();
+    for (const path of ["/v1/docs", "/v1/species", "/docs/extra"]) {
+      await worker.fetch(
+        new Request(`https://reptiles.ge${path}`),
+        { API: { fetch: apiFetch } },
+        {},
+      );
+    }
+    expect(apiFetch).not.toHaveBeenCalled();
+    expect(baseFetch).toHaveBeenCalledTimes(3);
+  });
+
+  it("leaves /docs to the app without an API binding", async () => {
+    await worker.fetch(new Request("https://reptiles.ge/docs"), {}, {});
+    expect(baseFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it("answers /docs with 503 in maintenance mode", async () => {
+    const apiFetch = vi.fn();
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/docs"),
+      { API: { fetch: apiFetch }, MAINTENANCE_MODE: "on" },
+      {},
+    );
+    expect(response.status).toBe(503);
+    expect(apiFetch).not.toHaveBeenCalled();
+  });
+
   it("passes a plain page request to the app unchanged", async () => {
     const request = new Request("https://reptiles.ge/en/snakes");
     await worker.fetch(request, {}, {});
