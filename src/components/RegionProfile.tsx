@@ -308,7 +308,7 @@ function RegionProfileHero({
         alt={t("regionHeroAlt", { name })}
         className="object-cover object-center"
         priority
-        sizes="100vw"
+        sizes="(max-aspect-ratio: 1/1) 94vh, 100vw"
         src={heroSrc}
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />

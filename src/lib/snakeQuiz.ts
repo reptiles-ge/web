@@ -21,6 +21,7 @@ const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
   "elaphe-urartica": "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
   "eryx-jaculus": "https://cdn.reptiles.ge/eryx-jaculus-ioane-1.jpg",
   "malpolon-insignitus": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
+  "natrix-natrix": "https://cdn.reptiles.ge/natrix-natrix-7.jpg",
   "vipera-renardi": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
   "vipera-transcaucasiana":
     "https://cdn.reptiles.ge/vipera-transcaucasiana-mobile.webp",
