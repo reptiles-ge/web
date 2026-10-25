@@ -296,6 +296,11 @@ async function readGuideCover(
   const remote = await fetchBuffer(target.heroSrc, timeoutMs);
   if (remote) return { buffer: remote, from: target.heroSrc };
 
+  for (const url of derivativeUrls(target.heroSrc)) {
+    const derivative = await fetchBuffer(url, timeoutMs);
+    if (derivative) return { buffer: derivative, from: url };
+  }
+
   throw new Error(`No hero source for ${target.id} (${target.heroSrc})`);
 }
 
