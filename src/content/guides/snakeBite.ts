@@ -521,47 +521,55 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
   },
 };
 
+export const GEORGIA_112_SOURCE: GuideArticleSource = {
+  name: "Georgia 112 — When to call 112",
+  supports: {
+    en: "Georgia's 24-hour emergency dispatch number and the information to give the operator; it is for emergencies, not general advice.",
+    ka: "საქართველოს სადღეღამისო გადაუდებელი დახმარების ნომერი და ოპერატორისთვის მისაწოდებელი ინფორმაცია; 112 ზოგადი რჩევის ხაზი არ არის.",
+    ru: "Круглосуточный номер экстренной помощи в Грузии и сведения для оператора; 112 не является общей справочной линией.",
+    tr: "Gürcistan'ın 24 saat acil yardım numarası ve operatöre verilecek bilgiler; 112 genel danışma hattı değildir.",
+  },
+  url: "https://112.gov.ge/?page_id=1686&lang=en",
+};
+
+export const WHO_SNAKEBITE_TREATMENT_SOURCE: GuideArticleSource = {
+  name: "WHO — Snakebite envenoming: treatment and first aid",
+  supports: {
+    en: "Prompt medical care for suspected venomous bites; move away, remove tight items, immobilize, and avoid incision, suction, tight arterial tourniquets and traditional remedies. Pressure bandaging is species dependent.",
+    ka: "შხამიანი ნაკბენის ეჭვისას სწრაფი სამედიცინო დახმარება; მოშორება, მჭიდრო ნივთების მოხსნა, უძრაობა და ჭრილობის გაჭრის, ამოწოვის, მჭიდრო ტურნიკეტისა და ხალხური მეთოდების არიდება. ზეწოლითი სახვევი სახეობაზეა დამოკიდებული.",
+    ru: "Быстрая медицинская помощь при подозрении на ядовитый укус; удаление от змеи, снятие тесных предметов, обездвиживание и отказ от разрезов, отсасывания, тугого жгута и народных средств. Давящая повязка зависит от вида.",
+    tr: "Zehirli ısırık şüphesinde hızlı tıbbi bakım; yılandan uzaklaşma, sıkı eşyaları çıkarma, hareketsiz tutma; kesme, emme, sıkı turnike ve halk yöntemlerinden kaçınma. Basınçlı bandaj türe bağlıdır.",
+  },
+  url: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
+};
+
+export const WHO_SNAKEBITE_FACT_SHEET_SOURCE: GuideArticleSource = {
+  name: "WHO — Snakebite envenoming fact sheet",
+  supports: {
+    en: "Possible serious effects of venom, including breathing and bleeding problems, and the higher severity children may experience because of smaller body mass.",
+    ka: "შხამის შესაძლო მძიმე ეფექტები, მათ შორის სუნთქვისა და სისხლდენის პრობლემები, და ბავშვებში პატარა სხეულის მასასთან დაკავშირებული მეტი სიმძიმე.",
+    ru: "Возможные тяжёлые последствия действия яда, включая нарушения дыхания и кровотечения, а также большую тяжесть у детей из-за меньшей массы тела.",
+    tr: "Zehirin solunum ve kanama sorunları dahil olası ağır etkileri ve küçük vücut kütlesi nedeniyle çocuklarda daha ağır seyir olasılığı.",
+  },
+  url: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
+};
+
+export const CDC_VENOMOUS_SNAKES_SOURCE: GuideArticleSource = {
+  name: "CDC / NIOSH — Venomous Snakes at Work",
+  supports: {
+    en: "Possible bite signs; urgent care without waiting for symptoms; removal of rings, avoiding driving alone, safe-distance photos, and avoiding ice, electric shock, alcohol, incision, suction, tourniquets, or handling the snake.",
+    ka: "ნაკბენის შესაძლო ნიშნები; დახმარება სიმპტომების მოლოდინის გარეშე; ბეჭდების მოხსნა, მანქანის მარტო არ მართვა, შორიდან ფოტო და ყინულის, ელექტროშოკის, ალკოჰოლის, გაჭრის, ამოწოვის, ტურნიკეტისა და გველთან შეხების არიდება.",
+    ru: "Возможные признаки укуса; помощь без ожидания симптомов; снятие колец, отказ от самостоятельного вождения, фото издалека и отказ от льда, электричества, алкоголя, разрезов, отсасывания, жгута и контакта со змеёй.",
+    tr: "Olası ısırık belirtileri; belirtileri beklemeden yardım; yüzükleri çıkarma, tek başına araç kullanmama, uzaktan fotoğraf ve buz, elektrik, alkol, kesme, emme, turnike veya yılana dokunmaktan kaçınma.",
+  },
+  url: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
+};
+
 const SOURCES: readonly GuideArticleSource[] = [
-  {
-    name: "Georgia 112 — When to call 112",
-    supports: {
-      en: "Georgia's 24-hour emergency dispatch number and the information to give the operator; it is for emergencies, not general advice.",
-      ka: "საქართველოს სადღეღამისო გადაუდებელი დახმარების ნომერი და ოპერატორისთვის მისაწოდებელი ინფორმაცია; 112 ზოგადი რჩევის ხაზი არ არის.",
-      ru: "Круглосуточный номер экстренной помощи в Грузии и сведения для оператора; 112 не является общей справочной линией.",
-      tr: "Gürcistan'ın 24 saat acil yardım numarası ve operatöre verilecek bilgiler; 112 genel danışma hattı değildir.",
-    },
-    url: "https://112.gov.ge/?page_id=1686&lang=en",
-  },
-  {
-    name: "WHO — Snakebite envenoming: treatment and first aid",
-    supports: {
-      en: "Prompt medical care for suspected venomous bites; move away, remove tight items, immobilize, and avoid incision, suction, tight arterial tourniquets and traditional remedies. Pressure bandaging is species dependent.",
-      ka: "შხამიანი ნაკბენის ეჭვისას სწრაფი სამედიცინო დახმარება; მოშორება, მჭიდრო ნივთების მოხსნა, უძრაობა და ჭრილობის გაჭრის, ამოწოვის, მჭიდრო ტურნიკეტისა და ხალხური მეთოდების არიდება. ზეწოლითი სახვევი სახეობაზეა დამოკიდებული.",
-      ru: "Быстрая медицинская помощь при подозрении на ядовитый укус; удаление от змеи, снятие тесных предметов, обездвиживание и отказ от разрезов, отсасывания, тугого жгута и народных средств. Давящая повязка зависит от вида.",
-      tr: "Zehirli ısırık şüphesinde hızlı tıbbi bakım; yılandan uzaklaşma, sıkı eşyaları çıkarma, hareketsiz tutma; kesme, emme, sıkı turnike ve halk yöntemlerinden kaçınma. Basınçlı bandaj türe bağlıdır.",
-    },
-    url: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
-  },
-  {
-    name: "WHO — Snakebite envenoming fact sheet",
-    supports: {
-      en: "Possible serious effects of venom, including breathing and bleeding problems, and the higher severity children may experience because of smaller body mass.",
-      ka: "შხამის შესაძლო მძიმე ეფექტები, მათ შორის სუნთქვისა და სისხლდენის პრობლემები, და ბავშვებში პატარა სხეულის მასასთან დაკავშირებული მეტი სიმძიმე.",
-      ru: "Возможные тяжёлые последствия действия яда, включая нарушения дыхания и кровотечения, а также большую тяжесть у детей из-за меньшей массы тела.",
-      tr: "Zehirin solunum ve kanama sorunları dahil olası ağır etkileri ve küçük vücut kütlesi nedeniyle çocuklarda daha ağır seyir olasılığı.",
-    },
-    url: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
-  },
-  {
-    name: "CDC / NIOSH — Venomous Snakes at Work",
-    supports: {
-      en: "Possible bite signs; urgent care without waiting for symptoms; removal of rings, avoiding driving alone, safe-distance photos, and avoiding ice, electric shock, alcohol, incision, suction, tourniquets, or handling the snake.",
-      ka: "ნაკბენის შესაძლო ნიშნები; დახმარება სიმპტომების მოლოდინის გარეშე; ბეჭდების მოხსნა, მანქანის მარტო არ მართვა, შორიდან ფოტო და ყინულის, ელექტროშოკის, ალკოჰოლის, გაჭრის, ამოწოვის, ტურნიკეტისა და გველთან შეხების არიდება.",
-      ru: "Возможные признаки укуса; помощь без ожидания симптомов; снятие колец, отказ от самостоятельного вождения, фото издалека и отказ от льда, электричества, алкоголя, разрезов, отсасывания, жгута и контакта со змеёй.",
-      tr: "Olası ısırık belirtileri; belirtileri beklemeden yardım; yüzükleri çıkarma, tek başına araç kullanmama, uzaktan fotoğraf ve buz, elektrik, alkol, kesme, emme, turnike veya yılana dokunmaktan kaçınma.",
-    },
-    url: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
-  },
+  GEORGIA_112_SOURCE,
+  WHO_SNAKEBITE_TREATMENT_SOURCE,
+  WHO_SNAKEBITE_FACT_SHEET_SOURCE,
+  CDC_VENOMOUS_SNAKES_SOURCE,
 ];
 
 export const SNAKE_BITE = defineGuideArticle({

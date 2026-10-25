@@ -1570,7 +1570,7 @@
       "bite": {
         "eyebrow": "112",
         "title": "Snakebite",
-        "body": "Educational first steps: call 112. Do not cut, suck, or use a tourniquet.",
+        "body": "Educational: call 112. Do not cut, suck, or use a tourniquet.",
         "cta": "Bite guide"
       },
       "gyurzaBite": {
