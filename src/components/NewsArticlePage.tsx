@@ -328,24 +328,17 @@ async function NewsArticleHeader({
           ) : null}
           <span className="inline-flex items-center gap-2 whitespace-nowrap md:gap-2.5">
             <time dateTime={article.publishedAt}>
-              <span className="md:hidden">
-                {formatContentDateShort(article.publishedAt, locale)}
-              </span>
-              <span className="max-md:hidden">
-                {formatContentDate(article.publishedAt, locale)}
-              </span>
+              {formatContentDateShort(article.publishedAt, locale)}
             </time>
             <span
               aria-hidden="true"
               className="size-[3px] rounded-full bg-(--nw-sep)"
             />
-            <span className="md:hidden">
+            <span>
               {t("readTimeShort", {
                 minutes: newsReadMinutes(article, locale),
               })}
-            </span>
-            <span className="max-md:hidden">
-              {t("readTime", { minutes: newsReadMinutes(article, locale) })}
+              <span className="max-md:hidden"> {t("readTimeWord")}</span>
             </span>
             {article.views ? (
               <>
@@ -357,8 +350,8 @@ async function NewsArticleHeader({
                   className="gap-[5px] md:gap-1.5"
                   count={article.views}
                   iconClassName="size-[13px] md:size-[15px]"
-                  label={t("viewCount", { count: article.views })}
                   locale={locale}
+                  noun={t("viewCountNoun", { count: article.views })}
                 />
               </>
             ) : null}
