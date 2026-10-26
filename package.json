@@ -151,7 +151,7 @@
     "@jsquash/webp": "1.5.0",
     "@lingual/i18n-check": "^0.9.5",
     "@next/bundle-analyzer": "16.4.2",
-    "@playwright/test": "1.64.0",
+    "@playwright/test": "1.64.1",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#97da0fd516ae26c42c398598376cd5c3e44c3a28",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.1",
@@ -190,7 +190,7 @@
     "tsx": "^4.23.15",
     "typescript": "^6",
     "vite": "^8.3.4",
-    "vitest": "5.0.3",
+    "vitest": "5.0.5",
     "wrangler": "^4.149.0",
     "zod": "4.6.6"
   }
