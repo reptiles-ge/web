@@ -618,7 +618,13 @@ describe("POST /v1/admin/authors/:id/texts", () => {
     expect(authorDates(ID).updated_at! > "2026-09-16T13:17:00.000Z").toBe(true);
     expect(authorDates(ID).published_at).toBe("2026-09-16T13:17:00.000Z");
     expect(linkedMedia(ID)).toBeGreaterThan(0);
-    expect(siteFetch).not.toHaveBeenCalled();
+    expect(siteFetch).toHaveBeenCalledTimes(1);
+    expect(await sentTags()).toEqual([
+      "authors",
+      `author:${ID}`,
+      "species",
+      "news",
+    ]);
   });
 
   it("refuses invalid texts and unknown authors", async () => {
