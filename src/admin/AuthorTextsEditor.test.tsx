@@ -97,7 +97,7 @@ describe("AuthorTextsEditor", () => {
     expect(await screen.findByText(/^Saved\./)).toBeInTheDocument();
     expect(screen.getByText("No unsaved changes")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Clear cache now" }),
+      screen.getByRole("button", { name: "Clear cache again" }),
     ).toBeInTheDocument();
   });
 
