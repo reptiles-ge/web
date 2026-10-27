@@ -121,6 +121,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthorTexts(c.env.DB, checked.data as AuthorRecord);
+      inBackground(c, revalidateAuthorPages(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
