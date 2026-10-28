@@ -184,7 +184,7 @@
     "msw": "^2.15.0",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "react-doctor": "^0.9.17",
+    "react-doctor": "^0.9.18",
     "schema-dts": "^2.1.0",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
