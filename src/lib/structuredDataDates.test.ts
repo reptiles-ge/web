@@ -135,6 +135,16 @@ describe("member-derived dates", () => {
     );
   });
 
+  it("writes a contributor's published timestamp in the site time zone", async () => {
+    const author = {
+      ...sandroKhakhva(),
+      publishedAt: "2026-09-16T13:17:00.000Z",
+    };
+    expect((await authorDateFields(author, "ka")).datePublished).toBe(
+      "2026-09-16T17:17:00+04:00",
+    );
+  });
+
   it("dates a quiz by the newest species in its pool", async () => {
     const pool = catalogSpeciesFixture().filter(
       (item) => getSpeciesAtlasMeta(item.id).group === "snake",

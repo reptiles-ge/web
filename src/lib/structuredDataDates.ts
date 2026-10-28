@@ -184,8 +184,7 @@ function latestDate(values: Array<null | string | undefined>) {
     if (!value || Number.isNaN(Date.parse(value))) continue;
     latest = latest ? laterDate(latest, value) : value;
   }
-  if (!latest?.includes("T")) return latest;
-  return parseToSiteDateTime(latest) ?? latest;
+  return latest ? siteDateTime(latest) : latest;
 }
 
 function membersForPath(path: string, catalog: readonly CatalogCard[]) {
@@ -266,14 +265,20 @@ function regionMembersDate(id: string, catalog: readonly CatalogCard[]) {
   return region ? speciesDate(getRegionSpecies(region, catalog)) : null;
 }
 
+function siteDateTime(value: string) {
+  if (!value.includes("T")) return value;
+  return parseToSiteDateTime(value) ?? value;
+}
+
 function speciesDate(items: readonly CatalogCard[]) {
   return latestDate(items.map((item) => item.updatedAt));
 }
 
 function withFloor(
   dateModified: null | string,
-  datePublished: string,
+  rawDatePublished: string,
 ): DateFields {
+  const datePublished = siteDateTime(rawDatePublished);
   return {
     dateModified: laterDate(datePublished, dateModified),
     datePublished,
