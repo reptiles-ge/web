@@ -47,7 +47,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     intro:
       "Do not try to catch, kill or move the snake. Keep your distance, move children and pets away, and leave the snake a clear way out. Most snakes in Georgia are harmless, but treat one you cannot identify as venomous.",
-    metaTitle: "Snake in the yard: how to get it out and what doesn't work",
+    metaTitle: "Snake in the yard: what to do and how to keep snakes away",
     notice:
       "Bitten by a snake? Call 112 straight away and open the [snake bite guide](/snakes/gvelis-nakbeni). Do not cut the bite, suck it or use a tourniquet.",
     sections: [
@@ -136,7 +136,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     summary:
       "There is no reliable way to drive a snake out of a yard, and repellents, sulfur and milk do not work. Keep your distance, move children and pets away and leave the snake a way out. Over the long term, mow tall grass, clear piles of stones and wood, control rodents and seal gaps into the house. If someone is bitten, call 112.",
-    title: "How to get a snake out of the yard",
+    title: "Snake in the yard: what to do and how to keep snakes away",
   },
   ka: {
     description:
@@ -170,7 +170,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     intro:
       "ნუ ეცდებით გველის დაჭერას, მოკვლას ან გადაყვანას. დაიცავით მანძილი, ბავშვები და შინაური ცხოველები მოარიდეთ და გველს გასასვლელი დაუტოვეთ. საქართველოში გველების უმეტესობა უშხამოა, მაგრამ ის, ვისაც ვერ ამოიცნობთ, შხამიანად ჩათვალეთ.",
-    metaTitle: "როგორ მოვიშოროთ გველი ეზოდან — რა მუშაობს და რა არა",
+    metaTitle: "გველი ეზოში — რა ვქნათ ახლა და როგორ დავიცვათ ეზო",
     notice:
       "გველმა გიკბინათ? მაშინვე დარეკეთ 112-ზე და გახსენით [გველის ნაკბენის გიდი](/snakes/gvelis-nakbeni). ნაკბენი არ გაჭრათ, არ ამოწოვოთ და ტურნიკეტი არ გამოიყენოთ.",
     sections: [
@@ -259,7 +259,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     summary:
       "გველის ეზოდან განდევნის სანდო გზა არ არსებობს, ხოლო დასაფრთხობი საშუალებები, გოგირდი და რძე არ მუშაობს. დაიცავით მანძილი, ბავშვები და შინაური ცხოველები მოარიდეთ და გველს გასასვლელი დაუტოვეთ. ხანგრძლივად კი მოთიბეთ მაღალი ბალახი, მოაშორეთ ქვებისა და შეშის გროვები, აკონტროლეთ მღრღნელები და სახლის ღრიჭოები დახურეთ. ნაკბენისას დარეკეთ 112-ზე.",
-    title: "როგორ მოვიშოროთ გველი ეზოდან?",
+    title: "გველი ეზოში: რა ვქნათ და როგორ დავიცვათ ეზო?",
   },
   ru: {
     description:
@@ -293,7 +293,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     intro:
       "Не пытайтесь поймать, убить или переместить змею. Держитесь на расстоянии, уведите детей и домашних животных и оставьте змее свободный выход. Большинство змей в Грузии неядовиты, но ту, которую не можете определить, считайте ядовитой.",
-    metaTitle: "Как избавиться от змеи во дворе: что работает, а что нет",
+    metaTitle: "Змея во дворе: что делать сейчас и как уберечь двор",
     notice:
       "Укусила змея? Сразу звоните 112 и откройте [гид по укусу змеи](/snakes/gvelis-nakbeni). Не разрезайте место укуса, не отсасывайте яд и не накладывайте жгут.",
     sections: [
@@ -382,7 +382,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     summary:
       "Надёжного способа выгнать змею со двора нет, а отпугиватели, сера и молоко не работают. Держитесь на расстоянии, уведите детей и домашних животных и оставьте змее выход. В долгосрочной перспективе косите высокую траву, убирайте кучи камней и дров, боритесь с грызунами и заделывайте щели в доме. При укусе звоните 112.",
-    title: "Как избавиться от змеи во дворе?",
+    title: "Змея во дворе: что делать и как уберечь двор?",
   },
   tr: {
     description:
@@ -416,7 +416,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     intro:
       "Yılanı yakalamaya, öldürmeye veya yerinden oynatmaya çalışmayın. Mesafenizi koruyun, çocukları ve evcil hayvanları uzaklaştırın ve yılana açık bir çıkış bırakın. Gürcistan'daki yılanların çoğu zehirsizdir, ancak tanıyamadığınız bir yılanı zehirli sayın.",
-    metaTitle: "Bahçede yılan: nasıl uzaklaştırılır, ne işe yaramaz",
+    metaTitle: "Bahçede yılan: şimdi ne yapmalı, yılanlar nasıl uzak tutulur",
     notice:
       "Yılan mı ısırdı? Hemen 112'yi arayın ve [yılan ısırığı rehberini](/snakes/gvelis-nakbeni) açın. Isırığı kesmeyin, emmeyin ve turnike uygulamayın.",
     sections: [
@@ -506,7 +506,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     ],
     summary:
       "Bir yılanı bahçeden kovmanın güvenilir bir yolu yoktur; kovucular, kükürt ve süt işe yaramaz. Mesafenizi koruyun, çocukları ve evcil hayvanları uzaklaştırın ve yılana bir çıkış bırakın. Uzun vadede uzun otları biçin, taş ve odun yığınlarını kaldırın, kemirgenleri kontrol edin ve evdeki boşlukları kapatın. Isırık olursa 112'yi arayın.",
-    title: "Bahçedeki yılandan nasıl kurtulunur?",
+    title: "Bahçede yılan: ne yapmalı ve nasıl uzak tutmalı?",
   },
 };
 
@@ -658,10 +658,10 @@ export const SNAKES_IN_YARD = defineGuideArticle({
       tr: "Ne işe yarar, ne yaramaz — pratik rehber",
     },
     title: {
-      en: "How to get a snake out of the yard",
-      ka: "როგორ მოვიშოროთ გველი ეზოდან?",
-      ru: "Как избавиться от змеи во дворе",
-      tr: "Bahçedeki yılandan nasıl kurtulunur",
+      en: "Snake in the yard: what to do",
+      ka: "გველი ეზოში: რა ვქნათ?",
+      ru: "Змея во дворе: что делать",
+      tr: "Bahçede yılan: ne yapmalı",
     },
   },
   sources: SOURCES,

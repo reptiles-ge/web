@@ -66,9 +66,9 @@ export async function QuizLanding({
     <>
       <noscript>
         <section className="bg-background px-6 py-16 text-foreground">
-          <h2 className="font-display text-xl font-semibold">
+          <p className="font-display text-xl font-semibold">
             {t("noscriptTitle")}
-          </h2>
+          </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
             {t("noscriptBody")}
           </p>
