@@ -68,6 +68,9 @@ describe("docs route", () => {
   it("serves an OpenAPI 3.1 document that tries requests on the API origin first", async () => {
     const { document, response } = await loadDocument();
     expect(response.status).toBe(200);
+    expect(response.headers.get("Content-Type")).toBe(
+      "application/vnd.oai.openapi+json",
+    );
     expect(document.openapi).toBe("3.1.0");
     expect(document.security).toEqual([{ ApiKey: [] }]);
     expect(document.servers.map((server) => server.url)).toEqual([

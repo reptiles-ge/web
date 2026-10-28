@@ -34,11 +34,19 @@ export function addScriptNonce(
   nonce = createScriptNonce(),
 ): Response {
   const policy = response.headers.get(CONTENT_SECURITY_POLICY);
-  if (!Rewriter || !policy || !response.body || response.status === 304) {
+  if (!Rewriter || !policy || response.status === 304) {
     return response;
   }
   if (!response.headers.get("Content-Type")?.startsWith("text/html")) {
     return response;
+  }
+  if (!response.body) {
+    if (request.method !== "HEAD") return response;
+    return new Response(null, {
+      headers: noncedHeaders(response.headers, policy, nonce),
+      status: response.status,
+      statusText: response.statusText,
+    });
   }
 
   const trusted = new Set([
@@ -61,13 +69,8 @@ export function addScriptNonce(
     new Rewriter().on("script", stamp("src")),
   );
   const transformed = rewriter.transform(response);
-  const headers = new Headers(transformed.headers);
-  headers.set(CONTENT_SECURITY_POLICY, withScriptNonce(policy, nonce));
-  headers.delete("Content-Length");
-  headers.delete("ETag");
-  headers.delete("Last-Modified");
   return new Response(transformed.body, {
-    headers,
+    headers: noncedHeaders(transformed.headers, policy, nonce),
     status: transformed.status,
     statusText: transformed.statusText,
   });
@@ -81,6 +84,15 @@ export function createScriptNonce(): string {
 function htmlRewriter(): HtmlRewriterConstructor | undefined {
   return (globalThis as { HTMLRewriter?: HtmlRewriterConstructor })
     .HTMLRewriter;
+}
+
+function noncedHeaders(source: Headers, policy: string, nonce: string) {
+  const headers = new Headers(source);
+  headers.set(CONTENT_SECURITY_POLICY, withScriptNonce(policy, nonce));
+  headers.delete("Content-Length");
+  headers.delete("ETag");
+  headers.delete("Last-Modified");
+  return headers;
 }
 
 function trustedOrigin(url: string, base: string, trusted: Set<string>) {
