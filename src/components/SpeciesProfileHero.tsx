@@ -200,6 +200,20 @@ export async function SpeciesProfileHero({
                 </span>
               </a>
             ) : null}
+            {emergency ? (
+              <a
+                aria-label={tSafety("call")}
+                className="pointer-events-auto inline-flex h-11 items-center gap-2 rounded-full bg-destructive pr-4 pl-3.5 text-[14px] font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
+                href="tel:112"
+              >
+                <Phone
+                  aria-hidden="true"
+                  className="size-[15px]"
+                  strokeWidth={2}
+                />
+                112 · {t("emergencyShort")}
+              </a>
+            ) : null}
             {species.audio ? (
               <SpeciesVoicePlayer
                 audio={species.audio}

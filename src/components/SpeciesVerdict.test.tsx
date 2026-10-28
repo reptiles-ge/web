@@ -21,12 +21,7 @@ vi.mock("next-intl/server", () => ({
   }: {
     locale: keyof typeof messages;
     namespace:
-      | "card"
-      | "danger"
-      | "groupHubShared"
-      | "home.safetyStrip"
-      | "profile"
-      | "riskToHumans";
+      "card" | "danger" | "groupHubShared" | "profile" | "riskToHumans";
   }) => createTranslator({ locale, messages: messages[locale], namespace }),
 }));
 
@@ -63,10 +58,10 @@ describe("SpeciesVerdict", () => {
         screen.queryByText(messages[locale].riskToHumans.scaleModerateBody),
       ).not.toBeInTheDocument();
       expect(
-        screen.getByRole("link", {
+        screen.queryByRole("link", {
           name: messages[locale].home.safetyStrip.call,
         }),
-      ).toHaveAttribute("href", "tel:112");
+      ).not.toBeInTheDocument();
       const share = speciesShareMessage({
         commonName: species.commonName,
         danger: species.danger,
