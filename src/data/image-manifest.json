@@ -93084,6 +93084,207 @@
       ],
       "updatedAt": "2026-10-18T08:00:12.967Z"
     },
+    "news-tetrobi-niamori-gps-collar.jpg": {
+      "sourceHash": "d6db9a3f3a86b4516ee4d5fb387ef2033b4ef65f1fff12a370ab79eb4a377e42",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-gps-collar.jpg",
+      "originalSize": 61717,
+      "width": 640,
+      "height": 359,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13331
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 20432
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 18996
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 29554
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 359,
+          "byteSize": 35595
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 359,
+          "byteSize": 55998
+        }
+      ],
+      "updatedAt": "2026-10-28T08:12:17.047Z"
+    },
+    "news-tetrobi-niamori-release-crates.jpg": {
+      "sourceHash": "d9598f1fda4085572c1f16cee05979d4ca291a2aa8757a1c9485fb3883c60ddb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-release-crates.jpg",
+      "originalSize": 115433,
+      "width": 600,
+      "height": 373,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 199,
+          "byteSize": 13981
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 199,
+          "byteSize": 19924
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 249,
+          "byteSize": 20695
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 249,
+          "byteSize": 29520
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-600.avif",
+          "format": "avif",
+          "width": 600,
+          "height": 373,
+          "byteSize": 41042
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-600.webp",
+          "format": "webp",
+          "width": 600,
+          "height": 373,
+          "byteSize": 59796
+        }
+      ],
+      "updatedAt": "2026-10-28T08:12:17.684Z"
+    },
+    "news-tetrobi-niamori-tbilisi-zoo.jpg": {
+      "sourceHash": "aad22a125dfab992d65adf811e951b6863f20d248c09e7686e99df8411e88e61",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-tbilisi-zoo.jpg",
+      "originalSize": 240499,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7545
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10910
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11194
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15902
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23894
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 33884
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 35545
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 51074
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 66162
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 92746
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 124861
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 167694
+        }
+      ],
+      "updatedAt": "2026-10-28T08:12:19.579Z"
+    },
     "olivierus-caucasicus-evgeny-1.jpg": {
       "sourceHash": "cf32b50bf7f42594851c0254a7e259d18a0f9f55482a213e6c8d737e50af973f",
       "configFingerprint": "409788ee46c653d8",
@@ -105970,12 +106171,26 @@
     },
     "species/capra-aegagrus-malkhasyan-9.jpg": {
       "sourceHash": "8af0924e6baa28f733deeb2d27ead9ccbbbc1e19a9b2e3fb653e16e62b277bec",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "species/capra-aegagrus-malkhasyan-9.jpg",
       "originalSize": 713434,
       "width": 1920,
       "height": 1440,
       "derivatives": [
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12539
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18468
+        },
         {
           "key": "optimized/species/capra-aegagrus-malkhasyan-9-400.avif",
           "format": "avif",
@@ -105989,6 +106204,20 @@
           "width": 400,
           "height": 300,
           "byteSize": 26990
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38674
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54718
         },
         {
           "key": "optimized/species/capra-aegagrus-malkhasyan-9-800.avif",
@@ -106033,7 +106262,7 @@
           "byteSize": 508542
         }
       ],
-      "updatedAt": "2026-08-28T21:58:10.657Z"
+      "updatedAt": "2026-10-28T08:12:23.738Z"
     },
     "species/lynx-lynx-bohringer-1.jpg": {
       "sourceHash": "e179ce45a8eccb643d1f92da8d6d67da4bd016cb5220b3a246e38208e48e329c",

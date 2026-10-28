@@ -7627,6 +7627,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-gps-collar.jpg": {
+    "path": "news-tetrobi-niamori-gps-collar",
+    "width": 640,
+    "height": 359,
+    "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-release-crates.jpg": {
+    "path": "news-tetrobi-niamori-release-crates",
+    "width": 600,
+    "height": 373,
+    "widths": [320, 400, 600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-tbilisi-zoo.jpg": {
+    "path": "news-tetrobi-niamori-tbilisi-zoo",
+    "width": 1920,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
     "path": "olivierus-caucasicus-evgeny-1",
     "width": 1024,
@@ -8765,7 +8786,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "species/capra-aegagrus-malkhasyan-9",
     "width": 1920,
     "height": 1440,
-    "widths": [400, 800, 1200, 1920],
+    "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/species/lynx-lynx-bohringer-1.jpg": {

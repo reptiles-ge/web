@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "tetrobi-niamori-gashveba",
   "imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi",
   "batumi-raptor-count-2026-season-ends",
   "armenia-red-book-update-urartian-ratsnake",
