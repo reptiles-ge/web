@@ -50,9 +50,7 @@ export async function SpeciesFaqSection({
               {t("faqTitle")}
             </AnchoredHeading>
             <p className="mt-3 max-w-sm text-[15px] leading-[1.6] text-muted-foreground lg:mt-5">
-              {t("faqIntroBefore")}
-              {faqName}
-              {t("faqIntroAfter")}
+              {t("faqIntro", { name: faqName })}
             </p>
           </div>
 
