@@ -46,6 +46,24 @@ describe("QuizIntroOverlay", () => {
     },
   );
 
+  it.each(["ka", "en", "ru", "tr"] as const)(
+    "links the snake quiz intro to the ID guide and species index in %s",
+    (locale) => {
+      const { container } = renderOverlay(locale, "snake", "snakeQuiz");
+      const hrefs = Array.from(container.querySelectorAll("p a")).map((link) =>
+        link.getAttribute("href"),
+      );
+      expect(hrefs).toHaveLength(2);
+      expect(hrefs.every(Boolean)).toBe(true);
+      expect(new Set(hrefs).size).toBe(2);
+    },
+  );
+
+  it("keeps the ID links off the lizard quiz intro", () => {
+    const { container } = renderOverlay("en", "lizard", "lizardQuiz");
+    expect(container.querySelectorAll("p a")).toHaveLength(0);
+  });
+
   it("starts the quiz from the start button", () => {
     const onStart = vi.fn();
     renderOverlay("en", "snake", "snakeQuiz", onStart);

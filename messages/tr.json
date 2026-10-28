@@ -197,7 +197,7 @@
       "subtitle": "Zehirli yılan tanıma, tür kataloğu ve diğer hayvan grupları.",
       "yard": {
         "title": "Bahçedeki yılanlar",
-        "body": "Yılanları bahçeden nasıl uzaklaştırırsınız — ne işe yarar, ne yaramaz ve biri zaten çıktıysa ne yapılır."
+        "body": "Bahçede yılan varsa şimdi ne yapmalı ve yılanları nasıl uzak tutmalı — ne işe yarar, ne yaramaz."
       },
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar",
@@ -316,7 +316,7 @@
       "directoryMore": "Diğer konular",
       "links": {
         "species": "Tür atlası",
-        "yard": "Yılanları bahçeden nasıl uzaklaştırırsınız",
+        "yard": "Bahçede yılan: ne yapmalı",
         "venomous": "Gürcistan’ın zehirli yılanları",
         "regions": "Bölgesel atlas",
         "snakes": "Gürcistan’daki yılanlar",
@@ -1410,7 +1410,7 @@
     "hikingTrailBody": "Özellikle kayalarda ve uzun otların arasında ayağınızı ve elinizi nereye koyduğunuza dikkat edin. Bir yılan görürseniz durun, geri çekilin ve gitmesine izin verin. Onu yerinden oynatmaya çalışmayın, fotoğraf için yaklaşmayın.",
     "hikingNote": "Bir yılan sizi ısırırsa hemen 112’yi arayın. Bu bilgi eğitim amaçlıdır, ilk yardım talimatı değildir. <bite>Yılan ısırığı rehberine</bite> bakın.",
     "yardEyebrow": "Eve yakın",
-    "yardTitle": "Yılanları bahçeden nasıl uzaklaştırırsınız",
+    "yardTitle": "Bahçede yılan: ne yapmalı, nasıl uzak tutmalı",
     "yardBody": "Bahçede yılan görülmesini önlemek çoğunlukla saklanma yerlerini azaltmak ve yiyecek kaynaklarını kontrol etmekle ilgilidir. Yaygın “kovucu” yöntemlerin çoğu etkili değildir. Pratik adımlar ve güvenlik kuralları ayrı bir rehberde toplanmıştır.",
     "yardCta": "Bahçe rehberi",
     "idEyebrow": "ID",
@@ -1908,12 +1908,12 @@
   },
   "snakes": {
     "metaTitle": "Gürcistan yılanları — türler, fotoğraflar ve tanıma",
-    "metaDescription": "Gürcistan yılanları: fotoğraflı {count} tür — hangileri zehirli, hangileri zararsız. Isırılırsanız 112’yi arayın.",
+    "metaDescription": "Gürcistan yılanları: fotoğraflı {count} tür — tanıma özellikleri, yayılış ve birbirine benzeyen türleri ayırt etme. Isırılırsanız 112’yi arayın.",
     "keywords": "Gürcistan’da yılanlar, Gürcistan yılanları, zararsız yılanlar, engerekler, yılanlar, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Yılanlar",
     "heroImageAlt": "Kayalık Kafkas habitatında Dinnik engereği",
     "title": "Gürcistan’daki yılanlar",
-    "subtitle": "Gürcistan’daki yılanlar — hangileri zehirli, hangileri zararsız, her biri nerede yaşar ve nasıl ayırt edilir.",
+    "subtitle": "Gürcistan’daki yılanlar — her türün fotoğrafları, tanıma özellikleri ve yayılışı, kırbaç yılanlarından engereklere.",
     "ctaSpecies": "Türleri görün",
     "ctaQuiz": "Bu hangi yılan?",
     "statSpecies": "Atlasdaki yılanlar",
@@ -1930,7 +1930,7 @@
     "section": {
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar — {count}",
-        "body": "Gürcistan’ın zehirli yılanları arasında Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile zehir dişleri ağzının arka kısmında bulunan Doğu Montpellier yılanı yer alır. Onlarla ilgili tam bilgi ayrı zehirli yılanlar rehberinde toplanmıştır."
+        "body": "Bunların altısı engerektir; yedincisi, zehir dişleri ağzının arka kısmında bulunan Doğu Montpellier yılanıdır. Her birinin fotoğrafları, tanıma özellikleri ve yayılışı ayrı zehirli yılanlar rehberindedir."
       },
       "harmless": {
         "title": "Diğer zararsız yılanlar — {count}",
@@ -1947,7 +1947,7 @@
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
     "faq1A": "Aşağıdaki katalogda {count} yılan türü yer alır. Bunlardan aday takson sayılanlar: {candidates}. Sayı, taksonomik değişiklikler ve yeni doğrulanmış verilerle değişebilir.",
     "faq2Q": "Gürcistan’da hangi yılanlar zehirlidir?",
-    "faq2A": "Gürcistan’ın zehirli yılanları Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile Doğu Montpellier yılanıdır. Ayrıntılar ayrı rehberde: <venomous>Gürcistan’daki zehirli yılanlar</venomous>. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve özelliklerini tür profilleriyle karşılaştırın.",
+    "faq2A": "Gürcistan’ın zehirli yılanlarından altısı engerektir, yedincisi Doğu Montpellier yılanıdır. Her biri fotoğrafları, tanıma özellikleri ve yayılışıyla <venomous>Gürcistan’daki zehirli yılanlar</venomous> rehberinde yer alır. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve özelliklerini tür profilleriyle karşılaştırın.",
     "faq3Q": "Engereği zararsız yılandan nasıl ayırırım?",
     "faq3A": "Bazı engereklerde dikey gözbebeği ve görece geniş, üçgen bir baş bulunur, ancak bu özellikler her durumda yeterli değildir. Daha güvenilir tanıma için diğer vücut özelliklerini, yaşam alanını ve yayılış bölgesini dikkate alın — <identify>zehirli yılan tanıma rehberi</identify> bunları karşılaştırır.",
     "faq4Q": "Gürcistan’da yılanlar nerede bulunur?",
@@ -3394,6 +3394,7 @@
     "start": "Başlayın",
     "startEmergency": "Isırıldınız mı? 112’yi arayın",
     "startLead": "Fotoğrafa bakın, dört türden birini seçin ve Gürcistan yılanlarını ne kadar iyi bildiğinizi görün.",
+    "startIdentify": "Gördüğünüz bir yılanı mı tanımak istiyorsunuz? Özelliklerini <identify>zehirli yılan tanıma rehberinde</identify> karşılaştırın ya da <species>fotoğraflı yılan türlerine</species> göz atın. Tanımadığınız bir yılanı zehirli kabul edin.",
     "rule1Title": "On soru",
     "rule1Body": "Her birinde bir fotoğraf ve dört tür vardır.",
     "rule2Title": "Anında geri bildirim",
