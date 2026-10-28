@@ -1,6 +1,6 @@
 # Pinned and patched dependencies
 
-Two dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
+Four dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
 
 ## vinext (patched)
 
@@ -31,3 +31,23 @@ Two dependencies are held back on purpose. Dependabot does not update them. Chan
 1. `package.json` → `github:reptiles-ge/img-compression#<sha>`
 2. `pnpm-workspace.yaml` → `onlyBuiltDependencies` tarball URL
 3. `pnpm install`, then check the lockfile resolves to `codeload.github.com/reptiles-ge/img-compression/tar.gz/<sha>`, and run `pnpm images:og-guides --guide <id>` once.
+
+## typescript (major held at 6)
+
+`typescript` stays on `^6`. Dependabot does not open major bumps for it.
+
+**Why.** `typescript-eslint` (pulled in by `eslint-config-next`) throws at startup on TypeScript 7.0: "typescript-eslint does not support TS 7.0". Its peer range is `typescript >=4.8.4 <6.1.0` as of `8.72.1`. The 7.0.2 bump (#1705) passed typecheck and build but broke `pnpm lint` in CI on every pull request after it.
+
+**Dependabot.** `typescript` major updates are in `ignore` in `.github/dependabot.yml`. Minor and patch updates still arrive in their group.
+
+**To upgrade:** wait for a `typescript-eslint` release whose `typescript` peer range includes 7, bump both, then run `pnpm install`, `pnpm lint`, `pnpm typecheck` and `pnpm build`.
+
+## msw (major held at 2)
+
+`msw` stays on `^2`. Dependabot does not open major bumps for it.
+
+**Why.** The 3.0.3 bump (#1706) broke the test suite. `server.listen({ onUnhandledRequest })` no longer type-checks in `tests/setup/msw.ts`, and handlers see `request.credentials` as `same-origin` where the admin clients send `include`, so the admin client tests that check credentials fail. CI did not show it because `pnpm typecheck` and `pnpm test:coverage` run after `pnpm lint`, which was failing on TypeScript 7 at the same time.
+
+**Dependabot.** `msw` major updates are in `ignore` in `.github/dependabot.yml`. Minor and patch updates still arrive.
+
+**To upgrade:** follow the msw 3 migration guide for `tests/setup/msw.ts` and `tests/msw/`, then run `pnpm typecheck` and `pnpm test:coverage` until both pass.
