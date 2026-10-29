@@ -77,18 +77,12 @@ describe("Worker fetch", () => {
     expect(response.headers.get("Cache-Control")).toBe(VINEXT_DEFAULT);
   });
 
-  it("hands the app a canonical RSC request", async () => {
-    await worker.fetch(
-      new Request("https://reptiles.ge/en/snakes?_rsc=abc", {
-        headers: { "Next-Router-State-Tree": "tree", RSC: "1" },
-      }),
-      {},
-      {},
-    );
-    const request = forwarded();
-    expect(new URL(request.url).search).toBe("?_rsc");
-    expect(request.headers.get("Next-Router-State-Tree")).toBeNull();
-    expect(request.headers.get("RSC")).toBe("1");
+  it("hands an RSC request to the app unchanged", async () => {
+    const original = new Request("https://reptiles.ge/en/snakes?_rsc=abc", {
+      headers: { "Next-Router-State-Tree": "tree", RSC: "1" },
+    });
+    await worker.fetch(original, {}, {});
+    expect(forwarded()).toBe(original);
   });
 
   it("serves the API docs page from the API binding at /docs", async () => {
