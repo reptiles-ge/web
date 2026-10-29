@@ -70,6 +70,7 @@ export function QuizIntroOverlay({
         <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-5 sm:text-[17px]">
           {t("startLead")}
         </p>
+        {quizId === "snake" ? <SnakeQuizIdentifyLinks /> : null}
 
         <ul className="mt-5 grid gap-px overflow-hidden rounded-card border border-white/12 bg-white/10 sm:mt-10 sm:grid-cols-3">
           {rules.map((rule, index) => (
@@ -103,6 +104,33 @@ export function QuizIntroOverlay({
         </div>
       </div>
     </div>
+  );
+}
+
+const identifyLinkClassName =
+  "font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white";
+
+function SnakeQuizIdentifyLinks() {
+  const t = useTranslations("snakeQuiz");
+
+  return (
+    <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-4 sm:text-[15px]">
+      {t.rich("startIdentify", {
+        identify: (chunks) => (
+          <Link
+            className={identifyLinkClassName}
+            href="/snakes/shxamiani-gvelis-amocnoba"
+          >
+            {chunks}
+          </Link>
+        ),
+        species: (chunks) => (
+          <Link className={identifyLinkClassName} href="/snakes/saxeoebebi">
+            {chunks}
+          </Link>
+        ),
+      })}
+    </p>
   );
 }
 

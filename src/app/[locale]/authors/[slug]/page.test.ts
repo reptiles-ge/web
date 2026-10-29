@@ -2,8 +2,6 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { routing } from "@/i18n/routing";
-import { creditAuthorUrl } from "@/lib/creditAuthors";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 
 import en from "../../../../../messages/en.json";
 import ka from "../../../../../messages/ka.json";
@@ -61,14 +59,8 @@ describe("contributor profile metadata", () => {
       expect(description).toMatch(/[.!?]$/);
       expect(description.length).toBeLessThanOrEqual(160);
 
-      const override = kaMetaDescriptionOverride(
-        locale,
-        new URL(creditAuthorUrl(locale, author.id)).pathname,
-        "",
-      );
-      const manual = locale === "ka" ? undefined : author.metaDescription;
-      if (override || manual) {
-        expect(description).toBe(override || manual);
+      if (author.metaDescription) {
+        expect(description).toBe(author.metaDescription);
         return;
       }
       const bio = author.bio;

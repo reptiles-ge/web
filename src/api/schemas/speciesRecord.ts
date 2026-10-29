@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
+import { DRAFT_MERGE_BATCH_SIZE } from "@/lib/draftMergeBatch";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { sourcesAreValid } from "@/lib/speciesSources";
 
@@ -273,6 +274,16 @@ export const draftDecisionBody = z.strictObject({ actor });
 
 export const draftIdParam = z.object({
   draftId: z.coerce.number().int().min(1),
+});
+
+export const draftMergeBody = z.strictObject({
+  draftIds: z
+    .array(z.int().min(1))
+    .min(1)
+    .max(DRAFT_MERGE_BATCH_SIZE)
+    .refine((ids) => new Set(ids).size === ids.length, {
+      message: "Draft ids must be unique",
+    }),
 });
 
 export const draftListQuery = pageQuery.extend({

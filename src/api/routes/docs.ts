@@ -1,6 +1,8 @@
 import { Scalar } from "@scalar/hono-api-reference";
 import { Hono } from "hono";
 
+import { OPENAPI_CONTENT_TYPE } from "@/lib/apiDocsPaths";
+
 import type { ApiEnv } from "../env";
 
 import { PUBLIC_CACHE } from "../lib/cache";
@@ -25,5 +27,7 @@ export const docs = new Hono<ApiEnv>()
   })
   .get("/openapi.json", (c) => {
     c.header("Cache-Control", PUBLIC_CACHE);
-    return c.json(buildOpenApiDocument(), 200);
+    return c.body(JSON.stringify(buildOpenApiDocument()), 200, {
+      "Content-Type": OPENAPI_CONTENT_TYPE,
+    });
   });

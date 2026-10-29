@@ -2,6 +2,8 @@ import type { InferResponseType } from "hono/client";
 
 import type { Page } from "@/lib/pagination";
 
+import { draftMergeBatches } from "@/lib/draftMergeBatch";
+
 import { checkAdminResponse, SessionExpiredError } from "./adminResponse";
 import { api } from "./apiClient";
 import { type PagedQuery, toQueryParams } from "./pagination";
@@ -23,6 +25,11 @@ export const DRAFT_STATUS_COLORS: Record<DraftStatus, string> = {
   pending: "gold",
   rejected: "default",
 };
+
+export type DraftMergeResult = InferResponseType<
+  typeof api.v1.admin.drafts.merge.$post,
+  200
+>["data"]["results"][number];
 
 export class DraftDecisionError extends Error {
   constructor(message: string) {
@@ -61,6 +68,21 @@ export async function mergeDraft(id: number) {
   });
   if (response.ok) return (await response.json()).data;
   throw await decisionError(response);
+}
+
+export async function mergeDrafts(ids: number[]) {
+  const results: DraftMergeResult[] = [];
+  let revalidated = true;
+  for (const draftIds of draftMergeBatches(ids)) {
+    const response = await api.v1.admin.drafts.merge.$post({
+      json: { draftIds },
+    });
+    if (!response.ok) throw await decisionError(response);
+    const { data } = await response.json();
+    results.push(...data.results);
+    revalidated &&= data.revalidated;
+  }
+  return { results, revalidated };
 }
 
 export async function rejectDraft(id: number) {

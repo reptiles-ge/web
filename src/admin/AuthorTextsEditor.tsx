@@ -109,13 +109,14 @@ export function AuthorTextsEditor({
               done ? (
                 <Flex align="center" gap="small" wrap>
                   <Typography.Text type="success">
-                    Saved. reptiles.ge shows it after the cache is cleared.
+                    Saved. The cache clears on its own; reptiles.ge shows it
+                    within a minute.
                   </Typography.Text>
                   {author.isContributor ? (
                     <ClearCacheButton
                       description="This contributor's page renders fresh on its next visit, in every language."
                       failure="The contributor cache could not be cleared. Try again in a minute."
-                      label="Clear cache now"
+                      label="Clear cache again"
                       onSessionExpired={onSessionExpired}
                       run={async () => {
                         await clearAuthorCache(author.id);

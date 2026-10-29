@@ -9,6 +9,7 @@ import {
   fetchDrafts,
   isStale,
   mergeDraft,
+  mergeDrafts,
   rejectDraft,
 } from "./drafts";
 
@@ -88,6 +89,50 @@ describe("drafts client", () => {
     expect((await mergeDraft(2)).version).toBe(3);
     await rejectDraft(2);
     expect(posted).toEqual(["2/merge", "2/reject"]);
+  });
+
+  it("merges selected drafts in batches and joins the results", async () => {
+    const sent: number[][] = [];
+    server.use(
+      http.post(`${BASE}/merge`, async ({ request }) => {
+        const { draftIds } = (await request.json()) as { draftIds: number[] };
+        sent.push(draftIds);
+        return HttpResponse.json({
+          data: {
+            results: draftIds.map((draftId) => ({
+              draftId,
+              speciesId: "x",
+              status: "approved",
+              version: 2,
+            })),
+            revalidated: sent.length === 1,
+          },
+        });
+      }),
+    );
+    const ids = Array.from({ length: 30 }, (_, i) => i + 1);
+    const { results, revalidated } = await mergeDrafts(ids);
+    expect(sent.map((batch) => batch.length)).toEqual([25, 5]);
+    expect(results.map((result) => result.draftId)).toEqual(ids);
+    expect(revalidated).toBe(false);
+  });
+
+  it("stops a bulk merge on a refused batch", async () => {
+    server.use(
+      http.post(`${BASE}/merge`, () =>
+        HttpResponse.json(
+          {
+            error: { code: "rate_limited", message: "Too many admin actions" },
+          },
+          { status: 429 },
+        ),
+      ),
+    );
+    await expect(mergeDrafts([1])).rejects.toThrow("Too many admin actions");
+    server.use(
+      http.post(`${BASE}/merge`, () => new HttpResponse(null, { status: 401 })),
+    );
+    await expect(mergeDrafts([1])).rejects.toBeInstanceOf(SessionExpiredError);
   });
 
   it("explains a stale draft and passes other API errors through", async () => {

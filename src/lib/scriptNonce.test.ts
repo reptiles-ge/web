@@ -127,6 +127,27 @@ describe("addScriptNonce", () => {
     expect(response.headers.get("Content-Length")).toBeNull();
   });
 
+  it("sends the GET nonce policy on a bodiless HEAD response", () => {
+    const head = new Request(request, { method: "HEAD" });
+    const response = addScriptNonce(
+      head,
+      htmlResponse({ status: 200, statusText: "OK" }, null),
+      FakeRewriter,
+      NONCE,
+    );
+    const get = addScriptNonce(request, htmlResponse(), FakeRewriter, NONCE);
+
+    expect(response.status).toBe(200);
+    expect(response.body).toBeNull();
+    expect(response.headers.get("Content-Security-Policy")).toBe(
+      get.headers.get("Content-Security-Policy"),
+    );
+    expect(response.headers.get("Content-Type")).toBe(
+      "text/html; charset=utf-8",
+    );
+    expect(response.headers.get("ETag")).toBeNull();
+  });
+
   it("uses the global HTMLRewriter and a fresh nonce per response", () => {
     vi.stubGlobal("HTMLRewriter", FakeRewriter);
     const nonceOf = (response: Response) =>

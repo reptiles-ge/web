@@ -170,7 +170,7 @@
   "detail": {
     "eyebrow": "Endemic spotlight",
     "lead": "An endemic venomous viper of the Greater Caucasus.",
-    "body": "It lives at roughly 1,500–2,800 meters — in the upper forest zone, subalpine meadows, and rocky terrain. Its range is fragmented; IUCN lists the species as Vulnerable.",
+    "body": "It lives at roughly 1,500–2,800 meters — in the upper forest zone, subalpine meadows, and rocky terrain. Its range is fragmented. On the IUCN Red List it is Vulnerable (2009).",
     "viewProfile": "View full profile",
     "imageAlt": "Dinnik’s viper in the Truso valley"
   },
@@ -197,7 +197,7 @@
       "subtitle": "Venomous-snake ID, the species catalog, and other animal groups.",
       "yard": {
         "title": "Snakes in the yard",
-        "body": "How to get snakes out of the yard — what works, what doesn’t, and what to do if one already appeared."
+        "body": "What to do if a snake is already in the yard, and how to keep snakes away — what works and what doesn’t."
       },
       "venomous": {
         "title": "Venomous snakes in Georgia",
@@ -316,7 +316,7 @@
       "directoryMore": "More topics",
       "links": {
         "species": "Species atlas",
-        "yard": "How to get snakes out of the yard",
+        "yard": "Snake in the yard: what to do",
         "venomous": "Venomous snakes of Georgia",
         "regions": "Regional atlas",
         "snakes": "Snakes in Georgia",
@@ -514,8 +514,7 @@
     "faq": "Questions",
     "faqTitle": "Frequently asked questions",
     "faqMore": "{count, plural, one {# more question} other {# more questions}}",
-    "faqIntroBefore": "Short answers to the most important questions about ",
-    "faqIntroAfter": ".",
+    "faqIntro": "{name}: short answers to common questions.",
     "lookalikes": "Similar species",
     "lookalikesTitle": "Often confused with",
     "lookalikesMore": "Show {count} more species",
@@ -1411,7 +1410,7 @@
     "hikingTrailBody": "Watch where you step and where you put your hands, especially on rocks and in tall grass. If you see a snake, stop, step back and let it leave. Do not try to move it or get close for a photo.",
     "hikingNote": "If a snake bites you, call 112 at once. This information is educational, not first-aid instruction. See the <bite>snakebite guide</bite>.",
     "yardEyebrow": "Near home",
-    "yardTitle": "How to get snakes out of the yard",
+    "yardTitle": "Snake in the yard: what to do and how to keep snakes away",
     "yardBody": "Preventing snakes from appearing in the yard mostly means reducing hiding places and controlling food sources. Many common “repellent” methods are not effective. Practical steps and safety rules are collected in a separate guide.",
     "yardCta": "Yard guide",
     "idEyebrow": "ID",
@@ -1507,7 +1506,7 @@
     "relatedTitle": "Continue in other categories",
     "relatedBody": "Each category gathers its species. From there you can open any species’ full profile.",
     "relatedGuidesEyebrow": "Related guides",
-    "relatedGuidesTitle": "Continue with thematic pages.",
+    "relatedGuidesTitle": "Continue with thematic pages",
     "relatedGuidesBody": "Identification, range, safety, and species indexes — guides on one topic, in one place.",
     "articlesEyebrow": "Articles",
     "articlesTitle": "Practical articles",
@@ -1909,12 +1908,12 @@
   },
   "snakes": {
     "metaTitle": "Snakes in Georgia (Caucasus): species with photos and ID",
-    "metaDescription": "Snakes of Georgia, the Caucasus country: {count} species with photos — which are venomous and which are harmless. If bitten, call 112.",
+    "metaDescription": "Snakes of Georgia, the Caucasus country: {count} species with photos — identification traits, range, and how to tell lookalikes apart. If bitten, call 112.",
     "keywords": "snakes in Georgia, Georgia snakes, harmless snakes, vipers, racers, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",
     "title": "Snakes in Georgia (Caucasus)",
-    "subtitle": "Snakes in Georgia — which are venomous, which are harmless, where each one lives, and how to tell them apart.",
+    "subtitle": "Snakes of Georgia, the Caucasus country — photos, identification traits, and range for each species, from racers to vipers.",
     "ctaSpecies": "See the species",
     "ctaQuiz": "Which snake is it?",
     "statSpecies": "Snakes in the atlas",
@@ -1931,7 +1930,7 @@
     "section": {
       "venomous": {
         "title": "Venomous snakes in Georgia — {count}",
-        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers, as well as the Eastern Montpellier snake, which has venom fangs at the back of its mouth. Full information about them is gathered in the separate venomous snakes guide."
+        "body": "Six of them are vipers; the seventh is the Eastern Montpellier snake, which has venom fangs at the back of its mouth. Photos, identification traits, and the range of each are in the separate venomous snakes guide."
       },
       "harmless": {
         "title": "Other harmless snakes — {count}",
@@ -1948,7 +1947,7 @@
     "faq1Q": "How many snakes are there in Georgia?",
     "faq1A": "The catalog below lists {count} snake species. Of these, the following are candidate taxa: {candidates}. The number can change with taxonomy and newly confirmed data.",
     "faq2Q": "Which snakes are venomous in Georgia?",
-    "faq2A": "Georgia’s venomous snakes are the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers, along with the Eastern Montpellier snake. For details, see <venomous>venomous snakes in Georgia</venomous>. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep your distance and compare its traits with the species profiles.",
+    "faq2A": "Six of Georgia’s venomous snakes are vipers; the seventh is the Eastern Montpellier snake. The guide <venomous>venomous snakes in Georgia</venomous> covers each one with photos, identification traits, and range. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep your distance and compare its traits with the species profiles.",
     "faq3Q": "How do I tell a viper from a harmless snake?",
     "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region — the <identify>venomous snake identification guide</identify> compares them.",
     "faq4Q": "Where do snakes occur in Georgia?",
@@ -1966,7 +1965,7 @@
     "breadcrumbCurrent": "Lizards",
     "heroImageAlt": "European glass lizard in dry grassland habitat",
     "title": "Lizards in Georgia (Caucasus)",
-    "subtitle": "From Caucasus rock lizards to the glass lizard — profiles, identification traits, and a catalog of the lizards found in Georgia.",
+    "subtitle": "Lizards of Georgia, the Caucasus country — from rock lizards to the glass lizard, with profiles, identification traits, and a species catalog.",
     "ctaSpecies": "See the species",
     "statSpecies": "Lizards in the atlas",
     "statFamilies": "Families",
@@ -2856,8 +2855,8 @@
     "statExtraValue": "Colour ≠ ID",
     "guideEyebrow": "Genus",
     "guideTitle": "One genus, not one lizard",
-    "guideP1": "Darevskia species are separate taxa. Colour varies even within one species, so you cannot split the genus by colour.",
-    "guideP2": "Species are told apart by scalation, habitat and, where known, range — all of it on each profile. For some the range is not documented yet, and some are candidates on the 2026 checklist.",
+    "guideP1": "Sixteen Darevskia species, the rock lizards, are recorded in Georgia, and six of them are candidates on the 2026 checklist. Each is a separate taxon, yet they look very much alike. Colour varies even within one species: the same lizard can be pale or dark. So colour will not tell you the species. Look at the scalation, the habitat and, where it is known, the range. Each species profile describes these marks.",
+    "guideP2": "For some species the range is not documented yet, so the region will not always help. Each profile also shows the species’ checklist status.",
     "colourEyebrow": "Warning",
     "colourTitle": "Colour is not a species name",
     "colourBody": "One Darevskia can be pale or dark. Neighbouring species look close. Do not collapse them into “the rock lizard” by colour. If you are unsure, open several profiles or the lizard ID guide.",
@@ -2869,9 +2868,9 @@
     "faqTitle": "What people ask about Darevskia",
     "faqIntro": "Short answers to the most common questions.",
     "faq1Q": "Can I name a Darevskia species by colour?",
-    "faq1A": "Not with certainty. Colour varies. Use the profile marks and, where the range is known, the region.",
+    "faq1A": "You cannot name a Darevskia species by colour with certainty, because colour varies even within one species. Use the marks described on each profile and, where the range is known, the region.",
     "faq2Q": "How many Darevskia species are there in Georgia?",
-    "faq2A": "All species are listed in the catalog below. The number changes with taxonomy.",
+    "faq2A": "The 2026 checklist records 16 Darevskia species in Georgia, and six of them are candidates. All of them are listed in the catalog below.",
     "faq3Q": "Are all Darevskia confirmed in Georgia?",
     "faq3A": "No. Some are candidates on the 2026 checklist. Each profile shows its checklist status.",
     "faq4Q": "Is this the same as the lizard ID guide?",
@@ -3395,6 +3394,7 @@
     "start": "Start",
     "startEmergency": "Bitten? Call 112",
     "startLead": "Look at the photo, pick one of four species, and see how well you know the snakes of Georgia.",
+    "startIdentify": "Need to identify a snake you saw? Compare its traits in the <identify>venomous snake ID guide</identify> or browse the <species>snake species with photos</species>. Treat an unknown snake as venomous.",
     "rule1Title": "Ten questions",
     "rule1Body": "Each has one photo and four species.",
     "rule2Title": "Instant feedback",
