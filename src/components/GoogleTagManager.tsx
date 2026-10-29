@@ -4,6 +4,13 @@ import { useEffect } from "react";
 
 const SCRIPT_ID = "_next-gtm";
 const IDLE_TIMEOUT_MS = 2000;
+const FALLBACK_DELAY_MS = 5000;
+const INTERACTION_EVENTS = [
+  "pointerdown",
+  "keydown",
+  "scroll",
+  "touchstart",
+] as const;
 
 let scheduled = false;
 
@@ -39,9 +46,26 @@ function scheduleGoogleTagManager(gtmId: string) {
     }
   };
 
-  if (document.readyState === "complete") {
+  let fallback: number | undefined;
+
+  const trigger = () => {
+    window.clearTimeout(fallback);
+    for (const type of INTERACTION_EVENTS) {
+      window.removeEventListener(type, trigger);
+    }
     injectWhenIdle();
+  };
+
+  const waitForInteraction = () => {
+    for (const type of INTERACTION_EVENTS) {
+      window.addEventListener(type, trigger, { once: true, passive: true });
+    }
+    fallback = window.setTimeout(trigger, FALLBACK_DELAY_MS);
+  };
+
+  if (document.readyState === "complete") {
+    waitForInteraction();
   } else {
-    window.addEventListener("load", injectWhenIdle, { once: true });
+    window.addEventListener("load", waitForInteraction, { once: true });
   }
 }

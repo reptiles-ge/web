@@ -2,6 +2,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import {
   type KeyboardEvent as ReactKeyboardEvent,
   startTransition,
@@ -17,12 +18,10 @@ import {
 import type { AppLocale } from "@/i18n/routing";
 
 import { OverlayPanel } from "@/components/OverlayPanel";
-import { SearchDesktopPanel } from "@/components/SpeciesSearchDesktopPanel";
 import {
   SpeciesSearchMobileHeader,
   SpeciesSearchTrigger,
 } from "@/components/SpeciesSearchField";
-import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
@@ -38,6 +37,22 @@ import {
   searchIndex,
   writeRecent,
 } from "@/lib/siteSearch";
+
+const SearchDesktopPanel = dynamic(
+  () =>
+    import("@/components/SpeciesSearchDesktopPanel").then(
+      (mod) => mod.SearchDesktopPanel,
+    ),
+  { ssr: false },
+);
+
+const SearchResultsList = dynamic(
+  () =>
+    import("@/components/SpeciesSearchResults").then(
+      (mod) => mod.SearchResultsList,
+    ),
+  { ssr: false },
+);
 
 type SearchShortcutZone = "scrolled" | "top";
 

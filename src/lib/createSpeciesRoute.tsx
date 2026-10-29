@@ -18,11 +18,13 @@ import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { apiOrigin } from "@/lib/apiClient";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
+import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { shareRepeatedNodes } from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
@@ -264,7 +266,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           mobileHeroSrc={mobileSlideSrc}
         />
         <JsonLd data={structuredData} />
-        <ContentViewBeacon id={raw.id} kind="species" />
+        <ContentViewBeacon apiOrigin={apiOrigin()} id={raw.id} kind="species" />
         <ClientMessagesProvider
           locale={locale}
           namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
@@ -373,7 +375,7 @@ function SpeciesHeroPreloads({
     <>
       <CoverImagePreload
         media="(max-width: 1023px)"
-        sizes="100vw"
+        sizes={MOBILE_HERO_SIZES}
         src={mobileHeroSrc}
       />
       <CoverImagePreload
