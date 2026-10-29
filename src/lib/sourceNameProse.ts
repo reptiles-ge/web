@@ -91,6 +91,31 @@ const SOURCE_NAME_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
     ),
   },
   {
+    label: "IUCN lists",
+    pattern:
+      /\b(?:[Aa]ccording to|[Pp]er) (?:the )?(?:\d{4} )?IUCN\b|\bIUCN (?:data\b|Cat Specialist|(?:currently |globally |also |now |still )?(?:lists|listed|assesses|assessed|classifies|classified|gives|gave|cites|accepts?|considers|treats|records|maps|ranks|rates|notes|says|has|have|puts|places|counts|describes|includes|shows)\b)/,
+  },
+  {
+    label: "IUCN-ის მიხედვით",
+    pattern:
+      /IUCN(?:-ის)?(?: [^\s,.;:()]+){0,3} (?:მიხედვით|მონაცემებით|შეფასებით)|IUCN-ის მონაცემებ|IUCN-(?:ით|ს|მა)(?![\p{L}])|IUCN (?!წითელ)(?:[^\s.;:]+ ){0,5}?(?:აფასებს|ასახელებს|უთითებს|მიუთითებს|იღებს|მიიჩნევს|აღნიშნავს|წერს)/u,
+  },
+  {
+    label: "МСОП относит",
+    pattern:
+      /(?<![\p{L}])(?:[Пп]о|[Сс]огласно) (?:(?:глобальной |мировой )?оценк[еи] |данным )?(?:МСОП|IUCN)|данн\p{L}* (?:МСОП|IUCN)|(?:МСОП|IUCN)(?: \p{Ll}+){0,3}? (?:не )?(?:относит|отнёс|отнес|указывает|указал|оценивает|оценивал|оценил|принимают|принимает|даёт|дает|считает|приводит|включает|рассматривает|картирует|говорит)(?![\p{L}])|IUCN Cat Specialist/u,
+  },
+  {
+    label: "IUCN’ye göre",
+    pattern:
+      /IUCN['’](?:y?e) göre|IUCN['’]n[iı]n (?:[\p{L}\d]+ ){0,3}değerlendirmesine göre|IUCN (?:[\p{L}\d]+ ){0,2}(?:değerlendirmesine|verilerine) göre|IUCN verilerinde|\bIUCN(?: ise)?,? (?!Kırmızı|[Kk]ategori|statü|tarafından|değerlendirme(?:si|leri|sinde|lerin))(?:(?:[^\s.;:]|\.(?=\d))+ ){0,12}?(?:listeler|değerlendir(?!il|mes)\p{L}*|gösterir|kabul eder|sınıflandırır|verir|belirtir|anar|haritalar|diyor\p{L}*)(?![\p{L}])/u,
+  },
+  {
+    label: "as of YYYY",
+    pattern:
+      /\b(?:[Aa]ccording to|[Aa]s of) \d{4} data\b|\d{4} წლის მონაცემებით|[Пп]о данным (?:на )?\d{4}|\b\d{4}(?: yılı)? verilerine göre/u,
+  },
+  {
     label: "X აღნიშნავს",
     pattern: new RegExp(
       `(?<![\\p{L}])(?!(?:${NOT_SOURCE_WORDS})(?![\\p{L}]))[A-Z][\\p{L}.]*(?: \\d{4})? (?:აღნიშნავს|წერს|მიუთითებს|ასახელებს)`,

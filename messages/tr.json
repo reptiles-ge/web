@@ -170,7 +170,7 @@
   "detail": {
     "eyebrow": "Endemik tür",
     "lead": "Büyük Kafkasya’nın endemik zehirli engereği.",
-    "body": "Yaklaşık 1.500–2.800 metrede yaşar — üst orman kuşağı, subalpin çayırlar ve kayalık arazi. Yayılışı parçalıdır; IUCN türü Vulnerable olarak listeler.",
+    "body": "Yaklaşık 1.500–2.800 metrede yaşar — üst orman kuşağı, subalpin çayırlar ve kayalık arazi. Yayılışı parçalıdır. IUCN Kırmızı Listesi’nde Vulnerable (2009) kategorisindedir.",
     "viewProfile": "Tam profili gör",
     "imageAlt": "Truso vadisinde Dinnik engereği"
   },
@@ -2454,7 +2454,7 @@
     "faqTitle": "Burada örümcekler hakkında ne sorulur",
     "faqIntro": "En sık sorulan sorulara kısa yanıtlar.",
     "faq1Q": "Gürcistan’da kaç örümcek türü var?",
-    "faq1A": "2022 verilerine göre Gürcistan’da yüzlerce örümcek türü bilinir. Bunlardan yalnızca bazılarının, yeterli güvenilir kaynağı olanların, ayrı profili vardır.",
+    "faq1A": "2022 itibarıyla Gürcistan’da yüzlerce örümcek türü bilinir. Bunlardan yalnızca bazılarının, yeterli güvenilir kaynağı olanların, ayrı profili vardır.",
     "faq2Q": "Atlasda şimdi hangi örümcekler var?",
     "faq2A": "Şu anda {count} profil yayımlanmıştır: Avrupa bahçe örümceği, eşekarısı örümceği, loblu argiope, Cheiracanthium punctorium, karakurt (Latrodectus tredecimguttatus), yalancı karakurt, Güney Rusya tarantulası (Lycosa singoriensis) ve uzun gövdeli mahzen örümceği. Liste aşamalı olarak büyüyor.",
     "faq3Q": "Bir örümcek profilinde neler var?",
@@ -3710,7 +3710,7 @@
     "guideEyebrow": "Gürcistan",
     "guideTitle": "Gürcistan’ın “kara dul”u Amerikan türü değildir.",
     "guideP1": "Gürcüce internette “kara dul” terimi sıkça Amerikan türü Latrodectus mactans ile ilişkilendirilir. L. mactans Kuzey Amerika türüdür. Gürcistan’da doğrulanan tür ise [karakurt](latrodectus-tredecimguttatus)tur — Latrodectus tredecimguttatus; Akdeniz çevresinde ve Avrasya’nın bazı bölümlerinde yaygındır. Eski literatürde Kafkasya materyali bazen L. mactans’ın alttürü olarak da anılmıştır.",
-    "guideP2": "2022 verilerine göre Gürcistan’da yüzlerce örümcek türü bilinir; burada karşılaştırılan birkaç tür faunanın küçük bir bölümüdür. Belirli [karakurt](latrodectus-tredecimguttatus) kayıtları Tiflis, Gori, Aspindza, Şiraki ve Eldari ovalarıyla bağlantılıdır. Geniş genel yayılış, türün başka bir bölgede bulunduğunu tek başına doğrulamaz.",
+    "guideP2": "2022 itibarıyla Gürcistan’da yüzlerce örümcek türü bilinir; burada karşılaştırılan birkaç tür faunanın küçük bir bölümüdür. Belirli [karakurt](latrodectus-tredecimguttatus) kayıtları Tiflis, Gori, Aspindza, Şiraki ve Eldari ovalarıyla bağlantılıdır. Geniş genel yayılış, türün başka bir bölgede bulunduğunu tek başına doğrulamaz.",
     "idEyebrow": "Tanıma",
     "idTitle": "Hangi örümcek olduğunu nasıl anlarız?",
     "idBody": "Yalnızca renk yeterli değildir. Tanımada ağ tipi, karın biçimi, boyut ve diğer işaretler birlikte değerlendirilmelidir. Türden emin değilseniz örümceğe elle dokunmayın ve ilgili tür profiliyle karşılaştırın.",
