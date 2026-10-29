@@ -27,7 +27,6 @@ import {
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import { siteConfig, siteEntityId } from "@/lib/site";
@@ -175,8 +174,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = author.name;
   const photos = getCreditAuthorPhotos(author, creditPhotos);
   const title = creditAuthorMetaTitle(author, locale, name, t);
-  const fallbackDescription = sentenceMetaDescription(
-    (locale === "ka" ? undefined : author.metaDescription) ??
+  const description = sentenceMetaDescription(
+    author.metaDescription ??
       author.bio ??
       t("metaDescription", {
         count: photos.length,
@@ -185,11 +184,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }),
   );
   const url = creditAuthorUrl(locale, author.id);
-  const description = kaMetaDescriptionOverride(
-    locale,
-    new URL(url).pathname,
-    fallbackDescription,
-  );
   const portrait = creditAuthorPortraitImage(author);
 
   return {
