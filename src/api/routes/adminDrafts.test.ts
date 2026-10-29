@@ -436,6 +436,120 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
   });
 });
 
+describe("POST /v1/admin/drafts/merge", () => {
+  async function mergeMany(
+    draftIds: unknown,
+    headers?: Record<string, string>,
+  ) {
+    return requestJson<
+      ErrorBody & {
+        data: {
+          results: Array<Record<string, unknown>>;
+          revalidated: boolean;
+        };
+      }
+    >("/v1/admin/drafts/merge", env, {
+      body: JSON.stringify({ draftIds }),
+      headers: {
+        ...(headers ?? (await signedIn())),
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+  }
+
+  it("merges each draft, reports the ones it could not, and clears the cache once", async () => {
+    const first = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    const second = await propose((record) => {
+      record.base.diet = "AI diet";
+    });
+    const { body, response } = await mergeMany([first, second, 9999]);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toContain("no-store");
+    expect(body.data).toEqual({
+      results: [
+        { draftId: first, speciesId: ID, status: "approved", version: 2 },
+        {
+          code: "version_conflict",
+          draftId: second,
+          message: expect.any(String),
+          status: "failed",
+        },
+        {
+          code: "not_found",
+          draftId: 9999,
+          message: "Draft not found",
+          status: "failed",
+        },
+      ],
+      revalidated: true,
+    });
+    const { record, version } = await live();
+    expect(version).toBe(2);
+    expect(record.base.overview).toBe("AI overview");
+    expect(record.base.diet).not.toBe("AI diet");
+    expect(
+      sqlite.prepare("SELECT status, decided_by FROM species_drafts").all(),
+    ).toEqual([
+      { decided_by: "Admin", status: "approved" },
+      { decided_by: null, status: "pending" },
+    ]);
+    expect(siteFetch).toHaveBeenCalledOnce();
+    expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
+      tags: ["species", `species:${ID}`],
+    });
+  });
+
+  it("does not clear the cache when nothing was merged", async () => {
+    const { body } = await mergeMany([9999]);
+    expect(body.data.revalidated).toBe(true);
+    expect(body.data.results[0]!.status).toBe("failed");
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("reports a failed cache clear without undoing the merges", async () => {
+    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    const { body } = await mergeMany([draftId]);
+    expect(body.data.revalidated).toBe(false);
+    expect((await live()).version).toBe(2);
+  });
+
+  it.each([
+    ["no ids", []],
+    ["a repeated id", [1, 1]],
+    ["more than one batch", Array.from({ length: 26 }, (_, i) => i + 1)],
+    ["a non-integer id", [1.5]],
+  ])("refuses %s", async (_, draftIds) => {
+    const { body, response } = await mergeMany(draftIds);
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("invalid_request");
+  });
+
+  it("needs an admin session from the admin origin", async () => {
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    expect(
+      (await mergeMany([draftId], { ...token, Origin: ADMIN_ORIGIN })).response
+        .status,
+    ).toBe(401);
+    expect(
+      (
+        await mergeMany([draftId], {
+          ...(await adminSessionHeaders(sqlite)),
+          Origin: "https://evil.example",
+        })
+      ).response.status,
+    ).toBe(403);
+    expect((await live()).version).toBe(1);
+  });
+});
+
 describe("POST /v1/admin/drafts/:draftId/reject", () => {
   it("marks the draft rejected and leaves the species alone", async () => {
     const draftId = await propose((record) => {

@@ -21,7 +21,9 @@
       {
         "files": [
           "src/admin/PhotoUploadButton.tsx",
-          "src/admin/photoEncoding.ts"
+          "src/admin/drafts.ts",
+          "src/admin/photoEncoding.ts",
+          "src/api/routes/adminDrafts.ts"
         ],
         "rules": ["react-doctor/async-await-in-loop"]
       }

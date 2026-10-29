@@ -1,5 +1,5 @@
 import type { ColumnsType } from "antd/es/table";
-import type { FilterValue } from "antd/es/table/interface";
+import type { FilterValue, TableRowSelection } from "antd/es/table/interface";
 import type { ReactNode } from "react";
 
 import { Alert, Button, Flex, Input, Space, Table, Typography } from "antd";
@@ -25,6 +25,7 @@ export function AdminListView<T extends object>({
   paging,
   rowKey,
   rows,
+  rowSelection,
   searchPlaceholder,
   status,
   summary,
@@ -39,6 +40,7 @@ export function AdminListView<T extends object>({
   paging?: ServerPaging;
   rowKey: keyof T & string;
   rows: T[];
+  rowSelection?: TableRowSelection<T>;
   searchPlaceholder: string;
   status: "error" | "loading" | "ready";
   summary?: ReactNode;
@@ -104,6 +106,7 @@ export function AdminListView<T extends object>({
                 : { defaultPageSize: 50, showSizeChanger: true }
             }
             rowKey={rowKey}
+            rowSelection={rowSelection}
             scroll={{ x: 900 }}
             size="small"
           />
