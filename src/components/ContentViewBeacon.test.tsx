@@ -30,7 +30,13 @@ describe("ContentViewBeacon", () => {
   });
 
   it("sends one view for the page", () => {
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
 
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(sentBody()).toEqual({ id: "macrovipera-lebetina", kind: "species" });
@@ -42,9 +48,27 @@ describe("ContentViewBeacon", () => {
   });
 
   it("does not send the same page twice on one day", () => {
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
-    render(<ContentViewBeacon id="some-news" kind="news" />);
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="some-news"
+        kind="news"
+      />,
+    );
 
     expect(fetch).toHaveBeenCalledTimes(2);
     expect(sentBody(1)).toEqual({ id: "some-news", kind: "news" });
@@ -55,14 +79,26 @@ describe("ContentViewBeacon", () => {
       "reptiles:viewed:species:macrovipera-lebetina",
       "2026-10-23",
     );
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
 
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it("skips automated browsers", () => {
     vi.spyOn(navigator, "webdriver", "get").mockReturnValue(true);
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
 
     expect(fetch).not.toHaveBeenCalled();
   });
@@ -74,7 +110,13 @@ describe("ContentViewBeacon", () => {
     vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => {
       throw new Error("blocked");
     });
-    render(<ContentViewBeacon id="macrovipera-lebetina" kind="species" />);
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
 
     expect(fetch).toHaveBeenCalledTimes(1);
   });
