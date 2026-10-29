@@ -61,7 +61,8 @@ export function getSpeciesGalleryPreview(species: Species, count = 3) {
 }
 
 export const SPECIES_HERO_DESKTOP_SIZES = "62vw";
-export const SPECIES_HERO_SIZES = "(max-width: 1023px) 100vw, 62vw";
+export const SPECIES_HERO_SIZES =
+  "(max-width: 1023px) and (min-resolution: 2.5dppx) 67vw, (max-width: 1023px) 100vw, 62vw";
 
 export function getSpeciesHeroSources(species: Species) {
   const sourceGallery: GalleryImage[] = hasRealSpeciesPhotos(species)

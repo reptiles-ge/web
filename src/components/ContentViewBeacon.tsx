@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 import type { ContentViewInput } from "@/lib/contentViewInput";
 
+import { sendContentView } from "@/lib/contentViewBeacon";
+
 const STORAGE_PREFIX = "reptiles:viewed:";
 
 type ContentViewBeaconProps = ContentViewInput & { apiOrigin: string };
@@ -19,11 +21,7 @@ export function ContentViewBeacon({
     const today = new Date().toISOString().slice(0, 10);
     if (readStored(key) === today) return;
     writeStored(key, today);
-    void fetch(`${apiOrigin}/v1/views`, {
-      body: JSON.stringify({ id, kind }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    }).catch(() => undefined);
+    sendContentView(apiOrigin, { id, kind });
   }, [apiOrigin, id, kind]);
 
   return null;

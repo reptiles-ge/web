@@ -28,6 +28,7 @@ import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { regionHref } from "@/lib/regionHref";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 
@@ -308,7 +309,7 @@ function RegionProfileHero({
         alt={t("regionHeroAlt", { name })}
         className="object-cover object-center"
         priority
-        sizes="(max-aspect-ratio: 1/1) 94vh, 100vw"
+        sizes={REGION_HERO_SIZES}
         src={heroSrc}
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />

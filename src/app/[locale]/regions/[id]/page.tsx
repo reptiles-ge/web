@@ -35,6 +35,7 @@ import {
 import { type AppLocale, routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
+import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { speciesItemListLd } from "@/lib/pageStructuredData";
 import { getRegionSummary } from "@/lib/regionSummary";
@@ -233,7 +234,10 @@ export default async function RegionPage({ params }: PageProps) {
 
   return (
     <>
-      <CoverImagePreload sizes="100vw" src={getRegionHeroImage(region.id)} />
+      <CoverImagePreload
+        sizes={REGION_HERO_SIZES}
+        src={getRegionHeroImage(region.id)}
+      />
       <JsonLd
         data={
           faqJsonLd

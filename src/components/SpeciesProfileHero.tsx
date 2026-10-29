@@ -24,7 +24,9 @@ import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
+import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { getSpeciesParentHub } from "@/lib/speciesBreadcrumbs";
+import { SPECIES_HERO_SIZES } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -98,7 +100,7 @@ export async function SpeciesProfileHero({
             ),
       gallerySrc: optimizedImgSrc(photo.src, 1200),
       height: entry?.height,
-      sources: pictureSources(displaySrc, { sizes: "100vw" }),
+      sources: pictureSources(displaySrc, { sizes: MOBILE_HERO_SIZES }),
       src: optimizedImgSrc(displaySrc, 800),
       width: entry?.width,
     };
@@ -401,7 +403,7 @@ function SpeciesProfileHeroMedia({
         fetchPriority="high"
         height={primary?.height}
         loading="eager"
-        sizes="(max-width: 1023px) 100vw, 62vw"
+        sizes={SPECIES_HERO_SIZES}
         src={optimizedImgSrc(primarySrc, 800)}
         width={primary?.width}
       />
