@@ -6,6 +6,7 @@ import type { PictureSource } from "@/data/optimizedImages";
 
 import { BLANK_IMAGE } from "@/components/DeferredPicture";
 import { cn } from "@/lib/cn";
+import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
@@ -156,7 +157,7 @@ export function SpeciesMobileHeroCarousel({
                 fetchPriority={index === 0 ? "high" : "low"}
                 height={slide.height}
                 loading={index === 0 ? "eager" : "lazy"}
-                sizes="100vw"
+                sizes={MOBILE_HERO_SIZES}
                 src={deferred ? BLANK_IMAGE : slide.src}
                 width={slide.width}
               />

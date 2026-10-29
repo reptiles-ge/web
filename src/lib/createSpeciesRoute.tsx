@@ -24,6 +24,7 @@ import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
+import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { shareRepeatedNodes } from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
@@ -374,7 +375,7 @@ function SpeciesHeroPreloads({
     <>
       <CoverImagePreload
         media="(max-width: 1023px)"
-        sizes="100vw"
+        sizes={MOBILE_HERO_SIZES}
         src={mobileHeroSrc}
       />
       <CoverImagePreload
