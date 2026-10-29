@@ -54,18 +54,22 @@ afterEach(() => {
 });
 
 describe("GoogleTagManager", () => {
-  it("waits for the load event, then injects gtm.js on idle with a deadline", async () => {
+  it("waits for the load event and a first interaction, then injects gtm.js on idle", async () => {
     setReadyState("loading");
     window.dataLayer = [{ event: "page_context", page_type: "guide" }];
 
     await renderTag();
     window.dataLayer.push({ event: "search", search_term: "giurza" });
 
+    window.dispatchEvent(new Event("pointerdown"));
     expect(gtmScripts()).toHaveLength(0);
     expect(idleCallbacks).toHaveLength(0);
 
     setReadyState("complete");
     window.dispatchEvent(new Event("load"));
+    expect(idleCallbacks).toHaveLength(0);
+
+    window.dispatchEvent(new Event("scroll"));
 
     expect(idleCallbacks).toHaveLength(1);
     expect(idleCallbacks[0].timeout).toBe(2000);
@@ -84,14 +88,31 @@ describe("GoogleTagManager", () => {
     expect(window.dataLayer[1]["gtm.start"]).toEqual(expect.any(Number));
   });
 
-  it("schedules straight away when the page has already loaded", async () => {
+  it("injects after the fallback delay when nobody interacts", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
     setReadyState("complete");
 
     await renderTag();
-
+    vi.advanceTimersByTime(4999);
+    expect(idleCallbacks).toHaveLength(0);
+    vi.advanceTimersByTime(1);
     expect(idleCallbacks).toHaveLength(1);
     runIdleCallbacks();
     expect(gtmScripts()).toHaveLength(1);
+    vi.useRealTimers();
+  });
+
+  it("schedules only once when an interaction and the fallback both fire", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    setReadyState("complete");
+
+    await renderTag();
+    window.dispatchEvent(new Event("keydown"));
+    window.dispatchEvent(new Event("touchstart"));
+    vi.advanceTimersByTime(10_000);
+
+    expect(idleCallbacks).toHaveLength(1);
+    vi.useRealTimers();
   });
 
   it("falls back to a timeout without requestIdleCallback", async () => {
@@ -100,6 +121,7 @@ describe("GoogleTagManager", () => {
     setReadyState("complete");
 
     await renderTag();
+    window.dispatchEvent(new Event("pointerdown"));
     expect(gtmScripts()).toHaveLength(0);
     vi.runAllTimers();
     expect(gtmScripts()).toHaveLength(1);
@@ -113,6 +135,7 @@ describe("GoogleTagManager", () => {
     const { GoogleTagManager } = await import("@/components/GoogleTagManager");
     rerender(<GoogleTagManager gtmId="GTM-TEST" />);
     render(<GoogleTagManager gtmId="GTM-TEST" />);
+    window.dispatchEvent(new Event("pointerdown"));
     runIdleCallbacks();
 
     expect(gtmScripts()).toHaveLength(1);
