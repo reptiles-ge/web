@@ -96,7 +96,6 @@ describe("securityHeaders", () => {
       "https://www.googletagmanager.com",
       "https://www.google-analytics.com",
       "https://ssl.google-analytics.com",
-      "https://counter.top.ge",
     ]);
     expect(scriptSourceOrigins("default-src 'self'")).toEqual([]);
   });

@@ -22,7 +22,6 @@ import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
-import { TopGeCounter } from "@/components/TopGeCounter";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   type ClientMessages,
@@ -89,7 +88,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ScrollToTop />
           <LogoPreload />
           <AnalyticsPageContext />
-          <TopGeCounter />
           <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
             {SelectionContentEditor && editorT ? (
