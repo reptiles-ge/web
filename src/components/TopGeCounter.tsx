@@ -3,7 +3,11 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
+import { secureTopGeLinks } from "@/lib/topGeLinks";
+
 const PATCHED = Symbol.for("reptiles.topGePush");
+
+const CONTAINER_ID = "top-ge-counter-container";
 
 type PushState = History["pushState"] & { [PATCHED]?: boolean };
 
@@ -20,7 +24,7 @@ export function TopGeCounter() {
       ...args: Parameters<History["pushState"]>
     ) {
       const result = native!.apply(this, args);
-      const img = document.querySelector("#top-ge-counter-container img");
+      const img = document.querySelector(`#${CONTAINER_ID} img`);
       if (!(img instanceof HTMLImageElement) || !img.src.includes("count222")) {
         return result;
       }
@@ -47,13 +51,22 @@ export function TopGeCounter() {
     state.originalPushState = topGePush;
   }, []);
 
+  useEffect(() => {
+    const container = document.getElementById(CONTAINER_ID);
+    if (!container) return;
+    secureTopGeLinks(container);
+    const observer = new MutationObserver(() => secureTopGeLinks(container));
+    observer.observe(container, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute size-0 overflow-hidden opacity-0"
         data-site-id="118888"
-        id="top-ge-counter-container"
+        id={CONTAINER_ID}
         inert
       />
       <Script
