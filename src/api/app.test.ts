@@ -1,6 +1,8 @@
 import { HTTPException } from "hono/http-exception";
 import { describe, expect, it, vi } from "vitest";
 
+import { STRICT_TRANSPORT_SECURITY } from "@/lib/securityHeaders";
+
 import { app } from "./app";
 import { handleError } from "./lib/errors";
 import { type ErrorBody, requestJson } from "./testing/request";
@@ -13,6 +15,9 @@ describe("api app", () => {
     const response = await app.request("/v1/species", {}, env);
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex");
     expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
+    expect(response.headers.get("Strict-Transport-Security")).toBe(
+      STRICT_TRANSPORT_SECURITY.value,
+    );
     expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
     const site = await app.request(
       "/v1/species",

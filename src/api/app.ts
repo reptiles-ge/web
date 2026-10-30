@@ -4,6 +4,8 @@ import { cors } from "hono/cors";
 import { etag } from "hono/etag";
 import { secureHeaders } from "hono/secure-headers";
 
+import { STRICT_TRANSPORT_SECURITY } from "@/lib/securityHeaders";
+
 import type { ApiEnv } from "./env";
 
 import { needsApiKey } from "./lib/apiKeys";
@@ -50,7 +52,9 @@ const uploadBodyLimit = limitBody(MAX_UPLOAD_BODY_BYTES);
 const CORS_MAX_AGE = 86_400;
 
 export const app = new Hono<ApiEnv>()
-  .use(secureHeaders())
+  .use(
+    secureHeaders({ strictTransportSecurity: STRICT_TRANSPORT_SECURITY.value }),
+  )
   .use(noindex)
   .use(
     cors({

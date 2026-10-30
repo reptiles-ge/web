@@ -121,10 +121,13 @@ describe("securityHeaders", () => {
     },
   );
 
-  it("sends HSTS on static assets served by Workers", () => {
-    const rules = readFileSync(path.join(ROOT, "public/_headers"), "utf8");
-    expect(rules).toMatch(
-      /^\/\*\n {2}Strict-Transport-Security: max-age=31536000; includeSubDomains$/m,
-    );
-  });
+  it.each(["public/_headers", "src/admin/public/_headers"])(
+    "sends the site HSTS on static assets in %s",
+    (file) => {
+      const rules = readFileSync(path.join(ROOT, file), "utf8");
+      expect(rules.split("\n")).toContain(
+        `  Strict-Transport-Security: ${STRICT_TRANSPORT_SECURITY.value}`,
+      );
+    },
+  );
 });
