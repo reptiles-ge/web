@@ -86,7 +86,6 @@ export default defineConfig({
         extends: true,
         test: {
           environment: "node",
-          fileParallelism: false,
           include: ["src/**/*.test.ts"],
           name: "node",
           pool: "forks",
@@ -99,7 +98,6 @@ export default defineConfig({
         extends: true,
         test: {
           environment: "./tests/setup/happyDomEnvironment.ts",
-          fileParallelism: false,
           include: ["src/**/*.test.tsx"],
           name: "dom",
           pool: "forks",
