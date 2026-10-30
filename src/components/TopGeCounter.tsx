@@ -3,25 +3,13 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
+import { secureTopGeLinks } from "@/lib/topGeLinks";
+
 const PATCHED = Symbol.for("reptiles.topGePush");
 
 const CONTAINER_ID = "top-ge-counter-container";
 
-const INSECURE_TOP_GE = /^http:\/\/(?:www\.)?top\.ge\//i;
-
 type PushState = History["pushState"] & { [PATCHED]?: boolean };
-
-export function secureTopGeLinks(container: HTMLElement) {
-  for (const link of container.querySelectorAll("a")) {
-    const href = link.getAttribute("href");
-    if (href && INSECURE_TOP_GE.test(href)) {
-      link.setAttribute("href", href.replace(/^http:/i, "https:"));
-    }
-    if (link.getAttribute("rel") !== "nofollow noopener") {
-      link.setAttribute("rel", "nofollow noopener");
-    }
-  }
-}
 
 export function TopGeCounter() {
   useEffect(() => {
