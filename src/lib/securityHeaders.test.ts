@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 
 import {
   type ConfigHeader,
+  CSP_REPORT_GROUP,
+  CSP_REPORT_URI,
   scriptSourceOrigins,
   securityHeaders,
   SITE_HEADERS_SOURCE,
@@ -61,6 +63,31 @@ describe("securityHeaders", () => {
     expect(headerValue(false, "Content-Security-Policy")).toContain(
       "frame-ancestors 'none'",
     );
+  });
+
+  it("reports CSP violations to Sentry in production only", () => {
+    const directives = headerValue(false, "Content-Security-Policy")!.split(
+      "; ",
+    );
+    expect(directives).toContain(`report-uri ${CSP_REPORT_URI}`);
+    expect(directives).toContain(`report-to ${CSP_REPORT_GROUP}`);
+    expect(headerValue(false, "Reporting-Endpoints")).toBe(
+      `${CSP_REPORT_GROUP}="${CSP_REPORT_URI}"`,
+    );
+    expect(new URL(CSP_REPORT_URI).pathname).toMatch(/\/security\/$/);
+    expect(headerValue(true, "Content-Security-Policy")).not.toMatch(
+      /report-(uri|to)/,
+    );
+    expect(headerValue(true, "Reporting-Endpoints")).toBeUndefined();
+  });
+
+  it("keeps the report directives through the script nonce rewrite", () => {
+    const policy = withScriptNonce(
+      headerValue(false, "Content-Security-Policy")!,
+      "abc",
+    );
+    expect(policy).toContain(`report-uri ${CSP_REPORT_URI}`);
+    expect(policy).toContain(`report-to ${CSP_REPORT_GROUP}`);
   });
 
   it("allows eval only in local development", () => {

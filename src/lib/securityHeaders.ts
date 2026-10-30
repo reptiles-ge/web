@@ -1,3 +1,5 @@
+import { SENTRY_DSN, sentrySecurityEndpoint } from "./sentryDsn";
+
 export type ConfigHeader = { key: string; value: string };
 
 export const SITE_HEADERS_SOURCE = "/(.*)";
@@ -8,6 +10,10 @@ export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
   key: "Strict-Transport-Security",
   value: "max-age=31536000; includeSubDomains",
 };
+
+export const CSP_REPORT_GROUP = "csp";
+
+export const CSP_REPORT_URI = sentrySecurityEndpoint(SENTRY_DSN);
 
 const SCRIPT_SRC = "script-src";
 const UNSAFE_INLINE = "'unsafe-inline'";
@@ -33,7 +39,14 @@ export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
     { key: "X-Content-Type-Options", value: "nosniff" },
     ...(isDevelopment
       ? []
-      : [{ key: "X-Frame-Options", value: "DENY" }, STRICT_TRANSPORT_SECURITY]),
+      : [
+          { key: "X-Frame-Options", value: "DENY" },
+          STRICT_TRANSPORT_SECURITY,
+          {
+            key: "Reporting-Endpoints",
+            value: `${CSP_REPORT_GROUP}="${CSP_REPORT_URI}"`,
+          },
+        ]),
   ];
 }
 
@@ -68,7 +81,13 @@ function contentSecurityPolicy(isDevelopment: boolean) {
   ];
 
   directives.push(
-    isDevelopment ? "worker-src 'self' blob:" : "frame-ancestors 'none'",
+    ...(isDevelopment
+      ? ["worker-src 'self' blob:"]
+      : [
+          "frame-ancestors 'none'",
+          `report-uri ${CSP_REPORT_URI}`,
+          `report-to ${CSP_REPORT_GROUP}`,
+        ]),
   );
 
   return directives.join("; ");
