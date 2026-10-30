@@ -22,7 +22,7 @@ const PAGE = `<!doctype html>
     <meta property="og:description" content="სხვა აღწერა">
     <meta property="og:image" content="https://cdn.reptiles.ge/og/giurza.jpg">
     <script>window.secret = 1</script>
-    <script type="application/ld+json">{"@type":"WebSite"}</script>
+    <script type="application/ld+json">{"@type":"WebSite","name":"A &amp; B"}</script>
   </head>
   <body>
     <header><nav><a href="/">მთავარი</a></nav></header>
@@ -34,7 +34,12 @@ const PAGE = `<!doctype html>
       <img src="/images/giurza.jpg" alt="გიურზა">
       <button type="button">გაზიარება</button>
       <svg><text>icon</text></svg>
-      <div hidden>დამალული</div>
+      <div hidden>დამალული კითხვა</div>
+      <p>დარეკეთ <a href="tel:112">112</a>-ზე.</p>
+      <button aria-expanded="true" type="button"><span>რამდენად დიდია?</span><svg><path></path></svg></button>
+      <div><p>70–90 სმ.</p></div>
+      <button aria-controls="sources-more" aria-expanded="false" type="button">ყველა წყარო</button>
+      <div aria-hidden="true" id="sources-more" inert><a href="https://doi.org/10.1/x">წყარო 2</a></div>
       <span aria-hidden="true">·</span>
       <script>window.inline = 2</script>
       <script type="application/ld+json">
@@ -75,6 +80,8 @@ describe("prefersMarkdown", () => {
     "text/html;q=0.5, text/markdown",
     "text/markdown, text/html",
     "TEXT/MARKDOWN;charset=utf-8",
+    "text/markdown, */*",
+    "text/markdown, text/html;q=0.9, */*;q=1",
   ])("asks for Markdown with %s", (accept) => {
     expect(prefersMarkdown(request(accept))).toBe(true);
   });
@@ -86,6 +93,9 @@ describe("prefersMarkdown", () => {
     "text/html, text/markdown;q=0.5",
     "text/markdown;q=0",
     "text/markdown;q=abc",
+    "text/markdown;q=0.1, */*",
+    "text/markdown;q=0.5, text/*",
+    "text/markdown;Q=0.5, text/html",
   ])("keeps HTML for %s", (accept) => {
     expect(prefersMarkdown(request(accept))).toBe(false);
   });
@@ -116,6 +126,15 @@ describe("htmlRequest", () => {
     expect(page.headers.get("Accept")).toBe("text/html");
     expect(page.headers.get("User-Agent")).toBe("agent");
   });
+
+  it("keeps the visitor's abort signal", () => {
+    const controller = new AbortController();
+    const page = htmlRequest(
+      request("text/markdown", { signal: controller.signal }),
+    );
+    controller.abort();
+    expect(page.signal.aborted).toBe(true);
+  });
 });
 
 describe("htmlToMarkdown", () => {
@@ -137,7 +156,7 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
   it("ends with the page's JSON-LD in one fenced block", () => {
     expect(
       markdown.endsWith(
-        '```json\n{"@type":"WebSite"}\n{"@type":"Article"}\n```\n',
+        '```json\n{"@type":"WebSite","name":"A &amp; B"}\n{"@type":"Article"}\n```\n',
       ),
     ).toBe(true);
   });
@@ -155,14 +174,21 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
     expect(markdown).toContain("## მიმოხილვა\n");
   });
 
-  it("leaves out page chrome, scripts and hidden elements", () => {
+  it("keeps collapsed content, FAQ questions and words after links", () => {
+    expect(markdown).toContain("დამალული კითხვა");
+    expect(markdown).toContain("**რამდენად დიდია?**\n\n70–90 სმ.");
+    expect(markdown).toContain("[წყარო 2](https://doi.org/10.1/x)");
+    expect(markdown).toContain("დარეკეთ [112](tel:112)-ზე.");
+  });
+
+  it("leaves out page chrome, scripts and decorative elements", () => {
     for (const text of [
       "window.",
       "მთავარი",
       "ფუტერი",
       "გაზიარება",
+      "ყველა წყარო",
       "icon",
-      "დამალული",
       "·",
       "](https://reptiles.ge/gvelebi/giurza#overview)",
     ]) {
@@ -187,9 +213,31 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
       ),
     ).toBe('---\ntitle: "true"\ndescription: "- სია"\n---\n\nx\n');
   });
+
+  it.each(["Off", "2026-10-30", "1e3", ".inf", "0x1F", "Y"])(
+    "quotes the typed YAML value %s",
+    (value) => {
+      expect(
+        htmlToMarkdown(`<meta name="title" content="${value}"><p>x</p>`, URL),
+      ).toContain(`title: "${value}"`);
+    },
+  );
 });
 
 describe("markdownResponse", () => {
+  it("reuses the converted Markdown for the same page", async () => {
+    const page = `${PAGE}<!-- cache -->`;
+    const first = await markdownResponse(
+      request("text/markdown"),
+      htmlResponse(page),
+    );
+    const second = await markdownResponse(
+      request("text/markdown"),
+      htmlResponse(page),
+    );
+    expect(await second.text()).toBe(await first.text());
+  });
+
   it("answers an HTML page as Markdown", async () => {
     const response = await markdownResponse(
       request("text/markdown"),

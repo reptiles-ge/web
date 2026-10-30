@@ -1,5 +1,5 @@
 import { NodeHtmlMarkdown } from "node-html-markdown";
-import { type HTMLElement, parse } from "node-html-parser";
+import { HTMLElement, parse } from "node-html-parser";
 
 import { CONTENT_SIGNAL } from "@/lib/robotsTxt";
 
@@ -29,9 +29,12 @@ const DROPPED_ELEMENTS = [
   "button",
   "form",
   "dialog",
-  "[hidden]",
   '[aria-hidden="true"]',
 ].join(", ");
+
+const DISCLOSURE_PANEL_ATTRIBUTES = ["aria-hidden", "hidden", "inert"];
+
+const MARKDOWN_CACHE_SIZE = 64;
 
 const DROPPED_HEADERS = [
   "Content-Encoding",
@@ -44,14 +47,16 @@ const DROPPED_HEADERS = [
 
 const YAML_PLAIN = /^[^\s!"#%&'*,:>?@[\]`{|}-](?:[^:#]|:(?!\s)|#(?<!\s#))*$/u;
 
-const YAML_TYPED = /^(?:true|false|yes|no|null|~|[-+]?[\d.]+)$/i;
+const YAML_TYPED = /^(?:[-+.\d]|(?:true|false|yes|no|on|off|y|n|null|~)$)/i;
 
 const converter = new NodeHtmlMarkdown({ useInlineLinks: true });
+
+const markdownCache = new Map<string, string>();
 
 export function htmlRequest(request: Request): Request {
   const headers = new Headers(request.headers);
   headers.set("Accept", HTML);
-  return new Request(request.url, { headers, method: "GET" });
+  return new Request(request, { headers, method: "GET" });
 }
 
 export function htmlToMarkdown(html: string, url: string): string {
@@ -75,14 +80,32 @@ export function htmlToMarkdown(html: string, url: string): string {
     .map(([key, value]) => `${key}: ${yamlScalar(value)}`);
   const jsonLd = root
     .querySelectorAll(JSON_LD)
-    .map((script) => script.text.trim())
+    .map((script) => script.rawText.trim())
     .filter(Boolean);
   const page = root.querySelector("body") ?? root;
+  for (const toggle of page.querySelectorAll("[aria-controls]")) {
+    const panel = root.getElementById(toggle.getAttribute("aria-controls")!);
+    for (const name of DISCLOSURE_PANEL_ATTRIBUTES)
+      panel?.removeAttribute(name);
+  }
+  for (const toggle of page.querySelectorAll(
+    "button[aria-expanded]:not([aria-controls])",
+  )) {
+    const label = toggle.text.trim();
+    toggle.replaceWith(
+      label ? `<p><strong>${escapeHtml(label)}</strong></p>` : "",
+    );
+  }
   for (const element of page.querySelectorAll(DROPPED_ELEMENTS)) {
     element.remove();
   }
-  for (const element of page.querySelectorAll("a, a *")) {
-    element.insertAdjacentHTML("afterend", " ");
+  for (const element of page.querySelectorAll("a *")) {
+    if (element.nextElementSibling) element.insertAdjacentHTML("afterend", " ");
+  }
+  for (const link of page.querySelectorAll("a")) {
+    if (link.nextSibling instanceof HTMLElement) {
+      link.insertAdjacentHTML("afterend", " ");
+    }
   }
   for (const [selector, attribute] of [
     ["a[href]", "href"],
@@ -90,7 +113,7 @@ export function htmlToMarkdown(html: string, url: string): string {
   ] as const) {
     for (const element of page.querySelectorAll(selector)) {
       const value = element.getAttribute(attribute);
-      if (value) element.setAttribute(attribute, absoluteUrl(value, url));
+      if (value) element.setAttribute(attribute, resolveUrl(value, url));
     }
   }
   const body = converter
@@ -98,6 +121,7 @@ export function htmlToMarkdown(html: string, url: string): string {
     .replace(/(?<!!)\[\]\([^)]*\)/g, "")
     .replace(/(?<!\\)\[ +/g, "[")
     .replace(/ +\]\(/g, "](")
+    .replace(/(?<=\S)\\-/g, "-")
     .replace(/[ \t]+$/gm, "")
     .trim();
   return [
@@ -117,7 +141,7 @@ export async function markdownResponse(
   if (response.status !== 200 || !isHtml(response)) {
     return withAcceptVary(response);
   }
-  const markdown = htmlToMarkdown(await response.text(), request.url);
+  const markdown = await cachedMarkdown(await response.text(), request.url);
   const headers = new Headers(response.headers);
   for (const name of DROPPED_HEADERS) headers.delete(name);
   headers.set("Content-Type", MARKDOWN_CONTENT_TYPE);
@@ -140,7 +164,9 @@ export function prefersMarkdown(request: Request): boolean {
   if (request.headers.has("RSC")) return false;
   const ranges = mediaRanges(request.headers.get("Accept") ?? "");
   const markdown = ranges.get(MARKDOWN) ?? 0;
-  return markdown > 0 && markdown >= (ranges.get(HTML) ?? 0);
+  const html =
+    ranges.get(HTML) ?? ranges.get("text/*") ?? ranges.get("*/*") ?? 0;
+  return markdown > 0 && markdown >= html;
 }
 
 export function withAcceptVary(response: Response): Response {
@@ -150,20 +176,41 @@ export function withAcceptVary(response: Response): Response {
   return varied;
 }
 
-function absoluteUrl(value: string, base: string): string {
-  try {
-    return new URL(value, base).href;
-  } catch {
-    return value;
-  }
-}
-
 function appendVaryAccept(headers: Headers) {
   const vary = headers.get("Vary");
   if (vary?.split(",").some((name) => name.trim().toLowerCase() === "accept")) {
     return;
   }
   headers.set("Vary", vary ? `${vary}, Accept` : "Accept");
+}
+
+async function cachedMarkdown(html: string, url: string): Promise<string> {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(html),
+  );
+  const key = `${url} ${Array.from(new Uint8Array(digest), (byte) =>
+    byte.toString(16).padStart(2, "0"),
+  ).join("")}`;
+  const cached = markdownCache.get(key);
+  if (cached !== undefined) {
+    markdownCache.delete(key);
+    markdownCache.set(key, cached);
+    return cached;
+  }
+  const markdown = htmlToMarkdown(html, url);
+  markdownCache.set(key, markdown);
+  if (markdownCache.size > MARKDOWN_CACHE_SIZE) {
+    markdownCache.delete(markdownCache.keys().next().value!);
+  }
+  return markdown;
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
 function isHtml(response: Response): boolean {
@@ -175,7 +222,7 @@ function mediaRanges(accept: string): Map<string, number> {
   for (const range of accept.split(",")) {
     const [type, ...params] = range.split(";").map((part) => part.trim());
     if (!type) continue;
-    const q = params.find((param) => param.startsWith("q="));
+    const q = params.find((param) => param.toLowerCase().startsWith("q="));
     const quality = q ? Number(q.slice(2)) : 1;
     ranges.set(type.toLowerCase(), Number.isFinite(quality) ? quality : 0);
   }
@@ -188,6 +235,14 @@ function metaContent(root: HTMLElement, ...selectors: string[]) {
     if (value) return value;
   }
   return undefined;
+}
+
+function resolveUrl(value: string, base: string): string {
+  try {
+    return new URL(value, base).href;
+  } catch {
+    return value;
+  }
 }
 
 function yamlScalar(value: string): string {
