@@ -6,7 +6,7 @@ export const CONTENT_SECURITY_POLICY = "Content-Security-Policy";
 
 export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
   key: "Strict-Transport-Security",
-  value: "max-age=31536000",
+  value: "max-age=31536000; includeSubDomains",
 };
 
 const SCRIPT_SRC = "script-src";
@@ -27,7 +27,7 @@ export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
     { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
     {
       key: "Permissions-Policy",
-      value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      value: "camera=(), microphone=(), geolocation=(), payment=()",
     },
     { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
     { key: "X-Content-Type-Options", value: "nosniff" },
