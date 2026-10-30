@@ -125,6 +125,23 @@ const pageGroups: Record<string, Array<[string, MetadataLoader]>> = {
   ],
 };
 
+const loadedMetadata = new Map<string, Promise<Metadata>>();
+
+function loadMetadata(
+  group: string,
+  id: string,
+  locale: Locale,
+  load: MetadataLoader,
+) {
+  const key = `${group}\u0000${id}\u0000${locale}`;
+  let metadata = loadedMetadata.get(key);
+  if (!metadata) {
+    metadata = Promise.resolve(load(locale));
+    loadedMetadata.set(key, metadata);
+  }
+  return metadata;
+}
+
 function renderedTitle(title: Metadata["title"]) {
   if (typeof title === "string") return `${title}${BRAND_SUFFIX}`;
   return (title as { absolute: string }).absolute;
@@ -137,9 +154,9 @@ const cases = Object.entries(pageGroups).flatMap(([group, pages]) =>
 describe("content page titles", () => {
   it.each(cases)(
     "renders %s titles in %s without the brand suffix, within 60 characters",
-    async (_group, locale, pages) => {
+    async (group, locale, pages) => {
       for (const [id, load] of pages) {
-        const metadata = await load(locale);
+        const metadata = await loadMetadata(group, id, locale, load);
         const title = renderedTitle(metadata.title);
         expect(metadata.title, `${id} ${locale}`).toEqual({ absolute: title });
         expect(title.endsWith(BRAND_SUFFIX), `${id} ${locale}`).toBe(false);
@@ -156,7 +173,9 @@ describe("content page titles", () => {
       const titles = new Map<string, string>();
       for (const [group, pages] of Object.entries(pageGroups)) {
         for (const [id, load] of pages) {
-          const title = renderedTitle((await load(locale)).title);
+          const title = renderedTitle(
+            (await loadMetadata(group, id, locale, load)).title,
+          );
           expect(titles.get(title), `${group} ${id}: ${title}`).toBeUndefined();
           titles.set(title, `${group} ${id}`);
         }
