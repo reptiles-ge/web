@@ -24,7 +24,7 @@ describe("privacy policy", () => {
       expect(count(text, /^#{1,3} /gm), locale).toBe(count(ka, /^#{1,3} /gm));
       expect(count(text, /^- /gm), locale).toBe(count(ka, /^- /gm));
       expect(count(text, /^\|/gm), locale).toBe(count(ka, /^\|/gm));
-      expect(text, locale).toContain("2026-10-14");
+      expect(text, locale).toContain("2026-10-30");
       expect(text, locale).toContain(`\`${CONTACT_EMAIL}\``);
     }
     expect(legalDocuments.privacy).toBe(PRIVACY_POLICY);
@@ -37,7 +37,6 @@ describe("privacy policy", () => {
         "Bunny CDN/Storage",
         "Google Tag Manager",
         "Google Analytics 4",
-        "top.ge",
         "Sentry",
         "Telegram",
       ]) {

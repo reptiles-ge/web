@@ -51,7 +51,7 @@ const HTML = [
   '<script src="/_next/static/chunks/framework.js" type="module"></script>',
   "<script>(function(){})()</script>",
   '<script type="application/ld+json">{}</script>',
-  '<script src="https://counter.top.ge/counter.js"></script>',
+  '<script src="https://www.googletagmanager.com/gtm.js"></script>',
   '<script src="https://evil.example/x.js"></script>',
   '<script src="//evil.example/y.js"></script>',
   '<script src="http://[bad/x.js"></script>',
@@ -95,7 +95,7 @@ describe("addScriptNonce", () => {
     };
 
     expect(nonced('src="/_next/static/chunks/framework.js"')).toBe(true);
-    expect(nonced('src="https://counter.top.ge/counter.js"')).toBe(true);
+    expect(nonced('src="https://www.googletagmanager.com/gtm.js"')).toBe(true);
     expect(nonced('href="/_next/static/chunks/index.js"')).toBe(true);
     expect(html).toContain(`<script nonce="${NONCE}">(function(){})()`);
     expect(nonced('src="https://evil.example/x.js"')).toBe(false);

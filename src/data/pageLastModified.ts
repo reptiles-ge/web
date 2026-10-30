@@ -20,7 +20,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/mammals/ghamura-sakhlshi": "2026-10-25T12:00:00+04:00",
   "/mammals/tagvi-sakhlshi": "2026-10-14T11:30:00+04:00",
   "/photo-use": "2026-10-13T12:00:00+04:00",
-  "/privacy": "2026-10-14T11:30:00+04:00",
+  "/privacy": "2026-10-30T17:00:00+04:00",
   "/regions": "2026-09-19T22:35:37+04:00",
   "/scorpions": "2026-10-10T02:56:00+04:00",
   "/scorpions/morieli-sakhlshi": "2026-10-02T16:05:00+04:00",
@@ -34,7 +34,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/spiders": "2026-10-10T02:56:00+04:00",
   "/spiders/obobis-nakbeni": "2026-09-20T02:45:00+04:00",
   "/spiders/shxamiani-obobebi": "2026-09-18T16:11:40+04:00",
-  "/terms-and-conditions": "2026-10-14T12:00:00+04:00",
+  "/terms-and-conditions": "2026-10-30T17:00:00+04:00",
   "/turtles": "2026-10-10T02:56:00+04:00",
   "/venomous-snakes": "2026-10-02T12:30:00+04:00",
 };

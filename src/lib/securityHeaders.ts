@@ -56,9 +56,9 @@ export function withScriptNonce(policy: string, nonce: string): string {
 function contentSecurityPolicy(isDevelopment: boolean) {
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://counter.top.ge${isDevelopment ? " https://unpkg.com" : ""}`,
+    `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com${isDevelopment ? " https://unpkg.com" : ""}`,
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge https://counter.top.ge",
+    "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge",
     "media-src 'self' https://cdn.reptiles.ge",
     "font-src 'self' data:",
     `connect-src 'self' https://api.reptiles.ge https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.sentry.io${isDevelopment ? " http://localhost:8787 https://www.react-grab.com" : ""}`,
