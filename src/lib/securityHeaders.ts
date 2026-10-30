@@ -1,3 +1,5 @@
+import { SENTRY_DSN, sentrySecurityEndpoint } from "./sentryDsn";
+
 export type ConfigHeader = { key: string; value: string };
 
 export const SITE_HEADERS_SOURCE = "/(.*)";
@@ -11,8 +13,7 @@ export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
 
 export const CSP_REPORT_GROUP = "csp";
 
-export const CSP_REPORT_URI =
-  "https://o4510170297073664.ingest.us.sentry.io/api/4512117330608128/security/?sentry_key=6db3fcbf0eebe4b852d9498135a5678f&sentry_environment=production";
+export const CSP_REPORT_URI = sentrySecurityEndpoint(SENTRY_DSN);
 
 const SCRIPT_SRC = "script-src";
 const UNSAFE_INLINE = "'unsafe-inline'";
