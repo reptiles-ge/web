@@ -9,6 +9,11 @@ export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
   value: "max-age=31536000; includeSubDomains",
 };
 
+export const CSP_REPORT_GROUP = "csp";
+
+export const CSP_REPORT_URI =
+  "https://o4510170297073664.ingest.us.sentry.io/api/4512117330608128/security/?sentry_key=6db3fcbf0eebe4b852d9498135a5678f&sentry_environment=production";
+
 const SCRIPT_SRC = "script-src";
 const UNSAFE_INLINE = "'unsafe-inline'";
 
@@ -33,7 +38,14 @@ export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
     { key: "X-Content-Type-Options", value: "nosniff" },
     ...(isDevelopment
       ? []
-      : [{ key: "X-Frame-Options", value: "DENY" }, STRICT_TRANSPORT_SECURITY]),
+      : [
+          { key: "X-Frame-Options", value: "DENY" },
+          STRICT_TRANSPORT_SECURITY,
+          {
+            key: "Reporting-Endpoints",
+            value: `${CSP_REPORT_GROUP}="${CSP_REPORT_URI}"`,
+          },
+        ]),
   ];
 }
 
@@ -68,7 +80,13 @@ function contentSecurityPolicy(isDevelopment: boolean) {
   ];
 
   directives.push(
-    isDevelopment ? "worker-src 'self' blob:" : "frame-ancestors 'none'",
+    ...(isDevelopment
+      ? ["worker-src 'self' blob:"]
+      : [
+          "frame-ancestors 'none'",
+          `report-uri ${CSP_REPORT_URI}`,
+          `report-to ${CSP_REPORT_GROUP}`,
+        ]),
   );
 
   return directives.join("; ");
