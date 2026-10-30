@@ -34,7 +34,7 @@ export function BiologyDisclosure({
   const panelId = useId();
 
   return (
-    <article
+    <div
       className={cn(
         "rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)] lg:min-h-[208px] lg:rounded-[28px] lg:px-7 lg:py-[26px]",
         className,
@@ -87,6 +87,6 @@ export function BiologyDisclosure({
           />
         </div>
       </div>
-    </article>
+    </div>
   );
 }

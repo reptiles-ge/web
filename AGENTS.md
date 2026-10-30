@@ -16,16 +16,16 @@ This file is the project map for agents. Humans: see `README.md`.
 
 ## Stack
 
-| Piece        | Detail                                                                              |
-| ------------ | ----------------------------------------------------------------------------------- |
-| App          | Next.js 16 App Router, React 19, TypeScript strict                                  |
-| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json`   |
-| Style        | Tailwind 4, no CSS-in-JS. Only exception: antd in the admin app (`src/admin/`)      |
-| Alias        | `@/*` → `src/*`                                                                     |
-| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                             |
-| Worker entry | `src/worker.ts` (vinext fetch handler; canonical RSC requests so navigation caches) |
-| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)                              |
-| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`                      |
+| Piece        | Detail                                                                                                 |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| App          | Next.js 16 App Router, React 19, TypeScript strict                                                     |
+| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json`                      |
+| Style        | Tailwind 4, no CSS-in-JS. Only exception: antd in the admin app (`src/admin/`)                         |
+| Alias        | `@/*` → `src/*`                                                                                        |
+| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                                                |
+| Worker entry | `src/worker.ts` (vinext fetch handler; maintenance, API docs proxy, Markdown for agents, script nonce) |
+| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)                                                 |
+| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`                                         |
 
 Do not add code comments. Do not invent UI copy in one locale only.
 
@@ -239,6 +239,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Bite pages use the guide-article `Article`, never `MedicalWebPage` or other medical schema.
 - The Organization node lives only in the layout graph (`siteGraphJsonLd`); everywhere else use `organizationRef()`. Authorship stays with the organization. No `HowTo`, no home `Dataset`.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
+- Markdown for agents: the zone is on the Free plan, so Cloudflare's own converter is off. `src/worker.ts` answers `Accept: text/markdown` (preferred over `text/html`) itself through `src/lib/markdownNegotiation.ts`, in the same format: front matter from `title` / `description` / `og:image` meta tags, body without `head`, `header`, `footer` and scripts, JSON-LD in a closing `json` block, `Content-Type: text/markdown; charset=utf-8`, `Vary: Accept`, `X-Markdown-Tokens`, and `Content-Signal` from `robotsTxt.ts`. HTML pages send `Vary: Accept` too. It converts the rendered page and adds nothing to it.
 
 ## Maintenance mode
 

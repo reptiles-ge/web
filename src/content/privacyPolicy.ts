@@ -6,7 +6,7 @@ const EMAIL = `\`${CONTACT_EMAIL}\``;
 
 const ka = `# კონფიდენციალურობის პოლიტიკა
 
-ბოლო განახლება: 2026-10-14
+ბოლო განახლება: 2026-10-30
 
 ეს კონფიდენციალურობის პოლიტიკა განმარტავს, როგორ მუშავდება პერსონალური მონაცემები ვებსაიტზე reptiles.ge („საიტი“). საიტი არის საქართველოს ცხოველთა ატლასი და საგანმანათლებლო რესურსი. მას არ აქვს მომხმარებლის ანგარიში, რეგისტრაცია, ფასიანი სერვისი, კალათა, newsletter ან საიტშივე ჩაშენებული საკონტაქტო ფორმა.
 
@@ -36,9 +36,7 @@ const ka = `# კონფიდენციალურობის პოლ�
 
 ზოგ შემთხვევაში analytics event შეიძლება შეიცავდეს ძებნის ტექსტს. გთხოვთ, საიტის ძებნაში არ ჩაწეროთ თქვენი ან სხვა პირის პერსონალური მონაცემები.
 
-Google Tag Manager-ის მეშვეობით შეიძლება გამოყენებული იყოს Google Analytics 4/Google Ads-ის analytics ან conversion cookies, როგორც აღწერილია ქვემოთ ცხრილში.
-
-საიტზე ასევე მუშაობს top.ge-ის ვიზიტების მრიცხველი. ის აღრიცხავს გვერდის ნახვას და მას გადაეცემა გვერდის მისამართი, referrer და ბრაუზერის ტექნიკური მონაცემები.
+Google Tag Manager-ის მეშვეობით იტვირთება Google Analytics 4. ის reptiles.ge-ზე ინახავს ქვემოთ ცხრილში აღწერილ cookie-ებს.
 
 ### ელფოსტით კონტაქტი
 
@@ -68,7 +66,7 @@ Google Tag Manager-ის მეშვეობით შეიძლება �
 - ავტორების, ფოტოგრაფების და წყაროების სათანადო მითითება;
 - სამართლებრივი მოთხოვნების შესრულება და უფლებების დაცვა.
 
-სამართლებრივი საფუძველი შეიძლება იყოს თქვენი მოთხოვნის შესრულება, საიტისა და მომხმარებლების უსაფრთხოების ლეგიტიმური ინტერესი, კონტენტის/წყაროების სათანადო მითითების ლეგიტიმური ინტერესი, თანხმობა non-essential cookies/analytics-ისთვის, ან კანონის მოთხოვნა. კონკრეტული საფუძველი დამოკიდებულია მონაცემის ტიპსა და processing context-ზე.
+სამართლებრივი საფუძველი შეიძლება იყოს თქვენი მოთხოვნის შესრულება, საიტისა და მომხმარებლების უსაფრთხოების ლეგიტიმური ინტერესი, კონტენტის/წყაროების სათანადო მითითების ლეგიტიმური ინტერესი, საიტის გამოყენების გაზომვისა და შინაარსის გაუმჯობესების ლეგიტიმური ინტერესი (ანალიტიკა), ან კანონის მოთხოვნა. კონკრეტული საფუძველი დამოკიდებულია მონაცემის ტიპსა და processing context-ზე.
 
 ## Cookie, localStorage და sessionStorage {#storage}
 
@@ -80,9 +78,10 @@ Google Tag Manager-ის მეშვეობით შეიძლება �
 | \`reptiles-rating\` | localStorage | შეფასების ფანჯრის სტატუსის დამახსოვრება | სანამ მომხმარებელი/ბრაუზერი არ წაშლის | ფუნქციური |
 | \`reptiles-rating-seconds\` | sessionStorage | საიტზე გატარებული დროის ათვლა შეფასების ფანჯრისთვის | browser tab/session-ის დასრულებამდე | ფუნქციური |
 | \`reptiles.quiz.draft.{quizId}\` | sessionStorage | quiz progress | browser tab/session-ის დასრულებამდე ან quiz დასრულებამდე | ფუნქციური |
-| Google analytics/marketing cookies | cookie | analytics/conversion, თუ GTM container-ში ჩართულია | Google tag/config-ზე დამოკიდებული | ანალიტიკური/მარკეტინგული |
+| \`_ga\` | cookie (reptiles.ge) | Google Analytics 4: შემთხვევითი იდენტიფიკატორი, რომლითაც ვიზიტორები ერთმანეთისგან განირჩევა | 2 წლამდე (Chrome-ში 400 დღე) | ანალიტიკური |
+| \`_ga_7TTKJPY059\` | cookie (reptiles.ge) | Google Analytics 4: სესიის მდგომარეობა | 2 წლამდე (Chrome-ში 400 დღე) | ანალიტიკური |
 
-Non-essential analytics ან marketing cookies უნდა ჩაირთოს მხოლოდ შესაბამისი თანხმობის ან მოქმედი სამართლებრივი საფუძვლის არსებობისას.
+საიტი cookie-ების თანხმობის ფანჯარას არ აჩვენებს. Google Analytics 4 ყველა გვერდზე იტვირთება და ეფუძნება საიტის გამოყენების გაზომვისა და შინაარსის გაუმჯობესების ლეგიტიმურ ინტერესს. ანალიტიკის შესაჩერებლად ბრაუზერში წაშალეთ ან დაბლოკეთ ამ საიტის cookie-ები, ან დააყენეთ Google Analytics-ის opt-out დანამატი (tools.google.com/dlpage/gaoptout). საიტი ამის შემდეგაც სრულად იმუშავებს. დამუშავების გასაპროტესტებლად მოგვწერეთ ${EMAIL}-ზე.
 
 ## ვის გადაეცემა მონაცემები {#recipients}
 
@@ -91,7 +90,6 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 - Cloudflare — hosting, CDN, უსაფრთხოება და ტექნიკური მიწოდება;
 - Bunny CDN/Storage — media/CDN და admin upload workflow;
 - Google Tag Manager, Google Analytics 4 და შესაძლო Google Ads tags — analytics/conversion, GTM container-ის კონფიგურაციის მიხედვით;
-- top.ge — ვიზიტების მრიცხველი;
 - Sentry — შეცდომებისა და საიტის სისწრაფის მონიტორინგი;
 - Telegram — საიტის შეფასებების მიწოდება საიტის ადმინისტრატორისთვის;
 - Google Maps და სხვა გარე წყაროები — მხოლოდ მაშინ, როცა მომხმარებელი თავად გადადის გარე ბმულზე.
@@ -147,7 +145,7 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 
 const en = `# Privacy Policy
 
-Last updated: 2026-10-14
+Last updated: 2026-10-30
 
 This privacy policy explains how personal data is processed on the reptiles.ge website (the "Site"). The Site is an atlas of the animals of Georgia and an educational resource. It has no user accounts, registration, paid services, shopping cart, newsletter or built-in contact form.
 
@@ -177,9 +175,7 @@ The Site uses Google Tag Manager. Through Google Tag Manager, page views, langua
 
 In some cases an analytics event may contain the search text. Please do not type your own or anyone else's personal data into the site search.
 
-Through Google Tag Manager, Google Analytics 4/Google Ads analytics or conversion cookies may be used, as described in the table below.
-
-The Site also runs the top.ge visit counter. It records page views and receives the page address, the referrer and technical data about your browser.
+Google Tag Manager loads Google Analytics 4. It stores the cookies described in the table below on reptiles.ge.
 
 ### Contact by email
 
@@ -209,7 +205,7 @@ Data is processed for the following purposes:
 - properly crediting authors, photographers and sources;
 - meeting legal requirements and protecting rights.
 
-The legal basis may be fulfilling your request, the legitimate interest in the security of the Site and its users, the legitimate interest in properly crediting content and sources, your consent for non-essential cookies/analytics, or a requirement of law. The specific basis depends on the type of data and the processing context.
+The legal basis may be fulfilling your request, the legitimate interest in the security of the Site and its users, the legitimate interest in properly crediting content and sources, the legitimate interest in measuring how the Site is used and improving its content (analytics), or a requirement of law. The specific basis depends on the type of data and the processing context.
 
 ## Cookies, localStorage and sessionStorage {#storage}
 
@@ -221,9 +217,10 @@ The legal basis may be fulfilling your request, the legitimate interest in the s
 | \`reptiles-rating\` | localStorage | remembers the state of the rating window | until you or your browser deletes it | functional |
 | \`reptiles-rating-seconds\` | sessionStorage | counts time spent on the Site for the rating window | until the browser tab/session ends | functional |
 | \`reptiles.quiz.draft.{quizId}\` | sessionStorage | quiz progress | until the browser tab/session ends or the quiz is finished | functional |
-| Google analytics/marketing cookies | cookie | analytics/conversion, if enabled in the GTM container | depends on the Google tag/configuration | analytics/marketing |
+| \`_ga\` | cookie (reptiles.ge) | Google Analytics 4: a random identifier that tells visitors apart | up to 2 years (400 days in Chrome) | analytics |
+| \`_ga_7TTKJPY059\` | cookie (reptiles.ge) | Google Analytics 4: session state | up to 2 years (400 days in Chrome) | analytics |
 
-Non-essential analytics or marketing cookies should be enabled only with the relevant consent or another valid legal basis.
+The Site does not show a cookie consent banner. Google Analytics 4 loads on every page and relies on the legitimate interest in measuring how the Site is used and improving its content. To stop analytics, delete or block this Site's cookies in your browser, or install the Google Analytics opt-out add-on (tools.google.com/dlpage/gaoptout). The Site keeps working fully. To object to the processing, write to ${EMAIL}.
 
 ## Who receives data {#recipients}
 
@@ -232,7 +229,6 @@ The following third parties are used to run the Site:
 - Cloudflare: hosting, CDN, security and technical delivery;
 - Bunny CDN/Storage: media/CDN and the admin upload workflow;
 - Google Tag Manager, Google Analytics 4 and possible Google Ads tags: analytics/conversion, depending on the GTM container configuration;
-- top.ge: visit counter;
 - Sentry: monitoring of errors and Site speed;
 - Telegram: delivering Site ratings to the Site administrator;
 - Google Maps and other external sources: only when you follow an external link yourself.
@@ -288,7 +284,7 @@ This policy may be updated from time to time. When it is updated, the "last upda
 
 const ru = `# Политика конфиденциальности
 
-Последнее обновление: 2026-10-14
+Последнее обновление: 2026-10-30
 
 Настоящая политика конфиденциальности объясняет, как обрабатываются персональные данные на сайте reptiles.ge («Сайт»). Сайт — атлас животных Грузии и образовательный ресурс. На нём нет учётных записей, регистрации, платных услуг, корзины, рассылки и встроенной контактной формы.
 
@@ -318,9 +314,7 @@ const ru = `# Политика конфиденциальности
 
 В некоторых случаях событие аналитики может содержать текст поискового запроса. Пожалуйста, не вводите в поиск по Сайту свои или чужие персональные данные.
 
-Через Google Tag Manager могут использоваться аналитические или конверсионные cookies Google Analytics 4/Google Ads, как описано в таблице ниже.
-
-На Сайте также работает счётчик посещений top.ge. Он учитывает просмотр страницы и получает адрес страницы, referrer и технические данные о браузере.
+Google Tag Manager загружает Google Analytics 4. Он хранит на reptiles.ge cookies, описанные в таблице ниже.
 
 ### Связь по электронной почте
 
@@ -350,7 +344,7 @@ const ru = `# Политика конфиденциальности
 - надлежащее указание авторов, фотографов и источников;
 - выполнение требований закона и защита прав.
 
-Правовым основанием может быть выполнение вашего запроса, законный интерес в безопасности Сайта и пользователей, законный интерес в надлежащем указании материалов и источников, согласие на необязательные cookies/аналитику или требование закона. Конкретное основание зависит от вида данных и контекста обработки.
+Правовым основанием может быть выполнение вашего запроса, законный интерес в безопасности Сайта и пользователей, законный интерес в надлежащем указании материалов и источников, законный интерес в измерении использования Сайта и улучшении его материалов (аналитика) или требование закона. Конкретное основание зависит от вида данных и контекста обработки.
 
 ## Cookie, localStorage и sessionStorage {#storage}
 
@@ -362,9 +356,10 @@ const ru = `# Политика конфиденциальности
 | \`reptiles-rating\` | localStorage | запоминает состояние окна оценки | пока пользователь или браузер не удалит | функциональные |
 | \`reptiles-rating-seconds\` | sessionStorage | отсчёт времени на Сайте для окна оценки | до закрытия вкладки/сессии браузера | функциональные |
 | \`reptiles.quiz.draft.{quizId}\` | sessionStorage | прогресс квиза | до закрытия вкладки/сессии браузера или до завершения квиза | функциональные |
-| Аналитические/маркетинговые cookies Google | cookie | аналитика/конверсии, если включены в контейнере GTM | зависит от тега/настроек Google | аналитические/маркетинговые |
+| \`_ga\` | cookie (reptiles.ge) | Google Analytics 4: случайный идентификатор, по которому различаются посетители | до 2 лет (в Chrome 400 дней) | аналитические |
+| \`_ga_7TTKJPY059\` | cookie (reptiles.ge) | Google Analytics 4: состояние сессии | до 2 лет (в Chrome 400 дней) | аналитические |
 
-Необязательные аналитические или маркетинговые cookies должны включаться только при наличии соответствующего согласия или иного действующего правового основания.
+Сайт не показывает окно согласия на cookies. Google Analytics 4 загружается на каждой странице и основан на законном интересе в измерении использования Сайта и улучшении его материалов. Чтобы остановить аналитику, удалите или заблокируйте cookies этого Сайта в браузере или установите дополнение для отказа от Google Analytics (tools.google.com/dlpage/gaoptout). Сайт продолжит полностью работать. Чтобы возразить против обработки, напишите на ${EMAIL}.
 
 ## Кому передаются данные {#recipients}
 
@@ -373,7 +368,6 @@ const ru = `# Политика конфиденциальности
 - Cloudflare — хостинг, CDN, безопасность и техническая доставка;
 - Bunny CDN/Storage — медиа/CDN и процесс загрузки через админку;
 - Google Tag Manager, Google Analytics 4 и возможные теги Google Ads — аналитика/конверсии в зависимости от настроек контейнера GTM;
-- top.ge — счётчик посещений;
 - Sentry — мониторинг ошибок и скорости Сайта;
 - Telegram — доставка оценок Сайта администратору Сайта;
 - Google Maps и другие внешние источники — только когда пользователь сам переходит по внешней ссылке.
@@ -429,7 +423,7 @@ const ru = `# Политика конфиденциальности
 
 const tr = `# Gizlilik Politikası
 
-Son güncelleme: 2026-10-14
+Son güncelleme: 2026-10-30
 
 Bu gizlilik politikası, reptiles.ge web sitesinde ("Site") kişisel verilerin nasıl işlendiğini açıklar. Site, Gürcistan hayvanlarının atlası ve bir eğitim kaynağıdır. Sitede kullanıcı hesabı, kayıt, ücretli hizmet, alışveriş sepeti, bülten veya site içine yerleştirilmiş iletişim formu yoktur.
 
@@ -459,9 +453,7 @@ Sitede Google Tag Manager kullanılır. Google Tag Manager aracılığıyla sayf
 
 Bazı durumlarda bir analitik olayı arama metnini içerebilir. Lütfen site aramasına kendinize veya başkasına ait kişisel veri yazmayın.
 
-Google Tag Manager aracılığıyla, aşağıdaki tabloda açıklandığı gibi Google Analytics 4/Google Ads analitik veya dönüşüm çerezleri kullanılabilir.
-
-Sitede ayrıca top.ge ziyaret sayacı çalışır. Sayaç sayfa görüntülemesini kaydeder ve sayfa adresini, referrer'ı ve tarayıcınıza ilişkin teknik verileri alır.
+Google Tag Manager, Google Analytics 4'ü yükler. Google Analytics 4, aşağıdaki tabloda açıklanan çerezleri reptiles.ge üzerinde saklar.
 
 ### E-posta ile iletişim
 
@@ -491,7 +483,7 @@ Veriler aşağıdaki amaçlarla işlenir:
 - yazarların, fotoğrafçıların ve kaynakların gereği gibi belirtilmesi;
 - yasal yükümlülüklerin yerine getirilmesi ve hakların korunması.
 
-Hukuki dayanak; talebinizin yerine getirilmesi, Sitenin ve kullanıcıların güvenliğine ilişkin meşru menfaat, içeriğin ve kaynakların gereği gibi belirtilmesine ilişkin meşru menfaat, zorunlu olmayan çerezler/analitik için rızanız veya yasal bir zorunluluk olabilir. Somut dayanak, verinin türüne ve işleme bağlamına göre değişir.
+Hukuki dayanak; talebinizin yerine getirilmesi, Sitenin ve kullanıcıların güvenliğine ilişkin meşru menfaat, içeriğin ve kaynakların gereği gibi belirtilmesine ilişkin meşru menfaat, Sitenin kullanımını ölçme ve içeriğini iyileştirmeye ilişkin meşru menfaat (analitik) veya yasal bir zorunluluk olabilir. Somut dayanak, verinin türüne ve işleme bağlamına göre değişir.
 
 ## Çerezler, localStorage ve sessionStorage {#storage}
 
@@ -503,9 +495,10 @@ Hukuki dayanak; talebinizin yerine getirilmesi, Sitenin ve kullanıcıların gü
 | \`reptiles-rating\` | localStorage | değerlendirme penceresinin durumunu hatırlar | kullanıcı veya tarayıcı silene kadar | işlevsel |
 | \`reptiles-rating-seconds\` | sessionStorage | değerlendirme penceresi için Sitede geçirilen süreyi sayar | tarayıcı sekmesi/oturumu kapanana kadar | işlevsel |
 | \`reptiles.quiz.draft.{quizId}\` | sessionStorage | quiz ilerlemesi | tarayıcı sekmesi/oturumu kapanana veya quiz bitene kadar | işlevsel |
-| Google analitik/pazarlama çerezleri | çerez | GTM container'ında etkinse analitik/dönüşüm | Google etiketine/yapılandırmasına bağlı | analitik/pazarlama |
+| \`_ga\` | çerez (reptiles.ge) | Google Analytics 4: ziyaretçileri birbirinden ayıran rastgele bir tanımlayıcı | 2 yıla kadar (Chrome'da 400 gün) | analitik |
+| \`_ga_7TTKJPY059\` | çerez (reptiles.ge) | Google Analytics 4: oturum durumu | 2 yıla kadar (Chrome'da 400 gün) | analitik |
 
-Zorunlu olmayan analitik veya pazarlama çerezleri yalnızca ilgili rıza veya geçerli başka bir hukuki dayanak bulunduğunda etkinleştirilmelidir.
+Site bir çerez onay penceresi göstermez. Google Analytics 4 her sayfada yüklenir ve Sitenin kullanımını ölçme ve içeriğini iyileştirmeye ilişkin meşru menfaate dayanır. Analitiği durdurmak için tarayıcınızda bu Sitenin çerezlerini silin veya engelleyin ya da Google Analytics devre dışı bırakma eklentisini (tools.google.com/dlpage/gaoptout) kurun. Site bundan sonra da tam olarak çalışır. İşlemeye itiraz etmek için ${EMAIL} adresine yazın.
 
 ## Veriler kimlere aktarılır {#recipients}
 
@@ -514,7 +507,6 @@ Sitenin çalışması için aşağıdaki üçüncü taraflar kullanılır:
 - Cloudflare: barındırma, CDN, güvenlik ve teknik sunum;
 - Bunny CDN/Storage: medya/CDN ve yönetim panelinden yükleme süreci;
 - Google Tag Manager, Google Analytics 4 ve olası Google Ads etiketleri: GTM container yapılandırmasına göre analitik/dönüşüm;
-- top.ge: ziyaret sayacı;
 - Sentry: hataların ve Site hızının izlenmesi;
 - Telegram: Site değerlendirmelerinin Site yöneticisine iletilmesi;
 - Google Maps ve diğer dış kaynaklar: yalnızca kullanıcı bir dış bağlantıya kendisi geçtiğinde.

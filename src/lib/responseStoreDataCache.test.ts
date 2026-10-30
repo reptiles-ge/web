@@ -43,10 +43,9 @@ describe("NonReplayingResponseStoreCache", () => {
     expect(puts).toHaveLength(1);
     const [, response, options] = puts[0]!;
     expect(options.revalidator).toBeUndefined();
+    expect(options.expiryBehavior).toBe("miss");
     expect(response.headers.get("Cache-Tag")).toBeTruthy();
-    expect(response.headers.get("Cache-Control")).not.toContain(
-      "stale-while-revalidate",
-    );
+    expect(response.headers.get("Cache-Control")).toContain("max-age=3600");
   });
 
   it("differs from the stock handler, which asks the store to re-render the page", async () => {

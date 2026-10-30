@@ -5,6 +5,8 @@ import { describe, expect, it } from "vitest";
 
 import {
   type ConfigHeader,
+  CSP_REPORT_GROUP,
+  CSP_REPORT_URI,
   scriptSourceOrigins,
   securityHeaders,
   SITE_HEADERS_SOURCE,
@@ -40,13 +42,11 @@ async function vinextMatchHeaders(): Promise<MatchHeaders> {
 }
 
 describe("securityHeaders", () => {
-  it("sends a one-year HSTS without includeSubDomains or preload in production", () => {
+  it("sends a one-year HSTS with includeSubDomains and without preload in production", () => {
     expect(headerValue(false, "Strict-Transport-Security")).toBe(
-      "max-age=31536000",
+      "max-age=31536000; includeSubDomains",
     );
-    expect(STRICT_TRANSPORT_SECURITY.value).not.toMatch(
-      /includeSubDomains|preload/i,
-    );
+    expect(STRICT_TRANSPORT_SECURITY.value).not.toMatch(/preload/i);
   });
 
   it("keeps HSTS and X-Frame-Options out of local development", () => {
@@ -63,6 +63,31 @@ describe("securityHeaders", () => {
     expect(headerValue(false, "Content-Security-Policy")).toContain(
       "frame-ancestors 'none'",
     );
+  });
+
+  it("reports CSP violations to Sentry in production only", () => {
+    const directives = headerValue(false, "Content-Security-Policy")!.split(
+      "; ",
+    );
+    expect(directives).toContain(`report-uri ${CSP_REPORT_URI}`);
+    expect(directives).toContain(`report-to ${CSP_REPORT_GROUP}`);
+    expect(headerValue(false, "Reporting-Endpoints")).toBe(
+      `${CSP_REPORT_GROUP}="${CSP_REPORT_URI}"`,
+    );
+    expect(new URL(CSP_REPORT_URI).pathname).toMatch(/\/security\/$/);
+    expect(headerValue(true, "Content-Security-Policy")).not.toMatch(
+      /report-(uri|to)/,
+    );
+    expect(headerValue(true, "Reporting-Endpoints")).toBeUndefined();
+  });
+
+  it("keeps the report directives through the script nonce rewrite", () => {
+    const policy = withScriptNonce(
+      headerValue(false, "Content-Security-Policy")!,
+      "abc",
+    );
+    expect(policy).toContain(`report-uri ${CSP_REPORT_URI}`);
+    expect(policy).toContain(`report-to ${CSP_REPORT_GROUP}`);
   });
 
   it("allows eval only in local development", () => {
@@ -98,7 +123,6 @@ describe("securityHeaders", () => {
       "https://www.googletagmanager.com",
       "https://www.google-analytics.com",
       "https://ssl.google-analytics.com",
-      "https://counter.top.ge",
     ]);
     expect(scriptSourceOrigins("default-src 'self'")).toEqual([]);
   });
@@ -123,10 +147,13 @@ describe("securityHeaders", () => {
     },
   );
 
-  it("sends HSTS on static assets served by Workers", () => {
-    const rules = readFileSync(path.join(ROOT, "public/_headers"), "utf8");
-    expect(rules).toMatch(
-      /^\/\*\n {2}Strict-Transport-Security: max-age=31536000$/m,
-    );
-  });
+  it.each(["public/_headers", "src/admin/public/_headers"])(
+    "sends the site HSTS on static assets in %s",
+    (file) => {
+      const rules = readFileSync(path.join(ROOT, file), "utf8");
+      expect(rules.split("\n")).toContain(
+        `  Strict-Transport-Security: ${STRICT_TRANSPORT_SECURITY.value}`,
+      );
+    },
+  );
 });

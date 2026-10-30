@@ -552,7 +552,7 @@ function HalyomorphaPestSections({
         </p>
         <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
           {copy.indoorsSteps.map((step) => (
-            <article
+            <div
               className="border-y border-border py-5 md:border-y-0 md:border-l md:py-0 md:pr-4 md:pl-5"
               key={step.title}
             >
@@ -562,7 +562,7 @@ function HalyomorphaPestSections({
               <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                 {step.body}
               </p>
-            </article>
+            </div>
           ))}
         </div>
       </div>

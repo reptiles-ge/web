@@ -3,7 +3,7 @@ import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { absoluteUrl } from "@/lib/site";
 
 const ROBOTS_DISALLOWED_PATHS = ["/api/", "/admin", "/admin/"] as const;
-const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
+export const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
 
 export const AI_CITATION_USER_AGENTS = [
   "GPTBot",

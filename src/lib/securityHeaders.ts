@@ -1,3 +1,5 @@
+import { SENTRY_DSN, sentrySecurityEndpoint } from "./sentryDsn";
+
 export type ConfigHeader = { key: string; value: string };
 
 export const SITE_HEADERS_SOURCE = "/(.*)";
@@ -6,8 +8,12 @@ export const CONTENT_SECURITY_POLICY = "Content-Security-Policy";
 
 export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
   key: "Strict-Transport-Security",
-  value: "max-age=31536000",
+  value: "max-age=31536000; includeSubDomains",
 };
+
+export const CSP_REPORT_GROUP = "csp";
+
+export const CSP_REPORT_URI = sentrySecurityEndpoint(SENTRY_DSN);
 
 const SCRIPT_SRC = "script-src";
 const UNSAFE_INLINE = "'unsafe-inline'";
@@ -27,13 +33,20 @@ export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
     { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
     {
       key: "Permissions-Policy",
-      value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+      value: "camera=(), microphone=(), geolocation=(), payment=()",
     },
     { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
     { key: "X-Content-Type-Options", value: "nosniff" },
     ...(isDevelopment
       ? []
-      : [{ key: "X-Frame-Options", value: "DENY" }, STRICT_TRANSPORT_SECURITY]),
+      : [
+          { key: "X-Frame-Options", value: "DENY" },
+          STRICT_TRANSPORT_SECURITY,
+          {
+            key: "Reporting-Endpoints",
+            value: `${CSP_REPORT_GROUP}="${CSP_REPORT_URI}"`,
+          },
+        ]),
   ];
 }
 
@@ -56,9 +69,9 @@ export function withScriptNonce(policy: string, nonce: string): string {
 function contentSecurityPolicy(isDevelopment: boolean) {
   const directives = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://counter.top.ge${isDevelopment ? " https://unpkg.com" : ""}`,
+    `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com${isDevelopment ? " https://unpkg.com" : ""}`,
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge https://counter.top.ge",
+    "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge",
     "media-src 'self' https://cdn.reptiles.ge",
     "font-src 'self' data:",
     `connect-src 'self' https://api.reptiles.ge https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.sentry.io${isDevelopment ? " http://localhost:8787 https://www.react-grab.com" : ""}`,
@@ -68,7 +81,13 @@ function contentSecurityPolicy(isDevelopment: boolean) {
   ];
 
   directives.push(
-    isDevelopment ? "worker-src 'self' blob:" : "frame-ancestors 'none'",
+    ...(isDevelopment
+      ? ["worker-src 'self' blob:"]
+      : [
+          "frame-ancestors 'none'",
+          `report-uri ${CSP_REPORT_URI}`,
+          `report-to ${CSP_REPORT_GROUP}`,
+        ]),
   );
 
   return directives.join("; ");
