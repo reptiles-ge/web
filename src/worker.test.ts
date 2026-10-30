@@ -5,6 +5,7 @@ import {
   MAINTENANCE_BYPASS_HEADER,
   MAINTENANCE_HEADER,
 } from "@/lib/maintenance";
+import { MARKDOWN_CONTENT_TYPE } from "@/lib/markdownNegotiation";
 import { SITEMAP_CACHE_CONTROL } from "@/lib/responseCacheControl";
 import worker from "@/worker";
 
@@ -154,5 +155,49 @@ describe("Worker fetch", () => {
     const request = new Request("https://reptiles.ge/en/snakes");
     await worker.fetch(request, {}, {});
     expect(forwarded()).toBe(request);
+  });
+
+  it("adds Accept to Vary on HTML pages", async () => {
+    baseFetch.mockResolvedValue(appResponse("text/html; charset=utf-8"));
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/en/snakes"),
+      {},
+      {},
+    );
+    expect(response.headers.get("Vary")).toBe("Accept");
+  });
+
+  it("answers Accept: text/markdown with the page as Markdown", async () => {
+    baseFetch.mockResolvedValue(
+      new Response("<html><body><main><h1>გველები</h1></main></body></html>", {
+        headers: {
+          "Cache-Control": VINEXT_DEFAULT,
+          "Content-Type": "text/html; charset=utf-8",
+        },
+      }),
+    );
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/gvelebi", {
+        headers: { Accept: "text/markdown, text/html;q=0.9" },
+      }),
+      {},
+      {},
+    );
+    expect(forwarded().headers.get("Accept")).toBe("text/html");
+    expect(response.headers.get("Content-Type")).toBe(MARKDOWN_CONTENT_TYPE);
+    expect(response.headers.get("Cache-Control")).toBe(VINEXT_DEFAULT);
+    expect(await response.text()).toBe("# გველები\n");
+  });
+
+  it("answers Markdown requests with 503 in maintenance mode", async () => {
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/gvelebi", {
+        headers: { Accept: "text/markdown" },
+      }),
+      { MAINTENANCE_MODE: "on" },
+      {},
+    );
+    expect(response.status).toBe(503);
+    expect(baseFetch).not.toHaveBeenCalled();
   });
 });
