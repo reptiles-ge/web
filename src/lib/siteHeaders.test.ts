@@ -52,7 +52,7 @@ describe("site headers", () => {
   it("sends the security headers on every page", async () => {
     for (const path of ["/", "/en", "/species"]) {
       expect(await headerFor(path, "Permissions-Policy"), path).toBe(
-        "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+        "camera=(), microphone=(), geolocation=(), payment=()",
       );
       expect(await headerFor(path, "Cross-Origin-Opener-Policy"), path).toBe(
         "same-origin",

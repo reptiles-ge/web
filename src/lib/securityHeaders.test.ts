@@ -40,13 +40,11 @@ async function vinextMatchHeaders(): Promise<MatchHeaders> {
 }
 
 describe("securityHeaders", () => {
-  it("sends a one-year HSTS without includeSubDomains or preload in production", () => {
+  it("sends a one-year HSTS with includeSubDomains and without preload in production", () => {
     expect(headerValue(false, "Strict-Transport-Security")).toBe(
-      "max-age=31536000",
+      "max-age=31536000; includeSubDomains",
     );
-    expect(STRICT_TRANSPORT_SECURITY.value).not.toMatch(
-      /includeSubDomains|preload/i,
-    );
+    expect(STRICT_TRANSPORT_SECURITY.value).not.toMatch(/preload/i);
   });
 
   it("keeps HSTS and X-Frame-Options out of local development", () => {
@@ -126,7 +124,7 @@ describe("securityHeaders", () => {
   it("sends HSTS on static assets served by Workers", () => {
     const rules = readFileSync(path.join(ROOT, "public/_headers"), "utf8");
     expect(rules).toMatch(
-      /^\/\*\n {2}Strict-Transport-Security: max-age=31536000$/m,
+      /^\/\*\n {2}Strict-Transport-Security: max-age=31536000; includeSubDomains$/m,
     );
   });
 });
