@@ -18,7 +18,7 @@ describe("GuideArticleContents", () => {
         label="In this guide"
       />,
     );
-    const toggle = screen.getByRole("button", { name: "In this guide 3" });
+    const toggle = screen.getByRole("button", { name: "In this guide" });
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(toggle).toHaveClass("lg:hidden");
     const list = document.getElementById(
@@ -35,7 +35,7 @@ describe("GuideArticleContents", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(list).not.toHaveClass("max-lg:hidden");
     expect(
-      screen.getByRole("navigation", { name: "In this guide 3" }),
+      screen.getByRole("navigation", { name: "In this guide" }),
     ).toBeInTheDocument();
   });
 });

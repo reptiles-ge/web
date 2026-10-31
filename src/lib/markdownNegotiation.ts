@@ -29,8 +29,10 @@ const DROPPED_ELEMENTS = [
   "button",
   "form",
   "dialog",
-  '[aria-hidden="true"]',
+  "[data-markdown-skip]",
 ].join(", ");
+
+const SEPARATORS = '[aria-hidden="true"]';
 
 const DISCLOSURE_PANEL_ATTRIBUTES = ["aria-hidden", "hidden", "inert"];
 
@@ -98,6 +100,9 @@ export function htmlToMarkdown(html: string, url: string): string {
   }
   for (const element of page.querySelectorAll(DROPPED_ELEMENTS)) {
     element.remove();
+  }
+  for (const element of page.querySelectorAll(SEPARATORS)) {
+    element.replaceWith(" ");
   }
   for (const element of page.querySelectorAll("a *")) {
     if (element.nextElementSibling) element.insertAdjacentHTML("afterend", " ");

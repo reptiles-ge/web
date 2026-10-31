@@ -36,7 +36,10 @@ export function GuideArticleContents({
           id={headingId}
         >
           {label}{" "}
-          <span className="ml-2 rounded-full bg-card px-2 py-0.5 tracking-normal text-foreground/70 tabular-nums lg:hidden">
+          <span
+            aria-hidden="true"
+            className="ml-2 rounded-full bg-card px-2 py-0.5 tracking-normal text-foreground/70 tabular-nums lg:hidden"
+          >
             {items.length}
           </span>
         </h2>

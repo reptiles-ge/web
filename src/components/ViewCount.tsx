@@ -25,7 +25,10 @@ export function ViewCount({
   noun,
 }: ViewCountProps) {
   return (
-    <span className={cn("inline-flex items-center tabular-nums", className)}>
+    <span
+      className={cn("inline-flex items-center tabular-nums", className)}
+      data-markdown-skip=""
+    >
       <svg
         aria-hidden="true"
         className={cn(

@@ -821,7 +821,10 @@ async function SpeciesProfileSummary({
           speciesId={species.id}
         />
         {species.description ? (
-          <p className="mt-3 px-6 text-[16px] leading-[1.6] text-foreground/80 lg:hidden">
+          <p
+            className="mt-3 px-6 text-[16px] leading-[1.6] text-foreground/80 lg:hidden"
+            data-markdown-skip=""
+          >
             {species.description}
           </p>
         ) : null}
