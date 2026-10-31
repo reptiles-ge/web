@@ -105,6 +105,27 @@ describe("RegionProfile outline", () => {
   });
 });
 
+describe("RegionProfile FAQ", () => {
+  it("marks every question as a level-3 heading", () => {
+    renderWithMessages(
+      <RegionProfile
+        content={content}
+        editable={false}
+        region={region}
+        species={species}
+        summary={summary}
+        venomous={venomous}
+      />,
+    );
+    expect(content.faq.length).toBeGreaterThan(0);
+    for (const item of content.faq) {
+      expect(
+        screen.getByRole("heading", { level: 3, name: item.question }),
+      ).toBeInTheDocument();
+    }
+  });
+});
+
 describe("RegionSpeciesCard", () => {
   it("renders the name as text, not a heading, with location or risk", () => {
     const item = venomous[0]!;

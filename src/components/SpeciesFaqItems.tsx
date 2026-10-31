@@ -39,43 +39,45 @@ export function SpeciesFaqItems({
             hidden={!expanded && index >= visibleCount}
             key={item.question}
           >
-            <button
-              aria-expanded={isOpen}
-              className="flex min-h-16 w-full items-center justify-between gap-4 rounded-[22px] py-3 pr-3.5 pl-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-[72px] lg:gap-5 lg:rounded-[24px] lg:pr-5 lg:pl-[26px]"
-              onClick={() => {
-                const next = isOpen ? null : index;
-                setOpen(next);
-                if (next !== null) {
-                  trackEvent("faq_open", {
-                    entity_id: entityId,
-                    faq_index: next,
-                    page_type: pageType,
-                  });
-                }
-              }}
-              type="button"
-            >
-              <span
-                className="font-display text-[15.5px] leading-snug font-semibold text-foreground lg:text-[17px]"
-                data-content-field={
-                  editable ? `faq.${index}.question` : undefined
-                }
-                data-content-id={editable ? entityId : undefined}
-                data-content-kind={editable ? "species" : undefined}
+            <h3>
+              <button
+                aria-expanded={isOpen}
+                className="flex min-h-16 w-full items-center justify-between gap-4 rounded-[22px] py-3 pr-3.5 pl-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-[72px] lg:gap-5 lg:rounded-[24px] lg:pr-5 lg:pl-[26px]"
+                onClick={() => {
+                  const next = isOpen ? null : index;
+                  setOpen(next);
+                  if (next !== null) {
+                    trackEvent("faq_open", {
+                      entity_id: entityId,
+                      faq_index: next,
+                      page_type: pageType,
+                    });
+                  }
+                }}
+                type="button"
               >
-                {item.question}
-              </span>
-              <span
-                className={cn(
-                  "flex size-10 shrink-0 items-center justify-center rounded-full transition-[background-color,color,rotate] duration-300",
-                  isOpen
-                    ? "rotate-45 bg-primary text-white dark:text-ink"
-                    : "bg-surface text-foreground",
-                )}
-              >
-                <Plus className="size-4" strokeWidth={1.75} />
-              </span>
-            </button>
+                <span
+                  className="font-display text-[15.5px] leading-snug font-semibold text-foreground lg:text-[17px]"
+                  data-content-field={
+                    editable ? `faq.${index}.question` : undefined
+                  }
+                  data-content-id={editable ? entityId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
+                  {item.question}
+                </span>
+                <span
+                  className={cn(
+                    "flex size-10 shrink-0 items-center justify-center rounded-full transition-[background-color,color,rotate] duration-300",
+                    isOpen
+                      ? "rotate-45 bg-primary text-white dark:text-ink"
+                      : "bg-surface text-foreground",
+                  )}
+                >
+                  <Plus className="size-4" strokeWidth={1.75} />
+                </span>
+              </button>
+            </h3>
             <div
               className={cn(
                 "grid transition-[grid-template-rows] duration-300 ease-out",

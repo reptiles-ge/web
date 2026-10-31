@@ -158,34 +158,36 @@ function RegionFaqSection({
               return (
                 <div key={item.question}>
                   <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => {
-                        const next = isOpen ? null : index;
-                        setOpen(next);
-                        if (next !== null) {
-                          trackEvent("faq_open", {
-                            entity_id: regionId,
-                            faq_index: next,
-                            page_type: "region",
-                          });
-                        }
-                      }}
-                      type="button"
-                    >
-                      <span
-                        className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
-                        data-content-field={
-                          editable ? `faq.${index}.question` : undefined
-                        }
-                        data-content-id={editable ? regionId : undefined}
-                        data-content-kind={editable ? "region" : undefined}
+                    <h3>
+                      <button
+                        aria-expanded={isOpen}
+                        className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                        onClick={() => {
+                          const next = isOpen ? null : index;
+                          setOpen(next);
+                          if (next !== null) {
+                            trackEvent("faq_open", {
+                              entity_id: regionId,
+                              faq_index: next,
+                              page_type: "region",
+                            });
+                          }
+                        }}
+                        type="button"
                       >
-                        {item.question}
-                      </span>
-                      <FaqToggleIcon isOpen={isOpen} />
-                    </button>
+                        <span
+                          className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
+                          data-content-field={
+                            editable ? `faq.${index}.question` : undefined
+                          }
+                          data-content-id={editable ? regionId : undefined}
+                          data-content-kind={editable ? "region" : undefined}
+                        >
+                          {item.question}
+                        </span>
+                        <FaqToggleIcon isOpen={isOpen} />
+                      </button>
+                    </h3>
                     <FaqAnswerPanel isOpen={isOpen}>
                       <p
                         className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"

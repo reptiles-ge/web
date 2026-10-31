@@ -59,17 +59,19 @@ export function ClusterFaqSection({
               return (
                 <div key={item.question}>
                   <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => setOpen(isOpen ? null : index)}
-                      type="button"
-                    >
-                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                        {item.question}
-                      </span>
-                      <FaqToggleIcon isOpen={isOpen} />
-                    </button>
+                    <h3>
+                      <button
+                        aria-expanded={isOpen}
+                        className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                        onClick={() => setOpen(isOpen ? null : index)}
+                        type="button"
+                      >
+                        <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
+                          {item.question}
+                        </span>
+                        <FaqToggleIcon isOpen={isOpen} />
+                      </button>
+                    </h3>
                     <FaqAnswerPanel isOpen={isOpen}>
                       <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
                         <PhoneLinkedText>{item.answer}</PhoneLinkedText>
