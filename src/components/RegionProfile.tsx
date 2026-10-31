@@ -312,7 +312,7 @@ function RegionProfileHero({
         sizes={REGION_HERO_SIZES}
         src={heroSrc}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-black/92" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -334,7 +334,7 @@ function RegionProfileHero({
           <span aria-hidden>/</span>
           <span className="text-white/70">{name}</span>
         </nav>
-        <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
           {t("regionEyebrow")}
         </p>
         <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
@@ -342,7 +342,7 @@ function RegionProfileHero({
         </h1>
         {overview ? (
           <p
-            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]"
+            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:mt-5 sm:text-[16px]"
             data-content-field={editable ? "overview" : undefined}
             data-content-id={editable ? regionId : undefined}
             data-content-kind={editable ? "region" : undefined}
