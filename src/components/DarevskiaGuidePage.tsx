@@ -35,6 +35,7 @@ export async function DarevskiaGuidePage({
     >
       <ClusterGuideLead
         eyebrow={t("guideEyebrow")}
+        // TODO(review #1791): EN guideP1 opens with "Each of the sixteen" with no antecedent in this section; say "Each of the 16 Darevskia species".
         paragraphs={[t("guideP1"), t("guideP2")]}
         title={t("guideTitle")}
       />

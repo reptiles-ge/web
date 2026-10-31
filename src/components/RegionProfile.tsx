@@ -158,6 +158,7 @@ function RegionFaqSection({
               return (
                 <div key={item.question}>
                   <div className="border-t border-border last:border-b">
+                    {/* TODO(review #1791): this accordion item is copied in ClusterFaqSection, SpeciesFaqItems and GroupHubFaqAccordion; move it to one shared FaqItem in FaqAccordionParts. */}
                     <h3>
                       <button
                         aria-expanded={isOpen}

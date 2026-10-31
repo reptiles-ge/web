@@ -41,6 +41,7 @@ const PAGE = `<!doctype html>
       <svg><text>icon</text></svg>
       <div hidden>დამალული კითხვა</div>
       <p>დარეკეთ <a href="tel:112">112</a>-ზე.</p>
+      <!-- TODO(review #1791): add <h3><button aria-expanded> fixtures, with and without aria-controls, and expect "### Question?" -->
       <button aria-expanded="true" type="button"><span>რამდენად დიდია?</span><svg><path></path></svg></button>
       <div><p>70–90 სმ.</p></div>
       <button aria-controls="sources-more" aria-expanded="false" type="button">ყველა წყარო</button>

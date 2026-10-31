@@ -59,6 +59,7 @@ export function ClusterFaqSection({
               return (
                 <div key={item.question}>
                   <div className="border-t border-border last:border-b">
+                    {/* TODO(review #1791): add aria-controls/id, role="region" and inert on the closed panel like GuideFaqItems; same in SpeciesFaqItems, GroupHubFaqAccordion and RegionProfile. */}
                     <h3>
                       <button
                         aria-expanded={isOpen}

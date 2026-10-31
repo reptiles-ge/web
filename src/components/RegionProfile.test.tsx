@@ -77,6 +77,7 @@ describe("RegionProfile outline", () => {
     for (const item of species) {
       expect(headings, item.id).not.toContain(item.commonName);
     }
+    // TODO(review #1791): FAQ questions are h3 now and count toward this cap; exclude FAQ headings or set the cap deliberately.
     expect(headings.length).toBeLessThan(15);
     expect(screen.getAllByText(species[0]!.commonName).length).toBeGreaterThan(
       0,
