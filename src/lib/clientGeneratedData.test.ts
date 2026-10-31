@@ -14,7 +14,7 @@ const CLIENT_GENERATED_ALLOWED = new Set([
 ]);
 const EXTENSIONS = [".ts", ".tsx", "/index.ts", "/index.tsx"];
 const USE_CLIENT =
-  /^﻿?\s*(?:\/\/[^\n]*\n\s*|\/\*[\s\S]*?\*\/\s*)*["']use client["']/;
+  /^\uFEFF?\s*(?:\/\/[^\n]*\n\s*|\/\*(?:[^*]|\*(?!\/))*\*\/\s*)*["']use client["']/;
 const STATIC_IMPORT =
   /^(?:import|export)\s+(?!type\b)(?:[^'";]*?\sfrom\s+)?["']([^"']+)["']/gm;
 const DYNAMIC_IMPORT = /\bimport\(\s*["'`]([^"'`]+)["'`]\s*\)/g;
@@ -66,7 +66,7 @@ describe("client bundles", () => {
   it.each([
     '"use client";\n',
     "'use client';\n",
-    '﻿"use client";\n',
+    '\uFEFF"use client";\n',
     '\n// map widget\n"use client";\n',
     '/* map\n widget */\n"use client";\n',
   ])("detects the client directive in %j", (source) => {
@@ -75,6 +75,12 @@ describe("client bundles", () => {
 
   it("does not treat a quoted directive later in a file as a client file", () => {
     expect(USE_CLIENT.test('const note = "use client";\n')).toBe(false);
+  });
+
+  it("rejects unclosed comment runs without backtracking", () => {
+    const started = performance.now();
+    expect(USE_CLIENT.test(`/*${"*//*".repeat(50_000)}`)).toBe(false);
+    expect(performance.now() - started).toBeLessThan(500);
   });
 
   it("never pull generated data modules into a client component", () => {
