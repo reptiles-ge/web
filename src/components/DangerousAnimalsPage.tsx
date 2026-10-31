@@ -54,9 +54,11 @@ export async function DangerousAnimalsPage({
   rows,
   updatedAt,
 }: DangerousAnimalsPageProps) {
-  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
-  const tDanger = await getTranslations({ locale, namespace: "danger" });
+  const [t, tNav, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "dangerousAnimals" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "danger" }),
+  ]);
 
   return (
     <div className="min-h-screen bg-background">
