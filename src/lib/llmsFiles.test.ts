@@ -114,6 +114,21 @@ describe("buildLlmsIndexText", () => {
       );
     }
   });
+
+  it("places Georgia in the South Caucasus and describes the About page in both files", () => {
+    for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
+      const index = buildLlmsIndexText(LLMS, locale);
+      const full = buildLlmsFullText(LLMS, locale);
+      const about =
+        "What the atlas is, what it will not infer, how texts are written, reviewed and corrected";
+      for (const body of [index, full]) {
+        expect(body, locale).toContain(
+          "> Digital atlas of animals of Georgia, the country in the South Caucasus",
+        );
+        expect(body, locale).toContain(about);
+      }
+    }
+  });
 });
 
 describe("buildLlmsFullText", () => {
