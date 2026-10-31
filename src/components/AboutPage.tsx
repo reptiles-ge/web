@@ -24,6 +24,7 @@ import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { getContributors } from "@/lib/authorsApi";
+import { cn } from "@/lib/cn";
 import { getCreditAuthorCards } from "@/lib/creditAuthors";
 import {
   GROUP_HUB_ILLUSTRATIONS,
@@ -106,6 +107,56 @@ const h2Class =
   "mt-3 text-[28px] leading-[1.12] font-semibold tracking-[-0.015em] md:mt-4 md:text-[40px] md:leading-[1.1] md:tracking-[-0.018em]";
 const darkButtonClass =
   "inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full bg-(--nw-strong) px-6 text-[15px] font-medium text-(--nw-on-strong) transition-opacity hover:opacity-90";
+
+export async function AboutEditorial({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "about" });
+
+  return (
+    <section
+      className={`${wrapClass} scroll-mt-28 pt-14 md:pt-[120px]`}
+      id="editorial"
+    >
+      <div className="lg:grid lg:grid-cols-[440px_minmax(0,1fr)] lg:items-end lg:gap-20">
+        <div>
+          <p className={eyebrowClass}>{t("editorialEyebrow")}</p>
+          <h2 className={h2Class}>{t("editorialTitle")}</h2>
+        </div>
+        <p className="mt-3.5 text-[15.5px] leading-[1.7] text-(--nw-soft) md:text-[17px] lg:mt-0">
+          {t("editorialLead")}
+        </p>
+      </div>
+      <div className="mt-5 flex flex-col gap-2 md:mt-10 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3">
+        <MethodCard
+          className="md:col-span-2 lg:col-span-1"
+          icon={<PenLine aria-hidden="true" className="size-5" />}
+          title={t("workflowTitle")}
+        >
+          <p>{t("workflowBody")}</p>
+        </MethodCard>
+        <MethodCard
+          icon={<MessageCircle aria-hidden="true" className="size-5" />}
+          title={t("correctionsTitle")}
+        >
+          <p>{t("correctionsBody")}</p>
+          <div className="min-h-5 flex-1" />
+          <Link
+            className="mt-3.5 inline-flex items-center gap-2 self-start text-[14px] font-semibold text-(--nw-ink) transition-colors hover:text-(--nw-accent) md:mt-0"
+            href="/contact"
+          >
+            {t("correctionsCta")}
+            <ArrowRight aria-hidden="true" className="size-[15px]" />
+          </Link>
+        </MethodCard>
+        <MethodCard
+          icon={<Scale aria-hidden="true" className="size-5" />}
+          title={t("independenceTitle")}
+        >
+          <p>{t("independenceBody")}</p>
+        </MethodCard>
+      </div>
+    </section>
+  );
+}
 
 export async function AboutPage({ locale }: { locale: AppLocale }) {
   return (
@@ -252,56 +303,6 @@ async function AboutContribute({ locale }: { locale: AppLocale }) {
           {t("contributeCta")}
           <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
-      </div>
-    </section>
-  );
-}
-
-async function AboutEditorial({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "about" });
-
-  return (
-    <section
-      className={`${wrapClass} scroll-mt-28 pt-14 md:pt-[120px]`}
-      id="editorial"
-    >
-      <div className="lg:grid lg:grid-cols-[440px_minmax(0,1fr)] lg:items-end lg:gap-20">
-        <div>
-          <p className={eyebrowClass}>{t("editorialEyebrow")}</p>
-          <h2 className={h2Class}>{t("editorialTitle")}</h2>
-        </div>
-        <p className="mt-3.5 text-[15.5px] leading-[1.7] text-(--nw-soft) md:text-[17px] lg:mt-0">
-          {t("editorialLead")}
-        </p>
-      </div>
-      <div className="mt-5 flex flex-col gap-2 md:mt-10 md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3">
-        <MethodCard
-          className="md:col-span-2 lg:col-span-1"
-          icon={<PenLine aria-hidden="true" className="size-5" />}
-          title={t("workflowTitle")}
-        >
-          <p>{t("workflowBody")}</p>
-        </MethodCard>
-        <MethodCard
-          icon={<MessageCircle aria-hidden="true" className="size-5" />}
-          title={t("correctionsTitle")}
-        >
-          <p>{t("correctionsBody")}</p>
-          <div className="min-h-5 flex-1" />
-          <Link
-            className="mt-3.5 inline-flex items-center gap-2 self-start text-[14px] font-semibold text-(--nw-ink) transition-colors hover:text-(--nw-accent) md:mt-0"
-            href="/contact"
-          >
-            {t("correctionsCta")}
-            <ArrowRight aria-hidden="true" className="size-[15px]" />
-          </Link>
-        </MethodCard>
-        <MethodCard
-          icon={<Scale aria-hidden="true" className="size-5" />}
-          title={t("independenceTitle")}
-        >
-          <p>{t("independenceBody")}</p>
-        </MethodCard>
       </div>
     </section>
   );
@@ -702,7 +703,7 @@ function CollageTile({
 
 function MethodCard({
   children,
-  className = "",
+  className,
   icon,
   title,
 }: {
@@ -713,7 +714,10 @@ function MethodCard({
 }) {
   return (
     <div
-      className={`flex flex-col rounded-3xl bg-(--nw-card) p-[22px] text-[14.5px] leading-[1.65] text-(--nw-muted) md:rounded-[30px] md:p-8 md:text-[15px] md:leading-[1.7] ${className}`}
+      className={cn(
+        "flex flex-col rounded-3xl bg-(--nw-card) p-[22px] text-[14.5px] leading-[1.65] text-(--nw-muted) md:rounded-[30px] md:p-8 md:text-[15px] md:leading-[1.7]",
+        className,
+      )}
     >
       <span className="hidden size-12 items-center justify-center rounded-2xl bg-(--nw-surface) text-(--nw-accent) md:inline-flex">
         {icon}
