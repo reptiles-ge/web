@@ -7,10 +7,15 @@ import { trackEvent } from "@/lib/analytics";
 
 import en from "../../messages/en.json";
 
-vi.mock("next/navigation", () => ({ usePathname: () => "/en/snakes" }));
+const navigation = vi.hoisted(() => ({ pathname: "/en/snakes" }));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => navigation.pathname,
+}));
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 
-function renderRating() {
+function renderRating({ pagesBefore = 1 } = {}) {
+  window.sessionStorage.setItem("reptiles-rating-pages", String(pagesBefore));
   render(
     <NextIntlClientProvider locale="en" messages={en}>
       <SiteRating />
@@ -33,6 +38,7 @@ describe("SiteRating", () => {
     vi.useFakeTimers();
     window.localStorage.clear();
     window.sessionStorage.clear();
+    navigation.pathname = "/en/snakes";
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null)));
   });
   afterEach(() => {
@@ -94,5 +100,28 @@ describe("SiteRating", () => {
     fireEvent.click(screen.getByRole("button", { name: "5 out of 5 stars" }));
 
     expect(sentBody()).toMatchObject({ rating: 5 });
+  });
+
+  it("waits for a second page before asking", () => {
+    renderRating({ pagesBefore: 0 });
+
+    expect(screen.queryByRole("button", { name: "Close" })).toBeNull();
+    expect(trackEvent).not.toHaveBeenCalled();
+  });
+
+  it("never asks on a quiz page", () => {
+    navigation.pathname = "/en/quiz/which-snake";
+    renderRating();
+
+    expect(screen.queryByRole("button", { name: "Close" })).toBeNull();
+    expect(trackEvent).not.toHaveBeenCalled();
+  });
+
+  it("counts pages across the session for the rating", () => {
+    renderRating({ pagesBefore: 4 });
+    fireEvent.click(screen.getByRole("button", { name: "5 out of 5 stars" }));
+
+    expect(sentBody()).toMatchObject({ pages: 5 });
+    expect(window.sessionStorage.getItem("reptiles-rating-pages")).toBe("5");
   });
 });

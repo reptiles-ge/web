@@ -58,7 +58,7 @@ export function QuizIntroOverlay({
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
       <div className="mt-auto w-full pb-8 sm:pb-20 lg:pb-24">
         <QuizBreadcrumbs />
-        <p className="text-[11px] font-medium tracking-[0.18em] text-white/55 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
           {t("eyebrow")}
         </p>
         <h1
@@ -67,7 +67,7 @@ export function QuizIntroOverlay({
         >
           {t("title")}
         </h1>
-        <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-5 sm:text-[17px]">
+        <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/85 sm:mt-5 sm:text-[17px]">
           {t("startLead")}
         </p>
         {quizId === "snake" ? <SnakeQuizIdentifyLinks /> : null}
@@ -84,7 +84,7 @@ export function QuizIntroOverlay({
               <p className="mt-2 font-display text-[16px] font-semibold text-white sm:mt-3 sm:text-[18px]">
                 {rule.title}
               </p>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-white/60 sm:mt-2">
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/75 sm:mt-2">
                 {rule.body}
               </p>
             </li>
@@ -114,7 +114,7 @@ function SnakeQuizIdentifyLinks() {
   const t = useTranslations("snakeQuiz");
 
   return (
-    <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-4 sm:text-[15px]">
+    <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/85 sm:mt-4 sm:text-[15px]">
       {t.rich("startIdentify", {
         identify: (chunks) => (
           <Link
