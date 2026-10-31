@@ -2,6 +2,8 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { walkFiles } from "../../tests/support/walkFiles";
+
 const ROOT = path.resolve(import.meta.dirname, "../..");
 const API_DIR = path.join(ROOT, "src/api");
 const MIGRATIONS_DIR = path.join(ROOT, "migrations/api");
@@ -22,14 +24,7 @@ const TOP_LEVEL = new Set([
   "testing",
 ]);
 
-function walk(dir: string): string[] {
-  return readdirSync(dir).flatMap((name) => {
-    const full = path.join(dir, name);
-    return statSync(full).isDirectory() ? walk(full) : [full];
-  });
-}
-
-const files = walk(API_DIR).map((full) => ({
+const files = walkFiles(API_DIR).map((full) => ({
   rel: path.relative(API_DIR, full),
   source: readFileSync(full, "utf8"),
 }));
@@ -155,7 +150,7 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
   });
 
   it("lets the site reach the API only through src/lib/apiClient.ts", () => {
-    const siteFiles = walk(path.join(ROOT, "src"))
+    const siteFiles = walkFiles(path.join(ROOT, "src"))
       .map((full) => path.relative(ROOT, full))
       .filter(
         (rel) =>
@@ -228,7 +223,7 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     expect(scripts["db:migrate"]).toContain("--local");
     expect(scripts["db:migrate:remote"]).toContain("--remote");
     const automated = [".github/workflows", "scripts"]
-      .flatMap((dir) => walk(path.join(ROOT, dir)))
+      .flatMap((dir) => walkFiles(path.join(ROOT, dir)))
       .filter((file) => /migrations apply/.test(readFileSync(file, "utf8")))
       .map((file) => path.relative(ROOT, file));
     expect(automated).toEqual([]);

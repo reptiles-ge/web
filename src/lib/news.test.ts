@@ -4,13 +4,11 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
-  newsArticleHref,
   newsArticleModifiedDateTime,
   newsArticleUrl,
   newsDateTime,
   newsIndexAlternates,
   newsIndexDateFields,
-  newsIndexHref,
   newsIndexUrl,
   newsOgImageDimensions,
   newsOgImageUrl,
@@ -18,6 +16,7 @@ import {
   newsSchemaDate,
   newsSourceBadges,
 } from "@/lib/news";
+import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";

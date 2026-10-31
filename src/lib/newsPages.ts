@@ -2,13 +2,9 @@ import type { NewsArticle } from "@/data/news";
 import type { NewsListArticle, NewsSummary } from "@/data/newsTypes";
 
 import { type AppLocale, routing } from "@/i18n/routing";
-import {
-  newestNewsDateTime,
-  newsArticleUrl,
-  newsDateTime,
-  newsIndexHref,
-} from "@/lib/news";
+import { newestNewsDateTime, newsArticleUrl, newsDateTime } from "@/lib/news";
 import { getNewsListArticlesPage, type NewsListQuery } from "@/lib/newsApi";
+import { newsIndexHref } from "@/lib/newsHrefs";
 import { pageOffset } from "@/lib/pagination";
 import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 

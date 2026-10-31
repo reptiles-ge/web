@@ -5,7 +5,7 @@ import { FileText } from "lucide-react";
 import type { CoverImageProps } from "@/components/CoverPicture";
 
 import { Link } from "@/i18n/navigation";
-import { newsArticleHref } from "@/lib/news";
+import { newsArticleHref } from "@/lib/newsHrefs";
 
 export type NewsCoverImage = ComponentType<CoverImageProps>;
 
