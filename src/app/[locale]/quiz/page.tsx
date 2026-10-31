@@ -20,7 +20,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
+import { isLizardQuizSpecies, isSnakeQuizSpecies } from "@/lib/snakeQuiz";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -97,11 +97,11 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const [t, tShared, catalog] = await Promise.all([
     getTranslations({ locale, namespace: "quizzes" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    getSpeciesCatalog(locale, "quiz"),
+    getSpeciesCatalog(locale),
   ]);
   const poolSizes = {
-    lizard: getLizardQuizCatalog(catalog).length,
-    snake: getSnakeQuizCatalog(catalog).length,
+    lizard: catalog.filter(isLizardQuizSpecies).length,
+    snake: catalog.filter(isSnakeQuizSpecies).length,
   };
   const url = absoluteUrl(localePath(locale, PATH));
 

@@ -12,21 +12,13 @@ import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerLevelTone } from "@/lib/dangerLevels";
-import { type DangerousAnimalRow } from "@/lib/dangerousAnimals";
+import { BITE_GUIDES, type DangerousAnimalRow } from "@/lib/dangerousAnimals";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const VENOMOUS_LINKS = [
   { href: "/venomous-snakes", key: "venomousSnakes" },
   { href: "/spiders/shxamiani-obobebi", key: "venomousSpiders" },
   { href: "/scorpions", key: "scorpions" },
-] as const;
-
-const BITE_LINKS = [
-  { href: "/snakes/gvelis-nakbeni", key: "snakeBite" },
-  { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite" },
-  { href: "/spiders/obobis-nakbeni", key: "spiderBite" },
-  { href: "/scorpions/morielis-nakbeni", key: "scorpionSting" },
-  { href: "/insects/tkipis-nakbeni", key: "tickBite" },
 ] as const;
 
 const ENCOUNTER_LINKS = [
@@ -47,7 +39,7 @@ type DangerousAnimalsPageProps = {
 
 type HubLink = {
   href:
-    | (typeof BITE_LINKS)[number]["href"]
+    | (typeof BITE_GUIDES)[number]["href"]
     | (typeof ENCOUNTER_LINKS)[number]["href"]
     | (typeof VENOMOUS_LINKS)[number]["href"];
   label: string;
@@ -141,6 +133,7 @@ export async function DangerousAnimalsPage({
                       <Link
                         className="font-display text-[16px] font-semibold text-foreground transition-colors hover:text-primary"
                         href={speciesHref(row.id, locale)}
+                        prefetch={false}
                       >
                         {row.commonName}
                       </Link>
@@ -164,9 +157,12 @@ export async function DangerousAnimalsPage({
                     <td className="py-4 pr-4 text-[14px]">
                       <Link
                         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-                        href={row.guide.href}
+                        href={row.guide?.href ?? speciesHref(row.id, locale)}
+                        prefetch={false}
                       >
-                        {t(`links.${row.guide.key}`)}
+                        {row.guide
+                          ? t(`links.${row.guide.key}`)
+                          : t("tableProfile")}
                       </Link>
                     </td>
                   </tr>
@@ -203,7 +199,7 @@ export async function DangerousAnimalsPage({
 
       <LinkSection
         body={t("biteBody")}
-        links={BITE_LINKS.map((item) => ({
+        links={BITE_GUIDES.map((item) => ({
           href: item.href,
           label: t(`links.${item.key}`),
         }))}

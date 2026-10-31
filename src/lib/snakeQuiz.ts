@@ -28,6 +28,8 @@ const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
   "zamenis-hohenackeri": "https://cdn.reptiles.ge/zamenis-hohenackeri-2.jpg",
 };
 
+type QuizPoolCandidate = Pick<CatalogQuizSpecies, "genus" | "id" | "image">;
+
 const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
   "eirenis-collaris": 1,
   "eirenis-modestus": 1,
@@ -38,7 +40,7 @@ export function getLizardQuizCatalog(
   catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies[] {
   return catalog
-    .filter((item) => isLizardSpecies(item) && Boolean(item.image))
+    .filter(isLizardQuizSpecies)
     .map((item) => toSnakeQuizSpecies(item, catalog));
 }
 
@@ -46,8 +48,16 @@ export function getSnakeQuizCatalog(
   catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies[] {
   return catalog
-    .filter((item) => isSnakeSpecies(item) && Boolean(item.image))
+    .filter(isSnakeQuizSpecies)
     .map((item) => toSnakeQuizSpecies(item, catalog));
+}
+
+export function isLizardQuizSpecies(item: QuizPoolCandidate) {
+  return isLizardSpecies(item) && Boolean(item.image);
+}
+
+export function isSnakeQuizSpecies(item: QuizPoolCandidate) {
+  return isSnakeSpecies(item) && Boolean(item.image);
 }
 
 export function toSnakeQuizSpecies(

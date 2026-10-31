@@ -197,13 +197,11 @@ export async function AuthorSpeciesGroups({
   field,
   groups,
   locale,
-  photos,
   species,
 }: {
   field: AuthorFieldSummary;
   groups: CreditAuthorGroupStat[];
   locale: AppLocale;
-  photos: number;
   species: number;
 }) {
   if (groups.length === 0) return null;
@@ -213,24 +211,37 @@ export async function AuthorSpeciesGroups({
     getSpeciesCatalog(locale),
   ]);
   const byId = new Map(catalog.map((item) => [item.id, item]));
-  const top = getCreditAuthorTopSpecies(groups, 5);
+  const listed = groups.map((group) => ({
+    ...group,
+    species: group.species.filter((item) => byId.has(item.id)),
+  }));
+  const listedSpecies = listed.flatMap((group) => group.species);
+  const listedPhotos = listedSpecies.reduce(
+    (sum, item) => sum + item.photos,
+    0,
+  );
+  const top = getCreditAuthorTopSpecies(listed, 5);
   const names = top.ids.flatMap((id) => {
     const item = byId.get(id);
     return item ? [item.commonName] : [];
   });
-  const [largest] = groups;
+  const [largest, runnerUp] = groups;
   const portfolio = [
-    t("portfolio", {
-      list: formatList(
-        top.rest > 0
-          ? [...names, t("portfolioMore", { count: top.rest })]
-          : names,
-        locale,
-      ),
-      photos,
-      species,
-    }),
-    ...(groups.length > 1 && largest
+    ...(names.length > 0
+      ? [
+          t("portfolio", {
+            list: formatList(
+              top.rest > 0
+                ? [...names, t("portfolioMore", { count: top.rest })]
+                : names,
+              locale,
+            ),
+            photos: listedPhotos,
+            species: listedSpecies.length,
+          }),
+        ]
+      : []),
+    ...(largest && runnerUp && largest.photos > runnerUp.photos
       ? [
           t("portfolioGroup", {
             hub: tNav(largest.hub),

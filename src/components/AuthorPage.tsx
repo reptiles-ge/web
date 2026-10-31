@@ -103,7 +103,6 @@ export async function AuthorPage({
         field={field}
         groups={groups}
         locale={locale}
-        photos={photos.length}
         species={speciesIds.length}
       />
 

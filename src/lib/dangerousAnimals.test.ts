@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { dangerousAnimalRows } from "@/lib/dangerousAnimals";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
@@ -27,16 +28,31 @@ describe("dangerous animal rows", () => {
       dangerousAnimalRows(catalog).map((row) => [row.id, row]),
     );
 
-    expect(byId.get("macrovipera-lebetina")?.guide.key).toBe("gyurzaBite");
-    expect(byId.get("vipera-kaznakovi")?.guide.key).toBe("snakeBite");
-    expect(byId.get("latrodectus-tredecimguttatus")?.guide.key).toBe(
+    expect(byId.get("macrovipera-lebetina")?.guide?.key).toBe("gyurzaBite");
+    expect(byId.get("vipera-kaznakovi")?.guide?.key).toBe("snakeBite");
+    expect(byId.get("latrodectus-tredecimguttatus")?.guide?.key).toBe(
       "spiderBite",
     );
-    expect(byId.get("mesobuthus-eupeus")?.guide.key).toBe("scorpionSting");
+    expect(byId.get("mesobuthus-eupeus")?.guide?.key).toBe("scorpionSting");
     for (const row of byId.values()) {
       expect(row.location).toBe(
         catalog.find((item) => item.id === row.id)?.location,
       );
     }
+  });
+
+  it("keeps a risky species from another group with a profile link", async () => {
+    const catalog = await getSpeciesCatalog("en");
+    const insect = catalog.find(
+      (item) => getSpeciesAtlasMeta(item.id).group === "insect",
+    )!;
+    const rows = dangerousAnimalRows([
+      ...catalog,
+      { ...insect, danger: "Moderate" },
+    ]);
+    const row = rows.find((item) => item.id === insect.id);
+
+    expect(row?.guide).toBeUndefined();
+    expect(rows.at(-1)?.id).toBe(insect.id);
   });
 });

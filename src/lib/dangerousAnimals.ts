@@ -1,28 +1,40 @@
 import type { DangerLevel } from "@/data/species";
 
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type CatalogCard } from "@/lib/speciesCatalogApi";
 
-export const DANGEROUS_ANIMAL_GUIDES = {
-  macroviperaBite: { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite" },
-  scorpion: { href: "/scorpions/morielis-nakbeni", key: "scorpionSting" },
-  snake: { href: "/snakes/gvelis-nakbeni", key: "snakeBite" },
-  spider: { href: "/spiders/obobis-nakbeni", key: "spiderBite" },
-} as const;
+export const BITE_GUIDES = [
+  { href: "/snakes/gvelis-nakbeni", key: "snakeBite" },
+  { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite" },
+  { href: "/spiders/obobis-nakbeni", key: "spiderBite" },
+  { href: "/scorpions/morielis-nakbeni", key: "scorpionSting" },
+  { href: "/insects/tkipis-nakbeni", key: "tickBite" },
+] as const;
 
-export type DangerousAnimalGuide =
-  (typeof DANGEROUS_ANIMAL_GUIDES)[keyof typeof DANGEROUS_ANIMAL_GUIDES];
+export type DangerousAnimalGuide = (typeof BITE_GUIDES)[number];
+
+const [SNAKE_BITE, GYURZA_BITE, SPIDER_BITE, SCORPION_STING] = BITE_GUIDES;
+
+const GROUP_GUIDES: Partial<Record<AnimalGroup, DangerousAnimalGuide>> = {
+  scorpion: SCORPION_STING,
+  snake: SNAKE_BITE,
+  spider: SPIDER_BITE,
+};
 
 export type DangerousAnimalRow = {
   commonName: string;
   danger: Extract<DangerLevel, "High" | "Moderate">;
-  guide: DangerousAnimalGuide;
+  guide?: DangerousAnimalGuide;
   id: string;
   location: string;
   scientificName: string;
 };
 
-const GROUP_RANK = { scorpion: 2, snake: 0, spider: 1 } as const;
+const GROUP_RANK: Partial<Record<AnimalGroup, number>> = {
+  scorpion: 2,
+  snake: 0,
+  spider: 1,
+};
 const DANGER_RANK = { High: 0, Moderate: 1 } as const;
 
 export function dangerousAnimalRows(
@@ -32,17 +44,12 @@ export function dangerousAnimalRows(
     .flatMap((item, index) => {
       if (item.danger !== "High" && item.danger !== "Moderate") return [];
       const { group } = getSpeciesAtlasMeta(item.id);
-      if (group !== "snake" && group !== "spider" && group !== "scorpion") {
-        return [];
-      }
       const guide =
-        item.id === "macrovipera-lebetina"
-          ? DANGEROUS_ANIMAL_GUIDES.macroviperaBite
-          : DANGEROUS_ANIMAL_GUIDES[group];
+        item.id === "macrovipera-lebetina" ? GYURZA_BITE : GROUP_GUIDES[group];
       return [
         {
           index,
-          rank: GROUP_RANK[group],
+          rank: GROUP_RANK[group] ?? 3,
           row: {
             commonName: item.commonName,
             danger: item.danger,
