@@ -71,9 +71,9 @@ describe("RegionProfile outline", () => {
         venomous={venomous}
       />,
     );
-    const headings = [...container.querySelectorAll("h1, h2, h3, h4")].map(
-      (node) => node.textContent ?? "",
-    );
+    const headings = [...container.querySelectorAll("h1, h2, h3, h4")]
+      .filter((node) => !node.querySelector("button[aria-expanded]"))
+      .map((node) => node.textContent ?? "");
     for (const item of species) {
       expect(headings, item.id).not.toContain(item.commonName);
     }

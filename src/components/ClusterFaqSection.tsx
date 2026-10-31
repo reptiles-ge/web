@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useState } from "react";
+import type { ReactNode } from "react";
 
 import {
   CLUSTER_EYEBROW,
@@ -8,9 +8,19 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
+import {
+  FaqAnswerPanel,
+  FaqQuestion,
+  FaqToggleIcon,
+} from "@/components/FaqAccordionParts";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
+import { useFaqAccordion } from "@/lib/faqAccordion";
+
+type ClusterFaqEditable = {
+  id: string;
+  kind: string;
+};
 
 type ClusterFaqItem = {
   answer: ReactNode;
@@ -27,13 +37,68 @@ type ClusterFaqSectionProps = {
   surface?: "background" | "surface";
 };
 
+export function ClusterFaqList({
+  editable,
+  items,
+  onOpen,
+}: {
+  editable?: ClusterFaqEditable;
+  items: ClusterFaqItem[];
+  onOpen?: (index: number) => void;
+}) {
+  const accordion = useFaqAccordion(onOpen);
+  const contentAttributes = (index: number, part: "answer" | "question") =>
+    editable
+      ? {
+          "data-content-field": `faq.${index}.${part}`,
+          "data-content-id": editable.id,
+          "data-content-kind": editable.kind,
+        }
+      : {};
+
+  return (
+    <div>
+      {items.map((item, index) => {
+        const isOpen = accordion.isOpen(index);
+        const ids = accordion.ids(index);
+        return (
+          <div key={item.question}>
+            <div className="border-t border-border last:border-b">
+              <FaqQuestion
+                className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                ids={ids}
+                isOpen={isOpen}
+                onToggle={() => accordion.toggle(index)}
+              >
+                <span
+                  className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
+                  {...contentAttributes(index, "question")}
+                >
+                  {item.question}
+                </span>
+                <FaqToggleIcon isOpen={isOpen} />
+              </FaqQuestion>
+              <FaqAnswerPanel ids={ids} isOpen={isOpen}>
+                <p
+                  className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]"
+                  {...contentAttributes(index, "answer")}
+                >
+                  <PhoneLinkedText>{item.answer}</PhoneLinkedText>
+                </p>
+              </FaqAnswerPanel>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function ClusterFaqSection({
   intro,
   items,
   surface = "surface",
 }: ClusterFaqSectionProps) {
-  const [open, setOpen] = useState<null | number>(0);
-
   return (
     <section
       className={cn(
@@ -53,35 +118,7 @@ export function ClusterFaqSection({
               titleClassName={CLUSTER_FAQ_TITLE}
             />
           </div>
-          <div>
-            {items.map((item, index) => {
-              const isOpen = open === index;
-              return (
-                <div key={item.question}>
-                  <div className="border-t border-border last:border-b">
-                    <h3>
-                      <button
-                        aria-expanded={isOpen}
-                        className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                        onClick={() => setOpen(isOpen ? null : index)}
-                        type="button"
-                      >
-                        <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                          {item.question}
-                        </span>
-                        <FaqToggleIcon isOpen={isOpen} />
-                      </button>
-                    </h3>
-                    <FaqAnswerPanel isOpen={isOpen}>
-                      <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
-                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                      </p>
-                    </FaqAnswerPanel>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <ClusterFaqList items={items} />
         </div>
       </div>
     </section>

@@ -38,6 +38,10 @@ const DROPPED_ELEMENTS = [
 
 const DECORATIVE = '[aria-hidden="true"]';
 
+const HEADING_TOGGLES = ["h1", "h2", "h3", "h4", "h5", "h6"]
+  .map((heading) => `${heading} > button[aria-expanded]`)
+  .join(", ");
+
 const SEPARATOR_TEXT = /^\s*\p{P}[\s\p{P}]*$/u;
 
 const DISCLOSURE_PANEL_ATTRIBUTES = ["aria-hidden", "hidden", "inert"];
@@ -256,6 +260,9 @@ function markdownPage(html: string, url: string): MarkdownPage {
     const panel = root.getElementById(toggle.getAttribute("aria-controls")!);
     for (const name of DISCLOSURE_PANEL_ATTRIBUTES)
       panel?.removeAttribute(name);
+  }
+  for (const toggle of page.querySelectorAll(HEADING_TOGGLES)) {
+    toggle.replaceWith(escapeHtml(toggle.text.trim()));
   }
   for (const toggle of page.querySelectorAll(
     "button[aria-expanded]:not([aria-controls])",
