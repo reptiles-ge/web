@@ -34,6 +34,7 @@ import {
 } from "@/components/map/RangeHatch";
 import { cn } from "@/lib/cn";
 import { loadHalyomorphaOccurrences } from "@/lib/halyomorphaOccurrenceApi";
+import { useHydrated } from "@/lib/useHydrated";
 
 const HalyomorphaRangeMapClient = lazy(() =>
   import("@/components/map/HalyomorphaRangeMapClient").then((mod) => ({
@@ -255,6 +256,8 @@ function PlatePreview({
   officialRegionIds: string[];
   status?: boolean;
 }) {
+  const hydrated = useHydrated();
+
   return (
     <div className="absolute inset-0">
       <div className="absolute inset-0 flex items-center justify-center p-6 opacity-70 sm:p-10">
@@ -265,14 +268,16 @@ function PlatePreview({
           showKeys={false}
         />
       </div>
-      <p
-        className="absolute inset-x-0 bottom-4 flex justify-center px-6"
-        role={status ? "status" : "alert"}
-      >
-        <span className="rounded-full bg-card/90 px-4 py-2 text-center text-[13px] leading-snug text-muted-foreground shadow-[0_6px_18px_rgba(14,20,17,0.06)]">
-          {children}
-        </span>
-      </p>
+      {hydrated ? (
+        <p
+          className="absolute inset-x-0 bottom-4 flex justify-center px-6"
+          role={status ? "status" : "alert"}
+        >
+          <span className="rounded-full bg-card/90 px-4 py-2 text-center text-[13px] leading-snug text-muted-foreground shadow-[0_6px_18px_rgba(14,20,17,0.06)]">
+            {children}
+          </span>
+        </p>
+      ) : null}
     </div>
   );
 }

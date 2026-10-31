@@ -41,6 +41,7 @@ const PAGE = `<!doctype html>
       <button aria-controls="sources-more" aria-expanded="false" type="button">ყველა წყარო</button>
       <div aria-hidden="true" id="sources-more" inert><a href="https://doi.org/10.1/x">წყარო 2</a></div>
       <span aria-hidden="true">·</span>
+      <p>Range<span aria-hidden="true"> · </span>map <span aria-hidden="true">✦</span>key<span aria-hidden="true">new</span></p>
       <script>window.inline = 2</script>
       <script type="application/ld+json">
         {"@type":"Article"}
@@ -194,6 +195,11 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
     ]) {
       expect(markdown).not.toContain(text);
     }
+  });
+
+  it("spaces out aria-hidden separators and drops other aria-hidden text", () => {
+    expect(markdown).toContain("Range map key\n");
+    expect(markdown).not.toMatch(/✦|new/);
   });
 
   it("omits the front matter when the page has no supported meta tags", () => {

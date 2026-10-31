@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
+import type { AboutPage as AboutPageSchema, WithContext } from "schema-dts";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { AboutPage } from "@/components/AboutPage";
-import { JsonLd } from "@/components/JsonLd";
-import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
+import { HomeChildPageHead } from "@/components/HomeChildPageHead";
 import { routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
@@ -32,11 +31,9 @@ export default async function About({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const [t, tFooter, tShared, tNav] = await Promise.all([
+  const [t, tFooter] = await Promise.all([
     getTranslations({ locale, namespace: "about" }),
     getTranslations({ locale, namespace: "footer" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
-    getTranslations({ locale, namespace: "nav" }),
   ]);
   const path = localePath(locale, "/about");
   const organization = organizationRef();
@@ -52,23 +49,15 @@ export default async function About({ params }: Props) {
     mainEntity: organization,
     name: t("metaTitle"),
     url: absoluteUrl(path),
-  };
+  } satisfies WithContext<AboutPageSchema>;
 
   return (
     <>
-      <JsonLd
-        data={[
-          aboutJsonLd,
-          homeChildBreadcrumbLd(locale, "/about", {
-            home: tShared("breadcrumbHome"),
-            name: tFooter("about"),
-          }),
-        ]}
-      />
-      <ScreenReaderBreadcrumb
-        current={tFooter("about")}
-        home={tShared("breadcrumbHome")}
-        label={tNav("breadcrumbAria")}
+      <HomeChildPageHead
+        locale={locale}
+        name={tFooter("about")}
+        page={aboutJsonLd}
+        path="/about"
       />
       <AboutPage locale={locale} />
     </>

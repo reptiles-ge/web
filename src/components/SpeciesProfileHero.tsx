@@ -196,7 +196,7 @@ export async function SpeciesProfileHero({
                 href="tel:112"
               >
                 <Phone aria-hidden="true" className="size-4" strokeWidth={2} />
-                112
+                112{" "}
                 <span className="text-[14.5px] font-medium text-white/85">
                   {t("emergencyShort")}
                 </span>

@@ -1138,6 +1138,7 @@
   },
   "guideArticle": {
     "contents": "В этом гиде",
+    "contentsCount": "{count, plural, one {# раздел} few {# раздела} many {# разделов} other {# раздела}}",
     "faq": "Частые вопросы",
     "related": "Смежные гиды",
     "relatedSpecies": "Связанные виды",

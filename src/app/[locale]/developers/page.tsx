@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import type { WebPage, WithContext } from "schema-dts";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { DevelopersPage } from "@/components/DevelopersPage";
-import { JsonLd } from "@/components/JsonLd";
-import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
+import { HomeChildPageHead } from "@/components/HomeChildPageHead";
 import { routing } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
@@ -32,11 +31,7 @@ export default async function Developers({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const [t, tShared, tNav] = await Promise.all([
-    getTranslations({ locale, namespace: "developers" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
-    getTranslations({ locale, namespace: "nav" }),
-  ]);
+  const t = await getTranslations({ locale, namespace: "developers" });
   const url = absoluteUrl(localePath(locale, "/developers"));
 
   const developersJsonLd = {
@@ -48,23 +43,15 @@ export default async function Developers({ params }: Props) {
     name: `${t("metaTitle")} — ${siteConfig.titleBrand}`,
     publisher: organizationRef(),
     url,
-  };
+  } satisfies WithContext<WebPage>;
 
   return (
     <>
-      <JsonLd
-        data={[
-          developersJsonLd,
-          homeChildBreadcrumbLd(locale, "/developers", {
-            home: tShared("breadcrumbHome"),
-            name: t("brand"),
-          }),
-        ]}
-      />
-      <ScreenReaderBreadcrumb
-        current={t("brand")}
-        home={tShared("breadcrumbHome")}
-        label={tNav("breadcrumbAria")}
+      <HomeChildPageHead
+        locale={locale}
+        name={t("brand")}
+        page={developersJsonLd}
+        path="/developers"
       />
       <DevelopersPage locale={locale} />
     </>

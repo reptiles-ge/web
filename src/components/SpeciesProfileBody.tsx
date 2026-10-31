@@ -22,6 +22,7 @@ import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesGuideFeature } from "@/components/SpeciesGuideFeature";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
+import { SpeciesMobileLede } from "@/components/SpeciesMobileLede";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesPageStats } from "@/components/SpeciesPageStats";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
@@ -821,9 +822,7 @@ async function SpeciesProfileSummary({
           speciesId={species.id}
         />
         {species.description ? (
-          <p className="mt-3 px-6 text-[16px] leading-[1.6] text-foreground/80 lg:hidden">
-            {species.description}
-          </p>
+          <SpeciesMobileLede description={species.description} />
         ) : null}
         <SpeciesProfileFacts
           danger={species.danger}

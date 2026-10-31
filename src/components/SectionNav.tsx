@@ -143,6 +143,7 @@ export function SectionNav({
           : "sticky transition-[top]",
         shown ? "opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
       )}
+      data-markdown-skip=""
       inert={!shown}
       ref={navRef}
     >
@@ -191,6 +192,7 @@ export function SectionNav({
                     href={`#${item.id}`}
                   >
                     {item.label}
+                    {item.count ? " " : null}
                     {item.count ? (
                       <span
                         className={cn(

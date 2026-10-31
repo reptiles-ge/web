@@ -77,13 +77,6 @@ export async function GuideArticlePage({
   return (
     <div className="min-h-screen bg-background">
       <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
-        <GuideArticleSectionNav
-          items={sections.map(({ anchor, section }) => ({
-            id: anchor,
-            label: section.heading,
-          }))}
-          label={t("contents")}
-        />
         <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
             <li>
@@ -194,8 +187,17 @@ export async function GuideArticlePage({
           <GuideImageCredit image={article.hero} locale={locale} />
         </figure>
 
+        <GuideArticleSectionNav
+          items={sections.map(({ anchor, section }) => ({
+            id: anchor,
+            label: section.heading,
+          }))}
+          label={t("contents")}
+        />
+
         {sections.length > 2 ? (
           <GuideArticleContents
+            countLabel={t("contentsCount", { count: sections.length })}
             headingId={`${article.id}-contents`}
             items={sections.map(({ anchor, index, section }) => ({
               anchor,

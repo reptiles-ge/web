@@ -1138,6 +1138,7 @@
   },
   "guideArticle": {
     "contents": "ამ გიდში",
+    "contentsCount": "{count, plural, other {# თავი}}",
     "faq": "ხშირი კითხვები",
     "related": "დაკავშირებული გიდები",
     "relatedSpecies": "დაკავშირებული სახეობები",

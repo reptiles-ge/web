@@ -50,7 +50,7 @@ export function SpeciesMobileHeroCredit({
             .filter(Boolean)
             .join(" · ")}
         </span>
-      </span>
+      </span>{" "}
       {credit.photoConfidence === "georgia-field" ? (
         <span className="inline-flex shrink-0 items-center gap-1 font-medium text-primary">
           <Check aria-hidden="true" className="size-3.5" strokeWidth={2.2} />

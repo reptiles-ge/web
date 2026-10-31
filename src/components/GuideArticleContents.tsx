@@ -14,10 +14,12 @@ type GuideArticleContentsItem = {
 };
 
 export function GuideArticleContents({
+  countLabel,
   headingId,
   items,
   label,
 }: {
+  countLabel: string;
   headingId: string;
   items: readonly GuideArticleContentsItem[];
   label: string;
@@ -36,8 +38,14 @@ export function GuideArticleContents({
           id={headingId}
         >
           {label}{" "}
-          <span className="ml-2 rounded-full bg-card px-2 py-0.5 tracking-normal text-foreground/70 tabular-nums lg:hidden">
+          <span
+            aria-hidden="true"
+            className="ml-2 rounded-full bg-card px-2 py-0.5 tracking-normal text-foreground/70 tabular-nums lg:hidden"
+          >
             {items.length}
+          </span>
+          <span className="sr-only" data-markdown-skip="">
+            {` (${countLabel})`}
           </span>
         </h2>
         <button

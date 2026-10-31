@@ -443,7 +443,9 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
             <dt className="mt-1.5 text-[12.5px] text-(--nw-muted) md:mt-2 md:text-[14px]">
               {item.shortLabel ? (
                 <>
-                  <span className="md:hidden">{item.shortLabel}</span>
+                  <span className="md:hidden" data-markdown-skip="">
+                    {item.shortLabel}
+                  </span>{" "}
                   <span className="hidden md:inline">{item.label}</span>
                 </>
               ) : (
