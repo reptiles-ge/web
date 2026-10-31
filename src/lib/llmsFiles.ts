@@ -109,7 +109,7 @@ const PRIORITY_PAGES: ReadonlyArray<{
 }> = [
   {
     blurb:
-      "What the atlas is, what it will not infer, photography credits, and herpetofauna sources.",
+      "What the atlas is, how texts are written, reviewed and corrected, independence, photography credits, and herpetofauna sources.",
     title: "About",
     urlPath: "/about",
   },
@@ -179,8 +179,8 @@ export function buildLlmsFullText(
       : `# Reptiles.ge — llms-full (${label})`,
     "",
     canonical
-      ? "> Digital atlas of animals of Georgia. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`."
-      : `> Digital atlas of animals of Georgia. ${label} text and \`/${locale}\` URLs. Georgian URLs are canonical (\`x-default\`); each card also links its Georgian page.`,
+      ? "> Digital atlas of animals of Georgia, the country in the South Caucasus. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`."
+      : `> Digital atlas of animals of Georgia, the country in the South Caucasus. ${label} text and \`/${locale}\` URLs. Georgian URLs are canonical (\`x-default\`); each card also links its Georgian page.`,
     "",
     SCOPE_NOTE,
     "",
@@ -312,7 +312,7 @@ export function buildLlmsIndexText(
   const parts: string[] = [
     canonical ? "# Reptiles.ge" : `# Reptiles.ge (${label})`,
     "",
-    "> Digital atlas of animals of Georgia: species profiles, identification, regional records, and educational safety pages. Georgian is canonical. Herpetofauna is the deepest layer.",
+    "> Digital atlas of animals of Georgia, the country in the South Caucasus: species profiles, identification, regional records, and educational safety pages. Georgian is canonical. Herpetofauna is the deepest layer.",
     "",
     SCOPE_NOTE,
     "",
@@ -333,7 +333,7 @@ export function buildLlmsIndexText(
     "",
     `- [Home](${url("/")}): ${label} homepage for the atlas.`,
     `- [Species atlas](${url("/species")}): Catalog of published profiles (${species.length} live pages). Not a complete national fauna.`,
-    `- [About](${url("/about")}): What the atlas is, what it will not infer, photography credits, and herpetofauna sources.`,
+    `- [About](${url("/about")}): What the atlas is, how texts are written, reviewed and corrected, independence, photography credits, and herpetofauna sources.`,
     `- [Georgia herpetofauna checklist 2026](${localizedNewsUrl(locale, "georgia-herpetofauna-checklist-2026")}): Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).`,
     "",
     "## Group hubs",
