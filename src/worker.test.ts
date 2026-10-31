@@ -165,6 +165,9 @@ describe("Worker fetch", () => {
       {},
     );
     expect(response.headers.get("Vary")).toBe("Accept");
+    expect(response.headers.get("Link")).toBe(
+      '</en/snakes.md>; rel="alternate"; type="text/markdown"',
+    );
   });
 
   it("answers Accept: text/markdown with the page as Markdown", async () => {
@@ -187,6 +190,23 @@ describe("Worker fetch", () => {
     expect(response.headers.get("Content-Type")).toBe(MARKDOWN_CONTENT_TYPE);
     expect(response.headers.get("Cache-Control")).toBe(VINEXT_DEFAULT);
     expect(await response.text()).toBe("# გველები\n");
+  });
+
+  it("answers a .md URL with its page as Markdown", async () => {
+    baseFetch.mockResolvedValue(
+      new Response("<html><body><main><h1>გიურზა</h1></main></body></html>", {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      }),
+    );
+    const response = await worker.fetch(
+      new Request("https://reptiles.ge/gvelebi/giurza.md"),
+      {},
+      {},
+    );
+    expect(forwarded().url).toBe("https://reptiles.ge/gvelebi/giurza");
+    expect(forwarded().headers.get("Accept")).toBe("text/html");
+    expect(response.headers.get("Content-Type")).toBe(MARKDOWN_CONTENT_TYPE);
+    expect(await response.text()).toBe("# გიურზა\n");
   });
 
   it("answers Markdown requests with 503 in maintenance mode", async () => {

@@ -9,7 +9,7 @@ import {
   API_CATALOG_PATH,
   apiDiscoveryLinkHeader,
 } from "./src/lib/apiDocsPaths";
-import { llmsLinkHeader } from "./src/lib/llmsPaths";
+import { LLMS_FILES_PATTERN, llmsLinkHeader } from "./src/lib/llmsPaths";
 import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
   securityHeaders,
@@ -34,14 +34,20 @@ const nextConfig: NextConfig = {
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
     return [
       {
-        headers: [...security, { key: "Link", value: llmsLinkHeader("ka") }],
+        headers: security,
         source: SITE_HEADERS_SOURCE,
       },
+      {
+        headers: [{ key: "Link", value: llmsLinkHeader("ka") }],
+        source: `/((?!${LLMS_FILES_PATTERN}).*)`,
+      },
       ...LATIN_LOCALES.flatMap((locale) =>
-        [`/${locale}`, `/${locale}/:path*`].map((source) => ({
-          headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
-          source,
-        })),
+        [`/${locale}`, `/${locale}/((?!${LLMS_FILES_PATTERN}).*)`].map(
+          (source) => ({
+            headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
+            source,
+          }),
+        ),
       ),
       ...(["ka", ...LATIN_LOCALES] as const).map((locale) => ({
         headers: [

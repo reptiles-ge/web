@@ -4,9 +4,10 @@ import { apiDocsResponse } from "@/lib/apiDocsProxy";
 import { maintenanceResponse } from "@/lib/maintenance";
 import {
   htmlRequest,
+  markdownPathRequest,
   markdownResponse,
   prefersMarkdown,
-  withAcceptVary,
+  withMarkdownAlternate,
 } from "@/lib/markdownNegotiation";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { addScriptNonce } from "@/lib/scriptNonce";
@@ -25,13 +26,22 @@ const worker: FetchHandler = {
   fetch: async (request, env, ctx) => {
     const render = async (page: Request) =>
       withResponseCacheControl(page, await base.fetch(page, env, ctx));
+    const markdownPage =
+      markdownPathRequest(request) ??
+      (prefersMarkdown(request) ? request : undefined);
     return (
       maintenanceResponse(request, env) ??
       (await apiDocsResponse(request, env)) ??
       trailingSlashResponse(request) ??
-      (prefersMarkdown(request)
-        ? markdownResponse(request, await render(htmlRequest(request)))
-        : withAcceptVary(addScriptNonce(request, await render(request))))
+      (markdownPage
+        ? markdownResponse(
+            markdownPage,
+            await render(htmlRequest(markdownPage)),
+          )
+        : withMarkdownAlternate(
+            request,
+            addScriptNonce(request, await render(request)),
+          ))
     );
   },
 };

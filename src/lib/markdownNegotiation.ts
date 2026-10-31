@@ -13,6 +13,10 @@ const HTML = "text/html";
 
 const CHARS_PER_TOKEN = 4;
 
+const MARKDOWN_SUFFIX = ".md";
+
+const MARKDOWN_INDEX = "/index.md";
+
 const JSON_LD = 'script[type="application/ld+json"]';
 
 const DROPPED_ELEMENTS = [
@@ -65,6 +69,10 @@ export function htmlRequest(request: Request): Request {
 
 export function htmlToMarkdown(html: string, url: string): string {
   const root = parse(html);
+  const canonical = root
+    .querySelector('link[rel="canonical"]')
+    ?.getAttribute("href")
+    ?.trim();
   const frontMatter = [
     [
       "title",
@@ -78,6 +86,8 @@ export function htmlToMarkdown(html: string, url: string): string {
         'meta[property="og:description"]',
       ),
     ],
+    ["url", canonical ? resolveUrl(canonical, url) : undefined],
+    ["lang", root.querySelector("html")?.getAttribute("lang")?.trim()],
     ["image", metaContent(root, 'meta[property="og:image"]')],
   ]
     .filter((entry): entry is [string, string] => Boolean(entry[1]))
@@ -142,6 +152,21 @@ export function htmlToMarkdown(html: string, url: string): string {
     .concat("\n");
 }
 
+export function markdownAlternatePath(pathname: string): string {
+  return pathname === "/" ? MARKDOWN_INDEX : `${pathname}${MARKDOWN_SUFFIX}`;
+}
+
+export function markdownPathRequest(request: Request): Request | undefined {
+  if (request.method !== "GET" && request.method !== "HEAD") return undefined;
+  if (request.headers.has("RSC")) return undefined;
+  const url = new URL(request.url);
+  if (url.pathname === MARKDOWN_INDEX) url.pathname = "/";
+  else if (/[^/]\.md$/.test(url.pathname))
+    url.pathname = url.pathname.slice(0, -MARKDOWN_SUFFIX.length);
+  else return undefined;
+  return new Request(url, request);
+}
+
 export async function markdownResponse(
   request: Request,
   response: Response,
@@ -160,6 +185,7 @@ export async function markdownResponse(
     String(Math.ceil(markdown.length / CHARS_PER_TOKEN)),
   );
   appendVaryAccept(headers);
+  appendLink(headers, `<${pageUrl(request.url)}>; rel="canonical"`);
   return new Response(request.method === "HEAD" ? null : markdown, {
     headers,
     status: response.status,
@@ -182,6 +208,25 @@ export function withAcceptVary(response: Response): Response {
   const varied = new Response(response.body, response);
   appendVaryAccept(varied.headers);
   return varied;
+}
+
+export function withMarkdownAlternate(
+  request: Request,
+  response: Response,
+): Response {
+  const varied = withAcceptVary(response);
+  if (varied.status !== 200 || !isHtml(varied)) return varied;
+  const alternate = new Response(varied.body, varied);
+  appendLink(
+    alternate.headers,
+    `<${markdownAlternatePath(new URL(request.url).pathname)}>; rel="alternate"; type="text/markdown"`,
+  );
+  return alternate;
+}
+
+function appendLink(headers: Headers, link: string) {
+  const current = headers.get("Link");
+  headers.set("Link", current ? `${current}, ${link}` : link);
 }
 
 function appendVaryAccept(headers: Headers) {
@@ -243,6 +288,11 @@ function metaContent(root: HTMLElement, ...selectors: string[]) {
     if (value) return value;
   }
   return undefined;
+}
+
+function pageUrl(value: string): string {
+  const url = new URL(value);
+  return `${url.origin}${url.pathname}`;
 }
 
 function resolveUrl(value: string, base: string): string {

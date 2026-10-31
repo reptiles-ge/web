@@ -114,7 +114,9 @@
       "snakebite",
       "giurza",
       "frogs"
-    ]
+    ],
+    "toolDescription": "Searches the reptiles.ge atlas of animals of Georgia by common or scientific name and opens the results page. Read-only; changes nothing.",
+    "toolParamDescription": "A common or scientific species name, for example Levantine viper or Macrovipera lebetinus"
   },
   "language": {
     "switch": "Change language",

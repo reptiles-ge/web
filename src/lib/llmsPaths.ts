@@ -1,5 +1,7 @@
 import type { AppLocale } from "../i18n/routing";
 
+export const LLMS_FILES_PATTERN = "(?:[^/]+/)?llms(?:-full)?\\.txt$";
+
 export function llmsFullPath(locale: AppLocale) {
   return locale === "ka" ? "/llms-full.txt" : `/${locale}/llms-full.txt`;
 }
