@@ -281,6 +281,20 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
   return ids;
 }
 
+export function getCreditAuthorTopSpecies(
+  groups: CreditAuthorGroupStat[],
+  limit: number,
+) {
+  const ranked = groups
+    .flatMap((group) => group.species)
+    .map((item, index) => ({ ...item, index }))
+    .sort((a, b) => b.photos - a.photos || a.index - b.index);
+  return {
+    ids: ranked.slice(0, limit).map((item) => item.id),
+    rest: Math.max(0, ranked.length - limit),
+  };
+}
+
 function addPhoto(
   bySrc: Map<string, CreditAuthorPhoto>,
   authorId: string,

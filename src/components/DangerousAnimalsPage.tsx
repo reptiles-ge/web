@@ -10,20 +10,15 @@ import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
+import { dangerLevelTone } from "@/lib/dangerLevels";
+import { BITE_GUIDES, type DangerousAnimalRow } from "@/lib/dangerousAnimals";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const VENOMOUS_LINKS = [
   { href: "/venomous-snakes", key: "venomousSnakes" },
   { href: "/spiders/shxamiani-obobebi", key: "venomousSpiders" },
   { href: "/scorpions", key: "scorpions" },
-] as const;
-
-const BITE_LINKS = [
-  { href: "/snakes/gvelis-nakbeni", key: "snakeBite" },
-  { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite" },
-  { href: "/spiders/obobis-nakbeni", key: "spiderBite" },
-  { href: "/scorpions/morielis-nakbeni", key: "scorpionSting" },
-  { href: "/insects/tkipis-nakbeni", key: "tickBite" },
 ] as const;
 
 const ENCOUNTER_LINKS = [
@@ -38,12 +33,13 @@ type DangerousAnimalsPageProps = {
   karakurtName: string;
   locale: AppLocale;
   publishedAt: string;
+  rows: DangerousAnimalRow[];
   updatedAt: string;
 };
 
 type HubLink = {
   href:
-    | (typeof BITE_LINKS)[number]["href"]
+    | (typeof BITE_GUIDES)[number]["href"]
     | (typeof ENCOUNTER_LINKS)[number]["href"]
     | (typeof VENOMOUS_LINKS)[number]["href"];
   label: string;
@@ -55,10 +51,14 @@ export async function DangerousAnimalsPage({
   karakurtName,
   locale,
   publishedAt,
+  rows,
   updatedAt,
 }: DangerousAnimalsPageProps) {
-  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tNav, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "dangerousAnimals" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "danger" }),
+  ]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -99,6 +99,82 @@ export async function DangerousAnimalsPage({
         </div>
       </section>
 
+      <section className="border-t border-border bg-background py-16">
+        <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+          <h2 className="max-w-3xl font-display text-display-card font-semibold text-foreground">
+            {t("tableTitle")}
+          </h2>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t("tableBody")}
+          </p>
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full min-w-[680px] border-y border-border text-left">
+              <thead>
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColAnimal")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColRisk")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColWhere")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColAction")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row) => (
+                  <tr
+                    className="border-b border-border/80 align-top last:border-b-0"
+                    key={row.id}
+                  >
+                    <th className="py-4 pr-4 font-normal" scope="row">
+                      <Link
+                        className="font-display text-[16px] font-semibold text-foreground transition-colors hover:text-primary"
+                        href={speciesHref(row.id, locale)}
+                        prefetch={false}
+                      >
+                        {row.commonName}
+                      </Link>
+                      <span className="mt-1 block text-[13px] text-muted-foreground italic">
+                        {row.scientificName}
+                      </span>
+                    </th>
+                    <td className="py-4 pr-4">
+                      <span
+                        className={cn(
+                          "inline-flex rounded-full px-2.5 py-1 text-[12px] font-medium whitespace-nowrap",
+                          dangerLevelTone(row.danger).chip,
+                        )}
+                      >
+                        {tDanger(row.danger)}
+                      </span>
+                    </td>
+                    <td className="py-4 pr-4 text-[14px] leading-relaxed text-muted-foreground">
+                      {row.location}
+                    </td>
+                    <td className="py-4 pr-4 text-[14px]">
+                      <Link
+                        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                        href={row.guide?.href ?? speciesHref(row.id, locale)}
+                        prefetch={false}
+                      >
+                        {row.guide
+                          ? t(`links.${row.guide.key}`)
+                          : t("tableProfile")}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <LinkSection
         body={t("venomousBody")}
         links={VENOMOUS_LINKS.map((item) => ({
@@ -125,7 +201,7 @@ export async function DangerousAnimalsPage({
 
       <LinkSection
         body={t("biteBody")}
-        links={BITE_LINKS.map((item) => ({
+        links={BITE_GUIDES.map((item) => ({
           href: item.href,
           label: t(`links.${item.key}`),
         }))}
