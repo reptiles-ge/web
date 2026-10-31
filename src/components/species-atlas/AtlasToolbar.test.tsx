@@ -49,6 +49,33 @@ describe("AtlasToolbar", () => {
     expect(props.onUpdateFilter).toHaveBeenCalledWith("query", "გიურზა");
   });
 
+  it("exposes the search as the search_species WebMCP tool", () => {
+    const { container } = renderToolbar();
+    const form = container.querySelector("form");
+    expect(form).toHaveAttribute("toolname", "search_species");
+    expect(form).toHaveAttribute("tooldescription", ka.search.toolDescription);
+    expect(
+      screen.getByLabelText(ka.speciesAtlas.searchPlaceholder),
+    ).toHaveAttribute("name", "q");
+    expect(
+      screen.getByLabelText(ka.speciesAtlas.searchPlaceholder),
+    ).toHaveAttribute("toolparamdescription", ka.search.toolParamDescription);
+  });
+
+  it("submits only for an agent, not on a visitor's Enter", () => {
+    const { container } = renderToolbar("გიურზა");
+    const form = container.querySelector("form")!;
+    const visitor = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(visitor);
+    expect(visitor.defaultPrevented).toBe(true);
+    const agent = Object.assign(
+      new Event("submit", { bubbles: true, cancelable: true }),
+      { agentInvoked: true },
+    );
+    form.dispatchEvent(agent);
+    expect(agent.defaultPrevented).toBe(false);
+  });
+
   it("clears the query from the clear button", () => {
     const { props } = renderToolbar("გველი");
     fireEvent.click(

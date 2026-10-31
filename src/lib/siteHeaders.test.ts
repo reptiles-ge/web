@@ -30,6 +30,17 @@ describe("site headers", () => {
   );
 
   it.each([
+    "/llms.txt",
+    "/llms-full.txt",
+    "/en/llms.txt",
+    "/ru/llms-full.txt",
+    "/tr/llms.txt",
+  ])("sends no self-referencing Link on %s", async (path) => {
+    expect(await headerFor(path, "Link")).toBeUndefined();
+    expect(await headerFor(path, "Permissions-Policy")).toBeDefined();
+  });
+
+  it.each([
     ["/developers", "ka"],
     ["/en/developers", "en"],
     ["/ru/developers", "ru"],

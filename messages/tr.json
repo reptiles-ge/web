@@ -114,7 +114,9 @@
       "yılan ısırığı",
       "Levant engereği",
       "kurbağalar"
-    ]
+    ],
+    "toolDescription": "reptiles.ge Gürcistan hayvanları atlasında türleri yaygın veya bilimsel adla arar ve sonuç sayfasını açar. Yalnızca okur, hiçbir şeyi değiştirmez.",
+    "toolParamDescription": "Yaygın veya bilimsel tür adı, örneğin koca engerek ya da Macrovipera lebetinus"
   },
   "language": {
     "switch": "Dili değiştir",

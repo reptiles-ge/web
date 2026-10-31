@@ -10,10 +10,14 @@ export const AI_CITATION_USER_AGENTS = [
   "ChatGPT-User",
   "OAI-SearchBot",
   "PerplexityBot",
+  "Perplexity-User",
   "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
   "anthropic-ai",
   "Google-Extended",
   "Bingbot",
+  "Applebot",
   "Applebot-Extended",
 ] as const;
 
