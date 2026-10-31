@@ -59,7 +59,9 @@ const YAML_TYPED = /^(?:[-+.\d]|(?:true|false|yes|no|on|off|y|n|null|~)$)/i;
 
 const converter = new NodeHtmlMarkdown({ useInlineLinks: true });
 
-const markdownCache = new Map<string, string>();
+const markdownCache = new Map<string, MarkdownPage>();
+
+type MarkdownPage = { canonical?: string; markdown: string };
 
 export function htmlRequest(request: Request): Request {
   const headers = new Headers(request.headers);
@@ -68,11 +70,164 @@ export function htmlRequest(request: Request): Request {
 }
 
 export function htmlToMarkdown(html: string, url: string): string {
+  return markdownPage(html, url).markdown;
+}
+
+export function markdownAlternatePath(pathname: string): string {
+  const page = pathname.replace(/\/+$/, "");
+  return page ? `${page}${MARKDOWN_SUFFIX}` : MARKDOWN_INDEX;
+}
+
+export function markdownPathRequest(request: Request): Request | undefined {
+  if (request.method !== "GET" && request.method !== "HEAD") return undefined;
+  if (request.headers.has("RSC")) return undefined;
+  const url = new URL(request.url);
+  if (url.pathname.endsWith(MARKDOWN_INDEX))
+    url.pathname = url.pathname.slice(0, -MARKDOWN_INDEX.length) || "/";
+  else if (/[^/]\.md$/.test(url.pathname))
+    url.pathname = url.pathname.slice(0, -MARKDOWN_SUFFIX.length);
+  else return undefined;
+  return new Request(url, request);
+}
+
+export async function markdownResponse(
+  request: Request,
+  response: Response,
+): Promise<Response> {
+  if (response.status !== 200 || !isHtml(response)) {
+    return withAcceptVary(response);
+  }
+  const { canonical, markdown } = await cachedMarkdown(
+    await response.text(),
+    request.url,
+  );
+  const headers = new Headers(response.headers);
+  for (const name of DROPPED_HEADERS) headers.delete(name);
+  headers.set("Content-Type", MARKDOWN_CONTENT_TYPE);
+  if (!headers.has("Content-Signal"))
+    headers.set("Content-Signal", CONTENT_SIGNAL);
+  headers.set(
+    MARKDOWN_TOKENS_HEADER,
+    String(Math.ceil(markdown.length / CHARS_PER_TOKEN)),
+  );
+  appendVaryAccept(headers);
+  appendLink(
+    headers,
+    `<${canonical ?? pageUrl(request.url)}>; rel="canonical"`,
+  );
+  return new Response(request.method === "HEAD" ? null : markdown, {
+    headers,
+    status: response.status,
+    statusText: response.statusText,
+  });
+}
+
+export function prefersMarkdown(request: Request): boolean {
+  if (request.method !== "GET" && request.method !== "HEAD") return false;
+  if (request.headers.has("RSC")) return false;
+  const ranges = mediaRanges(request.headers.get("Accept") ?? "");
+  const markdown = ranges.get(MARKDOWN) ?? 0;
+  const html =
+    ranges.get(HTML) ?? ranges.get("text/*") ?? ranges.get("*/*") ?? 0;
+  return markdown > 0 && markdown >= html;
+}
+
+export function withAcceptVary(response: Response): Response {
+  if (!isHtml(response)) return response;
+  const varied = new Response(response.body, response);
+  appendVaryAccept(varied.headers);
+  return varied;
+}
+
+export function withMarkdownAlternate(
+  request: Request,
+  response: Response,
+): Response {
+  if (!isHtml(response)) return response;
+  const page = new Response(response.body, response);
+  appendVaryAccept(page.headers);
+  if (page.status === 200) {
+    const url = new URL(request.url);
+    appendLink(
+      page.headers,
+      `<${markdownAlternatePath(url.pathname)}${url.search}>; rel="alternate"; type="text/markdown"`,
+    );
+  }
+  return page;
+}
+
+export function withMarkdownLocation(
+  request: Request,
+  response: Response,
+): Response {
+  const location = response.headers.get("Location");
+  if (!location || response.status < 300 || response.status >= 400) {
+    return response;
+  }
+  const target = new URL(location, request.url);
+  if (target.origin !== new URL(request.url).origin) return response;
+  target.pathname = markdownAlternatePath(target.pathname);
+  const redirect = new Response(response.body, response);
+  redirect.headers.set("Location", target.href);
+  return redirect;
+}
+
+function appendLink(headers: Headers, link: string) {
+  const current = headers.get("Link");
+  headers.set("Link", current ? `${current}, ${link}` : link);
+}
+
+function appendVaryAccept(headers: Headers) {
+  const vary = headers.get("Vary");
+  if (vary?.split(",").some((name) => name.trim().toLowerCase() === "accept")) {
+    return;
+  }
+  headers.set("Vary", vary ? `${vary}, Accept` : "Accept");
+}
+
+async function cachedMarkdown(
+  html: string,
+  url: string,
+): Promise<MarkdownPage> {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(html),
+  );
+  const key = `${url} ${Array.from(new Uint8Array(digest), (byte) =>
+    byte.toString(16).padStart(2, "0"),
+  ).join("")}`;
+  const cached = markdownCache.get(key);
+  if (cached !== undefined) {
+    markdownCache.delete(key);
+    markdownCache.set(key, cached);
+    return cached;
+  }
+  const page = markdownPage(html, url);
+  markdownCache.set(key, page);
+  if (markdownCache.size > MARKDOWN_CACHE_SIZE) {
+    markdownCache.delete(markdownCache.keys().next().value!);
+  }
+  return page;
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function isHtml(response: Response): boolean {
+  return response.headers.get("Content-Type")?.startsWith(HTML) ?? false;
+}
+
+function markdownPage(html: string, url: string): MarkdownPage {
   const root = parse(html);
-  const canonical = root
+  const canonicalHref = root
     .querySelector('link[rel="canonical"]')
     ?.getAttribute("href")
     ?.trim();
+  const canonical = canonicalHref ? resolveUrl(canonicalHref, url) : undefined;
   const frontMatter = [
     [
       "title",
@@ -86,7 +241,7 @@ export function htmlToMarkdown(html: string, url: string): string {
         'meta[property="og:description"]',
       ),
     ],
-    ["url", canonical ? resolveUrl(canonical, url) : undefined],
+    ["url", canonical],
     ["lang", root.querySelector("html")?.getAttribute("lang")?.trim()],
     ["image", metaContent(root, 'meta[property="og:image"]')],
   ]
@@ -142,7 +297,7 @@ export function htmlToMarkdown(html: string, url: string): string {
     .replace(/(?<=\S)\\-/g, "-")
     .replace(/[ \t]+$/gm, "")
     .trim();
-  return [
+  const markdown = [
     frontMatter.length > 0 ? `---\n${frontMatter.join("\n")}\n---` : "",
     body,
     jsonLd.length > 0 ? `\`\`\`json\n${jsonLd.join("\n")}\n\`\`\`` : "",
@@ -150,124 +305,7 @@ export function htmlToMarkdown(html: string, url: string): string {
     .filter(Boolean)
     .join("\n\n")
     .concat("\n");
-}
-
-export function markdownAlternatePath(pathname: string): string {
-  return pathname === "/" ? MARKDOWN_INDEX : `${pathname}${MARKDOWN_SUFFIX}`;
-}
-
-export function markdownPathRequest(request: Request): Request | undefined {
-  if (request.method !== "GET" && request.method !== "HEAD") return undefined;
-  if (request.headers.has("RSC")) return undefined;
-  const url = new URL(request.url);
-  if (url.pathname === MARKDOWN_INDEX) url.pathname = "/";
-  else if (/[^/]\.md$/.test(url.pathname))
-    url.pathname = url.pathname.slice(0, -MARKDOWN_SUFFIX.length);
-  else return undefined;
-  return new Request(url, request);
-}
-
-export async function markdownResponse(
-  request: Request,
-  response: Response,
-): Promise<Response> {
-  if (response.status !== 200 || !isHtml(response)) {
-    return withAcceptVary(response);
-  }
-  const markdown = await cachedMarkdown(await response.text(), request.url);
-  const headers = new Headers(response.headers);
-  for (const name of DROPPED_HEADERS) headers.delete(name);
-  headers.set("Content-Type", MARKDOWN_CONTENT_TYPE);
-  if (!headers.has("Content-Signal"))
-    headers.set("Content-Signal", CONTENT_SIGNAL);
-  headers.set(
-    MARKDOWN_TOKENS_HEADER,
-    String(Math.ceil(markdown.length / CHARS_PER_TOKEN)),
-  );
-  appendVaryAccept(headers);
-  appendLink(headers, `<${pageUrl(request.url)}>; rel="canonical"`);
-  return new Response(request.method === "HEAD" ? null : markdown, {
-    headers,
-    status: response.status,
-    statusText: response.statusText,
-  });
-}
-
-export function prefersMarkdown(request: Request): boolean {
-  if (request.method !== "GET" && request.method !== "HEAD") return false;
-  if (request.headers.has("RSC")) return false;
-  const ranges = mediaRanges(request.headers.get("Accept") ?? "");
-  const markdown = ranges.get(MARKDOWN) ?? 0;
-  const html =
-    ranges.get(HTML) ?? ranges.get("text/*") ?? ranges.get("*/*") ?? 0;
-  return markdown > 0 && markdown >= html;
-}
-
-export function withAcceptVary(response: Response): Response {
-  if (!isHtml(response)) return response;
-  const varied = new Response(response.body, response);
-  appendVaryAccept(varied.headers);
-  return varied;
-}
-
-export function withMarkdownAlternate(
-  request: Request,
-  response: Response,
-): Response {
-  const varied = withAcceptVary(response);
-  if (varied.status !== 200 || !isHtml(varied)) return varied;
-  const alternate = new Response(varied.body, varied);
-  appendLink(
-    alternate.headers,
-    `<${markdownAlternatePath(new URL(request.url).pathname)}>; rel="alternate"; type="text/markdown"`,
-  );
-  return alternate;
-}
-
-function appendLink(headers: Headers, link: string) {
-  const current = headers.get("Link");
-  headers.set("Link", current ? `${current}, ${link}` : link);
-}
-
-function appendVaryAccept(headers: Headers) {
-  const vary = headers.get("Vary");
-  if (vary?.split(",").some((name) => name.trim().toLowerCase() === "accept")) {
-    return;
-  }
-  headers.set("Vary", vary ? `${vary}, Accept` : "Accept");
-}
-
-async function cachedMarkdown(html: string, url: string): Promise<string> {
-  const digest = await crypto.subtle.digest(
-    "SHA-256",
-    new TextEncoder().encode(html),
-  );
-  const key = `${url} ${Array.from(new Uint8Array(digest), (byte) =>
-    byte.toString(16).padStart(2, "0"),
-  ).join("")}`;
-  const cached = markdownCache.get(key);
-  if (cached !== undefined) {
-    markdownCache.delete(key);
-    markdownCache.set(key, cached);
-    return cached;
-  }
-  const markdown = htmlToMarkdown(html, url);
-  markdownCache.set(key, markdown);
-  if (markdownCache.size > MARKDOWN_CACHE_SIZE) {
-    markdownCache.delete(markdownCache.keys().next().value!);
-  }
-  return markdown;
-}
-
-function escapeHtml(text: string): string {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
-
-function isHtml(response: Response): boolean {
-  return response.headers.get("Content-Type")?.startsWith(HTML) ?? false;
+  return { canonical, markdown };
 }
 
 function mediaRanges(accept: string): Map<string, number> {

@@ -11,6 +11,7 @@ import {
   prefersMarkdown,
   withAcceptVary,
   withMarkdownAlternate,
+  withMarkdownLocation,
 } from "@/lib/markdownNegotiation";
 import { CONTENT_SIGNAL } from "@/lib/robotsTxt";
 
@@ -290,6 +291,28 @@ describe("markdownResponse", () => {
     );
   });
 
+  it("names the page's own canonical when it points elsewhere", async () => {
+    const response = await markdownResponse(
+      new Request("https://reptiles.ge/species/macrovipera-lebetina", {
+        headers: { Accept: "text/markdown" },
+      }),
+      htmlResponse(PAGE),
+    );
+    const body = await response.text();
+    expect(response.headers.get("Link")).toBe(
+      '<https://reptiles.ge/gvelebi/giurza>; rel="canonical"',
+    );
+    expect(body).toContain("url: https://reptiles.ge/gvelebi/giurza");
+  });
+
+  it("falls back to the requested page without a canonical tag", async () => {
+    const response = await markdownResponse(
+      new Request(`${URL}?q=1`, { headers: { Accept: "text/markdown" } }),
+      htmlResponse("<html><body><p>x</p></body></html>"),
+    );
+    expect(response.headers.get("Link")).toBe(`<${URL}>; rel="canonical"`);
+  });
+
   it("keeps a Content-Signal the app already sent", async () => {
     const response = await markdownResponse(
       request("text/markdown"),
@@ -336,6 +359,7 @@ describe("markdownAlternatePath", () => {
     ["/", "/index.md"],
     ["/gvelebi/giurza", "/gvelebi/giurza.md"],
     ["/en", "/en.md"],
+    ["/gvelebi/", "/gvelebi.md"],
   ])("maps %s to %s", (pathname, alternate) => {
     expect(markdownAlternatePath(pathname)).toBe(alternate);
   });
@@ -349,6 +373,7 @@ describe("markdownPathRequest", () => {
       "https://reptiles.ge/gvelebi/giurza?x=1",
     ],
     ["https://reptiles.ge/en.md", "https://reptiles.ge/en"],
+    ["https://reptiles.ge/en/index.md", "https://reptiles.ge/en"],
   ])("serves %s from the page %s", (url, page) => {
     const forwarded = markdownPathRequest(
       new Request(url, { headers: { "X-Test": "1" }, method: "HEAD" }),
@@ -369,6 +394,36 @@ describe("markdownPathRequest", () => {
   });
 });
 
+describe("withMarkdownLocation", () => {
+  const md = new Request("https://reptiles.ge/species/macrovipera-lebetina.md");
+
+  it.each([
+    ["/gvelebi/giurza", "https://reptiles.ge/gvelebi/giurza.md"],
+    [
+      "https://reptiles.ge/en/snakes?x=1",
+      "https://reptiles.ge/en/snakes.md?x=1",
+    ],
+    ["/", "https://reptiles.ge/index.md"],
+  ])("keeps a redirect to %s on Markdown", (location, target) => {
+    const response = withMarkdownLocation(
+      md,
+      new Response(null, { headers: { Location: location }, status: 301 }),
+    );
+    expect(response.status).toBe(301);
+    expect(response.headers.get("Location")).toBe(target);
+  });
+
+  it("leaves other origins and non-redirects alone", () => {
+    const away = new Response(null, {
+      headers: { Location: "https://example.com/x" },
+      status: 302,
+    });
+    expect(withMarkdownLocation(md, away)).toBe(away);
+    const page = htmlResponse();
+    expect(withMarkdownLocation(md, page)).toBe(page);
+  });
+});
+
 describe("withMarkdownAlternate", () => {
   it("points an HTML page at its Markdown version", () => {
     const response = withMarkdownAlternate(
@@ -379,6 +434,16 @@ describe("withMarkdownAlternate", () => {
       '</llms.txt>; rel="alternate", </gvelebi/giurza.md>; rel="alternate"; type="text/markdown"',
     );
     expect(response.headers.get("Vary")).toBe("RSC, Accept");
+  });
+
+  it("keeps the query string in the alternate", () => {
+    const response = withMarkdownAlternate(
+      new Request("https://reptiles.ge/species?q=giurza"),
+      htmlResponse(),
+    );
+    expect(response.headers.get("Link")).toBe(
+      '</species.md?q=giurza>; rel="alternate"; type="text/markdown"',
+    );
   });
 
   it("leaves errors and non-HTML responses without the alternate", () => {

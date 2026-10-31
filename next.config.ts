@@ -9,7 +9,7 @@ import {
   API_CATALOG_PATH,
   apiDiscoveryLinkHeader,
 } from "./src/lib/apiDocsPaths";
-import { LLMS_FILES_PATTERN, llmsLinkHeader } from "./src/lib/llmsPaths";
+import { llmsFilesPattern, llmsLinkHeader } from "./src/lib/llmsPaths";
 import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
   securityHeaders,
@@ -39,10 +39,10 @@ const nextConfig: NextConfig = {
       },
       {
         headers: [{ key: "Link", value: llmsLinkHeader("ka") }],
-        source: `/((?!${LLMS_FILES_PATTERN}).*)`,
+        source: `/((?!${llmsFilesPattern(LATIN_LOCALES)}).*)`,
       },
       ...LATIN_LOCALES.flatMap((locale) =>
-        [`/${locale}`, `/${locale}/((?!${LLMS_FILES_PATTERN}).*)`].map(
+        [`/${locale}`, `/${locale}/((?!${llmsFilesPattern()}).*)`].map(
           (source) => ({
             headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
             source,

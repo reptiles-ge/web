@@ -8,6 +8,7 @@ import {
   markdownResponse,
   prefersMarkdown,
   withMarkdownAlternate,
+  withMarkdownLocation,
 } from "@/lib/markdownNegotiation";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { addScriptNonce } from "@/lib/scriptNonce";
@@ -26,9 +27,9 @@ const worker: FetchHandler = {
   fetch: async (request, env, ctx) => {
     const render = async (page: Request) =>
       withResponseCacheControl(page, await base.fetch(page, env, ctx));
+    const markdownPath = markdownPathRequest(request);
     const markdownPage =
-      markdownPathRequest(request) ??
-      (prefersMarkdown(request) ? request : undefined);
+      markdownPath ?? (prefersMarkdown(request) ? request : undefined);
     return (
       maintenanceResponse(request, env) ??
       (await apiDocsResponse(request, env)) ??
@@ -37,6 +38,8 @@ const worker: FetchHandler = {
         ? markdownResponse(
             markdownPage,
             await render(htmlRequest(markdownPage)),
+          ).then((response) =>
+            markdownPath ? withMarkdownLocation(request, response) : response,
           )
         : withMarkdownAlternate(
             request,
