@@ -236,11 +236,12 @@ const PREFIXED_TEMPORARY_REDIRECTS: Record<string, string> = {
 };
 
 export default function proxy(request: NextRequest) {
-  const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
+  const pathname = request.nextUrl.pathname.replace(/\/+$/, "") || "/";
 
   if (request.nextUrl.hostname === "www.reptiles.ge") {
-    const url = request.nextUrl.clone();
+    const url = new URL(request.url);
     url.hostname = "reptiles.ge";
+    url.pathname = pathname;
     return NextResponse.redirect(url, 301);
   }
 
@@ -254,7 +255,7 @@ export default function proxy(request: NextRequest) {
   }
 
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
-    const [target, status] = resolveKaPrefixedPath(
+    const [target, status] = resolveRedirects(
       request,
       pathname.slice(3) || "/",
     );
@@ -263,6 +264,11 @@ export default function proxy(request: NextRequest) {
 
   const redirect = redirectPath(pathname);
   if (redirect) return redirectTo(request, redirect[0], redirect[1]);
+
+  if (pathname !== request.nextUrl.pathname) {
+    const [target, status] = resolveRedirects(request, pathname);
+    return redirectTo(request, target, target === pathname ? 308 : status);
+  }
 
   const response = intlMiddleware(request);
   const intlRedirect = response.headers.get("location");
@@ -320,7 +326,7 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
   return null;
 }
 
-function nextKaRedirect(
+function nextRedirect(
   request: NextRequest,
   pathname: string,
 ): [string, 301 | 302] | null {
@@ -446,26 +452,26 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
 function redirectTo(
   request: NextRequest,
   pathname: string,
-  status: 301 | 302 = 301,
+  status: 301 | 302 | 308 = 301,
 ) {
-  const url = request.nextUrl.clone();
+  const url = new URL(request.url);
   url.pathname = pathname;
   return NextResponse.redirect(url, status);
 }
 
-function resolveKaPrefixedPath(
+function resolveRedirects(
   request: NextRequest,
   pathname: string,
 ): [string, 301 | 302] {
   let target = pathname;
   let status: 301 | 302 = 301;
   const seen = new Set([target]);
-  for (let redirect = nextKaRedirect(request, target); redirect;) {
+  for (let redirect = nextRedirect(request, target); redirect;) {
     if (seen.has(redirect[0])) break;
     target = redirect[0];
     if (redirect[1] === 302) status = 302;
     seen.add(target);
-    redirect = nextKaRedirect(request, target);
+    redirect = nextRedirect(request, target);
   }
   return [target, status];
 }

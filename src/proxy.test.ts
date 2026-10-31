@@ -56,6 +56,42 @@ describe("route placeholders", () => {
   });
 });
 
+describe("trailing slash", () => {
+  it.each([
+    ["/ka/", "/", 301],
+    ["/ka//", "/", 301],
+    ["/ka/gvelebi/", "/gvelebi", 301],
+    ["/ka/snakes/", "/gvelebi", 301],
+    ["/snakes/saxeoebebi/", "/gvelebi/saxeoebebi", 301],
+    ["/gvelebi/", "/gvelebi", 308],
+    ["/gvelebi//", "/gvelebi", 308],
+    ["/en/", "/en", 308],
+    [
+      "/en/snakes/macrovipera-lebetina/",
+      "/en/snakes/macrovipera-lebetina",
+      308,
+    ],
+  ])("redirects %s to %s in one hop", (from, to, status) => {
+    expect(location(from)).toEqual({
+      location: `https://reptiles.ge${to}`,
+      status,
+    });
+  });
+
+  it("keeps the query on a trailing-slash redirect", () => {
+    expect(location("/gvelebi/?x=1").location).toBe(
+      "https://reptiles.ge/gvelebi?x=1",
+    );
+  });
+
+  it("drops the trailing slash on the www redirect", () => {
+    const response = proxy(new NextRequest("https://www.reptiles.ge/gvelebi/"));
+    expect(response.headers.get("location")).toBe(
+      "https://reptiles.ge/gvelebi",
+    );
+  });
+});
+
 describe("/ka prefix", () => {
   it("301s /ka to the root", () => {
     expect(location("/ka")).toEqual({
@@ -136,9 +172,10 @@ describe("configured redirects", () => {
   });
 
   it("matches a configured path that has a trailing slash", () => {
-    const result = location("/snakes/");
-    expect(result.status).toBe(301);
-    expect(result.location).toMatch(/^https:\/\/reptiles\.ge\/gvelebi\/?$/);
+    expect(location("/snakes/")).toEqual({
+      location: "https://reptiles.ge/gvelebi",
+      status: 301,
+    });
   });
 
   it("302s the unpublished Dolichophis caspius to the snake hub", () => {
