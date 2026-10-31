@@ -650,6 +650,26 @@ describe("admin news text edits", () => {
     expect((await read(article.id)).body.data.version).toBe(1);
   });
 
+  it("refuses a meta title or description outside the length limits", async () => {
+    const copy = structuredClone(article.copy);
+    copy.en.metaTitle = "t".repeat(61);
+    copy.en.metaDescription = "d".repeat(161);
+    const { body, response } = await edit(article.id, {
+      copy,
+      expectedVersion: 1,
+      summary: "x",
+    });
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("invalid_request");
+    expect(JSON.stringify(body.error)).toContain(
+      "metaTitle has 61 characters, at most 60 allowed",
+    );
+    expect(JSON.stringify(body.error)).toContain(
+      "metaDescription has 161 characters, 70–160 allowed",
+    );
+    expect((await read(article.id)).body.data.version).toBe(1);
+  });
+
   it("needs an admin session from an allowed origin and is rate limited", async () => {
     const body = { copy: article.copy, expectedVersion: 1, summary: "x" };
     const session = await adminSessionHeaders(sqlite);

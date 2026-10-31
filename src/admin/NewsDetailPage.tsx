@@ -7,6 +7,11 @@ import type { NewsPhoto, NewsSection } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { publicEnv } from "@/lib/env";
+import {
+  NEWS_META_DESCRIPTION_MAX,
+  NEWS_META_DESCRIPTION_MIN,
+  NEWS_META_TITLE_MAX,
+} from "@/lib/newsRules";
 import { MAX_PAGE_SIZE } from "@/lib/pagination";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
@@ -58,13 +63,13 @@ const FIELDS: ReadonlyArray<{
   { key: "dek", label: "Dek (subtitle)", multiline: true },
   { key: "lead", label: "Lead", multiline: true },
   {
-    hint: "Search result title. Aim for 50–60 characters.",
+    hint: `Search result title. Aim for 50–${NEWS_META_TITLE_MAX} characters, at most ${NEWS_META_TITLE_MAX}.`,
     key: "metaTitle",
     label: "Meta title",
     multiline: false,
   },
   {
-    hint: "Search result snippet. Aim for 120–160 characters.",
+    hint: `Search result snippet. Aim for 120–155 characters, ${NEWS_META_DESCRIPTION_MIN}–${NEWS_META_DESCRIPTION_MAX} allowed.`,
     key: "metaDescription",
     label: "Meta description",
     multiline: true,

@@ -16,6 +16,10 @@ type NewsRuleArticle = Omit<NewsArticle, "copy"> & {
   copy: Partial<NewsArticle["copy"]>;
 };
 
+export const NEWS_META_TITLE_MAX = 60;
+export const NEWS_META_DESCRIPTION_MIN = 70;
+export const NEWS_META_DESCRIPTION_MAX = 160;
+
 export const NEWS_SHORTER_TRANSLATIONS: ReadonlySet<string> = new Set([
   "bezoar-goat-restoration-javakheti-2026",
   "caucasian-toad-bufo-verrucosissimus-taxonomy-2026",
@@ -53,7 +57,26 @@ export function newsArticleIssues(article: NewsRuleArticle): NewsIssue[] {
   const ka = article.copy.ka?.sections ?? [];
   const kaFigures = newsFigures(ka);
   for (const locale of newsArticleLocales(article)) {
-    const sections = article.copy[locale]!.sections;
+    const { metaDescription, metaTitle, sections } = article.copy[locale]!;
+    const titleLength = [...metaTitle].length;
+    if (titleLength > NEWS_META_TITLE_MAX)
+      issue(
+        `metaTitle has ${titleLength} characters, at most ${NEWS_META_TITLE_MAX} allowed`,
+        "copy",
+        locale,
+        "metaTitle",
+      );
+    const descriptionLength = [...metaDescription].length;
+    if (
+      descriptionLength < NEWS_META_DESCRIPTION_MIN ||
+      descriptionLength > NEWS_META_DESCRIPTION_MAX
+    )
+      issue(
+        `metaDescription has ${descriptionLength} characters, ${NEWS_META_DESCRIPTION_MIN}–${NEWS_META_DESCRIPTION_MAX} allowed`,
+        "copy",
+        locale,
+        "metaDescription",
+      );
     if (
       locale !== "ka" &&
       sections.length !== ka.length &&
