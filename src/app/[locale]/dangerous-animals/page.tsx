@@ -11,6 +11,7 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
 import { JsonLd } from "@/components/JsonLd";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { dangerousAnimalRows } from "@/lib/dangerousAnimals";
 import {
   breadcrumbListLd,
   localePageUrl,
@@ -78,6 +79,7 @@ export default async function DangerousAnimalsRoute({
           karakurtName={widow.commonName}
           locale={locale}
           publishedAt={dates.datePublished}
+          rows={dangerousAnimalRows(catalog)}
           updatedAt={dates.dateModified}
         />
       </ClientMessagesProvider>

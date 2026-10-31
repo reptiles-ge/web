@@ -11,6 +11,8 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { getCreditAuthorTopSpecies } from "@/lib/creditAuthors";
+import { formatList } from "@/lib/formatList";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { quizHref } from "@/lib/quizzes";
@@ -40,6 +42,11 @@ export type AuthorSocial = {
   Icon: ComponentType<{ className?: string }>;
   key: string;
   label: string;
+};
+
+type AuthorFieldSummary = {
+  place?: { count: number; name: string };
+  years?: { from: number; to: number };
 };
 
 export async function AuthorIdentity({
@@ -187,12 +194,16 @@ export async function AuthorNext({
 }
 
 export async function AuthorSpeciesGroups({
+  field,
   groups,
   locale,
+  photos,
   species,
 }: {
+  field: AuthorFieldSummary;
   groups: CreditAuthorGroupStat[];
   locale: AppLocale;
+  photos: number;
   species: number;
 }) {
   if (groups.length === 0) return null;
@@ -202,6 +213,51 @@ export async function AuthorSpeciesGroups({
     getSpeciesCatalog(locale),
   ]);
   const byId = new Map(catalog.map((item) => [item.id, item]));
+  const top = getCreditAuthorTopSpecies(groups, 5);
+  const names = top.ids.flatMap((id) => {
+    const item = byId.get(id);
+    return item ? [item.commonName] : [];
+  });
+  const [largest] = groups;
+  const portfolio = [
+    t("portfolio", {
+      list: formatList(
+        top.rest > 0
+          ? [...names, t("portfolioMore", { count: top.rest })]
+          : names,
+        locale,
+      ),
+      photos,
+      species,
+    }),
+    ...(groups.length > 1 && largest
+      ? [
+          t("portfolioGroup", {
+            hub: tNav(largest.hub),
+            photos: largest.photos,
+          }),
+        ]
+      : []),
+    ...(field.years
+      ? [
+          field.years.from === field.years.to
+            ? t("portfolioYear", { year: field.years.from })
+            : t("portfolioYears", {
+                from: field.years.from,
+                to: field.years.to,
+              }),
+        ]
+      : []),
+    ...(locale === "ka" && field.place
+      ? [
+          t("portfolioPlace", {
+            count: field.place.count,
+            place: field.place.name,
+          }),
+        ]
+      : []),
+    t("speciesLead"),
+  ].join(" ");
 
   return (
     <section className="py-12 lg:py-[88px]">
@@ -217,7 +273,7 @@ export async function AuthorSpeciesGroups({
             </h2>
           </div>
           <p className="mt-3 text-[15px] leading-[1.6] text-muted-foreground lg:mt-0 lg:max-w-[460px] lg:pb-1.5 lg:text-[16px] lg:leading-[1.65]">
-            {t("speciesLead")}
+            {portfolio}
           </p>
         </div>
         <div className="mt-7 grid items-start gap-3 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-5">
@@ -282,10 +338,7 @@ export async function AuthorSummary({
   photos,
   species,
 }: {
-  field: {
-    place?: { count: number; name: string };
-    years?: { from: number; to: number };
-  };
+  field: AuthorFieldSummary;
   groups: CreditAuthorGroupStat[];
   locale: AppLocale;
   photos: number;

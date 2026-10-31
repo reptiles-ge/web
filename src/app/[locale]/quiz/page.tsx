@@ -20,6 +20,8 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
+import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -92,11 +94,15 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "quizzes" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
+  const [t, tShared, catalog] = await Promise.all([
+    getTranslations({ locale, namespace: "quizzes" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getSpeciesCatalog(locale, "quiz"),
+  ]);
+  const poolSizes = {
+    lizard: getLizardQuizCatalog(catalog).length,
+    snake: getSnakeQuizCatalog(catalog).length,
+  };
   const url = absoluteUrl(localePath(locale, PATH));
 
   const items: QuizCardModel[] = liveQuizzes().map((quiz) => ({
@@ -145,7 +151,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <ClientMessagesProvider locale={locale} namespaces={["quizzes"]}>
-        <QuizzesPage items={items} locale={locale} />
+        <QuizzesPage items={items} locale={locale} poolSizes={poolSizes} />
       </ClientMessagesProvider>
     </>
   );

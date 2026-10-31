@@ -7,6 +7,7 @@ import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
+import { Link } from "@/i18n/navigation";
 import { quizHref } from "@/lib/quizzes";
 
 export type QuizCardModel = QuizDefinition & {
@@ -23,9 +24,34 @@ type QuizCopy = {
 type QuizzesPageProps = {
   items: QuizCardModel[];
   locale: AppLocale;
+  poolSizes: Partial<Record<QuizMessageKey, number>>;
 };
 
-export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
+const QUIZ_COVERAGE = {
+  lizard: {
+    body: "lizardCover",
+    guides: [
+      { href: "/lizards/identifikacia", key: "guideLizardIdentify" },
+      { href: "/lizards/darevskia", key: "guideDarevskia" },
+    ],
+  },
+  snake: {
+    body: "snakeCover",
+    guides: [
+      {
+        href: "/snakes/shxamiani-gvelis-amocnoba",
+        key: "guideIdentifyVenomous",
+      },
+      { href: "/venomous-snakes", key: "guideVenomousSnakes" },
+    ],
+  },
+} as const;
+
+export async function QuizzesPage({
+  items,
+  locale,
+  poolSizes,
+}: QuizzesPageProps) {
   const [t, tShared, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "quizzes" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
@@ -38,6 +64,12 @@ export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
     { body: t("how3Body"), title: t("how3Title") },
   ] as const;
   const copy = quizCopy(t);
+  const coverage = live.flatMap((item) => {
+    if (item.messageKey === "turtle") return [];
+    const count = poolSizes[item.messageKey];
+    if (!count) return [];
+    return [{ count, item, ...QUIZ_COVERAGE[item.messageKey] }];
+  });
 
   if (live.length === 0) return null;
 
@@ -82,6 +114,52 @@ export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
           </div>
         </div>
       </section>
+
+      {coverage.length > 0 ? (
+        <section className="border-t border-border bg-background py-16 text-foreground lg:py-24">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("coverEyebrow")}
+            </p>
+            <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
+              {t("coverTitle")}
+            </h2>
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              {t("coverBody")}
+            </p>
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+              {coverage.map(({ body, count, guides, item }) => (
+                <li
+                  className="rounded-card border border-border bg-card px-6 py-7 sm:px-8 sm:py-9"
+                  key={item.id}
+                >
+                  <h3 className="font-display text-[20px] font-semibold">
+                    {copy[item.messageKey].title}
+                  </h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+                    {t(body, { count })}
+                  </p>
+                  <p className="mt-5 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    {t("coverGuides")}
+                  </p>
+                  <ul className="mt-2 space-y-1.5">
+                    {guides.map((guide) => (
+                      <li key={guide.href}>
+                        <Link
+                          className="text-[14px] font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                          href={guide.href}
+                        >
+                          {t(guide.key)}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <section className="border-t border-border bg-background py-16 text-foreground lg:py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

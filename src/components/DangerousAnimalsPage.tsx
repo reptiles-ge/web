@@ -10,6 +10,9 @@ import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
+import { dangerLevelTone } from "@/lib/dangerLevels";
+import { type DangerousAnimalRow } from "@/lib/dangerousAnimals";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const VENOMOUS_LINKS = [
@@ -38,6 +41,7 @@ type DangerousAnimalsPageProps = {
   karakurtName: string;
   locale: AppLocale;
   publishedAt: string;
+  rows: DangerousAnimalRow[];
   updatedAt: string;
 };
 
@@ -55,10 +59,12 @@ export async function DangerousAnimalsPage({
   karakurtName,
   locale,
   publishedAt,
+  rows,
   updatedAt,
 }: DangerousAnimalsPageProps) {
   const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
+  const tDanger = await getTranslations({ locale, namespace: "danger" });
 
   return (
     <div className="min-h-screen bg-background">
@@ -95,6 +101,78 @@ export async function DangerousAnimalsPage({
               sizes="(max-width: 1400px) 100vw, 1400px"
               src={heroSrc}
             />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-background py-16">
+        <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+          <h2 className="max-w-3xl font-display text-display-card font-semibold text-foreground">
+            {t("tableTitle")}
+          </h2>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t("tableBody")}
+          </p>
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full min-w-[680px] border-y border-border text-left">
+              <thead>
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColAnimal")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColRisk")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColWhere")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium" scope="col">
+                    {t("tableColAction")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row) => (
+                  <tr
+                    className="border-b border-border/80 align-top last:border-b-0"
+                    key={row.id}
+                  >
+                    <th className="py-4 pr-4 font-normal" scope="row">
+                      <Link
+                        className="font-display text-[16px] font-semibold text-foreground transition-colors hover:text-primary"
+                        href={speciesHref(row.id, locale)}
+                      >
+                        {row.commonName}
+                      </Link>
+                      <span className="mt-1 block text-[13px] text-muted-foreground italic">
+                        {row.scientificName}
+                      </span>
+                    </th>
+                    <td className="py-4 pr-4">
+                      <span
+                        className={cn(
+                          "inline-flex rounded-full px-2.5 py-1 text-[12px] font-medium whitespace-nowrap",
+                          dangerLevelTone(row.danger).chip,
+                        )}
+                      >
+                        {tDanger(row.danger)}
+                      </span>
+                    </td>
+                    <td className="py-4 pr-4 text-[14px] leading-relaxed text-muted-foreground">
+                      {row.location}
+                    </td>
+                    <td className="py-4 pr-4 text-[14px]">
+                      <Link
+                        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                        href={row.guide.href}
+                      >
+                        {t(`links.${row.guide.key}`)}
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

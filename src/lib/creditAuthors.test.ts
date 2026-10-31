@@ -19,6 +19,7 @@ import {
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
+  getCreditAuthorTopSpecies,
   HOME_CONTRIBUTOR_LIMIT,
 } from "@/lib/creditAuthors";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
@@ -210,6 +211,36 @@ describe("getCreditAuthorGroupStats", () => {
 
   it("returns nothing for no photos", () => {
     expect(getCreditAuthorGroupStats([])).toEqual([]);
+  });
+});
+
+describe("getCreditAuthorTopSpecies", () => {
+  it("ranks species by photos and counts the rest", () => {
+    const top = getCreditAuthorTopSpecies(
+      [
+        {
+          hub: "snakes",
+          photos: 4,
+          species: [
+            { id: "vipera-kaznakovi", photos: 1 },
+            { id: "macrovipera-lebetina", photos: 3 },
+          ],
+        },
+        {
+          hub: "lizards",
+          photos: 2,
+          species: [
+            { id: "pseudopus-apodus", photos: 1 },
+            { id: "anguis-colchica", photos: 1 },
+          ],
+        },
+      ],
+      3,
+    );
+    expect(top).toEqual({
+      ids: ["macrovipera-lebetina", "vipera-kaznakovi", "pseudopus-apodus"],
+      rest: 1,
+    });
   });
 });
 

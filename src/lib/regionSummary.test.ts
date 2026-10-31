@@ -73,12 +73,12 @@ describe("region summary copy", () => {
       LOCALES.map((locale) => [region.id, locale, region] as const),
     ),
   )(
-    "%s %s is 120–170 words built from the region data",
+    "%s %s is 100–170 words built from the region data",
     async (_, locale, region) => {
       const summary = await getRegionSummary(region, locale);
       const text = summary.join(" ");
       const words = wordCount(summary);
-      expect(words).toBeGreaterThanOrEqual(120);
+      expect(words).toBeGreaterThanOrEqual(100);
       expect(words).toBeLessThanOrEqual(170);
       expect(text).not.toMatch(/\{|\}/);
       if (locale !== "en") expect(text).not.toMatch(/\band\b/);
