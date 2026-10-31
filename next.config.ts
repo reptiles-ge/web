@@ -111,6 +111,7 @@ const nextConfig: NextConfig = {
     ? ["local.tsx", "local.ts", "tsx", "ts", "jsx", "js"]
     : ["tsx", "ts", "jsx", "js"],
   serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
+  skipTrailingSlashRedirect: true,
   trailingSlash: false,
 };
 

@@ -10,6 +10,7 @@ import {
 } from "@/lib/markdownNegotiation";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { addScriptNonce } from "@/lib/scriptNonce";
+import { trailingSlashResponse } from "@/lib/trailingSlash";
 
 export * from "vinext/server/fetch-handler";
 
@@ -27,6 +28,7 @@ const worker: FetchHandler = {
     return (
       maintenanceResponse(request, env) ??
       (await apiDocsResponse(request, env)) ??
+      trailingSlashResponse(request) ??
       (prefersMarkdown(request)
         ? markdownResponse(request, await render(htmlRequest(request)))
         : withAcceptVary(addScriptNonce(request, await render(request))))

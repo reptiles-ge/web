@@ -10,6 +10,7 @@ import {
 } from "../db/speciesWrite";
 import { speciesRecordSchema } from "../schemas/speciesRecord";
 import { ApiError } from "./errors";
+import { stampSpeciesTextDates } from "./speciesTextDates";
 
 type Draft = NonNullable<Awaited<ReturnType<typeof readDraft>>>;
 
@@ -92,6 +93,8 @@ export async function saveSpeciesRecord(
   revision: SpeciesRevision,
   alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
 ) {
+  const live = (await readSpeciesRecord(db, record.base.id))?.record ?? null;
+  stampSpeciesTextDates(record, live);
   try {
     return await writeSpeciesRecord(
       db,

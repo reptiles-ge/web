@@ -870,7 +870,7 @@ const newsSummary = component(
     title: plain("Article title."),
     updatedAt: doc(
       z.string(),
-      "Date of the last substantive update, `YYYY-MM-DD`.",
+      "Last substantive update: `YYYY-MM-DD` for imported articles, an ISO 8601 date-time with offset once the text is edited in the admin.",
     ).optional(),
   }),
   "A published news article without its body.",

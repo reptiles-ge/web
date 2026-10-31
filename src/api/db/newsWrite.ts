@@ -98,6 +98,7 @@ export async function writeNewsCopy(
   record: NewsRecord,
   expectedVersion: number,
   revision: NewsRevision,
+  updatedAt: null | string,
 ) {
   const id = record.article.id;
   const rows = newsRecordRows(record);
@@ -116,9 +117,9 @@ export async function writeNewsCopy(
       ),
     db
       .prepare(
-        "UPDATE news_articles SET version = version + 1 WHERE id = ? AND version = ?",
+        "UPDATE news_articles SET version = version + 1, updated_at = COALESCE(?, updated_at) WHERE id = ? AND version = ?",
       )
-      .bind(id, expectedVersion),
+      .bind(updatedAt, id, expectedVersion),
     db.prepare("DELETE FROM news_sections WHERE article_id = ?").bind(id),
     db.prepare("DELETE FROM news_texts WHERE article_id = ?").bind(id),
     ...COPY_TABLES.flatMap((table) =>
