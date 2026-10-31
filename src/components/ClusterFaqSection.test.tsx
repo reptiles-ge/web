@@ -23,6 +23,17 @@ describe("ClusterFaqSection", () => {
     expect(screen.getAllByRole("button")).toHaveLength(3);
   });
 
+  it("marks every question as a level-3 heading", () => {
+    render(<ClusterFaqSection intro={intro} items={items} />);
+    const headings = screen.getAllByRole("heading", { level: 3 });
+    expect(headings.map((node) => node.textContent)).toEqual(
+      items.map((item) => item.question),
+    );
+    expect(headings[0]?.querySelector("button")).toBe(
+      buttonFor("First question"),
+    );
+  });
+
   it("opens the first question by default", () => {
     render(<ClusterFaqSection intro={intro} items={items} />);
     expect(buttonFor("First question")).toHaveAttribute(

@@ -71,9 +71,9 @@ describe("RegionProfile outline", () => {
         venomous={venomous}
       />,
     );
-    const headings = [...container.querySelectorAll("h1, h2, h3, h4")].map(
-      (node) => node.textContent ?? "",
-    );
+    const headings = [...container.querySelectorAll("h1, h2, h3, h4")]
+      .filter((node) => !node.querySelector("button[aria-expanded]"))
+      .map((node) => node.textContent ?? "");
     for (const item of species) {
       expect(headings, item.id).not.toContain(item.commonName);
     }
@@ -101,6 +101,27 @@ describe("RegionProfile outline", () => {
     expect(heading.id).toBe("summary");
     for (const paragraph of summary) {
       expect(screen.getByText(paragraph).tagName).toBe("P");
+    }
+  });
+});
+
+describe("RegionProfile FAQ", () => {
+  it("marks every question as a level-3 heading", () => {
+    renderWithMessages(
+      <RegionProfile
+        content={content}
+        editable={false}
+        region={region}
+        species={species}
+        summary={summary}
+        venomous={venomous}
+      />,
+    );
+    expect(content.faq.length).toBeGreaterThan(0);
+    for (const item of content.faq) {
+      expect(
+        screen.getByRole("heading", { level: 3, name: item.question }),
+      ).toBeInTheDocument();
     }
   });
 });

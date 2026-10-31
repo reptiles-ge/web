@@ -209,6 +209,20 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
     expect(markdown).not.toMatch(/✦|new/);
   });
 
+  it("turns a FAQ toggle inside a heading into the heading text", () => {
+    const html = `<body>
+      <h2>FAQ</h2>
+      <h3><button aria-expanded="true" type="button"><span>რამდენად დიდია?</span><span aria-hidden="true"><svg></svg></span></button></h3>
+      <div><p>70–90 სმ.</p></div>
+      <h3><button aria-controls="faq-a" aria-expanded="false" id="faq-q" type="button"><span>სად გვხვდება?</span><svg></svg></button></h3>
+      <div aria-labelledby="faq-q" id="faq-a" inert role="region"><p>აღმოსავლეთში.</p></div>
+      <h3><button aria-expanded="false" type="button">a &lt;b&gt; &amp; c?</button></h3>
+    </body>`;
+    expect(htmlToMarkdown(html, URL)).toBe(
+      "## FAQ\n\n### რამდენად დიდია?\n\n70–90 სმ.\n\n### სად გვხვდება?\n\nაღმოსავლეთში.\n\n### a <b> & c?\n",
+    );
+  });
+
   it("omits the front matter when the page has no supported meta tags", () => {
     expect(
       htmlToMarkdown(

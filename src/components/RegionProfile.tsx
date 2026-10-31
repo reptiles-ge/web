@@ -14,7 +14,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
+import { ClusterFaqList } from "@/components/ClusterFaqSection";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
@@ -131,7 +131,6 @@ function RegionFaqSection({
   regionId: string;
 }) {
   const t = useTranslations("regions");
-  const [open, setOpen] = useState<null | number>(0);
 
   return (
     <section className="bg-surface py-24 lg:py-32">
@@ -152,57 +151,17 @@ function RegionFaqSection({
               {t("faqIntro", { name, nameIn })}
             </p>
           </div>
-          <div>
-            {items.map((item, index) => {
-              const isOpen = open === index;
-              return (
-                <div key={item.question}>
-                  <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => {
-                        const next = isOpen ? null : index;
-                        setOpen(next);
-                        if (next !== null) {
-                          trackEvent("faq_open", {
-                            entity_id: regionId,
-                            faq_index: next,
-                            page_type: "region",
-                          });
-                        }
-                      }}
-                      type="button"
-                    >
-                      <span
-                        className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
-                        data-content-field={
-                          editable ? `faq.${index}.question` : undefined
-                        }
-                        data-content-id={editable ? regionId : undefined}
-                        data-content-kind={editable ? "region" : undefined}
-                      >
-                        {item.question}
-                      </span>
-                      <FaqToggleIcon isOpen={isOpen} />
-                    </button>
-                    <FaqAnswerPanel isOpen={isOpen}>
-                      <p
-                        className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
-                        data-content-field={
-                          editable ? `faq.${index}.answer` : undefined
-                        }
-                        data-content-id={editable ? regionId : undefined}
-                        data-content-kind={editable ? "region" : undefined}
-                      >
-                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                      </p>
-                    </FaqAnswerPanel>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <ClusterFaqList
+            editable={editable ? { id: regionId, kind: "region" } : undefined}
+            items={items}
+            onOpen={(index) =>
+              trackEvent("faq_open", {
+                entity_id: regionId,
+                faq_index: index,
+                page_type: "region",
+              })
+            }
+          />
         </div>
       </div>
     </section>

@@ -5,9 +5,11 @@ import { useState } from "react";
 
 import type { SpeciesFaq } from "@/data/species";
 
+import { FaqAnswerPanel, FaqQuestion } from "@/components/FaqAccordionParts";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { type PageType, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { useFaqAccordion } from "@/lib/faqAccordion";
 
 type SpeciesFaqItemsProps = {
   editable: boolean;
@@ -26,34 +28,31 @@ export function SpeciesFaqItems({
   pageType,
   visibleCount,
 }: SpeciesFaqItemsProps) {
-  const [open, setOpen] = useState<null | number>(0);
+  const accordion = useFaqAccordion((index) =>
+    trackEvent("faq_open", {
+      entity_id: entityId,
+      faq_index: index,
+      page_type: pageType,
+    }),
+  );
   const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="flex flex-col gap-2 lg:gap-2.5">
       {items.map((item, index) => {
-        const isOpen = open === index;
+        const isOpen = accordion.isOpen(index);
+        const ids = accordion.ids(index);
         return (
           <div
             className="rounded-[22px] bg-card shadow-[0_10px_26px_rgba(14,20,17,0.05)] lg:rounded-[24px]"
             hidden={!expanded && index >= visibleCount}
             key={item.question}
           >
-            <button
-              aria-expanded={isOpen}
+            <FaqQuestion
               className="flex min-h-16 w-full items-center justify-between gap-4 rounded-[22px] py-3 pr-3.5 pl-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-[72px] lg:gap-5 lg:rounded-[24px] lg:pr-5 lg:pl-[26px]"
-              onClick={() => {
-                const next = isOpen ? null : index;
-                setOpen(next);
-                if (next !== null) {
-                  trackEvent("faq_open", {
-                    entity_id: entityId,
-                    faq_index: next,
-                    page_type: pageType,
-                  });
-                }
-              }}
-              type="button"
+              ids={ids}
+              isOpen={isOpen}
+              onToggle={() => accordion.toggle(index)}
             >
               <span
                 className="font-display text-[15.5px] leading-snug font-semibold text-foreground lg:text-[17px]"
@@ -66,6 +65,7 @@ export function SpeciesFaqItems({
                 {item.question}
               </span>
               <span
+                aria-hidden="true"
                 className={cn(
                   "flex size-10 shrink-0 items-center justify-center rounded-full transition-[background-color,color,rotate] duration-300",
                   isOpen
@@ -75,26 +75,19 @@ export function SpeciesFaqItems({
               >
                 <Plus className="size-4" strokeWidth={1.75} />
               </span>
-            </button>
-            <div
-              className={cn(
-                "grid transition-[grid-template-rows] duration-300 ease-out",
-                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-              )}
-            >
-              <div className="overflow-hidden">
-                <p
-                  className="px-5 pb-5 text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[16px] lg:leading-[1.7]"
-                  data-content-field={
-                    editable ? `faq.${index}.answer` : undefined
-                  }
-                  data-content-id={editable ? entityId : undefined}
-                  data-content-kind={editable ? "species" : undefined}
-                >
-                  <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                </p>
-              </div>
-            </div>
+            </FaqQuestion>
+            <FaqAnswerPanel ids={ids} isOpen={isOpen}>
+              <p
+                className="px-5 pb-5 text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[16px] lg:leading-[1.7]"
+                data-content-field={
+                  editable ? `faq.${index}.answer` : undefined
+                }
+                data-content-id={editable ? entityId : undefined}
+                data-content-kind={editable ? "species" : undefined}
+              >
+                <PhoneLinkedText>{item.answer}</PhoneLinkedText>
+              </p>
+            </FaqAnswerPanel>
           </div>
         );
       })}
