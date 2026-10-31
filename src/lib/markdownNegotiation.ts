@@ -252,15 +252,11 @@ function markdownPage(html: string, url: string): MarkdownPage {
     .map((script) => script.rawText.trim())
     .filter(Boolean);
   const page = root.querySelector("body") ?? root;
-  // TODO(review #1791): a toggle with aria-controls (GuideFaqItems) is removed by DROPPED_ELEMENTS below, so a
-  // guide FAQ question vanishes and leaves an empty "###". Keep the label as plain text when the parent is a heading.
   for (const toggle of page.querySelectorAll("[aria-controls]")) {
     const panel = root.getElementById(toggle.getAttribute("aria-controls")!);
     for (const name of DISCLOSURE_PANEL_ATTRIBUTES)
       panel?.removeAttribute(name);
   }
-  // TODO(review #1791): FAQ buttons now sit inside <h3>, so this turns into "###\n\n**Question?**" (empty heading).
-  // When toggle.parentNode is h1–h6, replace the button with the escaped label only, not <p><strong>.
   for (const toggle of page.querySelectorAll(
     "button[aria-expanded]:not([aria-controls])",
   )) {
