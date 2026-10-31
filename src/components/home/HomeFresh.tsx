@@ -9,8 +9,8 @@ import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
-import { newsArticleHref, newsIndexHref } from "@/lib/news";
 import { getNewsListArticles, HOME_NEWS_LIMIT } from "@/lib/newsApi";
+import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 

@@ -41,13 +41,8 @@ import {
   formatContentDateShort,
   formatPhotoDate,
 } from "@/lib/formatDate";
-import {
-  newsArticleHref,
-  newsArticlePath,
-  newsArticleUrl,
-  newsIndexHref,
-  newsReadMinutes,
-} from "@/lib/news";
+import { newsArticlePath, newsArticleUrl, newsReadMinutes } from "@/lib/news";
+import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import {
   localizeNewsPhoto,
   newsCategoryHub,

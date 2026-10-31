@@ -9,8 +9,8 @@ import { NewsMonthSection } from "@/components/NewsMonthSection";
 import { NewsPagination } from "@/components/NewsPagination";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
-import { newsIndexHref } from "@/lib/news";
 import { newsBrowserEntries } from "@/lib/newsBrowserItems";
+import { newsIndexHref } from "@/lib/newsHrefs";
 import { groupNewsByMonth } from "@/lib/newsMonthGroups";
 
 const wrapClass =

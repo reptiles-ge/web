@@ -10,6 +10,7 @@ import {
 } from "@/data/news";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { getPathname } from "@/i18n/navigation";
+import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { newsCopyReadMinutes } from "@/lib/newsReadTime";
 import { getNewsImageSrc, type NewsSpecies } from "@/lib/newsVisual";
 import {
@@ -35,13 +36,6 @@ export function newsArticleAlternates(
   return {
     canonical: newsArticleUrl(locale, article.slug),
     languages,
-  };
-}
-
-export function newsArticleHref(slug: string) {
-  return {
-    params: { slug },
-    pathname: "/news/[slug]" as const,
   };
 }
 
@@ -75,10 +69,6 @@ export function newsIndexDateFields(
     dateModified: newestNewsDateTime(articles) ?? datePublished,
     datePublished,
   };
-}
-
-export function newsIndexHref() {
-  return "/news" as const;
 }
 
 export function newsIndexUrl(locale: AppLocale) {

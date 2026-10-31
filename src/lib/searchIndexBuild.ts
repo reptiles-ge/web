@@ -39,7 +39,7 @@ import {
   GROUP_HUB_LIST,
   type GroupHubId,
 } from "@/lib/groupHubs";
-import { newsArticleHref } from "@/lib/news";
+import { newsArticleHref } from "@/lib/newsHrefs";
 import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
 import {

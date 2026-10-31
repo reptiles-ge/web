@@ -5,7 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { Link } from "@/i18n/navigation";
-import { newsIndexHref } from "@/lib/news";
+import { newsIndexHref } from "@/lib/newsHrefs";
 
 type NewsRelatedBlockProps = {
   articles: NewsArticle[];
