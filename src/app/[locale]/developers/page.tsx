@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { DevelopersPage } from "@/components/DevelopersPage";
 import { JsonLd } from "@/components/JsonLd";
+import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { routing } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
@@ -31,9 +32,10 @@ export default async function Developers({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const [t, tShared] = await Promise.all([
+  const [t, tShared, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "developers" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const url = absoluteUrl(localePath(locale, "/developers"));
 
@@ -58,6 +60,11 @@ export default async function Developers({ params }: Props) {
             name: t("brand"),
           }),
         ]}
+      />
+      <ScreenReaderBreadcrumb
+        current={t("brand")}
+        home={tShared("breadcrumbHome")}
+        label={tNav("breadcrumbAria")}
       />
       <DevelopersPage locale={locale} />
     </>
