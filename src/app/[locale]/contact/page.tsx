@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ContactPage as ContactPageSchema, WithContext } from "schema-dts";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -45,7 +46,7 @@ export default async function Contact({ params }: Props) {
     mainEntity: organizationRef(),
     name: `${t("metaTitle")} — ${siteConfig.titleBrand}`,
     url,
-  };
+  } satisfies WithContext<ContactPageSchema>;
 
   return (
     <>

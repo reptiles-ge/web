@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { WebPage, WithContext } from "schema-dts";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -42,7 +43,7 @@ export default async function Developers({ params }: Props) {
     name: `${t("metaTitle")} — ${siteConfig.titleBrand}`,
     publisher: organizationRef(),
     url,
-  };
+  } satisfies WithContext<WebPage>;
 
   return (
     <>

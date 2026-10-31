@@ -17,7 +17,11 @@ describe("HomeChildPageHead", () => {
       await HomeChildPageHead({
         locale: "en",
         name: "About",
-        page: { "@type": "AboutPage", name: "About" },
+        page: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About",
+        },
         path: "/about",
       }),
     );

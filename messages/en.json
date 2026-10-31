@@ -1138,6 +1138,7 @@
   },
   "guideArticle": {
     "contents": "In this guide",
+    "contentsCount": "{count, plural, one {# section} other {# sections}}",
     "faq": "Frequently asked questions",
     "related": "Related guides",
     "relatedSpecies": "Related species",

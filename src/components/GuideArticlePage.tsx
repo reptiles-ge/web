@@ -197,6 +197,7 @@ export async function GuideArticlePage({
 
         {sections.length > 2 ? (
           <GuideArticleContents
+            countLabel={t("contentsCount", { count: sections.length })}
             headingId={`${article.id}-contents`}
             items={sections.map(({ anchor, index, section }) => ({
               anchor,

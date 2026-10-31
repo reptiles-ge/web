@@ -32,7 +32,9 @@ const DROPPED_ELEMENTS = [
   "[data-markdown-skip]",
 ].join(", ");
 
-const SEPARATORS = '[aria-hidden="true"]';
+const DECORATIVE = '[aria-hidden="true"]';
+
+const SEPARATOR_TEXT = /^\s*\p{P}[\s\p{P}]*$/u;
 
 const DISCLOSURE_PANEL_ATTRIBUTES = ["aria-hidden", "hidden", "inert"];
 
@@ -101,8 +103,9 @@ export function htmlToMarkdown(html: string, url: string): string {
   for (const element of page.querySelectorAll(DROPPED_ELEMENTS)) {
     element.remove();
   }
-  for (const element of page.querySelectorAll(SEPARATORS)) {
-    element.replaceWith(" ");
+  for (const element of page.querySelectorAll(DECORATIVE)) {
+    if (SEPARATOR_TEXT.test(element.text)) element.replaceWith(" ");
+    else element.remove();
   }
   for (const element of page.querySelectorAll("a *")) {
     if (element.nextElementSibling) element.insertAdjacentHTML("afterend", " ");

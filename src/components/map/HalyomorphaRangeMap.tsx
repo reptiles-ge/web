@@ -11,7 +11,6 @@ import {
   useMemo,
   useRef,
   useState,
-  useSyncExternalStore,
 } from "react";
 
 import type { RegionPathId } from "@/data/georgia-paths";
@@ -35,6 +34,7 @@ import {
 } from "@/components/map/RangeHatch";
 import { cn } from "@/lib/cn";
 import { loadHalyomorphaOccurrences } from "@/lib/halyomorphaOccurrenceApi";
+import { useHydrated } from "@/lib/useHydrated";
 
 const HalyomorphaRangeMapClient = lazy(() =>
   import("@/components/map/HalyomorphaRangeMapClient").then((mod) => ({
@@ -245,8 +245,6 @@ export function HalyomorphaRangeMap({
   );
 }
 
-const emptySubscribe = () => () => {};
-
 function PlatePreview({
   children,
   hatchId,
@@ -258,11 +256,7 @@ function PlatePreview({
   officialRegionIds: string[];
   status?: boolean;
 }) {
-  const hydrated = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false,
-  );
+  const hydrated = useHydrated();
 
   return (
     <div className="absolute inset-0">
@@ -274,16 +268,16 @@ function PlatePreview({
           showKeys={false}
         />
       </div>
-      <p
-        className="absolute inset-x-0 bottom-4 flex justify-center px-6"
-        role={status ? "status" : "alert"}
-      >
-        {hydrated ? (
+      {hydrated ? (
+        <p
+          className="absolute inset-x-0 bottom-4 flex justify-center px-6"
+          role={status ? "status" : "alert"}
+        >
           <span className="rounded-full bg-card/90 px-4 py-2 text-center text-[13px] leading-snug text-muted-foreground shadow-[0_6px_18px_rgba(14,20,17,0.06)]">
             {children}
           </span>
-        ) : null}
-      </p>
+        </p>
+      ) : null}
     </div>
   );
 }

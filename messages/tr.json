@@ -1138,6 +1138,7 @@
   },
   "guideArticle": {
     "contents": "Bu rehberde",
+    "contentsCount": "{count, plural, other {# bölüm}}",
     "faq": "Sık sorulan sorular",
     "related": "İlgili rehberler",
     "relatedSpecies": "İlgili türler",

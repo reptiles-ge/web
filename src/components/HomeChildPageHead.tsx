@@ -1,3 +1,5 @@
+import type { Thing, WithContext } from "schema-dts";
+
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -9,7 +11,7 @@ import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 type HomeChildPageHeadProps = {
   locale: AppLocale;
   name: string;
-  page: Record<string, unknown>;
+  page: WithContext<Thing>;
   path: Parameters<typeof homeChildBreadcrumbLd>[1];
 };
 

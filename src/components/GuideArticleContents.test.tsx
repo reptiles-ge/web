@@ -13,12 +13,15 @@ describe("GuideArticleContents", () => {
   it("starts collapsed below desktop and always lists every section link", () => {
     render(
       <GuideArticleContents
+        countLabel="3 sections"
         headingId="bat-contents"
         items={ITEMS}
         label="In this guide"
       />,
     );
-    const toggle = screen.getByRole("button", { name: "In this guide" });
+    const toggle = screen.getByRole("button", {
+      name: "In this guide (3 sections)",
+    });
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(toggle).toHaveClass("lg:hidden");
     const list = document.getElementById(
@@ -35,7 +38,7 @@ describe("GuideArticleContents", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "true");
     expect(list).not.toHaveClass("max-lg:hidden");
     expect(
-      screen.getByRole("navigation", { name: "In this guide" }),
+      screen.getByRole("navigation", { name: "In this guide (3 sections)" }),
     ).toBeInTheDocument();
   });
 });

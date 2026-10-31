@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { AboutPage as AboutPageSchema, WithContext } from "schema-dts";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -48,7 +49,7 @@ export default async function About({ params }: Props) {
     mainEntity: organization,
     name: t("metaTitle"),
     url: absoluteUrl(path),
-  };
+  } satisfies WithContext<AboutPageSchema>;
 
   return (
     <>
