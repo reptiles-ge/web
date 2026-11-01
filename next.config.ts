@@ -9,7 +9,7 @@ import {
   API_CATALOG_PATH,
   apiDiscoveryLinkHeader,
 } from "./src/lib/apiDocsPaths";
-import { llmsLinkHeader } from "./src/lib/llmsPaths";
+import { llmsFilesPattern, llmsLinkHeader } from "./src/lib/llmsPaths";
 import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
   securityHeaders,
@@ -34,14 +34,20 @@ const nextConfig: NextConfig = {
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
     return [
       {
-        headers: [...security, { key: "Link", value: llmsLinkHeader("ka") }],
+        headers: security,
         source: SITE_HEADERS_SOURCE,
       },
+      {
+        headers: [{ key: "Link", value: llmsLinkHeader("ka") }],
+        source: `/((?!${llmsFilesPattern(LATIN_LOCALES)}).*)`,
+      },
       ...LATIN_LOCALES.flatMap((locale) =>
-        [`/${locale}`, `/${locale}/:path*`].map((source) => ({
-          headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
-          source,
-        })),
+        [`/${locale}`, `/${locale}/((?!${llmsFilesPattern()}).*)`].map(
+          (source) => ({
+            headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
+            source,
+          }),
+        ),
       ),
       ...(["ka", ...LATIN_LOCALES] as const).map((locale) => ({
         headers: [
@@ -111,6 +117,7 @@ const nextConfig: NextConfig = {
     ? ["local.tsx", "local.ts", "tsx", "ts", "jsx", "js"]
     : ["tsx", "ts", "jsx", "js"],
   serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
+  skipTrailingSlashRedirect: true,
   trailingSlash: false,
 };
 

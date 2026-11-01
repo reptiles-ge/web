@@ -142,6 +142,17 @@ describe("PUT /v1/admin/species/:id", () => {
 
     const after = (await getRecord()).body.data;
     expect(after.version).toBe(2);
+    const stamped = after.record.base.updatedAt;
+    expect(stamped).not.toBe(record.base.updatedAt);
+    expect(after.record.translations.en.updatedAt).toBe(stamped);
+    expect(after.record.translations.ru.updatedAt).toBe(
+      record.translations.ru.updatedAt,
+    );
+    expect(after.record.translations.tr.updatedAt).toBe(
+      record.translations.tr.updatedAt,
+    );
+    record.base.updatedAt = stamped;
+    record.translations.en.updatedAt = stamped;
     expect(after.record).toStrictEqual(record);
 
     const publicEn = await requestJson<{ data: { overview: string } }>(
@@ -775,7 +786,54 @@ describe("POST /v1/admin/species/:id/texts", () => {
       ).response.status,
     ).toBe(200);
     const after = (await getRecord()).body.data.record;
-    expect(after.base).toEqual({ ...before.base, commonName: "ახალი სახელი" });
+    expect(after.base.updatedAt).not.toBe(before.base.updatedAt);
+    expect(after.base).toEqual({
+      ...before.base,
+      commonName: "ახალი სახელი",
+      updatedAt: after.base.updatedAt,
+    });
+    expect(after.translations).toEqual(before.translations);
+  });
+
+  it("dates only the locale whose text changed", async () => {
+    const before = (await getRecord()).body.data.record;
+    const texts = textsOf(before.translations.en as SpeciesRecord["base"]);
+    texts.commonName = "New name";
+    expect(
+      (
+        await saveTexts({
+          expectedVersion: 1,
+          locale: "en",
+          summary: "Rename",
+          texts,
+        })
+      ).response.status,
+    ).toBe(200);
+    const after = (await getRecord()).body.data.record;
+    expect(after.base.updatedAt).toBe(before.base.updatedAt);
+    expect(after.translations.en.updatedAt).not.toBe(
+      before.translations.en.updatedAt,
+    );
+    expect(after.translations.ru.updatedAt).toBe(
+      before.translations.ru.updatedAt,
+    );
+  });
+
+  it("keeps every date when the text is saved unchanged", async () => {
+    const before = (await getRecord()).body.data.record;
+    expect(
+      (
+        await saveTexts({
+          expectedVersion: 1,
+          locale: "ka",
+          summary: "No change",
+          texts: textsOf(before.base),
+        })
+      ).response.status,
+    ).toBe(200);
+    const after = (await getRecord()).body.data.record;
+    expect(after.base.updatedAt).toBe(before.base.updatedAt);
+    expect(after.translations).toEqual(before.translations);
   });
 
   it("refuses list changes, stale versions and unknown species", async () => {

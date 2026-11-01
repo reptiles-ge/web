@@ -7,6 +7,7 @@ import type {
 
 import { ClientCoverImagePreload } from "@/components/ClientCoverImagePreload";
 import { QuizCoverPicture } from "@/components/QuizCoverPicture";
+import { cn } from "@/lib/cn";
 
 type QuizCoverProps = {
   correctSpecies: SnakeQuizSpecies | undefined;
@@ -65,7 +66,14 @@ export function QuizCover({
             playing={playing}
           />
         ) : null}
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/20 to-black/85" />
+        <div
+          className={cn(
+            "absolute inset-0 bg-linear-to-b",
+            playing
+              ? "from-black/70 via-black/20 to-black/85"
+              : "from-black/75 via-black/55 to-black/90",
+          )}
+        />
         <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
       </div>
     </>

@@ -5,9 +5,13 @@ import {
   htmlToMarkdown,
   MARKDOWN_CONTENT_TYPE,
   MARKDOWN_TOKENS_HEADER,
+  markdownAlternatePath,
+  markdownPathRequest,
   markdownResponse,
   prefersMarkdown,
   withAcceptVary,
+  withMarkdownAlternate,
+  withMarkdownLocation,
 } from "@/lib/markdownNegotiation";
 import { CONTENT_SIGNAL } from "@/lib/robotsTxt";
 
@@ -21,6 +25,7 @@ const PAGE = `<!doctype html>
     <meta property="og:title" content="გიურზა: შხამიანი გველი">
     <meta property="og:description" content="სხვა აღწერა">
     <meta property="og:image" content="https://cdn.reptiles.ge/og/giurza.jpg">
+    <link rel="canonical" href="/gvelebi/giurza">
     <script>window.secret = 1</script>
     <script type="application/ld+json">{"@type":"WebSite","name":"A &amp; B"}</script>
   </head>
@@ -41,6 +46,7 @@ const PAGE = `<!doctype html>
       <button aria-controls="sources-more" aria-expanded="false" type="button">ყველა წყარო</button>
       <div aria-hidden="true" id="sources-more" inert><a href="https://doi.org/10.1/x">წყარო 2</a></div>
       <span aria-hidden="true">·</span>
+      <p>Range<span aria-hidden="true"> · </span>map <span aria-hidden="true">✦</span>key<span aria-hidden="true">new</span></p>
       <script>window.inline = 2</script>
       <script type="application/ld+json">
         {"@type":"Article"}
@@ -145,6 +151,8 @@ describe("htmlToMarkdown", () => {
       markdown.startsWith(`---
 title: "გიურზა: შხამიანი გველი"
 description: მაღალი რისკის "გველგესლა"
+url: https://reptiles.ge/gvelebi/giurza
+lang: ka
 image: https://cdn.reptiles.ge/og/giurza.jpg
 ---
 
@@ -194,6 +202,25 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
     ]) {
       expect(markdown).not.toContain(text);
     }
+  });
+
+  it("spaces out aria-hidden separators and drops other aria-hidden text", () => {
+    expect(markdown).toContain("Range map key\n");
+    expect(markdown).not.toMatch(/✦|new/);
+  });
+
+  it("turns a FAQ toggle inside a heading into the heading text", () => {
+    const html = `<body>
+      <h2>FAQ</h2>
+      <h3><button aria-expanded="true" type="button"><span>რამდენად დიდია?</span><span aria-hidden="true"><svg></svg></span></button></h3>
+      <div><p>70–90 სმ.</p></div>
+      <h3><button aria-controls="faq-a" aria-expanded="false" id="faq-q" type="button"><span>სად გვხვდება?</span><svg></svg></button></h3>
+      <div aria-labelledby="faq-q" id="faq-a" inert role="region"><p>აღმოსავლეთში.</p></div>
+      <h3><button aria-expanded="false" type="button">a &lt;b&gt; &amp; c?</button></h3>
+    </body>`;
+    expect(htmlToMarkdown(html, URL)).toBe(
+      "## FAQ\n\n### რამდენად დიდია?\n\n70–90 სმ.\n\n### სად გვხვდება?\n\nაღმოსავლეთში.\n\n### a <b> & c?\n",
+    );
   });
 
   it("omits the front matter when the page has no supported meta tags", () => {
@@ -261,6 +288,43 @@ describe("markdownResponse", () => {
       expect(response.headers.has(name), name).toBe(false);
     }
     expect(body).toContain("# გიურზა");
+    expect(response.headers.get("Link")).toBe(
+      '<https://reptiles.ge/gvelebi/giurza>; rel="canonical"',
+    );
+  });
+
+  it("adds the canonical page to the Link header the app sent", async () => {
+    const response = await markdownResponse(
+      new Request(`${URL}?q=1`, { headers: { Accept: "text/markdown" } }),
+      htmlResponse(PAGE, {
+        headers: { Link: '</llms.txt>; rel="alternate"' },
+      }),
+    );
+    expect(response.headers.get("Link")).toBe(
+      '</llms.txt>; rel="alternate", <https://reptiles.ge/gvelebi/giurza>; rel="canonical"',
+    );
+  });
+
+  it("names the page's own canonical when it points elsewhere", async () => {
+    const response = await markdownResponse(
+      new Request("https://reptiles.ge/species/macrovipera-lebetina", {
+        headers: { Accept: "text/markdown" },
+      }),
+      htmlResponse(PAGE),
+    );
+    const body = await response.text();
+    expect(response.headers.get("Link")).toBe(
+      '<https://reptiles.ge/gvelebi/giurza>; rel="canonical"',
+    );
+    expect(body).toContain("url: https://reptiles.ge/gvelebi/giurza");
+  });
+
+  it("falls back to the requested page without a canonical tag", async () => {
+    const response = await markdownResponse(
+      new Request(`${URL}?q=1`, { headers: { Accept: "text/markdown" } }),
+      htmlResponse("<html><body><p>x</p></body></html>"),
+    );
+    expect(response.headers.get("Link")).toBe(`<${URL}>; rel="canonical"`);
   });
 
   it("keeps a Content-Signal the app already sent", async () => {
@@ -301,6 +365,114 @@ describe("markdownResponse", () => {
       headers: { "Content-Type": "text/plain" },
     });
     expect(await markdownResponse(request("text/markdown"), text)).toBe(text);
+  });
+});
+
+describe("markdownAlternatePath", () => {
+  it.each([
+    ["/", "/index.md"],
+    ["/gvelebi/giurza", "/gvelebi/giurza.md"],
+    ["/en", "/en.md"],
+    ["/gvelebi/", "/gvelebi.md"],
+  ])("maps %s to %s", (pathname, alternate) => {
+    expect(markdownAlternatePath(pathname)).toBe(alternate);
+  });
+});
+
+describe("markdownPathRequest", () => {
+  it.each([
+    ["https://reptiles.ge/index.md", "https://reptiles.ge/"],
+    [
+      "https://reptiles.ge/gvelebi/giurza.md?x=1",
+      "https://reptiles.ge/gvelebi/giurza?x=1",
+    ],
+    ["https://reptiles.ge/en.md", "https://reptiles.ge/en"],
+    ["https://reptiles.ge/en/index.md", "https://reptiles.ge/en"],
+  ])("serves %s from the page %s", (url, page) => {
+    const forwarded = markdownPathRequest(
+      new Request(url, { headers: { "X-Test": "1" }, method: "HEAD" }),
+    );
+    expect(forwarded?.url).toBe(page);
+    expect(forwarded?.method).toBe("HEAD");
+    expect(forwarded?.headers.get("X-Test")).toBe("1");
+  });
+
+  it.each([
+    new Request("https://reptiles.ge/gvelebi/giurza"),
+    new Request("https://reptiles.ge/.md"),
+    new Request("https://reptiles.ge/gvelebi/.md"),
+    new Request("https://reptiles.ge/gvelebi.md", { method: "POST" }),
+    new Request("https://reptiles.ge/gvelebi.md", { headers: { RSC: "1" } }),
+  ])("leaves other requests alone (%#)", (request) => {
+    expect(markdownPathRequest(request)).toBeUndefined();
+  });
+});
+
+describe("withMarkdownLocation", () => {
+  const md = new Request("https://reptiles.ge/species/macrovipera-lebetina.md");
+
+  it.each([
+    ["/gvelebi/giurza", "https://reptiles.ge/gvelebi/giurza.md"],
+    [
+      "https://reptiles.ge/en/snakes?x=1",
+      "https://reptiles.ge/en/snakes.md?x=1",
+    ],
+    ["/", "https://reptiles.ge/index.md"],
+  ])("keeps a redirect to %s on Markdown", (location, target) => {
+    const response = withMarkdownLocation(
+      md,
+      new Response(null, { headers: { Location: location }, status: 301 }),
+    );
+    expect(response.status).toBe(301);
+    expect(response.headers.get("Location")).toBe(target);
+  });
+
+  it("leaves other origins and non-redirects alone", () => {
+    const away = new Response(null, {
+      headers: { Location: "https://example.com/x" },
+      status: 302,
+    });
+    expect(withMarkdownLocation(md, away)).toBe(away);
+    const page = htmlResponse();
+    expect(withMarkdownLocation(md, page)).toBe(page);
+  });
+});
+
+describe("withMarkdownAlternate", () => {
+  it("points an HTML page at its Markdown version", () => {
+    const response = withMarkdownAlternate(
+      new Request(URL),
+      htmlResponse(PAGE, { headers: { Link: '</llms.txt>; rel="alternate"' } }),
+    );
+    expect(response.headers.get("Link")).toBe(
+      '</llms.txt>; rel="alternate", </gvelebi/giurza.md>; rel="alternate"; type="text/markdown"',
+    );
+    expect(response.headers.get("Vary")).toBe("RSC, Accept");
+  });
+
+  it("keeps the query string in the alternate", () => {
+    const response = withMarkdownAlternate(
+      new Request("https://reptiles.ge/species?q=giurza"),
+      htmlResponse(),
+    );
+    expect(response.headers.get("Link")).toBe(
+      '</species.md?q=giurza>; rel="alternate"; type="text/markdown"',
+    );
+  });
+
+  it("leaves errors and non-HTML responses without the alternate", () => {
+    expect(
+      withMarkdownAlternate(
+        new Request(URL),
+        htmlResponse(PAGE, { status: 404 }),
+      ).headers.has("Link"),
+    ).toBe(false);
+    expect(
+      withMarkdownAlternate(
+        new Request(URL),
+        new Response("{}", { headers: { "Content-Type": "application/json" } }),
+      ).headers.has("Link"),
+    ).toBe(false);
   });
 });
 

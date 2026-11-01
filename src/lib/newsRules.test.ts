@@ -3,6 +3,9 @@ import { describe, expect, it } from "vitest";
 import type { NewsArticle } from "@/data/newsTypes";
 
 import {
+  NEWS_META_DESCRIPTION_MAX,
+  NEWS_META_DESCRIPTION_MIN,
+  NEWS_META_TITLE_MAX,
   NEWS_SHORTER_TRANSLATIONS,
   newsArticleIssues,
   newsReferenceIssues,
@@ -11,7 +14,7 @@ import {
 const copy = (heading: string): NewsArticle["copy"]["ka"] => ({
   dek: "dek",
   lead: "lead",
-  metaDescription: "meta",
+  metaDescription: "d".repeat(NEWS_META_DESCRIPTION_MIN),
   metaTitle: "meta",
   sections: [
     {
@@ -66,6 +69,44 @@ describe("newsArticleIssues", () => {
         (issue) => issue.message,
       ),
     ).not.toContain("en has 0 sections, ka has 1");
+  });
+
+  it("limits meta title and description length in every locale", () => {
+    const withMeta = (metaTitle: string, metaDescription: string) =>
+      newsArticleIssues({
+        ...base,
+        copy: {
+          ...base.copy,
+          en: { ...base.copy.en, metaDescription, metaTitle },
+        },
+      }).map((issue) => [issue.path.join("."), issue.message]);
+
+    expect(
+      withMeta(
+        "ა".repeat(NEWS_META_TITLE_MAX),
+        "ა".repeat(NEWS_META_DESCRIPTION_MAX),
+      ),
+    ).toEqual([]);
+    expect(
+      withMeta(
+        "t".repeat(NEWS_META_TITLE_MAX + 1),
+        "d".repeat(NEWS_META_DESCRIPTION_MAX + 1),
+      ),
+    ).toEqual([
+      ["copy.en.metaTitle", "metaTitle has 61 characters, at most 60 allowed"],
+      [
+        "copy.en.metaDescription",
+        "metaDescription has 161 characters, 70–160 allowed",
+      ],
+    ]);
+    expect(withMeta("meta", "d".repeat(NEWS_META_DESCRIPTION_MIN - 1))).toEqual(
+      [
+        [
+          "copy.en.metaDescription",
+          "metaDescription has 69 characters, 70–160 allowed",
+        ],
+      ],
+    );
   });
 
   it("reports missing related ids for every link kind", () => {

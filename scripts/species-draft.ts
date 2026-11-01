@@ -10,7 +10,6 @@ import {
 import { apiOrigin } from "../src/lib/apiClient";
 import { getOccurrenceSummary } from "../src/lib/occurrenceSummaries";
 import { addedPageTalk } from "../src/lib/pageTalkProse";
-import { toSiteDateTime } from "../src/lib/siteTime";
 import { diffSpeciesRecords } from "../src/lib/speciesDraftDiff";
 import { loadEnv } from "./scriptUtils";
 
@@ -183,7 +182,6 @@ async function push(
         .join("\n")}`,
     );
   }
-  record.base.updatedAt = toSiteDateTime(new Date());
 
   const fieldChanges = changes.filter((change) =>
     change.path.startsWith("fieldRecords."),

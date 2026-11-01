@@ -11,7 +11,7 @@ import {
   NewsMetaSep,
 } from "@/components/NewsCardParts";
 import { Link } from "@/i18n/navigation";
-import { newsArticleHref } from "@/lib/news";
+import { newsArticleHref } from "@/lib/newsHrefs";
 
 export type { NewsIndexEntry } from "@/components/NewsCardParts";
 

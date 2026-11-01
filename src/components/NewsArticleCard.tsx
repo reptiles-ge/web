@@ -8,7 +8,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
-import { newsArticleHref } from "@/lib/news";
+import { newsArticleHref } from "@/lib/newsHrefs";
 import { newsCategoryHub } from "@/lib/newsVisual";
 import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 

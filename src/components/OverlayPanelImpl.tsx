@@ -2,18 +2,13 @@
 
 import { AnimatePresence, m } from "framer-motion";
 import { X } from "lucide-react";
-import {
-  type ReactNode,
-  type RefObject,
-  useEffect,
-  useRef,
-  useSyncExternalStore,
-} from "react";
+import { type ReactNode, type RefObject, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 import { MotionLazy } from "@/components/MotionLazy";
 import { cn } from "@/lib/cn";
 import { cycleTab, usePrefersReducedMotion } from "@/lib/focusTrap";
+import { useHydrated } from "@/lib/useHydrated";
 
 const panelTransition = { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const };
 const sheetTransition = { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const };
@@ -33,8 +28,6 @@ export type OverlayPanelProps = {
   title: string;
 };
 
-const emptySubscribe = () => () => {};
-
 export function OverlayPanelImpl({
   closeLabel,
   desktopClassName = "w-[360px]",
@@ -49,11 +42,7 @@ export function OverlayPanelImpl({
   rootRef,
   title,
 }: OverlayPanelProps) {
-  const mounted = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false,
-  );
+  const mounted = useHydrated();
   const sheetRef = useRef<HTMLDivElement>(null);
   const desktopRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);

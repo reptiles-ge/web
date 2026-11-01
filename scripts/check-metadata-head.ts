@@ -43,6 +43,7 @@ const AGENT_NAMES = Object.keys(USER_AGENTS);
 type Check = {
   agent: string;
   cache: string;
+  cacheControl: string;
   problems: MetadataPlacementProblem[];
   status: number;
   url: string;
@@ -63,7 +64,9 @@ async function sitemapUrls(): Promise<string[]> {
 function sectionKey(url: string): string {
   const segments = new URL(url).pathname.split("/").filter(Boolean);
   const locale = LOCALES.includes(segments[0] ?? "") ? segments.shift() : "ka";
-  return `${locale}:${segments[0] ?? ""}:${segments.length > 1 ? "leaf" : "hub"}`;
+  const kind =
+    segments[1] === "page" ? "page" : segments.length > 1 ? "leaf" : "hub";
+  return `${locale}:${segments[0] ?? ""}:${kind}`;
 }
 
 function sample(urls: string[]): string[] {
@@ -85,6 +88,7 @@ async function check(url: string, agent: string): Promise<Check> {
   return {
     agent,
     cache: response.headers.get("x-vinext-cache") ?? "NONE",
+    cacheControl: response.headers.get("cache-control") ?? "",
     problems: response.status === 200 ? metadataPlacementProblems(html) : [],
     status: response.status,
     url,
@@ -98,6 +102,16 @@ async function checkUrl(url: string, index: number): Promise<Check[]> {
   await setTimeout(CACHE_ADMISSION_MS);
   const rest = await Promise.all(agents.map((agent) => check(url, agent)));
   return [first, ...rest];
+}
+
+function uncacheable(checks: Check[]): string[] {
+  const urls = new Set<string>();
+  for (const item of checks) {
+    if (item.status === 200 && /\bno-cache\b/.test(item.cacheControl)) {
+      urls.add(item.url);
+    }
+  }
+  return [...urls];
 }
 
 function report(checks: Check[]): number {
@@ -127,7 +141,10 @@ function report(checks: Check[]): number {
     );
   }
   console.log(`${failed.length} responses with metadata outside <head>`);
-  return failed.length;
+  const dynamic = uncacheable(checks);
+  for (const url of dynamic.slice(0, 50)) console.log(`  uncacheable ${url}`);
+  console.log(`${dynamic.length} sitemap URLs answered as uncacheable`);
+  return failed.length + dynamic.length;
 }
 
 const urls = await sitemapUrls();

@@ -4,6 +4,7 @@ import type { NewsArticle } from "@/data/newsTypes";
 
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { newsReferenceIssues } from "@/lib/newsRules";
+import { toSiteDateTime } from "@/lib/siteTime";
 
 import type { ApiDatabase } from "../db/database";
 import type { ApiEnv } from "../env";
@@ -27,6 +28,7 @@ import {
   revalidateNewsPages,
   revalidateNewsSection,
 } from "../lib/revalidateSite";
+import { stableJson } from "../lib/stableJson";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { requireAdmin } from "../middleware/requireAdmin";
@@ -126,6 +128,7 @@ export const adminNews = new Hono<ApiEnv>()
       }
       const article = checked.data as NewsArticle;
       await checkReferences(c.env.DB, article, "");
+      const changed = stableJson(found.article.copy) !== stableJson(copy);
       let version: number;
       try {
         version = await writeNewsCopy(
@@ -133,6 +136,7 @@ export const adminNews = new Hono<ApiEnv>()
           { article, position: found.position },
           expectedVersion,
           { actor: c.var.user!.name, source: "admin", summary },
+          changed ? toSiteDateTime(new Date()) : null,
         );
       } catch (error) {
         const now = await readNewsState(c.env.DB, slug);

@@ -49,13 +49,6 @@ export async function getRegionSummary(
   const nameIn = localizeRegionText(region.nameIn, locale);
 
   const landscape = [
-    t("habitats", {
-      biome: localizeRegionText(content.biome, locale),
-      habitats: content.habitats
-        .map((habitat) => withoutFinalStop(localizeRegionText(habitat, locale)))
-        .join("; "),
-      nameIn,
-    }),
     t("counts", {
       count: facts.total,
       groups: formatList(
@@ -65,6 +58,11 @@ export async function getRegionSummary(
       nameIn,
     }),
     t("herps", { amphibians: facts.amphibians, reptiles: facts.reptiles }),
+    t("habitats", {
+      habitats: content.habitats
+        .map((habitat) => withoutFinalStop(localizeRegionText(habitat, locale)))
+        .join("; "),
+    }),
   ];
 
   const risk =

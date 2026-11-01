@@ -9,12 +9,8 @@ import type { NewsTopicFacets } from "@/lib/newsBrowserQuery";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
 import { type AppLocale, routing } from "@/i18n/routing";
-import {
-  newsIndexDateFields,
-  newsIndexHref,
-  newsIndexUrl,
-  newsOgImageUrl,
-} from "@/lib/news";
+import { newsIndexDateFields, newsIndexUrl, newsOgImageUrl } from "@/lib/news";
+import { newsIndexHref } from "@/lib/newsHrefs";
 import { getNewsListPage, newsListingJsonLd } from "@/lib/newsPages";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { absoluteUrl, localePath } from "@/lib/site";

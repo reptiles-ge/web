@@ -14,7 +14,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
+import { ClusterFaqList } from "@/components/ClusterFaqSection";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
@@ -131,7 +131,6 @@ function RegionFaqSection({
   regionId: string;
 }) {
   const t = useTranslations("regions");
-  const [open, setOpen] = useState<null | number>(0);
 
   return (
     <section className="bg-surface py-24 lg:py-32">
@@ -152,57 +151,17 @@ function RegionFaqSection({
               {t("faqIntro", { name, nameIn })}
             </p>
           </div>
-          <div>
-            {items.map((item, index) => {
-              const isOpen = open === index;
-              return (
-                <div key={item.question}>
-                  <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => {
-                        const next = isOpen ? null : index;
-                        setOpen(next);
-                        if (next !== null) {
-                          trackEvent("faq_open", {
-                            entity_id: regionId,
-                            faq_index: next,
-                            page_type: "region",
-                          });
-                        }
-                      }}
-                      type="button"
-                    >
-                      <span
-                        className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
-                        data-content-field={
-                          editable ? `faq.${index}.question` : undefined
-                        }
-                        data-content-id={editable ? regionId : undefined}
-                        data-content-kind={editable ? "region" : undefined}
-                      >
-                        {item.question}
-                      </span>
-                      <FaqToggleIcon isOpen={isOpen} />
-                    </button>
-                    <FaqAnswerPanel isOpen={isOpen}>
-                      <p
-                        className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
-                        data-content-field={
-                          editable ? `faq.${index}.answer` : undefined
-                        }
-                        data-content-id={editable ? regionId : undefined}
-                        data-content-kind={editable ? "region" : undefined}
-                      >
-                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                      </p>
-                    </FaqAnswerPanel>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <ClusterFaqList
+            editable={editable ? { id: regionId, kind: "region" } : undefined}
+            items={items}
+            onOpen={(index) =>
+              trackEvent("faq_open", {
+                entity_id: regionId,
+                faq_index: index,
+                page_type: "region",
+              })
+            }
+          />
         </div>
       </div>
     </section>
@@ -312,7 +271,7 @@ function RegionProfileHero({
         sizes={REGION_HERO_SIZES}
         src={heroSrc}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-black/92" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -334,7 +293,7 @@ function RegionProfileHero({
           <span aria-hidden>/</span>
           <span className="text-white/70">{name}</span>
         </nav>
-        <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
           {t("regionEyebrow")}
         </p>
         <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
@@ -342,7 +301,7 @@ function RegionProfileHero({
         </h1>
         {overview ? (
           <p
-            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]"
+            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:mt-5 sm:text-[16px]"
             data-content-field={editable ? "overview" : undefined}
             data-content-id={editable ? regionId : undefined}
             data-content-kind={editable ? "region" : undefined}

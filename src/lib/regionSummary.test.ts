@@ -3,7 +3,8 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { regions } from "@/data/regions";
+import { getRegionContent } from "@/data/regionContent";
+import { localizeRegionText, regions } from "@/data/regions";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { getRegionSummary, regionSummaryFacts } from "@/lib/regionSummary";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
@@ -73,16 +74,30 @@ describe("region summary copy", () => {
       LOCALES.map((locale) => [region.id, locale, region] as const),
     ),
   )(
-    "%s %s is 120–170 words built from the region data",
+    "%s %s is 100–170 words built from the region data",
     async (_, locale, region) => {
       const summary = await getRegionSummary(region, locale);
       const text = summary.join(" ");
       const words = wordCount(summary);
-      expect(words).toBeGreaterThanOrEqual(120);
+      expect(words).toBeGreaterThanOrEqual(100);
       expect(words).toBeLessThanOrEqual(170);
       expect(text).not.toMatch(/\{|\}/);
       if (locale !== "en") expect(text).not.toMatch(/\band\b/);
       expect(text).toContain(String(region.speciesIds.length));
+      const t = createTranslator({
+        locale,
+        messages: MESSAGES[locale] as typeof en,
+        namespace: "regions.summary",
+      });
+      const facts = regionSummaryFacts(region, catalog);
+      expect(text).toContain(
+        t("herps", { amphibians: facts.amphibians, reptiles: facts.reptiles }),
+      );
+      for (const habitat of getRegionContent(region.id).habitats) {
+        expect(text).toContain(
+          localizeRegionText(habitat, locale).replace(/\.$/, ""),
+        );
+      }
       for (const item of regionSummaryFacts(region, catalog).venomous) {
         expect(text).toContain(item.scientificName);
       }

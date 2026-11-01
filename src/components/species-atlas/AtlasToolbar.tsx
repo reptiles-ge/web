@@ -258,39 +258,55 @@ function AtlasSearchField({
   query: string;
 }) {
   const t = useTranslations("speciesAtlas");
+  const tSearch = useTranslations("search");
   const searchId = useId();
 
   return (
-    <search className="flex h-[50px] min-w-0 flex-1 items-center gap-2.5 rounded-full bg-card pr-1.5 pl-4 shadow-[0_1px_2px_rgba(14,20,17,0.05)] lg:h-[52px] lg:gap-3 lg:bg-background lg:pr-2 lg:pl-[18px] lg:shadow-none">
-      <Search
-        aria-hidden="true"
-        className="size-[17px] shrink-0 text-muted-foreground lg:size-[18px]"
-      />
-      <label className="sr-only" htmlFor={searchId}>
-        {t("searchPlaceholder")}
-      </label>
-      <input
-        autoComplete="off"
-        className="h-full min-w-0 flex-1 appearance-none bg-transparent text-[16px] font-medium text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
-        enterKeyHint="search"
-        id={searchId}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder={t("searchPlaceholder")}
-        type="search"
-        value={query}
-      />
-      {query ? (
-        <button
-          aria-label={t("clearSearch")}
-          className="tap-target flex size-[38px] shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground lg:size-9 lg:bg-card"
-          onClick={() => onChange("")}
-          type="button"
-        >
-          <X aria-hidden="true" className="size-3.5" />
-        </button>
-      ) : null}
-    </search>
+    <form
+      className="flex min-w-0 flex-1"
+      onSubmit={(event) => {
+        if (!isAgentSubmit(event.nativeEvent)) event.preventDefault();
+      }}
+      tooldescription={tSearch("toolDescription")}
+      toolname="search_species"
+    >
+      <search className="flex h-[50px] min-w-0 flex-1 items-center gap-2.5 rounded-full bg-card pr-1.5 pl-4 shadow-[0_1px_2px_rgba(14,20,17,0.05)] lg:h-[52px] lg:gap-3 lg:bg-background lg:pr-2 lg:pl-[18px] lg:shadow-none">
+        <Search
+          aria-hidden="true"
+          className="size-[17px] shrink-0 text-muted-foreground lg:size-[18px]"
+        />
+        <label className="sr-only" htmlFor={searchId}>
+          {t("searchPlaceholder")}
+        </label>
+        <input
+          autoComplete="off"
+          className="h-full min-w-0 flex-1 appearance-none bg-transparent text-[16px] font-medium text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
+          enterKeyHint="search"
+          id={searchId}
+          name="q"
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={t("searchPlaceholder")}
+          toolparamdescription={tSearch("toolParamDescription")}
+          type="search"
+          value={query}
+        />
+        {query ? (
+          <button
+            aria-label={t("clearSearch")}
+            className="tap-target flex size-[38px] shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground lg:size-9 lg:bg-card"
+            onClick={() => onChange("")}
+            type="button"
+          >
+            <X aria-hidden="true" className="size-3.5" />
+          </button>
+        ) : null}
+      </search>
+    </form>
   );
+}
+
+function isAgentSubmit(event: Event) {
+  return "agentInvoked" in event && event.agentInvoked === true;
 }
 
 function SortDropdown({

@@ -4,12 +4,15 @@ import { apiDocsResponse } from "@/lib/apiDocsProxy";
 import { maintenanceResponse } from "@/lib/maintenance";
 import {
   htmlRequest,
+  markdownPathRequest,
   markdownResponse,
   prefersMarkdown,
-  withAcceptVary,
+  withMarkdownAlternate,
+  withMarkdownLocation,
 } from "@/lib/markdownNegotiation";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { addScriptNonce } from "@/lib/scriptNonce";
+import { trailingSlashResponse } from "@/lib/trailingSlash";
 
 export * from "vinext/server/fetch-handler";
 
@@ -24,12 +27,24 @@ const worker: FetchHandler = {
   fetch: async (request, env, ctx) => {
     const render = async (page: Request) =>
       withResponseCacheControl(page, await base.fetch(page, env, ctx));
+    const markdownPath = markdownPathRequest(request);
+    const markdownPage =
+      markdownPath ?? (prefersMarkdown(request) ? request : undefined);
     return (
       maintenanceResponse(request, env) ??
       (await apiDocsResponse(request, env)) ??
-      (prefersMarkdown(request)
-        ? markdownResponse(request, await render(htmlRequest(request)))
-        : withAcceptVary(addScriptNonce(request, await render(request))))
+      trailingSlashResponse(request) ??
+      (markdownPage
+        ? markdownResponse(
+            markdownPage,
+            await render(htmlRequest(markdownPage)),
+          ).then((response) =>
+            markdownPath ? withMarkdownLocation(request, response) : response,
+          )
+        : withMarkdownAlternate(
+            request,
+            addScriptNonce(request, await render(request)),
+          ))
     );
   },
 };

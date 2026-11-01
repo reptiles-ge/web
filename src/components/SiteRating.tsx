@@ -23,8 +23,11 @@ import {
 
 const STORAGE_KEY = "reptiles-rating";
 const SECONDS_KEY = "reptiles-rating-seconds";
+const PAGES_KEY = "reptiles-rating-pages";
 const RATED = "rated";
 const SHOW_AFTER_SECONDS = 60;
+const SHOW_AFTER_PAGES = 2;
+const QUIZ_PATH = /^(?:\/(?:en|ru|tr))?\/quiz(?:\/|$)/;
 const DISMISS_MS = 30 * 24 * 60 * 60 * 1000;
 const THANKS_MS = 3400;
 const STARS = [1, 2, 3, 4, 5] as const;
@@ -63,28 +66,38 @@ export function SiteRating() {
   const pathname = usePathname();
   const seconds = useRef(0);
   const pages = useRef(0);
+  const onQuiz = QUIZ_PATH.test(pathname);
+  const blocked = useRef(onQuiz);
   const lastPathname = useRef<null | string>(null);
   const feedbackField = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
+    blocked.current = onQuiz;
     if (lastPathname.current === pathname) return;
     lastPathname.current = pathname;
-    pages.current += 1;
-  }, [pathname]);
+    pages.current = readCount(PAGES_KEY) + 1;
+    storeCount(PAGES_KEY, pages.current);
+  }, [onQuiz, pathname]);
 
   useEffect(() => {
     if (!canAsk()) return;
-    seconds.current = readSeconds();
+    seconds.current = readCount(SECONDS_KEY);
     let asked = false;
     const timer = window.setInterval(() => {
       if (document.visibilityState !== "visible") return;
       seconds.current += 1;
-      storeSeconds(seconds.current);
+      storeCount(SECONDS_KEY, seconds.current);
       if (asked) {
         if (!canAsk()) window.clearInterval(timer);
         return;
       }
-      if (seconds.current < SHOW_AFTER_SECONDS) return;
+      if (
+        seconds.current < SHOW_AFTER_SECONDS ||
+        pages.current < SHOW_AFTER_PAGES ||
+        blocked.current
+      ) {
+        return;
+      }
       asked = true;
       if (!canAsk()) {
         window.clearInterval(timer);
@@ -106,7 +119,7 @@ export function SiteRating() {
     return () => window.clearTimeout(timer);
   }, [phase]);
 
-  if (phase === "hidden") return null;
+  if (phase === "hidden" || onQuiz) return null;
 
   const active = hovered || selected;
 
@@ -154,12 +167,12 @@ export function SiteRating() {
   return (
     <section
       aria-label={t("title")}
-      className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] text-foreground motion-reduce:animate-none sm:left-auto sm:w-64"
+      className="fixed right-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-auto z-40 w-[min(15rem,calc(100vw-1.5rem))] animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] text-foreground motion-reduce:animate-none sm:right-4 sm:bottom-[max(1rem,env(safe-area-inset-bottom))] sm:w-64"
     >
       <button
         aria-hidden="true"
         className={cn(
-          "absolute right-7 bottom-full -mb-px hidden cursor-pointer motion-reduce:animate-none min-[360px]:block",
+          "absolute right-7 bottom-full -mb-px hidden cursor-pointer motion-reduce:animate-none sm:block",
           ducks
             ? "animate-[rating-duck_1200ms_cubic-bezier(0.45,0,0.3,1)_both]"
             : "animate-[rating-peek_560ms_cubic-bezier(0.34,1.56,0.64,1)_420ms_both]",
@@ -174,10 +187,10 @@ export function SiteRating() {
           mood={active}
         />
       </button>
-      <div className="relative rounded-card border border-border bg-card p-3 shadow-[0_18px_44px_-26px_rgba(14,20,17,0.5)] min-[360px]:p-4">
+      <div className="relative rounded-card border border-border bg-card px-3 py-2.5 shadow-[0_18px_44px_-26px_rgba(14,20,17,0.5)] sm:p-4">
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute -top-1.5 right-7 h-2.5 w-16 animate-[rating-pop_260ms_ease-out_860ms_both] motion-reduce:animate-none"
+          className="pointer-events-none absolute -top-1.5 right-7 hidden h-2.5 w-16 animate-[rating-pop_260ms_ease-out_860ms_both] motion-reduce:animate-none sm:block"
           viewBox="0 0 64 10"
         >
           {PAW_TOES.map((cx) => (
@@ -224,12 +237,12 @@ export function SiteRating() {
         ) : (
           <>
             <div className="flex items-start justify-between gap-2">
-              <p className="text-sm leading-snug font-bold">
+              <p className="text-[13px] leading-snug font-bold sm:text-sm">
                 <BrandText text={t("title")} />
               </p>
               <button
                 aria-label={t("close")}
-                className="-mt-1 -mr-1 rounded-full p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="-my-3 -mr-3 grid size-11 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 onClick={dismiss}
                 type="button"
               >
@@ -237,7 +250,7 @@ export function SiteRating() {
               </button>
             </div>
             <div
-              className="mt-2 -ml-1 flex gap-1 min-[360px]:mt-3"
+              className="mt-1 -ml-1 flex gap-1 sm:mt-3"
               onMouseLeave={() => setHovered(0)}
             >
               {STARS.map((star) => (
@@ -254,7 +267,7 @@ export function SiteRating() {
                   <Star
                     aria-hidden="true"
                     className={cn(
-                      "size-5 transition-colors duration-150 min-[360px]:size-6",
+                      "size-6 transition-colors duration-150",
                       star <= active
                         ? "fill-gold text-gold"
                         : "fill-transparent text-muted-foreground",
@@ -266,7 +279,7 @@ export function SiteRating() {
             </div>
             <p
               className={cn(
-                "mt-1.5 hidden text-xs transition-colors duration-150 min-[360px]:block",
+                "mt-1.5 hidden text-xs transition-colors duration-150 sm:block",
                 active ? "text-foreground" : "text-muted-foreground",
               )}
             >
@@ -329,9 +342,9 @@ function externalReferrer() {
   }
 }
 
-function readSeconds() {
+function readCount(key: string) {
   try {
-    const stored = Number(window.sessionStorage.getItem(SECONDS_KEY));
+    const stored = Number(window.sessionStorage.getItem(key));
     return Number.isFinite(stored) && stored > 0 ? stored : 0;
   } catch {
     return 0;
@@ -346,9 +359,9 @@ function store(value: string) {
   }
 }
 
-function storeSeconds(seconds: number) {
+function storeCount(key: string, value: number) {
   try {
-    window.sessionStorage.setItem(SECONDS_KEY, String(seconds));
+    window.sessionStorage.setItem(key, String(value));
   } catch {
     return;
   }

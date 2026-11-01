@@ -542,6 +542,19 @@ describe("admin news text edits", () => {
     expect((await read(article.id, {})).response.status).toBe(401);
   });
 
+  it("keeps the update date when the text is saved unchanged", async () => {
+    const before = (await read(article.id)).body.data.article;
+    const { response } = await edit(article.id, {
+      copy: structuredClone(article.copy),
+      expectedVersion: 1,
+      summary: "No change",
+    });
+    expect(response.status).toBe(200);
+    expect((await read(article.id)).body.data.article.updatedAt).toBe(
+      before.updatedAt,
+    );
+  });
+
   it("saves new text as a revision without touching photos or the site", async () => {
     const before = (await read(article.id)).body.data.article;
     const copy = structuredClone(article.copy);
@@ -557,7 +570,14 @@ describe("admin news text edits", () => {
     expect(body.data).toEqual({ id: article.id, version: 2 });
     const after = (await read(article.id)).body;
     expect(after.data.version).toBe(2);
-    expect(after.data.article).toEqual({ ...before, copy });
+    expect(after.data.article.updatedAt).toMatch(
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+04:00$/,
+    );
+    expect(after.data.article).toEqual({
+      ...before,
+      copy,
+      updatedAt: after.data.article.updatedAt,
+    });
     expect(
       sqlite
         .prepare(
@@ -627,6 +647,26 @@ describe("admin news text edits", () => {
         })
       ).response.status,
     ).toBe(404);
+    expect((await read(article.id)).body.data.version).toBe(1);
+  });
+
+  it("refuses a meta title or description outside the length limits", async () => {
+    const copy = structuredClone(article.copy);
+    copy.en.metaTitle = "t".repeat(61);
+    copy.en.metaDescription = "d".repeat(161);
+    const { body, response } = await edit(article.id, {
+      copy,
+      expectedVersion: 1,
+      summary: "x",
+    });
+    expect(response.status).toBe(400);
+    expect(body.error.code).toBe("invalid_request");
+    expect(JSON.stringify(body.error)).toContain(
+      "metaTitle has 61 characters, at most 60 allowed",
+    );
+    expect(JSON.stringify(body.error)).toContain(
+      "metaDescription has 161 characters, 70–160 allowed",
+    );
     expect((await read(article.id)).body.data.version).toBe(1);
   });
 

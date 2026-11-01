@@ -46,6 +46,7 @@ export async function AuthorPage({
   const bio = author.bio;
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const groups = getCreditAuthorGroupStats(photos);
+  const field = getCreditAuthorFieldSummary(photos);
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,7 +81,7 @@ export async function AuthorPage({
               socials={authorSocials(author, t)}
             />
             <AuthorSummary
-              field={getCreditAuthorFieldSummary(photos)}
+              field={field}
               groups={groups}
               locale={locale}
               photos={photos.length}
@@ -99,6 +100,7 @@ export async function AuthorPage({
       ) : null}
 
       <AuthorSpeciesGroups
+        field={field}
         groups={groups}
         locale={locale}
         species={speciesIds.length}

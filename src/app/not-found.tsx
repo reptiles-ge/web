@@ -45,7 +45,7 @@ export default async function RootNotFound() {
           <LogoPreload />
           <Navbar {...getNavbarData(stats)} />
           <main id="main" tabIndex={-1}>
-            <NotFoundShell locale={locale} />
+            <NotFoundShell />
           </main>
         </LocaleSwitchProvider>
       </IntlProvider>

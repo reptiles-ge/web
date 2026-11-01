@@ -31,6 +31,8 @@ export async function FinalCTA({ locale }: { locale: AppLocale }) {
             action={getPathname({ href: "/species", locale })}
             className="flex h-14 items-center gap-2.5 rounded-full bg-white py-1.5 pr-1.5 pl-[18px] text-[#1a211c] shadow-[0_18px_44px_rgba(0,0,0,0.45)] transition-shadow focus-within:ring-4 focus-within:ring-[#6fad88]/60 lg:h-16 lg:gap-3 lg:pr-2 lg:pl-[22px]"
             role="search"
+            tooldescription={tSearch("toolDescription")}
+            toolname="search_species"
           >
             <Search
               aria-hidden="true"
@@ -44,6 +46,7 @@ export async function FinalCTA({ locale }: { locale: AppLocale }) {
               id="cta-search"
               name="q"
               placeholder={tSearch("placeholder")}
+              toolparamdescription={tSearch("toolParamDescription")}
               type="search"
             />
             <button
