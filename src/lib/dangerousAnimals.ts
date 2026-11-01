@@ -11,7 +11,7 @@ export const BITE_GUIDES = [
   { href: "/insects/tkipis-nakbeni", key: "tickBite" },
 ] as const;
 
-export type DangerousAnimalGuide = (typeof BITE_GUIDES)[number];
+type DangerousAnimalGuide = (typeof BITE_GUIDES)[number];
 
 const [SNAKE_BITE, GYURZA_BITE, SPIDER_BITE, SCORPION_STING] = BITE_GUIDES;
 
