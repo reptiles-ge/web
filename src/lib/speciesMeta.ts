@@ -37,55 +37,60 @@ export function speciesFallbackDescriptionKey(
   return "descriptionReptile";
 }
 
-function speciesMetaTitle(
-  commonName: string,
-  scientificName: string,
-  intent: string,
-) {
-  return `${speciesNameWithScientific(commonName, scientificName)} | ${intent}`;
-}
-
 export const TARGET_META_TITLE_LENGTH = 60;
 const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
 
-export function speciesTitleIntentKey(
+const SPECIES_TITLE_INTENT_KEYS = {
+  amphibian: { intent: "titleAmphibian", question: "titleAmphibianQuestion" },
+  bird: { intent: "titleBird", question: "titleBirdQuestion" },
+  insect: { intent: "titleInsect", question: "titleInsectQuestion" },
+  lizard: { intent: "titleLizard", question: "titleLizardQuestion" },
+  mammal: { intent: "titleMammal", question: "titleMammalQuestion" },
+  scorpion: { intent: "titleScorpion", question: "titleScorpionQuestion" },
+  snake: { intent: "titleSnake", question: "titleSnakeQuestion" },
+  snakeVenomous: {
+    intent: "titleSnakeVenomous",
+    question: "titleSnakeVenomousQuestion",
+  },
+  spider: { intent: "titleSpider", question: "titleSpiderQuestion" },
+  turtle: { intent: "titleTurtle", question: "titleTurtleQuestion" },
+} as const;
+
+export type SpeciesTitleIntentKeys =
+  (typeof SPECIES_TITLE_INTENT_KEYS)[keyof typeof SPECIES_TITLE_INTENT_KEYS];
+
+export type SpeciesTitleIntents = {
+  intent: string;
+  question: string;
+  short: string;
+};
+
+export function speciesTitleIntentKeys(
   group: AnimalGroup,
   danger?: DangerLevel,
-):
-  | "titleAmphibian"
-  | "titleBird"
-  | "titleInsect"
-  | "titleLizard"
-  | "titleMammal"
-  | "titleScorpion"
-  | "titleSnake"
-  | "titleSnakeVenomous"
-  | "titleSpider"
-  | "titleTurtle" {
-  if (group === "snake") {
-    return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
+): SpeciesTitleIntentKeys {
+  if (group === "snake" && isVenomousDanger(danger)) {
+    return SPECIES_TITLE_INTENT_KEYS.snakeVenomous;
   }
-  if (group === "lizard") return "titleLizard";
-  if (group === "turtle") return "titleTurtle";
-  if (group === "bird") return "titleBird";
-  if (group === "insect") return "titleInsect";
-  if (group === "mammal") return "titleMammal";
-  if (group === "scorpion") return "titleScorpion";
-  if (group === "spider") return "titleSpider";
-  return "titleAmphibian";
+  return SPECIES_TITLE_INTENT_KEYS[group];
 }
 
 function fittedSpeciesMetaTitle(
+  locale: AppLocale,
   commonName: string,
   scientificName: string,
-  intent: string,
-  shortIntent: string,
+  intents: SpeciesTitleIntents,
 ) {
-  const title = speciesMetaTitle(commonName, scientificName, intent);
-  if (title.length <= TARGET_META_TITLE_LENGTH) return title;
-  const name = `${speciesNameWithScientific(commonName, scientificName)}`;
-  const shortTitle = `${name} ${shortIntent}`;
-  return shortTitle.length <= TARGET_META_TITLE_LENGTH ? shortTitle : name;
+  const name = speciesNameWithScientific(commonName, scientificName);
+  const names = locale === "en" ? [name] : [name, commonName.trim() || name];
+  const candidates = [
+    ...names.map((label) => `${label} — ${intents.intent}`),
+    ...names.map((label) => `${label} — ${intents.question}`),
+    `${name} ${intents.short}`,
+  ];
+  return (
+    candidates.find((title) => title.length <= TARGET_META_TITLE_LENGTH) ?? name
+  );
 }
 
 export const SPECIES_META_TITLE_OVERRIDE: Partial<
@@ -144,9 +149,18 @@ export const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
   },
+  "coronella-austriaca": {
+    ka: "სპილენძა (Coronella austriaca) საქართველოში",
+  },
   "dolichophis-schmidti": {
     en: "Red-bellied racer (Dolichophis schmidti): non-venomous snake",
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი",
+  },
+  "elaphe-urartica": {
+    ka: "ურარტუს მცურავი (Elaphe urartica) საქართველოში",
+  },
+  "emys-orbicularis": {
+    ka: "ჭაობის კუ (Emys orbicularis) საქართველოში",
   },
   "erinaceus-concolor": {
     ka: "ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობა",
@@ -162,6 +176,7 @@ export const SPECIES_META_TITLE_OVERRIDE: Partial<
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia",
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში",
+    ru: "Мингрельский скорпион (Euscorpius mingrelicus) в Грузии",
   },
   "falco-tinnunculus": {
     en: "Common kestrel (Falco tinnunculus) in Georgia | ID",
@@ -172,6 +187,9 @@ export const SPECIES_META_TITLE_OVERRIDE: Partial<
   "halyomorpha-halys": {
     en: "Brown marmorated stink bug (Halyomorpha halys) | Georgia",
     ka: "აზიური ფაროსანა (Halyomorpha halys) | მავნებელი საქართველოში",
+  },
+  "hyla-orientalis": {
+    ka: "აღმოსავლური ვასაკა (Hyla orientalis) საქართველოში",
   },
   "latrodectus-tredecimguttatus": {
     en: "Mediterranean black widow (Latrodectus tredecimguttatus)",
@@ -253,6 +271,8 @@ export const SPECIES_META_TITLE_OVERRIDE: Partial<
   "pseudopus-apodus": {
     en: "European glass lizard (Pseudopus apodus) | Legless lizard",
     ka: "გველხოკერა (Pseudopus apodus) — უფეხო ხვლიკი, არა გველი",
+    ru: "Желтопузик — ядовит или нет? Фото, где встречается в Грузии",
+    tr: "Yılan kertenkele (Pseudopus apodus) — zehirli mi?",
   },
   "steatoda-paykulliana": {
     en: "False black widow (Steatoda paykulliana) | Cobweb spider",
@@ -268,6 +288,9 @@ export const SPECIES_META_TITLE_OVERRIDE: Partial<
   "vipera-kaznakovi": {
     en: "Caucasus viper (Vipera kaznakovi) | Venomous snake",
     ka: "კავკასიური გველგესლა (Vipera kaznakovi) — შხამიანი გველი",
+  },
+  "vipera-renardi": {
+    ka: "ველის გველგესლა (Vipera renardi) | შხამი, არეალი და ამოცნობა",
   },
   "vipera-transcaucasiana": {
     en: "Nose-horned viper (Vipera ammodytes) | Venomous snake",
@@ -481,12 +504,11 @@ export function speciesPageMetaTitle(
   locale: AppLocale,
   commonName: string,
   scientificName: string,
-  intent: string,
-  shortIntent: string,
+  intents: SpeciesTitleIntents,
 ) {
   return (
     SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale] ??
-    fittedSpeciesMetaTitle(commonName, scientificName, intent, shortIntent)
+    fittedSpeciesMetaTitle(locale, commonName, scientificName, intents)
   );
 }
 

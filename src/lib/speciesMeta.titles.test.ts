@@ -9,32 +9,39 @@ import {
   speciesPageMetaTitle,
   speciesPhotoAlt,
   speciesSummaryDescription,
-  speciesTitleIntentKey,
+  speciesTitleIntentKeys,
 } from "@/lib/speciesMeta";
 
 import { contributorDirectoryFixture } from "../../tests/fixtures/speciesCatalog";
 
-describe("speciesTitleIntentKey", () => {
+describe("speciesTitleIntentKeys", () => {
   it.each([
-    ["lizard", undefined, "titleLizard"],
-    ["turtle", undefined, "titleTurtle"],
-    ["bird", undefined, "titleBird"],
-    ["insect", undefined, "titleInsect"],
-    ["mammal", undefined, "titleMammal"],
-    ["scorpion", undefined, "titleScorpion"],
-    ["spider", undefined, "titleSpider"],
-    ["amphibian", undefined, "titleAmphibian"],
-  ] as const)("maps %s to %s", (group, danger, key) => {
-    expect(speciesTitleIntentKey(group, danger)).toBe(key);
+    ["lizard", "titleLizard"],
+    ["turtle", "titleTurtle"],
+    ["bird", "titleBird"],
+    ["insect", "titleInsect"],
+    ["mammal", "titleMammal"],
+    ["scorpion", "titleScorpion"],
+    ["spider", "titleSpider"],
+    ["amphibian", "titleAmphibian"],
+  ] as const)("maps %s to %s and its question", (group, key) => {
+    expect(speciesTitleIntentKeys(group)).toEqual({
+      intent: key,
+      question: `${key}Question`,
+    });
   });
 
   it("separates venomous from harmless snakes", () => {
-    expect(speciesTitleIntentKey("snake", "High")).toBe("titleSnakeVenomous");
-    expect(speciesTitleIntentKey("snake", "Moderate")).toBe(
+    expect(speciesTitleIntentKeys("snake", "High").intent).toBe(
       "titleSnakeVenomous",
     );
-    expect(speciesTitleIntentKey("snake", "Harmless")).toBe("titleSnake");
-    expect(speciesTitleIntentKey("snake")).toBe("titleSnake");
+    expect(speciesTitleIntentKeys("snake", "Moderate").question).toBe(
+      "titleSnakeVenomousQuestion",
+    );
+    expect(speciesTitleIntentKeys("snake", "Harmless").intent).toBe(
+      "titleSnake",
+    );
+    expect(speciesTitleIntentKeys("snake").question).toBe("titleSnakeQuestion");
   });
 });
 
@@ -63,67 +70,119 @@ describe("speciesFallbackDescriptionKey", () => {
 });
 
 describe("speciesPageMetaTitle", () => {
-  it("joins common name, scientific name and intent", () => {
+  const intents = {
+    intent: "venomous or not? Photos, range",
+    question: "venomous or not?",
+    short: "in Georgia",
+  };
+
+  it("joins both names and the full intent when they fit", () => {
+    expect(
+      speciesPageMetaTitle("x", "en", "Grass snake", "Natrix natrix", intents),
+    ).toBe("Grass snake (Natrix natrix) — venomous or not? Photos, range");
+  });
+
+  it("drops the scientific name before the details outside English", () => {
+    expect(
+      speciesPageMetaTitle(
+        "x",
+        "ru",
+        "Обыкновенная медянка",
+        "Coronella austriaca",
+        {
+          intent: "ядовитая змея или нет? Ареал в Грузии",
+          question: "ядовитая змея или нет?",
+          short: "в Грузии",
+        },
+      ),
+    ).toBe("Обыкновенная медянка — ядовитая змея или нет? Ареал в Грузии");
+  });
+
+  it("keeps the scientific name in English and shortens the intent", () => {
     expect(
       speciesPageMetaTitle(
         "x",
         "en",
-        "Grass snake",
-        "Natrix natrix",
-        "ID",
-        "in Georgia",
+        "Smooth snake",
+        "Coronella austriaca",
+        intents,
       ),
-    ).toBe("Grass snake (Natrix natrix) | ID");
-  });
-
-  it("swaps a long intent for the short one in every locale", () => {
-    const intent = "Range and identification in Georgia";
-    for (const locale of ["ka", "en"] as const) {
-      expect(
-        speciesPageMetaTitle(
-          "x",
-          locale,
-          "Grass snake",
-          "Natrix natrix",
-          intent,
-          "in Georgia",
-        ),
-      ).toBe("Grass snake (Natrix natrix) in Georgia");
-    }
-  });
-
-  it("drops the intent when even the short title is too long", () => {
-    const common = "ა".repeat(40);
-    const scientific = "Longus nameus speciesus";
+    ).toBe("Smooth snake (Coronella austriaca) — venomous or not?");
     expect(
       speciesPageMetaTitle(
         "x",
-        "ka",
-        common,
-        scientific,
-        "ამოცნობა და გავრცელება საქართველოში",
-        "საქართველოში",
+        "ru",
+        "Smooth snake",
+        "Coronella austriaca",
+        intents,
       ),
+    ).toBe("Smooth snake — venomous or not? Photos, range");
+  });
+
+  it("falls back to the place when no question fits", () => {
+    expect(
+      speciesPageMetaTitle(
+        "x",
+        "en",
+        "Transcaucasian Ratsnake",
+        "Zamenis hohenackeri",
+        intents,
+      ),
+    ).toBe("Transcaucasian Ratsnake (Zamenis hohenackeri) in Georgia");
+  });
+
+  it("asks the question with the common name alone when both names are too long", () => {
+    expect(
+      speciesPageMetaTitle(
+        "x",
+        "tr",
+        "Kırmızı karınlı kırbaç yılanı",
+        "Dolichophis schmidti",
+        {
+          intent: "zehirli mi? Fotoğraf, Gürcistan’da yayılış",
+          question: "zehirli mi?",
+          short: "Gürcistan’da",
+        },
+      ),
+    ).toBe("Kırmızı karınlı kırbaç yılanı — zehirli mi?");
+  });
+
+  it("uses the scientific name when there is no common name", () => {
+    expect(
+      speciesPageMetaTitle("x", "ru", " ", "Cheiracanthium punctorium", {
+        intent: "опасен ли укус? Фото, где встречается в Грузии",
+        question: "опасен ли укус?",
+        short: "в Грузии",
+      }),
+    ).toBe("Cheiracanthium punctorium — опасен ли укус?");
+  });
+
+  it("drops the intent when even the short title is too long", () => {
+    const common = "ა".repeat(45);
+    const scientific = "Longus nameus speciesus";
+    expect(
+      speciesPageMetaTitle("x", "ka", common, scientific, {
+        intent: "შხამიანია თუ არა? ფოტო, გავრცელება",
+        question: "შხამიანია თუ არა?",
+        short: "საქართველოში",
+      }),
     ).toBe(`${common} (${scientific})`);
   });
 
   it("uses a per-species override when one exists", () => {
     expect(
-      speciesPageMetaTitle("alectoris-chukar", "en", "a", "b", "c", "d"),
+      speciesPageMetaTitle("alectoris-chukar", "en", "a", "b", intents),
     ).toBe("Chukar Partridge (Alectoris chukar) in Georgia | Range, ID");
   });
 
   it("falls back to the generated title for a locale without an override", () => {
     expect(
-      speciesPageMetaTitle(
-        "araneus-diadematus",
-        "ru",
-        "Паук",
-        "Araneus",
-        "ID",
-        "в Грузии",
-      ),
-    ).toBe("Паук (Araneus) | ID");
+      speciesPageMetaTitle("araneus-diadematus", "ru", "Паук", "Araneus", {
+        intent: "опасен ли укус? Фото, где встречается в Грузии",
+        question: "опасен ли укус?",
+        short: "в Грузии",
+      }),
+    ).toBe("Паук — опасен ли укус? Фото, где встречается в Грузии");
   });
 });
 

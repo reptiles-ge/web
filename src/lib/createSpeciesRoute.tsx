@@ -68,7 +68,7 @@ import {
   speciesMetaDescription,
   speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
-  speciesTitleIntentKey,
+  speciesTitleIntentKeys,
 } from "@/lib/speciesMeta";
 import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import {
@@ -144,13 +144,17 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     }
 
     const { group, item, raw } = loaded;
+    const titleKeys = speciesTitleIntentKeys(group, raw.danger);
     const title = speciesPageMetaTitle(
       raw.id,
       locale,
       item.commonName,
       item.scientificName,
-      t(speciesTitleIntentKey(group, raw.danger)),
-      t("titleShort"),
+      {
+        intent: t(titleKeys.intent),
+        question: t(titleKeys.question),
+        short: t("titleShort"),
+      },
     );
     const fallbackDescription =
       speciesMetaDescriptionOverride(raw.id, locale) ??
