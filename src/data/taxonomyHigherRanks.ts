@@ -4,11 +4,11 @@ const ORDER_CLASS: Record<string, string> = {
   Accipitriformes: "Aves",
   Anseriformes: "Aves",
   Anura: "Amphibia",
-  Apodiformes: "Aves",
   Araneae: "Arachnida",
   Artiodactyla: "Mammalia",
   Blattodea: "Insecta",
   Bucerotiformes: "Aves",
+  Caprimulgiformes: "Aves",
   Carnivora: "Mammalia",
   Caudata: "Amphibia",
   Charadriiformes: "Aves",
@@ -34,7 +34,7 @@ const FAMILY_ORDER: Record<string, string> = {
   Agamidae: "Squamata",
   Anatidae: "Anseriformes",
   Anguidae: "Squamata",
-  Apodidae: "Apodiformes",
+  Apodidae: "Caprimulgiformes",
   Araneidae: "Araneae",
   Blattidae: "Blattodea",
   Boidae: "Squamata",
@@ -97,6 +97,10 @@ export function familyHigherRanks(family: string): HigherRanks | undefined {
   const order = FAMILY_ORDER[family.trim()];
   if (!order) return undefined;
   return { className: ORDER_CLASS[order], order };
+}
+
+export function unmappedFamilies(families: readonly string[]) {
+  return [...new Set(families)].filter((family) => !familyHigherRanks(family));
 }
 
 export const MAPPED_FAMILIES = Object.keys(FAMILY_ORDER);

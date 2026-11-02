@@ -105,7 +105,11 @@ describe("photoRights", () => {
   it("gives a photographer without a contributor page one id per author", () => {
     const rights = photoRights(
       "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
-      { authorId: "laura-and-bobby-bok", photographer: "Laura and Bobby Bok" },
+      {
+        authorId: "laura-and-bobby-bok",
+        photographer: "Laura and Bobby Bok",
+        url: "https://www.inaturalist.org/observations/1",
+      },
       "en",
       NO_CONTRIBUTORS,
     );
@@ -115,6 +119,10 @@ describe("photoRights", () => {
       name: "Laura and Bobby Bok",
     });
     expect(rights.copyrightHolder).toEqual(rights.creator);
+    expect(rights).toHaveProperty(
+      "isBasedOn",
+      "https://www.inaturalist.org/observations/1",
+    );
   });
 
   it("leaves a photographer without an author id anonymous", () => {

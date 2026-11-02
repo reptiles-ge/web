@@ -16,7 +16,7 @@ import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   breadcrumbListLd,
   localePageUrl,
-  quizNodeId,
+  pageNodeId,
   webPageRef,
 } from "@/lib/pageStructuredData";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
@@ -143,7 +143,7 @@ export default async function QuizSlugRoute({ params }: Props) {
 
   const pageLd = {
     "@context": "https://schema.org",
-    "@id": quizNodeId(url),
+    "@id": pageNodeId(url, "quiz"),
     "@type": "Quiz",
     author: organizationRef(),
     ...(await quizDateFields(quiz.id, locale)),

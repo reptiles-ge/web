@@ -15,7 +15,7 @@ import {
 type HomeChildPageHeadProps = {
   locale: AppLocale;
   name: string;
-  page: WithContext<Thing>;
+  page: WithContext<Exclude<Thing, string>>;
   path: Parameters<typeof homeChildBreadcrumbLd>[1];
 };
 
@@ -36,7 +36,7 @@ export async function HomeChildPageHead({
       <JsonLd
         data={[
           {
-            ...(page as Record<string, unknown>),
+            ...page,
             ...webPageIds(localePageUrl(locale, path)),
             inLanguage: locale,
           },

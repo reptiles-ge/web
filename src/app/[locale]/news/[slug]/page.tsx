@@ -22,14 +22,14 @@ import {
 import { getNewsArticle, getNewsList } from "@/lib/newsApi";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import {
+  breadcrumbListLd,
+  localePageUrl,
   pageNodeId,
   speciesTaxonRef,
   webPageRef,
 } from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
-  absoluteUrl,
-  localePath,
   openGraphJpeg,
   organizationRef,
   siteConfig,
@@ -138,30 +138,11 @@ export default async function NewsArticleRoute({ params }: Props) {
   const published = newsSchemaDate(article.publishedAt);
   const modified = newsSchemaDate(article.updatedAt ?? article.publishedAt);
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: newsIndexUrl(locale),
-        name: t("breadcrumbNews"),
-        position: 2,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: copy.title,
-        position: 3,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+    { item: newsIndexUrl(locale), name: t("breadcrumbNews") },
+    { item: url, name: copy.title },
+  ]);
 
   const aboutPlaces = article.relatedRegionIds.flatMap((id) => {
     const region = getRegionById(id);

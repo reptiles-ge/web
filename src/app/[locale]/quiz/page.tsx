@@ -13,7 +13,7 @@ import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   breadcrumbListLd,
   localePageUrl,
-  quizNodeId,
+  pageNodeId,
   webPageIds,
 } from "@/lib/pageStructuredData";
 import { liveQuizzes } from "@/lib/quizzes";
@@ -129,7 +129,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     ...(await pageDateFields(PATH, locale)),
     description: t("metaDescription"),
     hasPart: liveQuizzes().map((quiz) => ({
-      "@id": quizNodeId(quizPageUrl(locale, quiz.id)),
+      "@id": pageNodeId(quizPageUrl(locale, quiz.id), "quiz"),
       "@type": "Quiz",
       name: t(`${quiz.messageKey}Title`),
       url: quizPageUrl(locale, quiz.id),

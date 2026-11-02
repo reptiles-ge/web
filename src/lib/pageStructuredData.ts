@@ -65,13 +65,9 @@ export function localePageUrl(
 
 export function pageNodeId(
   url: string,
-  fragment: "article" | "breadcrumb" | "webpage",
+  fragment: "article" | "breadcrumb" | "quiz" | "webpage",
 ) {
   return `${/^https?:\/\/[^/]+$/.test(url) ? `${url}/` : url}#${fragment}`;
-}
-
-export function quizNodeId(url: string) {
-  return `${url}#quiz`;
 }
 
 export function shareRepeatedNodes<T>(nodes: readonly T[]): T[] {

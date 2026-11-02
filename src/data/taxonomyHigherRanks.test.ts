@@ -4,16 +4,16 @@ import {
   familyHigherRanks,
   MAPPED_FAMILIES,
   MAPPED_ORDERS,
+  unmappedFamilies,
 } from "@/data/taxonomyHigherRanks";
 
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("familyHigherRanks", () => {
   it("maps every family in the catalog to an order and a class", () => {
-    const missing = [
-      ...new Set(speciesCatalogFixture("ka").map((item) => item.family)),
-    ].filter((family) => !familyHigherRanks(family));
-    expect(missing).toEqual([]);
+    expect(
+      unmappedFamilies(speciesCatalogFixture("ka").map((item) => item.family)),
+    ).toEqual([]);
   });
 
   it("gives every mapped order a class", () => {
@@ -33,5 +33,8 @@ describe("familyHigherRanks", () => {
 
   it("leaves an unknown family without higher ranks", () => {
     expect(familyHigherRanks("Unknownidae")).toBeUndefined();
+    expect(
+      unmappedFamilies(["Viperidae", "Unknownidae", "Unknownidae"]),
+    ).toEqual(["Unknownidae"]);
   });
 });

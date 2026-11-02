@@ -220,8 +220,8 @@ describe("species structured data", () => {
       url: CHEIRACANTHIUM_URL,
     });
     expect(
-      jsonLd.find((entry) => entry["@type"] === "BreadcrumbList")?.["@id"],
-    ).toBe(`${CHEIRACANTHIUM_URL}#breadcrumb`);
+      jsonLd.find((entry) => entry["@type"] === "BreadcrumbList"),
+    ).toHaveProperty("@id", `${CHEIRACANTHIUM_URL}#breadcrumb`);
     expect(article?.citation.map((source) => source.url)).toContain(
       CORRECT_NENTWIG_DOI,
     );
