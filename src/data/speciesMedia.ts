@@ -98,6 +98,14 @@ export const images = {
   gyurzaBiteViperPortrait: "/images/guides/gyurza-bite-viper-portrait.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
   homeSpotlight: "/images/home/vipera-dinniki-landing.jpg",
+  ladybirdsInHouseBlackForm:
+    "https://cdn.reptiles.ge/images/guides/ladybird-house-black-form.jpg",
+  ladybirdsInHouseHero:
+    "https://cdn.reptiles.ge/images/guides/ladybird-house-hero.jpg",
+  ladybirdsInHouseMarking:
+    "https://cdn.reptiles.ge/images/guides/ladybird-house-marking.jpg",
+  ladybirdsInHouseSevenSpot:
+    "https://cdn.reptiles.ge/images/guides/ladybird-house-seven-spot.jpg",
   mosquitoesAtHomeCover: "/images/guides/mosquitoes-at-home-cover.jpg",
   mosquitoesAtHomeHero: "/images/guides/mosquitoes-at-home-hero.jpg",
   mosquitoesAtHomeScreen: "/images/guides/mosquitoes-at-home-screen.jpg",

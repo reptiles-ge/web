@@ -346,6 +346,7 @@
         "tickBite": "Kene ısırığı",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
+        "ladybirdsInHouse": "Evde uğur böcekleri",
         "antsInHouse": "Evde karınca",
         "clothesMoth": "Giysi güvesi",
         "cockroachesInHouse": "Evde hamam böceği",
@@ -420,6 +421,7 @@
     "tickBite": "Kene ısırığı",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
+    "ladybirdsInHouse": "Evde uğur böcekleri",
     "antsInHouse": "Evde karınca",
     "cockroachesInHouse": "Evde hamam böceği",
     "fleasInHouse": "Evde pire",
@@ -1828,6 +1830,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde kokarca böceği",
         "body": "Kokarca neden sonbaharda eve girer, zararlı mıdır ve ezmeden nasıl uzaklaştırılır.",
+        "cta": "Rehberi oku"
+      },
+      "ladybirdsInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde uğur böcekleri",
+        "body": "Uğur böcekleri sonbaharda neden pencerelerde toplanır, Asya uğur böceği nasıl tanınır ve leke bırakmadan nasıl uzaklaştırılır.",
         "cta": "Rehberi oku"
       },
       "fleasInHouse": {

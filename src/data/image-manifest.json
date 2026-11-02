@@ -56174,6 +56174,386 @@
       ],
       "updatedAt": "2026-10-03T18:23:21.444Z"
     },
+    "images/guides/ladybird-house-black-form.jpg": {
+      "sourceHash": "9493d618a65750569a9edc196492a1aa68feb71fc73c8fa86c40b05cc6f5d134",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-black-form.jpg",
+      "originalSize": 431261,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9602
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12014
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14093
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18162
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30763
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39602
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42470
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53458
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 72839
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89650
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 98190
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 128390
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:41.703Z"
+    },
+    "images/guides/ladybird-house-hero.jpg": {
+      "sourceHash": "92a8a8a256e16c2ebe069d361e3414081a6443ff245485df5c0723bb1dfe838d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-hero.jpg",
+      "originalSize": 724486,
+      "width": 1600,
+      "height": 1071,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 13646
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 19666
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 21438
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 30622
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 47224
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 69826
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 66720
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 101196
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 121125
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 185000
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1071,
+          "byteSize": 181476
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1071,
+          "byteSize": 279500
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:41.267Z"
+    },
+    "images/guides/ladybird-house-marking.jpg": {
+      "sourceHash": "b30fa5291a0d104b51f41ccd1cbc24c2d89f7549ac1623a475bc333913049afb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-marking.jpg",
+      "originalSize": 275205,
+      "width": 1600,
+      "height": 1110,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 4581
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 5824
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 278,
+          "byteSize": 6243
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 278,
+          "byteSize": 8050
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 11053
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 13920
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 14743
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 18718
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 25495
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 30990
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1110,
+          "byteSize": 38346
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1110,
+          "byteSize": 47642
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:44.063Z"
+    },
+    "images/guides/ladybird-house-seven-spot.jpg": {
+      "sourceHash": "fb7aca9e5928607e6614290688fc639746b035333feaf84bef7ac59539869d82",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-seven-spot.jpg",
+      "originalSize": 405612,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15835
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17978
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18415
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21300
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26795
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32242
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33482
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40584
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51763
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62448
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 74220
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 87230
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:45.971Z"
+    },
     "images/guides/mosquitoes-at-home-cover.jpg": {
       "sourceHash": "34e9b8238931ea062a88e3340f2b3e8bf82b02ee8243ba172086a6117ba703cd",
       "configFingerprint": "409788ee46c653d8",

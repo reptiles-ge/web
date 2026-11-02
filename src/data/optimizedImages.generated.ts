@@ -95,6 +95,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-black-form.jpg": {
+    "path": "images/guides/ladybird-house-black-form",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-hero.jpg": {
+    "path": "images/guides/ladybird-house-hero",
+    "width": 1600,
+    "height": 1071,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-marking.jpg": {
+    "path": "images/guides/ladybird-house-marking",
+    "width": 1600,
+    "height": 1110,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-seven-spot.jpg": {
+    "path": "images/guides/ladybird-house-seven-spot",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/mosquitoes-at-home-cover.jpg": {
     "path": "images/guides/mosquitoes-at-home-cover",
     "width": 1024,

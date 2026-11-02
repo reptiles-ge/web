@@ -346,6 +346,7 @@
         "tickBite": "Tick bite",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
+        "ladybirdsInHouse": "Ladybirds in the house",
         "antsInHouse": "Ants in the house",
         "clothesMoth": "Clothes moths",
         "cockroachesInHouse": "Cockroaches at home",
@@ -420,6 +421,7 @@
     "tickBite": "Tick bite",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
+    "ladybirdsInHouse": "Ladybirds in the house",
     "antsInHouse": "Ants in the house",
     "cockroachesInHouse": "Cockroaches at home",
     "fleasInHouse": "Fleas in the house",
@@ -1828,6 +1830,12 @@
         "eyebrow": "Practical guide",
         "title": "Stink bugs in the house",
         "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
+        "cta": "Read the guide"
+      },
+      "ladybirdsInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Ladybirds in the house",
+        "body": "Why ladybirds gather at windows in autumn, how to recognise the harlequin ladybird, and how to remove them without stains.",
         "cta": "Read the guide"
       },
       "fleasInHouse": {

@@ -661,6 +661,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       kind: "page",
     },
     {
+      href: "/insects/chiamaiebi-sakhlshi",
+      key: "ladybirdsInHouse",
+      kind: "page",
+    },
+    {
       href: "/insects/chianchvelebi-sakhlshi",
       key: "antsInHouse",
       kind: "page",
