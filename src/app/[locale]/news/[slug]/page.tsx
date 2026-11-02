@@ -21,6 +21,11 @@ import {
 } from "@/lib/news";
 import { getNewsArticle, getNewsList } from "@/lib/newsApi";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
+import {
+  pageNodeId,
+  speciesTaxonRef,
+  webPageRef,
+} from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -168,13 +173,12 @@ export default async function NewsArticleRoute({ params }: Props) {
       },
     ];
   });
-  const mentions = newsRelatedSpecies(article, catalog).map((species) => ({
-    "@type": "Taxon" as const,
-    name: species.scientificName,
-    taxonRank: "Species",
-  }));
+  const mentions = newsRelatedSpecies(article, catalog).map((species) =>
+    speciesTaxonRef(locale, species),
+  );
   const articleLd = {
     "@context": "https://schema.org",
+    "@id": pageNodeId(url, "article"),
     "@type": "NewsArticle",
     about: [
       ...aboutPlaces,
@@ -211,10 +215,7 @@ export default async function NewsArticleRoute({ params }: Props) {
           },
         ]
       : { "@id": siteEntityId("website") },
-    mainEntityOfPage: {
-      "@id": url,
-      "@type": "WebPage",
-    },
+    mainEntityOfPage: webPageRef(url),
     mentions,
     publisher: organizationRef(),
     url,

@@ -29,6 +29,7 @@ import {
   breadcrumbListLd,
   localePageUrl,
   speciesItemListLd,
+  webPageIds,
 } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
@@ -94,6 +95,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
 
   const collectionLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": "CollectionPage",
     about: {
       "@type": "Place",

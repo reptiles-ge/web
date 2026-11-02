@@ -31,8 +31,10 @@ type SitePageLdInput = {
 };
 
 export function breadcrumbListLd(crumbs: readonly BreadcrumbCrumb[]) {
+  const current = crumbs.at(-1);
   return {
     "@context": "https://schema.org",
+    ...(current ? { "@id": pageNodeId(current.item, "breadcrumb") } : {}),
     "@type": "BreadcrumbList",
     itemListElement: crumbs.map((crumb, index) => ({
       "@type": "ListItem",
@@ -59,6 +61,17 @@ export function localePageUrl(
   path: Parameters<typeof localePath>[1],
 ) {
   return absoluteUrl(localePath(locale, path));
+}
+
+export function pageNodeId(
+  url: string,
+  fragment: "article" | "breadcrumb" | "webpage",
+) {
+  return `${/^https?:\/\/[^/]+$/.test(url) ? `${url}/` : url}#${fragment}`;
+}
+
+export function quizNodeId(url: string) {
+  return `${url}#quiz`;
 }
 
 export function shareRepeatedNodes<T>(nodes: readonly T[]): T[] {
@@ -92,6 +105,7 @@ export function sitePageLd({
 }: SitePageLdInput) {
   return {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": type,
     ...(about ? { about } : {}),
     author: { "@id": siteEntityId("organization") },
@@ -129,4 +143,27 @@ export function speciesItemListLd(
     })),
     numberOfItems: species.length,
   };
+}
+
+export function speciesTaxonRef(
+  locale: AppLocale,
+  species: Pick<ListedSpecies, "id" | "scientificName">,
+) {
+  return {
+    "@id": `${speciesPageUrl(locale, species.id)}#taxon`,
+    "@type": "Taxon",
+    name: species.scientificName,
+    taxonRank: "Species",
+  };
+}
+
+export function webPageIds(url: string) {
+  return {
+    "@id": pageNodeId(url, "webpage"),
+    breadcrumb: { "@id": pageNodeId(url, "breadcrumb") },
+  };
+}
+
+export function webPageRef(url: string) {
+  return { ...webPageIds(url), "@type": "WebPage", url };
 }

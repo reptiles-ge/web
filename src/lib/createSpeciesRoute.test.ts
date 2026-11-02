@@ -214,9 +214,14 @@ describe("species structured data", () => {
 
     expect(article?.inLanguage).toBe("en");
     expect(article?.mainEntityOfPage).toEqual({
-      "@id": CHEIRACANTHIUM_URL,
+      "@id": `${CHEIRACANTHIUM_URL}#webpage`,
       "@type": "WebPage",
+      breadcrumb: { "@id": `${CHEIRACANTHIUM_URL}#breadcrumb` },
+      url: CHEIRACANTHIUM_URL,
     });
+    expect(
+      jsonLd.find((entry) => entry["@type"] === "BreadcrumbList")?.["@id"],
+    ).toBe(`${CHEIRACANTHIUM_URL}#breadcrumb`);
     expect(article?.citation.map((source) => source.url)).toContain(
       CORRECT_NENTWIG_DOI,
     );

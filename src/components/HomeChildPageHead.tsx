@@ -6,7 +6,11 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { JsonLd } from "@/components/JsonLd";
 import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import {
+  homeChildBreadcrumbLd,
+  localePageUrl,
+  webPageIds,
+} from "@/lib/pageStructuredData";
 
 type HomeChildPageHeadProps = {
   locale: AppLocale;
@@ -30,7 +34,14 @@ export async function HomeChildPageHead({
   return (
     <>
       <JsonLd
-        data={[page, homeChildBreadcrumbLd(locale, path, { home, name })]}
+        data={[
+          {
+            ...(page as Record<string, unknown>),
+            ...webPageIds(localePageUrl(locale, path)),
+            inLanguage: locale,
+          },
+          homeChildBreadcrumbLd(locale, path, { home, name }),
+        ]}
       />
       <ScreenReaderBreadcrumb
         current={name}

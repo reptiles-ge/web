@@ -21,7 +21,12 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { guideImageRights } from "@/lib/imageRights";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { breadcrumbListLd, localePageUrl } from "@/lib/pageStructuredData";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  pageNodeId,
+  webPageRef,
+} from "@/lib/pageStructuredData";
 import {
   absoluteImageUrl,
   absoluteUrl,
@@ -104,6 +109,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
     ]);
     const articleLd = {
       "@context": "https://schema.org",
+      "@id": pageNodeId(url, "article"),
       "@type": "Article",
       articleSection: tParent("breadcrumbCurrent"),
       author: organizationRef(),
@@ -130,7 +136,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
       ],
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },
-      mainEntityOfPage: { "@id": url, "@type": "WebPage" },
+      mainEntityOfPage: webPageRef(url),
       publisher: organizationRef(),
       url,
     };

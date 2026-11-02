@@ -134,6 +134,9 @@ function photoCreator(
   const author = photoContributor(credit, contributors);
   if (!author) {
     return {
+      ...(credit.authorId
+        ? { "@id": absoluteUrl(`/#photographer-${credit.authorId}`) }
+        : {}),
       "@type": "Person",
       name: photographer,
       ...(credit.url ? { url: credit.url } : {}),

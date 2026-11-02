@@ -5,6 +5,7 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { photoLicenses } from "@/data/photoLicenses";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
+import { NO_CONTRIBUTORS } from "@/lib/contributorCredits";
 import { speciesStructuredData } from "@/lib/createSpeciesRoute";
 import {
   guideImageRights,
@@ -101,6 +102,31 @@ describe("photo use page URL", () => {
 });
 
 describe("photoRights", () => {
+  it("gives a photographer without a contributor page one id per author", () => {
+    const rights = photoRights(
+      "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+      { authorId: "laura-and-bobby-bok", photographer: "Laura and Bobby Bok" },
+      "en",
+      NO_CONTRIBUTORS,
+    );
+    expect(rights.creator).toEqual({
+      "@id": "https://reptiles.ge/#photographer-laura-and-bobby-bok",
+      "@type": "Person",
+      name: "Laura and Bobby Bok",
+    });
+    expect(rights.copyrightHolder).toEqual(rights.creator);
+  });
+
+  it("leaves a photographer without an author id anonymous", () => {
+    const rights = photoRights(
+      "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+      { photographer: "Laura and Bobby Bok" },
+      "en",
+      NO_CONTRIBUTORS,
+    );
+    expect(rights.creator).not.toHaveProperty("@id");
+  });
+
   it("licenses contributor photos as Reptiles.ge", () => {
     const rights = photoRights(
       "https://cdn.reptiles.ge/vipera-dinniki-sandro-1.jpg",

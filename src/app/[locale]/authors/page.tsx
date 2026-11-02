@@ -16,15 +16,13 @@ import {
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
-  absoluteUrl,
-  CDN_BASE,
-  localePath,
-  OG_IMAGE_TYPE,
-  siteConfig,
-  siteEntityId,
-} from "@/lib/site";
+  breadcrumbListLd,
+  localePageUrl,
+  webPageIds,
+} from "@/lib/pageStructuredData";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
+import { CDN_BASE, OG_IMAGE_TYPE, siteConfig, siteEntityId } from "@/lib/site";
 import { getCreditPhotoCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -52,27 +50,14 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const cards = getCreditAuthorCards(contributors, creditPhotos);
   const url = creditAuthorIndexUrl(locale);
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("index.breadcrumb"),
-        position: 2,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+    { item: url, name: t("index.breadcrumb") },
+  ]);
 
   const collectionLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": "CollectionPage",
     ...(await pageDateFields("/authors", locale)),
     description: t("index.metaDescription"),

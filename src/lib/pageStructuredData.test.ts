@@ -4,9 +4,12 @@ import {
   breadcrumbListLd,
   homeChildBreadcrumbLd,
   localePageUrl,
+  pageNodeId,
   shareRepeatedNodes,
   sitePageLd,
   speciesItemListLd,
+  speciesTaxonRef,
+  webPageIds,
 } from "@/lib/pageStructuredData";
 import { siteEntityId, speciesPageUrl } from "@/lib/site";
 
@@ -33,6 +36,46 @@ describe("breadcrumbListLd", () => {
         position: 2,
       },
     ]);
+  });
+});
+
+describe("page node ids", () => {
+  it("keeps the slash after a bare origin", () => {
+    expect(pageNodeId("https://reptiles.ge", "webpage")).toBe(
+      "https://reptiles.ge/#webpage",
+    );
+    expect(pageNodeId("https://reptiles.ge/en/snakes", "article")).toBe(
+      "https://reptiles.ge/en/snakes#article",
+    );
+  });
+
+  it("links a page to the breadcrumb of the same URL", () => {
+    const url = "https://reptiles.ge/en/snakes";
+    const breadcrumb = breadcrumbListLd([
+      { item: "https://reptiles.ge/en", name: "Home" },
+      { item: url, name: "Snakes" },
+    ]);
+    expect(breadcrumb["@id"]).toBe(`${url}#breadcrumb`);
+    expect(webPageIds(url)).toEqual({
+      "@id": `${url}#webpage`,
+      breadcrumb: { "@id": breadcrumb["@id"] },
+    });
+  });
+});
+
+describe("speciesTaxonRef", () => {
+  it("points to the taxon node of the species profile", () => {
+    expect(
+      speciesTaxonRef("en", {
+        id: "macrovipera-lebetina",
+        scientificName: "Macrovipera lebetinus",
+      }),
+    ).toEqual({
+      "@id": `${speciesPageUrl("en", "macrovipera-lebetina")}#taxon`,
+      "@type": "Taxon",
+      name: "Macrovipera lebetinus",
+      taxonRank: "Species",
+    });
   });
 });
 

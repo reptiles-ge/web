@@ -37,7 +37,12 @@ import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { speciesItemListLd } from "@/lib/pageStructuredData";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  speciesItemListLd,
+  webPageIds,
+} from "@/lib/pageStructuredData";
 import { getRegionSummary } from "@/lib/regionSummary";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
@@ -183,6 +188,7 @@ export default async function RegionPage({ params }: PageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
+    ...webPageIds(pageUrl),
     "@type": "CollectionPage",
     about: {
       "@type": "Place",
@@ -204,30 +210,11 @@ export default async function RegionPage({ params }: PageProps) {
     url: pageUrl,
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: t("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/regions")),
-        name: t("allRegions"),
-        position: 2,
-      },
-      {
-        "@type": "ListItem",
-        item: pageUrl,
-        name,
-        position: 3,
-      },
-    ],
-  };
+  const breadcrumbJsonLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
+    { item: localePageUrl(locale, "/regions"), name: t("allRegions") },
+    { item: pageUrl, name },
+  ]);
 
   const localizedContent = getLocalizedRegionContent(region.id, locale);
   const faqJsonLd = faqPageJsonLd(localizedContent.faq);
