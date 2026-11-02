@@ -39,6 +39,7 @@ export function speciesFallbackDescriptionKey(
 
 export const TARGET_META_TITLE_LENGTH = 60;
 const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
+const SCIENTIFIC_TITLE_LOCALES = new Set<AppLocale>(["en", "ka"]);
 
 const SPECIES_TITLE_INTENT_KEYS = {
   amphibian: { intent: "titleAmphibian", question: "titleAmphibianQuestion" },
@@ -82,7 +83,9 @@ function fittedSpeciesMetaTitle(
   intents: SpeciesTitleIntents,
 ) {
   const name = speciesNameWithScientific(commonName, scientificName);
-  const names = locale === "en" ? [name] : [name, commonName.trim() || name];
+  const names = SCIENTIFIC_TITLE_LOCALES.has(locale)
+    ? [name]
+    : [name, commonName.trim() || name];
   const candidates = [
     ...names.map((label) => `${label} — ${intents.intent}`),
     ...names.map((label) => `${label} — ${intents.question}`),

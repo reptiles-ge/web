@@ -119,6 +119,23 @@ describe("speciesPageMetaTitle", () => {
     ).toBe("Smooth snake — venomous or not? Photos, range");
   });
 
+  it("keeps the scientific name in Georgian even when the question has to go", () => {
+    expect(
+      speciesPageMetaTitle("x", "ka", "ჩვეულებრივი ანკარა", "Natrix natrix", {
+        intent: "შხამიანია თუ არა? ფოტო, გავრცელება",
+        question: "შხამიანია თუ არა?",
+        short: "საქართველოში",
+      }),
+    ).toBe("ჩვეულებრივი ანკარა (Natrix natrix) — შხამიანია თუ არა?");
+    expect(
+      speciesPageMetaTitle("x", "ka", "დინიკის გველგესლა", "Vipera dinniki", {
+        intent: "რამდენად საშიშია ნაკბენი? ფოტო, გავრცელება",
+        question: "რამდენად საშიშია ნაკბენი?",
+        short: "საქართველოში",
+      }),
+    ).toBe("დინიკის გველგესლა (Vipera dinniki) საქართველოში");
+  });
+
   it("falls back to the place when no question fits", () => {
     expect(
       speciesPageMetaTitle(
