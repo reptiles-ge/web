@@ -137,7 +137,7 @@
     "next": "16.4.2",
     "next-intl": "^4.14.9",
     "node-html-markdown": "2.0.0",
-    "node-html-parser": "6.1.13",
+    "node-html-parser": "9.0.4",
     "nuqs": "2.10.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
