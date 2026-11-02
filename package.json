@@ -147,13 +147,13 @@
     "vinext": "1.4.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.64.0",
+    "@cloudflare/vite-plugin": "^1.65.0",
     "@jsquash/avif": "2.1.1",
     "@jsquash/jpeg": "1.6.0",
     "@jsquash/resize": "2.1.1",
     "@jsquash/webp": "1.5.0",
     "@lingual/i18n-check": "^0.9.5",
-    "@next/bundle-analyzer": "16.4.2",
+    "@next/bundle-analyzer": "16.4.3",
     "@playwright/test": "1.64.1",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#97da0fd516ae26c42c398598376cd5c3e44c3a28",
     "@tailwindcss/postcss": "^4",
@@ -170,7 +170,7 @@
     "@vitest/coverage-v8": "5.0.5",
     "axe-core": "^4.14.0",
     "eslint": "^10",
-    "eslint-config-next": "16.4.2",
+    "eslint-config-next": "16.4.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -194,7 +194,7 @@
     "typescript": "^6",
     "vite": "^8.3.5",
     "vitest": "5.0.5",
-    "wrangler": "^4.152.0",
+    "wrangler": "^4.153.0",
     "zod": "4.6.7"
   }
 }
