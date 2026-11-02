@@ -147,13 +147,13 @@
     "vinext": "1.4.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.64.0",
+    "@cloudflare/vite-plugin": "^1.65.0",
     "@jsquash/avif": "2.1.1",
     "@jsquash/jpeg": "1.6.0",
     "@jsquash/resize": "2.1.1",
     "@jsquash/webp": "1.5.0",
     "@lingual/i18n-check": "^0.9.5",
-    "@next/bundle-analyzer": "16.4.2",
+    "@next/bundle-analyzer": "16.4.3",
     "@playwright/test": "1.64.1",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#97da0fd516ae26c42c398598376cd5c3e44c3a28",
     "@tailwindcss/postcss": "^4",
