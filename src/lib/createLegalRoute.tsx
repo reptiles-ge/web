@@ -13,7 +13,7 @@ import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { LEGAL_PATHS } from "@/lib/legalPages";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import { homeChildBreadcrumbLd, webPageIds } from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -95,6 +95,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
 
     const webPageJsonLd = {
       "@context": "https://schema.org",
+      ...webPageIds(url),
       "@type": "WebPage",
       ...(await pageDateFields(path, locale)),
       description: title("metaDescription"),

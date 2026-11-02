@@ -14,6 +14,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
+import { familyHigherRanks } from "@/data/taxonomyHigherRanks";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
@@ -26,7 +27,12 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
 import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { shareRepeatedNodes } from "@/lib/pageStructuredData";
+import {
+  breadcrumbListLd,
+  pageNodeId,
+  shareRepeatedNodes,
+  webPageRef,
+} from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
@@ -298,6 +304,29 @@ function epithetStem(epithet: string) {
   return epithet.replace(/-+$/, "").replace(/(?:us|um|is|a|e)$/, "");
 }
 
+function familyTaxonJsonLd(family: string) {
+  const ranks = familyHigherRanks(family);
+  return {
+    "@type": "Taxon",
+    name: family,
+    ...(ranks
+      ? {
+          parentTaxon: {
+            "@type": "Taxon",
+            name: ranks.order,
+            parentTaxon: {
+              "@type": "Taxon",
+              name: ranks.className,
+              taxonRank: "Class",
+            },
+            taxonRank: "Order",
+          },
+        }
+      : {}),
+    taxonRank: "Family",
+  };
+}
+
 function isTaxonSameAsUrl(url: string) {
   return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
 }
@@ -437,7 +466,7 @@ function speciesStructuredData({
   };
   const jsonLd = {
     "@context": "https://schema.org",
-    "@id": `${pageUrl}#article`,
+    "@id": pageNodeId(pageUrl, "article"),
     "@type": "Article",
     about: taxon,
     author: organizationRef(),
@@ -457,23 +486,16 @@ function speciesStructuredData({
     image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
-    mainEntityOfPage: {
-      "@id": pageUrl,
-      "@type": "WebPage",
-    },
+    mainEntityOfPage: webPageRef(pageUrl),
     publisher: organizationRef(),
     spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
   };
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbCrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
+  const breadcrumbLd = breadcrumbListLd(
+    breadcrumbCrumbs.map((crumb) => ({
       item: crumb.href ? absoluteUrl(localePath(locale, crumb.href)) : pageUrl,
       name: crumb.name,
-      position: index + 1,
     })),
-  };
+  );
   const galleryLd =
     photoObjects.length > 0
       ? {
@@ -532,11 +554,7 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
       name: item.genus,
       ...(item.family
         ? {
-            parentTaxon: {
-              "@type": "Taxon",
-              name: item.family,
-              taxonRank: "Family",
-            },
+            parentTaxon: familyTaxonJsonLd(raw.family || item.family),
           }
         : {}),
       taxonRank: "Genus",

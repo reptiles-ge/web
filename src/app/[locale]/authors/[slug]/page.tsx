@@ -28,6 +28,11 @@ import {
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
+import {
+  breadcrumbListLd,
+  speciesTaxonRef,
+  webPageIds,
+} from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import { siteConfig, siteEntityId } from "@/lib/site";
 import {
@@ -68,27 +73,14 @@ export default async function AuthorRoute({ params }: Props) {
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const relatedNews = getPublishedNewsForCreditAuthor(author, locale);
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: indexUrl,
-        name: t("index.breadcrumb"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name,
-        position: 2,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: indexUrl, name: t("index.breadcrumb") },
+    { item: url, name },
+  ]);
 
   const pageLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": creditAuthorPageSchemaType(author),
     about: [
       {
@@ -98,13 +90,7 @@ export default async function AuthorRoute({ params }: Props) {
       ...speciesIds.flatMap((id) => {
         const species = byId.get(id);
         if (!species) return [];
-        return [
-          {
-            "@type": "Taxon" as const,
-            name: species.scientificName,
-            taxonRank: "Species",
-          },
-        ];
+        return [speciesTaxonRef(locale, species)];
       }),
     ],
     description:

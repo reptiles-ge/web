@@ -10,6 +10,12 @@ import { type QuizCardModel, QuizzesPage } from "@/components/QuizzesPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  pageNodeId,
+  webPageIds,
+} from "@/lib/pageStructuredData";
 import { liveQuizzes } from "@/lib/quizzes";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
@@ -111,31 +117,19 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     imageAlt: t(`${quiz.messageKey}Title`),
   }));
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbCurrent"),
-        position: 2,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+    { item: url, name: t("breadcrumbCurrent") },
+  ]);
 
   const pageLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": "CollectionPage",
     ...(await pageDateFields(PATH, locale)),
     description: t("metaDescription"),
     hasPart: liveQuizzes().map((quiz) => ({
+      "@id": pageNodeId(quizPageUrl(locale, quiz.id), "quiz"),
       "@type": "Quiz",
       name: t(`${quiz.messageKey}Title`),
       url: quizPageUrl(locale, quiz.id),

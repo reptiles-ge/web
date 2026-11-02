@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { unmappedFamilies } from "../src/data/taxonomyHigherRanks";
 import { ANIMAL_GROUP_TO_HUB } from "../src/lib/groupHubs";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { buildPublishedSlugMaps } from "../src/lib/speciesSlugRules";
@@ -11,6 +12,12 @@ async function main() {
   const catalog = await getSpeciesCatalog("ka");
   if (catalog.length === 0) {
     throw new Error("The species API returned no published species.");
+  }
+  const missingFamilies = unmappedFamilies(catalog.map((item) => item.family));
+  if (missingFamilies.length > 0) {
+    throw new Error(
+      `Add these families to src/data/taxonomyHigherRanks.ts: ${missingFamilies.join(", ")}`,
+    );
   }
   const maps = buildPublishedSlugMaps(
     catalog.map((item) => ({

@@ -19,7 +19,7 @@ import {
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import { homeChildBreadcrumbLd, webPageIds } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
@@ -64,6 +64,7 @@ export default async function RegionsPage({ params }: LocalePageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": "CollectionPage",
     about: {
       "@type": "Place",
