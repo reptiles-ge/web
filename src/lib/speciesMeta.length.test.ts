@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import {
   SPECIES_META_TITLE_OVERRIDE,
   speciesPageMetaTitle,
-  speciesTitleIntentKey,
+  speciesTitleIntentKeys,
   TARGET_META_TITLE_LENGTH,
 } from "@/lib/speciesMeta";
 
@@ -32,7 +32,10 @@ function renderedTitles(locale: (typeof routing.locales)[number]) {
   });
   return catalogSpeciesFixture().map((raw) => {
     const item = localizedFixture(raw, locale);
-    const group = getSpeciesAtlasMeta(raw.id).group;
+    const keys = speciesTitleIntentKeys(
+      getSpeciesAtlasMeta(raw.id).group,
+      raw.danger,
+    );
     return {
       bareName: `${item.commonName} (${item.scientificName})`,
       id: raw.id,
@@ -41,8 +44,11 @@ function renderedTitles(locale: (typeof routing.locales)[number]) {
         locale,
         item.commonName,
         item.scientificName,
-        t(speciesTitleIntentKey(group, raw.danger)),
-        t("titleShort"),
+        {
+          intent: t(keys.intent),
+          question: t(keys.question),
+          short: t("titleShort"),
+        },
       ),
     };
   });
