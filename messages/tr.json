@@ -353,7 +353,8 @@
         "fleasInHouse": "Evde pire",
         "bedBugsAtHome": "Evde tahtakurusu",
         "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
-        "mouseInHouse": "Evde fare"
+        "mouseInHouse": "Evde fare",
+        "hedgehogInWinter": "Kışın bulunan kirpi"
       }
     }
   },
@@ -428,6 +429,7 @@
     "bedBugsAtHome": "Evde tahtakurusu",
     "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
     "mouseInHouse": "Evde fare",
+    "hedgehogInWinter": "Kışın bulunan kirpi",
     "bite": "Yılan ısırığında ilk adımlar",
     "gyurzaBite": "Levant engereği ısırığı",
     "clothesMoth": "Giysi güvesi",
@@ -1872,6 +1874,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde fare",
         "body": "İzleri tanıyın, fareyi yakalayın, dışkıyı güvenle temizleyin ve girdiği aralıkları kapatın.",
+        "cta": "Rehberi oku"
+      },
+      "hedgehogInWinter": {
+        "eyebrow": "Pratik rehber",
+        "title": "Kışın bulunan kirpi",
+        "body": "Kış uykusundaki kirpiyi yardıma ihtiyacı olandan nasıl ayırırsınız, güvenle nasıl yardım edilir ve süt ile ekmek neden zararlıdır.",
         "cta": "Rehberi oku"
       },
       "lizardQuiz": {

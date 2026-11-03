@@ -711,6 +711,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/mammals/tagvi-sakhlshi", key: "mouseInHouse", kind: "page" },
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
+    {
+      href: "/mammals/zgharbi-zamtarshi",
+      key: "hedgehogInWinter",
+      kind: "page",
+    },
   ],
   scorpions: [
     {
@@ -1094,6 +1099,15 @@ export function getSpeciesGuideLinks(
       links.push({
         href: "/mammals/datvi-shekhvedra",
         key: "bearEncounter",
+        kind: "page",
+      });
+    }
+    // TODO(PR #1803 review): duplicates relatedSpeciesIds in src/content/guides/hedgehogInWinter.ts.
+    // Derive guide-article links from each guide's relatedSpeciesIds instead of one branch per species.
+    if (id === "erinaceus-concolor") {
+      links.push({
+        href: "/mammals/zgharbi-zamtarshi",
+        key: "hedgehogInWinter",
         kind: "page",
       });
     }

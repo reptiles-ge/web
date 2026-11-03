@@ -56174,6 +56174,386 @@
       ],
       "updatedAt": "2026-10-03T18:23:21.444Z"
     },
+    "images/guides/hedgehog-winter-curled-v2.jpg": {
+      "sourceHash": "588a7d56134646490967bd435ed4075aa070c5811d2607b7b694b259d82472be",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-curled-v2.jpg",
+      "originalSize": 341459,
+      "width": 1600,
+      "height": 1101,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 220,
+          "byteSize": 22946
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 220,
+          "byteSize": 35752
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 275,
+          "byteSize": 34900
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 275,
+          "byteSize": 54606
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 440,
+          "byteSize": 71838
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 440,
+          "byteSize": 114186
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 551,
+          "byteSize": 98205
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 551,
+          "byteSize": 159328
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 826,
+          "byteSize": 160076
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 826,
+          "byteSize": 259526
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1101,
+          "byteSize": 237370
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1101,
+          "byteSize": 351416
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:12.745Z"
+    },
+    "images/guides/hedgehog-winter-hero-v2.jpg": {
+      "sourceHash": "4b46c65668c6dc3df48b495942b3c43e0d89768f0ed639344db1341bf02ce654",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-hero-v2.jpg",
+      "originalSize": 250775,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13644
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20886
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22000
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33050
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50346
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 76268
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72396
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109220
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 131301
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 185380
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 202367
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 261314
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:12.582Z"
+    },
+    "images/guides/hedgehog-winter-night-v2.jpg": {
+      "sourceHash": "655570e5d1631d354b892f8c19ab78e3faf5b095a139b791965a2de3ca14b568",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-night-v2.jpg",
+      "originalSize": 152446,
+      "width": 1600,
+      "height": 815,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 162,
+          "byteSize": 9032
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 162,
+          "byteSize": 13578
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 204,
+          "byteSize": 13499
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 204,
+          "byteSize": 20790
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 326,
+          "byteSize": 28016
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 326,
+          "byteSize": 44932
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 408,
+          "byteSize": 40542
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 408,
+          "byteSize": 64308
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 611,
+          "byteSize": 72551
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 611,
+          "byteSize": 110040
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 815,
+          "byteSize": 113499
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 815,
+          "byteSize": 153806
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:16.833Z"
+    },
+    "images/guides/hedgehog-winter-tbilisi-v2.jpg": {
+      "sourceHash": "5c7837fa992865a1c8dc33802d3481355028ac367fd2dcb70f6b34de87813085",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-tbilisi-v2.jpg",
+      "originalSize": 340794,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23212
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 36320
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35066
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 55090
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 69309
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 114154
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94443
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 156916
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 156474
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 257662
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 237341
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 349674
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:14.402Z"
+    },
     "images/guides/ladybird-house-black-form.jpg": {
       "sourceHash": "9493d618a65750569a9edc196492a1aa68feb71fc73c8fa86c40b05cc6f5d134",
       "configFingerprint": "409788ee46c653d8",

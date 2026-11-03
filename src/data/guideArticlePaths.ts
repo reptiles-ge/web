@@ -11,6 +11,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/insects/tkipis-nakbeni",
   "/mammals/ghamura-sakhlshi",
   "/mammals/tagvi-sakhlshi",
+  "/mammals/zgharbi-zamtarshi",
   "/scorpions/morielis-nakbeni",
   "/scorpions/morieli-sakhlshi",
   "/snakes/giurzas-nakbeni",
