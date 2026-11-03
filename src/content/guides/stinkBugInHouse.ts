@@ -144,7 +144,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Ladybirds in the house — is that a stink bug?",
         paragraphs: [
           "A round, spotted beetle is not a stink bug. University of Minnesota Extension describes the multicolored Asian lady beetle (Harmonia axyridis) gathering on buildings in autumn to find a winter shelter, then entering through gaps. It does not reproduce indoors.",
-          "This page does not cite a Georgia record for that species. If the insect does not look like a stink bug, this guide is not about it.",
+          "How to recognise it, why it gathers at windows and how to remove it without stains is covered in a separate guide: [ladybirds in the house](/insects/chiamaiebi-sakhlshi).",
         ],
       },
       {
@@ -295,7 +295,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "ჭიამაიები სახლში — ეს ფაროსანაა?",
         paragraphs: [
           "მრგვალი, ლაქებიანი ხოჭო ფაროსანა არ არის. University of Minnesota Extension აღწერს, რომ მრავალფეროვანი აზიური ჭიამაია (Harmonia axyridis) შემოდგომით შენობებზე იკრიბება გამოზამთრების ადგილის საძებნელად და ღრიჭოებიდან შედის. სახლში არ მრავლდება.",
-          "ამ გვერდზე საქართველოს ჩანაწერი ამ სახეობისთვის არ არის მოყვანილი. თუ მწერი ფაროსანას არ ჰგავს, ეს გზამკვლევი მასზე არ არის.",
+          "როგორ ვიცნოთ ის, რატომ იკრიბება ფანჯრებთან და როგორ მოვიშოროთ ლაქების გარეშე, ცალკე გიდში წერია: [ჭიამაიები სახლში](/insects/chiamaiebi-sakhlshi).",
         ],
       },
       {
@@ -445,7 +445,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Божьи коровки в доме — это клоп?",
         paragraphs: [
           "Круглый пятнистый жук — не мраморный клоп. University of Minnesota Extension описывает, что многоцветная азиатская коровка (Harmonia axyridis) осенью собирается на зданиях в поисках места для зимовки и заходит через щели. В доме она не размножается.",
-          "На этой странице нет грузинской находки этого вида. Если насекомое не похоже на клопа, этот гид не о нём.",
+          "Как её узнать, почему она собирается у окон и как убрать её без пятен, рассказано в отдельном гиде: [божьи коровки в доме](/insects/chiamaiebi-sakhlshi).",
         ],
       },
       {
@@ -597,7 +597,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Evdeki uğur böcekleri — bu kokarca mı?",
         paragraphs: [
           "Yuvarlak, benekli bir kınkanatlı kokarca değildir. University of Minnesota Extension, çok renkli Asya uğur böceğinin (Harmonia axyridis) sonbaharda kışlayacak yer aramak için binalarda toplandığını ve aralıklardan içeri girdiğini yazar. Evde üremez.",
-          "Bu sayfa bu tür için bir Gürcistan kaydı göstermez. Böcek kokarcaya benzemiyorsa bu rehber onun hakkında değildir.",
+          "Nasıl tanınacağı, neden pencerelerde toplandığı ve leke bırakmadan nasıl uzaklaştırılacağı ayrı bir rehberde anlatılıyor: [evde uğur böcekleri](/insects/chiamaiebi-sakhlshi).",
         ],
       },
       {
@@ -806,8 +806,6 @@ export const STINK_BUG_IN_HOUSE = defineGuideArticle({
     keywords: [
       "ფაროსანა",
       "ფაროსანა სახლში",
-      "ჭიამაიები სახლში",
-      "ჭიამაია",
       "ფაროსანა ზამთარში",
       "ფაროსანა ფანჯარაზე",
       "farosana",

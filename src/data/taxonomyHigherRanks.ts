@@ -1,0 +1,107 @@
+type HigherRanks = { className: string; order: string };
+
+const ORDER_CLASS: Record<string, string> = {
+  Accipitriformes: "Aves",
+  Anseriformes: "Aves",
+  Anura: "Amphibia",
+  Araneae: "Arachnida",
+  Artiodactyla: "Mammalia",
+  Blattodea: "Insecta",
+  Bucerotiformes: "Aves",
+  Caprimulgiformes: "Aves",
+  Carnivora: "Mammalia",
+  Caudata: "Amphibia",
+  Charadriiformes: "Aves",
+  Ciconiiformes: "Aves",
+  Columbiformes: "Aves",
+  Cuculiformes: "Aves",
+  Eulipotyphla: "Mammalia",
+  Falconiformes: "Aves",
+  Galliformes: "Aves",
+  Hemiptera: "Insecta",
+  Mantodea: "Insecta",
+  Passeriformes: "Aves",
+  Piciformes: "Aves",
+  Rodentia: "Mammalia",
+  Scorpiones: "Arachnida",
+  Squamata: "Reptilia",
+  Strigiformes: "Aves",
+  Testudines: "Reptilia",
+};
+
+const FAMILY_ORDER: Record<string, string> = {
+  Accipitridae: "Accipitriformes",
+  Agamidae: "Squamata",
+  Anatidae: "Anseriformes",
+  Anguidae: "Squamata",
+  Apodidae: "Caprimulgiformes",
+  Araneidae: "Araneae",
+  Blattidae: "Blattodea",
+  Boidae: "Squamata",
+  Bovidae: "Artiodactyla",
+  Bufonidae: "Anura",
+  Buthidae: "Scorpiones",
+  Canidae: "Carnivora",
+  Cervidae: "Artiodactyla",
+  Cheiracanthiidae: "Araneae",
+  Ciconiidae: "Ciconiiformes",
+  Cimicidae: "Hemiptera",
+  Colubridae: "Squamata",
+  Columbidae: "Columbiformes",
+  Corvidae: "Passeriformes",
+  Cuculidae: "Cuculiformes",
+  Emberizidae: "Passeriformes",
+  Emydidae: "Testudines",
+  Erinaceidae: "Eulipotyphla",
+  Euscorpiidae: "Scorpiones",
+  Falconidae: "Falconiformes",
+  Felidae: "Carnivora",
+  Gekkonidae: "Squamata",
+  Geoemydidae: "Testudines",
+  Glareolidae: "Charadriiformes",
+  Hylidae: "Anura",
+  Lacertidae: "Squamata",
+  Laniidae: "Passeriformes",
+  Laridae: "Charadriiformes",
+  Lycosidae: "Araneae",
+  Mantidae: "Mantodea",
+  Motacillidae: "Passeriformes",
+  Muscicapidae: "Passeriformes",
+  Mustelidae: "Carnivora",
+  Pelobatidae: "Anura",
+  Pelodytidae: "Anura",
+  Pentatomidae: "Hemiptera",
+  Phasianidae: "Galliformes",
+  Pholcidae: "Araneae",
+  Picidae: "Piciformes",
+  Procyonidae: "Carnivora",
+  Psammophiidae: "Squamata",
+  Ranidae: "Anura",
+  Salamandridae: "Caudata",
+  Scincidae: "Squamata",
+  Sciuridae: "Rodentia",
+  Strigidae: "Strigiformes",
+  Suidae: "Artiodactyla",
+  Testudinidae: "Testudines",
+  Theraphosidae: "Araneae",
+  Theridiidae: "Araneae",
+  Turdidae: "Passeriformes",
+  Typhlopidae: "Squamata",
+  Tytonidae: "Strigiformes",
+  Upupidae: "Bucerotiformes",
+  Ursidae: "Carnivora",
+  Viperidae: "Squamata",
+};
+
+export function familyHigherRanks(family: string): HigherRanks | undefined {
+  const order = FAMILY_ORDER[family.trim()];
+  if (!order) return undefined;
+  return { className: ORDER_CLASS[order], order };
+}
+
+export function unmappedFamilies(families: readonly string[]) {
+  return [...new Set(families)].filter((family) => !familyHigherRanks(family));
+}
+
+export const MAPPED_FAMILIES = Object.keys(FAMILY_ORDER);
+export const MAPPED_ORDERS = Object.keys(ORDER_CLASS);

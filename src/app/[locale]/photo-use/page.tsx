@@ -10,7 +10,7 @@ import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { photoUsePageUrl } from "@/lib/imageRights";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import { homeChildBreadcrumbLd, webPageIds } from "@/lib/pageStructuredData";
 import { PHOTO_USE_FAQ } from "@/lib/photoUse";
 import {
   organizationRef,
@@ -62,6 +62,7 @@ export default async function PhotoUse({
 
   const pageJsonLd = {
     "@context": "https://schema.org",
+    ...webPageIds(photoUsePageUrl(locale)),
     "@type": "WebPage",
     ...(await pageDateFields("/photo-use", locale)),
     about: organizationRef(),

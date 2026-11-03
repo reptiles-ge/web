@@ -37,6 +37,10 @@ export const pathnames = {
     "/mtserebi/baghlinjo-sakhlshi",
     "/insects/bed-bugs-at-home",
   ),
+  "/insects/chiamaiebi-sakhlshi": kaLatin(
+    "/mtserebi/chiamaiebi-sakhlshi",
+    "/insects/ladybirds-in-house",
+  ),
   "/insects/chianchvelebi-sakhlshi": kaLatin(
     "/mtserebi/chianchvelebi-sakhlshi",
     "/insects/ants-in-house",
@@ -107,6 +111,10 @@ export const pathnames = {
   "/mammals/tura-ezoshi": kaLatin(
     "/dzuzumtsovrebi/tura-ezoshi",
     "/mammals/jackal-in-the-yard",
+  ),
+  "/mammals/zgharbi-zamtarshi": kaLatin(
+    "/dzuzumtsovrebi/zgharbi-zamtarshi",
+    "/mammals/hedgehog-in-winter",
   ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",

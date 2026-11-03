@@ -56174,6 +56174,766 @@
       ],
       "updatedAt": "2026-10-03T18:23:21.444Z"
     },
+    "images/guides/hedgehog-winter-curled-v2.jpg": {
+      "sourceHash": "588a7d56134646490967bd435ed4075aa070c5811d2607b7b694b259d82472be",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-curled-v2.jpg",
+      "originalSize": 341459,
+      "width": 1600,
+      "height": 1101,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 220,
+          "byteSize": 22946
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 220,
+          "byteSize": 35752
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 275,
+          "byteSize": 34900
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 275,
+          "byteSize": 54606
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 440,
+          "byteSize": 71838
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 440,
+          "byteSize": 114186
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 551,
+          "byteSize": 98205
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 551,
+          "byteSize": 159328
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 826,
+          "byteSize": 160076
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 826,
+          "byteSize": 259526
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1101,
+          "byteSize": 237370
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-curled-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1101,
+          "byteSize": 351416
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:12.745Z"
+    },
+    "images/guides/hedgehog-winter-hero-v2.jpg": {
+      "sourceHash": "4b46c65668c6dc3df48b495942b3c43e0d89768f0ed639344db1341bf02ce654",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-hero-v2.jpg",
+      "originalSize": 250775,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13644
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20886
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22000
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33050
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50346
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 76268
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72396
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109220
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 131301
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 185380
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 202367
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-hero-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 261314
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:12.582Z"
+    },
+    "images/guides/hedgehog-winter-night-v2.jpg": {
+      "sourceHash": "655570e5d1631d354b892f8c19ab78e3faf5b095a139b791965a2de3ca14b568",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-night-v2.jpg",
+      "originalSize": 152446,
+      "width": 1600,
+      "height": 815,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 162,
+          "byteSize": 9032
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 162,
+          "byteSize": 13578
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 204,
+          "byteSize": 13499
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 204,
+          "byteSize": 20790
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 326,
+          "byteSize": 28016
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 326,
+          "byteSize": 44932
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 408,
+          "byteSize": 40542
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 408,
+          "byteSize": 64308
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 611,
+          "byteSize": 72551
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 611,
+          "byteSize": 110040
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 815,
+          "byteSize": 113499
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-night-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 815,
+          "byteSize": 153806
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:16.833Z"
+    },
+    "images/guides/hedgehog-winter-tbilisi-v2.jpg": {
+      "sourceHash": "5c7837fa992865a1c8dc33802d3481355028ac367fd2dcb70f6b34de87813085",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/hedgehog-winter-tbilisi-v2.jpg",
+      "originalSize": 340794,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23212
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 36320
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35066
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 55090
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 69309
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 114154
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94443
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 156916
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 156474
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 257662
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 237341
+        },
+        {
+          "key": "optimized/images/guides/hedgehog-winter-tbilisi-v2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 349674
+        }
+      ],
+      "updatedAt": "2026-11-03T08:07:14.402Z"
+    },
+    "images/guides/ladybird-house-black-form.jpg": {
+      "sourceHash": "9493d618a65750569a9edc196492a1aa68feb71fc73c8fa86c40b05cc6f5d134",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-black-form.jpg",
+      "originalSize": 431261,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9602
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12014
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14093
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18162
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30763
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39602
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42470
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53458
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 72839
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89650
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 98190
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-black-form-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 128390
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:41.703Z"
+    },
+    "images/guides/ladybird-house-hero.jpg": {
+      "sourceHash": "92a8a8a256e16c2ebe069d361e3414081a6443ff245485df5c0723bb1dfe838d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-hero.jpg",
+      "originalSize": 724486,
+      "width": 1600,
+      "height": 1071,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 13646
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 19666
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 21438
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 30622
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 47224
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 69826
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 66720
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 101196
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 121125
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 185000
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1071,
+          "byteSize": 181476
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-hero-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1071,
+          "byteSize": 279500
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:41.267Z"
+    },
+    "images/guides/ladybird-house-marking.jpg": {
+      "sourceHash": "b30fa5291a0d104b51f41ccd1cbc24c2d89f7549ac1623a475bc333913049afb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-marking.jpg",
+      "originalSize": 275205,
+      "width": 1600,
+      "height": 1110,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 4581
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 5824
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 278,
+          "byteSize": 6243
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 278,
+          "byteSize": 8050
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 11053
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 13920
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 14743
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 18718
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 25495
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 30990
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1110,
+          "byteSize": 38346
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-marking-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1110,
+          "byteSize": 47642
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:44.063Z"
+    },
+    "images/guides/ladybird-house-seven-spot.jpg": {
+      "sourceHash": "fb7aca9e5928607e6614290688fc639746b035333feaf84bef7ac59539869d82",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/ladybird-house-seven-spot.jpg",
+      "originalSize": 405612,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15835
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17978
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18415
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21300
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26795
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32242
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33482
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40584
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51763
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62448
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 74220
+        },
+        {
+          "key": "optimized/images/guides/ladybird-house-seven-spot-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 87230
+        }
+      ],
+      "updatedAt": "2026-11-02T15:53:45.971Z"
+    },
     "images/guides/mosquitoes-at-home-cover.jpg": {
       "sourceHash": "34e9b8238931ea062a88e3340f2b3e8bf82b02ee8243ba172086a6117ba703cd",
       "configFingerprint": "409788ee46c653d8",

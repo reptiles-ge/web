@@ -23,6 +23,7 @@ import { getRegionTooltipPreviews } from "@/data/regions";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { pageNodeId } from "@/lib/pageStructuredData";
 import { siteKeywords } from "@/lib/seoKeywords";
 import {
   absoluteUrl,
@@ -98,7 +99,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   );
   const pageLd = {
     "@context": "https://schema.org",
-    "@id": `${homePath === "/" ? `${homeUrl}/` : homeUrl}#webpage`,
+    "@id": pageNodeId(homeUrl, "webpage"),
     "@type": "WebPage",
     ...(await pageDateFields("/", locale)),
     description,

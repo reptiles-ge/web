@@ -13,11 +13,17 @@ import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  pageNodeId,
+  webPageRef,
+} from "@/lib/pageStructuredData";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
-  localePath,
+  organizationRef,
   quizAlternates,
   quizPageUrl,
   siteConfig,
@@ -126,40 +132,28 @@ export default async function QuizSlugRoute({ params }: Props) {
       ? getLizardQuizCatalog(catalog)
       : getSnakeQuizCatalog(catalog);
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/quiz")),
-        name: tQuizzes("breadcrumbCurrent"),
-        position: 2,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbCurrent"),
-        position: 3,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+    {
+      item: localePageUrl(locale, "/quiz"),
+      name: tQuizzes("breadcrumbCurrent"),
+    },
+    { item: url, name: t("breadcrumbCurrent") },
+  ]);
 
   const pageLd = {
     "@context": "https://schema.org",
+    "@id": pageNodeId(url, "quiz"),
     "@type": "Quiz",
+    author: organizationRef(),
     ...(await quizDateFields(quiz.id, locale)),
     description: t("metaDescription"),
     educationalLevel: "beginner",
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
+    mainEntityOfPage: webPageRef(url),
     name: t("metaTitle"),
+    publisher: organizationRef(),
     url,
   };
 

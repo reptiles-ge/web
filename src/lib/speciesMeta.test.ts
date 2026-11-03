@@ -36,6 +36,12 @@ function kaPath(id: string) {
 }
 
 describe("speciesPageMetaTitle", () => {
+  const venomousKa = {
+    intent: "რამდენად საშიშია ნაკბენი? ფოტო, გავრცელება",
+    question: "რამდენად საშიშია ნაკბენი?",
+    short: "საქართველოში",
+  };
+
   it("uses KA and EN overrides when present", () => {
     expect(
       speciesPageMetaTitle(
@@ -43,8 +49,7 @@ describe("speciesPageMetaTitle", () => {
         "ka",
         "გიურზა",
         "Macrovipera lebetinus",
-        "შხამი, არეალი და ამოცნობა",
-        "საქართველოში",
+        venomousKa,
       ),
     ).toBe("გიურზა (Macrovipera lebetinus) — შხამიანი გველი საქართველოში");
     expect(
@@ -53,8 +58,11 @@ describe("speciesPageMetaTitle", () => {
         "en",
         "Levantine viper",
         "Macrovipera lebetinus",
-        "venom, range, and identification",
-        "in Georgia",
+        {
+          intent: "how dangerous is the bite? Photos, range in Georgia",
+          question: "how dangerous is the bite?",
+          short: "in Georgia",
+        },
       ),
     ).toBe("Levantine viper (Macrovipera lebetinus) | Venomous snake");
   });
@@ -66,8 +74,11 @@ describe("speciesPageMetaTitle", () => {
         "ka",
         "წითელმუცელა მცურავი",
         "Dolichophis schmidti",
-        "არეალი და ამოცნობა საქართველოში",
-        "საქართველოში",
+        {
+          intent: "შხამიანია თუ არა? ფოტო, გავრცელება",
+          question: "შხამიანია თუ არა?",
+          short: "საქართველოში",
+        },
       ),
     ).toBe("წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი");
     expect(
@@ -76,8 +87,7 @@ describe("speciesPageMetaTitle", () => {
         "ka",
         "ცხვირრქოსანი გველგესლა",
         "Vipera ammodytes",
-        "შხამი, არეალი და ამოცნობა",
-        "საქართველოში",
+        venomousKa,
       ),
     ).toBe("ცხვირრქოსანი გველგესლა (Vipera ammodytes) — შხამიანი გველი");
   });
@@ -89,20 +99,26 @@ describe("speciesPageMetaTitle", () => {
         "ru",
         "Гюрза",
         "Macrovipera lebetinus",
-        "яд, ареал и определение",
-        "в Грузии",
+        {
+          intent: "насколько опасен укус? Ареал в Грузии",
+          question: "насколько опасен укус?",
+          short: "в Грузии",
+        },
       ),
-    ).toBe("Гюрза (Macrovipera lebetinus) | яд, ареал и определение");
+    ).toBe("Гюрза — насколько опасен укус? Ареал в Грузии");
     expect(
       speciesPageMetaTitle(
         "macrovipera-lebetina",
         "tr",
         "Levant engereği",
         "Macrovipera lebetinus",
-        "zehir, yayılış ve tanıma",
-        "Gürcistan’da",
+        {
+          intent: "ısırığı ne kadar tehlikeli? Fotoğraf, Gürcistan’da yayılış",
+          question: "ısırığı ne kadar tehlikeli?",
+          short: "Gürcistan’da",
+        },
       ),
-    ).toBe("Levant engereği (Macrovipera lebetinus) Gürcistan’da");
+    ).toBe("Levant engereği — ısırığı ne kadar tehlikeli?");
   });
 });
 

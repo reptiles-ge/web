@@ -134,6 +134,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "stink-bug-in-house",
     "chianchvelebi-sakhlshi",
     "ants-in-house",
+    "chiamaiebi-sakhlshi",
+    "ladybirds-in-house",
     "rtsqilebi-sakhlshi",
     "fleas-in-house",
     "chrchili-tansatsmelshi",
@@ -167,6 +169,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "bat-in-the-house",
     "tagvi-sakhlshi",
     "mouse-in-house",
+    "zgharbi-zamtarshi",
+    "hedgehog-in-winter",
   ],
   scorpions: [
     "saxeoebebi",

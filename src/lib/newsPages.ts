@@ -5,6 +5,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { newestNewsDateTime, newsArticleUrl, newsDateTime } from "@/lib/news";
 import { getNewsListArticlesPage, type NewsListQuery } from "@/lib/newsApi";
 import { newsIndexHref } from "@/lib/newsHrefs";
+import { breadcrumbListLd, webPageIds } from "@/lib/pageStructuredData";
 import { pageOffset } from "@/lib/pagination";
 import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 
@@ -126,19 +127,13 @@ export function newsListingJsonLd({
   name,
   url,
 }: NewsListingJsonLdInput) {
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
-      item: crumb.url,
-      name: crumb.name,
-      position: index + 1,
-    })),
-  };
+  const breadcrumbLd = breadcrumbListLd(
+    breadcrumbs.map((crumb) => ({ item: crumb.url, name: crumb.name })),
+  );
 
   const collectionLd = {
     "@context": "https://schema.org",
+    ...webPageIds(url),
     "@type": "CollectionPage",
     ...dates,
     description,

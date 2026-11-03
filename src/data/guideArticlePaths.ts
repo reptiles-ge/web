@@ -1,5 +1,6 @@
 export const GUIDE_ARTICLE_PATHS = [
   "/insects/baghlinjo-sakhlshi",
+  "/insects/chiamaiebi-sakhlshi",
   "/insects/chianchvelebi-sakhlshi",
   "/insects/chrchili-tansatsmelshi",
   "/insects/farosana-sakhlshi",
@@ -10,6 +11,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/insects/tkipis-nakbeni",
   "/mammals/ghamura-sakhlshi",
   "/mammals/tagvi-sakhlshi",
+  "/mammals/zgharbi-zamtarshi",
   "/scorpions/morielis-nakbeni",
   "/scorpions/morieli-sakhlshi",
   "/snakes/giurzas-nakbeni",

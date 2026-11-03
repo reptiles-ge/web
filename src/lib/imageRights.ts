@@ -94,6 +94,7 @@ export function photoRights(
       ? { copyrightNotice: UNCREDITED_COPYRIGHT_NOTICE[locale] }
       : {}),
     ...(creator ? { creator, creditText: creator.name } : {}),
+    ...(creator?.["@id"] && credit?.url ? { isBasedOn: credit.url } : {}),
     license: license ?? photoUsePageUrl(locale),
   };
 }
@@ -133,6 +134,13 @@ function photoCreator(
   if (!photographer) return undefined;
   const author = photoContributor(credit, contributors);
   if (!author) {
+    if (credit.authorId) {
+      return {
+        "@id": absoluteUrl(`/#photographer-${credit.authorId}`),
+        "@type": "Person",
+        name: photographer,
+      };
+    }
     return {
       "@type": "Person",
       name: photographer,
