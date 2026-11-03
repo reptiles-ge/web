@@ -20,8 +20,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "No. The RSPCA advises never to give hedgehogs milk: they are lactose intolerant. Bread is not nutritious for them either.",
-        question: "Can I give a hedgehog milk?",
+          "Take it to a vet or a wildlife rescue straight away: the Wildlife Aid Foundation says a hedgehog hurt in a bonfire needs help immediately. Next time, check leaf and branch piles before burning them.",
+        question: "What if a hedgehog was hurt in a bonfire?",
       },
       {
         answer:
@@ -102,7 +102,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Why might you see a hedgehog outside in winter?",
         image: "night",
         paragraphs: [
-          "Hedgehogs are active at night. According to the British Hedgehog Preservation Society, they wake often during hibernation but rarely leave the nest; if the nest gets too cold, they may build a new one. Disturbance or unexpectedly warm weather can also wake them.",
+          "According to the British Hedgehog Preservation Society, hedgehogs wake often during hibernation but rarely leave the nest; if the nest gets too cold, they may build a new one. Disturbance or unexpectedly warm weather can also wake them.",
           "Hedgehog Street notes that each hedgehog is likely to move nest at least once during the winter, so it can sometimes be seen out and about, and that in mild winters hedgehogs can stay active into November and December.",
           "A hedgehog out in daylight is a different matter. According to the Wildlife Aid Foundation, unless it is a warm winter day or the female is pregnant, this almost certainly means something is wrong.",
         ],
@@ -117,7 +117,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
             "It has flies around it, or it is injured.",
             "It is trapped, for example in netting or a hole.",
             "It is out in daylight.",
-            "It looks very small for winter: British organisations name 450–600 g as the risk threshold.",
+            "It looks very small for winter: the British Hedgehog Preservation Society calls young hedgehogs under 450 g vulnerable, and the Wildlife Aid Foundation says hedgehogs under 600 g must go to a wildlife centre.",
           ],
         },
         paragraphs: [
@@ -182,7 +182,9 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
             "If a hedgehog is caught in netting, cut the netting free around it and take the hedgehog to a vet or wildlife rescue.",
           ],
         },
-        paragraphs: ["Many winter injuries happen during autumn garden work."],
+        paragraphs: [
+          "The RSPCA and the Wildlife Aid Foundation name these risks to hedgehogs during autumn and winter garden work.",
+        ],
       },
     ],
     summary:
@@ -200,8 +202,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "არა. RSPCA გირჩევთ, ზღარბს რძე არასდროს მისცეთ: მას ლაქტოზა არ ითვისება. არც პურია მისთვის საკვებად ვარგისი.",
-        question: "შეიძლება ზღარბს რძე მივცე?",
+          "მაშინვე წაიყვანეთ ვეტერინართან ან ველური ცხოველების დახმარების ცენტრში: Wildlife Aid Foundation-ის მიხედვით, კოცონში დაშავებულ ზღარბს დაუყოვნებლივ სჭირდება დახმარება. შემდეგში ფოთლებისა და ტოტების გროვა დაწვამდე შეამოწმეთ.",
+        question: "რა ვქნა, თუ ზღარბი კოცონში დაშავდა?",
       },
       {
         answer:
@@ -282,7 +284,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "რატომ შეიძლება ზამთარში ზღარბი გარეთ ნახოთ?",
         image: "night",
         paragraphs: [
-          "ზღარბი ღამის ცხოველია. British Hedgehog Preservation Society-ის მიხედვით, ზამთრის ძილის დროს ზღარბები ხშირად იღვიძებენ, მაგრამ ბუდეს იშვიათად ტოვებენ; თუ ბუდე ძალიან გაცივდა, შეიძლება ახალი ააშენონ. გაღვიძება შეიძლება შეწუხებამ ან მოულოდნელმა დათბობამაც გამოიწვიოს.",
+          "British Hedgehog Preservation Society-ის მიხედვით, ზამთრის ძილის დროს ზღარბები ხშირად იღვიძებენ, მაგრამ ბუდეს იშვიათად ტოვებენ; თუ ბუდე ძალიან გაცივდა, შეიძლება ახალი ააშენონ. გაღვიძება შეიძლება შეწუხებამ ან მოულოდნელმა დათბობამაც გამოიწვიოს.",
           "Hedgehog Street აღნიშნავს, რომ ზამთარში თითოეული ზღარბი ბუდეს, სავარაუდოდ, ერთხელ მაინც იცვლის, ამიტომ ზოგჯერ გარეთ ჩანს, ხოლო რბილ ზამთარში ზღარბები ნოემბერ-დეკემბრამდე შეიძლება აქტიურები იყვნენ.",
           "დღისით გარეთ მყოფი ზღარბი სხვა საქმეა. Wildlife Aid Foundation-ის მიხედვით, თუ თბილი ზამთრის დღე არ არის ან მდედრი მაკე არ არის, ეს თითქმის ნამდვილად ნიშნავს, რომ რაღაც ცუდადაა.",
         ],
@@ -297,7 +299,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
             "ბუზები ხვევია ან დაშავებულია.",
             "სადმე გაიჭედა, მაგალითად ბადეში ან ორმოში.",
             "დღისით დადის.",
-            "ზამთრისთვის ძალიან პატარაა: ბრიტანული ორგანიზაციები რისკის ზღვრად 450–600 გ-ს ასახელებენ.",
+            "ზამთრისთვის ძალიან პატარაა: British Hedgehog Preservation Society 450 გ-ზე მსუბუქ ახალგაზრდა ზღარბს მოწყვლადს უწოდებს, Wildlife Aid Foundation კი ამბობს, რომ 600 გ-ზე მსუბუქი ზღარბი ველური ცხოველების ცენტრში უნდა მოხვდეს.",
           ],
         },
         paragraphs: [
@@ -362,7 +364,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ],
         },
         paragraphs: [
-          "ზამთრის დაზიანებების დიდი ნაწილი შემოდგომის ბაღის სამუშაოებისას ხდება.",
+          "RSPCA და Wildlife Aid Foundation შემოდგომისა და ზამთრის ბაღის სამუშაოებისას ზღარბისთვის ამ საფრთხეებს ასახელებენ.",
         ],
       },
     ],
@@ -381,8 +383,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Нет. RSPCA советует никогда не давать ежам молоко: они не переносят лактозу. Хлеб тоже не подходит им как пища.",
-        question: "Можно дать ежу молоко?",
+          "Сразу отвезите его к ветеринару или в центр помощи диким животным: по данным Wildlife Aid Foundation, ежу, пострадавшему в костре, помощь нужна немедленно. В следующий раз проверяйте кучи листьев и веток перед сжиганием.",
+        question: "Что делать, если ёж пострадал в костре?",
       },
       {
         answer:
@@ -463,7 +465,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Почему зимой ежа можно увидеть снаружи?",
         image: "night",
         paragraphs: [
-          "Ёж ведёт ночной образ жизни. По данным British Hedgehog Preservation Society, во время спячки ежи часто просыпаются, но редко покидают гнездо; если гнездо слишком остыло, они могут построить новое. Разбудить их может и беспокойство или неожиданное потепление.",
+          "По данным British Hedgehog Preservation Society, во время спячки ежи часто просыпаются, но редко покидают гнездо; если гнездо слишком остыло, они могут построить новое. Разбудить их может и беспокойство или неожиданное потепление.",
           "Hedgehog Street отмечает, что за зиму каждый ёж, скорее всего, хотя бы раз меняет гнездо, поэтому его иногда можно увидеть снаружи, а в мягкие зимы ежи могут оставаться активными до ноября и декабря.",
           "Ёж, гуляющий днём, — другое дело. По данным Wildlife Aid Foundation, если это не тёплый зимний день и не беременная самка, это почти наверняка значит, что что-то не так.",
         ],
@@ -478,7 +480,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
             "Вокруг него вьются мухи, или он ранен.",
             "Он застрял, например в сетке или яме.",
             "Он ходит днём.",
-            "Он выглядит очень маленьким для зимы: британские организации называют порогом риска 450–600 г.",
+            "Он выглядит очень маленьким для зимы: British Hedgehog Preservation Society называет уязвимыми молодых ежей легче 450 г, а Wildlife Aid Foundation говорит, что ежа легче 600 г нужно доставить в центр помощи диким животным.",
           ],
         },
         paragraphs: [
@@ -543,7 +545,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ],
         },
         paragraphs: [
-          "Многие зимние травмы случаются во время осенних работ в саду.",
+          "RSPCA и Wildlife Aid Foundation называют эти опасности для ежей во время осенних и зимних работ в саду.",
         ],
       },
     ],
@@ -562,8 +564,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Hayır. RSPCA kirpilere asla süt verilmemesini önerir: laktozu sindiremezler. Ekmek de onlar için besleyici değildir.",
-        question: "Kirpiye süt verebilir miyim?",
+          "Hemen bir veterinere veya yaban hayatı kurtarma merkezine götürün: Wildlife Aid Foundation'a göre şenlik ateşinde yaralanan bir kirpinin hemen yardıma ihtiyacı vardır. Bir dahaki sefere yaprak ve dal yığınlarını yakmadan önce kontrol edin.",
+        question: "Kirpi şenlik ateşinde yaralandıysa ne yapmalı?",
       },
       {
         answer:
@@ -644,7 +646,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Kışın bir kirpiyi neden dışarıda görebilirsiniz?",
         image: "night",
         paragraphs: [
-          "Kirpi gece aktif bir hayvandır. British Hedgehog Preservation Society'ye göre kirpiler kış uykusu sırasında sık sık uyanır ama yuvayı nadiren terk eder; yuva çok soğursa yeni bir tane yapabilirler. Rahatsız edilmek veya beklenmedik bir ısınma da onları uyandırabilir.",
+          "British Hedgehog Preservation Society'ye göre kirpiler kış uykusu sırasında sık sık uyanır ama yuvayı nadiren terk eder; yuva çok soğursa yeni bir tane yapabilirler. Rahatsız edilmek veya beklenmedik bir ısınma da onları uyandırabilir.",
           "Hedgehog Street, her kirpinin kış boyunca muhtemelen en az bir kez yuva değiştirdiğini, bu yüzden bazen dışarıda görülebildiğini ve ılık kışlarda kirpilerin kasım ve aralığa kadar aktif kalabildiğini belirtir.",
           "Gündüz dışarıda dolaşan bir kirpi ise başka bir durumdur. Wildlife Aid Foundation'a göre ılık bir kış günü değilse ya da gebe bir dişi değilse, bu neredeyse kesin bir sorun olduğu anlamına gelir.",
         ],
@@ -659,7 +661,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
             "Etrafında sinekler varsa veya yaralıysa.",
             "Bir yere sıkışmışsa, örneğin bir ağa veya çukura.",
             "Gündüz dolaşıyorsa.",
-            "Kış için çok küçük görünüyorsa: Britanya'daki kuruluşlar risk eşiği olarak 450–600 g'ı verir.",
+            "Kış için çok küçük görünüyorsa: British Hedgehog Preservation Society 450 g'dan hafif genç kirpileri savunmasız olarak tanımlar, Wildlife Aid Foundation ise 600 g'dan hafif bir kirpinin yaban hayatı merkezine götürülmesi gerektiğini söyler.",
           ],
         },
         paragraphs: [
@@ -724,7 +726,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ],
         },
         paragraphs: [
-          "Kış yaralanmalarının çoğu sonbahar bahçe işleri sırasında olur.",
+          "RSPCA ve Wildlife Aid Foundation, sonbahar ve kış bahçe işleri sırasında kirpiler için bu tehlikeleri sayar.",
         ],
       },
     ],
@@ -768,10 +770,10 @@ const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Wildlife Aid Foundation — Helping Hedgehogs",
     supports: {
-      en: "A hedgehog out in daylight (unless pregnant or on a warm winter day) almost certainly has a problem; asleep in the sun, staggering or circling needs a rescue centre; under 600 g must go to a wildlife centre; do not move hibernating hedgehogs; cover an uncovered nest back up; bread and milk can be fatal; no peanuts or mealworms; injuries from strimmers, mowers and forks; cut netting free and take the hedgehog to a rescue.",
-      ka: "დღისით გარეთ მყოფ ზღარბს (თუ მაკე არ არის და თბილი ზამთრის დღე არ არის) თითქმის ნამდვილად აქვს პრობლემა; მზეზე მძინარე, ბარბაცა ან წრეზე მოსიარულე ზღარბს ცენტრი სჭირდება; 600 გ-ზე მსუბუქი ცენტრში უნდა მოხვდეს; ზამთრის ძილში მყოფი ზღარბის გადაყვანა არ შეიძლება; გახსნილი ბუდე ისევ დაფარეთ; პური და რძე შეიძლება ფატალური იყოს; არც მიწის თხილი და ფქვილის ჭია; დაზიანებები ტრიმერით, საკრეჭითა და ფიწალით; ბადის გაჭრა და ცენტრში წაყვანა.",
-      ru: "Ёж днём (если это не беременная самка и не тёплый зимний день) почти наверняка в беде; спящий на солнце, шатающийся или ходящий кругами ёж нуждается в центре помощи; ежа легче 600 г нужно доставить в центр; не переносить ежа в спячке; раскрытое гнездо снова укрыть; хлеб и молоко могут быть смертельны; не давать арахис и мучных червей; травмы от триммеров, косилок и вил; разрезать сетку и отвезти в центр.",
-      tr: "Gündüz dışarıdaki kirpinin (gebe değilse veya ılık bir kış günü değilse) neredeyse kesin bir sorunu vardır; güneşte uyuyan, sendeleyen veya daire çizen kirpi bir merkeze gitmeli; 600 g'dan hafif olan merkeze götürülmeli; kış uykusundaki kirpi taşınmamalı; açılan yuva yeniden örtülmeli; ekmek ve süt ölümcül olabilir; yer fıstığı ve un kurdu yok; tırpan, biçme makinesi ve çatal yaralanmaları; ağı kesip merkeze götürme.",
+      en: "A hedgehog out in daylight (unless pregnant or on a warm winter day) almost certainly has a problem; asleep in the sun, staggering or circling needs a rescue centre; under 600 g must go to a wildlife centre; do not move hibernating hedgehogs; cover an uncovered nest back up; bread and milk can be fatal; no peanuts or mealworms; injuries from strimmers, mowers and forks; cut netting free and take the hedgehog to a rescue; a hedgehog hurt in a bonfire must go to a rescue or vet immediately.",
+      ka: "დღისით გარეთ მყოფ ზღარბს (თუ მაკე არ არის და თბილი ზამთრის დღე არ არის) თითქმის ნამდვილად აქვს პრობლემა; მზეზე მძინარე, ბარბაცა ან წრეზე მოსიარულე ზღარბს ცენტრი სჭირდება; 600 გ-ზე მსუბუქი ცენტრში უნდა მოხვდეს; ზამთრის ძილში მყოფი ზღარბის გადაყვანა არ შეიძლება; გახსნილი ბუდე ისევ დაფარეთ; პური და რძე შეიძლება ფატალური იყოს; არც მიწის თხილი და ფქვილის ჭია; დაზიანებები ტრიმერით, საკრეჭითა და ფიწალით; ბადის გაჭრა და ცენტრში წაყვანა; კოცონში დაშავებული ზღარბი დაუყოვნებლივ ცენტრში ან ვეტერინართან უნდა მიიყვანოთ.",
+      ru: "Ёж днём (если это не беременная самка и не тёплый зимний день) почти наверняка в беде; спящий на солнце, шатающийся или ходящий кругами ёж нуждается в центре помощи; ежа легче 600 г нужно доставить в центр; не переносить ежа в спячке; раскрытое гнездо снова укрыть; хлеб и молоко могут быть смертельны; не давать арахис и мучных червей; травмы от триммеров, косилок и вил; разрезать сетку и отвезти в центр; ежа, пострадавшего в костре, немедленно везти в центр или к ветеринару.",
+      tr: "Gündüz dışarıdaki kirpinin (gebe değilse veya ılık bir kış günü değilse) neredeyse kesin bir sorunu vardır; güneşte uyuyan, sendeleyen veya daire çizen kirpi bir merkeze gitmeli; 600 g'dan hafif olan merkeze götürülmeli; kış uykusundaki kirpi taşınmamalı; açılan yuva yeniden örtülmeli; ekmek ve süt ölümcül olabilir; yer fıstığı ve un kurdu yok; tırpan, biçme makinesi ve çatal yaralanmaları; ağı kesip merkeze götürme; şenlik ateşinde yaralanan kirpi hemen bir merkeze veya veterinere götürülmeli.",
     },
     url: "https://wildlifeaid.org.uk/wildlife-advice/helping-hedgehogs/",
   },
@@ -801,10 +803,10 @@ export const HEDGEHOG_IN_WINTER = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "A southern white-breasted hedgehog with a pale chest and grey-brown spines on a light stone surface at night",
-      ka: "თეთრმკერდა ზღარბი ღია ფერის მკერდითა და ნაცრისფერ-ყავისფერი ეკლებით ღია ფერის ქვის ზედაპირზე, ღამით",
-      ru: "Южный белогрудый ёж со светлой грудью и серо-коричневыми иголками на светлой каменной поверхности ночью",
-      tr: "Açık renkli göğsü ve gri-kahverengi dikenleriyle güney beyaz göğüslü kirpi, gece açık renkli taş bir zeminde",
+      en: "A southern white-breasted hedgehog with a pale chest and grey-brown spines on a light stone surface",
+      ka: "თეთრმკერდა ზღარბი ღია ფერის მკერდითა და ნაცრისფერ-ყავისფერი ეკლებით ღია ფერის ქვის ზედაპირზე",
+      ru: "Южный белогрудый ёж со светлой грудью и серо-коричневыми иголками на светлой каменной поверхности",
+      tr: "Açık renkli göğsü ve gri-kahverengi dikenleriyle güney beyaz göğüslü kirpi, açık renkli taş bir zeminde",
     },
     credit: {
       en: "Photo: Nevit Dilmen / Wikimedia Commons, CC BY-SA 3.0; resized. Erinaceus concolor, Istanbul, Turkey.",
