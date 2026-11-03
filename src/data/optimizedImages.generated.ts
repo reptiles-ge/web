@@ -95,33 +95,33 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled.jpg": {
-    "path": "images/guides/hedgehog-winter-curled",
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-curled-v2",
     "width": 1600,
     "height": 1101,
     "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
+    "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero.jpg": {
-    "path": "images/guides/hedgehog-winter-hero",
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-hero-v2",
     "width": 1600,
     "height": 1200,
     "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
+    "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night.jpg": {
-    "path": "images/guides/hedgehog-winter-night",
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-night-v2",
     "width": 1600,
     "height": 815,
     "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
+    "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi.jpg": {
-    "path": "images/guides/hedgehog-winter-tbilisi",
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-tbilisi-v2",
     "width": 1600,
     "height": 1066,
     "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
+    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/images/guides/ladybird-house-black-form.jpg": {
     "path": "images/guides/ladybird-house-black-form",

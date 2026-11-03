@@ -1102,6 +1102,8 @@ export function getSpeciesGuideLinks(
         kind: "page",
       });
     }
+    // TODO(PR #1803 review): duplicates relatedSpeciesIds in src/content/guides/hedgehogInWinter.ts.
+    // Derive guide-article links from each guide's relatedSpeciesIds instead of one branch per species.
     if (id === "erinaceus-concolor") {
       links.push({
         href: "/mammals/zgharbi-zamtarshi",

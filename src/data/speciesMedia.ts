@@ -96,14 +96,18 @@ export const images = {
     "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
   gyurzaBiteHero: "/images/guides/gyurza-bite-hero.jpg",
   gyurzaBiteViperPortrait: "/images/guides/gyurza-bite-viper-portrait.jpg",
+  // TODO(PR #1803 review): the optimizedImages.generated.ts entries for these images were spliced in by hand,
+  // because scripts/optimize-images.ts drops every entry whose source it cannot resolve locally.
+  // Regenerate them normally once the optimizer keeps unresolved entries.
+  // The earlier uploads without "-v2" are unused on the CDN; delete them once the CDN cache can be purged.
   hedgehogInWinterCurled:
-    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled.jpg",
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled-v2.jpg",
   hedgehogInWinterHero:
-    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero.jpg",
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero-v2.jpg",
   hedgehogInWinterNight:
-    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night.jpg",
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night-v2.jpg",
   hedgehogInWinterTbilisi:
-    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi.jpg",
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi-v2.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
   homeSpotlight: "/images/home/vipera-dinniki-landing.jpg",
   ladybirdsInHouseBlackForm:
