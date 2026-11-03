@@ -101,71 +101,6 @@ export function buildGeneratedImages(input: {
   return { images, skippedNoGain };
 }
 
-export function compactAsset(
-  key: string,
-  entry: ManifestEntry,
-  storage: StorageAdapter,
-  prefix: string,
-): null | OptimizedImageEntry {
-  const widths = [...new Set(entry.derivatives.map((item) => item.width))].sort(
-    (a, b) => a - b,
-  );
-
-  const byFormatWidth = new Map(
-    entry.derivatives.map((item) => [`${item.format}@${item.width}`, item]),
-  );
-
-  const formats = PHOTO_FORMATS.filter((format) => {
-    const widest = entry.derivatives
-      .filter((item) => item.format === format)
-      .reduce<ManifestEntry["derivatives"][number] | null>(
-        (best, item) => (!best || item.width > best.width ? item : best),
-        null,
-      );
-    if (!widest) return false;
-    return widest.width < entry.width || widest.byteSize < entry.originalSize;
-  });
-
-  if (formats.length === 0) return null;
-
-  const anchor = entry.derivatives[0];
-  if (!anchor) throw new Error(`${key} has no derivatives.`);
-
-  const anchorUrl = storage.urlFor(anchor.key);
-  const anchorSuffix = `-${anchor.width}.${anchor.format}`;
-  if (!anchorUrl.startsWith(prefix) || !anchorUrl.endsWith(anchorSuffix)) {
-    throw new Error(
-      `Derivative naming changed: ${anchorUrl} is not "${prefix}<path>${anchorSuffix}".`,
-    );
-  }
-  const assetPath = anchorUrl.slice(prefix.length, -anchorSuffix.length);
-
-  for (const width of widths) {
-    for (const format of formats) {
-      const derivative = byFormatWidth.get(`${format}@${width}`);
-      if (!derivative) {
-        throw new Error(
-          `${key} is missing the ${width}px ${format} derivative.`,
-        );
-      }
-      const expected = `${prefix}${assetPath}-${width}.${format}`;
-      if (storage.urlFor(derivative.key) !== expected) {
-        throw new Error(
-          `${key} derivative url ${storage.urlFor(derivative.key)} does not match ${expected}.`,
-        );
-      }
-    }
-  }
-
-  return {
-    formats: [...formats],
-    height: entry.height,
-    path: assetPath,
-    width: entry.width,
-    widths,
-  };
-}
-
 export function ensureTrailingNewline(file: string) {
   const text = fs.readFileSync(file, "utf8");
   if (!text.endsWith("\n")) fs.writeFileSync(file, `${text}\n`);
@@ -229,6 +164,71 @@ export function readGeneratedImages(
     );
   }
   return parseGeneratedImages(objectPart.slice(0, -1));
+}
+
+function compactAsset(
+  key: string,
+  entry: ManifestEntry,
+  storage: StorageAdapter,
+  prefix: string,
+): null | OptimizedImageEntry {
+  const widths = [...new Set(entry.derivatives.map((item) => item.width))].sort(
+    (a, b) => a - b,
+  );
+
+  const byFormatWidth = new Map(
+    entry.derivatives.map((item) => [`${item.format}@${item.width}`, item]),
+  );
+
+  const formats = PHOTO_FORMATS.filter((format) => {
+    const widest = entry.derivatives
+      .filter((item) => item.format === format)
+      .reduce<ManifestEntry["derivatives"][number] | null>(
+        (best, item) => (!best || item.width > best.width ? item : best),
+        null,
+      );
+    if (!widest) return false;
+    return widest.width < entry.width || widest.byteSize < entry.originalSize;
+  });
+
+  if (formats.length === 0) return null;
+
+  const anchor = entry.derivatives[0];
+  if (!anchor) throw new Error(`${key} has no derivatives.`);
+
+  const anchorUrl = storage.urlFor(anchor.key);
+  const anchorSuffix = `-${anchor.width}.${anchor.format}`;
+  if (!anchorUrl.startsWith(prefix) || !anchorUrl.endsWith(anchorSuffix)) {
+    throw new Error(
+      `Derivative naming changed: ${anchorUrl} is not "${prefix}<path>${anchorSuffix}".`,
+    );
+  }
+  const assetPath = anchorUrl.slice(prefix.length, -anchorSuffix.length);
+
+  for (const width of widths) {
+    for (const format of formats) {
+      const derivative = byFormatWidth.get(`${format}@${width}`);
+      if (!derivative) {
+        throw new Error(
+          `${key} is missing the ${width}px ${format} derivative.`,
+        );
+      }
+      const expected = `${prefix}${assetPath}-${width}.${format}`;
+      if (storage.urlFor(derivative.key) !== expected) {
+        throw new Error(
+          `${key} derivative url ${storage.urlFor(derivative.key)} does not match ${expected}.`,
+        );
+      }
+    }
+  }
+
+  return {
+    formats: [...formats],
+    height: entry.height,
+    path: assetPath,
+    width: entry.width,
+    widths,
+  };
 }
 
 function parseGeneratedImages(
