@@ -96,6 +96,14 @@ export const images = {
     "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
   gyurzaBiteHero: "/images/guides/gyurza-bite-hero.jpg",
   gyurzaBiteViperPortrait: "/images/guides/gyurza-bite-viper-portrait.jpg",
+  hedgehogInWinterCurled:
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled.jpg",
+  hedgehogInWinterHero:
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero.jpg",
+  hedgehogInWinterNight:
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night.jpg",
+  hedgehogInWinterTbilisi:
+    "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
   homeSpotlight: "/images/home/vipera-dinniki-landing.jpg",
   ladybirdsInHouseBlackForm:

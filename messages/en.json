@@ -353,7 +353,8 @@
         "fleasInHouse": "Fleas in the house",
         "bedBugsAtHome": "Bed bugs at home",
         "mosquitoesAtHome": "Mosquitoes at home and in the yard",
-        "mouseInHouse": "Mouse in the house"
+        "mouseInHouse": "Mouse in the house",
+        "hedgehogInWinter": "Hedgehog found in winter"
       }
     }
   },
@@ -428,6 +429,7 @@
     "bedBugsAtHome": "Bed bugs at home",
     "mosquitoesAtHome": "Mosquitoes at home and in the yard",
     "mouseInHouse": "Mouse in the house",
+    "hedgehogInWinter": "Hedgehog found in winter",
     "bite": "Snakebite first steps",
     "gyurzaBite": "Levantine viper bite",
     "clothesMoth": "Clothes moths",
@@ -1872,6 +1874,12 @@
         "eyebrow": "Practical guide",
         "title": "Mouse in the house",
         "body": "Spot the signs, trap mice, clean up droppings safely and seal the gaps they use to get in.",
+        "cta": "Read the guide"
+      },
+      "hedgehogInWinter": {
+        "eyebrow": "Practical guide",
+        "title": "Hedgehog found in winter",
+        "body": "How to tell a hibernating hedgehog from one in trouble, how to help safely, and why milk and bread can harm it.",
         "cta": "Read the guide"
       },
       "lizardQuiz": {

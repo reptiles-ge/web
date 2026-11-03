@@ -112,6 +112,10 @@ export const pathnames = {
     "/dzuzumtsovrebi/tura-ezoshi",
     "/mammals/jackal-in-the-yard",
   ),
+  "/mammals/zgharbi-zamtarshi": kaLatin(
+    "/dzuzumtsovrebi/zgharbi-zamtarshi",
+    "/mammals/hedgehog-in-winter",
+  ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",
   "/news/page/[page]": "/news/page/[page]",
