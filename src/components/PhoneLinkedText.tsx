@@ -14,7 +14,7 @@ import { splitPhoneLinks } from "@/lib/phoneLinks";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 
 const PHONE_LINK_CLASS_NAME =
-  "font-medium underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current";
+  "tap-target font-medium underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current";
 const INLINE_LINK_CLASS_NAME =
   "font-medium underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current";
 const INLINE_MARKDOWN_LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)]+)\)/g;

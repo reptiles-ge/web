@@ -135,6 +135,10 @@
   }
 }
 
+.tracking-wide:lang(ka) {
+  letter-spacing: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
