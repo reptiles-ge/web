@@ -90424,6 +90424,73 @@
       ],
       "updatedAt": "2026-10-23T06:54:01.054Z"
     },
+    "news-batkanzeri-lukhuma-metronome.jpg": {
+      "sourceHash": "6af2a9e8a39dc1c52318ed4dee0d33e6bdd9cd3994ae08c179e4cb75257f4902",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batkanzeri-lukhuma-metronome.jpg",
+      "originalSize": 64646,
+      "width": 800,
+      "height": 492,
+      "derivatives": [
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 197,
+          "byteSize": 7227
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 197,
+          "byteSize": 10222
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 246,
+          "byteSize": 9697
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 246,
+          "byteSize": 14110
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 394,
+          "byteSize": 18584
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 394,
+          "byteSize": 25954
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 492,
+          "byteSize": 24214
+        },
+        {
+          "key": "optimized/news-batkanzeri-lukhuma-metronome-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 492,
+          "byteSize": 32968
+        }
+      ],
+      "updatedAt": "2026-11-04T07:31:08.374Z"
+    },
     "news-batumi-19300-cosentino-kite-1.jpg": {
       "sourceHash": "c0ce7bd2cbc4f213a07deac39a0c231753e61bceb2a85ab3a6bb1e63fb00ee61",
       "configFingerprint": "409788ee46c653d8",
