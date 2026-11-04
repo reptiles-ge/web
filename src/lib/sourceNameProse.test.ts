@@ -6,6 +6,8 @@ import {
 } from "@/content/halyomorphaProfileCopy";
 import { routing } from "@/i18n/routing";
 import {
+  addedSourceFraming,
+  findSourceFraming,
   findSourceNames,
   findSourceNamesInFields,
 } from "@/lib/sourceNameProse";
@@ -127,5 +129,60 @@ describe("species profile prose names no sources", () => {
         pest: HALYOMORPHA_PEST_COPY,
       }),
     ).toEqual([]);
+  });
+});
+
+describe("findSourceFraming", () => {
+  it.each([
+    "According to studies conducted in Europe, jackals eat carrion.",
+    "Sources about the species also mention mole crickets.",
+    "A 2024 list identifies it as a breeding resident.",
+    "A photograph confirms its presence in Georgia.",
+    "კვლევების მიხედვით ტურა ლეშს ჭამს.",
+    "აქ მისი ყოფნა ფოტოთიც არის დადასტურებული.",
+    "Согласно исследованиям, шакал ест падаль.",
+    "Его присутствие в Грузии подтверждено фотографией.",
+    "Araştırmalara göre çakal leş yer.",
+    "Gürcistan'daki varlığı bir fotoğrafla da doğrulanmıştır.",
+  ])("flags %s", (text) => {
+    expect(findSourceFraming(text)).not.toEqual([]);
+  });
+
+  it.each([
+    "Jackals eat small mammals, birds and carrion.",
+    "It has been photographed in Georgia.",
+    "Источниками бешенства чаще называют лис и шакалов.",
+    "В некоторых источниках её называют Macrovipera lebetina.",
+    "Bazı kaynaklarda başka adlarla karşılaşılabilir, ancak tür aynıdır.",
+    "In 2024 it was recorded breeding near Batumi.",
+  ])("allows %s", (text) => {
+    expect(findSourceFraming(text)).toEqual([]);
+  });
+});
+
+describe("addedSourceFraming", () => {
+  const record = (diet: string) => ({
+    base: { diet: "მწერებით იკვებება." },
+    translations: { en: { diet } },
+  });
+
+  it("ignores framing the live record already has", () => {
+    const before = record("According to studies, it eats insects.");
+    expect(addedSourceFraming(before, before)).toEqual([]);
+  });
+
+  it("names the locale and field of new framing", () => {
+    expect(
+      addedSourceFraming(
+        record("It eats insects."),
+        record("A photograph confirms it eats insects."),
+      ),
+    ).toEqual([
+      {
+        field: "en.diet",
+        label: "a photograph confirms",
+        match: "A photograph confirms",
+      },
+    ]);
   });
 });

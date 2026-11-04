@@ -10,6 +10,7 @@ import {
 import { apiOrigin } from "../src/lib/apiClient";
 import { getOccurrenceSummary } from "../src/lib/occurrenceSummaries";
 import { addedPageTalk } from "../src/lib/pageTalkProse";
+import { addedSourceFraming } from "../src/lib/sourceNameProse";
 import { diffSpeciesRecords } from "../src/lib/speciesDraftDiff";
 import { loadEnv } from "./scriptUtils";
 
@@ -179,6 +180,14 @@ async function push(
     fail(
       `${id}: the change adds text about the page, map or sources instead of the animal:\n${pageTalk
         .map((hit) => `  ${hit.locale} ${hit.field}: “${hit.match}”`)
+        .join("\n")}`,
+    );
+  }
+  const framing = addedSourceFraming(live.record, record);
+  if (framing.length > 0) {
+    fail(
+      `${id}: the change makes a study, list, source or photo the subject instead of the animal:\n${framing
+        .map((hit) => `  ${hit.field}: “${hit.match}”`)
         .join("\n")}`,
     );
   }

@@ -1,4 +1,5 @@
 import { addedPageTalk } from "@/lib/pageTalkProse";
+import { addedSourceFraming } from "@/lib/sourceNameProse";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 
@@ -21,5 +22,30 @@ export function assertNoAddedPageTalk(
         ...hit.field.split("."),
       ],
     })),
+  );
+}
+
+export function assertNoAddedSourceFraming(
+  previous: null | SpeciesRecord,
+  next: SpeciesRecord,
+) {
+  const hits = addedSourceFraming(previous, next);
+  if (hits.length === 0) return;
+  throw new ApiError(
+    400,
+    "invalid_request",
+    "The change makes a study, list, source or photo the subject instead of the animal",
+    hits.map((hit) => {
+      const [locale, ...field] = hit.field
+        .replace(/\[(\d+)\]/g, ".$1")
+        .split(".");
+      return {
+        message: `Source framing: “${hit.match}”`,
+        path: [
+          ...(locale === "ka" ? ["base"] : ["translations", locale!]),
+          ...field,
+        ],
+      };
+    }),
   );
 }
