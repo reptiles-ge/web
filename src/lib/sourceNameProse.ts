@@ -124,38 +124,124 @@ const SOURCE_NAME_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
   },
 ];
 
+// Framing that makes a study, list, source or photo the subject of the
+// sentence. Live records still carry many of these, so only drafts are
+// stopped from adding new ones (addedSourceFraming).
+const SOURCE_FRAMING_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
+  {
+    label: "according to studies",
+    pattern:
+      /\b(?:according to|as shown by) (?:the )?(?:studies|research|surveys|sources|data)\b|(?:კვლევების|წყაროების) მიხედვით|(?:[Пп]о данным|[Сс]огласно) (?:исследовани|источник|опрос)\p{L}*|(?:araştırmalara|çalışmalara|kaynaklara) göre/iu,
+  },
+  {
+    label: "sources mention",
+    pattern:
+      /\b[Ss]ources?\b(?: [^\s.;:]+){0,5} (?:also )?(?:mention|mentions|report|reports|note|notes|say|says|state|states|describe|describes)\b|წყაროებ(?:ი|ში)(?: [^\s.;:]+){0,5} (?:ასევე )?(?:მოიხსენიებ|იხსენიებ|აღნიშნავ|აღნიშნულ|ასახელებ)|(?:(?<![\p{L}])[Вв] (?:\p{L}+ ){0,2}источниках|(?<![\p{L}])[Ии]сточник(?:и)?(?![\p{L}]))(?: [^\s.;:]+){0,5} (?:также )?(?:упомина|сообща|отмеча|указыва)\p{L}*|[Kk]aynak\p{L}*(?: [^\s.;:]+){0,5} (?:da )?(?:anılır|anar|anıyor|bahsed\p{L}*|belirt\p{L}*|söz ed\p{L}*)(?![\p{L}])/u,
+  },
+  {
+    label: "a list identifies",
+    pattern:
+      /\b[Aa] (?:\d{4} )?(?:list|checklist|study|survey|report) (?:identifies|names|lists|records|reports|notes|mentions|confirms)\b|\d{4} წლის (?:სია|ჩამონათვალი|კვლევა)(?:ში)? (?:ასახელებს|აღნიშნავს|ადასტურებს)|(?:[Сс]писок|[Чч]ек-лист|[Ии]сследование) \d{4} года (?:называет|указывает|отмечает|подтверждает)|\d{4} (?:listesi|kontrol listesi|çalışması) [^\s.;:]+(?:yı|yi|yu|yü|ı|i|u|ü) (?:belirtir|adlandırır|listeler|doğrular)/u,
+  },
+  {
+    label: "a photograph confirms",
+    pattern:
+      /\b[Aa] (?:photo|photograph|recording) confirms\b|\bconfirmed by a (?:photo|photograph|recording)\b|ფოტოთი(?:ც)? (?:არის )?დადასტურებ|подтвержден\p{L}* фотографией|fotoğrafla (?:da )?doğrulan/u,
+  },
+];
+
 export type SourceNameHit = {
   field: string;
   label: string;
   match: string;
 };
 
-export function findSourceNames(text: string) {
-  const hits: Array<Omit<SourceNameHit, "field">> = [];
-  for (const { label, pattern } of SOURCE_NAME_PATTERNS) {
-    const match = text.match(pattern);
-    if (match) hits.push({ label, match: match[0] });
+type SpeciesTexts = {
+  base: unknown;
+  translations?: Partial<Record<string, unknown>>;
+};
+
+export function addedSourceFraming(
+  previous: null | SpeciesTexts,
+  next: SpeciesTexts,
+): SourceNameHit[] {
+  // List positions are left out, so deleting or reordering FAQ items, facts
+  // or traits does not turn framing already there into "added" framing.
+  const key = (hit: SourceNameHit) =>
+    `${hit.field.replace(/\[\d+\]/g, "[]")} ${hit.match}`;
+  const before = new Map<string, number>();
+  for (const hit of previous ? sourceFramingInRecord(previous) : []) {
+    before.set(key(hit), (before.get(key(hit)) ?? 0) + 1);
   }
-  return hits;
+  return sourceFramingInRecord(next).filter((hit) => {
+    const left = before.get(key(hit)) ?? 0;
+    if (left === 0) return true;
+    before.set(key(hit), left - 1);
+    return false;
+  });
+}
+
+export function findSourceFraming(text: string) {
+  return SOURCE_FRAMING_PATTERNS.flatMap(({ label, pattern }) =>
+    [...text.matchAll(new RegExp(pattern.source, `${pattern.flags}g`))].map(
+      (match) => ({ label, match: match[0] }),
+    ),
+  );
+}
+
+export function findSourceNames(text: string) {
+  return matchPatterns(SOURCE_NAME_PATTERNS, text);
 }
 
 export function findSourceNamesInFields(
   value: unknown,
   field = "",
 ): SourceNameHit[] {
+  return walkFields(value, field, findSourceNames);
+}
+
+function matchPatterns(
+  patterns: Array<{ label: string; pattern: RegExp }>,
+  text: string,
+) {
+  const hits: Array<Omit<SourceNameHit, "field">> = [];
+  for (const { label, pattern } of patterns) {
+    const match = text.match(pattern);
+    if (match) hits.push({ label, match: match[0] });
+  }
+  return hits;
+}
+
+function sourceFramingInRecord(record: SpeciesTexts) {
+  return [
+    ["ka", record.base] as const,
+    ...Object.entries(record.translations ?? {}),
+  ].flatMap(([locale, texts]) =>
+    walkFields(texts, "", findSourceFraming).map((hit) => ({
+      ...hit,
+      field: `${locale}.${hit.field}`,
+    })),
+  );
+}
+
+function walkFields(
+  value: unknown,
+  field: string,
+  find: (text: string) => Array<Omit<SourceNameHit, "field">>,
+): SourceNameHit[] {
   if (typeof value === "string") {
-    return findSourceNames(value).map((hit) => ({ ...hit, field }));
+    return find(value).map((hit) => ({ ...hit, field }));
   }
   if (Array.isArray(value)) {
     return value.flatMap((item, index) =>
-      findSourceNamesInFields(item, `${field}[${index}]`),
+      walkFields(item, `${field}[${index}]`, find),
     );
   }
   if (value && typeof value === "object") {
     return Object.entries(value).flatMap(([key, item]) =>
       field === "" && NON_TEXT_KEYS.has(key)
         ? []
-        : findSourceNamesInFields(item, field ? `${field}.${key}` : key),
+        : walkFields(item, field ? `${field}.${key}` : key, find),
     );
   }
   return [];
