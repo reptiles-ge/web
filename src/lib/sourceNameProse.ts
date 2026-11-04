@@ -189,13 +189,6 @@ export function findSourceFraming(text: string) {
   );
 }
 
-export function findSourceFramingInFields(
-  value: unknown,
-  field = "",
-): SourceNameHit[] {
-  return walkFields(value, field, findSourceFraming);
-}
-
 export function findSourceNames(text: string) {
   return matchPatterns(SOURCE_NAME_PATTERNS, text);
 }
