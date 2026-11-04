@@ -191,7 +191,10 @@ function SpeciesGuideRowCopy({
         <h3 className="mt-2 font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </h3>
-        <p className="mt-1 text-[13px] tracking-wide text-muted-foreground italic">
+        <p
+          className="mt-1 text-[13px] tracking-wide text-muted-foreground italic"
+          lang="la"
+        >
           {species.scientificName}
         </p>
         <p className="mt-3 line-clamp-2 max-w-xl text-[14px] leading-relaxed text-muted-foreground">

@@ -16,6 +16,13 @@ describe("PhoneLinkedText", () => {
     expect(link).toHaveAttribute("href", "tel:112");
   });
 
+  it("gives phone links a taller hit area that never wraps", () => {
+    render(<PhoneLinkedText>Agency: 032 272 16 00.</PhoneLinkedText>);
+    const link = screen.getByRole("link", { name: "032 272 16 00" });
+    expect(link).toHaveClass("py-1", "whitespace-nowrap");
+    expect(link).not.toHaveClass("tap-target");
+  });
+
   it("links the agency number to its dialable form", () => {
     render(<PhoneLinkedText>Agency: 032 272 16 00.</PhoneLinkedText>);
     expect(screen.getByRole("link", { name: "032 272 16 00" })).toHaveAttribute(
