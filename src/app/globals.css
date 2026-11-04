@@ -135,7 +135,12 @@
   }
 }
 
-.tracking-wide:lang(ka) {
+:is(
+  .tracking-wide,
+  .tracking-wider,
+  .tracking-widest,
+  [class*="tracking-[0."]
+):lang(ka) {
   letter-spacing: normal;
 }
 
