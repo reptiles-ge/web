@@ -95,62 +95,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled-v2.jpg": {
-    "path": "images/guides/hedgehog-winter-curled-v2",
-    "width": 1600,
-    "height": 1101,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero-v2.jpg": {
-    "path": "images/guides/hedgehog-winter-hero-v2",
-    "width": 1600,
-    "height": 1200,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night-v2.jpg": {
-    "path": "images/guides/hedgehog-winter-night-v2",
-    "width": 1600,
-    "height": 815,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi-v2.jpg": {
-    "path": "images/guides/hedgehog-winter-tbilisi-v2",
-    "width": 1600,
-    "height": 1066,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/images/guides/ladybird-house-black-form.jpg": {
-    "path": "images/guides/ladybird-house-black-form",
-    "width": 1600,
-    "height": 1066,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/guides/ladybird-house-hero.jpg": {
-    "path": "images/guides/ladybird-house-hero",
-    "width": 1600,
-    "height": 1071,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/guides/ladybird-house-marking.jpg": {
-    "path": "images/guides/ladybird-house-marking",
-    "width": 1600,
-    "height": 1110,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/guides/ladybird-house-seven-spot.jpg": {
-    "path": "images/guides/ladybird-house-seven-spot",
-    "width": 1600,
-    "height": 1066,
-    "widths": [320, 400, 640, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
   "/images/guides/mosquitoes-at-home-cover.jpg": {
     "path": "images/guides/mosquitoes-at-home-cover",
     "width": 1024,
@@ -317,34 +261,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1440,
     "widths": [320, 400, 640, 800, 1200, 1920],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus.jpg": {
-    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus",
-    "width": 2400,
-    "height": 1802,
-    "widths": [320, 400, 640, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave.jpg": {
-    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave",
-    "width": 2000,
-    "height": 1333,
-    "widths": [320, 400, 640, 800, 1200, 2000],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg": {
-    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave",
-    "width": 2400,
-    "height": 1510,
-    "widths": [320, 400, 640, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave.jpg": {
-    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave",
-    "width": 2000,
-    "height": 1333,
-    "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
   "/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
@@ -4988,6 +4904,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-curled-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-curled-v2",
+    "width": 1600,
+    "height": 1101,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-hero-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-hero-v2",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-night-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-night-v2",
+    "width": 1600,
+    "height": 815,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/guides/hedgehog-winter-tbilisi-v2.jpg": {
+    "path": "images/guides/hedgehog-winter-tbilisi-v2",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-black-form.jpg": {
+    "path": "images/guides/ladybird-house-black-form",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-hero.jpg": {
+    "path": "images/guides/ladybird-house-hero",
+    "width": 1600,
+    "height": 1071,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-marking.jpg": {
+    "path": "images/guides/ladybird-house-marking",
+    "width": 1600,
+    "height": 1110,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/ladybird-house-seven-spot.jpg": {
+    "path": "images/guides/ladybird-house-seven-spot",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg": {
     "path": "images/guides/scorpion-in-house-gap",
     "width": 1024,
@@ -5161,6 +5133,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1440,
     "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/haplophthalmus-danicus",
+    "width": 2400,
+    "height": 1802,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/motena-cave",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/prometheus-cave",
+    "width": 2400,
+    "height": 1510,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave.jpg": {
+    "path": "images/news/imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi/satsurblia-cave",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
@@ -7429,6 +7429,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1408,
     "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batkanzeri-lukhuma-metronome.jpg": {
+    "path": "news-batkanzeri-lukhuma-metronome",
+    "width": 800,
+    "height": 492,
+    "widths": [320, 400, 640, 800],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
