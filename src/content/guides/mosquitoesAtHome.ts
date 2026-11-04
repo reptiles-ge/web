@@ -139,7 +139,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Do all mosquitoes pose the same risk?",
         paragraphs: [
           "No. CDC distinguishes nuisance mosquitoes from species capable of spreading germs. A bite by itself does not mean infection. You do not need an exact species identification before starting these practical steps.",
-          "This is not a species identification page or an assessment of current disease transmission in Georgia the country. Published pages in the [insect atlas](/insects) cover species; this guide covers care around the home.",
+          "This guide does not identify species or assess current disease transmission in Georgia the country. Published pages in the [insect atlas](/insects) cover species; this guide covers care around the home.",
         ],
       },
       {
@@ -424,7 +424,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Все ли комары несут одинаковый риск?",
         paragraphs: [
           "Нет. CDC различает комаров, которые только кусают, и виды, способные переносить возбудителей болезней. Сам укус не означает заражения. Для начала практических действий точное определение вида не требуется.",
-          "Это не страница определения вида и не оценка нынешнего распространения болезней в Грузии. Опубликованные страницы [атласа насекомых](/insects) посвящены видам; эта статья — уходу за домом и двором.",
+          "Эта статья не помогает определить вид и не оценивает нынешнее распространение болезней в Грузии. Опубликованные страницы [атласа насекомых](/insects) посвящены видам; эта статья — уходу за домом и двором.",
         ],
       },
       {
@@ -568,7 +568,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Bütün sivrisinekler aynı riski mi taşır?",
         paragraphs: [
           "Hayır. CDC yalnızca ısıran sivrisineklerle mikrop taşıyabilen türleri ayırır. Isırık tek başına enfeksiyon anlamına gelmez. Bu adımlara başlamak için türü kesin olarak bilmek gerekmez.",
-          "Bu sayfa tür tanımlama ya da Gürcistan ülkesindeki güncel hastalık yayılımını değerlendirme sayfası değildir. Yayımlanmış [böcek atlası](/insects) sayfaları türleri ele alır; bu rehber ev ve bahçe bakımına odaklanır.",
+          "Bu rehber tür tanımlamaz ve Gürcistan ülkesindeki güncel hastalık yayılımını değerlendirmez. Yayımlanmış [böcek atlası](/insects) sayfaları türleri ele alır; bu rehber ev ve bahçe bakımına odaklanır.",
         ],
       },
       {

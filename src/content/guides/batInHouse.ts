@@ -116,7 +116,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "If a bat bites or scratches you",
         paragraphs: [
           "Bat bites can be small and easy to overlook. CDC guidance is to wash a known bite or scratch with soap and water and get medical help right away. WHO also recommends thorough washing with soap and water for at least 15 minutes after exposure, then clinical assessment for rabies post-exposure care when indicated.",
-          "Seek prompt medical or public-health advice after a bite, a scratch, saliva on mucous membranes or broken skin, or situations — including some sleep or unsupervised child contacts — where direct contact cannot be ruled out with confidence. Do not release or discard the animal casually if public-health staff ask that it be assessed. This page cannot diagnose exposure or prescribe a vaccine schedule.",
+          "Seek prompt medical or public-health advice after a bite, a scratch, saliva on mucous membranes or broken skin, or situations — including some sleep or unsupervised child contacts — where direct contact cannot be ruled out with confidence. Do not release or discard the animal casually if public-health staff ask that it be assessed. Whether an exposure happened and which vaccine schedule is needed is decided by a doctor or public-health specialist.",
         ],
       },
       {
@@ -252,7 +252,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "რა ხდება, თუ ღამურამ გვიკბინა ან დაგვკაწრა?",
         paragraphs: [
           "ღამურას ნაკბენი შეიძლება პატარა იყოს და ადვილად გამორჩეს. CDC ურჩევს ცნობილი ნაკბენის ან ნაკაწრის საპნითა და წყლით დაბანას და დაუყოვნებლივ სამედიცინო დახმარებას. ჯანმო ასევე გირჩევთ ექსპოზიციის შემდეგ საპნითა და წყლით მინიმუმ 15 წუთიან საფუძვლიან დაბანას, შემდეგ კლინიკურ შეფასებას ცოფის საწინააღმდეგო პროფილაქტიკისთვის, როცა ეს ნაჩვენებია.",
-          "დროული სამედიცინო ან საზოგადოებრივი ჯანდაცვის რჩევა მიიღეთ ნაკბენის, ნაკაწრის, ლორწოვანზე ან ღია ჭრილობაზე ნერწყვის მოხვედრის, ან ისეთი სიტუაციების შემდეგ — მათ შორის ზოგი ძილის ან ზედამხედველობის გარეშე ბავშვის კონტაქტისას — როცა პირდაპირი კონტაქტი თავდაჯერებით ვერ გამოირიცხება. ცხოველი უბრალოდ ნუ გაუშვით ან ნუ გადააგდეთ, თუ საზოგადოებრივი ჯანდაცვის სპეციალისტი შეფასებას ითხოვს. ეს გვერდი ექსპოზიციას ვერ ადგენს და აცრის გრაფიკს ვერ ნიშნავს.",
+          "დროული სამედიცინო ან საზოგადოებრივი ჯანდაცვის რჩევა მიიღეთ ნაკბენის, ნაკაწრის, ლორწოვანზე ან ღია ჭრილობაზე ნერწყვის მოხვედრის, ან ისეთი სიტუაციების შემდეგ — მათ შორის ზოგი ძილის ან ზედამხედველობის გარეშე ბავშვის კონტაქტისას — როცა პირდაპირი კონტაქტი თავდაჯერებით ვერ გამოირიცხება. ცხოველი უბრალოდ ნუ გაუშვით ან ნუ გადააგდეთ, თუ საზოგადოებრივი ჯანდაცვის სპეციალისტი შეფასებას ითხოვს. იყო თუ არა ექსპოზიცია და რა აცრის გრაფიკია საჭირო, ექიმი ან საზოგადოებრივი ჯანდაცვის სპეციალისტი წყვეტს.",
         ],
       },
       {
@@ -388,7 +388,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Если летучая мышь укусила или оцарапала",
         paragraphs: [
           "Укусы могут быть мелкими и незаметными. CDC советует промыть известный укус или царапину мылом и водой и немедленно обратиться за медицинской помощью. ВОЗ также рекомендует тщательное промывание мылом и водой не менее 15 минут после экспозиции, затем клиническую оценку постэкспозиционной профилактики бешенства при показаниях.",
-          "Обратитесь за срочной медицинской или санитарной консультацией после укуса, царапины, попадания слюны на слизистые или повреждённую кожу, либо в ситуациях — включая некоторые контакты во сне или с ребёнком без присмотра — когда прямой контакт нельзя уверенно исключить. Не выпускайте и не выбрасывайте животное бездумно, если специалисты просят его оценить. Страница не ставит диагноз и не назначает схему вакцинации.",
+          "Обратитесь за срочной медицинской или санитарной консультацией после укуса, царапины, попадания слюны на слизистые или повреждённую кожу, либо в ситуациях — включая некоторые контакты во сне или с ребёнком без присмотра — когда прямой контакт нельзя уверенно исключить. Не выпускайте и не выбрасывайте животное бездумно, если специалисты просят его оценить. Был ли контакт опасным и какая схема вакцинации нужна, решает врач или специалист общественного здравоохранения.",
         ],
       },
       {
@@ -524,7 +524,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Yarasa ısırır veya tırmıklarsa",
         paragraphs: [
           "Yarasa ısırıkları küçük ve gözden kaçabilir. CDC, bilinen ısırık veya tırmığı sabun ve suyla yıkayıp hemen tıbbi yardım almayı önerir. DSÖ de maruziyet sonrası en az 15 dakika sabun ve suyla iyice yıkamayı, ardından gerektiğinde kuduz sonrası profilaksi için klinik değerlendirmeyi önerir.",
-          "Isırık, tırmık, tükürüğün mukozaya veya açık yaraya değmesi ya da — uykuda veya gözetimsiz çocuk temasları dahil — doğrudan temasın güvenle dışlanamadığı durumlardan sonra gecikmeden tıbbi veya halk sağlığı danışmanlığı alın. Halk sağlığı personeli değerlendirilmesini isterse hayvanı rastgele salmayın veya atmayın. Bu sayfa maruziyeti teşhis edemez ve aşı takvimi yazamaz.",
+          "Isırık, tırmık, tükürüğün mukozaya veya açık yaraya değmesi ya da — uykuda veya gözetimsiz çocuk temasları dahil — doğrudan temasın güvenle dışlanamadığı durumlardan sonra gecikmeden tıbbi veya halk sağlığı danışmanlığı alın. Halk sağlığı personeli değerlendirilmesini isterse hayvanı rastgele salmayın veya atmayın. Maruziyet olup olmadığına ve hangi aşı takviminin gerektiğine bir hekim veya halk sağlığı uzmanı karar verir.",
         ],
       },
       {

@@ -3,7 +3,8 @@ import type { AppLocale } from "@/i18n/routing";
 const PAGE_TALK_PATTERNS: Record<AppLocale, RegExp[]> = {
   en: [
     /\b(?:on|in|from|for) this (?:page|profile|atlas)\b/i,
-    /\bthis (?:page|profile|atlas) (?:does|doesn't|has|is|lists|uses|shows|gives|treats|names)\b/i,
+    /\bthis (?:page|profile|atlas) (?:can't|cannot|covers|does|doesn't|follows|gives|has|is|lists|names|shows|treats|uses)\b/i,
+    /\bfollow this page\b/i,
     /\bnot (?:given|listed|tabulated|published|reproduced|shown|mapped) (?:on this page|here)\b/i,
     /\bthe (?:atlas|page's|profile's) map\b/i,
     /\bthe map (?:on this page|below)\b/i,
@@ -20,7 +21,7 @@ const PAGE_TALK_PATTERNS: Record<AppLocale, RegExp[]> = {
   ],
   ru: [
     /(?:на|в|по|из) (?:этой|данной) страниц/iu,
-    /(?:^|\s)эта страница/iu,
+    /(?:^|\s)(?:эта|этой|эту) страниц/iu,
     /(?:в|на|по|из) этом(?:у)? (?:профил|атлас)/iu,
     /(?:^|\s)этот (?:профиль|атлас)/iu,
     /карт[аеуы] атласа/iu,
@@ -48,6 +49,8 @@ const TEXT_FIELDS = [
   "overview",
   "stats",
 ] as const;
+
+const ATLAS_WORD = /atlas|ატლას|атлас/iu;
 
 export type PageTalkHit = {
   field: string;
@@ -78,6 +81,20 @@ export function addedPageTalk(
     before.set(key, left - 1);
     return false;
   });
+}
+
+// Guide, news and page copy may name the atlas as the site, so only talk
+// about "this page" or "this profile" counts there.
+export function findPageReferences(
+  value: unknown,
+  locale: AppLocale,
+  path: string,
+): PageTalkHit[] {
+  return textsIn(value, path).flatMap(([field, text]) =>
+    findPageTalk(text, locale)
+      .filter((match) => !ATLAS_WORD.test(match))
+      .map((match) => ({ field, locale, match })),
+  );
 }
 
 export function findPageTalk(text: string, locale: AppLocale) {

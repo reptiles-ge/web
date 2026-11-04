@@ -14,6 +14,7 @@ import {
   newsBodyLinks,
   newsReferenceIssues,
 } from "@/lib/newsRules";
+import { findPageReferences } from "@/lib/pageTalkProse";
 
 import {
   contributorsFixture,
@@ -38,6 +39,17 @@ describe("news MDX content", () => {
   it("passes the shared news rules", () => {
     for (const article of articles) {
       expect(newsArticleIssues(article), article.slug).toEqual([]);
+    }
+  });
+
+  it("states facts instead of talking about the page", () => {
+    for (const article of articles) {
+      for (const locale of newsArticleLocales(article)) {
+        expect(
+          findPageReferences(article.copy[locale], locale, locale),
+          article.slug,
+        ).toEqual([]);
+      }
     }
   });
 

@@ -4,6 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import {
   addedPageTalk,
+  findPageReferences,
   findPageTalk,
   findPageTalkInRecord,
 } from "@/lib/pageTalkProse";
@@ -42,6 +43,13 @@ describe("findPageTalk", () => {
     ["tr", "Bu sayfada ayrı bir Gürcistan diyet çalışması yoktur."],
     ["tr", "Bu profilde kullanılan kaynaklar beslenmesini ayrıca belirtmez."],
     ["tr", "Bu atlasın henüz Levant atmacası için ayrı bir sayfası yoktur."],
+    [
+      "en",
+      "This page cannot diagnose exposure or prescribe a vaccine schedule.",
+    ],
+    ["en", "If you are not sure which snake bit you, follow this page."],
+    ["en", "Reptiles.ge did not see the snake; this page follows their paper."],
+    ["ru", "Если вы не знаете, какая змея укусила, следуйте этой странице."],
   ])("flags %s: %s", (locale, text) => {
     expect(findPageTalk(text, locale)).not.toEqual([]);
   });
@@ -131,5 +139,31 @@ describe("addedPageTalk", () => {
         base: { overview: "ამ ატლასში ცალკე გვერდი აქვს." },
       }),
     ).toEqual([{ field: "overview", locale: "ka", match: "ამ ატლას" }]);
+  });
+});
+
+describe("findPageReferences", () => {
+  it("flags page talk at every depth and names the field", () => {
+    expect(
+      findPageReferences(
+        { faq: [{ answer: "This page is about mice." }], title: "Mice" },
+        "en",
+        "mouse",
+      ),
+    ).toEqual([
+      { field: "mouse.faq.0.answer", locale: "en", match: "This page is" },
+    ]);
+  });
+
+  it("lets guide and news copy name the atlas", () => {
+    expect(
+      findPageReferences("Sturgeons are not in this atlas.", "en", "news"),
+    ).toEqual([]);
+    expect(
+      findPageReferences("ზუთხისებრები ამ ატლასში არ არის.", "ka", "news"),
+    ).toEqual([]);
+    expect(
+      findPageReferences("Осетровых в этом атласе нет.", "ru", "news"),
+    ).toEqual([]);
   });
 });

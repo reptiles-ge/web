@@ -128,7 +128,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Should you identify the snake after a bite?",
         paragraphs: [
-          "Do not approach or handle it. A photograph already taken from a safe distance can be shared with clinicians if doing so causes no delay. Do not rely on head shape, pupil shape, or a guess to decide whether to call for help. This page is educational and does not replace emergency or clinical advice.",
+          "Do not approach or handle it. A photograph already taken from a safe distance can be shared with clinicians if doing so causes no delay. Do not rely on head shape, pupil shape, or a guess to decide whether to call for help. The 112 operator's and clinicians' instructions always come first.",
         ],
       },
     ],
@@ -256,7 +256,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "ნაკბენის შემდეგ გველის ამოცნობა საჭიროა?",
         paragraphs: [
-          "გველს არ მიუახლოვდეთ და არ შეეხოთ. უსაფრთხო მანძილიდან უკვე გადაღებული ფოტო ექიმს შეგიძლიათ აჩვენოთ, თუ ეს დახმარებას არ შეაფერხებს. თავის ან გუგის ფორმით, ან ნავარაუდევი სახეობით, 112-ზე დარეკვის საჭიროებას ნუ შეაფასებთ. ეს გვერდი საგანმანათლებლოა და გადაუდებელი დახმარებისა თუ ექიმის მითითებებს არ ცვლის.",
+          "გველს არ მიუახლოვდეთ და არ შეეხოთ. უსაფრთხო მანძილიდან უკვე გადაღებული ფოტო ექიმს შეგიძლიათ აჩვენოთ, თუ ეს დახმარებას არ შეაფერხებს. თავის ან გუგის ფორმით, ან ნავარაუდევი სახეობით, 112-ზე დარეკვის საჭიროებას ნუ შეაფასებთ. 112-ის ოპერატორისა და ექიმის მითითებები ყოველთვის უპირატესია.",
         ],
       },
     ],
@@ -383,7 +383,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Нужно ли определять змею после укуса?",
         paragraphs: [
-          "Не приближайтесь к ней и не трогайте. Уже сделанное с безопасного расстояния фото можно показать врачам, если это не задержит помощь. Не решайте, звонить ли 112, по форме головы, зрачка или догадке о виде. Эта страница носит образовательный характер и не заменяет указания экстренных служб и врача.",
+          "Не приближайтесь к ней и не трогайте. Уже сделанное с безопасного расстояния фото можно показать врачам, если это не задержит помощь. Не решайте, звонить ли 112, по форме головы, зрачка или догадке о виде. Указания оператора 112 и врача всегда важнее.",
         ],
       },
     ],
@@ -510,7 +510,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Isırıktan sonra yılanı tanımlamak gerekir mi?",
         paragraphs: [
-          "Yılana yaklaşmayın veya dokunmayın. Güvenli mesafeden zaten çekilmiş bir fotoğraf, yardımı geciktirmeden klinisyenlere gösterilebilir. Baş veya gözbebeği şekline ya da tür tahminine bakarak 112 aramasına karar vermeyin. Bu sayfa eğitseldir; acil yardım ve hekim talimatlarının yerini almaz.",
+          "Yılana yaklaşmayın veya dokunmayın. Güvenli mesafeden zaten çekilmiş bir fotoğraf, yardımı geciktirmeden klinisyenlere gösterilebilir. Baş veya gözbebeği şekline ya da tür tahminine bakarak 112 aramasına karar vermeyin. 112 operatörünün ve hekimin talimatları her zaman önce gelir.",
         ],
       },
     ],
