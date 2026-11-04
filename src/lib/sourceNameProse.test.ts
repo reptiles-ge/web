@@ -171,6 +171,38 @@ describe("addedSourceFraming", () => {
     expect(addedSourceFraming(before, before)).toEqual([]);
   });
 
+  it("flags a second copy of framing the field already has", () => {
+    expect(
+      addedSourceFraming(
+        record("According to studies, it eats insects."),
+        record(
+          "According to studies, it eats insects. According to studies, it also eats carrion.",
+        ),
+      ),
+    ).toEqual([
+      {
+        field: "en.diet",
+        label: "according to studies",
+        match: "According to studies",
+      },
+    ]);
+  });
+
+  it("ignores framing that only moved to another list item", () => {
+    const faq = (answers: string[]) => ({
+      base: {},
+      translations: {
+        en: { faq: answers.map((answer) => ({ answer, question: "Q?" })) },
+      },
+    });
+    expect(
+      addedSourceFraming(
+        faq(["It eats insects.", "A photograph confirms it nests here."]),
+        faq(["A photograph confirms it nests here."]),
+      ),
+    ).toEqual([]);
+  });
+
   it("names the locale and field of new framing", () => {
     expect(
       addedSourceFraming(

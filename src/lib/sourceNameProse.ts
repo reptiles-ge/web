@@ -165,7 +165,10 @@ export function addedSourceFraming(
   previous: null | SpeciesTexts,
   next: SpeciesTexts,
 ): SourceNameHit[] {
-  const key = (hit: SourceNameHit) => `${hit.field} ${hit.match}`;
+  // List positions are left out, so deleting or reordering FAQ items, facts
+  // or traits does not turn framing already there into "added" framing.
+  const key = (hit: SourceNameHit) =>
+    `${hit.field.replace(/\[\d+\]/g, "[]")} ${hit.match}`;
   const before = new Map<string, number>();
   for (const hit of previous ? sourceFramingInRecord(previous) : []) {
     before.set(key(hit), (before.get(key(hit)) ?? 0) + 1);
@@ -179,7 +182,11 @@ export function addedSourceFraming(
 }
 
 export function findSourceFraming(text: string) {
-  return matchPatterns(SOURCE_FRAMING_PATTERNS, text);
+  return SOURCE_FRAMING_PATTERNS.flatMap(({ label, pattern }) =>
+    [...text.matchAll(new RegExp(pattern.source, `${pattern.flags}g`))].map(
+      (match) => ({ label, match: match[0] }),
+    ),
+  );
 }
 
 export function findSourceFramingInFields(
