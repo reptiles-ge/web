@@ -275,6 +275,7 @@ pnpm slugs:compile        # slug table from the API card catalog
 pnpm images:compile       # AVIF/WebP sizes of API-uploaded photos from GET /v1/images
 pnpm news:compile         # news MDX → src/data/news.generated.ts
 pnpm species:draft pull <id> / push <id> --summary "…" [--dry-run]   # AI species edits as drafts
+pnpm species:draft scan [<id> …]   # live records: source names, source framing, page talk
 pnpm i18n:check           # locale key parity + ICU argument check (KA is the source)
 pnpm i18n:usage           # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
 pnpm test:coverage        # vitest with v8 coverage; fails below the thresholds in vitest.config.ts

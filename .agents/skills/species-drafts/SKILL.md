@@ -88,6 +88,14 @@ The page shades a region only when the record table marks it **confirmed**: it h
 - Coordinates: only from a source or the owner. `lat` and `lng` go together. Do not mark a photo `georgia-field` without a photographer and a Georgian locality.
 - Keep JSON valid and keep fields you did not touch exactly as they were (same order of list items, same text). Do not reformat or "tidy" other fields.
 
+## Checking live records
+
+```bash
+pnpm species:draft scan [<id> …]
+```
+
+Reads every published species (or only the ids you give) from the API and lists each sentence that names a source, makes a study, list, source or photo the subject, or talks about the page. It exits with an error when it finds any. Run it after a batch of drafts is merged, and before a content pass, because the push only refuses **new** framing. A hit in an existing sentence goes through the usual pull, edit and push.
+
 ## Several species or several changes
 
 - One draft per species per request. Put all changes to one species in one draft.
