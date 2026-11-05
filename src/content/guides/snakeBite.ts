@@ -46,7 +46,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       "If a venomous or unidentified snake has bitten you in Georgia, move away from it and call 112 for emergency medical help. Keep movement to a minimum and remove rings or other tight items near the bite. Do not cut the wound, suck out venom, or apply a tight tourniquet.",
     metaTitle: "Snakebite in Georgia — call 112 | what not to do",
     notice:
-      "Was it a Levantine viper (gyurza)? Read the [Levantine viper bite guide](/snakes/giurzas-nakbeni) for what applies to that species. If you are not sure which snake bit you, follow this page and call 112.",
+      "Was it a Levantine viper (gyurza)? Read the [Levantine viper bite guide](/snakes/giurzas-nakbeni) for what applies to that species. If you are not sure which snake bit you, call 112 and follow the steps below.",
     sections: [
       {
         heading: "What should you do immediately after a snakebite?",
@@ -126,7 +126,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Who decides whether antivenom is needed?",
         image: "clinical-assessment",
         paragraphs: [
-          "Clinicians assess the person and decide whether antivenom or other treatment is indicated. Antivenom is used to treat envenoming, but this page cannot determine a need, dose, product, or availability at a Georgian hospital.",
+          "Clinicians assess the person and decide whether antivenom or other treatment is indicated. Antivenom is used to treat envenoming, and the need, dose, product and availability at a Georgian hospital are for clinicians to decide.",
           "Emergency dispatch and medical professionals make decisions about transport, observation, and treatment.",
         ],
       },
@@ -254,7 +254,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "ვინ წყვეტს, საჭიროა თუ არა ანტიშხამი?",
         image: "clinical-assessment",
         paragraphs: [
-          "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. ანტიშხამი შხამით მოწამვლის სამკურნალო საშუალებაა, მაგრამ ეს გვერდი ვერ განსაზღვრავს მის საჭიროებას, დოზას, სახეობას ან საქართველოს საავადმყოფოში ხელმისაწვდომობას.",
+          "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. ანტიშხამი შხამით მოწამვლის სამკურნალო საშუალებაა, მისი საჭიროება, დოზა, სახეობა და საქართველოს საავადმყოფოში ხელმისაწვდომობა ექიმის გადასაწყვეტია.",
           "ტრანსპორტის, მეთვალყურეობისა და მკურნალობის გადაწყვეტილებებს გადაუდებელი დახმარების სამსახური და მედიკოსები იღებენ.",
         ],
       },
@@ -302,7 +302,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       "Если в Грузии вас укусила ядовитая или неопознанная змея, отойдите от неё и звоните 112 для неотложной медицинской помощи. Старайтесь меньше двигаться и снимите кольца и другие тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд и не накладывайте тугой жгут.",
     metaTitle: "Укус змеи в Грузии — звоните 112 | чего не делать",
     notice:
-      "Укусила гюрза? О том, что касается именно этого вида, читайте в [руководстве об укусе гюрзы](/snakes/giurzas-nakbeni). Если вы не знаете, какая змея укусила, следуйте этой странице и звоните 112.",
+      "Укусила гюрза? О том, что касается именно этого вида, читайте в [руководстве об укусе гюрзы](/snakes/giurzas-nakbeni). Если вы не знаете, какая змея укусила, звоните 112 и следуйте шагам ниже.",
     sections: [
       {
         heading: "Что делать сразу после укуса змеи?",
@@ -382,7 +382,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Кто решает, нужно ли противоядие?",
         image: "clinical-assessment",
         paragraphs: [
-          "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. Противоядие применяется для лечения отравления ядом, но эта страница не может определить необходимость, дозу, препарат или его наличие в больнице Грузии.",
+          "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. Противоядие применяется для лечения отравления ядом, а необходимость, дозу, препарат и его наличие в больнице Грузии определяют врачи.",
           "Решения о перевозке, наблюдении и лечении принимают служба экстренной помощи и медики.",
         ],
       },
@@ -430,7 +430,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       "Gürcistan’da zehirli veya tanınmayan bir yılan sizi ısırdıysa yılandan uzaklaşın ve acil tıbbi yardım için 112’yi arayın. Hareketi azaltın; ısırık yakınındaki yüzük ve diğer sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin ve sıkı turnike uygulamayın.",
     metaTitle: "Gürcistan’da yılan ısırığı — 112’yi arayın | ne yapmayın",
     notice:
-      "Sizi ısıran bir Levant engereği (gyurza) muydu? Bu türe özgü bilgiler için [Levant engereği ısırığı rehberine](/snakes/giurzas-nakbeni) bakın. Hangi yılanın ısırdığından emin değilseniz bu sayfayı izleyin ve 112’yi arayın.",
+      "Sizi ısıran bir Levant engereği (gyurza) muydu? Bu türe özgü bilgiler için [Levant engereği ısırığı rehberine](/snakes/giurzas-nakbeni) bakın. Hangi yılanın ısırdığından emin değilseniz 112’yi arayın ve aşağıdaki adımları izleyin.",
     sections: [
       {
         heading: "Yılan ısırığından hemen sonra ne yapmalısınız?",
@@ -510,7 +510,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Antivenom gerekip gerekmediğine kim karar verir?",
         image: "clinical-assessment",
         paragraphs: [
-          "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. Antivenom zehirlenme tedavisinde kullanılır; bu sayfa Gürcistan’daki bir hastanede gerekliliğini, dozunu, ürününü veya bulunurluğunu belirleyemez.",
+          "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. Antivenom zehirlenme tedavisinde kullanılır; Gürcistan’daki bir hastanede gerekliliğine, dozuna, ürününe ve bulunurluğuna hekimler karar verir.",
           "Nakil, gözlem ve tedavi kararlarını acil yardım hizmeti ve sağlık çalışanları verir.",
         ],
       },

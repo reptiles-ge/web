@@ -16,6 +16,7 @@ import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
 import { HUB_CLUSTER_CARDS } from "@/lib/clusterGuides";
 import { RESERVED_HUB_SLUGS } from "@/lib/groupHubs";
+import { findPageReferences } from "@/lib/pageTalkProse";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
@@ -137,6 +138,14 @@ describe.each(articles.map((article) => [article.id, article] as const))(
     it("uses a kebab-case id and a path under its parent hub", () => {
       expect(article.id).toMatch(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
       expect(article.pathname.startsWith(`/${article.parentHub}/`)).toBe(true);
+    });
+
+    it("states facts instead of talking about the page", () => {
+      for (const locale of routing.locales) {
+        expect(
+          findPageReferences(article.copy[locale], locale, locale),
+        ).toEqual([]);
+      }
     });
 
     it("ships complete copy in every locale", () => {

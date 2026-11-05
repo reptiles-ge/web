@@ -370,7 +370,7 @@ export function buildLlmsIndexText(
     `- [Venomous vs harmless snakes](${url("/snakes/shxamiani-gvelis-amocnoba")}): Visual cues are not universal; compare lookalikes and profiles.`,
     `- [Lizard identification](${url("/lizards/identifikacia")}): Field marks, lookalikes, and Darevskia caution (colour is not ID).`,
     `- [Darevskia](${url("/lizards/darevskia")}): Sixteen rock-lizard profiles kept separate. Colour is not identification. Candidates stay candidates.`,
-    `- [Lizard or glass lizard](${url("/lizards/xvlikis-da-gvelxokeras-gansxvaveba")}): Glass lizard vs slow worm vs snakes. None of the three is venomous on this page.`,
+    `- [Lizard or glass lizard](${url("/lizards/xvlikis-da-gvelxokeras-gansxvaveba")}): Glass lizard vs slow worm vs snake: eyelids, ear, size. Neither the glass lizard nor the slow worm is venomous.`,
     `- [Turtle identification](${url("/turtles/identifikacia")}): Four-taxon comparison (land, native freshwater, introduced slider).`,
     `- [Frogs of Georgia](${url("/amphibians/bayayi")}): Anura guide (8 species in the atlas).`,
     `- [Frog index](${url("/amphibians/bayayi/saxeoebebi")}): Frog and toad index table.`,

@@ -37,7 +37,10 @@ import {
   saveSpeciesRecord,
   versionConflict,
 } from "../lib/speciesDrafts";
-import { assertNoAddedPageTalk } from "../lib/speciesPageTalk";
+import {
+  assertNoAddedPageTalk,
+  assertNoAddedSourceFraming,
+} from "../lib/speciesPageTalk";
 import {
   removePhoto,
   reorderPhotos,
@@ -151,6 +154,7 @@ export const adminSpecies = new Hono<ApiEnv>()
         );
       }
       assertNoAddedPageTalk(current.record, record);
+      assertNoAddedSourceFraming(current.record, record);
       const version = await saveSpeciesRecord(
         c.env.DB,
         record,
@@ -545,6 +549,7 @@ async function readForWrite(
   }
   if (current.version !== version) throw versionConflict(current.version);
   assertNoAddedPageTalk(current.record, record);
+  assertNoAddedSourceFraming(current.record, record);
   return current;
 }
 

@@ -60211,6 +60211,101 @@
       ],
       "updatedAt": "2026-10-09T21:39:04.296Z"
     },
+    "images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view.jpg": {
+      "sourceHash": "5fd117edcc9fa11c18788523d5ff122ef54722f00be24cf448269115c787caa7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view.jpg",
+      "originalSize": 806642,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8291
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9908
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12195
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15108
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29993
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38630
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45162
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58312
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 97869
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 128762
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 321291
+        },
+        {
+          "key": "optimized/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 389146
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:18.882Z"
+    },
     "images/news/armenia-power-line-bird-electrocution/figure-1.jpg": {
       "sourceHash": "75afce186f9b558ae5cf4ed20eee4dfa983760b530ba2325e6c4959c1bb4d2ab",
       "configFingerprint": "409788ee46c653d8",
@@ -60304,7 +60399,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-23T07:11:22.777Z"
+      "updatedAt": "2026-11-05T19:54:34.713Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -60399,7 +60494,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-23T07:11:21.295Z"
+      "updatedAt": "2026-11-05T19:54:15.677Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -60494,7 +60589,577 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-23T07:11:21.502Z"
+      "updatedAt": "2026-11-05T19:54:17.921Z"
+    },
+    "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg": {
+      "sourceHash": "c4e4cf7006ca0ce9af8febbdfc8a73747c7a7f09a5576ed4ecbe75b56c19f53c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg",
+      "originalSize": 1991138,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25182
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 38002
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37878
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 57934
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 89177
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 137198
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 135926
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 207222
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 264438
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 409800
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 623309
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 1008514
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:34.478Z"
+    },
+    "images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015.jpg": {
+      "sourceHash": "39c8ee49e7a5f25047c8e3d23d6157ad292c24fe3fcac85e92efee0a72c163f6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015.jpg",
+      "originalSize": 217775,
+      "width": 2058,
+      "height": 1372,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 2633
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 2398
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3796
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3610
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8656
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8650
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 13039
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 13050
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 24863
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 26292
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-2058.avif",
+          "format": "avif",
+          "width": 2058,
+          "height": 1372,
+          "byteSize": 57330
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015-2058.webp",
+          "format": "webp",
+          "width": 2058,
+          "height": 1372,
+          "byteSize": 60084
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:31.315Z"
+    },
+    "images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast.jpg": {
+      "sourceHash": "fefa62e60cc08344b4be8f8801c1dd22e4a7606961603f88cd2cd1868f9c4226",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast.jpg",
+      "originalSize": 482397,
+      "width": 1728,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7030
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8608
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11164
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14060
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26379
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 35564
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39422
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52794
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78939
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101382
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1152,
+          "byteSize": 158969
+        },
+        {
+          "key": "optimized/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1152,
+          "byteSize": 194678
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:28.590Z"
+    },
+    "images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau.jpg": {
+      "sourceHash": "58a044e0968262b320eb9e0587bf84889dd50fd71fe7a62a5cd5b83c94376b9c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau.jpg",
+      "originalSize": 844735,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8070
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11224
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11429
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16026
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25820
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 36662
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37191
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53344
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 71331
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100620
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 208975
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 266154
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:43.958Z"
+    },
+    "images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine.jpg": {
+      "sourceHash": "d49398bf73f9b88b181bbb5e3dba1622239ae1e7fe49b16aad4fa1a608ad613a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine.jpg",
+      "originalSize": 1643569,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10407
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13620
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15211
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19194
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35835
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45020
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55903
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 69530
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 110241
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137910
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 270572
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 317394
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:44.236Z"
+    },
+    "images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024.jpg": {
+      "sourceHash": "b8d6b26934d8828687c765becfa949fbaa3533b1ed845f1e46bf2482985c55c5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024.jpg",
+      "originalSize": 824742,
+      "width": 2400,
+      "height": 1785,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 238,
+          "byteSize": 10208
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 238,
+          "byteSize": 11402
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 14463
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 16182
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 476,
+          "byteSize": 31226
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 476,
+          "byteSize": 36604
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 595,
+          "byteSize": 44294
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 595,
+          "byteSize": 52250
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 893,
+          "byteSize": 82333
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 893,
+          "byteSize": 94798
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1785,
+          "byteSize": 221691
+        },
+        {
+          "key": "optimized/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1785,
+          "byteSize": 241022
+        }
+      ],
+      "updatedAt": "2026-11-05T19:50:51.290Z"
     },
     "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": {
       "sourceHash": "7c390777a77d9ae5105440e0a02f401f20d3c11432577c4948d2a231e0922265",
@@ -60874,7 +61539,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-10-23T07:11:28.598Z"
+      "updatedAt": "2026-11-05T19:54:44.526Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -60969,7 +61634,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-10-23T07:11:32.178Z"
+      "updatedAt": "2026-11-05T19:54:52.746Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -61064,7 +61729,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-10-23T07:11:29.189Z"
+      "updatedAt": "2026-11-05T19:54:32.851Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -61159,7 +61824,197 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-10-23T07:11:34.688Z"
+      "updatedAt": "2026-11-05T19:55:19.915Z"
+    },
+    "images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan.jpg": {
+      "sourceHash": "d5b95e826a5128a019ee9479c32808585a46f5576db802b167ca22b9316b32aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan.jpg",
+      "originalSize": 777874,
+      "width": 2400,
+      "height": 1048,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 140,
+          "byteSize": 7225
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 140,
+          "byteSize": 10850
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 175,
+          "byteSize": 10983
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 175,
+          "byteSize": 15070
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 279,
+          "byteSize": 21182
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 279,
+          "byteSize": 32264
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 349,
+          "byteSize": 30225
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 349,
+          "byteSize": 45454
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 524,
+          "byteSize": 57389
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 524,
+          "byteSize": 86206
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1048,
+          "byteSize": 149647
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1048,
+          "byteSize": 224698
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:10.975Z"
+    },
+    "images/news/cop17-yerevan-pathway-final/lake-sevan.jpg": {
+      "sourceHash": "266c3fbc048d83750202dffb3dc861d53d90eb92324e349194e351e46dcae2f5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-yerevan-pathway-final/lake-sevan.jpg",
+      "originalSize": 884611,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6352
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7794
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9056
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11442
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21419
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29194
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31252
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43930
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65093
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92368
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 208564
+        },
+        {
+          "key": "optimized/images/news/cop17-yerevan-pathway-final/lake-sevan-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 286862
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:15.381Z"
     },
     "images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg": {
       "sourceHash": "aa109df431e0aa79bf2a820bda3956c7ecadbbf1628f1e9163176a774dc127b2",
@@ -61893,6 +62748,196 @@
       ],
       "updatedAt": "2026-10-23T07:01:21.806Z"
     },
+    "images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge.jpg": {
+      "sourceHash": "05e9a1310f1c099954bf01a56475f713e4e6920094d03af2758bc2bb01acfd35",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge.jpg",
+      "originalSize": 933980,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12305
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14458
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16379
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19376
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32896
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40576
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45966
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57914
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88534
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 115244
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 247641
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 318994
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:24.604Z"
+    },
+    "images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson.jpg": {
+      "sourceHash": "81eb1a971f46b4c1eac60d6b6fcfe1a86a0abe39468ff70f7aa79b98febe016f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson.jpg",
+      "originalSize": 1059835,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 10895
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 14910
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 16001
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 22346
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 37321
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 52514
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 55654
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 77368
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 106823
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 147222
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 285156
+        },
+        {
+          "key": "optimized/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 393918
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:28.317Z"
+    },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
       "configFingerprint": "409788ee46c653d8",
@@ -61958,7 +63003,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-23T07:11:33.947Z"
+      "updatedAt": "2026-11-05T19:54:47.785Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -62053,7 +63098,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-23T07:11:34.972Z"
+      "updatedAt": "2026-11-05T19:55:06.600Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -62148,7 +63193,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-23T07:11:37.210Z"
+      "updatedAt": "2026-11-05T19:55:08.651Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -62243,7 +63288,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-23T07:11:38.733Z"
+      "updatedAt": "2026-11-05T19:55:12.537Z"
     },
     "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
       "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
@@ -62625,6 +63670,372 @@
       ],
       "updatedAt": "2026-09-17T15:22:39.204Z"
     },
+    "images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg": {
+      "sourceHash": "3de23139c40d86da492586d6a580ca0d7777ba25c9ef0b1b62fe0b41c3606f60",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg",
+      "originalSize": 323223,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6545
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9468
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8669
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12770
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 16821
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23282
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 23010
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32092
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 42440
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58962
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 75132
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 100842
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:45.444Z"
+    },
+    "images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male.jpg": {
+      "sourceHash": "72f05832f049d41d59efe137884ae55a65e631e5f3700c78a663db40947bb44c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male.jpg",
+      "originalSize": 322707,
+      "width": 1112,
+      "height": 1190,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 342,
+          "byteSize": 14522
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 342,
+          "byteSize": 20628
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 428,
+          "byteSize": 21355
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 428,
+          "byteSize": 30936
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 685,
+          "byteSize": 48197
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 685,
+          "byteSize": 68178
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 856,
+          "byteSize": 67902
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 856,
+          "byteSize": 97162
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-1112.avif",
+          "format": "avif",
+          "width": 1112,
+          "height": 1190,
+          "byteSize": 113071
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male-1112.webp",
+          "format": "webp",
+          "width": 1112,
+          "height": 1190,
+          "byteSize": 160504
+        }
+      ],
+      "updatedAt": "2026-11-05T19:51:43.958Z"
+    },
+    "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites.jpg": {
+      "sourceHash": "1e27eedce85d7a56454eb812c48e102143db6f44c8f033fe2e9a7b7ca95407f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites.jpg",
+      "originalSize": 1233066,
+      "width": 1972,
+      "height": 1315,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14107
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20338
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21336
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 31994
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 51697
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 78522
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 83047
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 126458
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 193541
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 289598
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-1972.avif",
+          "format": "avif",
+          "width": 1972,
+          "height": 1315,
+          "byteSize": 514784
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites-1972.webp",
+          "format": "webp",
+          "width": 1972,
+          "height": 1315,
+          "byteSize": 788312
+        }
+      ],
+      "updatedAt": "2026-11-05T19:55:33.393Z"
+    },
+    "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint.jpg": {
+      "sourceHash": "dfd2bfe9276a0011e642f21430006fcb90bbfef9cdce242206bf4d5c340246d7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint.jpg",
+      "originalSize": 896024,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9857
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15000
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14380
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21538
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32928
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 49436
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48022
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 71664
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101115
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 151972
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 342733
+        },
+        {
+          "key": "optimized/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 462558
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:04.802Z"
+    },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
       "sourceHash": "aa43734d76421fa4eebcdd4912941e24db3a4343c15708f4596eee037465708d",
       "configFingerprint": "409788ee46c653d8",
@@ -62718,7 +64129,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-23T07:11:45.560Z"
+      "updatedAt": "2026-11-05T19:55:32.258Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -62813,7 +64224,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-23T07:11:46.712Z"
+      "updatedAt": "2026-11-05T19:55:27.368Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -62908,7 +64319,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-23T07:11:47.219Z"
+      "updatedAt": "2026-11-05T19:55:34.327Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -63003,7 +64414,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-23T07:11:47.486Z"
+      "updatedAt": "2026-11-05T19:55:54.366Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -92296,6 +93707,576 @@
       ],
       "updatedAt": "2026-10-18T09:08:28.863Z"
     },
+    "news-brc-camp-2026-shoshitashvili-certificates.jpg": {
+      "sourceHash": "a60f31fb6915878bf8eee817f971274fde02ae94ad00d67d558a1ebc84c3aea4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-certificates.jpg",
+      "originalSize": 1340896,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15389
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21398
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21733
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30638
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46411
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 66246
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66102
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94618
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 125578
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 175418
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 352767
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-certificates-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 474534
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:38.429Z"
+    },
+    "news-brc-camp-2026-shoshitashvili-game.jpg": {
+      "sourceHash": "f157bf3f4d2137b821143d9d3d3cb36d689a88fcac46ef2abdd10b125c99a222",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-game.jpg",
+      "originalSize": 1636288,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16710
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 25444
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24737
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 38216
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 57873
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 86774
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81605
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 122640
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 157234
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 230358
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 438107
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-game-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 618876
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:40.239Z"
+    },
+    "news-brc-camp-2026-shoshitashvili-group.jpg": {
+      "sourceHash": "df5ae741f4a9caa95d23a2be8a1715a4e7f955991452d6c2355b8683e36c8757",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-group.jpg",
+      "originalSize": 708943,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9285
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13164
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13135
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18078
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 27329
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38118
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38016
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51800
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68676
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90124
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 163676
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-group-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 207508
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:34.953Z"
+    },
+    "news-brc-camp-2026-shoshitashvili-messages.jpg": {
+      "sourceHash": "d5481b1e7250821a0f7e4cbcf23521b0a82545765634227a2f8dca9407ca4e7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-messages.jpg",
+      "originalSize": 983331,
+      "width": 2400,
+      "height": 1801,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9482
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13454
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13863
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19498
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29666
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 41940
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42917
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 60204
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 84333
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 118876
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 239264
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-messages-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 325158
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:49.334Z"
+    },
+    "news-brc-camp-2026-shoshitashvili-poster.jpg": {
+      "sourceHash": "719c5ca12f6e53152e1ee5b50f17181c5ea44fac4fb6145c634bb49175c5c14e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-poster.jpg",
+      "originalSize": 1232436,
+      "width": 2400,
+      "height": 1801,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11683
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16122
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16685
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23068
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38028
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51216
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 53502
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74274
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 105305
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 145824
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 298003
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-poster-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 411188
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:56.403Z"
+    },
+    "news-brc-camp-2026-shoshitashvili-presentation.jpg": {
+      "sourceHash": "94dbad71b4af34e55a3cfb5367f7890b2ec77d911afb5a0a15581084dc1a6f54",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-brc-camp-2026-shoshitashvili-presentation.jpg",
+      "originalSize": 976974,
+      "width": 2400,
+      "height": 1801,
+      "derivatives": [
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9853
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14288
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14439
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20122
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30788
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 44074
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43790
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 61130
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 83653
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 115982
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 217818
+        },
+        {
+          "key": "optimized/news-brc-camp-2026-shoshitashvili-presentation-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1801,
+          "byteSize": 301618
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:01.066Z"
+    },
     "news-crested-honey-buzzard-cordes-male.jpg": {
       "sourceHash": "ac61193a52a03d40e5390cb3a39acaa436e411e77ff85159950d486d588ad829",
       "configFingerprint": "409788ee46c653d8",
@@ -92675,6 +94656,263 @@
         }
       ],
       "updatedAt": "2026-10-16T07:07:07.510Z"
+    },
+    "news-ephippiochthonius-chthonius-chelae.jpg": {
+      "sourceHash": "94f6347c34d6e247c6767c609321a9c85eefd79457b98eae87b0ce8d6e07a5a2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-ephippiochthonius-chthonius-chelae.jpg",
+      "originalSize": 2770646,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7186
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7884
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9639
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10876
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 18566
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 21114
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 26943
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32510
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60998
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 69980
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 193051
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-chthonius-chelae-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 234304
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:56.271Z"
+    },
+    "news-ephippiochthonius-tetrachelatus-timaeus.jpg": {
+      "sourceHash": "583fdc2fc569505b5fc4bbd843ffb866160bad6eece0132c61faf12099b667ab",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-ephippiochthonius-tetrachelatus-timaeus.jpg",
+      "originalSize": 798063,
+      "width": 1231,
+      "height": 1037,
+      "derivatives": [
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 270,
+          "byteSize": 10567
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 270,
+          "byteSize": 14270
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 337,
+          "byteSize": 14592
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 337,
+          "byteSize": 19732
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 539,
+          "byteSize": 30250
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 539,
+          "byteSize": 39578
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 674,
+          "byteSize": 42680
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 674,
+          "byteSize": 54442
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1011,
+          "byteSize": 76330
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1011,
+          "byteSize": 95798
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-1231.avif",
+          "format": "avif",
+          "width": 1231,
+          "height": 1037,
+          "byteSize": 79858
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-tetrachelatus-timaeus-1231.webp",
+          "format": "webp",
+          "width": 1231,
+          "height": 1037,
+          "byteSize": 97906
+        }
+      ],
+      "updatedAt": "2026-11-05T19:52:59.759Z"
+    },
+    "news-ephippiochthonius-zemo-imereti-caves.jpg": {
+      "sourceHash": "63078ae4eba31ac89427bd5e8657eb8b1b69809867853efb444d2001af1eb27a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-ephippiochthonius-zemo-imereti-caves.jpg",
+      "originalSize": 257226,
+      "width": 744,
+      "height": 547,
+      "derivatives": [
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 235,
+          "byteSize": 18763
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 235,
+          "byteSize": 28504
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 294,
+          "byteSize": 29306
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 294,
+          "byteSize": 44198
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 471,
+          "byteSize": 69529
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 471,
+          "byteSize": 107246
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-744.avif",
+          "format": "avif",
+          "width": 744,
+          "height": 547,
+          "byteSize": 91997
+        },
+        {
+          "key": "optimized/news-ephippiochthonius-zemo-imereti-caves-744.webp",
+          "format": "webp",
+          "width": 744,
+          "height": 547,
+          "byteSize": 144314
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:05.353Z"
     },
     "news-from-the-sky-foote-sparrowhawk.jpg": {
       "sourceHash": "03f02ea29dc0c917c0de2418202067ece766de847e007157918acee2cc0180c3",
@@ -93910,6 +96148,464 @@
         }
       ],
       "updatedAt": "2026-10-18T08:00:12.967Z"
+    },
+    "news-tetrobi-niamori-gps-collar.jpg": {
+      "sourceHash": "d6db9a3f3a86b4516ee4d5fb387ef2033b4ef65f1fff12a370ab79eb4a377e42",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-gps-collar.jpg",
+      "originalSize": 61717,
+      "width": 640,
+      "height": 359,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13331
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 20432
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 18996
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 29554
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 359,
+          "byteSize": 35595
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-gps-collar-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 359,
+          "byteSize": 55998
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:07.936Z"
+    },
+    "news-tetrobi-niamori-release-crates.jpg": {
+      "sourceHash": "d9598f1fda4085572c1f16cee05979d4ca291a2aa8757a1c9485fb3883c60ddb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-release-crates.jpg",
+      "originalSize": 115433,
+      "width": 600,
+      "height": 373,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 199,
+          "byteSize": 13981
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 199,
+          "byteSize": 19924
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 249,
+          "byteSize": 20695
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 249,
+          "byteSize": 29520
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-600.avif",
+          "format": "avif",
+          "width": 600,
+          "height": 373,
+          "byteSize": 41042
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-release-crates-600.webp",
+          "format": "webp",
+          "width": 600,
+          "height": 373,
+          "byteSize": 59796
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:06.409Z"
+    },
+    "news-tetrobi-niamori-tbilisi-zoo.jpg": {
+      "sourceHash": "aad22a125dfab992d65adf811e951b6863f20d248c09e7686e99df8411e88e61",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-tetrobi-niamori-tbilisi-zoo.jpg",
+      "originalSize": 240499,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7545
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10910
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11194
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15902
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23894
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 33884
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 35545
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 51074
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 66162
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 92746
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 124861
+        },
+        {
+          "key": "optimized/news-tetrobi-niamori-tbilisi-zoo-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 167694
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:16.938Z"
+    },
+    "news-zangezuri-gemigaya-1.jpg": {
+      "sourceHash": "1f760170dd9f9aa946d058b0a33b7db42a895790a3ac0f328063403ba9869c36",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-gemigaya-1.jpg",
+      "originalSize": 429454,
+      "width": 1572,
+      "height": 1068,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 217,
+          "byteSize": 8138
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 217,
+          "byteSize": 10212
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 11990
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 15328
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 435,
+          "byteSize": 30748
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 435,
+          "byteSize": 38546
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 44468
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 55808
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 85880
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 105076
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1572.avif",
+          "format": "avif",
+          "width": 1572,
+          "height": 1068,
+          "byteSize": 131813
+        },
+        {
+          "key": "optimized/news-zangezuri-gemigaya-1-1572.webp",
+          "format": "webp",
+          "width": 1572,
+          "height": 1068,
+          "byteSize": 159844
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:16.977Z"
+    },
+    "news-zangezuri-jiqi-bokvrebi-idea-1.jpg": {
+      "sourceHash": "bdc6021981a55cbd6fc84349354cb0fd385cc36830ca06cd84bba8e9e76b54b4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-jiqi-bokvrebi-idea-1.jpg",
+      "originalSize": 512551,
+      "width": 1200,
+      "height": 679,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 181,
+          "byteSize": 15662
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 181,
+          "byteSize": 24422
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 226,
+          "byteSize": 24102
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 226,
+          "byteSize": 37508
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 362,
+          "byteSize": 58736
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 362,
+          "byteSize": 94552
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 453,
+          "byteSize": 83534
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 453,
+          "byteSize": 136496
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 679,
+          "byteSize": 145800
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-idea-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 679,
+          "byteSize": 253420
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:18.430Z"
+    },
+    "news-zangezuri-jiqi-bokvrebi-ministry-1.jpg": {
+      "sourceHash": "f9f9c964ccffdc888f09aac2e7092c84a1559bae5cdc3189f2a38689f5695e53",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-zangezuri-jiqi-bokvrebi-ministry-1.jpg",
+      "originalSize": 374160,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13783
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19658
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20847
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 29750
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 45891
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 66738
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61961
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 91628
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 102530
+        },
+        {
+          "key": "optimized/news-zangezuri-jiqi-bokvrebi-ministry-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 152412
+        }
+      ],
+      "updatedAt": "2026-11-05T19:53:20.365Z"
     },
     "olivierus-caucasicus-evgeny-1.jpg": {
       "sourceHash": "cf32b50bf7f42594851c0254a7e259d18a0f9f55482a213e6c8d737e50af973f",
@@ -106797,12 +109493,26 @@
     },
     "species/capra-aegagrus-malkhasyan-9.jpg": {
       "sourceHash": "8af0924e6baa28f733deeb2d27ead9ccbbbc1e19a9b2e3fb653e16e62b277bec",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "species/capra-aegagrus-malkhasyan-9.jpg",
       "originalSize": 713434,
       "width": 1920,
       "height": 1440,
       "derivatives": [
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12539
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18468
+        },
         {
           "key": "optimized/species/capra-aegagrus-malkhasyan-9-400.avif",
           "format": "avif",
@@ -106816,6 +109526,20 @@
           "width": 400,
           "height": 300,
           "byteSize": 26990
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38674
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-malkhasyan-9-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54718
         },
         {
           "key": "optimized/species/capra-aegagrus-malkhasyan-9-800.avif",
@@ -106860,7 +109584,7 @@
           "byteSize": 508542
         }
       ],
-      "updatedAt": "2026-08-28T21:58:10.657Z"
+      "updatedAt": "2026-11-05T19:53:28.738Z"
     },
     "species/lynx-lynx-bohringer-1.jpg": {
       "sourceHash": "e179ce45a8eccb643d1f92da8d6d67da4bd016cb5220b3a246e38208e48e329c",

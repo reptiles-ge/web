@@ -109,7 +109,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "What should you do after a sting?",
         paragraphs: [
           "Local pain, redness and swelling are common. Move away from the nest, wash the site with soap and water, and apply a cold compress wrapped in cloth. Get timely medical advice after multiple stings, a sting in the mouth or throat, or worsening symptoms.",
-          "Breathing difficulty, tongue or throat swelling, fainting, or rapidly spreading rash and weakness may signal a severe allergic reaction. Seek emergency medical help immediately; in Georgia, call 112. If the person has a prescribed adrenaline auto-injector, use it as directed and still call for emergency help. This page cannot diagnose a reaction.",
+          "Breathing difficulty, tongue or throat swelling, fainting, or rapidly spreading rash and weakness may signal a severe allergic reaction. Seek emergency medical help immediately; in Georgia, call 112. If the person has a prescribed adrenaline auto-injector, use it as directed and still call for emergency help. Only a clinician can diagnose the reaction.",
         ],
       },
       {
@@ -222,7 +222,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "რა გავაკეთოთ კრაზანის დანესტვრის შემდეგ?",
         paragraphs: [
           "ჩვეულებრივი ადგილობრივი რეაქციაა ტკივილი, სიწითლე ან შეშუპება დანესტვრის ადგილას. მოშორდით ბუდეს, ადგილი საპნითა და წყლით დაიბანეთ და ცივი კომპრესი ქსოვილში გახვეული დაიდეთ. თუ რამდენჯერმე დაგნესტრეს, თუ დანესტვრა პირში ან ყელთანაა, ან სიმპტომები ძლიერდება, დროულად მიიღეთ სამედიცინო რჩევა.",
-          "სუნთქვის გაძნელება, ენის ან ყელის შეშუპება, გონების დაკარგვა ან სწრაფად განვითარებული ფართო გამონაყარი და სისუსტე შეიძლება მძიმე ალერგიული რეაქციის ნიშანი იყოს. დაუყოვნებლივ გამოიძახეთ სასწრაფო სამედიცინო დახმარება — საქართველოში 112. თუ ადამიანს ექიმის მიერ დანიშნული ადრენალინის ავტოინჟექტორი აქვს, გამოიყენოს მისი ინსტრუქციის მიხედვით; სასწრაფო დახმარების გამოძახება მაინც აუცილებელია. ეს გვერდი დიაგნოზს ვერ სვამს.",
+          "სუნთქვის გაძნელება, ენის ან ყელის შეშუპება, გონების დაკარგვა ან სწრაფად განვითარებული ფართო გამონაყარი და სისუსტე შეიძლება მძიმე ალერგიული რეაქციის ნიშანი იყოს. დაუყოვნებლივ გამოიძახეთ სასწრაფო სამედიცინო დახმარება — საქართველოში 112. თუ ადამიანს ექიმის მიერ დანიშნული ადრენალინის ავტოინჟექტორი აქვს, გამოიყენოს მისი ინსტრუქციის მიხედვით; სასწრაფო დახმარების გამოძახება მაინც აუცილებელია. რეაქციის დიაგნოზს ექიმი სვამს.",
         ],
       },
       {
@@ -336,7 +336,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Что делать после ужаления?",
         paragraphs: [
           "Местная боль, покраснение и отёк обычны. Отойдите от гнезда, промойте место водой с мылом и приложите холодный компресс через ткань. После нескольких ужалений, ужаления во рту или горле либо ухудшения симптомов своевременно обратитесь за медицинским советом.",
-          "Затруднение дыхания, отёк языка или горла, обморок, быстро распространяющаяся сыпь и слабость могут указывать на тяжёлую аллергическую реакцию. Немедленно вызовите экстренную медицинскую помощь; в Грузии — 112. Если человеку назначен автоинъектор адреналина, используйте его по инструкции и всё равно вызовите помощь. Эта страница не ставит диагноз.",
+          "Затруднение дыхания, отёк языка или горла, обморок, быстро распространяющаяся сыпь и слабость могут указывать на тяжёлую аллергическую реакцию. Немедленно вызовите экстренную медицинскую помощь; в Грузии — 112. Если человеку назначен автоинъектор адреналина, используйте его по инструкции и всё равно вызовите помощь. Диагноз ставит только врач.",
         ],
       },
       {
@@ -449,7 +449,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Sokmadan sonra ne yapmalı?",
         paragraphs: [
           "Sokma yerinde ağrı, kızarıklık ve şişlik yaygındır. Yuvadan uzaklaşın, bölgeyi sabunlu suyla yıkayın ve beze sarılmış soğuk kompres uygulayın. Çok sayıda sokma, ağız veya boğazda sokma ya da kötüleşen belirtiler için zamanında tıbbi görüş alın.",
-          "Solunum güçlüğü, dil veya boğaz şişmesi, bayılma ya da hızla yayılan döküntü ve güçsüzlük ağır alerjik reaksiyon belirtisi olabilir. Hemen acil tıbbi yardım çağırın; Gürcistan'da 112. Kişinin reçete edilmiş adrenalin otoenjektörü varsa talimatına göre kullanın ve yine de acil yardım çağırın. Bu sayfa tanı koymaz.",
+          "Solunum güçlüğü, dil veya boğaz şişmesi, bayılma ya da hızla yayılan döküntü ve güçsüzlük ağır alerjik reaksiyon belirtisi olabilir. Hemen acil tıbbi yardım çağırın; Gürcistan'da 112. Kişinin reçete edilmiş adrenalin otoenjektörü varsa talimatına göre kullanın ve yine de acil yardım çağırın. Tanıyı yalnızca bir hekim koyar.",
         ],
       },
       {

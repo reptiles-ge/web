@@ -136,6 +136,23 @@ describe("species drafts", () => {
     expect(plain.response.status).toBe(201);
   });
 
+  it("refuses a draft that adds source framing but keeps framing already there", async () => {
+    const added = await propose((record) => {
+      record.translations.en.diet = "According to studies, it eats insects.";
+    });
+    expect(added.response.status).toBe(400);
+    expect((added.body as unknown as ErrorBody).error.details).toEqual([
+      {
+        message: "Source framing: “According to studies”",
+        path: ["translations", "en", "diet"],
+      },
+    ]);
+    const plain = await propose((record) => {
+      record.translations.en.diet = "It eats insects.";
+    });
+    expect(plain.response.status).toBe(201);
+  });
+
   it("publishes an approved draft as a revision without revalidating the site", async () => {
     const { body } = await propose((record) => {
       record.base.overview = "AI overview";

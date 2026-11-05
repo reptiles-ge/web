@@ -9,14 +9,21 @@ import {
 } from "../src/lib/adminSpeciesApi";
 import { apiOrigin } from "../src/lib/apiClient";
 import { getOccurrenceSummary } from "../src/lib/occurrenceSummaries";
-import { addedPageTalk } from "../src/lib/pageTalkProse";
+import { listAdminSpecies } from "../src/lib/adminSpeciesCatalog";
+import { addedPageTalk, findPageTalkInRecord } from "../src/lib/pageTalkProse";
+import {
+  addedSourceFraming,
+  findSourceNamesInRecord,
+  sourceFramingInRecord,
+} from "../src/lib/sourceNameProse";
 import { diffSpeciesRecords } from "../src/lib/speciesDraftDiff";
 import { loadEnv } from "./scriptUtils";
 
 const USAGE = `Usage:
   pnpm species:draft pull <id> [<id> ...]
   pnpm species:draft push <id> --summary "<what changed>" [--dry-run]
-  pnpm species:draft regions <id>`;
+  pnpm species:draft regions <id>
+  pnpm species:draft scan [<id> ...]`;
 
 const DRAFT_DIR = path.join(process.cwd(), ".drafts");
 
@@ -55,6 +62,8 @@ loadEnv();
 try {
   if (command === "pull" && ids.length > 0) {
     for (const id of ids) await pull(id);
+  } else if (command === "scan") {
+    await scan(ids);
   } else if (command === "regions" && ids.length === 1) {
     await regions(ids[0]!);
   } else if (command === "push" && ids.length === 1) {
@@ -182,6 +191,14 @@ async function push(
         .join("\n")}`,
     );
   }
+  const framing = addedSourceFraming(live.record, record);
+  if (framing.length > 0) {
+    fail(
+      `${id}: the change makes a study, list, source or photo the subject instead of the animal:\n${framing
+        .map((hit) => `  ${hit.field}: “${hit.match}”`)
+        .join("\n")}`,
+    );
+  }
 
   const fieldChanges = changes.filter((change) =>
     change.path.startsWith("fieldRecords."),
@@ -239,4 +256,36 @@ async function regions(id: string) {
     console.log(`${id}: no range map. Add rangeMap to show one on the page.`);
   }
   printRegions(id, local ? "in .drafts" : "live", record);
+}
+
+async function scan(only: string[]) {
+  const targets =
+    only.length > 0
+      ? only
+      : (await listAdminSpecies()).map((species) => species.id);
+  let total = 0;
+  let affected = 0;
+  for (const id of targets) {
+    const { record } = await readAdminSpecies(id);
+    const hits = [
+      ...findSourceNamesInRecord(record),
+      ...sourceFramingInRecord(record),
+      ...findPageTalkInRecord(record).map((hit) => ({
+        field: `${hit.locale}.${hit.field}`,
+        label: "page talk",
+        match: hit.match,
+      })),
+    ];
+    if (hits.length === 0) continue;
+    affected += 1;
+    total += hits.length;
+    console.log(`${id}: ${hits.length}`);
+    for (const hit of hits) {
+      console.log(`  ${hit.field} [${hit.label}] “${hit.match}”`);
+    }
+  }
+  console.log(
+    `${total} hit(s) in ${affected} of ${targets.length} live species records.`,
+  );
+  if (total > 0) process.exitCode = 1;
 }

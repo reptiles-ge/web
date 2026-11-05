@@ -22,6 +22,21 @@ describe("sentenceMetaDescription", () => {
     expect(sentenceMetaDescription(text)).toBe(`${"ა".repeat(80)}.`);
   });
 
+  it("splits after a full stop inside closing quotes", () => {
+    const text = `A ${"a".repeat(60)} “Colchis.” B${"b".repeat(60)} ends here.`;
+    expect(sentenceMetaDescription(text, 100)).toBe(
+      `A ${"a".repeat(60)} “Colchis.”`,
+    );
+    const ka = `${"ა".repeat(60)} „კოლხეთის ხოხობს“. ${"ბ".repeat(80)}.`;
+    expect(sentenceMetaDescription(ka, 100)).toBe(
+      `${"ა".repeat(60)} „კოლხეთის ხოხობს“.`,
+    );
+    const ru = `${"а".repeat(60)} «фазан Колхиды.» Б${"б".repeat(80)}.`;
+    expect(sentenceMetaDescription(`Ф${ru}`, 100)).toBe(
+      `Ф${"а".repeat(60)} «фазан Колхиды.»`,
+    );
+  });
+
   it("does not split before a lowercase word", () => {
     const text = `Studies frogs, e.g. tree frogs ${"x".repeat(140)}. Next.`;
     expect(sentenceMetaDescription(text)).toBe(

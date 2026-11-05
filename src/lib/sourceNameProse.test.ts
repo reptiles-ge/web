@@ -6,8 +6,12 @@ import {
 } from "@/content/halyomorphaProfileCopy";
 import { routing } from "@/i18n/routing";
 import {
+  addedSourceFraming,
+  findSourceFraming,
   findSourceNames,
   findSourceNamesInFields,
+  findSourceNamesInRecord,
+  sourceFramingInRecord,
 } from "@/lib/sourceNameProse";
 
 import {
@@ -127,5 +131,125 @@ describe("species profile prose names no sources", () => {
         pest: HALYOMORPHA_PEST_COPY,
       }),
     ).toEqual([]);
+  });
+});
+
+describe("findSourceFraming", () => {
+  it.each([
+    "According to studies conducted in Europe, jackals eat carrion.",
+    "Sources about the species also mention mole crickets.",
+    "A 2024 list identifies it as a breeding resident.",
+    "A photograph confirms its presence in Georgia.",
+    "კვლევების მიხედვით ტურა ლეშს ჭამს.",
+    "აქ მისი ყოფნა ფოტოთიც არის დადასტურებული.",
+    "Согласно исследованиям, шакал ест падаль.",
+    "Его присутствие в Грузии подтверждено фотографией.",
+    "Araştırmalara göre çakal leş yer.",
+    "Gürcistan'daki varlığı bir fotoğrafla da doğrulanmıştır.",
+  ])("flags %s", (text) => {
+    expect(findSourceFraming(text)).not.toEqual([]);
+  });
+
+  it.each([
+    "Jackals eat small mammals, birds and carrion.",
+    "It has been photographed in Georgia.",
+    "Источниками бешенства чаще называют лис и шакалов.",
+    "В некоторых источниках её называют Macrovipera lebetina.",
+    "Bazı kaynaklarda başka adlarla karşılaşılabilir, ancak tür aynıdır.",
+    "In 2024 it was recorded breeding near Batumi.",
+  ])("allows %s", (text) => {
+    expect(findSourceFraming(text)).toEqual([]);
+  });
+});
+
+describe("addedSourceFraming", () => {
+  const record = (diet: string) => ({
+    base: { diet: "მწერებით იკვებება." },
+    translations: { en: { diet } },
+  });
+
+  it("ignores framing the live record already has", () => {
+    const before = record("According to studies, it eats insects.");
+    expect(addedSourceFraming(before, before)).toEqual([]);
+  });
+
+  it("flags a second copy of framing the field already has", () => {
+    expect(
+      addedSourceFraming(
+        record("According to studies, it eats insects."),
+        record(
+          "According to studies, it eats insects. According to studies, it also eats carrion.",
+        ),
+      ),
+    ).toEqual([
+      {
+        field: "en.diet",
+        label: "according to studies",
+        match: "According to studies",
+      },
+    ]);
+  });
+
+  it("ignores framing that only moved to another list item", () => {
+    const faq = (answers: string[]) => ({
+      base: {},
+      translations: {
+        en: { faq: answers.map((answer) => ({ answer, question: "Q?" })) },
+      },
+    });
+    expect(
+      addedSourceFraming(
+        faq(["It eats insects.", "A photograph confirms it nests here."]),
+        faq(["A photograph confirms it nests here."]),
+      ),
+    ).toEqual([]);
+  });
+
+  it("names the locale and field of new framing", () => {
+    expect(
+      addedSourceFraming(
+        record("It eats insects."),
+        record("A photograph confirms it eats insects."),
+      ),
+    ).toEqual([
+      {
+        field: "en.diet",
+        label: "a photograph confirms",
+        match: "A photograph confirms",
+      },
+    ]);
+  });
+});
+
+describe("live record scan helpers", () => {
+  const record = {
+    base: {
+      diet: "2024 წლის მონაცემებით, მწერებით იკვებება.",
+      sources: [{ name: "Smith et al. 2020", url: "https://example.org" }],
+    },
+    translations: {
+      en: { faq: [{ answer: "A photograph confirms it nests here." }] },
+      ru: { diet: "Питается насекомыми." },
+    },
+  };
+
+  it("finds source names in every locale and skips sources", () => {
+    expect(findSourceNamesInRecord(record)).toEqual([
+      {
+        field: "ka.diet",
+        label: "as of YYYY",
+        match: "2024 წლის მონაცემებით",
+      },
+    ]);
+  });
+
+  it("finds framing with the locale and list position", () => {
+    expect(sourceFramingInRecord(record)).toEqual([
+      {
+        field: "en.faq[0].answer",
+        label: "a photograph confirms",
+        match: "A photograph confirms",
+      },
+    ]);
   });
 });

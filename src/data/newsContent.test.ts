@@ -2,8 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { getAllNewsArticles } from "@/data/news";
+import { getAllNewsArticles, newsArticlePhotos } from "@/data/news";
 import { newsSlugs } from "@/data/newsPublish";
+import { isOptimizedImageSrc } from "@/data/optimizedImages";
 import { regions } from "@/data/regions";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import {
@@ -14,6 +15,7 @@ import {
   newsBodyLinks,
   newsReferenceIssues,
 } from "@/lib/newsRules";
+import { findPageReferences } from "@/lib/pageTalkProse";
 
 import {
   contributorsFixture,
@@ -35,9 +37,29 @@ describe("news MDX content", () => {
     expect(articles.map((article) => article.slug)).toEqual([...newsSlugs]);
   });
 
+  it("serves every photo from an AVIF/WebP ladder", () => {
+    const missing = articles.flatMap((article) =>
+      newsArticlePhotos(article)
+        .filter((photo) => !isOptimizedImageSrc(photo.src))
+        .map((photo) => `${article.slug}: ${photo.src}`),
+    );
+    expect(missing).toEqual([]);
+  });
+
   it("passes the shared news rules", () => {
     for (const article of articles) {
       expect(newsArticleIssues(article), article.slug).toEqual([]);
+    }
+  });
+
+  it("states facts instead of talking about the page", () => {
+    for (const article of articles) {
+      for (const locale of newsArticleLocales(article)) {
+        expect(
+          findPageReferences(article.copy[locale], locale, locale),
+          article.slug,
+        ).toEqual([]);
+      }
     }
   });
 

@@ -41,7 +41,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "This page is about mice. A rat is a different rodent, and the steps here do not transfer to it.",
+          "The steps are written for mice. A rat is a different rodent, and they do not transfer to it.",
         question: "Mouse or rat?",
       },
     ],
@@ -233,7 +233,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "ეს გვერდი თაგვზეა. ვირთხა სხვა მღრღნელია და აქ მოცემული ნაბიჯები მასზე არ გადადის.",
+          "ნაბიჯები თაგვისთვისაა აღწერილი. ვირთხა სხვა მღრღნელია და ეს ნაბიჯები მასზე არ გადადის.",
         question: "თაგვი თუ ვირთხა?",
       },
     ],
@@ -425,7 +425,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Эта страница про мышь. Крыса — другой грызун, и здешние шаги на неё не переносятся.",
+          "Шаги описаны для мыши. Крыса — другой грызун, и на неё они не переносятся.",
         question: "Мышь или крыса?",
       },
     ],
@@ -617,7 +617,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Bu sayfa fare hakkındadır. Sıçan başka bir kemirgendir ve buradaki adımlar ona uygulanmaz.",
+          "Adımlar fare için yazılmıştır. Sıçan başka bir kemirgendir ve bu adımlar ona uygulanmaz.",
         question: "Fare mi, sıçan mı?",
       },
     ],
