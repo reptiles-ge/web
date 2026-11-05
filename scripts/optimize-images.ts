@@ -35,6 +35,7 @@ import {
   readGeneratedImages,
 } from "../src/lib/imageOptimize";
 import { getContributors } from "../src/lib/authorsApi";
+import { getNewsArticle, getNewsSummaries } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
@@ -212,9 +213,26 @@ function toStorageKey(src: string): string | null {
   return null;
 }
 
+async function loadNewsPhotoSources(): Promise<string[]> {
+  const sources = new Set<string>();
+  for (const article of getAllNewsArticles()) {
+    for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
+  }
+  const summaries = await getNewsSummaries();
+  const articles = await Promise.all(
+    summaries.map((summary) => getNewsArticle(summary.slug)),
+  );
+  for (const article of articles) {
+    if (!article) continue;
+    for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
+  }
+  return [...sources];
+}
+
 function collectSources(
   species: CatalogPhotoSpecies[],
   portraits: readonly string[],
+  newsPhotos: readonly string[],
 ): Map<string, string> {
   const byKey = new Map<string, string>();
 
@@ -231,9 +249,7 @@ function collectSources(
     add(getRegionHeroImage(id));
   }
 
-  for (const article of getAllNewsArticles()) {
-    for (const photo of newsArticlePhotos(article)) add(photo.src);
-  }
+  for (const src of newsPhotos) add(src);
 
   for (const item of species) {
     add(item.image);
@@ -247,6 +263,7 @@ function collectSources(
 function collectTargets(
   species: CatalogPhotoSpecies[],
   portraits: readonly string[],
+  newsPhotos: readonly string[],
   ids: string[],
   imageSources: string[],
   regionId: RegionPathId | undefined,
@@ -310,9 +327,7 @@ function collectTargets(
   if (regionId) add(getRegionHeroImage(regionId));
 
   if (all || news) {
-    for (const article of getAllNewsArticles()) {
-      for (const photo of newsArticlePhotos(article)) add(photo.src);
-    }
+    for (const src of newsPhotos) add(src);
   }
 
   for (const item of species) {
@@ -494,12 +509,13 @@ async function run() {
   const storage: StorageAdapter = createBunnyStorageContext().storage;
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
-  const [species, contributors] = await Promise.all([
+  const [species, contributors, newsPhotos] = await Promise.all([
     getSpeciesCatalog("ka", "photos"),
     getContributors("ka"),
+    loadNewsPhotoSources(),
   ]);
   const portraits = contributors.map((author) => author.portraitSrc);
-  const byKey = collectSources(species, portraits);
+  const byKey = collectSources(species, portraits, newsPhotos);
 
   if (options.emitOnly) {
     const current = await loadManifest(
@@ -514,6 +530,7 @@ async function run() {
   const discovered = collectTargets(
     species,
     portraits,
+    newsPhotos,
     options.speciesIds,
     options.imageSources,
     options.regionId,

@@ -5086,6 +5086,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view.jpg": {
+    "path": "images/news/algeti-red-deer-tbilisi-zoo-2026/algeti-national-park-view",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg": {
+    "path": "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015.jpg": {
+    "path": "images/news/black-sea-dolphins-war-2026/common-dolphins-batumi-2015",
+    "width": 2058,
+    "height": 1372,
+    "widths": [320, 400, 640, 800, 1200, 2058],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast.jpg": {
+    "path": "images/news/black-sea-dolphins-war-2026/dolphin-fin-batumi-coast",
+    "width": 1728,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau.jpg": {
+    "path": "images/news/caspian-sturgeon-die-off-2026/caspian-coast-aktau",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine.jpg": {
+    "path": "images/news/caspian-sturgeon-die-off-2026/dead-russian-sturgeon-beach-ukraine",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024.jpg": {
+    "path": "images/news/caspian-sturgeon-die-off-2026/north-caspian-modis-2024",
+    "width": 2400,
+    "height": 1785,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live.jpg": {
     "path": "images/news/caucasirella-akhali-gvari-kavkasia/caucasirella-fanagorica-live",
     "width": 1975,
@@ -5105,6 +5154,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1975,
     "height": 1804,
     "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan.jpg": {
+    "path": "images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan",
+    "width": 2400,
+    "height": 1048,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/cop17-yerevan-pathway-final/lake-sevan.jpg": {
+    "path": "images/news/cop17-yerevan-pathway-final/lake-sevan",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/news/egrisi-da-tsiv-gombori-akhali-erovnuli-parkebi-2026/egrisi-apa-announcement.jpg": {
@@ -5163,6 +5226,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge.jpg": {
+    "path": "images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson.jpg": {
+    "path": "images/news/kutaisi-kaspiuri-gekoni/tenuidactylus-caspius-tbilisi-aronson",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
     "path": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis",
     "width": 2048,
@@ -5189,6 +5266,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1497,
     "height": 1051,
     "widths": [320, 400, 640, 800, 1200, 1497],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg": {
+    "path": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male.jpg": {
+    "path": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/synema-inexpectatum-holotype-male",
+    "width": 1112,
+    "height": 1190,
+    "widths": [320, 400, 640, 800, 1112],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites.jpg": {
+    "path": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-chachuna-sampling-sites",
+    "width": 1972,
+    "height": 1315,
+    "widths": [320, 400, 640, 800, 1200, 1972],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint.jpg": {
+    "path": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/vashlovani-usakhelo-viewpoint",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/species/accipiter-gentilis-afr-1.jpg": {
@@ -7571,6 +7676,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-certificates.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-certificates",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-game.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-game",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-group.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-group",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-messages.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-messages",
+    "width": 2400,
+    "height": 1801,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-poster.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-poster",
+    "width": 2400,
+    "height": 1801,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-brc-camp-2026-shoshitashvili-presentation.jpg": {
+    "path": "news-brc-camp-2026-shoshitashvili-presentation",
+    "width": 2400,
+    "height": 1801,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
     "path": "news-crested-honey-buzzard-cordes-male",
     "width": 2400,
@@ -7597,6 +7744,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1875,
     "height": 1441,
     "widths": [320, 400, 640, 800, 1200, 1875],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-ephippiochthonius-chthonius-chelae.jpg": {
+    "path": "news-ephippiochthonius-chthonius-chelae",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-ephippiochthonius-tetrachelatus-timaeus.jpg": {
+    "path": "news-ephippiochthonius-tetrachelatus-timaeus",
+    "width": 1231,
+    "height": 1037,
+    "widths": [320, 400, 640, 800, 1200, 1231],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-ephippiochthonius-zemo-imereti-caves.jpg": {
+    "path": "news-ephippiochthonius-zemo-imereti-caves",
+    "width": 744,
+    "height": 547,
+    "widths": [320, 400, 640, 744],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg": {
@@ -7688,6 +7856,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1800,
     "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-gps-collar.jpg": {
+    "path": "news-tetrobi-niamori-gps-collar",
+    "width": 640,
+    "height": 359,
+    "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-release-crates.jpg": {
+    "path": "news-tetrobi-niamori-release-crates",
+    "width": 600,
+    "height": 373,
+    "widths": [320, 400, 600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-tetrobi-niamori-tbilisi-zoo.jpg": {
+    "path": "news-tetrobi-niamori-tbilisi-zoo",
+    "width": 1920,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-zangezuri-gemigaya-1.jpg": {
+    "path": "news-zangezuri-gemigaya-1",
+    "width": 1572,
+    "height": 1068,
+    "widths": [320, 400, 640, 800, 1200, 1572],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-zangezuri-jiqi-bokvrebi-idea-1.jpg": {
+    "path": "news-zangezuri-jiqi-bokvrebi-idea-1",
+    "width": 1200,
+    "height": 679,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-zangezuri-jiqi-bokvrebi-ministry-1.jpg": {
+    "path": "news-zangezuri-jiqi-bokvrebi-ministry-1",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
@@ -8828,7 +9038,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "species/capra-aegagrus-malkhasyan-9",
     "width": 1920,
     "height": 1440,
-    "widths": [400, 800, 1200, 1920],
+    "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/species/lynx-lynx-bohringer-1.jpg": {
