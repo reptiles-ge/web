@@ -200,6 +200,30 @@ export function findSourceNamesInFields(
   return walkFields(value, field, findSourceNames);
 }
 
+export function findSourceNamesInRecord(record: SpeciesTexts) {
+  return [
+    ["ka", record.base] as const,
+    ...Object.entries(record.translations ?? {}),
+  ].flatMap(([locale, texts]) =>
+    findSourceNamesInFields(texts).map((hit) => ({
+      ...hit,
+      field: `${locale}.${hit.field}`,
+    })),
+  );
+}
+
+export function sourceFramingInRecord(record: SpeciesTexts) {
+  return [
+    ["ka", record.base] as const,
+    ...Object.entries(record.translations ?? {}),
+  ].flatMap(([locale, texts]) =>
+    walkFields(texts, "", findSourceFraming).map((hit) => ({
+      ...hit,
+      field: `${locale}.${hit.field}`,
+    })),
+  );
+}
+
 function matchPatterns(
   patterns: Array<{ label: string; pattern: RegExp }>,
   text: string,
@@ -210,18 +234,6 @@ function matchPatterns(
     if (match) hits.push({ label, match: match[0] });
   }
   return hits;
-}
-
-function sourceFramingInRecord(record: SpeciesTexts) {
-  return [
-    ["ka", record.base] as const,
-    ...Object.entries(record.translations ?? {}),
-  ].flatMap(([locale, texts]) =>
-    walkFields(texts, "", findSourceFraming).map((hit) => ({
-      ...hit,
-      field: `${locale}.${hit.field}`,
-    })),
-  );
 }
 
 function walkFields(

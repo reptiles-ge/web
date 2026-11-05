@@ -10,6 +10,8 @@ import {
   findSourceFraming,
   findSourceNames,
   findSourceNamesInFields,
+  findSourceNamesInRecord,
+  sourceFramingInRecord,
 } from "@/lib/sourceNameProse";
 
 import {
@@ -212,6 +214,39 @@ describe("addedSourceFraming", () => {
     ).toEqual([
       {
         field: "en.diet",
+        label: "a photograph confirms",
+        match: "A photograph confirms",
+      },
+    ]);
+  });
+});
+
+describe("live record scan helpers", () => {
+  const record = {
+    base: {
+      diet: "2024 წლის მონაცემებით, მწერებით იკვებება.",
+      sources: [{ name: "Smith et al. 2020", url: "https://example.org" }],
+    },
+    translations: {
+      en: { faq: [{ answer: "A photograph confirms it nests here." }] },
+      ru: { diet: "Питается насекомыми." },
+    },
+  };
+
+  it("finds source names in every locale and skips sources", () => {
+    expect(findSourceNamesInRecord(record)).toEqual([
+      {
+        field: "ka.diet",
+        label: "as of YYYY",
+        match: "2024 წლის მონაცემებით",
+      },
+    ]);
+  });
+
+  it("finds framing with the locale and list position", () => {
+    expect(sourceFramingInRecord(record)).toEqual([
+      {
+        field: "en.faq[0].answer",
         label: "a photograph confirms",
         match: "A photograph confirms",
       },
