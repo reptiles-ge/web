@@ -49,7 +49,7 @@ import {
   type SearchPageHref,
 } from "@/lib/siteSearch";
 import { transliterateKa } from "@/lib/slugify";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import { catalogSpeciesHref, regionHref } from "@/lib/speciesRoutes";
 
 type PageCopy = {
   icon: SearchIcon;
@@ -1322,7 +1322,7 @@ function toSpeciesDocument(
 
   return {
     featured: FEATURED_SPECIES.has(raw.id),
-    href: speciesHref(raw.id, locale),
+    href: catalogSpeciesHref(raw, locale),
     icon: group === "snake" ? "safety" : "guide",
     id: raw.id,
     image: raw.mobileImage ?? raw.image,

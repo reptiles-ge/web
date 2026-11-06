@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  catalogSpeciesHref,
   getSpeciesPublicSlug,
   resolveSpeciesId,
   speciesHref,
@@ -8,7 +9,42 @@ import {
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
-import { lookalikesFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  lookalikesFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+describe("catalogSpeciesHref", () => {
+  it("matches the build-time link for every catalog species", () => {
+    for (const item of speciesCatalogFixture("ka")) {
+      for (const locale of ["ka", "en"] as const) {
+        expect(
+          catalogSpeciesHref(item, locale),
+          `${item.id} ${locale}`,
+        ).toEqual(speciesHref(item.id, locale));
+      }
+    }
+  });
+
+  it("links a species the build table does not know yet to its own hub", () => {
+    const hornet = {
+      group: "insect",
+      id: "vespa-crabro",
+      slug: "onavari",
+    } as const;
+    expect(catalogSpeciesHref(hornet, "ka")).toEqual({
+      params: { slug: "onavari" },
+      pathname: "/insects/[slug]",
+    });
+    expect(catalogSpeciesHref(hornet, "en")).toEqual({
+      params: { slug: "vespa-crabro" },
+      pathname: "/insects/[slug]",
+    });
+    expect(speciesHref("not-in-the-table", "ka").pathname).toBe(
+      "/snakes/[slug]",
+    );
+  });
+});
 
 describe("species routes", () => {
   it("uses KA slug overrides for public URLs", () => {
