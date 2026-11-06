@@ -15,14 +15,12 @@ import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import { BrandText } from "@/components/BrandName";
 import { ContactMailto } from "@/components/ContactMailto";
-import { PhotoPermissionNotes } from "@/components/PhotoPermissionNotes";
 import { creditAuthorHref } from "@/data/authors";
 import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
 import { Link } from "@/i18n/navigation";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
@@ -96,7 +94,7 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
         />
         <PhotoUseStats locale={locale} photos={photos} t={t} />
       </section>
-      <PhotoUseCards locale={locale} t={t} />
+      <PhotoUseCards t={t} />
       <PhotoUseCreditExample
         contributors={contributors}
         locale={locale}
@@ -118,8 +116,7 @@ function numberFormat(locale: AppLocale) {
   return created;
 }
 
-function PhotoUseCards({ locale, t }: { locale: AppLocale; t: Translate }) {
-  const permissionNotes = PHOTO_PERMISSION_NOTES[locale];
+function PhotoUseCards({ t }: { t: Translate }) {
   const bodyClass =
     "mt-1.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-2.5 md:text-[15.5px]";
   const cards: Array<{
@@ -193,10 +190,6 @@ function PhotoUseCards({ locale, t }: { locale: AppLocale; t: Translate }) {
             ))}
           </ul>
           <p className="mt-2">{t("askForward")}</p>
-          <PhotoPermissionNotes
-            className="mt-2"
-            notes={[permissionNotes.responseTime, permissionNotes.feePolicy]}
-          />
         </div>
       ),
       icon: Mail,

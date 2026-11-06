@@ -10,6 +10,7 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import {
   atlasMetaFixture,
+  catalogExtrasFixture,
   catalogSpeciesFixture,
   localizedFixture,
   lookalikesFixture,
@@ -59,6 +60,7 @@ async function expected(
             );
       return {
         ...fields,
+        ...catalogExtrasFixture(item.id, view),
         group: atlasMetaFixture(item.id)?.group,
         habitats: atlasMetaFixture(item.id)?.habitats,
         lookalikes: lookalikesFixture(item.id),
@@ -107,6 +109,40 @@ describe("GET /v1/catalog", () => {
         expect(entry.lookalikes ?? []).not.toContain("elaphe-urartica");
       }
     }
+  });
+
+  it("returns the checklist status, ranks, feature flag and former slugs", async () => {
+    const { body } = await requestJson<CatalogBody>("/v1/catalog", env, {
+      headers: { "X-Locale": "en" },
+    });
+    const entry = (id: string) => body.data.find((item) => item.id === id);
+    expect(entry("macrovipera-lebetina")).toMatchObject({
+      checklistStatus: "confirmed",
+      class: "Reptilia",
+      featured: true,
+      order: "Squamata",
+      slug: "macrovipera-lebetina",
+      slugAliases: [],
+    });
+    expect(entry("vipera-dinniki")).toMatchObject({
+      checklistStatus: "candidate",
+    });
+    expect(entry("trachemys-scripta")).toMatchObject({
+      checklistStatus: "introduced",
+      class: "Reptilia",
+      featured: false,
+      order: "Testudines",
+    });
+    expect(entry("accipiter-gentilis")).toMatchObject({
+      checklistStatus: null,
+      class: "Aves",
+      order: "Accipitriformes",
+    });
+    expect(entry("accipiter-gentilis")?.slugAliases).toEqual(
+      expect.arrayContaining(["didi-kori", "goshawk"]),
+    );
+    expect(entry("accipiter-gentilis")?.slugAliases).not.toContain("kori");
+    expect(body.data.filter((item) => item.featured)).toHaveLength(8);
   });
 
   it("defaults to the Georgian card view, cached at the edge", async () => {

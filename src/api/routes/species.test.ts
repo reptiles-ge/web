@@ -6,6 +6,7 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 import {
   atlasMetaFixture,
   catalogSpeciesFixture,
+  classificationFixture,
   fixtureUpdatedAt,
   localizedFixture,
   lookalikesFixture,
@@ -100,7 +101,19 @@ describe("GET /v1/species/:slug", () => {
           { headers: { "X-Locale": locale } },
         );
         expect(response.status).toBe(200);
-        const { group, habitats, lookalikes, slug, ...profile } = body.data;
+        const {
+          checklistStatus,
+          class: className,
+          group,
+          habitats,
+          lookalikes,
+          order,
+          slug,
+          ...profile
+        } = body.data;
+        expect({ checklistStatus, class: className, order }).toStrictEqual(
+          classificationFixture(item.id),
+        );
         expect(profile).toStrictEqual(
           await Response.json(localizedFixture(item, locale)).json(),
         );

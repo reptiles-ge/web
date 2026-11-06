@@ -1,3 +1,4 @@
+import type { HerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import type { AnimalGroup, HabitatTag } from "@/data/speciesAtlasMeta";
 import type {
   GalleryImage,
@@ -17,10 +18,14 @@ import {
 export type SpeciesRecord = {
   base: Species;
   catalogPosition: number;
+  checklistStatus: HerpetofaunaChecklistStatus | null;
+  class: null | string;
+  featured: boolean;
   fieldRecords: SpeciesFieldRecord[];
   group: AnimalGroup;
   habitats: HabitatTag[];
   lookalikes: string[];
+  order: null | string;
   rangeMap: null | SpeciesRangeMap;
   slugKa: null | string;
   slugs: string[];
@@ -84,6 +89,10 @@ export function speciesRecordRows(record: SpeciesRecord) {
     record.catalogPosition,
     record.slugKa,
     base.publishedAt,
+    record.order,
+    record.class,
+    record.checklistStatus,
+    record.featured ? 1 : 0,
   ]);
   addTexts(add, id, "ka", base);
   for (const locale of TRANSLATION_LOCALES) {

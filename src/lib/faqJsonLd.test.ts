@@ -217,6 +217,7 @@ describe("FAQPage generators", () => {
             locale,
             ogImage: item.image,
             pageUrl: "https://reptiles.ge/species",
+            ranks: { class: "Reptilia", order: "Squamata" },
             raw,
           }) as unknown[]
         ).filter(isFaqPage);
@@ -240,6 +241,7 @@ describe("FAQPage generators", () => {
           locale,
           ogImage: item.image,
           pageUrl: "https://reptiles.ge/species",
+          ranks: { class: "Reptilia", order: "Squamata" },
           raw,
         }) as unknown[]
       ).find(isFaqPage);

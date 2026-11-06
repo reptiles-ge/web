@@ -1,3 +1,4 @@
+import type { HerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import type { AnimalGroup, HabitatTag } from "@/data/speciesAtlasMeta";
 import type {
   DangerLevel,
@@ -12,11 +13,12 @@ import type { ApiDatabase } from "./database";
 import type { TranslationLocale } from "./speciesRows";
 
 export type SpeciesCatalogData = {
-  atlasMeta: Record<string, { group: AnimalGroup; habitats: HabitatTag[] }>;
+  atlasMeta: Record<string, SpeciesCatalogMeta>;
   catalogIds: string[];
   idByAnySlug: Record<string, string>;
   kaSlugById: Record<string, string>;
   lookalikes: Record<string, string[]>;
+  slugsById: Record<string, string[]>;
   species: Species[];
   translations: Record<TranslationLocale, Record<string, SpeciesTranslation>>;
   unpublishedIds: string[];
@@ -50,9 +52,20 @@ type OverlayRow = CreditRow & {
   position: number;
 };
 
+type SpeciesCatalogMeta = {
+  checklistStatus: HerpetofaunaChecklistStatus | null;
+  class: null | string;
+  featured: boolean;
+  group: AnimalGroup;
+  habitats: HabitatTag[];
+  order: null | string;
+};
+
 type SpeciesRow = {
+  checklist_status_id: HerpetofaunaChecklistStatus | null;
   danger_id: DangerLevel | null;
   family: string;
+  featured: number;
   genus: string;
   group_id: AnimalGroup;
   id: string;
@@ -60,6 +73,8 @@ type SpeciesRow = {
   scientific_name: string;
   slug_ka: null | string;
   status: string;
+  taxon_class: null | string;
+  taxon_order: null | string;
 };
 
 type TextRow = {
@@ -105,7 +120,7 @@ export async function readSpeciesCatalog(
   ] = (
     await db.batch([
       statement(
-        `SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at FROM species${where("id")} ORDER BY catalog_position`,
+        `SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at, taxon_order, taxon_class, checklist_status_id, featured FROM species${where("id")} ORDER BY catalog_position`,
       ),
       statement(
         `SELECT species_id, locale, common_name, overview, description, habitat, diet, behavior, conservation, location, interaction, identification_summary, identification_coloration, updated_at FROM species_texts${where("species_id")}`,
@@ -188,12 +203,17 @@ export async function readSpeciesCatalog(
       species.flatMap((row) => (row.slug_ka ? [[row.id, row.slug_ka]] : [])),
     ),
     lookalikes: {},
+    slugsById: {},
     species: [],
     translations: { en: {}, ru: {}, tr: {} },
     unpublishedIds: species
       .filter((row) => row.status !== "published")
       .map((row) => row.id),
   };
+
+  for (const row of slugs) {
+    (catalog.slugsById[row.species_id] ??= []).push(row.slug);
+  }
 
   for (const row of lookalikes) {
     (catalog.lookalikes[row.species_id] ??= []).push(row.lookalike_id);
@@ -221,8 +241,12 @@ export async function readSpeciesCatalog(
     if (!hero) throw new Error(`${row.id} has no hero image`);
 
     catalog.atlasMeta[row.id] = {
+      checklistStatus: row.checklist_status_id,
+      class: row.taxon_class,
+      featured: row.featured === 1,
       group: row.group_id,
       habitats: (habitatsBy.get(row.id) ?? []).map((entry) => entry.habitat_id),
+      order: row.taxon_order,
     };
     catalog.species.push(
       compact({

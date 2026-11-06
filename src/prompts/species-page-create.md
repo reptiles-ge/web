@@ -69,8 +69,8 @@ Reptiles.ge ვითარდება როგორც საქართვ
 ### 2. Check for duplicates
 
 - `pnpm species:draft pull {{SPECIES_ID}}` — თუ ჩანაწერი არსებობს, ეს ახალი სახეობა არ არის (იხ. ზემოთ).
-- შეამოწმე, ხომ არ არის იგივე taxon სხვა id-ით: `src/data/speciesSlugs.generated.ts` (გამოქვეყნებული id-ები და slug-ები, `pnpm slugs:compile`), `src/data/speciesPublish.ts`, `src/lib/speciesSlugRules.ts` და სინონიმებით ძებნა repository-ში. დუბლიკატი არ შექმნა.
-- თუ სახეობა ამფიბია ან ქვეწარმავალია, ნახე მისი სტატუსი `src/data/herpetofauna-checklist.ts`-ში (`confirmed` / `candidate` / `introduced`). candidate taxon-ს არ „დაადასტურო“.
+- შეამოწმე, ხომ არ არის იგივე taxon სხვა id-ით: `src/data/speciesSlugs.generated.ts` (გამოქვეყნებული id-ები, slug-ები და ძველი slug-ები, `pnpm slugs:compile`) და სინონიმებით ძებნა repository-ში. დუბლიკატი არ შექმნა.
+- თუ სახეობა ამფიბია ან ქვეწარმავალია, მისი სტატუსი (`confirmed` / `candidate` / `introduced`) Tarkhnishvili et al. 2026-ის checklist-იდან აიღე. სხვა სახეობების სტატუსი API-ის catalog-ში ჩანს (`checklistStatus`). candidate taxon-ს არ „დაადასტურო“.
 
 ### 3. Take the record shape from a real profile
 
@@ -182,7 +182,10 @@ Ecological role კონკრეტულად ახსენი; არ დ
 - `status`: `"draft"`. არ დააყენო `published`; გამოქვეყნებას მფლობელი წყვეტს.
 - `group`: ერთ-ერთი `amphibian`, `bird`, `insect`, `lizard`, `mammal`, `scorpion`, `snake`, `spider`, `turtle`. თუ სახეობა სანდოდ არცერთში არ თავსდება, ფაილი არ შექმნა და ანგარიშში აღწერე, რა გაფართოებაა საჭირო. არასოდეს ჩასვა არასწორ ჯგუფში.
 - `catalogPosition`: დროებით `9999`. საბოლოო პოზიციას მფლობელი აყენებს.
-- `slugKa`: `kaToSlug(commonName)`-ის შედეგი (`src/lib/slugify.ts`). შეამოწმე collision `src/lib/speciesSlugRules.ts`-ში. `slugs`: `[]`.
+- `order`, `class`: რიგი და კლასი სამეცნიერო სახელით (მაგ. `Squamata`, `Reptilia`). თუ იმავე ოჯახის სახეობა უკვე D1-შია, მისი მნიშვნელობები აიღე API-ის catalog-იდან.
+- `checklistStatus`: ამფიბიასა და ქვეწარმავალს `confirmed`, `candidate` ან `introduced` (Tarkhnishvili et al. 2026); ყველა სხვა ჯგუფს `null`.
+- `featured`: `false`. ამას მფლობელი წყვეტს.
+- `slugKa`: `kaToSlug(commonName)`-ის შედეგი (`src/lib/slugify.ts`). შეამოწმე collision `src/data/speciesSlugs.generated.ts`-ში. `slugs`: `[]`.
 - `base`: `id` = `{{SPECIES_ID}}`; `scientificName`, `genus`, `family`; `commonName`; ყველა ტექსტური ველი; `danger` მხოლოდ შესაბამის ჯგუფში; `sources` — არა ცარიელი, `{ name, url }`, რეალური URL / DOI, რომელიც claim-ს ადასტურებს; `publishedAt` და `updatedAt` = დღევანდელი თარიღი `YYYY-MM-DD`; `image` = `https://reptiles.ge/images/species-placeholder.svg`; `gallery` = `[]`.
 - `translations.en`, `translations.ru`, `translations.tr`: იგივე ტექსტური ველები. ფოტოს ველები არა.
 - `lookalikes`: მხოლოდ D1-ში არსებული სახეობის id-ები, როცა მსგავსება რეალურია და მკითხველს ეხმარება. არარსებული id არ დაამატო.
@@ -202,11 +205,7 @@ pnpm -s exec tsx -e 'import { speciesRecordSchema } from "./src/api/schemas/spec
 
 ახალ სახეობას code-ში ასევე სჭირდება ჩანაწერები, რომლებიც ჯერ API-ზე არ გადასულა. ისინი **არ შეცვალო** — ჩამოწერე ანგარიშში ზუსტი შემოთავაზებით, მფლობელი ცალკე pull request-ში დაამატებს, როცა სახეობა D1-შია:
 
-- `src/data/taxonomyHigherRanks.ts` — სახეობის ოჯახი `FAMILY_ORDER`-ში და მისი რიგი `ORDER_CLASS`-ში, თუ ჯერ არ არის. მის გარეშე სახეობის გამოქვეყნების შემდეგ `pnpm slugs:compile` და build ჩავარდება. ჯგუფი და habitats კოდში აღარ ემატება: ისინი D1-იდან მოდის;
-- `src/data/speciesPublish.ts` — featured / unpublished სიები, თუ საჭიროა;
-- `src/lib/speciesSlugRules.ts` — `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` მხოლოდ collision-ის ან რეალური სინონიმის გამო;
-- `src/data/regions.ts` — region id მხოლოდ მაშინ, როცა Tarkhnishvili et al. 2026 ან უკვე ციტირებული ლოკალობა ასახელებს ადმინისტრაციულ ერთეულს. „Georgia“, „Caucasus“, Colchis, habitat ან global range საკმარისი არ არის;
-- `src/data/herpetofauna-checklist.ts` — მხოლოდ ამფიბიისა და ქვეწარმავლისთვის, checklist-ის მტკიცებულებით.
+- `src/data/regions.ts` — region id მხოლოდ მაშინ, როცა Tarkhnishvili et al. 2026 ან უკვე ციტირებული ლოკალობა ასახელებს ადმინისტრაციულ ერთეულს. „Georgia“, „Caucasus“, Colchis, habitat ან global range საკმარისი არ არის.
 
 ## FINAL QUALITY CHECK
 

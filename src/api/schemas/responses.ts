@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { HERPETOFAUNA_CHECKLIST_STATUSES } from "@/data/herpetofauna-checklist";
 import { locales } from "@/i18n/locales";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { AUTHOR_KINDS, AUTHOR_ROLES } from "@/lib/authorTaxonomy";
@@ -60,6 +61,12 @@ const group = component(
 );
 
 const habitat = component("Habitat", z.enum(HABITATS), "Broad habitat tag.");
+
+const checklistStatus = component(
+  "ChecklistStatus",
+  z.enum(HERPETOFAUNA_CHECKLIST_STATUSES),
+  "Status of an amphibian or reptile in the 2026 checklist of Georgia's amphibians and reptiles (https://doi.org/10.3897/caucasiana.5.e189214). `confirmed`: a confirmed species of Georgia. `candidate`: a candidate taxon, not counted among the confirmed species. `introduced`: an introduced species.",
+);
 
 const danger = component(
   "DangerLevel",
@@ -210,6 +217,15 @@ const lookalikeIds = doc(
 );
 
 const common = {
+  checklistStatus: doc(
+    checklistStatus.nullable(),
+    "Checklist status of an amphibian or reptile; `null` for every other group.",
+  ),
+  class: doc(
+    z.string().nullable(),
+    "Scientific class name; `null` while it is not recorded.",
+    ["Reptilia"],
+  ),
   commonName: doc(z.string(), "Localized common name.", ["Levantine viper"]),
   danger: danger.optional(),
   description: text("Short summary."),
@@ -227,6 +243,11 @@ const common = {
     "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg",
   ]).optional(),
   mobileImageCredit: photoCredit.optional(),
+  order: doc(
+    z.string().nullable(),
+    "Scientific order name; `null` while it is not recorded.",
+    ["Squamata"],
+  ),
   publishedAt: dateTime("When the profile was first published."),
   scientificName: doc(z.string(), "Scientific name.", [
     "Macrovipera lebetinus",
@@ -234,6 +255,15 @@ const common = {
   slug,
   stats: doc(z.array(stat), "Key facts."),
   updatedAt: dateTime("When this locale's text last changed."),
+};
+
+const catalogExtras = {
+  featured: doc(
+    z.boolean(),
+    "Whether Reptiles.ge features the species in its site search suggestions.",
+    [true],
+  ),
+  lookalikes: lookalikeIds,
 };
 
 const fullText = {
@@ -288,11 +318,16 @@ const catalogCard = component(
   "CatalogCard",
   z.strictObject({
     ...common,
-    lookalikes: lookalikeIds,
+    ...catalogExtras,
     photoCount: doc(
       z.int().min(0),
       "Number of photos in the species gallery. The `full` view lists them in `gallery`.",
       [8],
+    ),
+    slugAliases: doc(
+      z.array(z.string()),
+      "Older or alternative Georgian Latin-script slugs (other names, spellings and English names) that Reptiles.ge redirects to this species. Leaves out the id and the Georgian `slug`. The same in every locale; only in the `card` view.",
+      [["didi-kori", "goshawk"]],
     ),
   }),
   "Species in the light `card` view of the catalog.",
@@ -302,8 +337,8 @@ const catalogPhotoSpecies = component(
   "CatalogPhotoSpecies",
   z.strictObject({
     ...common,
+    ...catalogExtras,
     gallery: fullText.gallery,
-    lookalikes: lookalikeIds,
   }),
   "Species in the `photos` view of the catalog: the `card` fields plus the gallery with every photo credit, for credit and photo-use pages.",
 );
@@ -315,14 +350,14 @@ const catalogQuizSpecies = component(
     facts: fullText.facts,
     gallery: fullText.gallery,
     identification: fullText.identification,
-    lookalikes: lookalikeIds,
+    ...catalogExtras,
   }),
   "Species in the `quiz` view of the catalog: the `card` fields plus what an identification quiz needs (identification traits, facts and the gallery).",
 );
 
 const catalogSpecies = component(
   "CatalogSpecies",
-  z.strictObject({ ...common, ...fullText, lookalikes: lookalikeIds }),
+  z.strictObject({ ...common, ...fullText, ...catalogExtras }),
   "Species in the `full` view of the catalog: every text field, with lookalikes as ids.",
 );
 

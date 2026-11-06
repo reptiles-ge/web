@@ -79,6 +79,7 @@ describe("species structured data", () => {
         locale: "ka",
         ogImage: localized.image,
         pageUrl: "https://reptiles.ge/species",
+        ranks: { class: "Reptilia", order: "Squamata" },
         raw,
       }).find((entry) => entry["@type"] === "ImageGallery") as
         GalleryJsonLd | undefined;
@@ -101,6 +102,7 @@ describe("species structured data", () => {
         locale,
         ogImage: localized.image,
         pageUrl: "https://reptiles.ge/mtserebi/shavi-tarakana",
+        ranks: { class: "Reptilia", order: "Squamata" },
         raw: raw!,
       });
       const article = jsonLd.find(
@@ -130,6 +132,7 @@ describe("species structured data", () => {
       locale: "ka",
       ogImage: localized.image,
       pageUrl,
+      ranks: { class: "Reptilia", order: "Squamata" },
       raw,
     });
     const article = jsonLd.find(
@@ -203,6 +206,7 @@ describe("species structured data", () => {
       locale: "en",
       ogImage: localized.image,
       pageUrl: CHEIRACANTHIUM_URL,
+      ranks: { class: "Reptilia", order: "Squamata" },
       raw: species,
     });
     const article = jsonLd.find(
@@ -265,6 +269,7 @@ describe("species structured data", () => {
       locale: "ka",
       ogImage: localized.image,
       pageUrl: "https://reptiles.ge/dzuzumtsovrebi/chveulebrivi-tsavi",
+      ranks: { class: "Reptilia", order: "Squamata" },
       raw: species,
     });
     const article = jsonLd.find(
@@ -302,6 +307,7 @@ describe("species structured data", () => {
       locale: "en",
       ogImage: localized.image,
       pageUrl: "https://reptiles.ge/en/snakes/vipera-transcaucasiana",
+      ranks: { class: "Reptilia", order: "Squamata" },
       raw,
     }).find((entry) => entry["@type"] === "Article") as ArticleJsonLd;
 
@@ -345,6 +351,7 @@ describe("species structured data", () => {
           locale,
           ogImage: localized.image,
           pageUrl: "https://reptiles.ge/species",
+          ranks: { class: "Reptilia", order: "Squamata" },
           raw,
         }).find((entry) => entry["@type"] === "Article") as ArticleJsonLd;
         const names = article.about.alternateName ?? [];
@@ -364,6 +371,25 @@ describe("species structured data", () => {
     }
   });
 
+  it("puts the order and class from the API above the family", () => {
+    const raw = speciesFixture("macrovipera-lebetina")!;
+    const graph = speciesStructuredData({
+      breadcrumbCrumbs: [{ name: raw.commonName }],
+      contributors,
+      galleryTitle: "გალერეა",
+      item: raw,
+      locale: "ka",
+      ogImage: raw.image,
+      pageUrl: "https://reptiles.ge/gvelebi/giurza",
+      ranks: { class: "Reptilia", order: "Squamata" },
+      raw,
+    });
+    const json = JSON.stringify(graph);
+    expect(json).toContain(
+      '"parentTaxon":{"@type":"Taxon","name":"Squamata","parentTaxon":{"@type":"Taxon","name":"Reptilia","taxonRank":"Class"},"taxonRank":"Order"}',
+    );
+  });
+
   it("writes FAQ answers as plain text without inline species links", () => {
     const raw = speciesFixture("meles-canescens");
     expect(raw).toBeDefined();
@@ -377,6 +403,7 @@ describe("species structured data", () => {
       locale: "ka",
       ogImage: localized.image,
       pageUrl: "https://reptiles.ge/dzuzumtsovrebi/machvi",
+      ranks: { class: "Reptilia", order: "Squamata" },
       raw: raw!,
     }).find((entry) => entry["@type"] === "FAQPage") as FaqJsonLd | undefined;
     const answers = faq?.mainEntity.map((entry) => entry.acceptedAnswer.text);
