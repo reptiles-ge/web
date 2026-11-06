@@ -45,6 +45,13 @@ describe("familyHigherRanks", () => {
     });
   });
 
+  it("places coots in Gruiformes, Aves", () => {
+    expect(familyHigherRanks("Rallidae")).toEqual({
+      className: "Aves",
+      order: "Gruiformes",
+    });
+  });
+
   it("leaves an unknown family without higher ranks", () => {
     expect(familyHigherRanks("Unknownidae")).toBeUndefined();
     expect(
