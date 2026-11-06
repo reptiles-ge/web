@@ -45,13 +45,12 @@ export function atlasMetaFixture(id: string) {
   return item && { group: item.group, habitats: item.habitats };
 }
 
-export function catalogExtrasFixture(id: string) {
-  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
-  if (!item) throw new Error(`No fixture for ${id}`);
+export function catalogExtrasFixture(id: string, view: string) {
+  const { featured, slugAliases } = catalogEntry(id);
   return {
     ...classificationFixture(id),
-    featured: item.featured,
-    slugAliases: item.slugAliases,
+    featured,
+    ...(view === "card" ? { slugAliases } : {}),
   };
 }
 
@@ -60,12 +59,11 @@ export function catalogSpeciesFixture(): Species[] {
 }
 
 export function classificationFixture(id: string) {
-  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
-  if (!item) throw new Error(`No fixture for ${id}`);
+  const entry = catalogEntry(id);
   return {
-    checklistStatus: item.checklistStatus,
-    class: item.class,
-    order: item.order,
+    checklistStatus: entry.checklistStatus,
+    class: entry.class,
+    order: entry.order,
   };
 }
 
@@ -161,6 +159,12 @@ export function speciesGroupFixture(
   return speciesCatalogFixture(locale)
     .filter((item) => item.group === group)
     .sort((a, b) => a.scientificName.localeCompare(b.scientificName));
+}
+
+function catalogEntry(id: string) {
+  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
+  if (!item) throw new Error(`No fixture for ${id}`);
+  return item;
 }
 
 function readFixture<T>(name: string): T {

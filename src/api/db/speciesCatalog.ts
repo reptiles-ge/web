@@ -54,11 +54,11 @@ type OverlayRow = CreditRow & {
 
 type SpeciesCatalogMeta = {
   checklistStatus: HerpetofaunaChecklistStatus | null;
-  class: string;
+  class: null | string;
   featured: boolean;
   group: AnimalGroup;
   habitats: HabitatTag[];
-  order: string;
+  order: null | string;
 };
 
 type SpeciesRow = {
@@ -242,11 +242,11 @@ export async function readSpeciesCatalog(
 
     catalog.atlasMeta[row.id] = {
       checklistStatus: row.checklist_status_id,
-      class: row.taxon_class ?? "",
+      class: row.taxon_class,
       featured: row.featured === 1,
       group: row.group_id,
       habitats: (habitatsBy.get(row.id) ?? []).map((entry) => entry.habitat_id),
-      order: row.taxon_order ?? "",
+      order: row.taxon_order,
     };
     catalog.species.push(
       compact({

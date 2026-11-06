@@ -60,7 +60,7 @@ async function expected(
             );
       return {
         ...fields,
-        ...catalogExtrasFixture(item.id),
+        ...catalogExtrasFixture(item.id, view),
         group: atlasMetaFixture(item.id)?.group,
         habitats: atlasMetaFixture(item.id)?.habitats,
         lookalikes: lookalikesFixture(item.id),

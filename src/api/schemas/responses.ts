@@ -221,7 +221,11 @@ const common = {
     checklistStatus.nullable(),
     "Checklist status of an amphibian or reptile; `null` for every other group.",
   ),
-  class: doc(z.string(), "Scientific class name.", ["Reptilia"]),
+  class: doc(
+    z.string().nullable(),
+    "Scientific class name; `null` while it is not recorded.",
+    ["Reptilia"],
+  ),
   commonName: doc(z.string(), "Localized common name.", ["Levantine viper"]),
   danger: danger.optional(),
   description: text("Short summary."),
@@ -239,7 +243,11 @@ const common = {
     "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg",
   ]).optional(),
   mobileImageCredit: photoCredit.optional(),
-  order: doc(z.string(), "Scientific order name.", ["Squamata"]),
+  order: doc(
+    z.string().nullable(),
+    "Scientific order name; `null` while it is not recorded.",
+    ["Squamata"],
+  ),
   publishedAt: dateTime("When the profile was first published."),
   scientificName: doc(z.string(), "Scientific name.", [
     "Macrovipera lebetinus",
@@ -256,11 +264,6 @@ const catalogExtras = {
     [true],
   ),
   lookalikes: lookalikeIds,
-  slugAliases: doc(
-    z.array(z.string()),
-    "Older or alternative Georgian Latin-script slugs (other names, spellings and English names) that Reptiles.ge redirects to this species. Leaves out the id and the Georgian `slug`. The same in every locale.",
-    [["didi-kori", "goshawk"]],
-  ),
 };
 
 const fullText = {
@@ -320,6 +323,11 @@ const catalogCard = component(
       z.int().min(0),
       "Number of photos in the species gallery. The `full` view lists them in `gallery`.",
       [8],
+    ),
+    slugAliases: doc(
+      z.array(z.string()),
+      "Older or alternative Georgian Latin-script slugs (other names, spellings and English names) that Reptiles.ge redirects to this species. Leaves out the id and the Georgian `slug`. The same in every locale; only in the `card` view.",
+      [["didi-kori", "goshawk"]],
     ),
   }),
   "Species in the light `card` view of the catalog.",

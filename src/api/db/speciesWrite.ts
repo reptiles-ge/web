@@ -31,6 +31,23 @@ const INSERT_ORDER: Table[] = [
   ...SPECIES_TABLES.filter((table) => table.name === "species_media_overlays"),
 ];
 
+export async function readClassificationConflict(
+  db: ApiDatabase,
+  record: SpeciesRecord,
+) {
+  return db
+    .prepare(
+      "SELECT id, family, taxon_order AS taxonOrder, taxon_class AS taxonClass FROM species WHERE id != ?1 AND ((family = ?2 AND taxon_order != ?3) OR (taxon_order = ?3 AND taxon_class != ?4)) ORDER BY id LIMIT 1",
+    )
+    .bind(record.base.id, record.base.family, record.order, record.class)
+    .first<{
+      family: string;
+      id: string;
+      taxonClass: string;
+      taxonOrder: string;
+    }>();
+}
+
 export async function readSpeciesRecord(db: ApiDatabase, id: string) {
   const row = await db
     .prepare(

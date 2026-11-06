@@ -8,7 +8,7 @@ import type {
 } from "@/data/speciesTypes";
 
 export type CatalogCard = CatalogExtras &
-  SpeciesSummary & { photoCount: number };
+  SpeciesSummary & { photoCount: number; slugAliases: string[] };
 
 export type CatalogFullSpecies = CatalogExtras & Species;
 
@@ -18,10 +18,9 @@ export type CatalogQuizSpecies = CatalogExtras & SpeciesQuizFields;
 
 type CatalogExtras = SpeciesAtlasMeta & {
   checklistStatus: HerpetofaunaChecklistStatus | null;
-  class: string;
+  class: null | string;
   featured: boolean;
   lookalikes: string[];
-  order: string;
+  order: null | string;
   slug: string;
-  slugAliases: string[];
 };

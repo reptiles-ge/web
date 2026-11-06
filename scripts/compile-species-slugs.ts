@@ -18,9 +18,10 @@ async function main() {
     throw new Error("The species API returned no published species.");
   }
   if (catalog.some((item) => !Array.isArray(item.slugAliases))) {
-    console.warn(
-      "The species API returned no slugAliases, so former slugs will not redirect. Apply migrations 0021–0022 and deploy the API before the site.",
-    );
+    const message =
+      "The species API returned no slugAliases, so former slugs will not redirect. Apply migrations 0021–0022 and deploy the API before the site.";
+    if (process.env.WORKERS_CI_BRANCH === "main") throw new Error(message);
+    console.warn(message);
   }
   const maps = buildPublishedSlugMaps(
     catalog.map((item) => ({

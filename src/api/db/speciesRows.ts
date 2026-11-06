@@ -19,13 +19,13 @@ export type SpeciesRecord = {
   base: Species;
   catalogPosition: number;
   checklistStatus: HerpetofaunaChecklistStatus | null;
-  class: string;
+  class: null | string;
   featured: boolean;
   fieldRecords: SpeciesFieldRecord[];
   group: AnimalGroup;
   habitats: HabitatTag[];
   lookalikes: string[];
-  order: string;
+  order: null | string;
   rangeMap: null | SpeciesRangeMap;
   slugKa: null | string;
   slugs: string[];

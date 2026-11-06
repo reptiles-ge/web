@@ -111,7 +111,7 @@ const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/www\.mammaldiversity\.org\/taxon\//,
 ];
 
-type SpeciesRanks = { class: string; order: string };
+type SpeciesRanks = { class: null | string; order: null | string };
 
 type SpeciesSource = {
   name: string;

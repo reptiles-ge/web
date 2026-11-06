@@ -122,6 +122,21 @@ describe("species drafts", () => {
     expect(invalid.response.status).toBe(400);
   });
 
+  it("refuses an AI draft that changes the checklist status or featured flag", async () => {
+    const { body, response } = await propose((record) => {
+      record.checklistStatus = "candidate";
+      record.featured = !record.featured;
+    });
+    expect(response.status).toBe(400);
+    expect((body as unknown as ErrorBody).error.details).toEqual([
+      {
+        message: "checklistStatus is set by the owner",
+        path: ["checklistStatus"],
+      },
+      { message: "featured is set by the owner", path: ["featured"] },
+    ]);
+  });
+
   it("refuses a draft that adds page talk but takes one that adds none", async () => {
     const added = await propose((record) => {
       record.base.diet = "ამ გვერდზე კვების ცხრილი არ არის.";

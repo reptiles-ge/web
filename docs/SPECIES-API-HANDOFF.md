@@ -54,7 +54,7 @@ S2.3–S2.5 (home, hubs, regions) were absorbed by S2.2.
 The owner chose a build-time table over a KV snapshot (2026-10-23). `scripts/compile-species-slugs.ts` (`pnpm slugs:compile`, part of `compile`) builds `src/data/speciesSlugs.generated.ts` from `getSpeciesCatalog("ka")` (`slug`, `group`, `slugAliases`). `src/proxy.ts`, `createSpeciesRoute`, `speciesRoutes`, `llmsFiles`, the OG route and the profile loader keep reading it through `speciesSlugTable.ts`.
 
 - A new species or a slug change in D1 needs a deploy before its URL resolves.
-- Aliases live only in `species_slugs` in D1; every catalog view serves them as `slugAliases`.
+- Aliases live only in `species_slugs` in D1; the card catalog view serves them as `slugAliases`.
 - The MDX import (`speciesImportSource`) computes its own slugs from MDX, so the test database no longer reads the generated table.
 - A KV snapshot refreshed on writes remains the option if deploy-time slugs become a problem.
 

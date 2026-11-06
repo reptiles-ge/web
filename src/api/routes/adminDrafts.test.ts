@@ -287,6 +287,33 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
     });
   });
 
+  it("merges a draft saved before classification fields with the live values", async () => {
+    const before = (await live()).record;
+    const draftId = await propose((record) => {
+      record.base.overview = "AI overview";
+    });
+    sqlite
+      .prepare(
+        "UPDATE species_drafts SET record = json_remove(record, '$.checklistStatus', '$.class', '$.featured', '$.order')",
+      )
+      .run();
+    const { response } = await decide(draftId, "merge");
+    expect(response.status).toBe(200);
+    const after = (await live()).record;
+    expect(after.base.overview).toBe("AI overview");
+    expect({
+      checklistStatus: after.checklistStatus,
+      class: after.class,
+      featured: after.featured,
+      order: after.order,
+    }).toEqual({
+      checklistStatus: before.checklistStatus,
+      class: before.class,
+      featured: before.featured,
+      order: before.order,
+    });
+  });
+
   it("reports a merge whose cache clear failed without undoing it", async () => {
     siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
     const draftId = await propose((record) => {

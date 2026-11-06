@@ -10,7 +10,7 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 type SpeciesProfile = {
   group: AnimalGroup;
-  ranks: { class: string; order: string };
+  ranks: { class: null | string; order: null | string };
   species: Species;
   views: number;
 };

@@ -1,8 +1,11 @@
+import { withDraftFallbacks } from "@/lib/speciesDraftFallback";
+
 import type { ApiDatabase } from "../db/database";
 import type { SpeciesRecord } from "../db/speciesRows";
 
 import { decideDraftStatement, readDraft } from "../db/speciesDrafts";
 import {
+  readClassificationConflict,
   readSpeciesRecord,
   readSpeciesVersion,
   type SpeciesRevision,
@@ -22,20 +25,7 @@ export async function approveSpeciesDraft(
   const current = await readSpeciesVersion(db, draft.speciesId);
   if (current !== draft.baseVersion) throw versionConflict(current ?? 0);
   const live = (await readSpeciesRecord(db, draft.speciesId))?.record ?? null;
-  const saved: Partial<SpeciesRecord> = draft.record;
-  const record: SpeciesRecord = {
-    ...draft.record,
-    checklistStatus:
-      saved.checklistStatus === undefined
-        ? (live?.checklistStatus ?? null)
-        : saved.checklistStatus,
-    class: saved.class ?? live?.class ?? "",
-    featured: saved.featured ?? live?.featured ?? false,
-    fieldRecords: saved.fieldRecords ?? live?.fieldRecords ?? [],
-    order: saved.order ?? live?.order ?? "",
-    rangeMap:
-      saved.rangeMap === undefined ? (live?.rangeMap ?? null) : saved.rangeMap,
-  };
+  const record: SpeciesRecord = withDraftFallbacks(draft.record, live);
   const checked = speciesRecordSchema.safeParse(record);
   if (!checked.success) {
     throw new ApiError(
@@ -101,6 +91,7 @@ export async function saveSpeciesRecord(
   alsoRun: Parameters<typeof writeSpeciesRecord>[4] = [],
 ) {
   const live = (await readSpeciesRecord(db, record.base.id))?.record ?? null;
+  await assertClassificationMatches(db, record);
   stampSpeciesTextDates(record, live);
   try {
     return await writeSpeciesRecord(
@@ -130,6 +121,28 @@ export function versionConflict(currentVersion: number) {
 
 function alreadyDecided(status: string) {
   return new ApiError(400, "invalid_request", `Draft is already ${status}`);
+}
+
+async function assertClassificationMatches(
+  db: ApiDatabase,
+  record: SpeciesRecord,
+) {
+  const other = await readClassificationConflict(db, record);
+  if (!other) return;
+  const sameFamily = other.family === record.base.family;
+  throw new ApiError(
+    400,
+    "invalid_request",
+    sameFamily
+      ? `${other.id} has the same family ${other.family} in the order ${other.taxonOrder}`
+      : `${other.id} has the same order ${other.taxonOrder} in the class ${other.taxonClass}`,
+    [
+      {
+        message: "Classification differs from other species",
+        path: [sameFamily ? "order" : "class"],
+      },
+    ],
+  );
 }
 
 async function ensureStillPending(db: ApiDatabase, draftId: number) {

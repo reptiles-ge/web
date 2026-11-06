@@ -80,9 +80,14 @@ export async function readLocalizedCatalog(
         order: meta.order,
         slug:
           locale === "ka" ? (catalog.kaSlugById[base.id] ?? base.id) : base.id,
-        slugAliases: (catalog.slugsById[base.id] ?? []).filter(
-          (slug) => slug !== base.id && slug !== catalog.kaSlugById[base.id],
-        ),
+        ...(view === "card"
+          ? {
+              slugAliases: (catalog.slugsById[base.id] ?? []).filter(
+                (slug) =>
+                  slug !== base.id && slug !== catalog.kaSlugById[base.id],
+              ),
+            }
+          : {}),
       };
       return { entry, index };
     });

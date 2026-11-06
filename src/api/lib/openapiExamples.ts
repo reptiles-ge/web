@@ -93,7 +93,6 @@ const lookalikeIds = [
 const catalogExtras = {
   featured: true,
   lookalikes: lookalikeIds,
-  slugAliases: [],
 };
 
 const catalogFacets = {
@@ -208,7 +207,9 @@ export const RESPONSE_EXAMPLES = {
     total: 1,
   },
   catalogCard: {
-    data: [{ ...levantineViper, ...catalogExtras, photoCount: 8 }],
+    data: [
+      { ...levantineViper, ...catalogExtras, photoCount: 8, slugAliases: [] },
+    ],
     facets: catalogFacets,
     locale: "en",
     nextCursor: null,
