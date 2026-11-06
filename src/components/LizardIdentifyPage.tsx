@@ -102,7 +102,7 @@ export async function LizardIdentifyPage({
           {featured.map((item) => (
             <Link
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-              href={speciesHref(item.id, locale)}
+              href={speciesHref(item, locale)}
               key={item.id}
             >
               {item.commonName}

@@ -50,6 +50,7 @@ import {
 } from "@/lib/siteSearch";
 import { transliterateKa } from "@/lib/slugify";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import { hasSpeciesRoute } from "@/lib/speciesSlugTable";
 
 type PageCopy = {
   icon: SearchIcon;
@@ -1096,9 +1097,9 @@ export function buildSearchIndex(
     ),
   ];
 
-  const species = base.map((item) =>
-    toSpeciesDocument(locale, item, localized),
-  );
+  const species = base
+    .filter((item) => hasSpeciesRoute(item.id))
+    .map((item) => toSpeciesDocument(locale, item, localized));
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
   const contributorsById = Object.fromEntries(
     routing.locales.map((item) => [
@@ -1322,7 +1323,7 @@ function toSpeciesDocument(
 
   return {
     featured: FEATURED_SPECIES.has(raw.id),
-    href: speciesHref(raw.id, locale),
+    href: speciesHref(raw, locale),
     icon: group === "snake" ? "safety" : "guide",
     id: raw.id,
     image: raw.mobileImage ?? raw.image,

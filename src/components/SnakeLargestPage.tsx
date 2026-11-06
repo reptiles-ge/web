@@ -102,7 +102,7 @@ export async function SnakeLargestPage({
                   </p>
                   <Link
                     className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
-                    href={speciesHref(lizard.id, locale)}
+                    href={speciesHref(lizard, locale)}
                   >
                     {lizard.commonName}
                     <ArrowUpRight className="size-4" />
@@ -112,7 +112,7 @@ export async function SnakeLargestPage({
               <div>
                 <Link
                   className="relative block aspect-16/10 overflow-hidden rounded-media bg-ink"
-                  href={speciesHref(lizard.id, locale)}
+                  href={speciesHref(lizard, locale)}
                 >
                   <CoverImage
                     alt={speciesImageAlt(
@@ -150,7 +150,7 @@ function LargestRow({
     <li>
       <Link
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
-        href={speciesHref(species.id, locale)}
+        href={speciesHref(species, locale)}
       >
         <span className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
           <CoverImage

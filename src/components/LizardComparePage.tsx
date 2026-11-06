@@ -139,7 +139,7 @@ export async function LizardComparePage({
               >
                 <Link
                   className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
-                  href={speciesHref(diceSnake.id, locale)}
+                  href={speciesHref(diceSnake, locale)}
                 >
                   {diceSnake.commonName}
                   <ArrowUpRight className="size-4" />
@@ -167,7 +167,7 @@ function CompareCard({
   return (
     <Link
       className="group block overflow-hidden rounded-card border border-border bg-card"
-      href={speciesHref(species.id, locale)}
+      href={speciesHref(species, locale)}
     >
       <span className="relative block aspect-5/4 bg-ink">
         <CoverImage

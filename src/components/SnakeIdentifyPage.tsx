@@ -100,7 +100,7 @@ export async function SnakeIdentifyPage({
             {giurza ? (
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
-                href={speciesHref(giurza.id, locale)}
+                href={speciesHref(giurza, locale)}
               >
                 {giurza.commonName}
                 <ArrowUpRight className="size-3.5" />
@@ -109,7 +109,7 @@ export async function SnakeIdentifyPage({
             {kaznakovi ? (
               <Link
                 className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                href={speciesHref(kaznakovi.id, locale)}
+                href={speciesHref(kaznakovi, locale)}
               >
                 {kaznakovi.commonName}
                 <ArrowUpRight className="size-3.5" />

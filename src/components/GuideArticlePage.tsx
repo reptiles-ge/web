@@ -377,7 +377,7 @@ function GuideArticleRelated({
               <li key={item.id}>
                 <Link
                   className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
-                  href={speciesHref(item.id, locale)}
+                  href={speciesHref(item, locale)}
                 >
                   {item.commonName}{" "}
                   <i className="text-muted-foreground">{item.scientificName}</i>
