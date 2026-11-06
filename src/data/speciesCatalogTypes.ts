@@ -1,3 +1,4 @@
+import type { HerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import type { SpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import type {
   Species,
@@ -15,4 +16,12 @@ export type CatalogPhotoSpecies = CatalogExtras & SpeciesPhotoFields;
 
 export type CatalogQuizSpecies = CatalogExtras & SpeciesQuizFields;
 
-type CatalogExtras = SpeciesAtlasMeta & { lookalikes: string[]; slug: string };
+type CatalogExtras = SpeciesAtlasMeta & {
+  checklistStatus: HerpetofaunaChecklistStatus | null;
+  class: string;
+  featured: boolean;
+  lookalikes: string[];
+  order: string;
+  slug: string;
+  slugAliases: string[];
+};

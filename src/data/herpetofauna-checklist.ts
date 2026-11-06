@@ -1,37 +1,13 @@
-import type { AnimalGroup } from "@/data/speciesAtlasMeta";
-
-import { speciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+export const HERPETOFAUNA_CHECKLIST_STATUSES = [
+  "confirmed",
+  "candidate",
+  "introduced",
+] as const;
 
 export type HerpetofaunaChecklistStatus =
-  "candidate" | "confirmed" | "introduced";
+  (typeof HERPETOFAUNA_CHECKLIST_STATUSES)[number];
 
 const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
-
-const CANDIDATE = new Set<string>([
-  "anguis-colchica",
-  "bufo-verrucosissimus",
-  "darevskia-adjarica",
-  "darevskia-alpina",
-  "darevskia-brauneri",
-  "darevskia-caucasica",
-  "darevskia-obscura",
-  "darevskia-pontica",
-  "dolichophis-caspius",
-  "dolichophis-schmidti",
-  "elaphe-urartica",
-  "hyla-orientalis",
-  "lacerta-media",
-  "lissotriton-lantzi",
-  "malpolon-insignitus",
-  "vipera-darevskii",
-  "vipera-dinniki",
-  "vipera-renardi",
-]);
-
-const INTRODUCED = new Set<string>([
-  "phoenicolacerta-laevis",
-  "trachemys-scripta",
-]);
 
 export const HERPETOFAUNA_CHECKLIST_SOURCE = {
   name: "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -43,23 +19,6 @@ export const HERPETOFAUNA_CHECKLIST_SOURCE = {
   },
   url: "https://doi.org/10.3897/caucasiana.5.e189214",
 } as const;
-
-export function getHerpetofaunaChecklistStatus(
-  id: string,
-  group: AnimalGroup | undefined = speciesAtlasMeta[id]?.group,
-): HerpetofaunaChecklistStatus | null {
-  if (!group || !HERP_GROUPS.has(group)) return null;
-  if (INTRODUCED.has(id)) return "introduced";
-  if (CANDIDATE.has(id)) return "candidate";
-  return "confirmed";
-}
-
-export function herpetofaunaChecklistIds() {
-  return Object.keys(speciesAtlasMeta).filter((id) => {
-    const group = speciesAtlasMeta[id]?.group;
-    return group ? HERP_GROUPS.has(group) : false;
-  });
-}
 
 export function isHerpetofaunaGroup(group: string) {
   return HERP_GROUPS.has(group);

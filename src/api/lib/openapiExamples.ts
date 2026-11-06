@@ -6,6 +6,8 @@ const credit = {
 } as const;
 
 const levantineViper = {
+  checklistStatus: "confirmed",
+  class: "Reptilia",
   commonName: "Levantine viper",
   danger: "High",
   description:
@@ -21,6 +23,7 @@ const levantineViper = {
   mobileImage:
     "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg",
   mobileImageCredit: credit,
+  order: "Squamata",
   publishedAt: "2026-08-04T18:02:05+04:00",
   scientificName: "Macrovipera lebetinus",
   slug: "macrovipera-lebetina",
@@ -86,6 +89,12 @@ const lookalikeIds = [
   "hemorrhois-ravergieri",
   "vipera-transcaucasiana",
 ];
+
+const catalogExtras = {
+  featured: true,
+  lookalikes: lookalikeIds,
+  slugAliases: [],
+};
 
 const catalogFacets = {
   danger: { all: 145, harmless: 68, venomous: 11 },
@@ -199,7 +208,7 @@ export const RESPONSE_EXAMPLES = {
     total: 1,
   },
   catalogCard: {
-    data: [{ ...levantineViper, lookalikes: lookalikeIds, photoCount: 8 }],
+    data: [{ ...levantineViper, ...catalogExtras, photoCount: 8 }],
     facets: catalogFacets,
     locale: "en",
     nextCursor: null,
@@ -208,9 +217,7 @@ export const RESPONSE_EXAMPLES = {
     view: "card",
   },
   catalogFull: {
-    data: [
-      { ...levantineViper, ...levantineViperTexts, lookalikes: lookalikeIds },
-    ],
+    data: [{ ...levantineViper, ...levantineViperTexts, ...catalogExtras }],
     facets: catalogFacets,
     locale: "en",
     nextCursor: null,
@@ -223,7 +230,7 @@ export const RESPONSE_EXAMPLES = {
       {
         ...levantineViper,
         gallery: levantineViperTexts.gallery,
-        lookalikes: lookalikeIds,
+        ...catalogExtras,
       },
     ],
     facets: catalogFacets,
@@ -240,7 +247,7 @@ export const RESPONSE_EXAMPLES = {
         facts: levantineViperTexts.facts,
         gallery: levantineViperTexts.gallery,
         identification: levantineViperTexts.identification,
-        lookalikes: lookalikeIds,
+        ...catalogExtras,
       },
     ],
     facets: catalogFacets,

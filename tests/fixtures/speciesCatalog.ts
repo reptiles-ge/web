@@ -21,11 +21,16 @@ import { speciesFixtureFile } from "./speciesFixtureFiles";
 export type SpeciesFixture = CatalogCard & CatalogFullSpecies;
 
 function bareSpecies({
+  checklistStatus: _checklistStatus,
+  class: _class,
+  featured: _featured,
   group: _group,
   habitats: _habitats,
   lookalikes: _lookalikes,
+  order: _order,
   photoCount: _photoCount,
   slug: _slug,
+  slugAliases: _slugAliases,
   ...species
 }: SpeciesFixture): Species {
   return species;
@@ -40,8 +45,28 @@ export function atlasMetaFixture(id: string) {
   return item && { group: item.group, habitats: item.habitats };
 }
 
+export function catalogExtrasFixture(id: string) {
+  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
+  if (!item) throw new Error(`No fixture for ${id}`);
+  return {
+    ...classificationFixture(id),
+    featured: item.featured,
+    slugAliases: item.slugAliases,
+  };
+}
+
 export function catalogSpeciesFixture(): Species[] {
   return speciesCatalogFixture("ka").map(bareSpecies);
+}
+
+export function classificationFixture(id: string) {
+  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
+  if (!item) throw new Error(`No fixture for ${id}`);
+  return {
+    checklistStatus: item.checklistStatus,
+    class: item.class,
+    order: item.order,
+  };
 }
 
 export function confirmedThresholdFixture(id: string) {

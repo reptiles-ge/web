@@ -14,7 +14,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import { familyHigherRanks } from "@/data/taxonomyHigherRanks";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
@@ -111,6 +110,8 @@ const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/www\.mammaldiversity\.org\/explore\.html#species-id=/,
   /^https:\/\/www\.mammaldiversity\.org\/taxon\//,
 ];
+
+type SpeciesRanks = { class: string; order: string };
 
 type SpeciesSource = {
   name: string;
@@ -232,7 +233,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     if (!loaded) {
       notFound();
     }
-    const { item, raw, views } = loaded;
+    const { item, ranks, raw, views } = loaded;
     const [catalog, tProfile, tHubs, contributors] = await Promise.all([
       getSpeciesCatalog(locale),
       getTranslations({ locale, namespace: "profile" }),
@@ -265,6 +266,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       locale,
       ogImage,
       pageUrl,
+      ranks,
       raw,
     });
     const { desktopHeroSrc, mobileSlideSrc } = getSpeciesHeroSources(raw);
@@ -308,19 +310,18 @@ function epithetStem(epithet: string) {
   return epithet.replace(/-+$/, "").replace(/(?:us|um|is|a|e)$/, "");
 }
 
-function familyTaxonJsonLd(family: string) {
-  const ranks = familyHigherRanks(family);
+function familyTaxonJsonLd(family: string, ranks: SpeciesRanks) {
   return {
     "@type": "Taxon",
     name: family,
-    ...(ranks
+    ...(ranks.order && ranks.class
       ? {
           parentTaxon: {
             "@type": "Taxon",
             name: ranks.order,
             parentTaxon: {
               "@type": "Taxon",
-              name: ranks.className,
+              name: ranks.class,
               taxonRank: "Class",
             },
             taxonRank: "Order",
@@ -344,6 +345,7 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
   return {
     group: localized.group,
     item: { ...localized.species, group: localized.group },
+    ranks: base.ranks,
     raw: { ...base.species, group: base.group },
     views: localized.views,
   };
@@ -432,6 +434,7 @@ function speciesStructuredData({
   locale,
   ogImage,
   pageUrl,
+  ranks,
   raw,
 }: {
   breadcrumbCrumbs: ReturnType<typeof buildSpeciesBreadcrumbs>;
@@ -441,6 +444,7 @@ function speciesStructuredData({
   locale: AppLocale;
   ogImage: string;
   pageUrl: string;
+  ranks: SpeciesRanks;
   raw: Species;
 }) {
   const photoObjects = galleryImageObjects(
@@ -456,7 +460,7 @@ function speciesStructuredData({
   const galleryId = `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`;
   const taxon = {
     "@id": taxonId,
-    ...speciesTaxonJsonLd(raw, item, locale),
+    ...speciesTaxonJsonLd(raw, item, locale, ranks),
   };
   const ogImageObject = {
     "@type": "ImageObject",
@@ -523,7 +527,12 @@ function speciesStructuredData({
   );
 }
 
-function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
+function speciesTaxonJsonLd(
+  raw: Species,
+  item: Species,
+  locale: AppLocale,
+  ranks: SpeciesRanks,
+) {
   const georgianAliases =
     raw.id === "blatta-orientalis" ? ["შავი ტარაკანა", "შავი ტარაკანი"] : [];
   const alternateName: string[] = [];
@@ -558,7 +567,7 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
       name: item.genus,
       ...(item.family
         ? {
-            parentTaxon: familyTaxonJsonLd(raw.family || item.family),
+            parentTaxon: familyTaxonJsonLd(raw.family || item.family, ranks),
           }
         : {}),
       taxonRank: "Genus",

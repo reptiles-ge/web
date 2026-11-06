@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { unmappedFamilies } from "../src/data/taxonomyHigherRanks";
 import { ANIMAL_GROUP_TO_HUB } from "../src/lib/groupHubs";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { buildPublishedSlugMaps } from "../src/lib/speciesSlugRules";
@@ -18,10 +17,9 @@ async function main() {
   if (catalog.length === 0) {
     throw new Error("The species API returned no published species.");
   }
-  const missingFamilies = unmappedFamilies(catalog.map((item) => item.family));
-  if (missingFamilies.length > 0) {
-    throw new Error(
-      `Add these families to src/data/taxonomyHigherRanks.ts: ${missingFamilies.join(", ")}`,
+  if (catalog.some((item) => !Array.isArray(item.slugAliases))) {
+    console.warn(
+      "The species API returned no slugAliases, so former slugs will not redirect. Apply migrations 0021–0022 and deploy the API before the site.",
     );
   }
   const maps = buildPublishedSlugMaps(
@@ -29,6 +27,7 @@ async function main() {
       hub: ANIMAL_GROUP_TO_HUB[item.group],
       id: item.id,
       slug: item.slug,
+      slugAliases: item.slugAliases ?? [],
     })),
   );
   const atlasMetaById = Object.fromEntries(

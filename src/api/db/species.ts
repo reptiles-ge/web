@@ -84,9 +84,12 @@ export async function getSpeciesDetail(
     ...(translation
       ? applySpeciesTranslation(base, translation, locale, personNames)
       : base),
+    checklistStatus: meta.checklistStatus,
+    class: meta.class,
     group: meta.group,
     habitats: meta.habitats,
     lookalikes,
+    order: meta.order,
     slug: publicSlug(id, catalog.kaSlugById[id] ?? null, locale),
   };
 }

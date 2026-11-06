@@ -9,7 +9,6 @@ import {
   regions,
   toRegionSpeciesCard,
 } from "@/data/regions";
-import { unpublishedSpeciesIds } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
@@ -56,7 +55,6 @@ describe("region speciesIds", () => {
     const published = new Set(catalogSpeciesFixture().map((item) => item.id));
     for (const region of regions) {
       for (const id of region.speciesIds) {
-        expect(unpublishedSpeciesIds.has(id), `${region.id}:${id}`).toBe(false);
         expect(published.has(id), `${region.id}:${id}`).toBe(true);
       }
     }

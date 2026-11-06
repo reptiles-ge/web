@@ -43,7 +43,7 @@ Writes `src/data/contentDates.generated.ts` from the Git dates of guides, page c
 
 ### `compile-species-slugs.ts` → `pnpm slugs:compile`
 
-Reads the published KA card catalog from the species API (`api.reptiles.ge`, or `NEXT_PUBLIC_API_ORIGIN`) and writes `src/data/speciesSlugs.generated.ts` (hub per id, KA slug per id, and every id, slug and `KA_SLUG_ALIASES` alias to its id) and `src/data/speciesAtlasMeta.generated.ts` (group and habitats per id, read by `getSpeciesAtlasMeta`). `compile` (`predev` / `prebuild`) runs it, so a slug change or a new species in D1 reaches `src/proxy.ts` on the next deploy.
+Reads the published KA card catalog from the species API (`api.reptiles.ge`, or `NEXT_PUBLIC_API_ORIGIN`) and writes `src/data/speciesSlugs.generated.ts` (hub per id, KA slug per id, and every id, slug and former slug from the catalog `slugAliases` to its id) and `src/data/speciesAtlasMeta.generated.ts` (group and habitats per id, read by `getSpeciesAtlasMeta`). `compile` (`predev` / `prebuild`) runs it, so a slug change or a new species in D1 reaches `src/proxy.ts` on the next deploy.
 
 ### `compile-georgia-map.ts` → `pnpm map:compile`
 

@@ -54,10 +54,14 @@ export async function readSpeciesRecord(db: ApiDatabase, id: string) {
   const record: SpeciesRecord = {
     base,
     catalogPosition: row.catalog_position,
+    checklistStatus: meta.checklistStatus,
+    class: meta.class,
+    featured: meta.featured,
     fieldRecords,
     group: meta.group,
     habitats: meta.habitats,
     lookalikes: catalog.lookalikes[id] ?? [],
+    order: meta.order,
     rangeMap,
     slugKa: catalog.kaSlugById[id] ?? null,
     slugs: Object.keys(catalog.idByAnySlug).sort(),
@@ -105,7 +109,7 @@ export async function writeSpeciesRecord(
       ),
     db
       .prepare(
-        "UPDATE species SET scientific_name = ?, genus = ?, family = ?, group_id = ?, danger_id = ?, status = ?, catalog_position = ?, slug_ka = ?, published_at = ?, version = version + 1 WHERE id = ?",
+        "UPDATE species SET scientific_name = ?, genus = ?, family = ?, group_id = ?, danger_id = ?, status = ?, catalog_position = ?, slug_ka = ?, published_at = ?, taxon_order = ?, taxon_class = ?, checklist_status_id = ?, featured = ?, version = version + 1 WHERE id = ?",
       )
       .bind(...speciesRow!.slice(1), id),
     ...[...CHILD_TABLES]

@@ -71,11 +71,18 @@ export async function readLocalizedCatalog(
       const entry = {
         ...(view === "full" ? species : pickKeys(species, VIEW_KEYS[view])),
         ...(view === "card" ? { photoCount: species.gallery.length } : {}),
+        checklistStatus: meta.checklistStatus,
+        class: meta.class,
+        featured: meta.featured,
         group: meta.group,
         habitats: meta.habitats,
         lookalikes,
+        order: meta.order,
         slug:
           locale === "ka" ? (catalog.kaSlugById[base.id] ?? base.id) : base.id,
+        slugAliases: (catalog.slugsById[base.id] ?? []).filter(
+          (slug) => slug !== base.id && slug !== catalog.kaSlugById[base.id],
+        ),
       };
       return { entry, index };
     });

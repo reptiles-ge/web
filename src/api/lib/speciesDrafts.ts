@@ -25,7 +25,14 @@ export async function approveSpeciesDraft(
   const saved: Partial<SpeciesRecord> = draft.record;
   const record: SpeciesRecord = {
     ...draft.record,
+    checklistStatus:
+      saved.checklistStatus === undefined
+        ? (live?.checklistStatus ?? null)
+        : saved.checklistStatus,
+    class: saved.class ?? live?.class ?? "",
+    featured: saved.featured ?? live?.featured ?? false,
     fieldRecords: saved.fieldRecords ?? live?.fieldRecords ?? [],
+    order: saved.order ?? live?.order ?? "",
     rangeMap:
       saved.rangeMap === undefined ? (live?.rangeMap ?? null) : saved.rangeMap,
   };
