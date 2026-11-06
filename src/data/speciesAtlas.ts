@@ -12,10 +12,10 @@ import {
 
 export type { AnimalGroup } from "@/data/speciesAtlasMeta";
 export {
-  getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
+export { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 const venomousDangerOrder: Record<DangerLevel, number> = {
   Harmless: 2,

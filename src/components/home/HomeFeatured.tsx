@@ -6,7 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { images } from "@/data/speciesMedia";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
@@ -31,7 +31,7 @@ export async function HomeFeatured({ locale }: { locale: AppLocale }) {
   const spotlight = byId.get(SPOTLIGHT_ID);
   if (!spotlight) return null;
 
-  const group = getSpeciesAtlasMeta(spotlight.id).group;
+  const group = speciesGroup(spotlight);
   const stats = filterDisplayStats(spotlight.stats, group).slice(0, 4);
   const supporting = SUPPORTING.flatMap(({ id, image }) => {
     const species = byId.get(id);

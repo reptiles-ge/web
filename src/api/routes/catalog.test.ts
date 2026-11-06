@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import {
   SPECIES_CARD_KEYS,
   SPECIES_PHOTO_KEYS,
@@ -10,6 +9,7 @@ import { locales } from "@/i18n/locales";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import {
+  atlasMetaFixture,
   catalogSpeciesFixture,
   localizedFixture,
   lookalikesFixture,
@@ -59,8 +59,8 @@ async function expected(
             );
       return {
         ...fields,
-        group: speciesAtlasMeta[item.id]?.group,
-        habitats: speciesAtlasMeta[item.id]?.habitats,
+        group: atlasMetaFixture(item.id)?.group,
+        habitats: atlasMetaFixture(item.id)?.habitats,
         lookalikes: lookalikesFixture(item.id),
         ...(view === "card" ? { photoCount: item.gallery.length } : {}),
         slug: getSpeciesPublicSlug(item.id, locale),

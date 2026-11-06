@@ -11,6 +11,7 @@ const ADMIN_DIRS = ["admin", "components/admin"].map(
 );
 const CLIENT_GENERATED_ALLOWED = new Set([
   path.join(SRC, "data/georgia-paths.generated.ts"),
+  path.join(SRC, "data/speciesAtlasMeta.generated.ts"),
 ]);
 const EXTENSIONS = [".ts", ".tsx", "/index.ts", "/index.tsx"];
 const USE_CLIENT =

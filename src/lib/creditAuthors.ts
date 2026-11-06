@@ -10,7 +10,7 @@ import {
   creditAuthorIndexHref,
 } from "@/data/authors";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { isCoverCrop } from "@/lib/coverCrop";

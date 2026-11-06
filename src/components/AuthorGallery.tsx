@@ -13,7 +13,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getCreditAuthorGroupStats } from "@/lib/creditAuthors";
 import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";

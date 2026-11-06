@@ -19,6 +19,7 @@ const ORDER_CLASS: Record<string, string> = {
   Falconiformes: "Aves",
   Galliformes: "Aves",
   Hemiptera: "Insecta",
+  Hymenoptera: "Insecta",
   Mantodea: "Insecta",
   Passeriformes: "Aves",
   Piciformes: "Aves",
@@ -90,6 +91,7 @@ const FAMILY_ORDER: Record<string, string> = {
   Tytonidae: "Strigiformes",
   Upupidae: "Bucerotiformes",
   Ursidae: "Carnivora",
+  Vespidae: "Hymenoptera",
   Viperidae: "Squamata",
 };
 

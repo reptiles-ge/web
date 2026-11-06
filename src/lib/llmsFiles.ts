@@ -5,7 +5,8 @@ import type { CatalogFullSpecies } from "@/data/speciesCatalogTypes";
 import { getGuideArticles } from "@/data/guideArticles";
 import { newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -275,7 +276,7 @@ export function buildLlmsFullText(
 
   let currentGroup: AnimalGroup | null = null;
   for (const item of species) {
-    const group = getSpeciesAtlasMeta(item.id).group;
+    const group = speciesGroup(item);
     if (group !== currentGroup) {
       currentGroup = group;
       parts.push(`## ${GROUP_HEADING[group]}`);
@@ -310,7 +311,7 @@ export function buildLlmsIndexText(
   const url = (path: string) => pageUrl(locale, path);
   const byGroup = new Map<AnimalGroup, Species[]>();
   for (const item of species) {
-    const group = getSpeciesAtlasMeta(item.id).group;
+    const group = speciesGroup(item);
     byGroup.set(group, [...(byGroup.get(group) ?? []), item]);
   }
 
@@ -525,7 +526,7 @@ function formatSpeciesCard(
   locale: AppLocale,
   catalog: LlmsSpecies,
 ) {
-  const group = getSpeciesAtlasMeta(item.id).group;
+  const group = speciesGroup(item);
   const deep = DEEP_GROUPS.has(group);
   const maxOverview = deep ? MAX_OVERVIEW_FULL : MAX_OVERVIEW_COMPACT;
   const canonical = locale === routing.defaultLocale;
@@ -786,8 +787,8 @@ function quizUrl(locale: AppLocale, id: string) {
 
 function sortSpecies(items: readonly Species[]) {
   return items.slice().sort((a, b) => {
-    const groupA = getSpeciesAtlasMeta(a.id).group;
-    const groupB = getSpeciesAtlasMeta(b.id).group;
+    const groupA = speciesGroup(a);
+    const groupB = speciesGroup(b);
     const order = GROUP_ORDER.indexOf(groupA) - GROUP_ORDER.indexOf(groupB);
     if (order !== 0) return order;
     return a.scientificName.localeCompare(b.scientificName);

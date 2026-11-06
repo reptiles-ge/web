@@ -1,4 +1,6 @@
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+
+import { speciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 export type HerpetofaunaChecklistStatus =
   "candidate" | "confirmed" | "introduced";
@@ -44,8 +46,8 @@ export const HERPETOFAUNA_CHECKLIST_SOURCE = {
 
 export function getHerpetofaunaChecklistStatus(
   id: string,
+  group: AnimalGroup | undefined = speciesAtlasMeta[id]?.group,
 ): HerpetofaunaChecklistStatus | null {
-  const group = speciesAtlasMeta[id]?.group;
   if (!group || !HERP_GROUPS.has(group)) return null;
   if (INTRODUCED.has(id)) return "introduced";
   if (CANDIDATE.has(id)) return "candidate";

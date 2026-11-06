@@ -12,7 +12,8 @@ import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getRegionsForSpecies } from "@/data/mapRegions";
 import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { isVenomousDanger } from "@/data/speciesAtlas";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getContributorDirectory } from "@/lib/authorsApi";
@@ -162,7 +163,7 @@ export async function SpeciesProfile({
     mobileHeroCredit,
     contributors,
   );
-  const group = getSpeciesAtlasMeta(species.id).group;
+  const group = speciesGroup(species);
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const emergency = usesDangerScale(group) && isVenomousDanger(species.danger);

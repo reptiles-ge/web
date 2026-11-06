@@ -2,7 +2,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
 
 import { photoLicenses } from "@/data/photoLicenses";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import {
   type ContributorDirectory,
   NO_CONTRIBUTORS,
@@ -70,7 +70,7 @@ export function getPhotoUseHeroPhotos(
       {
         author: photoContributor(species.imageCredit, contributors),
         credit: species.imageCredit,
-        group: getSpeciesAtlasMeta(species.id).group,
+        group: speciesGroup(species),
         speciesId: species.id,
         src: species.image,
       },
@@ -85,7 +85,7 @@ export function getPhotoUsePhotos(
   const seen = new Set<string>();
   const photos: PhotoUsePhoto[] = [];
   for (const species of catalog) {
-    const group = getSpeciesAtlasMeta(species.id).group;
+    const group = speciesGroup(species);
     for (const item of species.gallery) {
       if (!item.src || seen.has(item.src)) continue;
       if (isCoverCrop(item.src) || isPlaceholderMedia(item.src)) continue;

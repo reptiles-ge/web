@@ -1,6 +1,7 @@
 import type { Species } from "@/data/species";
 
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { isVenomousDanger } from "@/data/speciesAtlas";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { type ClusterGuidePath, HUB_INDEX_PATH } from "@/lib/clusterGuides";
 import {
   ANIMAL_GROUP_TO_HUB,
@@ -58,11 +59,8 @@ export function getSpeciesParentHub(species: Species): {
   hubId: GroupHubId;
   kind: "group" | "venomous";
 } {
-  const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
-  if (
-    isVenomousDanger(species.danger) &&
-    getSpeciesAtlasMeta(species.id).group === "snake"
-  ) {
+  const hubId = ANIMAL_GROUP_TO_HUB[speciesGroup(species)];
+  if (isVenomousDanger(species.danger) && speciesGroup(species) === "snake") {
     return { href: "/venomous-snakes", hubId, kind: "venomous" };
   }
 

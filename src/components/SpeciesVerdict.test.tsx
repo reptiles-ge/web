@@ -3,7 +3,7 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { SpeciesVerdict } from "@/components/SpeciesVerdict";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { speciesShareMessage } from "@/lib/speciesShareText";
 
 import en from "../../messages/en.json";
