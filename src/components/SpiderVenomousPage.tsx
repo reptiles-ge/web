@@ -137,7 +137,7 @@ export async function SpiderVenomousPage({
         {karakurt ? (
           <Link
             className="mt-8 inline-flex items-center rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-            href={speciesHref(karakurt.id, locale)}
+            href={speciesHref(karakurt, locale)}
           >
             {t("linkKarakurt")}
           </Link>

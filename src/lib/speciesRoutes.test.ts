@@ -1,12 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  catalogSpeciesHref,
   getSpeciesPublicSlug,
   resolveSpeciesId,
   speciesHref,
 } from "@/lib/speciesRoutes";
-import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import { hasSpeciesRoute, resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
 import {
@@ -14,35 +13,28 @@ import {
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-describe("catalogSpeciesHref", () => {
-  it("matches the build-time link for every catalog species", () => {
+describe("speciesHref with a catalog item", () => {
+  it("matches the id-only link for every catalog species", () => {
     for (const item of speciesCatalogFixture("ka")) {
       for (const locale of ["ka", "en"] as const) {
-        expect(
-          catalogSpeciesHref(item, locale),
-          `${item.id} ${locale}`,
-        ).toEqual(speciesHref(item.id, locale));
+        expect(speciesHref(item, locale), `${item.id} ${locale}`).toEqual(
+          speciesHref(item.id, locale),
+        );
       }
     }
   });
 
-  it("links a species the build table does not know yet to its own hub", () => {
-    const hornet = {
-      group: "insect",
-      id: "vespa-crabro",
-      slug: "onavari",
-    } as const;
-    expect(catalogSpeciesHref(hornet, "ka")).toEqual({
-      params: { slug: "onavari" },
-      pathname: "/insects/[slug]",
-    });
-    expect(catalogSpeciesHref(hornet, "en")).toEqual({
+  it("takes the hub from the item's group when the build table lacks the species", () => {
+    expect(hasSpeciesRoute("vespa-crabro")).toBe(false);
+    expect(speciesHref({ group: "insect", id: "vespa-crabro" }, "en")).toEqual({
       params: { slug: "vespa-crabro" },
       pathname: "/insects/[slug]",
     });
-    expect(speciesHref("not-in-the-table", "ka").pathname).toBe(
-      "/snakes/[slug]",
-    );
+  });
+
+  it("knows which species have a built route", () => {
+    expect(hasSpeciesRoute("macrovipera-lebetina")).toBe(true);
+    expect(hasSpeciesRoute("constructor")).toBe(false);
   });
 });
 

@@ -42,7 +42,7 @@ export async function getFooterData(locale: AppLocale): Promise<FooterData> {
     stats,
     venomous: venomous.map((item) => ({
       commonName: item.commonName,
-      href: speciesHref(item.id, locale),
+      href: speciesHref(item, locale),
       id: item.id,
       scientificName: item.scientificName,
     })),

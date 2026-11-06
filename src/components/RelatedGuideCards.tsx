@@ -112,7 +112,7 @@ async function RelatedGuideCard({
       ? card.href
       : card.kind === "quiz"
         ? quizHref(card.id, locale)
-        : speciesHref(card.id, locale);
+        : speciesHref(card, locale);
   const title =
     card.kind === "species" && item
       ? speciesSeoAnchor(item.commonName, item.scientificName)

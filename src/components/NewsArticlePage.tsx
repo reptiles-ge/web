@@ -523,7 +523,7 @@ async function newsAtlasLinks(
   return [
     ...newsRelatedSpecies(article, catalog).map((species) => {
       return {
-        href: speciesHref(species.id, locale),
+        href: speciesHref(species, locale),
         image: isPlaceholderMedia(species.image) ? null : species.image,
         key: `species:${species.id}`,
         kind: t("speciesProfile"),

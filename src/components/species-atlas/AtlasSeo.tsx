@@ -41,7 +41,7 @@ export async function AtlasSeo({ locale }: { locale: AppLocale }) {
                 <li key={item.id}>
                   <Link
                     className="inline-flex min-h-11 items-center rounded-full bg-card px-3.5 text-[13.5px] font-medium text-foreground transition-colors hover:text-primary"
-                    href={speciesHref(item.id, locale)}
+                    href={speciesHref(item, locale)}
                   >
                     {item.commonName}
                   </Link>

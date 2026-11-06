@@ -171,7 +171,7 @@ export async function GroupHubHero({
           {heroSpecies ? (
             <Link
               className="absolute right-[60px] bottom-7 hidden h-[38px] items-center gap-2 rounded-full border border-white/16 bg-ink/58 px-[15px] text-[12.5px] text-white/85 backdrop-blur-md transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:flex"
-              href={speciesHref(heroSpecies.id, locale)}
+              href={speciesHref(heroSpecies, locale)}
             >
               <span>{heroSpecies.commonName}</span>
               <span className="text-white/60 italic">

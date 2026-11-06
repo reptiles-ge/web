@@ -111,7 +111,7 @@ function cardBody(card: GuideCard, t: SharedT) {
 }
 
 function cardHref(card: GuideCard, locale: AppLocale) {
-  return card.kind === "page" ? card.href : speciesHref(card.id, locale);
+  return card.kind === "page" ? card.href : speciesHref(card, locale);
 }
 
 function cardTitle(card: GuideCard, species: CatalogCard[], t: SharedT) {
