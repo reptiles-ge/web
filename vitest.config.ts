@@ -4,17 +4,30 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   cacheDir: path.resolve(import.meta.dirname, "node_modules/.vite"),
   resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
-      "next-intl/navigation": path.resolve(
-        import.meta.dirname,
-        "tests/stubs/next-intl-navigation.ts",
-      ),
-      "next/navigation": path.resolve(
-        import.meta.dirname,
-        "tests/stubs/next-navigation.ts",
-      ),
-    },
+    alias: [
+      {
+        find: "@/data/speciesAtlasMeta.generated",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/speciesAtlasMetaGenerated.ts",
+        ),
+      },
+      { find: "@", replacement: path.resolve(import.meta.dirname, "src") },
+      {
+        find: "next-intl/navigation",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/next-intl-navigation.ts",
+        ),
+      },
+      {
+        find: "next/navigation",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/next-navigation.ts",
+        ),
+      },
+    ],
   },
   test: {
     coverage: {

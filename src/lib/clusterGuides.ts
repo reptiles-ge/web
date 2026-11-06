@@ -6,7 +6,7 @@ import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { type GroupHubId } from "@/lib/groupHubs";
 
 const FROG_SPECIES_IDS = [
@@ -217,7 +217,7 @@ export function getRegionSnakeSpecies<T extends SpeciesSummary>(
 }
 
 export function isBirdSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "bird";
+  return speciesGroup(species) === "bird";
 }
 
 export function isDarevskiaSpecies(
@@ -231,11 +231,11 @@ export function isFrogSpecies(id: string) {
 }
 
 export function isLizardSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "lizard";
+  return speciesGroup(species) === "lizard";
 }
 
 export function isMammalSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "mammal";
+  return speciesGroup(species) === "mammal";
 }
 
 export function isNewtSpecies(id: string) {
@@ -243,11 +243,11 @@ export function isNewtSpecies(id: string) {
 }
 
 export function isSnakeSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "snake";
+  return speciesGroup(species) === "snake";
 }
 
 export function isSpiderSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "spider";
+  return speciesGroup(species) === "spider";
 }
 
 export function orderSpeciesByIds<T extends Pick<SpeciesSummary, "id">>(
@@ -261,15 +261,15 @@ export function orderSpeciesByIds<T extends Pick<SpeciesSummary, "id">>(
 }
 
 function isAmphibianSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "amphibian";
+  return speciesGroup(species) === "amphibian";
 }
 
 function isInsectSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "insect";
+  return speciesGroup(species) === "insect";
 }
 
 function isTurtleSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return getSpeciesAtlasMeta(species.id).group === "turtle";
+  return speciesGroup(species) === "turtle";
 }
 
 export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
@@ -961,7 +961,7 @@ export function getSpeciesGuideLinks(
   species: Pick<SpeciesSummary, "danger" | "genus" | "id">,
 ): HubClusterCard[] {
   const { id } = species;
-  const group = getSpeciesAtlasMeta(id).group;
+  const group = speciesGroup(species);
   const links: HubClusterCard[] = [];
 
   if (group === "snake") {

@@ -12,7 +12,7 @@ import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { speciesGroup, speciesHabitats } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -247,7 +247,10 @@ function useAtlasSpecies(
 ) {
   const t = useTranslations("speciesAtlas");
   const tDanger = useTranslations("danger");
-  const meta = getSpeciesAtlasMeta(species.id);
+  const meta = {
+    group: speciesGroup(species),
+    habitats: speciesHabitats(species),
+  };
   const photo = atlasSpeciesImage(species);
   const risk = getSpeciesRiskChip(species, meta.group);
   const where =

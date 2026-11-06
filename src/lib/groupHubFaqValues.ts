@@ -1,4 +1,5 @@
 import type { Species } from "@/data/species";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { AppLocale } from "@/i18n/routing";
 
 import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
@@ -6,11 +7,12 @@ import { formatList } from "@/lib/formatList";
 
 export type HubFaqValues = { candidates: string; count: number };
 
-export function hubCandidateSpecies<T extends Pick<Species, "id">>(
-  species: T[],
-) {
+export function hubCandidateSpecies<
+  T extends Pick<Species, "id"> & { group?: AnimalGroup },
+>(species: T[]) {
   return species.filter(
-    (item) => getHerpetofaunaChecklistStatus(item.id) === "candidate",
+    (item) =>
+      getHerpetofaunaChecklistStatus(item.id, item.group) === "candidate",
   );
 }
 

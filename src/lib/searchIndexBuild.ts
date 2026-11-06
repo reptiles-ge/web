@@ -21,10 +21,10 @@ import {
 } from "@/data/regions";
 import {
   type AnimalGroup,
-  getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
 } from "@/data/speciesAtlas";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { featuredSpeciesIds } from "@/data/speciesPublish";
 import { pickLocalized } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -1193,7 +1193,7 @@ function pickLocale(text: LocalizedText, locale: AppLocale) {
 }
 
 function speciesGroupText(species: CatalogCard) {
-  const group = getSpeciesAtlasMeta(species.id).group;
+  const group = speciesGroup(species);
   const extra: string[] = [];
   if (groupHasVenomConcept(group)) {
     if (isVenomousDanger(species.danger)) {
@@ -1318,7 +1318,7 @@ function toSpeciesDocument(
   const en = localize(raw, "en");
   const ru = localize(raw, "ru");
   const tr = localize(raw, "tr");
-  const group = getSpeciesAtlasMeta(raw.id).group;
+  const group = speciesGroup(raw);
 
   return {
     featured: FEATURED_SPECIES.has(raw.id),

@@ -343,8 +343,8 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
   if (!base || !localized) return null;
   return {
     group: localized.group,
-    item: localized.species,
-    raw: base.species,
+    item: { ...localized.species, group: localized.group },
+    raw: { ...base.species, group: base.group },
     views: localized.views,
   };
 }

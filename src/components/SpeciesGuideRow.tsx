@@ -9,7 +9,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -68,7 +68,7 @@ function SpeciesGuideRow({
     0,
     getRegionsForSpecies(species.id).length - regions.length,
   );
-  const group = getSpeciesAtlasMeta(species.id).group;
+  const group = speciesGroup(species);
   const riskChip = getSpeciesRiskChip(species, group);
   const tone =
     riskChip?.kind === "danger" && riskChip.level === "High"

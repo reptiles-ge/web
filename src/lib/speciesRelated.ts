@@ -2,7 +2,7 @@ import type { SpeciesSummary } from "@/data/speciesTypes";
 
 import { getRegionsForSpecies } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { speciesGroup, speciesHabitats } from "@/data/speciesAtlasMetaTable";
 import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { stableHash } from "@/lib/stableHash";
 
@@ -97,22 +97,15 @@ function buildProfileRelatedIndex(catalog: readonly RelatedCandidate[]) {
       ...(index.get(base.id) ?? []),
       ...base.lookalikes,
     ]);
-    const group = getSpeciesAtlasMeta(base.id).group;
-    const habitats = new Set(getSpeciesAtlasMeta(base.id).habitats);
+    const group = speciesGroup(base);
+    const habitats = new Set(speciesHabitats(base));
     const candidates = catalog
-      .filter(
-        (item) =>
-          !taken.has(item.id) && getSpeciesAtlasMeta(item.id).group === group,
-      )
+      .filter((item) => !taken.has(item.id) && speciesGroup(item) === group)
       .map((item) => ({
         id: item.id,
         inbound: inbound.get(item.id) ?? 0,
         score: relatedScore(base, item),
-        shared: getSpeciesAtlasMeta(item.id).habitats.some((tag) =>
-          habitats.has(tag),
-        )
-          ? 1
-          : 0,
+        shared: speciesHabitats(item).some((tag) => habitats.has(tag)) ? 1 : 0,
         tie: stableHash(`${base.id}:${item.id}`),
       }))
       .sort(
@@ -166,12 +159,12 @@ function rankRelatedSpecies<T extends RelatedCandidate>(
   if (picked.length >= limit) return picked;
 
   const have = new Set(picked.map(({ item }) => item.id));
-  const baseGroup = getSpeciesAtlasMeta(base.id).group;
+  const baseGroup = speciesGroup(base);
   for (const entry of scored) {
     const id = entry.item.id;
     if (picked.length >= limit) break;
     if (have.has(id)) continue;
-    if (getSpeciesAtlasMeta(id).group !== baseGroup) continue;
+    if (speciesGroup(entry.item) !== baseGroup) continue;
     picked.push(entry);
     have.add(id);
   }
@@ -189,8 +182,8 @@ function relatedScore(
   if (candidate.family === base.family) score += 40;
   if (candidate.danger === base.danger) score += 10;
 
-  const baseGroup = getSpeciesAtlasMeta(base.id).group;
-  if (getSpeciesAtlasMeta(candidate.id).group === baseGroup) score += 15;
+  const baseGroup = speciesGroup(base);
+  if (speciesGroup(candidate) === baseGroup) score += 15;
 
   const baseRegions = new Set(
     getRegionsForSpecies(base.id).map((region) => region.id),

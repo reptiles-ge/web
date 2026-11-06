@@ -13,7 +13,7 @@ import {
 } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -55,9 +55,7 @@ export function SpeciesIndexTable({
 
   const dash = t("emDash");
   const showFilters = showDangerFilter || showFamilyFilter;
-  const group = species[0]
-    ? getSpeciesAtlasMeta(species[0].id).group
-    : undefined;
+  const group = species[0] ? speciesGroup(species[0]) : undefined;
 
   function emitIndexFilter(
     nextDanger: DangerFilter,
