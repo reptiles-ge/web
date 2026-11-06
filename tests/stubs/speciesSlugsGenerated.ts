@@ -11,6 +11,7 @@ function seedMaps() {
       hub: ANIMAL_GROUP_TO_HUB[item.group],
       id: item.id,
       slug: item.slug,
+      slugAliases: item.slugAliases,
     })),
   );
   return maps;

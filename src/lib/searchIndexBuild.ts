@@ -25,7 +25,6 @@ import {
   isVenomousDanger,
 } from "@/data/speciesAtlas";
 import { speciesGroup } from "@/data/speciesAtlasMetaTable";
-import { featuredSpeciesIds } from "@/data/speciesPublish";
 import { pickLocalized } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -1013,7 +1012,6 @@ const LIZARD_QUIZ_COPY: PageCopy = {
   },
 };
 
-const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
 const SEARCH_THUMB_WIDTH = 400;
 
 export type SearchCatalogs = Record<AppLocale, readonly CatalogCard[]>;
@@ -1322,7 +1320,7 @@ function toSpeciesDocument(
   const group = speciesGroup(raw);
 
   return {
-    featured: FEATURED_SPECIES.has(raw.id),
+    featured: raw.featured,
     href: speciesHref(raw, locale),
     icon: group === "snake" ? "safety" : "guide",
     id: raw.id,

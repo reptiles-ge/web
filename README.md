@@ -181,7 +181,7 @@ Species content lives in D1 and is served by the `reptiles-api` Worker ([`.agent
 
 1. Edit a profile in the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts to approve; cover, crop, reorder, remove and photo coordinates write through the API. The API validates the whole record: KA owns taxonomy, `danger`, images and `sources`; the other locales translate the text and may re-credit KA photos by `src`.
 2. New gallery photos are added in the admin app (**Add photos** on a species page). Adding field records, AI analysis, and new species creation are not available until they move to the API (they answer 503).
-3. Lookalikes are part of the species record in D1, and the site reads them from the API. Group and habitats come from the API at build time (`pnpm slugs:compile`). Some registries are still code: `src/data/speciesPublish.ts`, and the KA slug rules in `src/lib/speciesSlugRules.ts`.
+3. Lookalikes are part of the species record in D1, and the site reads them from the API. Group and habitats come from the API at build time (`pnpm slugs:compile`). Order, class, checklist status, the search feature flag and former slugs are part of the record too.
 4. A slug change or a new species reaches the 301s in `src/proxy.ts` on the next deploy (`pnpm slugs:compile` runs in `compile`).
 5. A range map appears only if the id is in some `regions[].speciesIds` in `src/data/regions.ts` (that requires a source, see [Content integrity](#content-integrity)) or the species has field records in D1.
 
@@ -213,7 +213,7 @@ These rules are non-negotiable. The full set is in [AGENTS.md](AGENTS.md).
 
 - **Do not invent.** Every locality, region, measurement, IUCN or national status, venom effect, or endemic claim needs a source the site already uses.
 - **Regions.** Add a species to a region in `src/data/regions.ts` only when Tarkhnishvili et al. 2026, or a profile that already cites a locality, names that administrative unit. "Georgia", "Caucasus", a habitat type, or a neighbouring region is not enough.
-- **Checklist status.** Amphibian and reptile status (`confirmed`, `candidate`, `introduced`) lives in `src/data/herpetofauna-checklist.ts`. Never upgrade a candidate taxon.
+- **Checklist status.** Amphibian and reptile status (`confirmed`, `candidate`, `introduced`) lives in D1 (`checklistStatus` on the species record); the source note is in `src/data/herpetofauna-checklist.ts`. Never upgrade a candidate taxon.
 - **Darevskia.** All 16 rock lizard species stay separate. Colour is not identification.
 - **Medical pages are educational.** Bite and sting pages direct readers to call **112**. They are not first-aid protocols and do not use medical schema.
 - **Prefer an empty field to a guess.** `src/lib/speciesContent.ts` hides empty and placeholder fields automatically.

@@ -1,32 +1,23 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  getHerpetofaunaChecklistStatus,
-  herpetofaunaChecklistIds,
-} from "@/data/herpetofauna-checklist";
-import { featuredSpeciesIds } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { speciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
+import { isHerpetofaunaGroup } from "@/data/herpetofauna-checklist";
 
-import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
-const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
+function status(id: string) {
+  return speciesCatalogFixture("ka").find((item) => item.id === id)
+    ?.checklistStatus;
+}
 
-describe("herpetofauna checklist", () => {
-  it("covers every published amphibian and reptile", () => {
-    const publishedHerps = catalogSpeciesFixture().filter((item) =>
-      HERP_GROUPS.has(getSpeciesAtlasMeta(item.id).group),
-    );
-    expect(publishedHerps.length).toBeGreaterThan(0);
-    for (const item of publishedHerps) {
-      expect(getHerpetofaunaChecklistStatus(item.id), item.id).not.toBeNull();
+describe("herpetofauna checklist status", () => {
+  it("gives every published amphibian and reptile a status and no other group one", () => {
+    for (const item of speciesCatalogFixture("ka")) {
+      if (isHerpetofaunaGroup(item.group)) {
+        expect(item.checklistStatus, item.id).not.toBeNull();
+      } else {
+        expect(item.checklistStatus, item.id).toBeNull();
+      }
     }
-  });
-
-  it("keeps birds, mammals, and spiders out of scope", () => {
-    expect(getHerpetofaunaChecklistStatus("accipiter-gentilis")).toBeNull();
-    expect(getHerpetofaunaChecklistStatus("canis-lupus")).toBeNull();
-    expect(getHerpetofaunaChecklistStatus("argiope-bruennichi")).toBeNull();
   });
 
   it("never labels a candidate as confirmed", () => {
@@ -38,33 +29,26 @@ describe("herpetofauna checklist", () => {
       "vipera-dinniki",
       "vipera-renardi",
     ])
-      expect(getHerpetofaunaChecklistStatus(id), id).toBe("candidate");
-    expect(getHerpetofaunaChecklistStatus("vipera-kaznakovi")).toBe(
-      "confirmed",
-    );
-    expect(getHerpetofaunaChecklistStatus("lacerta-agilis")).toBe("confirmed");
-    expect(getHerpetofaunaChecklistStatus("phoenicolacerta-laevis")).toBe(
-      "introduced",
-    );
-    expect(getHerpetofaunaChecklistStatus("trachemys-scripta")).toBe(
-      "introduced",
-    );
-    expect(getHerpetofaunaChecklistStatus("macrovipera-lebetina")).toBe(
-      "confirmed",
-    );
-    expect(getHerpetofaunaChecklistStatus("darevskia-raddei")).toBe(
-      "confirmed",
-    );
+      expect(status(id), id).toBe("candidate");
+    expect(status("vipera-kaznakovi")).toBe("confirmed");
+    expect(status("lacerta-agilis")).toBe("confirmed");
+    expect(status("macrovipera-lebetina")).toBe("confirmed");
+    expect(status("darevskia-raddei")).toBe("confirmed");
+    expect(status("phoenicolacerta-laevis")).toBe("introduced");
+    expect(status("trachemys-scripta")).toBe("introduced");
   });
 
-  it("lists every herp atlas id", () => {
-    expect(herpetofaunaChecklistIds().length).toBeGreaterThan(0);
-  });
-
-  it("keeps atlas meta to featured species ids", () => {
-    const featured = new Set<string>(featuredSpeciesIds);
-    for (const id of Object.keys(speciesAtlasMeta))
-      expect(featured.has(id), id).toBe(true);
-    expect(getHerpetofaunaChecklistStatus("vipera-ammodytes")).toBeNull();
+  it("keeps the same status in every locale", () => {
+    const ka = new Map(
+      speciesCatalogFixture("ka").map((item) => [
+        item.id,
+        item.checklistStatus,
+      ]),
+    );
+    for (const locale of ["en", "ru", "tr"] as const)
+      for (const item of speciesCatalogFixture(locale))
+        expect(item.checklistStatus, `${locale} ${item.id}`).toBe(
+          ka.get(item.id),
+        );
   });
 });

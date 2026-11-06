@@ -193,6 +193,20 @@ describe("PUT /v1/admin/species/:id", () => {
     expect((await getRecord()).body.data.version).toBe(1);
   });
 
+  it("refuses an order or class that differs from the rest of the family", async () => {
+    const { record } = (await getRecord()).body.data;
+    const refused = async (change: Partial<typeof record>, path: string) => {
+      const response = await put(ID, edit({ ...record, ...change }));
+      expect(response.status).toBe(400);
+      expect(
+        ((await response.json()) as ErrorBody).error.details,
+      ).toMatchObject([{ path: [path] }]);
+    };
+    await refused({ order: "Testudines" }, "order");
+    await refused({ class: "Aves" }, "class");
+    expect((await getRecord()).body.data.version).toBe(1);
+  });
+
   it("refuses a stale version without changing anything", async () => {
     const { record } = (await getRecord()).body.data;
     record.base.overview = "first";

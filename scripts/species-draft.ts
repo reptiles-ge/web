@@ -38,7 +38,7 @@ const PREVIEW_LENGTH = 160;
 const PREVIEW_LEAD = 40;
 
 const PROTECTED = [
-  /^(status|group|catalogPosition|slugKa)$/,
+  /^(status|group|catalogPosition|slugKa|checklistStatus|featured)$/,
   /^slugs(\.|$)/,
   /^base\.(id|image|mobileImage|publishedAt)$/,
   /^base\.gallery\.\d+\.src$/,

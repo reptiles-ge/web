@@ -1,5 +1,3 @@
-export { featuredSpeciesIds, unpublishedSpeciesIds } from "./speciesPublish";
-
 export {
   type DangerLevel,
   type GalleryImage,

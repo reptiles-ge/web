@@ -375,6 +375,7 @@ describe("species ImageObjects", () => {
           locale,
           ogImage: speciesOgImageUrl(item.id, item.image),
           pageUrl: speciesPageUrl(locale, item.id),
+          ranks: { class: "Reptilia", order: "Squamata" },
           raw,
         });
         const nodes = collectNamedNodes(data);

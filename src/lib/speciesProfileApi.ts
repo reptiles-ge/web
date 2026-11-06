@@ -10,6 +10,7 @@ import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 type SpeciesProfile = {
   group: AnimalGroup;
+  ranks: { class: null | string; order: null | string };
   species: Species;
   views: number;
 };
@@ -30,12 +31,20 @@ export const getSpeciesProfile = cache(
     }
     const { data, views } = await response.json();
     const {
+      checklistStatus: _checklistStatus,
+      class: className,
       group,
       habitats: _habitats,
       lookalikes: _lookalikes,
+      order,
       slug: _slug,
       ...species
     } = data;
-    return { group, species: species as Species, views };
+    return {
+      group,
+      ranks: { class: className, order },
+      species: species as Species,
+      views,
+    };
   },
 );

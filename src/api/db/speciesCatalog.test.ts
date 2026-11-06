@@ -87,6 +87,29 @@ describe("species in D1", () => {
     );
   });
 
+  it("enforces the classification of every species", () => {
+    const { sqlite } = database;
+    const insertSpecies =
+      (group: string, status: null | string, order: null | string) => () =>
+        sqlite
+          .prepare(
+            "INSERT INTO species (id, scientific_name, genus, family, group_id, status, catalog_position, slug_ka, published_at, taxon_order, taxon_class, checklist_status_id) VALUES ('test-species', 'Test', 'T', 'T', ?, 'published', 9999, 'test', '2026-01-01', ?, 'Reptilia', ?)",
+          )
+          .run(group, order, status);
+    expect(insertSpecies("snake", "confirmed", null)).toThrow(/order/);
+    expect(insertSpecies("snake", null, "Squamata")).toThrow(/checklist/);
+    expect(insertSpecies("bird", "confirmed", "Squamata")).toThrow(/checklist/);
+    const update = (sql: string) => () =>
+      sqlite.prepare(sql).run("macrovipera-lebetina");
+    expect(
+      update("UPDATE species SET taxon_class = NULL WHERE id = ?"),
+    ).toThrow(/class/);
+    expect(
+      update("UPDATE species SET checklist_status_id = NULL WHERE id = ?"),
+    ).toThrow(/checklist/);
+    expect(insertSpecies("snake", "confirmed", "Squamata")).not.toThrow();
+  });
+
   it("enforces lookups, foreign keys and checks", () => {
     const { sqlite } = database;
     const insertSpecies =

@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+import {
+  HERPETOFAUNA_CHECKLIST_STATUSES,
+  isHerpetofaunaGroup,
+} from "@/data/herpetofauna-checklist";
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
 import { DRAFT_MERGE_BATCH_SIZE } from "@/lib/draftMergeBatch";
@@ -144,10 +148,14 @@ export const speciesRecordSchema = z
   .strictObject({
     base,
     catalogPosition: z.int().min(0),
+    checklistStatus: z.enum(HERPETOFAUNA_CHECKLIST_STATUSES).nullable(),
+    class: required,
+    featured: z.boolean(),
     fieldRecords: z.array(fieldRecord),
     group: z.enum(ANIMAL_GROUPS),
     habitats: z.array(z.enum(HABITATS)),
     lookalikes: z.array(z.string().regex(SLUG)),
+    order: required,
     rangeMap: rangeMap.nullable(),
     slugKa: z.string().regex(SLUG).nullable(),
     slugs: z.array(z.string().regex(SLUG)),
@@ -167,6 +175,15 @@ export const speciesRecordSchema = z
     }
     if (ka.danger && !groupHasVenomConcept(record.group)) {
       issue(["base", "danger"], `Group ${record.group} has no danger level`);
+    }
+    if (
+      isHerpetofaunaGroup(record.group) !==
+      (record.checklistStatus !== null)
+    ) {
+      issue(
+        ["checklistStatus"],
+        "Amphibians and reptiles need a checklist status; other groups have none",
+      );
     }
     if (record.status === "published" && !record.slugKa) {
       issue(["slugKa"], "A published species needs a Georgian slug");

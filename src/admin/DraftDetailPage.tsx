@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 
 import { diffSpeciesRecords, type DraftChange } from "@/lib/speciesDraftDiff";
+import { withDraftFallbacks } from "@/lib/speciesDraftFallback";
 
 import { AdminDetailGate, AdminDetailHeader } from "./AdminDetail";
 import { AdminLink } from "./AdminLink";
@@ -142,7 +143,11 @@ function DraftReview({
 }) {
   const [pending, setPending] = useState<"merge" | "reject" | null>(null);
   const base = draft.baseRecord;
-  const changes = diffSpeciesRecords(base ?? current.record, draft.record);
+  const before = withDraftFallbacks(base ?? current.record, current.record);
+  const changes = diffSpeciesRecords(
+    before,
+    withDraftFallbacks(draft.record, before),
+  );
   const open = draft.status === "pending";
   const stale = open && isStale(draft, current.version);
 

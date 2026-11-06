@@ -1,76 +1,40 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  buildPublishedSlugMaps,
-  buildSpeciesSlugMaps,
-} from "@/lib/speciesSlugRules";
+import { buildPublishedSlugMaps } from "@/lib/speciesSlugRules";
+
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 
 describe("species slug rules", () => {
-  it("uses KA slug overrides", () => {
-    const maps = buildSpeciesSlugMaps([
+  it("takes published slugs and aliases as given", () => {
+    const maps = buildPublishedSlugMaps([
       {
-        commonName: "ignored",
         hub: "snakes",
         id: "macrovipera-lebetina",
+        slug: "giurza-axali",
+        slugAliases: ["giurza"],
       },
-    ]);
-    expect(maps.kaSlugById["macrovipera-lebetina"]).toBe("giurza");
-    expect(maps.idByAnySlug.giurza).toBe("macrovipera-lebetina");
-    expect(maps.hubById["macrovipera-lebetina"]).toBe("snakes");
-  });
-
-  it("keeps the former sparrowhawk slug as an alias", () => {
-    const maps = buildSpeciesSlugMaps([
-      {
-        commonName: "მიმინო",
-        hub: "birds",
-        id: "accipiter-nisus",
-      },
-    ]);
-    expect(maps.kaSlugById["accipiter-nisus"]).toBe("mimino");
-    expect(maps.idByAnySlug["korisebri-mimino"]).toBe("accipiter-nisus");
-  });
-
-  it("keeps the former water snake slug as an alias", () => {
-    const maps = buildSpeciesSlugMaps([
-      {
-        commonName: "წყლის ანკარა",
-        hub: "snakes",
-        id: "natrix-tessellata",
-      },
-    ]);
-    expect(maps.kaSlugById["natrix-tessellata"]).toBe("tsklis-ankara");
-    expect(maps.idByAnySlug["tsqlis-ankara"]).toBe("natrix-tessellata");
-  });
-
-  it("keeps every alias URL-safe ASCII", () => {
-    const { idByAnySlug } = buildSpeciesSlugMaps([]);
-    expect(idByAnySlug["yalanci-karakurt"]).toBe("steatoda-paykulliana");
-    for (const slug of Object.keys(idByAnySlug))
-      expect(slug, slug).toMatch(/^[a-z0-9-]+$/);
-  });
-
-  it("does not collide with reserved hub slugs", () => {
-    const maps = buildSpeciesSlugMaps([
-      {
-        commonName: "species",
-        hub: "snakes",
-        id: "fake-reserved",
-      },
-    ]);
-    expect(maps.kaSlugById["fake-reserved"]).toBe("species-reserved");
-  });
-
-  it("takes published slugs as given and adds the aliases", () => {
-    const maps = buildPublishedSlugMaps([
-      { hub: "snakes", id: "macrovipera-lebetina", slug: "giurza-axali" },
     ]);
     expect(maps.kaSlugById["macrovipera-lebetina"]).toBe("giurza-axali");
     expect(maps.hubById["macrovipera-lebetina"]).toBe("snakes");
     expect(maps.idByAnySlug["giurza-axali"]).toBe("macrovipera-lebetina");
+    expect(maps.idByAnySlug.giurza).toBe("macrovipera-lebetina");
     expect(maps.idByAnySlug["macrovipera-lebetina"]).toBe(
       "macrovipera-lebetina",
     );
-    expect(maps.idByAnySlug.raccoon).toBe("procyon-lotor");
+  });
+
+  it("reads the former slugs from the catalog", () => {
+    const catalog = speciesCatalogFixture("ka");
+    const aliases = (id: string) =>
+      catalog.find((item) => item.id === id)?.slugAliases;
+    expect(aliases("accipiter-nisus")).toContain("korisebri-mimino");
+    expect(aliases("natrix-tessellata")).toContain("tsqlis-ankara");
+    expect(aliases("steatoda-paykulliana")).toContain("yalanci-karakurt");
+    for (const item of catalog) {
+      expect(item.slugAliases, item.id).not.toContain(item.id);
+      expect(item.slugAliases, item.id).not.toContain(item.slug);
+      for (const slug of item.slugAliases)
+        expect(slug, slug).toMatch(/^[a-z0-9-]+$/);
+    }
   });
 });

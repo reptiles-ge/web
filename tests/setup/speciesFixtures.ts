@@ -60,13 +60,15 @@ export async function setup() {
       catalog<CatalogFullSpecies>(locale, "full"),
       catalog<CatalogCard>(locale, "card"),
     ]);
-    const photoCounts = new Map(
-      cards.map((card) => [card.id, card.photoCount]),
-    );
+    const cardById = new Map(cards.map((card) => [card.id, card]));
     writeFileSync(
       speciesFixtureFile(locale),
       JSON.stringify(
-        full.map((item) => ({ ...item, photoCount: photoCounts.get(item.id) })),
+        full.map((item) => ({
+          ...item,
+          photoCount: cardById.get(item.id)?.photoCount,
+          slugAliases: cardById.get(item.id)?.slugAliases,
+        })),
       ),
     );
   }

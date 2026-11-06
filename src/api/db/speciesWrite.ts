@@ -31,6 +31,23 @@ const INSERT_ORDER: Table[] = [
   ...SPECIES_TABLES.filter((table) => table.name === "species_media_overlays"),
 ];
 
+export async function readClassificationConflict(
+  db: ApiDatabase,
+  record: SpeciesRecord,
+) {
+  return db
+    .prepare(
+      "SELECT id, family, taxon_order AS taxonOrder, taxon_class AS taxonClass FROM species WHERE id != ?1 AND ((family = ?2 AND taxon_order != ?3) OR (taxon_order = ?3 AND taxon_class != ?4)) ORDER BY id LIMIT 1",
+    )
+    .bind(record.base.id, record.base.family, record.order, record.class)
+    .first<{
+      family: string;
+      id: string;
+      taxonClass: string;
+      taxonOrder: string;
+    }>();
+}
+
 export async function readSpeciesRecord(db: ApiDatabase, id: string) {
   const row = await db
     .prepare(
@@ -54,10 +71,14 @@ export async function readSpeciesRecord(db: ApiDatabase, id: string) {
   const record: SpeciesRecord = {
     base,
     catalogPosition: row.catalog_position,
+    checklistStatus: meta.checklistStatus,
+    class: meta.class,
+    featured: meta.featured,
     fieldRecords,
     group: meta.group,
     habitats: meta.habitats,
     lookalikes: catalog.lookalikes[id] ?? [],
+    order: meta.order,
     rangeMap,
     slugKa: catalog.kaSlugById[id] ?? null,
     slugs: Object.keys(catalog.idByAnySlug).sort(),
@@ -105,7 +126,7 @@ export async function writeSpeciesRecord(
       ),
     db
       .prepare(
-        "UPDATE species SET scientific_name = ?, genus = ?, family = ?, group_id = ?, danger_id = ?, status = ?, catalog_position = ?, slug_ka = ?, published_at = ?, version = version + 1 WHERE id = ?",
+        "UPDATE species SET scientific_name = ?, genus = ?, family = ?, group_id = ?, danger_id = ?, status = ?, catalog_position = ?, slug_ka = ?, published_at = ?, taxon_order = ?, taxon_class = ?, checklist_status_id = ?, featured = ?, version = version + 1 WHERE id = ?",
       )
       .bind(...speciesRow!.slice(1), id),
     ...[...CHILD_TABLES]

@@ -1,10 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  getHerpetofaunaChecklistStatus,
-  herpetofaunaChecklistIds,
-  isHerpetofaunaGroup,
-} from "@/data/herpetofauna-checklist";
+import { isHerpetofaunaGroup } from "@/data/herpetofauna-checklist";
 import { routing } from "@/i18n/routing";
 import { hubCandidateSpecies, hubFaqValues } from "@/lib/groupHubFaqValues";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
@@ -14,7 +10,7 @@ import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
 import {
-  catalogSpeciesFixture,
+  speciesCatalogFixture,
   speciesGroupFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
@@ -33,18 +29,17 @@ function faq1A(locale: keyof typeof MESSAGES, hubId: GroupHubId) {
 
 describe("hub FAQ checklist candidates", () => {
   it("lists every published candidate taxon of the hub group and nothing else", () => {
-    const published = new Set(catalogSpeciesFixture().map((item) => item.id));
+    const candidates = new Set(
+      speciesCatalogFixture("ka")
+        .filter((item) => item.checklistStatus === "candidate")
+        .map((item) => item.id),
+    );
+    expect(candidates.has("vipera-dinniki")).toBe(true);
     for (const hubId of herpHubs) {
       const group = GROUP_HUBS[hubId].group;
-      const expected = herpetofaunaChecklistIds()
-        .filter(
-          (id) =>
-            published.has(id) &&
-            getHerpetofaunaChecklistStatus(id) === "candidate",
-        )
-        .filter((id) =>
-          speciesGroupFixture(group).some((item) => item.id === id),
-        )
+      const expected = speciesGroupFixture(group)
+        .map((item) => item.id)
+        .filter((id) => candidates.has(id))
         .sort();
       const listed = hubCandidateSpecies(speciesGroupFixture(group))
         .map((item) => item.id)
@@ -64,15 +59,14 @@ describe("hub FAQ checklist candidates", () => {
         }
         for (const item of species) {
           const name = item.commonName.toLocaleLowerCase(locale);
-          const isCandidate =
-            getHerpetofaunaChecklistStatus(item.id) === "candidate";
+          const isCandidate = item.checklistStatus === "candidate";
           if (isCandidate) {
             expect(lower, `${locale} ${hubId} ${item.id}`).toContain(name);
           } else if (
             !species.some(
               (other) =>
                 other.id !== item.id &&
-                getHerpetofaunaChecklistStatus(other.id) === "candidate" &&
+                other.checklistStatus === "candidate" &&
                 other.commonName.toLocaleLowerCase(locale).includes(name),
             )
           ) {

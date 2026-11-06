@@ -9,6 +9,7 @@ export type SeedSpecies = {
   habitats: HabitatTag[];
   id: string;
   slug: string;
+  slugAliases: string[];
 };
 
 let seed: SeedSpecies[] | undefined;

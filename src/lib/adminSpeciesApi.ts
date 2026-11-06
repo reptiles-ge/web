@@ -32,7 +32,16 @@ export async function proposeAdminSpeciesDraft(
 ) {
   return unwrap(
     await species().drafts.$post({
-      json: { actor: AI_ACTOR, source: "ai", ...input },
+      json: {
+        actor: AI_ACTOR,
+        source: "ai",
+        ...input,
+        record: {
+          ...input.record,
+          class: input.record.class ?? "",
+          order: input.record.order ?? "",
+        },
+      },
       param: { id },
     }),
   );

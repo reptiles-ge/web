@@ -37,6 +37,7 @@ import {
   saveSpeciesRecord,
   versionConflict,
 } from "../lib/speciesDrafts";
+import { assertAiKeepsOwnerFields } from "../lib/speciesOwnerFields";
 import {
   assertNoAddedPageTalk,
   assertNoAddedSourceFraming,
@@ -343,7 +344,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       const { id } = c.req.valid("param");
       const { actor, expectedVersion, record, source, summary } =
         c.req.valid("json");
-      await readForWrite(c, id, record, expectedVersion);
+      await readForWrite(c, id, record, expectedVersion, source);
       const version = await saveSpeciesRecord(
         c.env.DB,
         record,
@@ -430,7 +431,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       const { id } = c.req.valid("param");
       const { actor, baseVersion, record, source, summary } =
         c.req.valid("json");
-      const current = await readForWrite(c, id, record, baseVersion);
+      const current = await readForWrite(c, id, record, baseVersion, source);
       const draftId = await insertDraft(c.env.DB, {
         actor,
         baseRecord: current.record,
@@ -535,6 +536,7 @@ async function readForWrite(
   id: string,
   record: SpeciesRecord,
   version: number,
+  source: string,
 ) {
   if (record.base.id !== id) {
     throw new ApiError(
@@ -550,6 +552,7 @@ async function readForWrite(
   if (current.version !== version) throw versionConflict(current.version);
   assertNoAddedPageTalk(current.record, record);
   assertNoAddedSourceFraming(current.record, record);
+  assertAiKeepsOwnerFields(source, current.record, record);
   return current;
 }
 
