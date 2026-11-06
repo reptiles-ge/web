@@ -38,6 +38,13 @@ describe("familyHigherRanks", () => {
     });
   });
 
+  it("places stilts in Charadriiformes, Aves", () => {
+    expect(familyHigherRanks("Recurvirostridae")).toEqual({
+      className: "Aves",
+      order: "Charadriiformes",
+    });
+  });
+
   it("leaves an unknown family without higher ranks", () => {
     expect(familyHigherRanks("Unknownidae")).toBeUndefined();
     expect(

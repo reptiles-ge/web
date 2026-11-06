@@ -78,6 +78,7 @@ const FAMILY_ORDER: Record<string, string> = {
   Procyonidae: "Carnivora",
   Psammophiidae: "Squamata",
   Ranidae: "Anura",
+  Recurvirostridae: "Charadriiformes",
   Salamandridae: "Caudata",
   Scincidae: "Squamata",
   Sciuridae: "Rodentia",
