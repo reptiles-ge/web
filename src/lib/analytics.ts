@@ -1,4 +1,5 @@
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { type AppLocale, routing } from "@/i18n/routing";
 
 export type AnalyticsValue = boolean | number | string;

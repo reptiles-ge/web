@@ -12,7 +12,7 @@ import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

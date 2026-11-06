@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { DangerLevel } from "@/data/speciesTypes";
 
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";

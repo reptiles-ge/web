@@ -12,7 +12,8 @@ import {
   useSpeciesHref,
 } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

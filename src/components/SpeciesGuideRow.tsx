@@ -9,7 +9,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

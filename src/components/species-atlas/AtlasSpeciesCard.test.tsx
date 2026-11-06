@@ -10,7 +10,7 @@ import {
   AtlasSpeciesRow,
 } from "@/components/species-atlas/AtlasSpeciesCard";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 import ka from "../../../messages/ka.json";

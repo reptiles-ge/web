@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import {
   buildLlmsFullText,
   buildLlmsIndexText,

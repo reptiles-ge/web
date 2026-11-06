@@ -4,7 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { getRegionSpecies, regions } from "@/data/regions";
 import { type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {

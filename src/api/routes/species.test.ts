@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { locales } from "@/i18n/locales";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 import {
+  atlasMetaFixture,
   catalogSpeciesFixture,
   fixtureUpdatedAt,
   localizedFixture,
@@ -35,13 +35,13 @@ const env = { DB: createSpeciesTestDatabase().db };
 
 function expectedList(locale: (typeof locales)[number], group?: string) {
   return catalogSpeciesFixture()
-    .filter((item) => !group || speciesAtlasMeta[item.id]?.group === group)
+    .filter((item) => !group || atlasMetaFixture(item.id)?.group === group)
     .map((item) => {
       const localized = localizedFixture(item, locale);
       return {
         commonName: localized.commonName,
         danger: localized.danger ?? null,
-        group: speciesAtlasMeta[item.id]?.group,
+        group: atlasMetaFixture(item.id)?.group,
         id: item.id,
         image: localized.image,
         scientificName: localized.scientificName,
@@ -104,8 +104,8 @@ describe("GET /v1/species/:slug", () => {
         expect(profile).toStrictEqual(
           await Response.json(localizedFixture(item, locale)).json(),
         );
-        expect(group).toBe(speciesAtlasMeta[item.id]?.group);
-        expect(habitats).toStrictEqual(speciesAtlasMeta[item.id]?.habitats);
+        expect(group).toBe(atlasMetaFixture(item.id)?.group);
+        expect(habitats).toStrictEqual(atlasMetaFixture(item.id)?.habitats);
         expect(slug).toBe(getSpeciesPublicSlug(item.id, locale));
         expect(lookalikes.map((peer) => peer.id)).toStrictEqual(
           lookalikesFixture(item.id),

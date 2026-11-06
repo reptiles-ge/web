@@ -31,6 +31,13 @@ describe("familyHigherRanks", () => {
     });
   });
 
+  it("places hornets in Hymenoptera, Insecta", () => {
+    expect(familyHigherRanks("Vespidae")).toEqual({
+      className: "Insecta",
+      order: "Hymenoptera",
+    });
+  });
+
   it("leaves an unknown family without higher ranks", () => {
     expect(familyHigherRanks("Unknownidae")).toBeUndefined();
     expect(

@@ -24,7 +24,8 @@ import {
   type Region,
 } from "@/data/mapRegions";
 import { getRegionHeroImage } from "@/data/regionImages";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

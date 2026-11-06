@@ -2,7 +2,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
 
 import { photoLicenses } from "@/data/photoLicenses";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import {
   type ContributorDirectory,
   NO_CONTRIBUTORS,

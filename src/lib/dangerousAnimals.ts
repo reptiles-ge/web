@@ -1,6 +1,7 @@
 import type { DangerLevel } from "@/data/species";
 
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { type CatalogCard } from "@/lib/speciesCatalogApi";
 
 export const BITE_GUIDES = [

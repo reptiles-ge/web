@@ -1,4 +1,4 @@
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { speciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 export type HerpetofaunaChecklistStatus =
   "candidate" | "confirmed" | "introduced";

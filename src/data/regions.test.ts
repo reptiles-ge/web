@@ -10,7 +10,8 @@ import {
   toRegionSpeciesCard,
 } from "@/data/regions";
 import { unpublishedSpeciesIds } from "@/data/species";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
 import {
   getHalyomorphaFieldRecords,

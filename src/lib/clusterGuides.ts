@@ -5,7 +5,8 @@ import type { AppLocale } from "@/i18n/routing";
 import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
 import { getRegionSpecies, type Region } from "@/data/regions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { type GroupHubId } from "@/lib/groupHubs";
 
 const FROG_SPECIES_IDS = [

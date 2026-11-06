@@ -1,7 +1,8 @@
 import type { SpeciesSummary } from "@/data/speciesTypes";
 
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { stableHash } from "@/lib/stableHash";
 

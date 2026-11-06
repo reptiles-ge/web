@@ -5,7 +5,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { getRegionContent } from "@/data/regionContent";
 import { localizeRegionText, regions } from "@/data/regions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getRegionSummary, regionSummaryFacts } from "@/lib/regionSummary";
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 

@@ -5,7 +5,8 @@ import type { CatalogFullSpecies } from "@/data/speciesCatalogTypes";
 import { getGuideArticles } from "@/data/guideArticles";
 import { newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {

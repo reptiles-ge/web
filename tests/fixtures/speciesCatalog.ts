@@ -35,6 +35,11 @@ const fixtures = new Map<AppLocale, SpeciesFixture[]>();
 let fieldRecords: Record<string, SpeciesFieldRecord[]> | undefined;
 let rangeMaps: Record<string, SpeciesRangeMap> | undefined;
 
+export function atlasMetaFixture(id: string) {
+  const item = speciesCatalogFixture("ka").find((entry) => entry.id === id);
+  return item && { group: item.group, habitats: item.habitats };
+}
+
 export function catalogSpeciesFixture(): Species[] {
   return speciesCatalogFixture("ka").map(bareSpecies);
 }

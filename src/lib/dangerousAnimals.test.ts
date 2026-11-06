@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { dangerousAnimalRows } from "@/lib/dangerousAnimals";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 

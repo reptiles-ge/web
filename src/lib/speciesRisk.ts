@@ -2,9 +2,9 @@ import type { DangerLevel, Species } from "@/data/speciesTypes";
 
 import {
   type AnimalGroup,
-  getSpeciesAtlasMeta,
   groupHasVenomConcept,
 } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 export type SpeciesRiskChip = {
   kind: "danger";
