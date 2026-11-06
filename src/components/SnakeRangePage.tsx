@@ -212,7 +212,7 @@ function SpeciesChip({
   return (
     <Link
       className="inline-flex rounded-full border border-border bg-background px-3 py-1.5 text-[12px] text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-      href={speciesHref(species.id, locale)}
+      href={speciesHref(species, locale)}
     >
       {species.commonName}
     </Link>

@@ -12,6 +12,13 @@ export default defineConfig({
           "tests/stubs/speciesAtlasMetaGenerated.ts",
         ),
       },
+      {
+        find: "@/data/speciesSlugs.generated",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/speciesSlugsGenerated.ts",
+        ),
+      },
       { find: "@", replacement: path.resolve(import.meta.dirname, "src") },
       {
         find: "next-intl/navigation",

@@ -5,10 +5,38 @@ import {
   resolveSpeciesId,
   speciesHref,
 } from "@/lib/speciesRoutes";
-import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import { hasSpeciesRoute, resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
-import { lookalikesFixture } from "../../tests/fixtures/speciesCatalog";
+import {
+  lookalikesFixture,
+  speciesCatalogFixture,
+} from "../../tests/fixtures/speciesCatalog";
+
+describe("speciesHref with a catalog item", () => {
+  it("matches the id-only link for every catalog species", () => {
+    for (const item of speciesCatalogFixture("ka")) {
+      for (const locale of ["ka", "en"] as const) {
+        expect(speciesHref(item, locale), `${item.id} ${locale}`).toEqual(
+          speciesHref(item.id, locale),
+        );
+      }
+    }
+  });
+
+  it("takes the hub from the item's group when the build table lacks the species", () => {
+    expect(hasSpeciesRoute("vespa-crabro")).toBe(false);
+    expect(speciesHref({ group: "insect", id: "vespa-crabro" }, "en")).toEqual({
+      params: { slug: "vespa-crabro" },
+      pathname: "/insects/[slug]",
+    });
+  });
+
+  it("knows which species have a built route", () => {
+    expect(hasSpeciesRoute("macrovipera-lebetina")).toBe(true);
+    expect(hasSpeciesRoute("constructor")).toBe(false);
+  });
+});
 
 describe("species routes", () => {
   it("uses KA slug overrides for public URLs", () => {

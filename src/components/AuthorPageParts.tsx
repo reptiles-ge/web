@@ -315,7 +315,7 @@ export async function AuthorSpeciesGroups({
                     <li className="border-t border-border/70" key={item.id}>
                       <Link
                         className="group flex min-h-[52px] items-center gap-3 py-2"
-                        href={speciesHref(item.id, locale)}
+                        href={speciesHref(item, locale)}
                         prefetch={false}
                       >
                         <span className="min-w-0 flex-1">

@@ -186,7 +186,7 @@ function VenomousFeaturedCard({
     <div>
       <Link
         className="flex h-full flex-wrap items-center justify-between gap-4 rounded-card border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
-        href={speciesHref(species.id, locale)}
+        href={speciesHref(species, locale)}
       >
         <div>
           <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">

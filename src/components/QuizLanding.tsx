@@ -77,7 +77,7 @@ export async function QuizLanding({
               <li key={item.id}>
                 <Link
                   className="text-foreground underline-offset-4 hover:underline"
-                  href={speciesHref(item.id, locale)}
+                  href={speciesHref(item, locale)}
                 >
                   {speciesNameWithScientific(
                     item.commonName,
@@ -135,14 +135,14 @@ export async function QuizLanding({
                 <p className="mt-4 text-[14px] font-medium text-foreground">
                   <Link
                     className="underline-offset-4 hover:underline"
-                    href={speciesHref(pair.a.id, locale)}
+                    href={speciesHref(pair.a, locale)}
                   >
                     {pair.a.commonName}
                   </Link>
                   {" · "}
                   <Link
                     className="underline-offset-4 hover:underline"
-                    href={speciesHref(pair.b.id, locale)}
+                    href={speciesHref(pair.b, locale)}
                   >
                     {pair.b.commonName}
                   </Link>
@@ -216,7 +216,7 @@ function LookalikeThumb({
   return (
     <Link
       className="relative size-14 overflow-hidden rounded-2xl sm:size-16"
-      href={speciesHref(species.id, locale)}
+      href={speciesHref(species, locale)}
     >
       <CoverImage
         alt={species.commonName}

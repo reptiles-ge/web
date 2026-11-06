@@ -51,7 +51,7 @@ export async function GroupHubSpeciesList({
   const items: HubCatalogItem[] = species
     .map((item) => ({
       alt: speciesImageAlt(item.commonName, item.scientificName, item.location),
-      href: speciesHref(item.id, locale),
+      href: speciesHref(item, locale),
       id: item.id,
       image: item.image,
       mobileImage: item.mobileImage,
