@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";

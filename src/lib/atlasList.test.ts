@@ -2,7 +2,8 @@ import { afterEach, describe, expect, it } from "vitest";
 
 import { defaultAtlasFilters } from "@/data/atlasFilters";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import {
   getAtlasPage,
   getAtlasRecentItems,

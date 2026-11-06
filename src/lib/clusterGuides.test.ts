@@ -30,6 +30,16 @@ describe("isSnakeSpecies", () => {
     expect(isSnakeSpecies(glassLizard!)).toBe(false);
   });
 
+  it("uses the catalog group for a species the build table does not know yet", () => {
+    const hornet = {
+      genus: "Vespa",
+      group: "insect",
+      id: "vespa-crabro",
+    } as const;
+    expect(isSnakeSpecies(hornet)).toBe(false);
+    expect(isSnakeSpecies({ genus: "Vespa", id: "vespa-crabro" })).toBe(true);
+  });
+
   it("keeps the quiz pool free of glass lizards", () => {
     const snakes = catalogSpeciesFixture().filter(isSnakeSpecies);
     expect(snakes.some((item) => item.id === "pseudopus-apodus")).toBe(false);

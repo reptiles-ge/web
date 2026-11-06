@@ -6,7 +6,7 @@ import {
 } from "@/data/herpetofauna-checklist";
 import { featuredSpeciesIds } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { speciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 
 import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 

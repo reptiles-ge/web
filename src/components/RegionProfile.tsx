@@ -24,7 +24,8 @@ import {
   type Region,
 } from "@/data/mapRegions";
 import { getRegionHeroImage } from "@/data/regionImages";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -436,7 +437,7 @@ function RegionProfileSpecies({
   const groupOptions = useMemo(() => {
     const counts = new Map<AnimalGroup, number>();
     for (const item of species) {
-      const group = getSpeciesAtlasMeta(item.id).group;
+      const group = speciesGroup(item);
       counts.set(group, (counts.get(group) ?? 0) + 1);
     }
     return REGION_SPECIES_GROUPS.flatMap((option) => {
@@ -448,9 +449,7 @@ function RegionProfileSpecies({
     () =>
       filter === "all"
         ? species
-        : species.filter(
-            (item) => getSpeciesAtlasMeta(item.id).group === filter,
-          ),
+        : species.filter((item) => speciesGroup(item) === filter),
     [filter, species],
   );
 

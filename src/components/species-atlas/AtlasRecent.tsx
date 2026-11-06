@@ -7,7 +7,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { type SpeciesListItem } from "@/data/speciesListItem";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -48,7 +48,7 @@ export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
 function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
   const locale = useLocale() as AppLocale;
   const date = formatContentDate(species.updatedAt, locale);
-  const group = getSpeciesAtlasMeta(species.id).group;
+  const group = speciesGroup(species);
   const image =
     atlasSpeciesImage(species) ||
     GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]];

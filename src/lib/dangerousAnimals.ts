@@ -1,6 +1,7 @@
 import type { DangerLevel } from "@/data/species";
 
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { type CatalogCard } from "@/lib/speciesCatalogApi";
 
 export const BITE_GUIDES = [
@@ -43,7 +44,7 @@ export function dangerousAnimalRows(
   return catalog
     .flatMap((item, index) => {
       if (item.danger !== "High" && item.danger !== "Moderate") return [];
-      const { group } = getSpeciesAtlasMeta(item.id);
+      const group = speciesGroup(item);
       const guide =
         item.id === "macrovipera-lebetina" ? GYURZA_BITE : GROUP_GUIDES[group];
       return [
