@@ -511,7 +511,7 @@ export const speciesResponse = component(
     locale: resolvedLocale,
     views: doc(
       z.int().min(0),
-      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
+      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per day (Tbilisi time, UTC+4). Cached with the profile, so it can lag by up to about an hour.",
     ),
   }),
   "One species profile.",
@@ -956,7 +956,7 @@ export const newsResponse = component(
     ),
     views: doc(
       z.int().min(0),
-      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
+      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per day (Tbilisi time, UTC+4). Cached with the article, so it can lag by up to about an hour.",
     ),
   }),
   "One news article.",

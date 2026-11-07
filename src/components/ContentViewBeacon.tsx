@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import type { ContentViewInput } from "@/lib/contentViewInput";
 
 import { sendContentView } from "@/lib/contentViewBeacon";
+import { siteDay } from "@/lib/siteTime";
 
 const STORAGE_PREFIX = "reptiles:viewed:";
 
@@ -18,7 +19,7 @@ export function ContentViewBeacon({
   useEffect(() => {
     if (navigator.webdriver) return;
     const key = `${STORAGE_PREFIX}${kind}:${id}`;
-    const today = new Date().toISOString().slice(0, 10);
+    const today = siteDay(new Date());
     if (readStored(key) === today) return;
     writeStored(key, today);
     sendContentView(apiOrigin, { id, kind });

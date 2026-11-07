@@ -191,7 +191,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - Migrations are add-only (`migrations/api/NNNN_name.sql`) and never run on their own: not from `dev`, build, deploy, or CI. Apply them by hand with `pnpm db:migrate` (local) or `pnpm db:migrate:remote` (production, owner asks only).
 - Secrets live in `.dev.vars` (gitignored) and `wrangler secret`. Never in code, config, or chat.
 - The browser posts site ratings to the site's own `/api/rating` (`src/app/api/rating/route.ts`), never to the API: the browser holds no key. That route checks the origin and the body, then forwards to `https://api.reptiles.ge/v1/ratings` on the server with `SITE_API_KEY` and the visitor's IP, country, user agent and language (`X-Visitor-Ip`, `X-Visitor-Country`, `src/lib/visitorHeaders.ts`). The API accepts ratings only with `SITE_API_KEY` (`requireSiteKey`), checks the origin, rate-limits, stores in D1, and sends the Telegram notice. The site route has no D1, limiter or Telegram code.
-- Species and news page views are counted from the browser (`ContentViewBeacon` → `POST /v1/views`), because cached pages never reach the server. One visitor counts once per page per UTC day, identified by a daily-salted hash that is deleted the next day. See "View counts" in `.agents/skills/api/SKILL.md`.
+- Species and news page views are counted from the browser (`ContentViewBeacon` → `POST /v1/views`), because cached pages never reach the server. One visitor counts once per page per day (Tbilisi time, from local midnight), identified by a daily-salted hash that is deleted the next day. See "View counts" in `.agents/skills/api/SKILL.md`.
 
 ## Admin app
 

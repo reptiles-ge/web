@@ -1,5 +1,7 @@
 import type { ContentViewInput } from "@/lib/contentViewInput";
 
+import { siteDay } from "@/lib/siteTime";
+
 import type { ApiDatabase } from "../db/database";
 
 import {
@@ -23,7 +25,7 @@ export async function countView(
   input: ContentViewInput,
   request: ViewRequest,
 ) {
-  const day = viewDay(request.now);
+  const day = siteDay(request.now);
   await forgetViewVisitorsBefore(db, day);
   const salt = await readViewSalt(db, day, randomHex(32));
   const visitor = await sha256Hex(
@@ -39,9 +41,9 @@ export async function countView(
 
 export function firstViewDay(now: Date, days: number | undefined) {
   if (days === undefined) return undefined;
-  const first = new Date(now);
+  const first = new Date(`${siteDay(now)}T00:00:00Z`);
   first.setUTCDate(first.getUTCDate() - (days - 1));
-  return viewDay(first);
+  return first.toISOString().slice(0, 10);
 }
 
 export function isBotUserAgent(userAgent: string | undefined) {
@@ -64,8 +66,4 @@ function toHex(bytes: Uint8Array) {
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join(
     "",
   );
-}
-
-function viewDay(now: Date) {
-  return now.toISOString().slice(0, 10);
 }
