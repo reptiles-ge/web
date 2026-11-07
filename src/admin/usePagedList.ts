@@ -25,29 +25,6 @@ type Result<T, F, E> = {
   status: "error" | "ready";
 };
 
-export function readUrlQuery<F>(
-  search: string,
-  filters: UrlFilters<F>,
-): PagedQuery<F> {
-  const params = new URLSearchParams(search);
-  const limit = Number(params.get("limit"));
-  const page = Number(params.get("page"));
-  const q = params.get("q")?.trim() || undefined;
-  const query = {
-    limit: (PAGE_SIZE_OPTIONS as readonly number[]).includes(limit)
-      ? limit
-      : DEFAULT_PAGE_SIZE,
-    page: Number.isInteger(page) && page > 1 ? page : 1,
-    q,
-  } as PagedQuery<F>;
-  for (const key of Object.keys(filters) as Array<keyof F & string>) {
-    const value = params.get(key);
-    const match = filters[key]?.find((option) => String(option) === value);
-    if (match !== undefined) query[key] = match as PagedQuery<F>[typeof key];
-  }
-  return query;
-}
-
 export function serverPaging<F>(
   list: {
     query: PagedQuery<F>;
@@ -157,7 +134,30 @@ export function usePagedList<T, F, E = unknown>(
   };
 }
 
-export function writeUrlQuery<F>(query: PagedQuery<F>, filters: UrlFilters<F>) {
+function readUrlQuery<F>(
+  search: string,
+  filters: UrlFilters<F>,
+): PagedQuery<F> {
+  const params = new URLSearchParams(search);
+  const limit = Number(params.get("limit"));
+  const page = Number(params.get("page"));
+  const q = params.get("q")?.trim() || undefined;
+  const query = {
+    limit: (PAGE_SIZE_OPTIONS as readonly number[]).includes(limit)
+      ? limit
+      : DEFAULT_PAGE_SIZE,
+    page: Number.isInteger(page) && page > 1 ? page : 1,
+    q,
+  } as PagedQuery<F>;
+  for (const key of Object.keys(filters) as Array<keyof F & string>) {
+    const value = params.get(key);
+    const match = filters[key]?.find((option) => String(option) === value);
+    if (match !== undefined) query[key] = match as PagedQuery<F>[typeof key];
+  }
+  return query;
+}
+
+function writeUrlQuery<F>(query: PagedQuery<F>, filters: UrlFilters<F>) {
   const params = new URLSearchParams();
   for (const key of Object.keys(filters) as Array<keyof F & string>) {
     const value = query[key];
