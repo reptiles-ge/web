@@ -544,7 +544,7 @@
     "rangeRegionsLabel": "Range",
     "sensitiveRange": {
       "title": "Exact locations are hidden on purpose",
-      "body": "We do not publish nest sites or observation points, so they cannot lead poachers or people who disturb wildlife to the animals. The map shows regions only.",
+      "body": "The map shows only the regions where the species has been recorded. We do not publish the exact places of nests or observations, so they cannot lead poachers or people who disturb wildlife to the animals.",
       "call": "{group, select, bird {Found an injured bird or a nest? <b>Call 112</b>} other {Found an injured animal? <b>Call 112</b>}}"
     },
     "viewPhotos": "{count, plural, one {View # photo} other {View # photos}}",

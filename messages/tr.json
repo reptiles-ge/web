@@ -544,7 +544,7 @@
     "rangeRegionsLabel": "Yayılış",
     "sensitiveRange": {
       "title": "Kesin konumlar bilerek gizlendi",
-      "body": "Yuva yerlerini ve gözlem noktalarını yayımlamıyoruz; böylece kaçak avcılara ve hayvanları rahatsız edenlere yol göstermiyoruz. Harita yalnızca bölgeleri gösterir.",
+      "body": "Harita yalnızca türün kaydedildiği bölgeleri gösterir. Yuvaların ve gözlemlerin kesin yerlerini yayımlamıyoruz; böylece kaçak avcılara ve hayvanları rahatsız edenlere yol göstermiyoruz.",
       "call": "{group, select, bird {Yaralı bir kuş ya da yuva mı gördünüz? <b>112'yi arayın</b>} other {Yaralı bir hayvan mı gördünüz? <b>112'yi arayın</b>}}"
     },
     "viewPhotos": "{count} fotoğrafı gör",
