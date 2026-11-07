@@ -77,7 +77,10 @@ export function usePagedList<T, F, E = unknown>(
 ) {
   const [request, setRequest] = useState<Request<F>>(() => ({
     attempt: 0,
-    query: readUrlQuery(window.location.search, urlFilters),
+    query: readUrlQuery(
+      typeof window === "undefined" ? "" : window.location.search,
+      urlFilters,
+    ),
   }));
   const [result, setResult] = useState<Result<T, F, E>>({ status: "ready" });
   const [search, setSearch] = useState(() => request.query.q ?? "");

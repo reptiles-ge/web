@@ -63,59 +63,25 @@ export async function SpeciesRangeMap({
   ]);
   const rangeRegions = getRegionsForSpecies(speciesId);
   const highlightedIds = rangeRegions.map((region) => region.id);
-  const interactiveRangeCopy = interactiveRangeConfig
-    ? { ...HALYOMORPHA_RANGE_COPY[locale], ...interactiveRangeConfig.copy }
-    : null;
-  const hidePoints = interactiveRangeConfig?.hidePoints === true;
-  const occurrenceSummary = interactiveRangeConfig
-    ? getOccurrenceSummary({
-        confirmedThreshold: interactiveRangeConfig.confirmedThreshold,
-        fieldRecords,
-        gallery,
-        locale,
-        speciesName,
-      })
-    : null;
-  const interactiveRangeSummary =
-    occurrenceSummary && hidePoints
-      ? {
-          ...occurrenceSummary,
-          recordsByRegion: occurrenceSummary.recordsByRegion.map(
-            ({ center: _center, ...region }) => region,
-          ),
-        }
-      : occurrenceSummary;
 
-  if (
-    interactiveRangeConfig &&
-    interactiveRangeCopy &&
-    interactiveRangeSummary
-  ) {
+  if (interactiveRangeConfig) {
     return (
       <HalyomorphaRangeSection
         anchorLabel={t("anchorLink")}
-        copy={interactiveRangeCopy}
         editable={editable}
         eyebrow={t("range")}
         group={group}
         habitatDetails={habitatDetails}
-        hidePoints={hidePoints}
-        iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
-        occurrenceSummary={interactiveRangeSummary}
-        officialRegionIds={
-          interactiveRangeConfig.rangeSource === "record-summary"
-            ? interactiveRangeSummary.recordsByRegion.reduce<string[]>(
-                (ids, region) => {
-                  if (region.status === "confirmed") ids.push(region.id);
-                  return ids;
-                },
-                [],
-              )
-            : highlightedIds
-        }
         speciesId={speciesId}
         updatedAt={updatedAt}
+        {...interactiveRangeProps(interactiveRangeConfig, {
+          fieldRecords,
+          gallery,
+          highlightedIds,
+          locale,
+          speciesName,
+        })}
       />
     );
   }
@@ -123,67 +89,20 @@ export async function SpeciesRangeMap({
   if (highlightedIds.length === 0 && !habitatDetails) return null;
 
   return (
-    <section className="bg-surface py-9 lg:py-20">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
-        <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
-          <RangeHeading
-            anchorLabel={t("anchorLink")}
-            eyebrow={t("range")}
-            title={t("rangeTitle", { name: speciesName })}
-          />
-          {habitatDetails ? (
-            <div className="order-4 mt-4 lg:mt-[18px]">
-              <RangeHabitatDetails
-                body={habitatDetails}
-                editorField={editable ? "habitat" : undefined}
-                readLess={t("readLess")}
-                readMore={t("readMore")}
-                speciesId={editable ? speciesId : undefined}
-              />
-            </div>
-          ) : null}
-          {rangeRegions.length > 0 ? (
-            <nav
-              aria-label={t("rangeRegionsLabel")}
-              className="order-3 rounded-b-[30px] bg-card px-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:mt-6 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <ul>
-                {rangeRegions.map((region) => (
-                  <li className="border-t border-border" key={region.id}>
-                    <Link
-                      className="group flex min-h-[52px] items-center gap-3 text-[15.5px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary lg:min-h-14 lg:text-[17px]"
-                      href={regionHref(region.id)}
-                    >
-                      <span className="min-w-0 flex-1">
-                        {localizeRegionText(region.name, locale)}
-                      </span>
-                      <ArrowRight
-                        aria-hidden="true"
-                        className="size-4 shrink-0"
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ) : null}
-        </div>
-        {highlightedIds.length > 0 ? (
-          <figure className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
-            <GeorgiaMapStatic
-              hatchId={STATIC_HATCH_ID}
-              highlightedIds={highlightedIds}
-            />
-            <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
-              <span className="translate-y-px">
-                <RangeHatchSwatch id={STATIC_HATCH_ID} />
-              </span>
-              {t("rangeSubtitle")}
-            </figcaption>
-          </figure>
-        ) : null}
-      </div>
-    </section>
+    <StaticRangeSection
+      anchorLabel={t("anchorLink")}
+      editable={editable}
+      eyebrow={t("range")}
+      habitatDetails={habitatDetails}
+      locale={locale}
+      rangeRegions={rangeRegions}
+      readLess={t("readLess")}
+      readMore={t("readMore")}
+      regionsLabel={t("rangeRegionsLabel")}
+      speciesId={speciesId}
+      subtitle={t("rangeSubtitle")}
+      title={t("rangeTitle", { name: speciesName })}
+    />
   );
 }
 
@@ -498,6 +417,53 @@ async function HalyomorphaRangeSection({
   );
 }
 
+function interactiveRangeProps(
+  config: NonNullable<Awaited<ReturnType<typeof getSpeciesRangeMap>>>,
+  {
+    fieldRecords,
+    gallery,
+    highlightedIds,
+    locale,
+    speciesName,
+  }: {
+    fieldRecords: SpeciesFieldRecord[];
+    gallery: GalleryImage[];
+    highlightedIds: string[];
+    locale: AppLocale;
+    speciesName: string;
+  },
+) {
+  const hidePoints = config.hidePoints === true;
+  const summary = getOccurrenceSummary({
+    confirmedThreshold: config.confirmedThreshold,
+    fieldRecords,
+    gallery,
+    locale,
+    speciesName,
+  });
+  const occurrenceSummary = hidePoints
+    ? {
+        ...summary,
+        recordsByRegion: summary.recordsByRegion.map(
+          ({ center: _center, ...region }) => region,
+        ),
+      }
+    : summary;
+  return {
+    copy: { ...HALYOMORPHA_RANGE_COPY[locale], ...config.copy },
+    hidePoints,
+    iNaturalistTaxonId: config.iNaturalistTaxonId,
+    occurrenceSummary,
+    officialRegionIds:
+      config.rangeSource === "record-summary"
+        ? occurrenceSummary.recordsByRegion.reduce<string[]>((ids, region) => {
+            if (region.status === "confirmed") ids.push(region.id);
+            return ids;
+          }, [])
+        : highlightedIds,
+  };
+}
+
 function RangeHabitatDetails({
   body,
   editorField,
@@ -584,5 +550,97 @@ function RangeMapFooter({
         {copy.footerMethodologyLabel}
       </Link>
     </p>
+  );
+}
+
+function StaticRangeSection({
+  anchorLabel,
+  editable,
+  eyebrow,
+  habitatDetails,
+  locale,
+  rangeRegions,
+  readLess,
+  readMore,
+  regionsLabel,
+  speciesId,
+  subtitle,
+  title,
+}: {
+  anchorLabel: string;
+  editable?: boolean;
+  eyebrow: string;
+  habitatDetails?: string;
+  locale: AppLocale;
+  rangeRegions: ReturnType<typeof getRegionsForSpecies>;
+  readLess: string;
+  readMore: string;
+  regionsLabel: string;
+  speciesId: string;
+  subtitle: string;
+  title: string;
+}) {
+  return (
+    <section className="bg-surface py-9 lg:py-20">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
+        <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
+          <RangeHeading
+            anchorLabel={anchorLabel}
+            eyebrow={eyebrow}
+            title={title}
+          />
+          {habitatDetails ? (
+            <div className="order-4 mt-4 lg:mt-[18px]">
+              <RangeHabitatDetails
+                body={habitatDetails}
+                editorField={editable ? "habitat" : undefined}
+                readLess={readLess}
+                readMore={readMore}
+                speciesId={editable ? speciesId : undefined}
+              />
+            </div>
+          ) : null}
+          {rangeRegions.length > 0 ? (
+            <nav
+              aria-label={regionsLabel}
+              className="order-3 rounded-b-[30px] bg-card px-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:mt-6 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+            >
+              <ul>
+                {rangeRegions.map((region) => (
+                  <li className="border-t border-border" key={region.id}>
+                    <Link
+                      className="group flex min-h-[52px] items-center gap-3 text-[15.5px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary lg:min-h-14 lg:text-[17px]"
+                      href={regionHref(region.id)}
+                    >
+                      <span className="min-w-0 flex-1">
+                        {localizeRegionText(region.name, locale)}
+                      </span>
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="size-4 shrink-0"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
+        </div>
+        {rangeRegions.length > 0 ? (
+          <figure className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
+            <GeorgiaMapStatic
+              hatchId={STATIC_HATCH_ID}
+              highlightedIds={rangeRegions.map((region) => region.id)}
+            />
+            <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
+              <span className="translate-y-px">
+                <RangeHatchSwatch id={STATIC_HATCH_ID} />
+              </span>
+              {subtitle}
+            </figcaption>
+          </figure>
+        ) : null}
+      </div>
+    </section>
   );
 }
