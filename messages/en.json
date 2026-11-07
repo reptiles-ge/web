@@ -542,6 +542,11 @@
     "rangeTitle": "{name}: where it lives in Georgia",
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
     "rangeRegionsLabel": "Range",
+    "sensitiveRange": {
+      "title": "Exact locations are hidden on purpose",
+      "body": "We do not publish nest sites or observation points, so they cannot lead poachers or people who disturb wildlife to the animals. The map shows regions only.",
+      "call": "{group, select, bird {Found an injured bird or a nest? <b>Call 112</b>} other {Found an injured animal? <b>Call 112</b>}}"
+    },
     "viewPhotos": "{count, plural, one {View # photo} other {View # photos}}",
     "lastUpdated": "Last updated",
     "updatedOn": "Updated:",

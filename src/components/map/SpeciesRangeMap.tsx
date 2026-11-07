@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
@@ -12,6 +13,7 @@ import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { RangeHabitatExpandable } from "@/components/map/RangeHabitatExpandable";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
+import { SensitiveRangeNotice } from "@/components/map/SensitiveRangeNotice";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   getRegionsForSpecies,
@@ -32,6 +34,7 @@ type SpeciesRangeMapProps = {
   editable?: boolean;
   fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
+  group: AnimalGroup;
   habitatDetails?: string;
   locale: AppLocale;
   speciesId: string;
@@ -47,6 +50,7 @@ export async function SpeciesRangeMap({
   editable,
   fieldRecords,
   gallery,
+  group,
   habitatDetails,
   locale,
   speciesId,
@@ -62,7 +66,8 @@ export async function SpeciesRangeMap({
   const interactiveRangeCopy = interactiveRangeConfig
     ? { ...HALYOMORPHA_RANGE_COPY[locale], ...interactiveRangeConfig.copy }
     : null;
-  const interactiveRangeSummary = interactiveRangeConfig
+  const hidePoints = interactiveRangeConfig?.hidePoints === true;
+  const occurrenceSummary = interactiveRangeConfig
     ? getOccurrenceSummary({
         confirmedThreshold: interactiveRangeConfig.confirmedThreshold,
         fieldRecords,
@@ -71,6 +76,15 @@ export async function SpeciesRangeMap({
         speciesName,
       })
     : null;
+  const interactiveRangeSummary =
+    occurrenceSummary && hidePoints
+      ? {
+          ...occurrenceSummary,
+          recordsByRegion: occurrenceSummary.recordsByRegion.map(
+            ({ center: _center, ...region }) => region,
+          ),
+        }
+      : occurrenceSummary;
 
   if (
     interactiveRangeConfig &&
@@ -83,7 +97,9 @@ export async function SpeciesRangeMap({
         copy={interactiveRangeCopy}
         editable={editable}
         eyebrow={t("range")}
+        group={group}
         habitatDetails={habitatDetails}
+        hidePoints={hidePoints}
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
         occurrenceSummary={interactiveRangeSummary}
@@ -299,7 +315,9 @@ async function HalyomorphaRangeSection({
   copy,
   editable,
   eyebrow,
+  group,
   habitatDetails,
+  hidePoints,
   iNaturalistTaxonId,
   locale,
   occurrenceSummary,
@@ -311,7 +329,9 @@ async function HalyomorphaRangeSection({
   copy: HalyomorphaRangeCopy;
   editable?: boolean;
   eyebrow: string;
+  group: AnimalGroup;
   habitatDetails?: string;
+  hidePoints: boolean;
   iNaturalistTaxonId: number;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
@@ -370,6 +390,7 @@ async function HalyomorphaRangeSection({
     <HalyomorphaRangeMap
       copy={mapCopy}
       dataRevision={updatedAt}
+      hidePoints={hidePoints}
       locale={locale}
       occurrenceSummary={occurrenceSummary}
       officialRegionIds={
@@ -388,7 +409,11 @@ async function HalyomorphaRangeSection({
       showLedger={false}
       speciesId={speciesId}
       stacked
-    />
+    >
+      {hidePoints ? (
+        <SensitiveRangeNotice group={group} locale={locale} />
+      ) : null}
+    </HalyomorphaRangeMap>
   );
 
   if (featured) {

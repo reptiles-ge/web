@@ -356,8 +356,10 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
       ];
       record.rangeMap!.confirmedThreshold = 2;
       record.rangeMap!.copy.en.intro = "New intro";
+      record.rangeMap!.hidePoints = true;
     });
     const { record: before } = await live();
+    expect(before.rangeMap!.hidePoints).toBeUndefined();
     expect((await decide(draftId, "merge")).response.status).toBe(200);
     const { record: after } = await live();
     expect(after.fieldRecords).toHaveLength(before.fieldRecords.length);
@@ -370,6 +372,7 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
     expect(after.fieldRecords[0]).toStrictEqual(before.fieldRecords[1]);
     expect(after.rangeMap!.confirmedThreshold).toBe(2);
     expect(after.rangeMap!.copy.en.intro).toBe("New intro");
+    expect(after.rangeMap!.hidePoints).toBe(true);
   });
 
   it("refuses a second merge of the same draft", async () => {
