@@ -31,6 +31,7 @@ import { docs } from "./routes/docs";
 import { images } from "./routes/images";
 import { news } from "./routes/news";
 import { ratings } from "./routes/ratings";
+import { siteSpecies } from "./routes/siteSpecies";
 import { species } from "./routes/species";
 import { views } from "./routes/views";
 import { LOCALE_HEADER } from "./schemas/common";
@@ -70,6 +71,7 @@ export const app = new Hono<ApiEnv>()
   .use((c, next) => (needsApiKey(c.req.path) ? requireApiKey(c, next) : next()))
   .use(etag())
   .route("/v1/species", species)
+  .route("/v1/site/species", siteSpecies)
   .route("/v1/catalog", catalog)
   .route("/v1/authors", authors)
   .route("/v1/contributors", contributors)

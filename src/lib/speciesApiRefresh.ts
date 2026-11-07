@@ -4,6 +4,7 @@ import { serverEnv } from "@/lib/env";
 import { HOME_NEWS_LIMIT } from "@/lib/newsApi";
 import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
 import { MAX_PAGE_SIZE } from "@/lib/pagination";
+import { fetchSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
 const AUTHOR_TAG_PREFIX = "author:";
@@ -45,6 +46,9 @@ export async function refreshSpeciesApiCache(tags: string[]) {
           { header: { "x-locale": "en" }, param: { slug: id } },
           options,
         ),
+      ...(serverEnv().SITE_API_KEY
+        ? [() => fetchSpeciesFieldRecords(api, id, options)]
+        : []),
     ]);
   const newsList = tags.includes("news")
     ? routing.locales.flatMap((locale) =>

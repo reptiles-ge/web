@@ -246,7 +246,7 @@ const OPERATIONS: Operation[] = [
   },
   {
     description:
-      "Dated locations where the species was recorded in Georgia: observations (mostly iNaturalist), literature and specimens. Not every species has records; then `data` is empty.",
+      "Dated locations where the species was recorded in Georgia: observations (mostly iNaturalist), literature and specimens. Not every species has records; then `data` is empty. For a sensitive species (a threatened animal whose sites should not be found) the locations are withheld: `hidden` is `true` and `data` is empty.",
     errors: [400, 404],
     header: localeHeader,
     method: "get",
@@ -491,6 +491,7 @@ export const UNDOCUMENTED_PATH_PREFIXES = [
   "/v1/admin/",
   "/v1/auth/",
   "/v1/ratings",
+  "/v1/site/",
   "/v1/views",
 ];
 

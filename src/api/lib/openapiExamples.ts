@@ -314,6 +314,7 @@ export const RESPONSE_EXAMPLES = {
         url: "https://www.inaturalist.org/observations/398124552",
       },
     ],
+    hidden: false,
     id: "macrovipera-lebetina",
     total: 1,
   },

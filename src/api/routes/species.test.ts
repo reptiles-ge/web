@@ -224,6 +224,26 @@ describe("GET /v1/species/:slug", () => {
 });
 
 describe("GET /v1/species/:slug/field-records", () => {
+  it("withholds the records of a species whose map hides points", async () => {
+    const database = createSpeciesTestDatabase();
+    database.sqlite.exec(
+      "INSERT INTO species_range_maps (species_id, inaturalist_taxon_id, hide_points) VALUES ('macrovipera-lebetina', 1, 1) ON CONFLICT (species_id) DO UPDATE SET hide_points = 1",
+    );
+    const { body, response } = await requestJson<{
+      data: unknown[];
+      hidden: boolean;
+      id: string;
+      total: number;
+    }>("/v1/species/giurza/field-records", { DB: database.db });
+    expect(response.status).toBe(200);
+    expect(body).toEqual({
+      data: [],
+      hidden: true,
+      id: "macrovipera-lebetina",
+      total: 0,
+    });
+  });
+
   it("returns the species' records by the locale's slug, and 404 otherwise", async () => {
     const database = createSpeciesTestDatabase();
     database.sqlite.exec(
@@ -251,6 +271,7 @@ describe("GET /v1/species/:slug/field-records", () => {
           observer: "nika",
         },
       ],
+      hidden: false,
       id: "macrovipera-lebetina",
       total: 1,
     });
