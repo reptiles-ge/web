@@ -140,6 +140,7 @@ const rangeMap = z.strictObject({
     ru: rangeMapCopy,
     tr: rangeMapCopy,
   }),
+  hidePoints: z.boolean().optional(),
   iNaturalistTaxonId: z.int().min(1),
   rangeSource: z.enum(["map-regions", "record-summary"]).optional(),
 });

@@ -413,6 +413,10 @@ const rangeMap = component(
       }),
       "Texts of this map in the requested locale that differ from the site's defaults. A missing key uses the default text.",
     ),
+    hidePoints: doc(
+      z.boolean(),
+      "`true` for a sensitive species: the map shows its regions but never its record points. Missing means the points are shown.",
+    ).optional(),
     iNaturalistTaxonId: doc(
       z.int().min(1),
       "iNaturalist taxon id the map links to.",

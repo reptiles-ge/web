@@ -124,6 +124,7 @@ export const SPECIES_TABLES = [
       "inaturalist_taxon_id",
       "range_source",
       "confirmed_threshold",
+      "hide_points",
     ],
     name: "species_range_maps",
   },
