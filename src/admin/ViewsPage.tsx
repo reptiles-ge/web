@@ -32,7 +32,10 @@ export function ViewsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const list = usePagedList(fetchAdminViews, onSessionExpired);
+  const list = usePagedList(fetchAdminViews, onSessionExpired, {
+    days: [1, 7, 30],
+    kind: KINDS,
+  });
   const { items, lastPage, query, setFilters } = list;
   const paging = serverPaging(list, (filters) => ({
     kind: filters.kind?.[0] as AdminViewFilters["kind"] | undefined,
@@ -91,6 +94,7 @@ export function ViewsPage({
       paging={paging}
       rowKey="key"
       rows={items.map((item) => ({ ...item, key: `${item.kind}:${item.id}` }))}
+      search={list.search}
       searchPlaceholder="Name or id"
       status={list.status}
       title="Views"

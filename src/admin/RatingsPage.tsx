@@ -105,7 +105,9 @@ export function RatingsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const list = usePagedList(fetchAdminRatings, onSessionExpired);
+  const list = usePagedList(fetchAdminRatings, onSessionExpired, {
+    rating: STARS,
+  });
   const { lastPage, query, setFilters } = list;
 
   return (
@@ -134,6 +136,7 @@ export function RatingsPage({
       paging={serverPaging(list)}
       rowKey="id"
       rows={list.items}
+      search={list.search}
       searchPlaceholder="Feedback or page"
       status={list.status}
       summary={lastPage ? <RatingsSummary summary={lastPage.summary} /> : null}

@@ -127,6 +127,39 @@ describe("SpeciesPage", () => {
     );
   });
 
+  it("keeps the filters, search and page in the URL", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    await screen.findByText("გიურზა");
+    const header = screen.getByRole("columnheader", { name: /Status/ });
+    await userEvent.click(within(header).getByRole("button"));
+    await userEvent.click(await screen.findByText("draft"));
+    await userEvent.click(screen.getByRole("button", { name: "OK" }));
+    await userEvent.type(screen.getByLabelText("Search species"), "bubo");
+    await vi.waitFor(() =>
+      expect(window.location.search).toBe("?status=draft&q=bubo"),
+    );
+  });
+
+  it("restores the filters and search from the URL after a reload", async () => {
+    window.history.replaceState(
+      null,
+      "",
+      "/species?group=bird&status=nope&q=bubo&page=2&limit=20",
+    );
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    await screen.findByText("გიურზა");
+    expect(fetchAdminSpecies).toHaveBeenCalledExactlyOnceWith({
+      group: "bird",
+      limit: 20,
+      page: 2,
+      q: "bubo",
+    });
+    expect(screen.getByLabelText("Search species")).toHaveValue("bubo");
+    expect(window.location.search).toBe("?group=bird&q=bubo&page=2&limit=20");
+  });
+
   it("returns to sign-in when the session has expired", async () => {
     vi.mocked(fetchAdminSpecies).mockRejectedValue(new SessionExpiredError());
     const onSessionExpired = vi.fn();
