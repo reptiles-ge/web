@@ -21,6 +21,7 @@ import {
   SessionExpiredError,
   SPECIES_STATUS_COLORS,
 } from "./species";
+import { SpeciesAudioPanel } from "./SpeciesAudioPanel";
 import { SpeciesTextsEditor } from "./SpeciesTextsEditor";
 import { useAdminData } from "./useAdminList";
 
@@ -426,6 +427,11 @@ export function SpeciesDetailPage({
                     ),
                     key: "locations",
                     label: `Locations (${fieldRecords.length})`,
+                  },
+                  {
+                    children: <SpeciesAudioPanel audio={record.base.audio} />,
+                    key: "audio",
+                    label: record.base.audio ? "Audio" : "Audio (none)",
                   },
                 ]}
               />

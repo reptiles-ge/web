@@ -166,6 +166,42 @@ describe("SpeciesDetailPage", () => {
     );
   });
 
+  it("says when a species has no sound", async () => {
+    show();
+    await userEvent.click(
+      await screen.findByRole("tab", { name: "Audio (none)" }),
+    );
+    expect(
+      await screen.findByText(
+        "This species has no sound yet. The profile shows no player.",
+      ),
+    ).toBeInTheDocument();
+    expect(screen.queryByLabelText("Species sound")).toBeNull();
+  });
+
+  it("plays the species sound with its credit", async () => {
+    const copy = structuredClone(RECORD);
+    copy.record.base.audio = {
+      date: "2022-04-12",
+      location: "ველეში, ვიენა, საფრანგეთი",
+      recordist: "Graham & Jemma",
+      src: "/audio/circus-cyaneus.mp3",
+      url: "https://xeno-canto.org/787527",
+    };
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(copy);
+    show();
+    await userEvent.click(await screen.findByRole("tab", { name: "Audio" }));
+    expect(await screen.findByLabelText("Species sound")).toHaveAttribute(
+      "src",
+      "https://reptiles.ge/audio/circus-cyaneus.mp3",
+    );
+    expect(screen.getByText("Graham & Jemma")).toBeInTheDocument();
+    expect(screen.getByText("2022-04-12")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "https://xeno-canto.org/787527" }),
+    ).toHaveAttribute("href", "https://xeno-canto.org/787527");
+  });
+
   it("clears this species' cache after confirmation", async () => {
     vi.mocked(clearSpeciesCache).mockResolvedValue();
     show();
