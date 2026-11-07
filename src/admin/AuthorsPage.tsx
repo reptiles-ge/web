@@ -21,7 +21,11 @@ export function AuthorsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const list = usePagedList(fetchAdminAuthors, onSessionExpired);
+  const list = usePagedList(fetchAdminAuthors, onSessionExpired, {
+    contributor: [true, false],
+    kind: AUTHOR_KINDS,
+    role: AUTHOR_ROLES,
+  });
   const { query } = list;
   const paging = serverPaging(list, (filters) => ({
     contributor: filters.isContributor?.[0] as boolean | undefined,
@@ -119,6 +123,7 @@ export function AuthorsPage({
       paging={paging}
       rowKey="id"
       rows={list.items}
+      search={list.search}
       searchPlaceholder="Name or id"
       status={list.status}
       title="Authors"

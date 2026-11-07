@@ -167,6 +167,7 @@ export function ApiKeysPage({
         paging={serverPaging(list)}
         rowKey="id"
         rows={list.items}
+        search={list.search}
         searchPlaceholder="Client, note or key prefix"
         status={list.status}
         title="API keys"

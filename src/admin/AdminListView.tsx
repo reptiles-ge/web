@@ -26,6 +26,7 @@ export function AdminListView<T extends object>({
   rowKey,
   rows,
   rowSelection,
+  search,
   searchPlaceholder,
   status,
   summary,
@@ -41,6 +42,7 @@ export function AdminListView<T extends object>({
   rowKey: keyof T & string;
   rows: T[];
   rowSelection?: TableRowSelection<T>;
+  search?: string;
   searchPlaceholder: string;
   status: "error" | "loading" | "ready";
   summary?: ReactNode;
@@ -57,6 +59,7 @@ export function AdminListView<T extends object>({
           <Input.Search
             allowClear
             aria-label={`Search ${noun}`}
+            defaultValue={search}
             onChange={(event) => onQuery(event.target.value)}
             placeholder={searchPlaceholder}
             style={{ width: 280 }}

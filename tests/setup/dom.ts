@@ -4,4 +4,7 @@ import { afterEach } from "vitest";
 
 import "./msw";
 
-afterEach(() => cleanup());
+afterEach(() => {
+  cleanup();
+  window.history.replaceState(null, "", "/");
+});

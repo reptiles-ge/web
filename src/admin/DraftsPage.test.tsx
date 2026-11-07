@@ -176,6 +176,15 @@ describe("DraftsPage", () => {
     });
   });
 
+  it("keeps the draft status in the URL", async () => {
+    window.history.replaceState(null, "", "/drafts?status=approved");
+    render(<DraftsPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("#7")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("pending"));
+    await screen.findByText("#2");
+    expect(window.location.search).toBe("");
+  });
+
   it("sends an expired session back to sign-in", async () => {
     vi.mocked(fetchDrafts).mockRejectedValue(new SessionExpiredError());
     const expired = vi.fn();
