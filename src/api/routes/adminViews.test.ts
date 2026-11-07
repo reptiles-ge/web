@@ -146,6 +146,17 @@ describe("GET /v1/admin/views", () => {
     expect(week.body.views).toBe(19);
   });
 
+  it("starts today at midnight in Tbilisi, not UTC", async () => {
+    vi.setSystemTime(new Date("2026-10-24T20:30:00Z"));
+    addViews("species", "paralaudakia-caucasia", "2026-10-25", 4);
+    const today = await list("?days=1");
+    expect(today.body.data.map((item) => [item.id, item.views])).toEqual([
+      ["paralaudakia-caucasia", 4],
+    ]);
+    const week = await list("?days=7");
+    expect(week.body.views).toBe(23);
+  });
+
   it("filters by kind and searches the id and names", async () => {
     const news = await list("?kind=news");
     expect(news.body.data.map((item) => item.id)).toEqual([newsId]);

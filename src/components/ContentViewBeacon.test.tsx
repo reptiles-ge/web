@@ -90,6 +90,28 @@ describe("ContentViewBeacon", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
+  it("starts a new day at midnight in Tbilisi", () => {
+    window.localStorage.setItem(
+      "reptiles:viewed:species:macrovipera-lebetina",
+      "2026-10-24",
+    );
+    vi.setSystemTime(new Date("2026-10-24T20:30:00Z"));
+    render(
+      <ContentViewBeacon
+        apiOrigin="https://api.reptiles.ge"
+        id="macrovipera-lebetina"
+        kind="species"
+      />,
+    );
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(
+      window.localStorage.getItem(
+        "reptiles:viewed:species:macrovipera-lebetina",
+      ),
+    ).toBe("2026-10-25");
+  });
+
   it("skips automated browsers", () => {
     vi.spyOn(navigator, "webdriver", "get").mockReturnValue(true);
     render(
