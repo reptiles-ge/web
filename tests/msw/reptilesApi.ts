@@ -4,6 +4,8 @@ import type { ApiBindings } from "@/api/env";
 
 export const REPTILES_API_TEST_TOKEN = "test-admin-token";
 
+export const REPTILES_API_TEST_SITE_KEY = "test-site-key";
+
 let env: ApiBindings | undefined;
 
 export function resetReptilesApi() {
@@ -22,6 +24,7 @@ export const reptilesApi = http.all(
       DB: createNewsTestDatabase().db,
       REVALIDATE_TOKEN: "test-revalidate-token",
       SITE: { fetch: async () => new Response(null, { status: 204 }) },
+      SITE_API_KEY: REPTILES_API_TEST_SITE_KEY,
     };
     return app.request(request, undefined, env);
   },

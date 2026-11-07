@@ -525,6 +525,10 @@ export const fieldRecordsResponse = component(
   "FieldRecordsResponse",
   z.strictObject({
     data: z.array(fieldRecord),
+    hidden: doc(
+      z.boolean(),
+      "`true` when the locations of this sensitive species are withheld; `data` is then empty.",
+    ),
     id: doc(speciesId, "Species id the records belong to."),
     total,
   }),
