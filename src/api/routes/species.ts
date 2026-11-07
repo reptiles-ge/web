@@ -12,6 +12,7 @@ import {
 import { readViewTotal } from "../db/views";
 import { cacheTags, edgeCache, PUBLIC_CACHE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
+import { requirePublishedSpeciesId } from "../lib/publishedSpecies";
 import { validate } from "../lib/validate";
 import { localeHeader } from "../schemas/common";
 import { speciesListQuery, speciesParam } from "../schemas/species";
@@ -58,16 +59,16 @@ export const species = new Hono<ApiEnv>()
     validate("param", speciesParam),
     validate("header", localeHeader),
     async (c) => {
-      const id = await findPublishedSpeciesId(
+      const id = await requirePublishedSpeciesId(
         c.env.DB,
         c.req.valid("param").slug,
         c.req.valid("header")["x-locale"],
       );
-      if (!id) throw new ApiError(404, "not_found", "Species not found");
-      const data = await readFieldRecords(c.env.DB, id);
+      const hidden = (await readRangeMap(c.env.DB, id))?.hidePoints === true;
+      const data = hidden ? [] : await readFieldRecords(c.env.DB, id);
       cacheTags(c, `species:${id}`);
       c.header("Cache-Control", PUBLIC_CACHE);
-      return c.json({ data, id, total: data.length }, 200);
+      return c.json({ data, hidden, id, total: data.length }, 200);
     },
   )
   .get(

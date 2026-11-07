@@ -413,6 +413,10 @@ const rangeMap = component(
       }),
       "Texts of this map in the requested locale that differ from the site's defaults. A missing key uses the default text.",
     ),
+    hidePoints: doc(
+      z.boolean(),
+      "`true` for a sensitive species: the map shows its regions but never its record points. Missing means the points are shown.",
+    ).optional(),
     iNaturalistTaxonId: doc(
       z.int().min(1),
       "iNaturalist taxon id the map links to.",
@@ -511,7 +515,7 @@ export const speciesResponse = component(
     locale: resolvedLocale,
     views: doc(
       z.int().min(0),
-      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the profile, so it can lag by up to about an hour.",
+      "Views of this species profile on Reptiles.ge, summed over every day and locale. One visitor counts once per day (Tbilisi time, UTC+4). Cached with the profile, so it can lag by up to about an hour.",
     ),
   }),
   "One species profile.",
@@ -521,6 +525,10 @@ export const fieldRecordsResponse = component(
   "FieldRecordsResponse",
   z.strictObject({
     data: z.array(fieldRecord),
+    hidden: doc(
+      z.boolean(),
+      "`true` when the locations of this sensitive species are withheld; `data` is then empty.",
+    ),
     id: doc(speciesId, "Species id the records belong to."),
     total,
   }),
@@ -956,7 +964,7 @@ export const newsResponse = component(
     ),
     views: doc(
       z.int().min(0),
-      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per UTC day. Cached with the article, so it can lag by up to about an hour.",
+      "Views of this article on Reptiles.ge, summed over every day and locale. One visitor counts once per day (Tbilisi time, UTC+4). Cached with the article, so it can lag by up to about an hour.",
     ),
   }),
   "One news article.",

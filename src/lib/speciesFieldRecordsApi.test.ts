@@ -2,6 +2,7 @@ import { http, HttpResponse } from "msw";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { fieldRecordsFixture } from "../../tests/fixtures/speciesCatalog";
+import { REPTILES_API_TEST_SITE_KEY } from "../../tests/msw/reptilesApi";
 import { recordRequests, server } from "../../tests/msw/server";
 import { getSpeciesFieldRecords } from "./speciesFieldRecordsApi";
 
@@ -18,6 +19,17 @@ describe("getSpeciesFieldRecords", () => {
     requests.stop();
     expect(requests.urls).toEqual([
       "https://api.reptiles.ge/v1/species/natrix-natrix/field-records",
+    ]);
+    expect(records).toStrictEqual(compiled["natrix-natrix"]);
+  });
+
+  it("reads every record through the site-only path when the site has its key", async () => {
+    vi.stubEnv("SITE_API_KEY", REPTILES_API_TEST_SITE_KEY);
+    const requests = recordRequests();
+    const records = await getSpeciesFieldRecords("natrix-natrix");
+    requests.stop();
+    expect(requests.urls).toEqual([
+      "https://api.reptiles.ge/v1/site/species/natrix-natrix/field-records",
     ]);
     expect(records).toStrictEqual(compiled["natrix-natrix"]);
   });

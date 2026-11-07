@@ -53,6 +53,7 @@ export function HalyomorphaRangeMap({
   children,
   copy,
   dataRevision,
+  hidePoints = false,
   locale,
   occurrenceSummary,
   officialRegionIds,
@@ -61,6 +62,7 @@ export function HalyomorphaRangeMap({
   speciesId,
   stacked = false,
 }: HalyomorphaLazyMapProps & {
+  hidePoints?: boolean;
   showLedger?: boolean;
   stacked?: boolean;
 }) {
@@ -88,7 +90,7 @@ export function HalyomorphaRangeMap({
   const { loadError, mapData } = useRangeMapData({
     dataRevision,
     enabled: shouldLoad,
-    hasRecords: totalRecords > 0,
+    hasRecords: totalRecords > 0 && !hidePoints,
     locale,
     officialRegionIds,
     speciesId,
@@ -210,8 +212,8 @@ export function HalyomorphaRangeMap({
         copy={copy}
         hatchId={hatchId}
         officialRegions={officialRegionIds.length}
-        photoRecords={photoRecordCount}
-        records={totalRecords}
+        photoRecords={hidePoints ? 0 : photoRecordCount}
+        records={hidePoints ? 0 : totalRecords}
       />
 
       {showLedger ? (

@@ -38,6 +38,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
@@ -257,6 +258,7 @@ export async function SpeciesProfileBody({
         editable={editable}
         fieldRecords={fieldRecords}
         gallery={gallery}
+        group={speciesGroup(species)}
         habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}

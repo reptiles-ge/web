@@ -86,6 +86,7 @@ export type SpeciesIdentification = {
 export type SpeciesRangeMap = {
   confirmedThreshold?: number;
   copy: Record<"en" | "ka" | "ru" | "tr", SpeciesRangeMapCopy>;
+  hidePoints?: boolean;
   iNaturalistTaxonId: number;
   rangeSource?: "map-regions" | "record-summary";
 };

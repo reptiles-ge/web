@@ -23,14 +23,19 @@ import {
 } from "./species";
 import { serverPaging, usePagedList } from "./usePagedList";
 
-const STATUSES = Object.keys(SPECIES_STATUS_COLORS);
+const STATUSES = Object.keys(
+  SPECIES_STATUS_COLORS,
+) as AdminSpeciesFilters["status"][];
 
 export function SpeciesPage({
   onSessionExpired,
 }: {
   onSessionExpired: () => void;
 }) {
-  const list = usePagedList(fetchAdminSpecies, onSessionExpired);
+  const list = usePagedList(fetchAdminSpecies, onSessionExpired, {
+    group: ANIMAL_GROUPS,
+    status: STATUSES,
+  });
   const { query } = list;
   const paging = serverPaging(list, (filters) => ({
     group: filters.group?.[0] as AdminSpeciesFilters["group"] | undefined,
@@ -133,6 +138,7 @@ export function SpeciesPage({
       paging={paging}
       rowKey="id"
       rows={list.items}
+      search={list.search}
       searchPlaceholder="Name, scientific name or id"
       status={list.status}
       title="Species"

@@ -1,6 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { REPTILES_API_TEST_SITE_KEY } from "../../tests/msw/reptilesApi";
 import { server } from "../../tests/msw/server";
 import { refreshSpeciesApiCache } from "./speciesApiRefresh";
 
@@ -48,6 +49,17 @@ describe("refreshSpeciesApiCache", () => {
       "ru /v1/species/macrovipera-lebetina",
       "tr /v1/species/macrovipera-lebetina",
       "en /v1/species/macrovipera-lebetina/field-records",
+    ]);
+  });
+
+  it("also refreshes the site-only field records when the site has its key", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    vi.stubEnv("SITE_API_KEY", REPTILES_API_TEST_SITE_KEY);
+    const seen = recordBypass();
+    await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
+    expect(seen.map(({ url }) => new URL(url).pathname).slice(-2)).toEqual([
+      "/v1/species/macrovipera-lebetina/field-records",
+      "/v1/site/species/macrovipera-lebetina/field-records",
     ]);
   });
 

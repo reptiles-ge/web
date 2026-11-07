@@ -34,30 +34,13 @@ export function DraftsPage({
 }: {
   onSessionExpired: () => void;
 }) {
-  const [status, setStatus] = useState<DraftStatus>("pending");
-  return (
-    <DraftsList
-      key={status}
-      onSessionExpired={onSessionExpired}
-      onStatus={setStatus}
-      status={status}
-    />
-  );
-}
-
-function DraftsList({
-  onSessionExpired,
-  onStatus,
-  status,
-}: {
-  onSessionExpired: () => void;
-  onStatus: (status: DraftStatus) => void;
-  status: DraftStatus;
-}) {
   const list = usePagedList(
-    (query: PagedQuery<object>) => fetchDrafts({ ...query, status }),
+    (query: PagedQuery<{ status: DraftStatus }>) =>
+      fetchDrafts({ ...query, status: query.status ?? "pending" }),
     onSessionExpired,
+    { status: STATUSES },
   );
+  const status = list.query.status ?? "pending";
   const [messages, contextHolder] = message.useMessage();
   const [selected, setSelected] = useState<number[]>([]);
   const [merging, setMerging] = useState(false);
@@ -181,7 +164,12 @@ function DraftsList({
         actions={
           <>
             <Segmented<DraftStatus>
-              onChange={onStatus}
+              onChange={(value) => {
+                setSelected([]);
+                list.setFilters({
+                  status: value === "pending" ? undefined : value,
+                });
+              }}
               options={STATUSES}
               value={status}
             />
@@ -222,6 +210,7 @@ function DraftsList({
               }
             : undefined
         }
+        search={list.search}
         searchPlaceholder="Species, summary or author"
         status={list.status}
         title="Drafts"

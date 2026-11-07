@@ -7,6 +7,7 @@ import { RANGE_MAP_TEXT_COLUMNS, RANGE_MAP_TEXT_KEYS } from "./speciesSchema";
 
 type RangeMapRow = {
   confirmed_threshold: null | number;
+  hide_points: number;
   inaturalist_taxon_id: number;
   range_source: null | SpeciesRangeMap["rangeSource"];
 };
@@ -25,7 +26,7 @@ export async function readRangeMap(
   const [settings, texts] = await db.batch([
     db
       .prepare(
-        "SELECT inaturalist_taxon_id, range_source, confirmed_threshold FROM species_range_maps WHERE species_id = ?",
+        "SELECT inaturalist_taxon_id, range_source, confirmed_threshold, hide_points FROM species_range_maps WHERE species_id = ?",
       )
       .bind(speciesId),
     db
@@ -55,5 +56,6 @@ export async function readRangeMap(
   if (row.confirmed_threshold !== null) {
     rangeMap.confirmedThreshold = row.confirmed_threshold;
   }
+  if (row.hide_points === 1) rangeMap.hidePoints = true;
   return rangeMap;
 }

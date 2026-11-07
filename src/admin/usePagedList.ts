@@ -1,6 +1,10 @@
 import { useEffect, useEffectEvent, useState } from "react";
 
-import { DEFAULT_PAGE_SIZE, type Page } from "@/lib/pagination";
+import {
+  DEFAULT_PAGE_SIZE,
+  type Page,
+  PAGE_SIZE_OPTIONS,
+} from "@/lib/pagination";
 
 import type { ServerPaging } from "./AdminListView";
 import type { PagedQuery } from "./pagination";
@@ -8,6 +12,8 @@ import type { PagedQuery } from "./pagination";
 import { SessionExpiredError } from "./adminResponse";
 
 const SEARCH_DELAY_MS = 300;
+
+export type UrlFilters<F> = { [K in keyof F]?: readonly F[K][] };
 
 type FilterValues = Parameters<ServerPaging["onChange"]>[0]["filters"];
 
@@ -44,13 +50,30 @@ export function serverPaging<F>(
 export function usePagedList<T, F, E = unknown>(
   load: (query: PagedQuery<F>) => Promise<E & Page<T>>,
   onSessionExpired: () => void,
+  urlFilters: UrlFilters<F> = {},
 ) {
   const [request, setRequest] = useState<Request<F>>(() => ({
     attempt: 0,
-    query: { limit: DEFAULT_PAGE_SIZE, page: 1 } as PagedQuery<F>,
+    query: readUrlQuery(
+      typeof window === "undefined" ? "" : window.location.search,
+      urlFilters,
+    ),
   }));
   const [result, setResult] = useState<Result<T, F, E>>({ status: "ready" });
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(() => request.query.q ?? "");
+  const syncUrl = useEffectEvent((query: PagedQuery<F>) => {
+    const next = writeUrlQuery(query, urlFilters);
+    if (window.location.search === next) return;
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${next}${window.location.hash}`,
+    );
+  });
+
+  useEffect(() => {
+    syncUrl(request.query);
+  }, [request.query]);
   const expire = useEffectEvent(onSessionExpired);
   const fetchPage = useEffectEvent(() => load(request.query));
 
@@ -96,6 +119,7 @@ export function usePagedList<T, F, E = unknown>(
     query: request.query,
     reload: () =>
       setRequest((last) => ({ ...last, attempt: last.attempt + 1 })),
+    search,
     setFilters: (filters: Partial<F>) =>
       changeQuery((last) => ({ ...last, ...filters, page: 1 })),
     setPage: (page: number, limit: number) =>
@@ -108,4 +132,42 @@ export function usePagedList<T, F, E = unknown>(
     status,
     total: result.page?.total ?? 0,
   };
+}
+
+function readUrlQuery<F>(
+  search: string,
+  filters: UrlFilters<F>,
+): PagedQuery<F> {
+  const params = new URLSearchParams(search);
+  const limit = Number(params.get("limit"));
+  const page = Number(params.get("page"));
+  const q = params.get("q")?.trim() || undefined;
+  const query = {
+    limit: (PAGE_SIZE_OPTIONS as readonly number[]).includes(limit)
+      ? limit
+      : DEFAULT_PAGE_SIZE,
+    page: Number.isInteger(page) && page > 1 ? page : 1,
+    q,
+  } as PagedQuery<F>;
+  for (const key of Object.keys(filters) as Array<keyof F & string>) {
+    const value = params.get(key);
+    const match = filters[key]?.find((option) => String(option) === value);
+    if (match !== undefined) query[key] = match as PagedQuery<F>[typeof key];
+  }
+  return query;
+}
+
+function writeUrlQuery<F>(query: PagedQuery<F>, filters: UrlFilters<F>) {
+  const params = new URLSearchParams();
+  for (const key of Object.keys(filters) as Array<keyof F & string>) {
+    const value = query[key];
+    if (value !== undefined && value !== null) params.set(key, String(value));
+  }
+  if (query.q) params.set("q", query.q);
+  if (query.page > 1) params.set("page", String(query.page));
+  if (query.limit !== DEFAULT_PAGE_SIZE) {
+    params.set("limit", String(query.limit));
+  }
+  const search = params.toString();
+  return search ? `?${search}` : "";
 }

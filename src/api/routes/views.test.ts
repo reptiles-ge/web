@@ -108,6 +108,20 @@ describe("POST /v1/views", () => {
     ]);
   });
 
+  it("starts a new day at midnight in Tbilisi, not UTC", async () => {
+    vi.setSystemTime(new Date("2026-10-24T19:30:00Z"));
+    await post({ id: "macrovipera-lebetina", kind: "species" });
+    vi.setSystemTime(new Date("2026-10-24T20:30:00Z"));
+    await post({ id: "macrovipera-lebetina", kind: "species" });
+
+    expect(
+      sqlite.prepare("SELECT day, views FROM content_views ORDER BY day").all(),
+    ).toEqual([
+      { day: "2026-10-24", views: 1 },
+      { day: "2026-10-25", views: 1 },
+    ]);
+  });
+
   it("forgets earlier visitors and salts on a new day", async () => {
     await post({ id: "macrovipera-lebetina", kind: "species" });
     vi.setSystemTime(new Date("2026-10-25T08:00:00Z"));

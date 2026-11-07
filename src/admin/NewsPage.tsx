@@ -27,12 +27,17 @@ const STATUS_COLORS: Record<AdminNews["status"], string> = {
   published: "green",
 };
 
+const NEWS_STATUSES = Object.keys(STATUS_COLORS) as AdminNews["status"][];
+
 export function NewsPage({
   onSessionExpired,
 }: {
   onSessionExpired: () => void;
 }) {
-  const list = usePagedList(fetchAdminNews, onSessionExpired);
+  const list = usePagedList(fetchAdminNews, onSessionExpired, {
+    series: newsSeriesIds,
+    status: NEWS_STATUSES,
+  });
   const { query } = list;
   const paging = serverPaging(list, (filters) => ({
     series: filters.series?.[0] as AdminNewsFilters["series"] | undefined,
@@ -60,7 +65,7 @@ export function NewsPage({
     },
     {
       dataIndex: "status",
-      ...serverFilter(query.status, Object.keys(STATUS_COLORS)),
+      ...serverFilter(query.status, NEWS_STATUSES),
       key: "status",
       render: (value: AdminNews["status"]) => (
         <Tag color={STATUS_COLORS[value]}>{value}</Tag>
@@ -136,6 +141,7 @@ export function NewsPage({
       paging={paging}
       rowKey="id"
       rows={list.items}
+      search={list.search}
       searchPlaceholder="Title or slug"
       status={list.status}
       title="News"

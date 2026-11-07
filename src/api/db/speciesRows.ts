@@ -179,6 +179,7 @@ export function speciesRecordRows(record: SpeciesRecord) {
       settings.iNaturalistTaxonId,
       settings.rangeSource ?? null,
       settings.confirmedThreshold ?? null,
+      settings.hidePoints ? 1 : 0,
     ]);
     for (const locale of RECORD_LOCALES) {
       const texts = RANGE_MAP_TEXT_KEYS.map((key) => copy[locale][key] ?? null);

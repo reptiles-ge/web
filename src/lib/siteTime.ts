@@ -20,6 +20,10 @@ export function parseToSiteDateTime(raw: string): null | string {
   return toSiteDateTime(parsed);
 }
 
+export function siteDay(value: Date): string {
+  return toSiteDateTime(value).slice(0, 10);
+}
+
 export function toSiteDateTime(value: Date): string {
   const parts = SITE_DATE_TIME_FORMAT.formatToParts(value);
 
