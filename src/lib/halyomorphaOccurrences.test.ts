@@ -481,3 +481,32 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual([]);
   });
 });
+
+describe("shoreline records", () => {
+  it("count a point just outside every outline toward the nearest region and leave far-off points out", () => {
+    const point = (id: string, lat: number, lng: number) => ({
+      date: "2025-05-01",
+      id,
+      lat,
+      lng,
+      locality: id,
+    });
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: [
+        point("batumi-beach", 41.59511, 41.57013),
+        point("poti-shore", 42.0824, 41.70284),
+        point("open-sea", 41.9, 40.9),
+      ],
+      gallery: [],
+      locale: "en",
+      speciesName: "Caspian tern",
+    });
+    const summary = getHalyomorphaOccurrenceSummary(records, "en");
+    expect(
+      summary.recordsByRegion.map((region) => [region.id, region.count]),
+    ).toEqual([
+      ["adjara", 1],
+      ["samegrelo-zemo-svaneti", 1],
+    ]);
+  });
+});
