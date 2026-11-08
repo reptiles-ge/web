@@ -61,6 +61,7 @@ beforeEach(() => {
       lng: 41.6,
       location: "Batumi",
       photographer: "ana",
+      photographerName: "",
       url: "https://www.inaturalist.org/photos/7",
     },
   });

@@ -106,6 +106,7 @@ describe("PhotoUploadButton", () => {
         lng: 45.3,
         location: "Vashlovani",
         photographer: "Ana",
+        photographerName: "Ana",
         url: "https://www.inaturalist.org/photos/7",
       },
     });
@@ -119,6 +120,7 @@ describe("PhotoUploadButton", () => {
     await screen.findByText(/Filled in from iNaturalist/);
     expect(screen.getByLabelText("Photographer (Georgian)")).toHaveValue("Ana");
     expect(screen.getByLabelText("Source link")).toHaveValue("");
+    expect(screen.queryByText(/iNaturalist profile name/)).toBeNull();
     expect(
       screen.getByLabelText("Taken in Georgia (needs a place)"),
     ).toBeChecked();
@@ -183,6 +185,7 @@ describe("PhotoUploadButton", () => {
         lng: 45.35,
         location: "Vashlovani",
         photographer: "ana",
+        photographerName: "Ana Beridze",
         url: "https://www.inaturalist.org/photos/7",
       },
     });
@@ -201,6 +204,14 @@ describe("PhotoUploadButton", () => {
     );
     expect(screen.getByText("inaturalist-42-7.jpg")).toBeInTheDocument();
     expect(screen.getByLabelText("Place (English)")).toHaveValue("Vashlovani");
+    expect(screen.getByText(/iNaturalist profile name/)).toHaveTextContent(
+      "iNaturalist profile name: Ana Beridze",
+    );
+    const submit = screen.getByRole("button", { name: "Upload" });
+    expect(submit).toHaveAttribute("type", "submit");
+    expect(
+      document.getElementById(submit.getAttribute("form") ?? "")?.tagName,
+    ).toBe("FORM");
     expect(
       screen.getByLabelText("Taken in Georgia (needs a place)"),
     ).toBeChecked();
@@ -273,6 +284,7 @@ describe("PhotoUploadButton", () => {
             lng: "",
             location: "Antalya",
             photographer: "far",
+            photographerName: "",
             url: "https://www.inaturalist.org/photos/10",
           },
         },

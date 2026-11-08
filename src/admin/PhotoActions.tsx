@@ -1,5 +1,5 @@
 import { Alert, Button, Form, message, Modal, Popconfirm, Space } from "antd";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 import type { PhotoCreditFields } from "./photos";
 
@@ -35,6 +35,7 @@ export function PhotoActions({
   version: number;
 }) {
   const [form] = Form.useForm<PhotoCreditFields>();
+  const formId = useId();
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -118,10 +119,9 @@ export function PhotoActions({
       </Space>
       <Modal
         forceRender
-        okButtonProps={{ loading: saving }}
+        okButtonProps={{ form: formId, htmlType: "submit", loading: saving }}
         okText="Save"
         onCancel={() => setOpen(false)}
-        onOk={() => form.submit()}
         open={open}
         title="Edit photo credit"
         width={720}
@@ -129,6 +129,7 @@ export function PhotoActions({
         <Form<PhotoCreditFields>
           disabled={saving}
           form={form}
+          id={formId}
           layout="vertical"
           onFinish={save}
         >

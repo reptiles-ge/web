@@ -62,7 +62,7 @@ export type INaturalistObservation = {
   photos?: INaturalistPhoto[];
   place_guess?: null | string;
   place_ids?: number[];
-  user?: { login?: null | string };
+  user?: { login?: null | string; name?: null | string };
 };
 
 export type INaturalistPhoto = {
@@ -90,6 +90,7 @@ export type INaturalistPhotoMetadata = {
   lng: number | string;
   location: string;
   photographer: string;
+  photographerName: string;
   url: string;
 };
 
@@ -169,6 +170,7 @@ export function iNaturalistObservationPhoto(
       lng: coordinates?.lng ?? "",
       location,
       photographer,
+      photographerName: observation.user?.name?.trim() ?? "",
       url: `https://www.inaturalist.org/photos/${photo.id}`,
     },
     ok: true,

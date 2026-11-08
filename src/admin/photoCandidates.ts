@@ -31,10 +31,9 @@ export type PhotoCandidatePage = {
   total: number;
 };
 
-type CandidateObservation = Omit<INaturalistObservation, "photos" | "user"> & {
+type CandidateObservation = Omit<INaturalistObservation, "photos"> & {
   faves_count?: number;
   photos?: CandidatePhoto[];
-  user?: { login?: null | string; name?: null | string };
 };
 
 type CandidatePhoto = INaturalistPhoto & {
@@ -197,7 +196,7 @@ function observationCandidates(
         observationUrl: `https://www.inaturalist.org/observations/${observation.id}`,
         observedOn: lookup.metadata.date,
         observer: lookup.metadata.photographer,
-        observerName: observation.user?.name?.trim() ?? "",
+        observerName: lookup.metadata.photographerName,
         place: observation.place_guess?.trim() ?? "",
         previewUrl,
         small: Boolean(width && height && Math.max(width, height) < SMALL_SIDE),
