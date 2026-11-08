@@ -8,9 +8,9 @@ import { AdminLink } from "./AdminLink";
 import { ClearCacheButton } from "./ClearCacheButton";
 import { CoverPreviewButton } from "./CoverPreview";
 import { movePhoto, sameOrder } from "./galleryOrder";
+import { GalleryPhotoButtons } from "./GalleryPhotoButtons";
 import { PhotoActions } from "./PhotoActions";
 import { PhotoThumbnail } from "./PhotoThumbnail";
-import { PhotoUploadButton } from "./PhotoUploadButton";
 import {
   type AdminFieldRecord,
   type AdminSpeciesRecord,
@@ -350,10 +350,12 @@ export function SpeciesDetailPage({
                   {
                     children: (
                       <Space orientation="vertical" style={{ width: "100%" }}>
-                        <PhotoUploadButton
+                        <GalleryPhotoButtons
+                          gallery={record.base.gallery}
                           id={id}
                           onSessionExpired={onSessionExpired}
                           onUploaded={reload}
+                          scientificName={record.base.scientificName}
                         />
                         <Typography.Text type="secondary">
                           Drag gallery rows, or use ↑ ↓, to change the order.

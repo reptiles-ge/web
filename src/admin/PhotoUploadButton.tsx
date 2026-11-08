@@ -11,7 +11,7 @@ import {
   Tag,
   Upload,
 } from "antd";
-import { useState } from "react";
+import { type Ref, useImperativeHandle, useRef, useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
@@ -22,6 +22,10 @@ import {
   type PhotoCreditFields,
   uploadSpeciesPhoto,
 } from "./photos";
+
+export type PhotoUploadHandle = {
+  openWith: (result: INaturalistImport) => void;
+};
 
 type FileState = {
   message?: string;
@@ -47,10 +51,12 @@ export function PhotoUploadButton({
   id,
   onSessionExpired,
   onUploaded,
+  ref,
 }: {
   id: string;
   onSessionExpired: () => void;
   onUploaded: () => void;
+  ref?: Ref<PhotoUploadHandle>;
 }) {
   const [form] = Form.useForm<PhotoCreditFields>();
   const [open, setOpen] = useState(false);
@@ -63,6 +69,52 @@ export function PhotoUploadButton({
   const [importError, setImportError] = useState<null | string>(null);
   const added = states.filter((item) => item.status === "added").length;
   const finished = !running && states.length > 0 && states.every(isSettled);
+  const picked = useRef<INaturalistImport | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    openWith(result) {
+      if (running) return;
+      setStates([]);
+      setObservationUrl("");
+      setImportError(null);
+      if (open) {
+        fill(result, true);
+        return;
+      }
+      picked.current = result;
+      setOpen(true);
+    },
+  }));
+
+  function formMounted(instance: unknown) {
+    if (!instance || !picked.current) return;
+    const result = picked.current;
+    picked.current = null;
+    fill(result, true);
+  }
+
+  function fill({ file, metadata }: INaturalistImport, setGeorgia = false) {
+    setFiles([
+      {
+        name: file.name,
+        originFileObj: file as UploadFile["originFileObj"],
+        status: "done",
+        uid: file.name,
+      },
+    ]);
+    form.setFieldsValue({
+      date: metadata.date,
+      ...(setGeorgia ? { georgiaField: metadata.georgiaField } : {}),
+      lat: String(metadata.lat),
+      lng: String(metadata.lng),
+      location: metadata.location,
+      locationEn: metadata.location,
+      photographer: metadata.photographer,
+      photographerEn: metadata.photographer,
+      url: "",
+    });
+    setImported({ file, metadata });
+  }
 
   function update(uid: string, next: Partial<FileState>) {
     setStates((current) =>
@@ -86,27 +138,7 @@ export function PhotoUploadButton({
     setImportError(null);
     setImported(null);
     try {
-      const result = await importINaturalistPhoto(id, observationUrl);
-      const { file, metadata } = result;
-      setFiles([
-        {
-          name: file.name,
-          originFileObj: file as UploadFile["originFileObj"],
-          status: "done",
-          uid: file.name,
-        },
-      ]);
-      form.setFieldsValue({
-        date: metadata.date,
-        lat: String(metadata.lat),
-        lng: String(metadata.lng),
-        location: metadata.location,
-        locationEn: metadata.location,
-        photographer: metadata.photographer,
-        photographerEn: metadata.photographer,
-        url: "",
-      });
-      setImported(result);
+      fill(await importINaturalistPhoto(id, observationUrl));
     } catch (error) {
       if (error instanceof SessionExpiredError) {
         onSessionExpired();
@@ -184,6 +216,7 @@ export function PhotoUploadButton({
           initialValues={INITIAL_CREDIT}
           layout="vertical"
           onFinish={upload}
+          ref={formMounted}
         >
           <Form.Item
             extra="Fills in the observation's first photo and its photographer, place, date and coordinates. Hidden coordinates stay empty. The source link stays empty. Check the Georgian fields before you upload."

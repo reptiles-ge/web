@@ -17,7 +17,7 @@ const COUNTRY_ONLY_PLACES = new Set([
   "грузия",
   "საქართველო",
 ]);
-const GEORGIA_PLACE_ID = 8857;
+export const GEORGIA_PLACE_ID = 8857;
 
 export type INaturalistDownloadResult =
   | { file: Blob; ok: true; type: string }
@@ -53,6 +53,24 @@ export type INaturalistLookupResult =
       >;
     };
 
+export type INaturalistObservation = {
+  captive?: boolean;
+  geojson?: { coordinates?: number[] };
+  id: number;
+  obscured?: boolean;
+  observed_on?: null | string;
+  photos?: INaturalistPhoto[];
+  place_guess?: null | string;
+  place_ids?: number[];
+  user?: { login?: null | string };
+};
+
+export type INaturalistPhoto = {
+  id: number;
+  license_code?: null | string;
+  url?: null | string;
+};
+
 export type INaturalistPhotoFailure =
   | "download_failed"
   | "invalid_url"
@@ -78,24 +96,6 @@ export type INaturalistPhotoMetadata = {
 export type INaturalistPhotoResult =
   | { file: File; metadata: INaturalistPhotoMetadata; ok: true }
   | { ok: false; reason: INaturalistPhotoFailure };
-
-type INaturalistObservation = {
-  captive?: boolean;
-  geojson?: { coordinates?: number[] };
-  id: number;
-  obscured?: boolean;
-  observed_on?: null | string;
-  photos?: INaturalistPhoto[];
-  place_guess?: null | string;
-  place_ids?: number[];
-  user?: { login?: null | string };
-};
-
-type INaturalistPhoto = {
-  id: number;
-  license_code?: null | string;
-  url?: null | string;
-};
 
 export async function downloadINaturalistPhoto(
   photoUrl: string,
@@ -132,6 +132,47 @@ export async function fetchINaturalistPhoto(
     file: iNaturalistPhotoFile(lookup.fileStem, download.file, download.type),
     metadata: lookup.metadata,
     ok: true,
+  };
+}
+
+export function iNaturalistObservationPhoto(
+  observation: INaturalistObservation,
+  photo: INaturalistPhoto,
+): INaturalistLookupResult {
+  const photoUrl = originalPhotoUrl(photo);
+  if (!photoUrl) return { ok: false, reason: "no_photo" };
+  const photographer = observation.user?.login?.trim();
+  if (!photographer) return { ok: false, reason: "no_photographer" };
+
+  const coordinates = observation.obscured
+    ? undefined
+    : normalizePhotoCoordinates(
+        observation.geojson?.coordinates?.[1],
+        observation.geojson?.coordinates?.[0],
+      );
+  const location = observation.place_guess?.split(",")[0]?.trim() ?? "";
+  return {
+    fileStem: `inaturalist-${observation.id}-${photo.id}`,
+    metadata: {
+      date: /^\d{4}-\d{2}-\d{2}$/.test(observation.observed_on ?? "")
+        ? (observation.observed_on as string)
+        : "",
+      georgiaField: Boolean(
+        observation.place_ids?.includes(GEORGIA_PLACE_ID) &&
+        !observation.captive &&
+        coordinates &&
+        location &&
+        !COUNTRY_ONLY_PLACES.has(location.toLowerCase()),
+      ),
+      lat: coordinates?.lat ?? "",
+      license: photo.license_code ?? "all rights reserved",
+      lng: coordinates?.lng ?? "",
+      location,
+      photographer,
+      url: `https://www.inaturalist.org/photos/${photo.id}`,
+    },
+    ok: true,
+    photoUrl,
   };
 }
 
@@ -194,43 +235,9 @@ export async function lookUpINaturalistObservation(
     return { ok: false, reason: "unreachable" };
   }
   if (!observation) return { ok: false, reason: "not_found" };
-
   const photo = observation.photos?.[0];
-  const photoUrl = photo && originalPhotoUrl(photo);
-  if (!photo || !photoUrl) return { ok: false, reason: "no_photo" };
-  const photographer = observation.user?.login?.trim();
-  if (!photographer) return { ok: false, reason: "no_photographer" };
-
-  const coordinates = observation.obscured
-    ? undefined
-    : normalizePhotoCoordinates(
-        observation.geojson?.coordinates?.[1],
-        observation.geojson?.coordinates?.[0],
-      );
-  const location = observation.place_guess?.split(",")[0]?.trim() ?? "";
-  return {
-    fileStem: `inaturalist-${observationId}-${photo.id}`,
-    metadata: {
-      date: /^\d{4}-\d{2}-\d{2}$/.test(observation.observed_on ?? "")
-        ? (observation.observed_on as string)
-        : "",
-      georgiaField: Boolean(
-        observation.place_ids?.includes(GEORGIA_PLACE_ID) &&
-        !observation.captive &&
-        coordinates &&
-        location &&
-        !COUNTRY_ONLY_PLACES.has(location.toLowerCase()),
-      ),
-      lat: coordinates?.lat ?? "",
-      license: photo.license_code ?? "all rights reserved",
-      lng: coordinates?.lng ?? "",
-      location,
-      photographer,
-      url: `https://www.inaturalist.org/photos/${photo.id}`,
-    },
-    ok: true,
-    photoUrl,
-  };
+  if (!photo) return { ok: false, reason: "no_photo" };
+  return iNaturalistObservationPhoto(observation, photo);
 }
 
 export function observationIdFromUrl(value: string) {

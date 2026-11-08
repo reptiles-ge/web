@@ -67,12 +67,10 @@ export function encodePhotoFile(file: File): Promise<EncodedPhoto> {
   });
 }
 
-export async function importINaturalistPhoto(
+export async function importINaturalistLookup(
   id: string,
-  observationUrl: string,
+  lookup: Extract<INaturalistLookupResult, { ok: true }>,
 ): Promise<INaturalistImport> {
-  const lookup = await lookUpINaturalistObservation(observationUrl);
-  if (!lookup.ok) throw new Error(INATURALIST_LOOKUP_ERRORS[lookup.reason]);
   const response = await api.v1.admin.species[":id"].photos.inaturalist.$post({
     json: { photoUrl: lookup.photoUrl },
     param: { id },
@@ -83,6 +81,15 @@ export async function importINaturalistPhoto(
     file: iNaturalistPhotoFile(lookup.fileStem, file, file.type),
     metadata: lookup.metadata,
   };
+}
+
+export async function importINaturalistPhoto(
+  id: string,
+  observationUrl: string,
+): Promise<INaturalistImport> {
+  const lookup = await lookUpINaturalistObservation(observationUrl);
+  if (!lookup.ok) throw new Error(INATURALIST_LOOKUP_ERRORS[lookup.reason]);
+  return importINaturalistLookup(id, lookup);
 }
 
 export async function uploadSpeciesPhoto(

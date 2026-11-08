@@ -1,5 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { createRef } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { EncodedPhoto } from "./photoEncoding";
@@ -10,7 +11,7 @@ import {
   importINaturalistPhoto,
   uploadSpeciesPhoto,
 } from "./photos";
-import { PhotoUploadButton } from "./PhotoUploadButton";
+import { PhotoUploadButton, type PhotoUploadHandle } from "./PhotoUploadButton";
 
 vi.mock("./photos", () => ({
   encodePhotoFile: vi.fn(),
@@ -247,5 +248,49 @@ describe("PhotoUploadButton", () => {
     );
     await user.click(screen.getByRole("button", { name: "Fetch" }));
     await waitFor(() => expect(onSessionExpired).toHaveBeenCalled());
+  });
+
+  it("opens with a picked photo and its credit, including whether it was taken in Georgia", async () => {
+    const ref = createRef<PhotoUploadHandle>();
+    render(
+      <PhotoUploadButton
+        id="bufo-viridis"
+        onSessionExpired={vi.fn()}
+        onUploaded={vi.fn()}
+        ref={ref}
+      />,
+    );
+    const user = userEvent.setup();
+    act(() =>
+      ref.current!.openWith({
+        file: new File(["x"], "inaturalist-1-10.jpg", { type: "image/jpeg" }),
+        metadata: {
+          date: "2024-09-01",
+          georgiaField: false,
+          lat: "",
+          license: "cc-by-nc",
+          lng: "",
+          location: "Antalya",
+          photographer: "far",
+          url: "https://www.inaturalist.org/photos/10",
+        },
+      }),
+    );
+    expect(await screen.findByText("inaturalist-1-10.jpg")).toBeInTheDocument();
+    expect(screen.getByText(/Photo licence: cc-by-nc/)).toBeInTheDocument();
+    expect(screen.getByLabelText("Photographer (English)")).toHaveValue("far");
+    expect(screen.getByLabelText("Place (Georgian)")).toHaveValue("Antalya");
+    expect(screen.getByLabelText("Source link")).toHaveValue("");
+    expect(
+      screen.getByLabelText("Taken in Georgia (needs a place)"),
+    ).not.toBeChecked();
+    await user.click(screen.getByRole("button", { name: "Upload" }));
+    await waitFor(() =>
+      expect(uploadSpeciesPhoto).toHaveBeenCalledWith(
+        "bufo-viridis",
+        expect.objectContaining({ georgiaField: false, photographer: "far" }),
+        ENCODED,
+      ),
+    );
   });
 });
