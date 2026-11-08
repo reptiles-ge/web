@@ -1,11 +1,28 @@
-import { Checkbox, Col, Form, Input, Row } from "antd";
+import { Checkbox, Col, Form, Input, Row, Typography } from "antd";
 
-export function PhotoCreditFormFields() {
+export function PhotoCreditFormFields({
+  profileName = "",
+}: {
+  profileName?: string;
+}) {
   return (
     <>
       <Row gutter={12} style={{ marginTop: 16 }}>
         <Col span={12}>
-          <Form.Item label="Photographer (Georgian)" name="photographer">
+          <Form.Item
+            extra={
+              profileName ? (
+                <>
+                  iNaturalist profile name:{" "}
+                  <Typography.Text copyable strong>
+                    {profileName}
+                  </Typography.Text>
+                </>
+              ) : undefined
+            }
+            label="Photographer (Georgian)"
+            name="photographer"
+          >
             <Input maxLength={200} />
           </Form.Item>
         </Col>

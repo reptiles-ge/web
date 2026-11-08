@@ -11,7 +11,7 @@ import {
   Tag,
   Upload,
 } from "antd";
-import { type Ref, useImperativeHandle, useRef, useState } from "react";
+import { type Ref, useId, useImperativeHandle, useRef, useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
@@ -59,6 +59,7 @@ export function PhotoUploadButton({
   ref?: Ref<PhotoUploadHandle>;
 }) {
   const [form] = Form.useForm<PhotoCreditFields>();
+  const formId = useId();
   const [open, setOpen] = useState(false);
   const [files, setFiles] = useState<UploadFile[]>([]);
   const [states, setStates] = useState<FileState[]>([]);
@@ -201,11 +202,12 @@ export function PhotoUploadButton({
         closable={!running}
         okButtonProps={{
           disabled: files.length === 0 || finished,
+          form: formId,
+          htmlType: "submit",
           loading: running,
         }}
         okText="Upload"
         onCancel={close}
-        onOk={() => form.submit()}
         open={open}
         title="Add photos to the gallery"
         width={720}
@@ -213,6 +215,7 @@ export function PhotoUploadButton({
         <Form<PhotoCreditFields>
           disabled={running || finished}
           form={form}
+          id={formId}
           initialValues={INITIAL_CREDIT}
           layout="vertical"
           onFinish={upload}
@@ -275,7 +278,15 @@ export function PhotoUploadButton({
               320–2400 px, then stored on the CDN.
             </p>
           </Upload.Dragger>
-          <PhotoCreditFormFields />
+          <PhotoCreditFormFields
+            profileName={
+              imported &&
+              imported.metadata.photographerName !==
+                imported.metadata.photographer
+                ? imported.metadata.photographerName
+                : ""
+            }
+          />
         </Form>
         {states.length > 0 ? (
           <List

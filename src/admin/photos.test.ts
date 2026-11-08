@@ -161,6 +161,7 @@ describe("importINaturalistPhoto", () => {
       lng: 45.35,
       location: "Vashlovani",
       photographer: "ana",
+      photographerName: "",
       url: "https://www.inaturalist.org/photos/7",
     });
   });
