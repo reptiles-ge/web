@@ -73,6 +73,7 @@ describe("POST /api/admin/inaturalist-photo", () => {
       lng: 46.62987,
       location: "Vashlovani National Park",
       photographer: "vanmeetin",
+      photographerName: "",
       url: "https://www.inaturalist.org/photos/530655415",
     });
     expect(requests.urls[1]).toBe(ORIGINAL);
