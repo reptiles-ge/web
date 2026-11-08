@@ -29,7 +29,9 @@ export function GalleryPhotoButtons({
       <PhotoCandidatesButton
         gallery={gallery}
         id={id}
-        onPicked={(result) => upload.current?.openWith(result)}
+        onPicked={(result, observationUrl) =>
+          upload.current?.openWith(result, observationUrl)
+        }
         onSessionExpired={onSessionExpired}
         scientificName={scientificName}
       />

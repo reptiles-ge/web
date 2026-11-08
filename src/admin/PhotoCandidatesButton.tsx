@@ -59,7 +59,7 @@ export function PhotoCandidatesButton({
 }: {
   gallery: GalleryPhoto[];
   id: string;
-  onPicked: (result: INaturalistImport) => void;
+  onPicked: (result: INaturalistImport, observationUrl: string) => void;
   onSessionExpired: () => void;
   scientificName: string;
 }) {
@@ -133,7 +133,10 @@ export function PhotoCandidatesButton({
     setAdding(candidate.key);
     setError(null);
     try {
-      onPicked(await importINaturalistLookup(id, candidate.lookup));
+      onPicked(
+        await importINaturalistLookup(id, candidate.lookup),
+        candidate.observationUrl,
+      );
     } catch (caught) {
       if (caught instanceof SessionExpiredError) {
         onSessionExpired();

@@ -262,25 +262,31 @@ describe("PhotoUploadButton", () => {
     );
     const user = userEvent.setup();
     act(() =>
-      ref.current!.openWith({
-        file: new File(["x"], "inaturalist-1-10.jpg", { type: "image/jpeg" }),
-        metadata: {
-          date: "2024-09-01",
-          georgiaField: false,
-          lat: "",
-          license: "cc-by-nc",
-          lng: "",
-          location: "Antalya",
-          photographer: "far",
-          url: "https://www.inaturalist.org/photos/10",
+      ref.current!.openWith(
+        {
+          file: new File(["x"], "inaturalist-1-10.jpg", { type: "image/jpeg" }),
+          metadata: {
+            date: "2024-09-01",
+            georgiaField: false,
+            lat: "",
+            license: "cc-by-nc",
+            lng: "",
+            location: "Antalya",
+            photographer: "far",
+            url: "https://www.inaturalist.org/photos/10",
+          },
         },
-      }),
+        "https://www.inaturalist.org/observations/1",
+      ),
     );
     expect(await screen.findByText("inaturalist-1-10.jpg")).toBeInTheDocument();
     expect(screen.getByText(/Photo licence: cc-by-nc/)).toBeInTheDocument();
     expect(screen.getByLabelText("Photographer (English)")).toHaveValue("far");
     expect(screen.getByLabelText("Place (Georgian)")).toHaveValue("Antalya");
     expect(screen.getByLabelText("Source link")).toHaveValue("");
+    expect(screen.getByLabelText("iNaturalist observation")).toHaveValue(
+      "https://www.inaturalist.org/observations/1",
+    );
     expect(
       screen.getByLabelText("Taken in Georgia (needs a place)"),
     ).not.toBeChecked();

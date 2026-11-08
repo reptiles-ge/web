@@ -42,8 +42,13 @@ export function useAdminData<T>(
     setAttempt((count) => count + 1);
   }
 
+  function refresh() {
+    setAttempt((count) => count + 1);
+  }
+
   return {
     data: state.status === "ready" ? state.data : undefined,
+    refresh,
     reload,
     status: state.status,
   };

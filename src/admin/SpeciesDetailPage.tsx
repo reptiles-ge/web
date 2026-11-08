@@ -156,7 +156,7 @@ export function SpeciesDetailPage({
   id: string;
   onSessionExpired: () => void;
 }) {
-  const { data, reload, status } = useAdminData(
+  const { data, refresh, reload, status } = useAdminData(
     () =>
       Promise.all([fetchAdminSpeciesRecord(id), fetchAdminFieldRecords(id)]),
     onSessionExpired,
@@ -354,7 +354,7 @@ export function SpeciesDetailPage({
                           gallery={record.base.gallery}
                           id={id}
                           onSessionExpired={onSessionExpired}
-                          onUploaded={reload}
+                          onUploaded={refresh}
                           scientificName={record.base.scientificName}
                         />
                         <Typography.Text type="secondary">

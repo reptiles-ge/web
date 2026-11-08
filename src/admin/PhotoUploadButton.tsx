@@ -24,7 +24,7 @@ import {
 } from "./photos";
 
 export type PhotoUploadHandle = {
-  openWith: (result: INaturalistImport) => void;
+  openWith: (result: INaturalistImport, observationUrl: string) => void;
 };
 
 type FileState = {
@@ -72,10 +72,10 @@ export function PhotoUploadButton({
   const picked = useRef<INaturalistImport | null>(null);
 
   useImperativeHandle(ref, () => ({
-    openWith(result) {
+    openWith(result, url) {
       if (running) return;
       setStates([]);
-      setObservationUrl("");
+      setObservationUrl(url);
       setImportError(null);
       if (open) {
         fill(result, true);

@@ -99,7 +99,12 @@ describe("PhotoCandidatesButton", () => {
       taxonId: 144501,
     });
     await user.click(within(dialog).getByRole("button", { name: "Add" }));
-    await waitFor(() => expect(onPicked).toHaveBeenCalledWith(IMPORTED));
+    await waitFor(() =>
+      expect(onPicked).toHaveBeenCalledWith(
+        IMPORTED,
+        "https://www.inaturalist.org/observations/one",
+      ),
+    );
     expect(importINaturalistLookup).toHaveBeenCalledWith("larus-genei", {
       photoUrl: "one",
     });
