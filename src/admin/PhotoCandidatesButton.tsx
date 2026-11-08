@@ -24,6 +24,8 @@ import {
   type PhotoCandidate,
 } from "./photoCandidates";
 import { importINaturalistLookup, type INaturalistImport } from "./photos";
+import { SavedCandidates } from "./SavedCandidates";
+import { useSavedCandidates } from "./useSavedCandidates";
 
 type GalleryPhoto = {
   credit?: { date?: string; photoConfidence?: string; photographer?: string };
@@ -70,6 +72,7 @@ export function PhotoCandidatesButton({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);
   const [adding, setAdding] = useState<null | string>(null);
+  const shortlist = useSavedCandidates(id);
   const georgia = gallery.filter(
     (photo) =>
       (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
@@ -167,9 +170,17 @@ export function PhotoCandidatesButton({
               {gallery.length} of {PHOTO_TARGET}
             </Tag>
             {georgia} taken in Georgia. Research-grade observations, most
-            favourited first. Add opens the upload dialog with the photo and its
-            credit; check the Georgian fields there.
+            favourited first. Save a photo to compare and rank it; Add opens the
+            upload dialog with the photo and its credit, check the Georgian
+            fields there.
           </Typography.Text>
+          <SavedCandidates
+            adding={adding}
+            onAdd={(candidate) => void pick(candidate)}
+            onMove={shortlist.move}
+            onUnsave={shortlist.toggle}
+            saved={shortlist.saved}
+          />
           <Space wrap>
             <Segmented<CandidateScope>
               disabled={loading}
@@ -217,6 +228,8 @@ export function PhotoCandidatesButton({
                 inGallery={maybeInGallery(candidate, gallery)}
                 key={candidate.key}
                 onAdd={() => void pick(candidate)}
+                onSave={() => shortlist.toggle(candidate)}
+                saved={shortlist.isSaved(candidate.key)}
               />
             ))}
           </div>
@@ -246,12 +259,16 @@ function CandidateCard({
   candidate,
   inGallery,
   onAdd,
+  onSave,
+  saved,
 }: {
   adding: boolean;
   busy: boolean;
   candidate: PhotoCandidate;
   inGallery: boolean;
   onAdd: () => void;
+  onSave: () => void;
+  saved: boolean;
 }) {
   const size =
     candidate.width && candidate.height
@@ -268,6 +285,14 @@ function CandidateCard({
           type="link"
         >
           Add
+        </Button>,
+        <Button
+          aria-pressed={saved}
+          key="save"
+          onClick={onSave}
+          type={saved ? "primary" : "link"}
+        >
+          {saved ? "Unsave" : "Save"}
         </Button>,
         <Typography.Link
           href={candidate.observationUrl}
