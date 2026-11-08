@@ -76,6 +76,7 @@ import {
   photoRemoveBody,
   speciesIdParam,
   speciesRecordSchema,
+  speciesStatusBody,
   speciesTextsBody,
   speciesWriteBody,
 } from "../schemas/speciesRecord";
@@ -333,6 +334,38 @@ export const adminSpecies = new Hono<ApiEnv>()
         current,
       );
       return c.json({ data: { ...covers(record), version } }, 200);
+    },
+  )
+  .post(
+    "/:id/status",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", speciesStatusBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, status } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      if (current.record.status === status) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          `The species is already ${status}`,
+        );
+      }
+      const { version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        `Set status ${status}`,
+        (record) => {
+          record.status = status;
+        },
+        [],
+        current,
+      );
+      return c.json({ data: { status, version } }, 200);
     },
   )
   .use(requireToken)

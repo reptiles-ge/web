@@ -22,6 +22,7 @@ import {
   SPECIES_STATUS_COLORS,
 } from "./species";
 import { SpeciesAudioPanel } from "./SpeciesAudioPanel";
+import { SpeciesStatusControl } from "./SpeciesStatusControl";
 import { SpeciesTextsEditor } from "./SpeciesTextsEditor";
 import { useAdminData } from "./useAdminList";
 
@@ -305,6 +306,14 @@ export function SpeciesDetailPage({
               <AdminDetailHeader
                 actions={
                   <>
+                    <SpeciesStatusControl
+                      id={id}
+                      onChanged={changed}
+                      onError={(text) => void messages.error(text)}
+                      onSessionExpired={onSessionExpired}
+                      status={record.status}
+                      version={currentVersion}
+                    />
                     <Button onClick={reload}>Reload</Button>
                     <ClearCacheButton
                       description="This species' profile pages, and the hubs, lists and cards that show it, render fresh on reptiles.ge on their next visit, in every language."

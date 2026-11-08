@@ -139,6 +139,7 @@ beforeEach(async () => {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
 });
 
 describe("POST /v1/admin/species/:id/photos", () => {
@@ -359,12 +360,45 @@ describe("POST /v1/admin/species/:id/photos", () => {
     storageFetch.mockImplementation(async (_url, init) =>
       init.method === "GET"
         ? Response.json([])
-        : new Response(null, { status: 401 }),
+        : Response.json(
+            { HttpCode: 401, Message: "Unauthorized" },
+            { status: 401 },
+          ),
     );
+    const logged = vi.spyOn(console, "error").mockImplementation(() => {});
     const before = await record();
     const { body, response } = await send();
     expect(response.status).toBe(502);
     expect(body.error.code).toBe("storage_failed");
     expect((await record()).version).toBe(before.version);
+    expect(logged).toHaveBeenCalledWith(
+      "Photo storage request failed",
+      expect.objectContaining({
+        body: '{"HttpCode":401,"Message":"Unauthorized"}',
+        key: `${ID}-ana-1.jpg`,
+        operation: "put",
+        status: 401,
+      }),
+    );
+    expect(JSON.stringify(logged.mock.calls)).not.toContain("bunny-key");
+  });
+
+  it("logs the listing status when the storage listing fails", async () => {
+    storageFetch.mockImplementation(
+      async () => new Response("Forbidden", { status: 403 }),
+    );
+    const logged = vi.spyOn(console, "error").mockImplementation(() => {});
+    const { body, response } = await send();
+    expect(response.status).toBe(502);
+    expect(body.error.code).toBe("storage_failed");
+    expect(logged).toHaveBeenCalledWith(
+      "Photo storage request failed",
+      expect.objectContaining({
+        body: "Forbidden",
+        key: "/",
+        operation: "list",
+        status: 403,
+      }),
+    );
   });
 });

@@ -160,3 +160,17 @@ export async function setSpeciesCover(
   return ((await response.json()) as { data: { version: number } }).data
     .version;
 }
+
+export async function setSpeciesStatus(
+  id: string,
+  status: AdminSpecies["status"],
+  expectedVersion: number,
+): Promise<number> {
+  const response = await api.v1.admin.species[":id"].status.$post({
+    json: { expectedVersion, status },
+    param: { id },
+  });
+  await checkAdminSave(response, "Status change failed");
+  return ((await response.json()) as { data: { version: number } }).data
+    .version;
+}
