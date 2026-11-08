@@ -9,6 +9,7 @@ import {
   fetchAdminSpeciesRecord,
   fetchAllAdminSpecies,
   SessionExpiredError,
+  setSpeciesStatus,
 } from "./species";
 
 const URL = "https://api.reptiles.ge/v1/admin/species";
@@ -131,5 +132,22 @@ describe("species detail client", () => {
     await expect(clearSpeciesCache("bubo-bubo")).rejects.toThrow(
       "Species cache clear failed: 502",
     );
+  });
+
+  it("posts a status change and returns the new version", async () => {
+    let sent: unknown;
+    server.use(
+      http.post(`${URL}/bubo-bubo/status`, async ({ request }) => {
+        sent = { body: await request.json(), credentials: request.credentials };
+        return HttpResponse.json({
+          data: { status: "unpublished", version: 4 },
+        });
+      }),
+    );
+    expect(await setSpeciesStatus("bubo-bubo", "unpublished", 3)).toBe(4);
+    expect(sent).toEqual({
+      body: { expectedVersion: 3, status: "unpublished" },
+      credentials: "include",
+    });
   });
 });
