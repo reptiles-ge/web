@@ -1,4 +1,10 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -68,6 +74,7 @@ function setup(
 }
 
 beforeEach(() => {
+  window.localStorage.clear();
   vi.mocked(findINaturalistTaxon)
     .mockReset()
     .mockResolvedValue({ id: 144501, name: "Chroicocephalus genei" });
@@ -226,5 +233,67 @@ describe("PhotoCandidatesButton", () => {
     await user.click(screen.getByRole("button", { name: "Close" }));
     await user.click(screen.getByRole("button", { name: "Find photos" }));
     expect(fetchPhotoCandidates).toHaveBeenCalledTimes(1);
+  });
+
+  it("saves photos to a shortlist above the results, ranks them by drag and drop and adds or unsaves from there", async () => {
+    vi.mocked(fetchPhotoCandidates).mockResolvedValue({
+      candidates: [
+        candidate("one"),
+        candidate("two", { observer: "beka", observerName: "" }),
+      ],
+      total: 2,
+    });
+    const { onPicked, user } = setup();
+    await user.click(screen.getByRole("button", { name: "Find photos" }));
+    const dialog = await screen.findByRole("dialog");
+    await within(dialog).findByText("Ana B");
+    expect(within(dialog).queryByText(/Saved \(/)).toBeNull();
+    const saves = within(dialog).getAllByRole("button", { name: "Save" });
+    await user.click(saves[0]!);
+    await user.click(saves[1]!);
+    expect(within(dialog).getByText("Saved (2)")).toBeInTheDocument();
+    const shortlist = within(dialog).getByRole("region", {
+      name: "Saved photos",
+    });
+    const order = () =>
+      within(shortlist)
+        .getAllByAltText(/Saved photo by/)
+        .map((image) => image.getAttribute("alt"));
+    expect(order()).toStrictEqual([
+      "Saved photo by ana",
+      "Saved photo by beka",
+    ]);
+    const second = screen.getByTestId("saved-two");
+    const first = screen.getByTestId("saved-one");
+    fireEvent.dragOver(first);
+    fireEvent.dragStart(second, {
+      dataTransfer: { effectAllowed: "", setData: vi.fn() },
+    });
+    fireEvent.dragOver(first);
+    fireEvent.drop(first);
+    fireEvent.dragEnd(second);
+    expect(order()).toStrictEqual([
+      "Saved photo by beka",
+      "Saved photo by ana",
+    ]);
+    fireEvent.drop(first);
+    expect(order()).toHaveLength(2);
+    await user.click(
+      within(shortlist).getAllByRole("button", { name: "Add" })[0]!,
+    );
+    await waitFor(() =>
+      expect(onPicked).toHaveBeenCalledWith(
+        IMPORTED,
+        "https://www.inaturalist.org/observations/two",
+      ),
+    );
+    await user.click(
+      within(shortlist).getAllByRole("button", { name: "Unsave" })[0]!,
+    );
+    expect(within(dialog).getByText("Saved (1)")).toBeInTheDocument();
+    const pressed = within(dialog).getByRole("button", { pressed: true });
+    expect(pressed).toHaveTextContent("Unsave");
+    await user.click(pressed);
+    expect(within(dialog).queryByText(/Saved \(/)).toBeNull();
   });
 });
