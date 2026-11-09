@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { AdminSaveError } from "./adminResponse";
-import { retryWhenRateLimited } from "./photoUploadKit";
+import { retryWhenRateLimited } from "./photoUploads";
 
 vi.mock("./photos", () => ({
   encodePhotoFile: vi.fn(),

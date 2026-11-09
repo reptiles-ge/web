@@ -106,6 +106,8 @@ describe("GalleryPhotoButtons", () => {
       within(dialog).queryByText("Find photos on iNaturalist"),
     );
     expect(list).toBeDefined();
-    expect(within(list!).getByAltText("Photo by ana")).toBeInTheDocument();
+    expect(
+      within(list!).getByAltText("Observation by ana"),
+    ).toBeInTheDocument();
   });
 });

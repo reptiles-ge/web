@@ -53,7 +53,7 @@ function candidate(key: string, observer: string): PhotoCandidate {
 
 function card(index: number) {
   return screen
-    .getByAltText(new RegExp(`^Photo ${index} by`))
+    .getByAltText(new RegExp(`^Observation ${index} by`))
     .closest(".ant-card") as HTMLElement;
 }
 

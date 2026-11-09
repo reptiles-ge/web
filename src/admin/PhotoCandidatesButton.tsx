@@ -316,7 +316,7 @@ function CandidateCard({
       ]}
       cover={
         <img
-          alt={`Photo by ${candidate.observer}`}
+          alt={`Observation by ${candidate.observer}`}
           loading="lazy"
           src={candidate.previewUrl}
           style={{ aspectRatio: "4 / 3", objectFit: "cover" }}

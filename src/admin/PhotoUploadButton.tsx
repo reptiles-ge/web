@@ -10,15 +10,14 @@ import {
   type INaturalistImport,
   type PhotoCreditFields,
 } from "./photos";
+import { UploadedAlert, UploadStatusTag } from "./photoUploadKit";
 import {
   creditFromINaturalist,
   isSettled,
   profileNameOf,
   runPhotoUploads,
-  UploadedAlert,
   type UploadStatus,
-  UploadStatusTag,
-} from "./photoUploadKit";
+} from "./photoUploads";
 
 export type PhotoUploadHandle = {
   openWith: (result: INaturalistImport, observationUrl: string) => void;

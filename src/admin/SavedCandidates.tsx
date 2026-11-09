@@ -62,7 +62,7 @@ export function SavedCandidates({
             ]}
             cover={
               <img
-                alt={`Saved photo by ${candidate.observer}`}
+                alt={`Saved observation by ${candidate.observer}`}
                 draggable={false}
                 src={candidate.previewUrl}
                 style={{ aspectRatio: "4 / 3", objectFit: "cover" }}

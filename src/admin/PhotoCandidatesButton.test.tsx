@@ -142,13 +142,15 @@ describe("PhotoCandidatesButton", () => {
     await user.click(
       await within(dialog).findByRole("button", { name: "Load more" }),
     );
-    expect(await within(dialog).findAllByAltText(/Photo by/)).toHaveLength(2);
+    expect(
+      await within(dialog).findAllByAltText(/Observation by/),
+    ).toHaveLength(2);
     expect(within(dialog).getByText("2 of 8")).toBeInTheDocument();
     await user.click(within(dialog).getByText("Elsewhere"));
     expect(
       await within(dialog).findByText("small size unknown"),
     ).toBeInTheDocument();
-    expect(within(dialog).getAllByAltText(/Photo by/)).toHaveLength(1);
+    expect(within(dialog).getAllByAltText(/Observation by/)).toHaveLength(1);
     expect(
       within(dialog).queryByRole("button", { name: "Load more" }),
     ).toBeNull();
@@ -261,11 +263,11 @@ describe("PhotoCandidatesButton", () => {
     ).toBeEnabled();
     const order = () =>
       within(shortlist)
-        .getAllByAltText(/Saved photo by/)
+        .getAllByAltText(/Saved observation by/)
         .map((image) => image.getAttribute("alt"));
     expect(order()).toStrictEqual([
-      "Saved photo by ana",
-      "Saved photo by beka",
+      "Saved observation by ana",
+      "Saved observation by beka",
     ]);
     const second = screen.getByTestId("saved-two");
     const first = screen.getByTestId("saved-one");
@@ -277,8 +279,8 @@ describe("PhotoCandidatesButton", () => {
     fireEvent.drop(first);
     fireEvent.dragEnd(second);
     expect(order()).toStrictEqual([
-      "Saved photo by beka",
-      "Saved photo by ana",
+      "Saved observation by beka",
+      "Saved observation by ana",
     ]);
     fireEvent.drop(first);
     expect(order()).toHaveLength(2);

@@ -177,9 +177,11 @@ function observationCandidates(
   observation: CandidateObservation,
   licence: CandidateLicence,
 ): PhotoCandidate[] {
-  const allowed = LICENCES[licence]?.split(",");
+  const codes = LICENCES[licence];
+  const allowed = codes ? new Set(codes.split(",")) : undefined;
+  const georgia = Boolean(observation.place_ids?.includes(GEORGIA_PLACE_ID));
   return (observation.photos ?? []).flatMap((photo) => {
-    if (allowed && !allowed.includes(photo.license_code ?? "")) return [];
+    if (allowed && !allowed.has(photo.license_code ?? "")) return [];
     const lookup = iNaturalistObservationPhoto(observation, photo);
     const previewUrl = photo.url?.replace(/\/square\.(\w+)$/, "/medium.$1");
     if (!lookup.ok || !previewUrl || previewUrl === photo.url) return [];
@@ -188,7 +190,7 @@ function observationCandidates(
     return [
       {
         faves: observation.faves_count ?? 0,
-        georgia: Boolean(observation.place_ids?.includes(GEORGIA_PLACE_ID)),
+        georgia,
         height,
         key: `${observation.id}-${photo.id}`,
         licence: lookup.metadata.license,

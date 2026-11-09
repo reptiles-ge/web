@@ -18,6 +18,7 @@ import type { PhotoCandidate } from "./photoCandidates";
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
 import { importINaturalistLookup, type PhotoCreditFields } from "./photos";
+import { UploadedAlert, UploadStatusTag } from "./photoUploadKit";
 import {
   creditFromINaturalist,
   isSettled,
@@ -25,10 +26,8 @@ import {
   profileNameOf,
   retryWhenRateLimited,
   runPhotoUploads,
-  UploadedAlert,
   type UploadStatus,
-  UploadStatusTag,
-} from "./photoUploadKit";
+} from "./photoUploads";
 
 type BulkItem = {
   candidate: PhotoCandidate;
@@ -104,18 +103,14 @@ export function BulkCreateButton({
 
   async function loadAll(queue: PhotoCandidate[], run: number) {
     const pending = [...queue];
+    async function drain(): Promise<void> {
+      const next = pending.shift();
+      if (!next || session.current !== run) return;
+      await load(next, run);
+      return drain();
+    }
     await Promise.all(
-      Array.from({ length: Math.min(LOAD_CONCURRENCY, pending.length) }, () =>
-        (async () => {
-          for (
-            let next = pending.shift();
-            next && session.current === run;
-            next = pending.shift()
-          ) {
-            await load(next, run);
-          }
-        })(),
-      ),
+      Array.from({ length: Math.min(LOAD_CONCURRENCY, pending.length) }, drain),
     );
   }
 
@@ -317,7 +312,7 @@ function BulkCard({
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
         <div style={{ flex: "0 0 200px" }}>
           <img
-            alt={`Photo ${index + 1} by ${candidate.observer}`}
+            alt={`Observation ${index + 1} by ${candidate.observer}`}
             src={candidate.previewUrl}
             style={{
               aspectRatio: "4 / 3",

@@ -186,22 +186,15 @@ export async function storePhoto(
   );
   const existing = await storage.files("");
   const slug = photographerSlug(photographer);
-  let key: string | undefined;
-  for (let n = 1; n <= MAX_KEY_ATTEMPTS && !key; n += 1) {
-    const candidate = speciesPhotoKey({
+  const candidates = Array.from({ length: MAX_KEY_ATTEMPTS }, (_, index) =>
+    speciesPhotoKey({
       ext: photo.original.ext,
       id: record.base.id,
-      n,
+      n: index + 1,
       slug,
-    });
-    if (
-      !used.has(candidate) &&
-      !existing.has(candidate) &&
-      (await reserve(candidate))
-    ) {
-      key = candidate;
-    }
-  }
+    }),
+  ).filter((candidate) => !used.has(candidate) && !existing.has(candidate));
+  const key = await firstReserved(candidates, reserve);
   if (!key) {
     throw new ApiError(
       409,
@@ -220,6 +213,15 @@ export async function storePhoto(
     ),
   );
   return key;
+}
+
+async function firstReserved(
+  candidates: string[],
+  reserve: (key: string) => Promise<boolean>,
+): Promise<string | undefined> {
+  const [candidate, ...rest] = candidates;
+  if (candidate === undefined) return undefined;
+  return (await reserve(candidate)) ? candidate : firstReserved(rest, reserve);
 }
 
 function invalid(message: string, details?: unknown) {
