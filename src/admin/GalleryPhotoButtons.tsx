@@ -33,6 +33,7 @@ export function GalleryPhotoButtons({
           upload.current?.openWith(result, observationUrl)
         }
         onSessionExpired={onSessionExpired}
+        onUploaded={onUploaded}
         scientificName={scientificName}
       />
     </Space>

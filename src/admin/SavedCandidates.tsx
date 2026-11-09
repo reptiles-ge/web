@@ -1,16 +1,18 @@
 import { Button, Card, Space, Tag, Typography } from "antd";
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 
 import type { PhotoCandidate } from "./photoCandidates";
 
 export function SavedCandidates({
   adding,
+  bulk,
   onAdd,
   onMove,
   onUnsave,
   saved,
 }: {
   adding: null | string;
+  bulk?: ReactNode;
   onAdd: (candidate: PhotoCandidate) => void;
   onMove: (key: string, toIndex: number) => void;
   onUnsave: (candidate: PhotoCandidate) => void;
@@ -26,7 +28,8 @@ export function SavedCandidates({
       </Typography.Title>
       <Typography.Paragraph type="secondary">
         Your shortlist for this species, kept in this browser. Drag the cards to
-        rank them; Add opens the upload dialog.
+        rank them; Add opens the upload dialog. Bulk create opens one form per
+        saved photo and uploads them all at once.
       </Typography.Paragraph>
       <div
         style={{
@@ -115,6 +118,7 @@ export function SavedCandidates({
           </Card>
         ))}
       </div>
+      {bulk ? <div style={{ marginTop: 12 }}>{bulk}</div> : null}
     </section>
   );
 }

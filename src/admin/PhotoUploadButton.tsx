@@ -1,27 +1,24 @@
 import type { UploadFile } from "antd/es/upload/interface";
 
-import {
-  Alert,
-  Button,
-  Form,
-  Input,
-  List,
-  Modal,
-  Space,
-  Tag,
-  Upload,
-} from "antd";
+import { Alert, Button, Form, Input, List, Modal, Space, Upload } from "antd";
 import { type Ref, useId, useImperativeHandle, useRef, useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
 import {
-  encodePhotoFile,
   importINaturalistPhoto,
   type INaturalistImport,
   type PhotoCreditFields,
-  uploadSpeciesPhoto,
 } from "./photos";
+import {
+  creditFromINaturalist,
+  isSettled,
+  profileNameOf,
+  runPhotoUploads,
+  UploadedAlert,
+  type UploadStatus,
+  UploadStatusTag,
+} from "./photoUploadKit";
 
 export type PhotoUploadHandle = {
   openWith: (result: INaturalistImport, observationUrl: string) => void;
@@ -30,22 +27,11 @@ export type PhotoUploadHandle = {
 type FileState = {
   message?: string;
   name: string;
-  status: "added" | "compressing" | "failed" | "uploading" | "waiting";
+  status: UploadStatus;
   uid: string;
 };
 
 const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
-
-const STATUS_TAGS: Record<
-  FileState["status"],
-  { color: string; label: string }
-> = {
-  added: { color: "green", label: "Added" },
-  compressing: { color: "processing", label: "Compressing" },
-  failed: { color: "red", label: "Failed" },
-  uploading: { color: "processing", label: "Uploading" },
-  waiting: { color: "default", label: "Waiting" },
-};
 
 export function PhotoUploadButton({
   id,
@@ -69,7 +55,10 @@ export function PhotoUploadButton({
   const [imported, setImported] = useState<INaturalistImport | null>(null);
   const [importError, setImportError] = useState<null | string>(null);
   const added = states.filter((item) => item.status === "added").length;
-  const finished = !running && states.length > 0 && states.every(isSettled);
+  const finished =
+    !running &&
+    states.length > 0 &&
+    states.every((item) => isSettled(item.status));
   const picked = useRef<INaturalistImport | null>(null);
 
   useImperativeHandle(ref, () => ({
@@ -103,24 +92,8 @@ export function PhotoUploadButton({
         uid: file.name,
       },
     ]);
-    form.setFieldsValue({
-      date: metadata.date,
-      ...(setGeorgia ? { georgiaField: metadata.georgiaField } : {}),
-      lat: String(metadata.lat),
-      lng: String(metadata.lng),
-      location: metadata.location,
-      locationEn: metadata.location,
-      photographer: metadata.photographer,
-      photographerEn: metadata.photographer,
-      url: "",
-    });
+    form.setFieldsValue(creditFromINaturalist(metadata, setGeorgia));
     setImported({ file, metadata });
-  }
-
-  function update(uid: string, next: Partial<FileState>) {
-    setStates((current) =>
-      current.map((item) => (item.uid === uid ? { ...item, ...next } : item)),
-    );
   }
 
   function close() {
@@ -154,11 +127,13 @@ export function PhotoUploadButton({
   }
 
   async function upload(credit: PhotoCreditFields) {
-    const queue = files.flatMap((item) =>
-      item.originFileObj ? [{ file: item.originFileObj, uid: item.uid }] : [],
+    const jobs = files.flatMap((item) =>
+      item.originFileObj
+        ? [{ credit, file: item.originFileObj, uid: item.uid }]
+        : [],
     );
     setStates(
-      queue.map(({ file, uid }) => ({
+      jobs.map(({ file, uid }) => ({
         name: file.name,
         status: "waiting",
         uid,
@@ -167,25 +142,17 @@ export function PhotoUploadButton({
     setRunning(true);
     let uploaded = 0;
     try {
-      for (const { file, uid } of queue) {
-        try {
-          update(uid, { status: "compressing" });
-          const photo = await encodePhotoFile(file);
-          update(uid, { status: "uploading" });
-          await uploadSpeciesPhoto(id, credit, photo);
-          update(uid, { status: "added" });
-          uploaded += 1;
-        } catch (error) {
-          if (error instanceof SessionExpiredError) {
-            onSessionExpired();
-            return;
-          }
-          update(uid, {
-            message: error instanceof Error ? error.message : "Upload failed",
-            status: "failed",
-          });
-        }
-      }
+      uploaded = await runPhotoUploads({
+        id,
+        jobs,
+        onSessionExpired,
+        onStatus: (uid, status, message) =>
+          setStates((current) =>
+            current.map((item) =>
+              item.uid === uid ? { ...item, message, status } : item,
+            ),
+          ),
+      });
     } finally {
       setRunning(false);
       if (uploaded > 0) onUploaded();
@@ -279,45 +246,22 @@ export function PhotoUploadButton({
             </p>
           </Upload.Dragger>
           <PhotoCreditFormFields
-            profileName={
-              imported &&
-              imported.metadata.photographerName !==
-                imported.metadata.photographer
-                ? imported.metadata.photographerName
-                : ""
-            }
+            profileName={profileNameOf(imported?.metadata)}
           />
         </Form>
         {states.length > 0 ? (
           <List
             dataSource={states}
             renderItem={(item) => (
-              <List.Item
-                extra={
-                  <Tag color={STATUS_TAGS[item.status].color}>
-                    {STATUS_TAGS[item.status].label}
-                  </Tag>
-                }
-              >
+              <List.Item extra={<UploadStatusTag status={item.status} />}>
                 <List.Item.Meta description={item.message} title={item.name} />
               </List.Item>
             )}
             size="small"
           />
         ) : null}
-        {finished && added > 0 ? (
-          <Alert
-            showIcon
-            style={{ marginTop: 16 }}
-            title={`${added} ${added === 1 ? "photo" : "photos"} added to the gallery. The site shows them after you clear this species' cache, and serves their AVIF and WebP sizes from the next site deploy.`}
-            type="success"
-          />
-        ) : null}
+        {finished && added > 0 ? <UploadedAlert count={added} /> : null}
       </Modal>
     </>
   );
-}
-
-function isSettled(item: FileState) {
-  return item.status === "added" || item.status === "failed";
 }
