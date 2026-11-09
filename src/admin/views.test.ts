@@ -30,17 +30,18 @@ describe("admin views client", () => {
     );
     expect(
       await fetchAdminViews({
-        days: 7,
+        from: "2026-10-18",
         kind: "news",
         limit: 20,
         page: 2,
         q: "",
+        to: "2026-10-24",
       }),
     ).toEqual(page);
     expect(seen).toEqual([
       {
         credentials: "include",
-        path: "/v1/admin/views?days=7&kind=news&limit=20&page=2",
+        path: "/v1/admin/views?from=2026-10-18&kind=news&limit=20&page=2&to=2026-10-24",
       },
     ]);
   });

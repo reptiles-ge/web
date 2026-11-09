@@ -40,7 +40,7 @@
     {
       "name": "VIEW_LIMITER",
       "namespace_id": "1234",
-      "simple": { "limit": 30, "period": 60 },
+      "simple": { "limit": 60, "period": 60 },
     },
     {
       "name": "API_KEY_LIMITER",

@@ -1,31 +1,23 @@
 import type { ColumnsType } from "antd/es/table";
 
-import { Segmented, Tag, Typography } from "antd";
+import { Tag, Typography } from "antd";
 
 import type { ContentViewKind } from "@/lib/contentViewInput";
 
 import { AdminListView } from "./AdminListView";
 import { nameColumn, serverFilter } from "./listColumns";
 import { serverPaging, usePagedList } from "./usePagedList";
+import { DateRangeFilter } from "./ViewFilters";
+import { VIEW_RANGE_URL } from "./viewRange";
 import {
   type AdminView,
   type AdminViewFilters,
-  type AdminViewPeriod,
   fetchAdminViews,
 } from "./views";
-
-type Period = "all" | `${AdminViewPeriod}`;
 
 type ViewRow = AdminView & { key: string };
 
 const KINDS: ContentViewKind[] = ["species", "news"];
-
-const PERIODS: Array<{ label: string; value: Period }> = [
-  { label: "Today", value: "1" },
-  { label: "7 days", value: "7" },
-  { label: "30 days", value: "30" },
-  { label: "All time", value: "all" },
-];
 
 export function ViewsPage({
   onSessionExpired,
@@ -33,7 +25,7 @@ export function ViewsPage({
   onSessionExpired: () => void;
 }) {
   const list = usePagedList(fetchAdminViews, onSessionExpired, {
-    days: [1, 7, 30],
+    ...VIEW_RANGE_URL,
     kind: KINDS,
   });
   const { items, lastPage, query, setFilters } = list;
@@ -70,18 +62,7 @@ export function ViewsPage({
     <AdminListView<ViewRow>
       actions={
         <>
-          <Segmented<Period>
-            onChange={(value) =>
-              setFilters({
-                days:
-                  value === "all"
-                    ? undefined
-                    : (Number(value) as AdminViewPeriod),
-              })
-            }
-            options={PERIODS}
-            value={query.days ? `${query.days}` : "all"}
-          />
+          <DateRangeFilter onChange={setFilters} value={query} />
           <Typography.Text type="secondary">
             {(lastPage?.views ?? 0).toLocaleString("en")} views
           </Typography.Text>

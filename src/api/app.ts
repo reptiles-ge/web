@@ -18,9 +18,11 @@ import { adminApiKeys } from "./routes/adminApiKeys";
 import { adminAuthors } from "./routes/adminAuthors";
 import { adminDrafts } from "./routes/adminDrafts";
 import { adminNews } from "./routes/adminNews";
+import { adminPageViews } from "./routes/adminPageViews";
 import { adminRatings } from "./routes/adminRatings";
 import { adminSite } from "./routes/adminSite";
 import { adminSpecies } from "./routes/adminSpecies";
+import { adminTrafficSources } from "./routes/adminTrafficSources";
 import { adminUsers } from "./routes/adminUsers";
 import { adminViews } from "./routes/adminViews";
 import { auth } from "./routes/auth";
@@ -85,9 +87,11 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/admin/authors", adminAuthors)
   .route("/v1/admin/drafts", adminDrafts)
   .route("/v1/admin/news", adminNews)
+  .route("/v1/admin/page-views", adminPageViews)
   .route("/v1/admin/ratings", adminRatings)
   .route("/v1/admin/site", adminSite)
   .route("/v1/admin/species", adminSpecies)
+  .route("/v1/admin/traffic-sources", adminTrafficSources)
   .route("/v1/admin/users", adminUsers)
   .route("/v1/admin/views", adminViews)
   .route("/v1/docs", docs)
