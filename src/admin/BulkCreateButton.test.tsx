@@ -148,6 +148,19 @@ describe("BulkCreateButton", () => {
     ).not.toBeChecked();
     expect(within(card(1)).getByText("Ana B")).toBeInTheDocument();
     expect(within(card(1)).getByLabelText("Source link")).toHaveValue("");
+    for (const index of [1, 2]) {
+      expect(
+        within(card(index)).getByLabelText("Photographer (Georgian)"),
+      ).toHaveAttribute("name", "photographer");
+      expect(
+        within(card(index)).getByLabelText("Place (English)"),
+      ).toHaveAttribute("name", "locationEn");
+    }
+    const upload = screen.getByText("Upload 2 photos").closest("button")!;
+    expect(upload).toHaveAttribute("type", "submit");
+    expect(upload.getAttribute("form")).toBe(
+      card(1).closest("form")?.getAttribute("id"),
+    );
   });
 
   it("uploads every photo with its own credit in one click", async () => {

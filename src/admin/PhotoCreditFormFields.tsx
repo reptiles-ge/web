@@ -25,7 +25,7 @@ export function PhotoCreditFormFields({
             label="Photographer (Georgian)"
             name={[...prefix, "photographer"]}
           >
-            <Input maxLength={200} />
+            <Input maxLength={200} name="photographer" />
           </Form.Item>
         </Col>
         <Col span={12}>
@@ -33,37 +33,37 @@ export function PhotoCreditFormFields({
             label="Photographer (English)"
             name={[...prefix, "photographerEn"]}
           >
-            <Input maxLength={200} />
+            <Input maxLength={200} name="photographerEn" />
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item label="Place (Georgian)" name={[...prefix, "location"]}>
-            <Input maxLength={300} />
+            <Input maxLength={300} name="location" />
           </Form.Item>
         </Col>
         <Col span={12}>
           <Form.Item label="Place (English)" name={[...prefix, "locationEn"]}>
-            <Input maxLength={300} />
+            <Input maxLength={300} name="locationEn" />
           </Form.Item>
         </Col>
         <Col span={8}>
           <Form.Item label="Date" name={[...prefix, "date"]}>
-            <Input maxLength={40} placeholder="2026-05-10" />
+            <Input maxLength={40} name="date" placeholder="2026-05-10" />
           </Form.Item>
         </Col>
         <Col span={8}>
           <Form.Item label="Latitude" name={[...prefix, "lat"]}>
-            <Input maxLength={40} placeholder="41.81667" />
+            <Input maxLength={40} name="lat" placeholder="41.81667" />
           </Form.Item>
         </Col>
         <Col span={8}>
           <Form.Item label="Longitude" name={[...prefix, "lng"]}>
-            <Input maxLength={40} placeholder="45.35" />
+            <Input maxLength={40} name="lng" placeholder="45.35" />
           </Form.Item>
         </Col>
         <Col span={24}>
           <Form.Item label="Source link" name={[...prefix, "url"]}>
-            <Input maxLength={500} placeholder="https://" />
+            <Input maxLength={500} name="url" placeholder="https://" />
           </Form.Item>
         </Col>
       </Row>
