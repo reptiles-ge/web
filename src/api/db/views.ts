@@ -37,6 +37,15 @@ const PUBLISHED_TARGET: Record<ContentViewKind, string> = {
   species: "SELECT 1 FROM species WHERE id = ? AND status = 'published'",
 };
 
+export async function countPublishedNews(db: ApiDatabase) {
+  const row = await db
+    .prepare(
+      "SELECT COUNT(*) AS total FROM news_articles WHERE status = 'published'",
+    )
+    .first<{ total: number }>();
+  return row?.total ?? 0;
+}
+
 export async function forgetViewVisitorsBefore(db: ApiDatabase, day: string) {
   await db.batch([
     db.prepare("DELETE FROM content_view_visitors WHERE day < ?").bind(day),
@@ -44,6 +53,28 @@ export async function forgetViewVisitorsBefore(db: ApiDatabase, day: string) {
     db.prepare("DELETE FROM page_view_visitors WHERE day < ?").bind(day),
     db.prepare("DELETE FROM traffic_source_visitors WHERE day < ?").bind(day),
   ]);
+}
+
+export async function isContributor(db: ApiDatabase, id: string) {
+  const row = await db
+    .prepare("SELECT 1 FROM authors WHERE id = ? AND is_contributor = 1")
+    .bind(id)
+    .first();
+  return row !== null;
+}
+
+export async function isPublishedSpeciesInGroup(
+  db: ApiDatabase,
+  id: string,
+  group: string,
+) {
+  const row = await db
+    .prepare(
+      "SELECT 1 FROM species WHERE id = ? AND group_id = ? AND status = 'published'",
+    )
+    .bind(id, group)
+    .first();
+  return row !== null;
 }
 
 export async function isPublishedTarget(
@@ -98,16 +129,19 @@ export async function readViewSalt(
   day: string,
   candidate: string,
 ) {
-  const [, selected] = await db.batch([
+  const [inserted, selected] = await db.batch([
     db
       .prepare(
-        "INSERT INTO content_view_salts (day, salt) VALUES (?, ?) ON CONFLICT (day) DO NOTHING",
+        "INSERT INTO content_view_salts (day, salt) VALUES (?, ?) ON CONFLICT (day) DO NOTHING RETURNING salt",
       )
       .bind(day, candidate),
     db.prepare("SELECT salt FROM content_view_salts WHERE day = ?").bind(day),
   ]);
   const row = selected?.results[0] as undefined | { salt: string };
-  return row?.salt ?? candidate;
+  return {
+    created: (inserted?.results.length ?? 0) > 0,
+    salt: row?.salt ?? candidate,
+  };
 }
 
 export async function readViewTotal(
@@ -127,9 +161,9 @@ export async function readViewTotal(
 export async function recordView(db: ApiDatabase, view: ContentView) {
   const { results } = await db
     .prepare(
-      `INSERT OR IGNORE INTO content_view_visitors (day, kind, target_id, visitor) SELECT ?, ?, ?, ? WHERE EXISTS (${PUBLISHED_TARGET[view.kind]}) RETURNING visitor`,
+      "INSERT OR IGNORE INTO content_view_visitors (day, kind, target_id, visitor) VALUES (?, ?, ?, ?) RETURNING visitor",
     )
-    .bind(view.day, view.kind, view.id, view.visitor, view.id)
+    .bind(view.day, view.kind, view.id, view.visitor)
     .all<{ visitor: string }>();
   if (results.length === 0) return;
   await db

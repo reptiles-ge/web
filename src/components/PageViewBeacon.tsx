@@ -30,13 +30,13 @@ export function PageViewBeacon({ apiOrigin }: { apiOrigin: string }) {
 
   useEffect(() => {
     if (navigator.webdriver) return;
-    const entry = takeLandingEntry();
     const path = pageViewPath(switchIndex, pathname, locale, {
       id,
       page,
       slug,
     });
     if (!path) return;
+    const entry = takeLandingEntry();
     const today = siteDay(new Date());
     const pageKey = `${PAGE_PREFIX}${path}`;
     const entryKey = entry ? `${ENTRY_PREFIX}${JSON.stringify(entry)}` : null;

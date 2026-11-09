@@ -241,7 +241,7 @@ export function trafficChannel(source: string): TrafficChannel {
 
 function hostMatches(host: string, pattern: string) {
   if (pattern.endsWith(".*")) {
-    const base = pattern.slice(0, -2).replace(/\./g, "\\.");
+    const base = pattern.slice(0, -2).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     return new RegExp(`(^|\\.)${base}(\\.[a-z]{2,3}){1,2}$`).test(host);
   }
   return host === pattern || host.endsWith(`.${pattern}`);

@@ -6,6 +6,7 @@ import { locales } from "@/i18n/locales";
 import {
   TRAFFIC_SOURCE_IDS,
   type TrafficChannel,
+  trafficChannel,
   type TrafficSourceId,
 } from "@/lib/trafficSource";
 
@@ -86,6 +87,11 @@ export function TrafficSourcesPage({
   const { items, lastPage, query, setFilters } = list;
   const visits = lastPage?.visits ?? 0;
 
+  const sourceButtons = lastPage?.sources ?? [];
+  const selectedMissing =
+    query.source !== undefined &&
+    !sourceButtons.some((row) => row.source === query.source);
+
   function pick(source: TrafficSourceId | undefined) {
     setFilters({ source: source === query.source ? undefined : source });
   }
@@ -119,7 +125,20 @@ export function TrafficSourcesPage({
       status={list.status}
       summary={
         <Flex gap="small" wrap>
-          {(lastPage?.sources ?? []).map((row) => (
+          {selectedMissing && query.source ? (
+            <Button
+              aria-pressed
+              onClick={() => pick(query.source)}
+              type="primary"
+            >
+              <SourceTag
+                channel={trafficChannel(query.source)}
+                source={query.source}
+              />
+              0 · 0%
+            </Button>
+          ) : null}
+          {sourceButtons.map((row) => (
             <Button
               aria-pressed={query.source === row.source}
               key={row.source}

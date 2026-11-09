@@ -9,6 +9,7 @@ import { app } from "../app";
 import { createNewsTestDatabase } from "../testing/sqliteDatabase";
 
 const SITE = "https://reptiles.ge";
+const OLD_VISITOR = "0".repeat(64);
 const BROWSER =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36";
 
@@ -240,6 +241,74 @@ describe("POST /v1/views", () => {
 
     expect(pageViews()).toEqual([]);
     expect(sources()).toEqual([]);
+  });
+
+  it("counts only pages that exist behind a dynamic route", async () => {
+    sqlite.exec(
+      "INSERT INTO authors (id, role_id, is_contributor, portrait_src) VALUES ('nika', 'photographer', 1, '/p.jpg'), ('someone', NULL, 0, NULL)",
+    );
+    for (const path of [
+      "/regions/kakheti",
+      "/quiz/snake",
+      "/authors/nika",
+      "/lizards/paralaudakia-caucasia",
+    ]) {
+      await post({ locale: "ka", path });
+    }
+    for (const path of [
+      "/regions/typo",
+      "/quiz/turtle",
+      "/authors/someone",
+      "/authors/nobody",
+      "/birds/macrovipera-lebetina",
+      "/news/page/999",
+    ]) {
+      await post({ entry: { referrer: "google.com" }, locale: "ka", path });
+    }
+
+    expect(pageViews().map((row) => (row as { path: string }).path)).toEqual([
+      "/authors/nika",
+      "/lizards/paralaudakia-caucasia",
+      "/quiz/snake",
+      "/regions/kakheti",
+    ]);
+    expect(views()).toEqual([
+      { kind: "species", target_id: "paralaudakia-caucasia", views: 1 },
+    ]);
+    expect(sources()).toEqual([]);
+  });
+
+  it("counts an archive page while it has articles", async () => {
+    const total = (
+      sqlite
+        .prepare(
+          "SELECT COUNT(*) AS total FROM news_articles WHERE status = 'published'",
+        )
+        .get() as { total: number }
+    ).total;
+    const last = Math.max(1, Math.ceil(total / 24));
+    await post({ locale: "ka", path: `/news/page/${last + 1}` });
+    if (last >= 2) await post({ locale: "ka", path: `/news/page/${last}` });
+
+    expect(pageViews()).toEqual(
+      last >= 2 ? [{ locale: "ka", path: `/news/page/${last}`, views: 1 }] : [],
+    );
+  });
+
+  it("forgets earlier visitors only once, when the day starts", async () => {
+    await post({ locale: "ka", path: "/" });
+    sqlite.exec(
+      `INSERT INTO page_view_visitors (day, path, visitor) VALUES ('2026-10-01', '/', '${OLD_VISITOR}')`,
+    );
+    await post({ locale: "ka", path: "/about" });
+
+    expect(
+      sqlite
+        .prepare(
+          "SELECT visitor FROM page_view_visitors WHERE day < '2026-10-24'",
+        )
+        .all(),
+    ).toEqual([{ visitor: OLD_VISITOR }]);
   });
 
   it("counts a news page and the article", async () => {

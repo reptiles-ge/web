@@ -53,6 +53,21 @@ describe("TrafficSourcesPage", () => {
     expect(screen.getByText("—")).toBeInTheDocument();
   });
 
+  it("keeps a chosen source clearable when it has no visits", async () => {
+    window.history.replaceState(null, "", "/sources?source=telegram");
+    render(<TrafficSourcesPage onSessionExpired={vi.fn()} />);
+    await userEvent.click(
+      await screen.findByRole("button", { name: /telegram 0/, pressed: true }),
+    );
+    await vi.waitFor(() =>
+      expect(fetchAdminTrafficSources).toHaveBeenLastCalledWith({
+        limit: 50,
+        page: 1,
+        source: undefined,
+      }),
+    );
+  });
+
   it("filters by a source and clears it on a second click", async () => {
     render(<TrafficSourcesPage onSessionExpired={vi.fn()} />);
     const google = await screen.findByRole("button", { name: /google 75/ });

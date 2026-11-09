@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { contentViewForPath, pageViewTemplate } from "@/lib/pageViewPath";
+import {
+  contentViewForPath,
+  pageViewTarget,
+  pageViewTemplate,
+} from "@/lib/pageViewPath";
 
 describe("pageViewTemplate", () => {
   it.each([
@@ -26,6 +30,30 @@ describe("pageViewTemplate", () => {
   ])("refuses %j", (path) => {
     expect(pageViewTemplate(path)).toBeUndefined();
   });
+});
+
+describe("pageViewTarget", () => {
+  it.each([
+    ["/about", { kind: "static" }],
+    [
+      "/birds/parus-major",
+      { group: "bird", id: "parus-major", kind: "species" },
+    ],
+    ["/regions/kakheti", { id: "kakheti", kind: "region" }],
+    ["/quiz/snake", { id: "snake", kind: "quiz" }],
+    ["/authors/nika", { id: "nika", kind: "author" }],
+    ["/news/new-checklist", { id: "new-checklist", kind: "news" }],
+    ["/news/page/3", { kind: "newsPage", page: 3 }],
+  ])("reads %s", (path, target) => {
+    expect(pageViewTarget(path)).toEqual(target);
+  });
+
+  it.each(["/news/page/1", "/news/page/0", "/nowhere"])(
+    "has no target for %s",
+    (path) => {
+      expect(pageViewTarget(path)).toBeUndefined();
+    },
+  );
 });
 
 describe("contentViewForPath", () => {

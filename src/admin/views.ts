@@ -36,12 +36,12 @@ export type AdminViewFilters = AdminViewRange & {
   kind: ContentViewKind;
 };
 
-export type AdminViewRange = { from: string; to: string };
-
 export type AdminViewsPage = InferResponseType<
   typeof api.v1.admin.views.$get,
   200
 >;
+
+type AdminViewRange = { from: string; to: string };
 
 export async function fetchAdminPageViews(
   query: PagedQuery<AdminPageViewFilters>,

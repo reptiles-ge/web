@@ -5,7 +5,8 @@ import {
   type LocaleSwitchIndex,
   resolvePageContextFromIndex,
 } from "@/lib/localeSwitch";
-import { PAGE_PATH_SEGMENT, SPECIES_PAGE_TEMPLATES } from "@/lib/pageViewPath";
+import { PAGE_PATH_SEGMENT } from "@/lib/pageViewPath";
+import { SPECIES_HUB_BY_PAGE } from "@/lib/speciesHubs";
 
 const QUIZ_TEMPLATE = "/quiz/[slug]";
 
@@ -16,7 +17,7 @@ export function pageViewPath(
   params: Record<string, string | undefined>,
 ): string | undefined {
   if (!Object.hasOwn(pathnames, pathname)) return undefined;
-  if (SPECIES_PAGE_TEMPLATES.has(pathname) || pathname === QUIZ_TEMPLATE) {
+  if (SPECIES_HUB_BY_PAGE.has(pathname) || pathname === QUIZ_TEMPLATE) {
     const context = resolvePageContextFromIndex(index, pathname, locale, {
       slug: params.slug,
     });

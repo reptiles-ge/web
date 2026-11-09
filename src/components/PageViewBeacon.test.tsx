@@ -96,6 +96,20 @@ describe("PageViewBeacon", () => {
     ]);
   });
 
+  it("keeps the landing source for the first page that can be counted", async () => {
+    setReferrer("https://www.google.com/");
+    route.pathname = "/no-such-page";
+    const first = await renderBeacon();
+    first.unmount();
+    route.pathname = "/about";
+    await renderBeacon();
+
+    expect(sentBodies()).toEqual([
+      { entry: { referrer: "google.com" }, locale: "ka", path: "/about" },
+    ]);
+    expect(vi.mocked(fetch).mock.calls[0]?.[1]?.keepalive).toBeUndefined();
+  });
+
   it("sends a page once a day but a new source again", async () => {
     window.localStorage.setItem("reptiles:page-viewed:/", "2026-10-24");
     window.localStorage.setItem("reptiles:entry:{}", "2026-10-24");
