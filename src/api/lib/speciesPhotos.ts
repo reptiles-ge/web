@@ -21,14 +21,7 @@ export function removePhoto(record: SpeciesRecord, src: string) {
   if (index < 0) throw unknownPhoto(src);
   const remaining = base.gallery.filter((item) => item.src !== src);
   const replacement = remaining[Math.min(index, remaining.length - 1)];
-  if (!replacement) {
-    throw new ApiError(
-      400,
-      "invalid_request",
-      "Cannot delete the last gallery photo",
-    );
-  }
-  const target = coverTargetFor(base.image, base.mobileImage ?? "", src);
+  const target = coverTargetFor(base.image ?? "", base.mobileImage ?? "", src);
   base.gallery = remaining;
   for (const locale of TRANSLATION_LOCALES) {
     const translation = record.translations[locale];
@@ -39,8 +32,12 @@ export function removePhoto(record: SpeciesRecord, src: string) {
       if (translation.gallery.length === 0) delete translation.gallery;
     }
   }
-  if (target) applyCover(record, target, replacement.src, replacement.src);
-  return { coverReassigned: Boolean(target) };
+  if (target && replacement) {
+    applyCover(record, target, replacement.src, replacement.src);
+  } else if (target) {
+    clearCovers(record);
+  }
+  return { coverReassigned: Boolean(target && replacement) };
 }
 
 export function reorderPhotos(record: SpeciesRecord, srcs: string[]) {
@@ -89,7 +86,7 @@ export function setPhotoCoordinates(
   if (!item) throw unknownPhoto(src);
   const credit = withCoordinates(item.credit, coordinates);
   setCredit(item, "credit", credit);
-  if (matchesCoverSource(base.image, src)) {
+  if (base.image && matchesCoverSource(base.image, src)) {
     setCredit(base, "imageCredit", credit);
   }
   if (base.mobileImage && matchesCoverSource(base.mobileImage, src)) {
@@ -117,7 +114,7 @@ export function setPhotoCredits(
   } else if (!georgiaField && item.photoConfidence === GEORGIA_FIELD) {
     delete item.photoConfidence;
   }
-  const desktop = matchesCoverSource(base.image, src);
+  const desktop = Boolean(base.image && matchesCoverSource(base.image, src));
   const mobile = Boolean(
     base.mobileImage && matchesCoverSource(base.mobileImage, src),
   );
@@ -171,6 +168,18 @@ function applyCover(
     if (mobile && translation.mobileImageCredit) {
       setCredit(translation, "mobileImageCredit", overlayCredit);
     }
+  }
+}
+
+function clearCovers(record: SpeciesRecord) {
+  const { base } = record;
+  delete base.image;
+  delete base.imageCredit;
+  delete base.mobileImage;
+  delete base.mobileImageCredit;
+  for (const locale of TRANSLATION_LOCALES) {
+    delete record.translations[locale].imageCredit;
+    delete record.translations[locale].mobileImageCredit;
   }
 }
 

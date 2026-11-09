@@ -310,7 +310,12 @@ async function main() {
 
   const og = resolveOgImageConfig();
   const config = resolveImageConfig();
-  const targets = collectTargets(options, await getSpeciesCatalog("ka"));
+  const targets = collectTargets(
+    options,
+    (await getSpeciesCatalog("ka")).filter(
+      (item): item is typeof item & { image: string } => Boolean(item.image),
+    ),
+  );
   const storage = createBunnyStorageContext().storage;
 
   const speciesCount = targets.filter((t) => t.kind === "species").length;

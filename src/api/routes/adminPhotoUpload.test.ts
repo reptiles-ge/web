@@ -278,6 +278,26 @@ describe("POST /v1/admin/species/:id/photos", () => {
     );
   });
 
+  it("makes the first photo of a species without photos its cover", async () => {
+    sqlite
+      .prepare(
+        "DELETE FROM species_media WHERE species_id = ? AND role != 'audio'",
+      )
+      .run(ID);
+    const { body, response } = await send({ photographer: "ანა" });
+    expect(response.status).toBe(201);
+    const after = await record();
+    const { src } = body.data.photo;
+    expect(after.record.base.gallery).toStrictEqual([
+      { credit: { photographer: "ანა" }, src },
+    ]);
+    expect(after.record.base.image).toBe(src);
+    expect(after.record.base.imageCredit).toStrictEqual({
+      photographer: "ანა",
+    });
+    expect(after.record.base).not.toHaveProperty("mobileImage");
+  });
+
   it("rejects a missing derivative before storing anything", async () => {
     const { body, response } = await send(undefined, {
       ...photo,

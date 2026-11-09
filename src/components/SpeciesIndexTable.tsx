@@ -18,6 +18,7 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 type DangerFilter = "all" | "harmless" | "venomous";
@@ -244,7 +245,7 @@ export function SpeciesIndexTable({
                               )}
                               className="object-cover"
                               sizes="56px"
-                              src={item.mobileImage ?? item.image}
+                              src={speciesCardImage(item)}
                             />
                           </span>
                         </Link>
@@ -348,7 +349,7 @@ function IndexCard({
           )}
           className="object-cover"
           sizes="(max-width: 640px) 100vw, 88px"
-          src={species.mobileImage ?? species.image}
+          src={speciesCardImage(species)}
         />
       </span>
       <span>

@@ -62,6 +62,10 @@ export function addGalleryPhoto(
     ? { credit: credits.ka, src }
     : { src };
   record.base.gallery.push(photo);
+  if (!record.base.image) {
+    record.base.image = src;
+    if (credits.ka) record.base.imageCredit = { ...credits.ka };
+  }
   if (credits.en && JSON.stringify(credits.en) !== JSON.stringify(credits.ka)) {
     const translation = record.translations.en;
     translation.gallery = [

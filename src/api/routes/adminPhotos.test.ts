@@ -1,5 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
+
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiBindings } from "../env";
 
@@ -129,15 +131,36 @@ describe("photo actions", () => {
     }
   });
 
-  it("refuses to delete the last photo", async () => {
+  it("deletes the last photo and leaves the species without a cover", async () => {
     const { record: current } = await record();
     const srcs = current.base.gallery.map((item) => item.src);
     for (const src of srcs.slice(1)) await action("remove", { src });
-    const last = await action<ErrorBody>("remove", { src: srcs[0] });
-    expect(last.response.status).toBe(400);
-    expect(last.body.error.message).toBe(
-      "Cannot delete the last gallery photo",
-    );
+    const last = await action<{ data: Record<string, unknown> }>("remove", {
+      src: srcs[0],
+    });
+    expect(last.response.status).toBe(200);
+    expect(last.body.data).toMatchObject({ coverReassigned: false });
+    const { record: after } = await record();
+    expect(after.base.gallery).toStrictEqual([]);
+    expect(after.base).not.toHaveProperty("image");
+    expect(after.base).not.toHaveProperty("imageCredit");
+    expect(after.base).not.toHaveProperty("mobileImage");
+    for (const locale of ["en", "ru", "tr"] as const) {
+      expect(after.translations[locale]).not.toHaveProperty("imageCredit");
+      expect(after.translations[locale]).not.toHaveProperty("gallery");
+    }
+    const profile = await requestJson<{
+      data: { gallery: unknown[]; image?: string };
+    }>(`/v1/species/${getSpeciesPublicSlug(ID, "ka")}`, env);
+    expect(profile.response.status).toBe(200);
+    expect(profile.body.data.gallery).toStrictEqual([]);
+    expect(profile.body.data).not.toHaveProperty("image");
+    const catalog = await requestJson<{
+      data: Array<{ id: string; image?: string }>;
+    }>("/v1/catalog?view=card", env);
+    const card = catalog.body.data.find((item) => item.id === ID);
+    expect(card).toBeDefined();
+    expect(card).not.toHaveProperty("image");
   });
 
   it("sets and clears coordinates, also on the matching cover credit", async () => {

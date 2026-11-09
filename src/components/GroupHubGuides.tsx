@@ -20,6 +20,7 @@ import {
   HUB_FEATURED_GUIDE,
   hubGuideCards,
 } from "@/lib/groupHubLayout";
+import { speciesImage } from "@/lib/speciesContent";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 type GuideCard = Exclude<HubClusterCard, { kind: "quiz" }>;
@@ -152,7 +153,7 @@ function FeaturedGuide({
             alt={image.commonName}
             className="object-cover object-[35%_50%]"
             sizes="(max-width: 1023px) 100vw, 480px"
-            src={image.image}
+            src={speciesImage(image)}
           />
         </div>
       ) : null}

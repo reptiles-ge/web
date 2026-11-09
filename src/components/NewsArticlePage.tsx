@@ -524,7 +524,9 @@ async function newsAtlasLinks(
     ...newsRelatedSpecies(article, catalog).map((species) => {
       return {
         href: speciesHref(species, locale),
-        image: isPlaceholderMedia(species.image) ? null : species.image,
+        image: isPlaceholderMedia(species.image)
+          ? null
+          : (species.image ?? null),
         key: `species:${species.id}`,
         kind: t("speciesProfile"),
         title: species.commonName,
@@ -541,7 +543,8 @@ async function newsAtlasLinks(
       const hero = byId.get(item.heroSpeciesId);
       return {
         href: item.path,
-        image: hero && !isPlaceholderMedia(hero.image) ? hero.image : null,
+        image:
+          hero?.image && !isPlaceholderMedia(hero.image) ? hero.image : null,
         key: `hub:${item.id}`,
         kind: t("hubPage"),
         title: tNav(item.id),

@@ -19,7 +19,7 @@ import { speciesCatalogFixture } from "../../../tests/fixtures/speciesCatalog";
 const items: AtlasCardItem[] = speciesCatalogFixture("ka").map((item) => ({
   commonName: item.commonName,
   id: item.id,
-  image: item.image,
+  image: item.image!,
   location: item.location,
   regionIds: getRegionsForSpecies(item.id).map((region) => region.id),
   scientificName: item.scientificName,

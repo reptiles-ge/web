@@ -22,6 +22,7 @@ import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
 import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
@@ -181,7 +182,7 @@ async function ConflictContact({
                   alt={t("heroImageAlt")}
                   className="object-cover object-[50%_55%]"
                   sizes="(max-width: 640px) 100vw, 50vw"
-                  src={photo.mobileImage ?? photo.image}
+                  src={speciesCardImage(photo)}
                 />
                 <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 font-display text-[15px] font-medium text-white">
                   {photo.commonName}

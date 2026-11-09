@@ -13,6 +13,7 @@ import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { regionHref } from "@/lib/regionHref";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 
 type TurtleIdentifyChooserProps = {
@@ -124,7 +125,7 @@ function TurtleChooserCard({
                 alt={alt}
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 sizes="(max-width: 640px) 90vw, (max-width: 1280px) 45vw, 280px"
-                src={item.mobileImage ?? item.image}
+                src={speciesCardImage(item)}
               />
             </span>
           </figure>

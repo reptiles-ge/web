@@ -17,6 +17,8 @@ const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.jpg",
 ];
 
+export const SPECIES_PLACEHOLDER_IMAGE = "/images/species-placeholder.svg";
+
 const PLACEHOLDER_STAT_VALUES = [
   "see checklist",
   "see species account",
@@ -60,6 +62,23 @@ export function getSpeciesGalleryPreview(species: Species, count = 3) {
     .map((item) => item.src);
 }
 
+export function speciesCardImage(species: {
+  gallery?: readonly GalleryImage[];
+  image?: string;
+  mobileImage?: string;
+}) {
+  return species.mobileImage ?? speciesImage(species);
+}
+
+export function speciesImage(species: {
+  gallery?: readonly GalleryImage[];
+  image?: string;
+}) {
+  return (
+    species.image ?? species.gallery?.[0]?.src ?? SPECIES_PLACEHOLDER_IMAGE
+  );
+}
+
 export const SPECIES_HERO_DESKTOP_SIZES = "62vw";
 export const SPECIES_HERO_SIZES =
   "(max-width: 1023px) and (min-resolution: 2.5dppx) 67vw, (max-width: 1023px) 100vw, 62vw";
@@ -68,11 +87,13 @@ export function getSpeciesHeroSources(species: Species) {
   const sourceGallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0
         ? species.gallery
-        : [{ credit: species.imageCredit, src: species.image }]
+        : species.image
+          ? [{ credit: species.imageCredit, src: species.image }]
+          : []
       ).filter((item) => !isPlaceholderMedia(item.src))
     : [];
   const heroCredits = new Map<string, PhotoCredit>();
-  if (species.imageCredit) {
+  if (species.image && species.imageCredit) {
     heroCredits.set(species.image, species.imageCredit);
   }
   if (species.mobileImage && species.mobileImageCredit) {

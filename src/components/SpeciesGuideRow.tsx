@@ -14,6 +14,7 @@ import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 
@@ -116,7 +117,7 @@ function SpeciesGuideRow({
           )}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           sizes="(max-width: 640px) 100vw, 144px"
-          src={species.mobileImage ?? species.image}
+          src={speciesCardImage(species)}
         />
       </div>
 

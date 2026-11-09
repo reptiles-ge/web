@@ -119,7 +119,11 @@ function printMissing(item: CheckResult) {
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const targets = collectTargets(await getSpeciesCatalog("ka"));
+  const targets = collectTargets(
+    (await getSpeciesCatalog("ka")).filter(
+      (item): item is typeof item & { image: string } => Boolean(item.image),
+    ),
+  );
 
   if (targets.length === 0) {
     throw new Error("No published species found.");

@@ -336,7 +336,7 @@ function SpeciesPhotos({
   base: AdminSpeciesRecord["record"]["base"];
 }) {
   const srcs = [
-    base.image,
+    ...(base.image ? [base.image] : []),
     ...(base.mobileImage ? [base.mobileImage] : []),
     ...base.gallery.map((photo) => photo.src),
   ].filter((src, index, all) => all.indexOf(src) === index);
