@@ -11,6 +11,7 @@ import { createTestDatabase } from "../testing/sqliteDatabase";
 const TOKEN = "sources-token";
 
 type SourceList = {
+  countries: Array<{ country: null | string; visits: number }>;
   data: Array<{
     channel: string;
     lastDay: string;
@@ -45,12 +46,13 @@ function visit(
   path: string,
   locale: string,
   visits: number,
+  country = "",
 ) {
   sqlite
     .prepare(
-      "INSERT INTO traffic_sources (day, source, referrer, path, locale, visits) VALUES (?, ?, ?, ?, ?, ?)",
+      "INSERT INTO traffic_sources (day, source, referrer, path, locale, country, visits) VALUES (?, ?, ?, ?, ?, ?, ?)",
     )
-    .run(day, source, referrer, path, locale, visits);
+    .run(day, source, referrer, path, locale, country, visits);
 }
 
 beforeEach(() => {
@@ -58,11 +60,11 @@ beforeEach(() => {
   sqlite = database.sqlite;
   env = { API_WRITE_TOKEN: TOKEN, DB: database.db };
   vi.useFakeTimers({ now: new Date("2026-10-24T10:00:00Z"), toFake: ["Date"] });
-  visit("2026-10-24", "google", "google.com", "/", "ka", 20);
-  visit("2026-10-02", "google", "google.com", "/", "en", 5);
+  visit("2026-10-24", "google", "google.com", "/", "ka", 20, "GE");
+  visit("2026-10-02", "google", "google.com", "/", "en", 5, "GE");
   visit("2026-10-23", "google", "google.ge", "/snakes", "ka", 4);
-  visit("2026-10-24", "facebook", "l.facebook.com", "/", "ka", 6);
-  visit("2026-09-10", "direct", "", "/about", "ru", 3);
+  visit("2026-10-24", "facebook", "l.facebook.com", "/", "ka", 6, "GE");
+  visit("2026-09-10", "direct", "", "/about", "ru", 3, "DE");
 });
 
 afterEach(() => {
@@ -80,8 +82,14 @@ describe("GET /v1/admin/traffic-sources", () => {
       { channel: "social", source: "facebook", visits: 6 },
       { channel: "direct", source: "direct", visits: 3 },
     ]);
+    expect(body.countries).toEqual([
+      { country: "GE", visits: 31 },
+      { country: null, visits: 4 },
+      { country: "DE", visits: 3 },
+    ]);
     expect(body.data[0]).toEqual({
       channel: "search",
+      country: "GE",
       lastDay: "2026-10-24",
       path: "/",
       referrer: "google.com",
@@ -89,6 +97,7 @@ describe("GET /v1/admin/traffic-sources", () => {
       visits: 25,
     });
     expect(body.data.at(-1)).toMatchObject({
+      country: "DE",
       referrer: null,
       source: "direct",
     });
@@ -107,6 +116,13 @@ describe("GET /v1/admin/traffic-sources", () => {
     ]);
     const google = await sources("?source=google");
     expect(google.body).toMatchObject({ total: 2, visits: 38 });
+    const georgia = await sources("?country=GE");
+    expect(georgia.body).toMatchObject({ total: 2, visits: 31 });
+    expect(georgia.body.countries).toEqual([
+      { country: "GE", visits: 31 },
+      { country: null, visits: 4 },
+      { country: "DE", visits: 3 },
+    ]);
     const search = await sources("?q=snakes");
     expect(search.body.data.map((row) => row.referrer)).toEqual(["google.ge"]);
   });
@@ -119,6 +135,8 @@ describe("GET /v1/admin/traffic-sources", () => {
       "?to=2026-13-01",
       "?from=2026-10-24&to=2026-10-02",
       "?lang=xx",
+      "?country=ge",
+      "?country=GEO",
     ]) {
       const { body, response } = await sources(query);
       expect(response.status, query).toBe(400);

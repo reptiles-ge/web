@@ -1,6 +1,6 @@
 import type { ColumnsType } from "antd/es/table";
 
-import { Button, Flex, Tag, Typography } from "antd";
+import { Button, Flex, Select, Tag, Typography } from "antd";
 
 import { locales } from "@/i18n/locales";
 import {
@@ -11,6 +11,7 @@ import {
 } from "@/lib/trafficSource";
 
 import { AdminListView } from "./AdminListView";
+import { countryLabel } from "./countryLabel";
 import { serverPaging, usePagedList } from "./usePagedList";
 import { DateRangeFilter, LangSelect } from "./ViewFilters";
 import { VIEW_RANGE_URL } from "./viewRange";
@@ -53,6 +54,12 @@ const COLUMNS: ColumnsType<SourceRow> = [
     title: "Channel",
   },
   {
+    dataIndex: "country",
+    key: "country",
+    render: (country: null | string) => countryLabel(country),
+    title: "Country",
+  },
+  {
     dataIndex: "referrer",
     key: "referrer",
     render: (referrer: null | string) => referrer ?? "—",
@@ -81,6 +88,7 @@ export function TrafficSourcesPage({
 }) {
   const list = usePagedList(fetchAdminTrafficSources, onSessionExpired, {
     ...VIEW_RANGE_URL,
+    country: readCountry,
     lang: locales,
     source: TRAFFIC_SOURCE_IDS,
   });
@@ -104,6 +112,17 @@ export function TrafficSourcesPage({
             onChange={(lang) => setFilters({ lang })}
             value={query.lang}
           />
+          <Select<string>
+            aria-label="Country"
+            onChange={(next) =>
+              setFilters({ country: next === "all" ? undefined : next })
+            }
+            options={countryOptions(lastPage?.countries ?? [], query.country)}
+            popupMatchSelectWidth={false}
+            showSearch={{ optionFilterProp: "label" }}
+            style={{ width: 200 }}
+            value={query.country ?? "all"}
+          />
           <DateRangeFilter onChange={setFilters} value={query} />
           <Typography.Text type="secondary">
             {visits.toLocaleString("en")} visits
@@ -118,7 +137,7 @@ export function TrafficSourcesPage({
       rowKey="key"
       rows={items.map((item) => ({
         ...item,
-        key: `${item.source}:${item.referrer ?? ""}:${item.path}`,
+        key: `${item.source}:${item.referrer ?? ""}:${item.path}:${item.country ?? ""}`,
       }))}
       search={list.search}
       searchPlaceholder="Referrer or page"
@@ -156,4 +175,28 @@ export function TrafficSourcesPage({
       total={list.total}
     />
   );
+}
+
+function countryOptions(
+  countries: ReadonlyArray<{ country: null | string; visits: number }>,
+  selected: string | undefined,
+) {
+  const known = countries.filter(
+    (row): row is { country: string; visits: number } => row.country !== null,
+  );
+  const missing =
+    selected && !known.some((row) => row.country === selected)
+      ? [{ country: selected, visits: 0 }]
+      : [];
+  return [
+    { label: "All countries", value: "all" },
+    ...[...missing, ...known].map((row) => ({
+      label: `${countryLabel(row.country)} · ${row.visits.toLocaleString("en")}`,
+      value: row.country,
+    })),
+  ];
+}
+
+function readCountry(value: string) {
+  return /^[A-Z]{2}$/.test(value) ? value : undefined;
 }

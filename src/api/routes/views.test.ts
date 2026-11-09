@@ -69,7 +69,7 @@ function publishedNewsId() {
 function sources() {
   return sqlite
     .prepare(
-      "SELECT source, referrer, path, locale, visits FROM traffic_sources ORDER BY source, referrer, path",
+      "SELECT source, referrer, path, locale, country, visits FROM traffic_sources ORDER BY source, referrer, path, country",
     )
     .all();
 }
@@ -198,31 +198,21 @@ describe("POST /v1/views", () => {
     expect(views()).toEqual([]);
   });
 
-  it("counts any page once per visitor per day across locales", async () => {
+  it("no longer stores page views", async () => {
     await post({ locale: "ka", path: "/regions/kakheti" });
-    await post({ locale: "en", path: "/regions/kakheti" });
-    await post(
-      { locale: "en", path: "/regions/kakheti" },
-      { "cf-connecting-ip": "203.0.113.6" },
-    );
-    await post({ locale: "ka", path: "/" });
+    await post({ locale: "en", path: "/snakes/macrovipera-lebetina" });
+    await post({ entry: {}, locale: "ka", path: "/" });
 
-    expect(pageViews()).toEqual([
-      { locale: "ka", path: "/", views: 1 },
-      { locale: "en", path: "/regions/kakheti", views: 1 },
-      { locale: "ka", path: "/regions/kakheti", views: 1 },
-    ]);
-    expect(views()).toEqual([]);
-    expect(sources()).toEqual([]);
+    expect(pageViews()).toEqual([]);
+    expect(
+      sqlite.prepare("SELECT visitor FROM page_view_visitors").all(),
+    ).toEqual([]);
   });
 
-  it("counts the species behind a species page as well", async () => {
+  it("counts the species behind a species page", async () => {
     await post({ locale: "en", path: "/snakes/macrovipera-lebetina" });
     await post({ id: "macrovipera-lebetina", kind: "species" });
 
-    expect(pageViews()).toEqual([
-      { locale: "en", path: "/snakes/macrovipera-lebetina", views: 1 },
-    ]);
     expect(views()).toEqual([
       { kind: "species", target_id: "macrovipera-lebetina", views: 1 },
     ]);
@@ -239,34 +229,34 @@ describe("POST /v1/views", () => {
     });
     await post({ locale: "ka", path: "/news/no-such-article" });
 
-    expect(pageViews()).toEqual([]);
+    expect(views()).toEqual([]);
     expect(sources()).toEqual([]);
   });
 
-  it("counts only pages that exist behind a dynamic route", async () => {
+  it("counts a landing only on a page that exists behind a dynamic route", async () => {
     sqlite.exec(
       "INSERT INTO authors (id, role_id, is_contributor, portrait_src) VALUES ('nika', 'photographer', 1, '/p.jpg'), ('someone', NULL, 0, NULL)",
     );
-    for (const path of [
+    const paths = [
       "/regions/kakheti",
       "/quiz/snake",
       "/authors/nika",
       "/lizards/paralaudakia-caucasia",
-    ]) {
-      await post({ locale: "ka", path });
-    }
-    for (const path of [
       "/regions/typo",
       "/quiz/turtle",
       "/authors/someone",
       "/authors/nobody",
       "/birds/macrovipera-lebetina",
       "/news/page/999",
-    ]) {
-      await post({ entry: { referrer: "google.com" }, locale: "ka", path });
+    ];
+    for (const [index, path] of paths.entries()) {
+      await post(
+        { entry: { referrer: "google.com" }, locale: "ka", path },
+        { "cf-connecting-ip": `203.0.113.${index + 10}` },
+      );
     }
 
-    expect(pageViews().map((row) => (row as { path: string }).path)).toEqual([
+    expect(sources().map((row) => (row as { path: string }).path)).toEqual([
       "/authors/nika",
       "/lizards/paralaudakia-caucasia",
       "/quiz/snake",
@@ -275,10 +265,9 @@ describe("POST /v1/views", () => {
     expect(views()).toEqual([
       { kind: "species", target_id: "paralaudakia-caucasia", views: 1 },
     ]);
-    expect(sources()).toEqual([]);
   });
 
-  it("counts an archive page while it has articles", async () => {
+  it("counts a landing on an archive page while it has articles", async () => {
     const total = (
       sqlite
         .prepare(
@@ -287,25 +276,28 @@ describe("POST /v1/views", () => {
         .get() as { total: number }
     ).total;
     const last = Math.max(1, Math.ceil(total / 24));
-    await post({ locale: "ka", path: `/news/page/${last + 1}` });
-    if (last >= 2) await post({ locale: "ka", path: `/news/page/${last}` });
+    const entry = { referrer: "google.com" };
+    await post({ entry, locale: "ka", path: `/news/page/${last + 1}` });
+    if (last >= 2) {
+      await post({ entry, locale: "ka", path: `/news/page/${last}` });
+    }
 
-    expect(pageViews()).toEqual(
-      last >= 2 ? [{ locale: "ka", path: `/news/page/${last}`, views: 1 }] : [],
+    expect(sources().map((row) => (row as { path: string }).path)).toEqual(
+      last >= 2 ? [`/news/page/${last}`] : [],
     );
   });
 
   it("forgets earlier visitors only once, when the day starts", async () => {
-    await post({ locale: "ka", path: "/" });
+    await post({ entry: {}, locale: "ka", path: "/" });
     sqlite.exec(
-      `INSERT INTO page_view_visitors (day, path, visitor) VALUES ('2026-10-01', '/', '${OLD_VISITOR}')`,
+      `INSERT INTO traffic_source_visitors (day, source, visitor) VALUES ('2026-10-01', 'direct', '${OLD_VISITOR}')`,
     );
-    await post({ locale: "ka", path: "/about" });
+    await post({ entry: { referrer: "google.com" }, locale: "ka", path: "/" });
 
     expect(
       sqlite
         .prepare(
-          "SELECT visitor FROM page_view_visitors WHERE day < '2026-10-24'",
+          "SELECT visitor FROM traffic_source_visitors WHERE day < '2026-10-24'",
         )
         .all(),
     ).toEqual([{ visitor: OLD_VISITOR }]);
@@ -318,27 +310,43 @@ describe("POST /v1/views", () => {
     expect(views()).toEqual([{ kind: "news", target_id: id, views: 1 }]);
   });
 
-  it("counts each source once per visitor per day with its landing page", async () => {
-    await post({
-      entry: { referrer: "www.google.com" },
-      locale: "ka",
-      path: "/",
-    });
-    await post({
-      entry: { referrer: "google.ge" },
-      locale: "ka",
-      path: "/regions/kakheti",
-    });
-    await post({ entry: { clickId: "fbclid" }, locale: "en", path: "/about" });
-    await post({ entry: {}, locale: "ka", path: "/" });
+  it("counts each source once per visitor per day with its landing page and country", async () => {
+    await post(
+      { entry: { referrer: "www.google.com" }, locale: "ka", path: "/" },
+      { "cf-ipcountry": "GE" },
+    );
+    await post(
+      {
+        entry: { referrer: "google.ge" },
+        locale: "ka",
+        path: "/regions/kakheti",
+      },
+      { "cf-ipcountry": "GE" },
+    );
+    await post(
+      { entry: { clickId: "fbclid" }, locale: "en", path: "/about" },
+      { "cf-ipcountry": "US" },
+    );
+    await post(
+      { entry: {}, locale: "ka", path: "/" },
+      { "cf-ipcountry": "XX" },
+    );
     await post(
       { entry: { utmSource: "newsletter" }, locale: "ka", path: "/" },
-      { "cf-connecting-ip": "203.0.113.6" },
+      { "cf-connecting-ip": "203.0.113.6", "cf-ipcountry": "de" },
     );
 
     expect(sources()).toEqual([
-      { locale: "ka", path: "/", referrer: "", source: "direct", visits: 1 },
       {
+        country: "",
+        locale: "ka",
+        path: "/",
+        referrer: "",
+        source: "direct",
+        visits: 1,
+      },
+      {
+        country: "US",
         locale: "en",
         path: "/about",
         referrer: "",
@@ -346,6 +354,7 @@ describe("POST /v1/views", () => {
         visits: 1,
       },
       {
+        country: "GE",
         locale: "ka",
         path: "/",
         referrer: "google.com",
@@ -353,6 +362,7 @@ describe("POST /v1/views", () => {
         visits: 1,
       },
       {
+        country: "",
         locale: "ka",
         path: "/",
         referrer: "utm:newsletter",
@@ -362,17 +372,18 @@ describe("POST /v1/views", () => {
     ]);
   });
 
-  it("forgets page and source visitors on a new day", async () => {
+  it("forgets source visitors on a new day", async () => {
     await post({ entry: {}, locale: "ka", path: "/" });
     vi.setSystemTime(new Date("2026-10-25T08:00:00Z"));
-    await post({ locale: "ka", path: "/about" });
+    await post({
+      entry: { referrer: "google.com" },
+      locale: "ka",
+      path: "/about",
+    });
 
-    expect(sqlite.prepare("SELECT day FROM page_view_visitors").all()).toEqual([
-      { day: "2026-10-25" },
-    ]);
     expect(
       sqlite.prepare("SELECT day FROM traffic_source_visitors").all(),
-    ).toEqual([]);
+    ).toEqual([{ day: "2026-10-25" }]);
   });
 
   it.each([
@@ -385,7 +396,7 @@ describe("POST /v1/views", () => {
     const response = await post(body);
 
     expect(response.status).toBe(400);
-    expect(pageViews()).toEqual([]);
+    expect(sources()).toEqual([]);
   });
 
   it("rejects an invalid body", async () => {
