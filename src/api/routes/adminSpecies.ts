@@ -13,6 +13,7 @@ import type { ApiEnv } from "../env";
 
 import { readFieldRecords } from "../db/fieldRecords";
 import { upsertOptimizedImageStatement } from "../db/optimizedImages";
+import { reservePhotoUploadKey } from "../db/photoUploadKeys";
 import { listAdminSpecies } from "../db/species";
 import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
@@ -76,9 +77,12 @@ import {
   photoRemoveBody,
   speciesIdParam,
   speciesRecordSchema,
+  speciesStatusBody,
   speciesTextsBody,
   speciesWriteBody,
 } from "../schemas/speciesRecord";
+
+const MAX_SAVE_ATTEMPTS = 12;
 
 export const adminSpecies = new Hono<ApiEnv>()
   .get(
@@ -194,10 +198,12 @@ export const adminSpecies = new Hono<ApiEnv>()
         photo,
         current.record,
         credit.photographer,
+        (candidate) =>
+          reservePhotoUploadKey(c.env.DB, candidate, new Date().toISOString()),
       );
       const src = storage.urlFor(key);
       const optimized = optimizedImage(photo, key, storage);
-      const { result, version } = await change(
+      const { result, version } = await changeWithRetry(
         c,
         id,
         c.var.user!.email,
@@ -333,6 +339,38 @@ export const adminSpecies = new Hono<ApiEnv>()
         current,
       );
       return c.json({ data: { ...covers(record), version } }, 200);
+    },
+  )
+  .post(
+    "/:id/status",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("json", speciesStatusBody),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, status } = c.req.valid("json");
+      const current = await readCurrent(c, id, expectedVersion);
+      if (current.record.status === status) {
+        throw new ApiError(
+          400,
+          "invalid_request",
+          `The species is already ${status}`,
+        );
+      }
+      const { version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        `Set status ${status}`,
+        (record) => {
+          record.status = status;
+        },
+        [],
+        current,
+      );
+      return c.json({ data: { status, version } }, 200);
     },
   )
   .use(requireToken)
@@ -509,6 +547,31 @@ async function change<T>(
   );
   c.header("Cache-Control", NO_STORE);
   return { record, result, version };
+}
+
+async function changeWithRetry<T>(
+  ...[c, id, actor, summary, apply, alsoRun, read]: Parameters<typeof change<T>>
+) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      return await change(
+        c,
+        id,
+        actor,
+        summary,
+        apply,
+        alsoRun,
+        attempt === 1 ? read : undefined,
+      );
+    } catch (error) {
+      const conflict =
+        error instanceof ApiError && error.code === "version_conflict";
+      if (!conflict || attempt >= MAX_SAVE_ATTEMPTS) throw error;
+      await new Promise((resolve) =>
+        setTimeout(resolve, 20 + Math.random() * 80 * attempt),
+      );
+    }
+  }
 }
 
 function covers(record: SpeciesRecord) {

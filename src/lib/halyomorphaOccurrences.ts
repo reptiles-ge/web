@@ -43,6 +43,9 @@ export type HalyomorphaOccurrenceSummary = {
 
 export const DEFAULT_CONFIRMED_RECORD_THRESHOLD = 5;
 
+const KM_PER_DEGREE_LAT = 111.32;
+const SHORE_SNAP_KM = 3;
+
 export type HalyomorphaRegionSummary = {
   center?: { lat: number; lng: number };
   count: number;
@@ -246,6 +249,26 @@ export function occurrenceStatusForCount(
   return count < confirmedRecordThreshold ? "recorded-only" : "confirmed";
 }
 
+function distanceToRingKm(lng: number, lat: number, ring: [number, number][]) {
+  const kmPerLng = KM_PER_DEGREE_LAT * Math.cos((lat * Math.PI) / 180);
+  let best = Number.POSITIVE_INFINITY;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
+    const ax = (ring[j][0] - lng) * kmPerLng;
+    const ay = (ring[j][1] - lat) * KM_PER_DEGREE_LAT;
+    const bx = (ring[i][0] - lng) * kmPerLng;
+    const by = (ring[i][1] - lat) * KM_PER_DEGREE_LAT;
+    const dx = bx - ax;
+    const dy = by - ay;
+    const length = dx * dx + dy * dy;
+    const t =
+      length === 0
+        ? 0
+        : Math.max(0, Math.min(1, -(ax * dx + ay * dy) / length));
+    best = Math.min(best, Math.hypot(ax + t * dx, ay + t * dy));
+  }
+  return best;
+}
+
 function fieldRecordAuthor(record: SpeciesFieldRecord) {
   const name = record.observerName?.trim();
   const handle = record.observer?.trim();
@@ -418,6 +441,21 @@ function min(values: number[]) {
   return values.length ? Math.min(...values) : undefined;
 }
 
+function nearestRegionId(lng: number, lat: number) {
+  let nearest: RegionPathId | undefined;
+  let best = SHORE_SNAP_KM;
+  for (const feature of HALYOMORPHA_RANGE_GEOJSON.features) {
+    const [outerRing] = feature.geometry.coordinates;
+    if (!outerRing) continue;
+    const distance = distanceToRingKm(lng, lat, outerRing);
+    if (distance <= best) {
+      best = distance;
+      nearest = feature.properties.id;
+    }
+  }
+  return nearest;
+}
+
 function normalizeLocality(
   rawLocality: string,
   regionId: RegionPathId | undefined,
@@ -469,9 +507,11 @@ function pointInRing(lng: number, lat: number, ring: [number, number][]) {
 }
 
 function regionIdForPoint(lng: number, lat: number) {
-  return HALYOMORPHA_RANGE_GEOJSON.features.find((feature) =>
-    pointInFeature(lng, lat, feature.geometry.coordinates),
-  )?.properties.id;
+  return (
+    HALYOMORPHA_RANGE_GEOJSON.features.find((feature) =>
+      pointInFeature(lng, lat, feature.geometry.coordinates),
+    )?.properties.id ?? nearestRegionId(lng, lat)
+  );
 }
 
 function regionName(id: RegionPathId, locale: AppLocale) {

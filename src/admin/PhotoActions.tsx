@@ -1,5 +1,5 @@
 import { Alert, Button, Form, message, Modal, Popconfirm, Space } from "antd";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 import type { PhotoCreditFields } from "./photos";
 
@@ -14,7 +14,6 @@ import {
 type Credit = AdminSpeciesRecord["record"]["base"]["imageCredit"];
 
 export function PhotoActions({
-  canDelete,
   credit,
   enCredit,
   georgiaField,
@@ -24,7 +23,6 @@ export function PhotoActions({
   src,
   version,
 }: {
-  canDelete: boolean;
   credit: Credit;
   enCredit: Credit;
   georgiaField: boolean;
@@ -35,6 +33,7 @@ export function PhotoActions({
   version: number;
 }) {
   const [form] = Form.useForm<PhotoCreditFields>();
+  const formId = useId();
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -98,30 +97,22 @@ export function PhotoActions({
           Edit
         </Button>
         <Popconfirm
-          description="It leaves the gallery in every language. A cover that uses it moves to the next photo. The file stays on the CDN."
-          disabled={!canDelete}
+          description="It leaves the gallery in every language. A cover that uses it moves to the next photo, or the species is left without a photo. The file stays on the CDN."
           okButtonProps={{ danger: true }}
           okText="Delete"
           onConfirm={remove}
           title="Delete this photo?"
         >
-          <Button
-            danger
-            disabled={!canDelete}
-            loading={deleting}
-            size="small"
-            title={canDelete ? undefined : "The last gallery photo stays"}
-          >
+          <Button danger loading={deleting} size="small">
             Delete
           </Button>
         </Popconfirm>
       </Space>
       <Modal
         forceRender
-        okButtonProps={{ loading: saving }}
+        okButtonProps={{ form: formId, htmlType: "submit", loading: saving }}
         okText="Save"
         onCancel={() => setOpen(false)}
-        onOk={() => form.submit()}
         open={open}
         title="Edit photo credit"
         width={720}
@@ -129,6 +120,7 @@ export function PhotoActions({
         <Form<PhotoCreditFields>
           disabled={saving}
           form={form}
+          id={formId}
           layout="vertical"
           onFinish={save}
         >

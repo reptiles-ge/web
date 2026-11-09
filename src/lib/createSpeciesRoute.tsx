@@ -468,9 +468,9 @@ function speciesStructuredData({
     name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     url: ogImage,
     ...ogImageDimensions(ogImage),
-    ...(ogImage === speciesOgImageUrl(item.id)
-      ? photoRights(ogImage, undefined, locale, contributors)
-      : photoRights(item.image, item.imageCredit, locale, contributors)),
+    ...(item.image && ogImage !== speciesOgImageUrl(item.id)
+      ? photoRights(item.image, item.imageCredit, locale, contributors)
+      : photoRights(ogImage, undefined, locale, contributors)),
   };
   const jsonLd = {
     "@context": "https://schema.org",

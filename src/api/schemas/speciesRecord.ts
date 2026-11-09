@@ -20,6 +20,7 @@ export const PHOTO_CONFIDENCE = z.enum([
   "range-typical",
 ]);
 const TRANSLATION_LOCALES = ["en", "ru", "tr"] as const;
+export const SPECIES_STATUSES = ["draft", "published", "unpublished"] as const;
 
 const text = z.string().trim();
 const required = z.string().trim().min(1);
@@ -90,7 +91,7 @@ const base = z.strictObject({
   gallery: z.array(galleryImage),
   genus: required,
   id: z.string().regex(SLUG).max(100),
-  image: url,
+  image: url.optional(),
   imageCredit: photoCredit.optional(),
   mobileImage: url.optional(),
   mobileImageCredit: photoCredit.optional(),
@@ -160,7 +161,7 @@ export const speciesRecordSchema = z
     rangeMap: rangeMap.nullable(),
     slugKa: z.string().regex(SLUG).nullable(),
     slugs: z.array(z.string().regex(SLUG)),
-    status: z.enum(["draft", "published", "unpublished"]),
+    status: z.enum(SPECIES_STATUSES),
     translations: z.strictObject({
       en: translation,
       ru: translation,
@@ -265,6 +266,11 @@ export const photoCoverBody = z.strictObject({
 export const photoOrderBody = z.strictObject({
   actor,
   srcs: z.array(photoSrc).min(2).max(200),
+});
+
+export const speciesStatusBody = z.strictObject({
+  expectedVersion: z.int().min(1),
+  status: z.enum(SPECIES_STATUSES),
 });
 
 export const photoRemoveBody = z.strictObject({ actor, src: photoSrc });

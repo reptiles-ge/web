@@ -13,6 +13,7 @@ import {
   saveSpeciesPhotoCredit,
   SessionExpiredError,
   setSpeciesCover,
+  setSpeciesStatus,
 } from "./species";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
 
@@ -25,6 +26,7 @@ vi.mock("./species", async (importOriginal) => ({
   reorderSpeciesPhotos: vi.fn(),
   saveSpeciesPhotoCredit: vi.fn(),
   setSpeciesCover: vi.fn(),
+  setSpeciesStatus: vi.fn(),
 }));
 
 const RECORD = {
@@ -83,7 +85,22 @@ beforeEach(() => {
   vi.mocked(saveSpeciesPhotoCredit).mockReset().mockResolvedValue(8);
   vi.mocked(reorderSpeciesPhotos).mockReset().mockResolvedValue(8);
   vi.mocked(setSpeciesCover).mockReset().mockResolvedValue(8);
+  vi.mocked(setSpeciesStatus).mockReset().mockResolvedValue(8);
 });
+
+async function chooseStatus(status: string) {
+  const select = await screen.findByRole("combobox", {
+    name: "Species status",
+  });
+  fireEvent.mouseDown(select);
+  const options = await screen.findAllByTitle(status);
+  await userEvent.click(options.at(-1)!);
+}
+
+async function statusDialog(title: string) {
+  const titles = await screen.findAllByText(title);
+  return titles.at(-1)!.closest<HTMLElement>(".ant-modal")!;
+}
 
 const SECOND = "https://cdn.reptiles.ge/images/giurza-3.jpg";
 const FIRST = "https://cdn.reptiles.ge/images/giurza-2.jpg";
@@ -280,7 +297,7 @@ describe("SpeciesDetailPage", () => {
     expect(within(gallery).getByRole("button", { name: "Edit" })).toBeEnabled();
     expect(
       within(gallery).getByRole("button", { name: "Delete" }),
-    ).toBeDisabled();
+    ).toBeEnabled();
   });
 
   it("edits a photo credit with its English overlay and reloads", async () => {
@@ -515,5 +532,61 @@ describe("SpeciesDetailPage", () => {
       within(dialog).getByRole("button", { name: "Make both covers" }),
     );
     await vi.waitFor(() => expect(expired).toHaveBeenCalledTimes(2));
+  });
+
+  it("changes the status after confirmation and reloads", async () => {
+    show();
+    await chooseStatus("unpublished");
+    const dialog = await statusDialog(
+      "Change status from published to unpublished?",
+    );
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Set unpublished" }),
+    );
+    expect(setSpeciesStatus).toHaveBeenCalledExactlyOnceWith(
+      "macrovipera-lebetina",
+      "unpublished",
+      7,
+    );
+    expect(
+      await screen.findByText(
+        "Status set to unpublished. Clear the cache to update reptiles.ge.",
+      ),
+    ).toBeInTheDocument();
+    expect(fetchAdminSpeciesRecord).toHaveBeenCalledTimes(2);
+  });
+
+  it("keeps the status when the change is cancelled or refused", async () => {
+    vi.mocked(setSpeciesStatus).mockRejectedValueOnce(
+      new Error("Status change failed: a published species needs slugKa"),
+    );
+    show();
+    await chooseStatus("draft");
+    let dialog = await statusDialog("Change status from published to draft?");
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Cancel" }),
+    );
+    expect(setSpeciesStatus).not.toHaveBeenCalled();
+    await chooseStatus("draft");
+    dialog = await statusDialog("Change status from published to draft?");
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Set draft" }),
+    );
+    expect(
+      await screen.findByText(
+        "Status change failed: a published species needs slugKa",
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("sends an expired session from a status change back to sign-in", async () => {
+    vi.mocked(setSpeciesStatus).mockRejectedValue(new SessionExpiredError());
+    const expired = show();
+    await chooseStatus("draft");
+    const dialog = await statusDialog("Change status from published to draft?");
+    await userEvent.click(
+      within(dialog).getByRole("button", { name: "Set draft" }),
+    );
+    await vi.waitFor(() => expect(expired).toHaveBeenCalledOnce());
   });
 });

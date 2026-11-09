@@ -189,7 +189,7 @@ An empty string, an empty array or a missing optional field means the atlas has 
 
 ## Images, audio and credits
 
-Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on Reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`. Resized AVIF and WebP copies of photos uploaded through the API are listed in \`/v1/images\`.
+Image URLs are absolute (mostly \`cdn.reptiles.ge\`). Each photo can carry a credit (\`imageCredit\`, \`mobileImageCredit\`, \`gallery[].credit\`): show the photographer whenever you show the photo. A species without a photo yet has no \`image\` and an empty \`gallery\`. Every \`photographer\` spelling is an alias of one author in \`/v1/authors\`; contributors (\`isContributor\`) also have a profile page on Reptiles.ge. \`photoConfidence\` says whether a photo was taken in Georgia. An \`audio.src\` can be a site path such as \`/audio/bubo-bubo.mp3\`; resolve it against \`https://reptiles.ge\`. Resized AVIF and WebP copies of photos uploaded through the API are listed in \`/v1/images\`.
 
 ## Caching
 

@@ -26,7 +26,7 @@ function observation(overrides: Record<string, unknown> = {}) {
     photos: [{ id: 7, license_code: "cc-by-nc", url: SQUARE }],
     place_guess: "Vashlovani, Kakheti, Georgia",
     place_ids: [8857],
-    user: { login: "ana" },
+    user: { login: "ana", name: " Ana Beridze " },
     ...overrides,
   };
 }
@@ -150,6 +150,7 @@ describe("fetchINaturalistPhoto", () => {
       lng: 45.35,
       location: "Vashlovani",
       photographer: "ana",
+      photographerName: "Ana Beridze",
       url: "https://www.inaturalist.org/photos/7",
     });
     const form = iNaturalistPhotoFormData(result);

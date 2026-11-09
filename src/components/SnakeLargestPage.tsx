@@ -21,7 +21,11 @@ import {
   LARGE_SNAKE_LIZARD_ID,
   orderSpeciesByIds,
 } from "@/lib/clusterGuides";
-import { getSpeciesSizeStat } from "@/lib/speciesContent";
+import {
+  getSpeciesSizeStat,
+  speciesCardImage,
+  speciesImage,
+} from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -122,7 +126,7 @@ export async function SnakeLargestPage({
                     )}
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 55vw"
-                    src={lizard.image}
+                    src={speciesImage(lizard)}
                   />
                 </Link>
               </div>
@@ -161,7 +165,7 @@ function LargestRow({
             )}
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             sizes="(max-width: 640px) 100vw, 144px"
-            src={species.mobileImage ?? species.image}
+            src={speciesCardImage(species)}
           />
         </span>
         <span className="min-w-0">

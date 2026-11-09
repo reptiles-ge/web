@@ -139,6 +139,7 @@ beforeEach(async () => {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
 });
 
 describe("POST /v1/admin/species/:id/photos", () => {
@@ -231,6 +232,39 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 
+  it("gives parallel uploads their own CDN names and adds every one", async () => {
+    const before = await record();
+    const results = await Promise.all([send(), send(), send(), send()]);
+    expect(results.map(({ response }) => response.status)).toStrictEqual([
+      201, 201, 201, 201,
+    ]);
+    const srcs = results.map(({ body }) => body.data.photo.src);
+    expect(new Set(srcs).size).toBe(4);
+    expect(
+      puts()
+        .filter(({ key }) => !key.startsWith("optimized/"))
+        .map(({ key }) => key)
+        .sort(),
+    ).toStrictEqual([2, 3, 4, 5].map((n) => `${ID}-ana-${n}.jpg`));
+    const after = await record();
+    expect(after.version).toBe(before.version + 4);
+    expect(
+      after.record.base.gallery
+        .slice(-4)
+        .map(({ src }) => src)
+        .sort(),
+    ).toStrictEqual([...srcs].sort());
+  });
+
+  it("never reuses a reserved CDN name", async () => {
+    sqlite
+      .prepare("INSERT INTO photo_upload_keys (key, created_at) VALUES (?, ?)")
+      .run(`${ID}-ana-2.jpg`, "2026-11-09T00:00:00.000Z");
+    const { body, response } = await send();
+    expect(response.status).toBe(201);
+    expect(body.data.photo.src).toBe(`https://cdn.reptiles.ge/${ID}-ana-3.jpg`);
+  });
+
   it("adds no English overlay when the English credit is the same", async () => {
     const before = await record();
     const { response } = await send({});
@@ -242,6 +276,26 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(after.record.translations.en.gallery).toStrictEqual(
       before.record.translations.en.gallery,
     );
+  });
+
+  it("makes the first photo of a species without photos its cover", async () => {
+    sqlite
+      .prepare(
+        "DELETE FROM species_media WHERE species_id = ? AND role != 'audio'",
+      )
+      .run(ID);
+    const { body, response } = await send({ photographer: "ანა" });
+    expect(response.status).toBe(201);
+    const after = await record();
+    const { src } = body.data.photo;
+    expect(after.record.base.gallery).toStrictEqual([
+      { credit: { photographer: "ანა" }, src },
+    ]);
+    expect(after.record.base.image).toBe(src);
+    expect(after.record.base.imageCredit).toStrictEqual({
+      photographer: "ანა",
+    });
+    expect(after.record.base).not.toHaveProperty("mobileImage");
   });
 
   it("rejects a missing derivative before storing anything", async () => {
@@ -359,12 +413,45 @@ describe("POST /v1/admin/species/:id/photos", () => {
     storageFetch.mockImplementation(async (_url, init) =>
       init.method === "GET"
         ? Response.json([])
-        : new Response(null, { status: 401 }),
+        : Response.json(
+            { HttpCode: 401, Message: "Unauthorized" },
+            { status: 401 },
+          ),
     );
+    const logged = vi.spyOn(console, "error").mockImplementation(() => {});
     const before = await record();
     const { body, response } = await send();
     expect(response.status).toBe(502);
     expect(body.error.code).toBe("storage_failed");
     expect((await record()).version).toBe(before.version);
+    expect(logged).toHaveBeenCalledWith(
+      "Photo storage request failed",
+      expect.objectContaining({
+        body: '{"HttpCode":401,"Message":"Unauthorized"}',
+        key: `${ID}-ana-1.jpg`,
+        operation: "put",
+        status: 401,
+      }),
+    );
+    expect(JSON.stringify(logged.mock.calls)).not.toContain("bunny-key");
+  });
+
+  it("logs the listing status when the storage listing fails", async () => {
+    storageFetch.mockImplementation(
+      async () => new Response("Forbidden", { status: 403 }),
+    );
+    const logged = vi.spyOn(console, "error").mockImplementation(() => {});
+    const { body, response } = await send();
+    expect(response.status).toBe(502);
+    expect(body.error.code).toBe("storage_failed");
+    expect(logged).toHaveBeenCalledWith(
+      "Photo storage request failed",
+      expect.objectContaining({
+        body: "Forbidden",
+        key: "/",
+        operation: "list",
+        status: 403,
+      }),
+    );
   });
 });

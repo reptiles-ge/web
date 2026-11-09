@@ -21,7 +21,7 @@ import { HUB_QUIZ, type HubCatalogItem } from "@/lib/groupHubLayout";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { quizHref } from "@/lib/quizzes";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
+import { isPlaceholderMedia, speciesImage } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -53,7 +53,7 @@ export async function GroupHubSpeciesList({
       alt: speciesImageAlt(item.commonName, item.scientificName, item.location),
       href: speciesHref(item, locale),
       id: item.id,
-      image: item.image,
+      image: speciesImage(item),
       mobileImage: item.mobileImage,
       name: item.commonName,
       risk: showRisk ? (getSpeciesRiskChip(item, group)?.level ?? null) : null,
@@ -144,7 +144,7 @@ async function GroupHubQuizCard({
             aria-hidden
             className="object-cover"
             sizes="(max-width: 1023px) 100vw, 250px"
-            src={answer.image}
+            src={speciesImage(answer)}
           />
           <span className="absolute bottom-2.5 left-2.5 inline-flex h-6 items-center rounded-full bg-ink/70 px-[9px] text-[11px] text-white/85 lg:bottom-3 lg:left-3 lg:h-[26px] lg:px-2.5 lg:text-[11.5px]">
             {tQuiz("progress", { current: 1, total: QUIZ_LENGTH })}

@@ -14,6 +14,7 @@ import {
 } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { TURTLE_ORDER } from "@/lib/turtleIdentify";
 
 const MATRIX_ROWS = [
@@ -207,7 +208,7 @@ function ComparePhoto({
           alt={alt}
           className="object-cover"
           sizes="(max-width: 768px) 90vw, 45vw"
-          src={species.mobileImage ?? species.image}
+          src={speciesCardImage(species)}
         />
       </Link>
       <figcaption className="mt-3">

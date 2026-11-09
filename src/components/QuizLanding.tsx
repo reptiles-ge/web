@@ -12,6 +12,7 @@ import {
   LIZARD_LOOKALIKE_PAIRS,
   SNAKE_LOOKALIKE_PAIRS,
 } from "@/lib/clusterGuides";
+import { speciesImage } from "@/lib/speciesContent";
 import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -222,7 +223,7 @@ function LookalikeThumb({
         alt={species.commonName}
         className="object-cover"
         sizes="64px"
-        src={species.image}
+        src={speciesImage(species)}
       />
     </Link>
   );

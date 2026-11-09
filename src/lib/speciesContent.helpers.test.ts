@@ -14,6 +14,9 @@ import {
   hasRealIdentification,
   isPlaceholderBody,
   isPlaceholderMedia,
+  SPECIES_PLACEHOLDER_IMAGE,
+  speciesCardImage,
+  speciesImage,
 } from "@/lib/speciesContent";
 
 const PLACEHOLDER = "/images/species-placeholder.png";
@@ -166,6 +169,29 @@ describe("cover and hero sources", () => {
       mobileSlideSrc: null,
       primary: undefined,
     });
+  });
+
+  it("has no hero or gallery for a species with no photo at all", () => {
+    const sources = getSpeciesHeroSources(species({ image: undefined }));
+    expect(sources.desktopHeroSrc).toBeNull();
+    expect(sources.gallery).toEqual([]);
+    expect(getSpeciesCoverSrc({})).toBeNull();
+    expect(getSpeciesIdentificationPhoto(species({ image: undefined }))).toBe(
+      null,
+    );
+  });
+
+  it("uses the first gallery photo, then the placeholder, without a cover", () => {
+    expect(speciesImage({ gallery: [{ src: "/g.jpg" }] })).toBe("/g.jpg");
+    expect(speciesImage({})).toBe(SPECIES_PLACEHOLDER_IMAGE);
+    expect(isPlaceholderMedia(speciesImage({}))).toBe(true);
+    expect(
+      speciesImage({ gallery: [{ src: "/g.jpg" }], image: "/a.jpg" }),
+    ).toBe("/a.jpg");
+    expect(speciesCardImage({ image: "/a.jpg", mobileImage: "/m.jpg" })).toBe(
+      "/m.jpg",
+    );
+    expect(speciesCardImage({})).toBe(SPECIES_PLACEHOLDER_IMAGE);
   });
 
   it("falls back to the cover image as a one-photo gallery", () => {

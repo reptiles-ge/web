@@ -1,58 +1,50 @@
 import type { UploadFile } from "antd/es/upload/interface";
 
-import {
-  Alert,
-  Button,
-  Form,
-  Input,
-  List,
-  Modal,
-  Space,
-  Tag,
-  Upload,
-} from "antd";
-import { useState } from "react";
+import { Alert, Button, Form, Input, List, Modal, Space, Upload } from "antd";
+import { type Ref, useId, useImperativeHandle, useRef, useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
 import { PhotoCreditFormFields } from "./PhotoCreditFormFields";
 import {
-  encodePhotoFile,
   importINaturalistPhoto,
   type INaturalistImport,
   type PhotoCreditFields,
-  uploadSpeciesPhoto,
 } from "./photos";
+import { UploadedAlert, UploadStatusTag } from "./photoUploadKit";
+import {
+  creditFromINaturalist,
+  isSettled,
+  profileNameOf,
+  runPhotoUploads,
+  type UploadStatus,
+} from "./photoUploads";
+
+export type PhotoUploadHandle = {
+  openWith: (result: INaturalistImport, observationUrl: string) => void;
+};
 
 type FileState = {
   message?: string;
   name: string;
-  status: "added" | "compressing" | "failed" | "uploading" | "waiting";
+  status: UploadStatus;
   uid: string;
 };
 
 const INITIAL_CREDIT: Partial<PhotoCreditFields> = { georgiaField: true };
 
-const STATUS_TAGS: Record<
-  FileState["status"],
-  { color: string; label: string }
-> = {
-  added: { color: "green", label: "Added" },
-  compressing: { color: "processing", label: "Compressing" },
-  failed: { color: "red", label: "Failed" },
-  uploading: { color: "processing", label: "Uploading" },
-  waiting: { color: "default", label: "Waiting" },
-};
-
 export function PhotoUploadButton({
   id,
   onSessionExpired,
   onUploaded,
+  ref,
 }: {
   id: string;
   onSessionExpired: () => void;
   onUploaded: () => void;
+  ref?: Ref<PhotoUploadHandle>;
 }) {
   const [form] = Form.useForm<PhotoCreditFields>();
+  const formId = useId();
   const [open, setOpen] = useState(false);
   const [files, setFiles] = useState<UploadFile[]>([]);
   const [states, setStates] = useState<FileState[]>([]);
@@ -62,12 +54,45 @@ export function PhotoUploadButton({
   const [imported, setImported] = useState<INaturalistImport | null>(null);
   const [importError, setImportError] = useState<null | string>(null);
   const added = states.filter((item) => item.status === "added").length;
-  const finished = !running && states.length > 0 && states.every(isSettled);
+  const finished =
+    !running &&
+    states.length > 0 &&
+    states.every((item) => isSettled(item.status));
+  const picked = useRef<INaturalistImport | null>(null);
 
-  function update(uid: string, next: Partial<FileState>) {
-    setStates((current) =>
-      current.map((item) => (item.uid === uid ? { ...item, ...next } : item)),
-    );
+  useImperativeHandle(ref, () => ({
+    openWith(result, url) {
+      if (running) return;
+      setStates([]);
+      setObservationUrl(url);
+      setImportError(null);
+      if (open) {
+        fill(result, true);
+        return;
+      }
+      picked.current = result;
+      setOpen(true);
+    },
+  }));
+
+  function formMounted(instance: unknown) {
+    if (!instance || !picked.current) return;
+    const result = picked.current;
+    picked.current = null;
+    fill(result, true);
+  }
+
+  function fill({ file, metadata }: INaturalistImport, setGeorgia = false) {
+    setFiles([
+      {
+        name: file.name,
+        originFileObj: file as UploadFile["originFileObj"],
+        status: "done",
+        uid: file.name,
+      },
+    ]);
+    form.setFieldsValue(creditFromINaturalist(metadata, setGeorgia));
+    setImported({ file, metadata });
   }
 
   function close() {
@@ -86,27 +111,7 @@ export function PhotoUploadButton({
     setImportError(null);
     setImported(null);
     try {
-      const result = await importINaturalistPhoto(id, observationUrl);
-      const { file, metadata } = result;
-      setFiles([
-        {
-          name: file.name,
-          originFileObj: file as UploadFile["originFileObj"],
-          status: "done",
-          uid: file.name,
-        },
-      ]);
-      form.setFieldsValue({
-        date: metadata.date,
-        lat: String(metadata.lat),
-        lng: String(metadata.lng),
-        location: metadata.location,
-        locationEn: metadata.location,
-        photographer: metadata.photographer,
-        photographerEn: metadata.photographer,
-        url: "",
-      });
-      setImported(result);
+      fill(await importINaturalistPhoto(id, observationUrl));
     } catch (error) {
       if (error instanceof SessionExpiredError) {
         onSessionExpired();
@@ -121,11 +126,13 @@ export function PhotoUploadButton({
   }
 
   async function upload(credit: PhotoCreditFields) {
-    const queue = files.flatMap((item) =>
-      item.originFileObj ? [{ file: item.originFileObj, uid: item.uid }] : [],
+    const jobs = files.flatMap((item) =>
+      item.originFileObj
+        ? [{ credit, file: item.originFileObj, uid: item.uid }]
+        : [],
     );
     setStates(
-      queue.map(({ file, uid }) => ({
+      jobs.map(({ file, uid }) => ({
         name: file.name,
         status: "waiting",
         uid,
@@ -134,25 +141,18 @@ export function PhotoUploadButton({
     setRunning(true);
     let uploaded = 0;
     try {
-      for (const { file, uid } of queue) {
-        try {
-          update(uid, { status: "compressing" });
-          const photo = await encodePhotoFile(file);
-          update(uid, { status: "uploading" });
-          await uploadSpeciesPhoto(id, credit, photo);
-          update(uid, { status: "added" });
-          uploaded += 1;
-        } catch (error) {
-          if (error instanceof SessionExpiredError) {
-            onSessionExpired();
-            return;
-          }
-          update(uid, {
-            message: error instanceof Error ? error.message : "Upload failed",
-            status: "failed",
-          });
-        }
-      }
+      const results = await runPhotoUploads({
+        id,
+        jobs,
+        onSessionExpired,
+        onStatus: (uid, status, message) =>
+          setStates((current) =>
+            current.map((item) =>
+              item.uid === uid ? { ...item, message, status } : item,
+            ),
+          ),
+      });
+      uploaded = results.length;
     } finally {
       setRunning(false);
       if (uploaded > 0) onUploaded();
@@ -169,11 +169,12 @@ export function PhotoUploadButton({
         closable={!running}
         okButtonProps={{
           disabled: files.length === 0 || finished,
+          form: formId,
+          htmlType: "submit",
           loading: running,
         }}
         okText="Upload"
         onCancel={close}
-        onOk={() => form.submit()}
         open={open}
         title="Add photos to the gallery"
         width={720}
@@ -181,9 +182,11 @@ export function PhotoUploadButton({
         <Form<PhotoCreditFields>
           disabled={running || finished}
           form={form}
+          id={formId}
           initialValues={INITIAL_CREDIT}
           layout="vertical"
           onFinish={upload}
+          ref={formMounted}
         >
           <Form.Item
             extra="Fills in the observation's first photo and its photographer, place, date and coordinates. Hidden coordinates stay empty. The source link stays empty. Check the Georgian fields before you upload."
@@ -242,38 +245,23 @@ export function PhotoUploadButton({
               320–2400 px, then stored on the CDN.
             </p>
           </Upload.Dragger>
-          <PhotoCreditFormFields />
+          <PhotoCreditFormFields
+            profileName={profileNameOf(imported?.metadata)}
+          />
         </Form>
         {states.length > 0 ? (
           <List
             dataSource={states}
             renderItem={(item) => (
-              <List.Item
-                extra={
-                  <Tag color={STATUS_TAGS[item.status].color}>
-                    {STATUS_TAGS[item.status].label}
-                  </Tag>
-                }
-              >
+              <List.Item extra={<UploadStatusTag status={item.status} />}>
                 <List.Item.Meta description={item.message} title={item.name} />
               </List.Item>
             )}
             size="small"
           />
         ) : null}
-        {finished && added > 0 ? (
-          <Alert
-            showIcon
-            style={{ marginTop: 16 }}
-            title={`${added} ${added === 1 ? "photo" : "photos"} added to the gallery. The site shows them after you clear this species' cache, and serves their AVIF and WebP sizes from the next site deploy.`}
-            type="success"
-          />
-        ) : null}
+        {finished && added > 0 ? <UploadedAlert count={added} /> : null}
       </Modal>
     </>
   );
-}
-
-function isSettled(item: FileState) {
-  return item.status === "added" || item.status === "failed";
 }

@@ -78,7 +78,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
           fieldRecords={species.fieldRecords}
           gallery={species.gallery}
           id={id}
-          image={species.image}
+          image={species.image ?? ""}
           key={id}
           mobileImage={species.mobileImage}
           scientificName={species.scientificName}

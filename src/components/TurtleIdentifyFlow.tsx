@@ -10,6 +10,7 @@ import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
+import { speciesCardImage } from "@/lib/speciesContent";
 import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
 
 type TurtleIdentifyFlowProps = {
@@ -50,7 +51,7 @@ export function TurtleIdentifyFlow({
               body={t("branchLandBody")}
               href="#land"
               result={t("branchLandResult")}
-              src={testudo.mobileImage ?? testudo.image}
+              src={speciesCardImage(testudo)}
               title={t("branchLandTitle")}
             />
           ) : null}
@@ -60,7 +61,7 @@ export function TurtleIdentifyFlow({
               body={t("branchWaterBody")}
               href="#water"
               result={t("branchWaterResult")}
-              src={emys.mobileImage ?? emys.image}
+              src={speciesCardImage(emys)}
               title={t("branchWaterTitle")}
             />
           ) : null}
@@ -108,7 +109,7 @@ export function TurtleIdentifyFlow({
               body={t("branchSliderBody")}
               href="#slider"
               result={t("branchSliderResult")}
-              src={slider.mobileImage ?? slider.image}
+              src={speciesCardImage(slider)}
               title={t("branchSliderTitle")}
             />
           ) : null}
@@ -118,7 +119,7 @@ export function TurtleIdentifyFlow({
               body={t("branchNativeBody")}
               href="#emys-vs"
               result={t("branchNativeResult")}
-              src={mauremys.mobileImage ?? mauremys.image}
+              src={speciesCardImage(mauremys)}
               title={t("branchNativeTitle")}
             />
           ) : null}
@@ -220,7 +221,7 @@ function SpeciesResult({
           alt={`${speciesNameWithScientific(species.commonName, species.scientificName)}`}
           className="object-cover"
           sizes="180px"
-          src={species.mobileImage ?? species.image}
+          src={speciesCardImage(species)}
         />
       </Link>
       <div className="min-w-0">

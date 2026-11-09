@@ -20,7 +20,7 @@ import {
   GLASS_LIZARD_COMPARE_IDS,
   orderSpeciesByIds,
 } from "@/lib/clusterGuides";
-import { getSpeciesSizeStat } from "@/lib/speciesContent";
+import { getSpeciesSizeStat, speciesImage } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -178,7 +178,7 @@ function CompareCard({
           )}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           sizes="(max-width: 1024px) 100vw, 33vw"
-          src={species.image}
+          src={speciesImage(species)}
         />
       </span>
       <span className="block p-5">

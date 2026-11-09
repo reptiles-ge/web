@@ -2,6 +2,7 @@ import type { CatalogQuizSpecies } from "@/data/speciesCatalogTypes";
 
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
+import { isPlaceholderMedia, speciesImage } from "@/lib/speciesContent";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
@@ -53,11 +54,11 @@ export function getSnakeQuizCatalog(
 }
 
 export function isLizardQuizSpecies(item: QuizPoolCandidate) {
-  return isLizardSpecies(item) && Boolean(item.image);
+  return isLizardSpecies(item) && !isPlaceholderMedia(item.image);
 }
 
 export function isSnakeQuizSpecies(item: QuizPoolCandidate) {
-  return isSnakeSpecies(item) && Boolean(item.image);
+  return isSnakeSpecies(item) && !isPlaceholderMedia(item.image);
 }
 
 export function toSnakeQuizSpecies(
@@ -73,7 +74,7 @@ export function toSnakeQuizSpecies(
   const overridePhoto = overrideSrc
     ? species.gallery.find((item) => item.src === overrideSrc)
     : undefined;
-  const image = overridePhoto?.src ?? species.image;
+  const image = overridePhoto?.src ?? speciesImage(species);
   const mobileOverride =
     QUIZ_MOBILE_IMAGE_OVERRIDES[species.id] ?? species.mobileImage;
   const mobileImage =

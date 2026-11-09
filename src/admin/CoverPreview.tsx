@@ -49,7 +49,7 @@ export function CoverPreviewButton({
 }: {
   commonName: string;
   id: string;
-  image: string;
+  image?: string;
   mobileImage?: string;
   onChanged: (version: number, notice: string) => void;
   onSessionExpired: () => void;
@@ -60,7 +60,7 @@ export function CoverPreviewButton({
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState<CoverTarget | null>(null);
   const [error, setError] = useState<null | string>(null);
-  const covers = resolveAdminCovers(image, mobileImage ?? "");
+  const covers = resolveAdminCovers(image ?? "", mobileImage ?? "");
   const roles = adminCoverRoles(src, covers);
   const isDesktop = roles.includes("desktop") || roles.includes("cover");
   const isMobile = roles.includes("mobile") || roles.includes("cover");
