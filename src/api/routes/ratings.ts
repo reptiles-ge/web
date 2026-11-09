@@ -9,6 +9,7 @@ import type { ApiEnv } from "../env";
 
 import { insertRating } from "../db/ratings";
 import { inBackground } from "../lib/background";
+import { countryCode } from "../lib/country";
 import { validate } from "../lib/validate";
 import { rateLimitRatings } from "../middleware/rateLimitRatings";
 import { requireSiteKey } from "../middleware/requireSiteKey";
@@ -58,7 +59,3 @@ export const ratings = new Hono<ApiEnv>().post(
     return c.body(null, 201);
   },
 );
-
-function countryCode(value: string | undefined) {
-  return value && /^[A-Z]{2}$/.test(value) && value !== "XX" ? value : null;
-}

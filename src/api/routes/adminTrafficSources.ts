@@ -13,10 +13,11 @@ export const adminTrafficSources = new Hono<ApiEnv>().get(
   requireAdmin,
   validate("query", adminTrafficSourceListQuery),
   async (c) => {
-    const { from, lang, limit, page, q, source, to } = c.req.valid("query");
+    const { country, from, lang, limit, page, q, source, to } =
+      c.req.valid("query");
     const result = await listAdminTrafficSources(
       c.env.DB,
-      { from, lang, q, source, to },
+      { country, from, lang, q, source, to },
       { limit, page },
     );
     c.header("Cache-Control", NO_STORE);
