@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { speciesSameAs, speciesStructuredData } from "@/lib/createSpeciesRoute";
+import { speciesOgImageUrl } from "@/lib/site";
 import { getSpeciesHeroSources } from "@/lib/speciesContent";
 
 import {
@@ -77,7 +78,7 @@ describe("species structured data", () => {
         galleryTitle: "gallery",
         item: localized,
         locale: "ka",
-        ogImage: localized.image,
+        ogImage: localized.image!,
         pageUrl: "https://reptiles.ge/species",
         ranks: { class: "Reptilia", order: "Squamata" },
         raw,
@@ -86,6 +87,35 @@ describe("species structured data", () => {
 
       expect(gallery?.associatedMedia.length ?? 0, raw.id).toBe(shown);
     }
+  });
+
+  it("builds the graph for a species without any photo", () => {
+    const noPhoto = {
+      gallery: [],
+      image: undefined,
+      imageCredit: undefined,
+      mobileImage: undefined,
+      mobileImageCredit: undefined,
+    };
+    const raw = { ...catalogSpeciesFixture()[0]!, ...noPhoto };
+    const localized = { ...localizedFixture(raw, "ka"), ...noPhoto };
+    const ogImage = speciesOgImageUrl(raw.id, localized.image);
+    const graph = speciesStructuredData({
+      breadcrumbCrumbs: [{ name: localized.commonName }],
+      contributors,
+      galleryTitle: "gallery",
+      item: localized,
+      locale: "ka",
+      ogImage,
+      pageUrl: "https://reptiles.ge/species",
+      ranks: { class: "Reptilia", order: "Squamata" },
+      raw,
+    });
+    expect(graph.some((entry) => entry["@type"] === "ImageGallery")).toBe(
+      false,
+    );
+    expect(JSON.stringify(graph)).not.toContain("undefined");
+    expect(JSON.stringify(graph)).toContain(ogImage);
   });
 
   it("includes both Georgian cockroach names in every Taxon instance", () => {
@@ -100,7 +130,7 @@ describe("species structured data", () => {
         galleryTitle: "gallery",
         item: localized,
         locale,
-        ogImage: localized.image,
+        ogImage: localized.image!,
         pageUrl: "https://reptiles.ge/mtserebi/shavi-tarakana",
         ranks: { class: "Reptilia", order: "Squamata" },
         raw: raw!,
@@ -130,7 +160,7 @@ describe("species structured data", () => {
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",
-      ogImage: localized.image,
+      ogImage: localized.image!,
       pageUrl,
       ranks: { class: "Reptilia", order: "Squamata" },
       raw,
@@ -204,7 +234,7 @@ describe("species structured data", () => {
       galleryTitle: "gallery",
       item: localized,
       locale: "en",
-      ogImage: localized.image,
+      ogImage: localized.image!,
       pageUrl: CHEIRACANTHIUM_URL,
       ranks: { class: "Reptilia", order: "Squamata" },
       raw: species,
@@ -267,7 +297,7 @@ describe("species structured data", () => {
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",
-      ogImage: localized.image,
+      ogImage: localized.image!,
       pageUrl: "https://reptiles.ge/dzuzumtsovrebi/chveulebrivi-tsavi",
       ranks: { class: "Reptilia", order: "Squamata" },
       raw: species,
@@ -305,7 +335,7 @@ describe("species structured data", () => {
       galleryTitle: "gallery",
       item: localized,
       locale: "en",
-      ogImage: localized.image,
+      ogImage: localized.image!,
       pageUrl: "https://reptiles.ge/en/snakes/vipera-transcaucasiana",
       ranks: { class: "Reptilia", order: "Squamata" },
       raw,
@@ -349,7 +379,7 @@ describe("species structured data", () => {
           galleryTitle: "gallery",
           item: localized,
           locale,
-          ogImage: localized.image,
+          ogImage: localized.image!,
           pageUrl: "https://reptiles.ge/species",
           ranks: { class: "Reptilia", order: "Squamata" },
           raw,
@@ -379,7 +409,7 @@ describe("species structured data", () => {
       galleryTitle: "გალერეა",
       item: raw,
       locale: "ka",
-      ogImage: raw.image,
+      ogImage: raw.image!,
       pageUrl: "https://reptiles.ge/gvelebi/giurza",
       ranks: { class: "Reptilia", order: "Squamata" },
       raw,
@@ -401,7 +431,7 @@ describe("species structured data", () => {
       galleryTitle: "გალერეა",
       item: localized,
       locale: "ka",
-      ogImage: localized.image,
+      ogImage: localized.image!,
       pageUrl: "https://reptiles.ge/dzuzumtsovrebi/machvi",
       ranks: { class: "Reptilia", order: "Squamata" },
       raw: raw!,

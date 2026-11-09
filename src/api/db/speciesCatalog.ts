@@ -238,7 +238,6 @@ export async function readSpeciesCatalog(
     const hero = single("hero");
     const mobile = single("mobile");
     const audio = single("audio");
-    if (!hero) throw new Error(`${row.id} has no hero image`);
 
     catalog.atlasMeta[row.id] = {
       checklistStatus: row.checklist_status_id,
@@ -267,8 +266,8 @@ export async function readSpeciesCatalog(
           .map((entry) => galleryImage(entry.src, entry)),
         genus: row.genus,
         id: row.id,
-        image: hero.src,
-        imageCredit: credit(hero),
+        image: hero?.src,
+        imageCredit: hero ? credit(hero) : undefined,
         mobileImage: mobile?.src,
         mobileImageCredit: mobile ? credit(mobile) : undefined,
         publishedAt: row.published_at,

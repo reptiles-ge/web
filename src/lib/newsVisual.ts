@@ -45,7 +45,7 @@ export function getNewsImageSrc(
   if (article.image?.src) return article.image.src;
 
   const species = newsAtlasSpecies(article, catalog);
-  if (species) return species.image;
+  if (species?.image) return species.image;
 
   const region = newsRelatedRegions(article)[0];
   if (region) {
@@ -66,7 +66,7 @@ export function getNewsVisual(
   }
 
   const item = newsAtlasSpecies(article, catalog);
-  if (item) {
+  if (item?.image) {
     return {
       alt: speciesPhotoAlt(
         item.commonName,

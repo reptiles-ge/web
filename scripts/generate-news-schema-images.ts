@@ -172,7 +172,13 @@ async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
   const manifest = readManifest();
-  const heroes = selectHeroes(options, manifest, await getSpeciesCatalog("ka"));
+  const heroes = selectHeroes(
+    options,
+    manifest,
+    (await getSpeciesCatalog("ka")).filter(
+      (item): item is typeof item & { image: string } => Boolean(item.image),
+    ),
+  );
 
   if (heroes.length === 0) {
     console.log("Every news hero already has its schema crops. Nothing to do.");

@@ -57,7 +57,15 @@ function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
   const photos: PhotoRef[] = [];
   for (const species of catalog) {
     photos.push(
-      { credit: species.imageCredit, owner: species.id, src: species.image },
+      ...(species.image
+        ? [
+            {
+              credit: species.imageCredit,
+              owner: species.id,
+              src: species.image,
+            },
+          ]
+        : []),
       ...(species.mobileImage
         ? [
             {

@@ -224,7 +224,6 @@ export function SpeciesDetailPage({
               ? pendingOrder.srcs
               : recordOrder;
           const photos = photoRows(record, order);
-          const galleryCount = record.base.gallery.length;
           const currentVersion = savedVersion ?? version;
           const move = (src: string, to: number) =>
             void saveOrder(movePhoto(order, src, to), order, currentVersion);
@@ -286,7 +285,6 @@ export function SpeciesDetailPage({
                       version={currentVersion}
                     />
                     <PhotoActions
-                      canDelete={galleryCount > 1}
                       credit={row.credit}
                       enCredit={row.enCredit}
                       georgiaField={row.confidence === "georgia-field"}
@@ -480,14 +478,18 @@ function photoRows(
     (translations.en.gallery ?? []).map((photo) => [photo.src, photo.credit]),
   );
   return [
-    {
-      confidence: base.imageCredit?.photoConfidence,
-      credit: base.imageCredit,
-      gallery: false,
-      key: `desktop:${base.image}`,
-      role: "Desktop cover",
-      src: base.image,
-    },
+    ...(base.image
+      ? [
+          {
+            confidence: base.imageCredit?.photoConfidence,
+            credit: base.imageCredit,
+            gallery: false,
+            key: `desktop:${base.image}`,
+            role: "Desktop cover",
+            src: base.image,
+          },
+        ]
+      : []),
     ...(base.mobileImage
       ? [
           {

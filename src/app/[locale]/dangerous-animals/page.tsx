@@ -19,6 +19,7 @@ import {
 } from "@/lib/pageStructuredData";
 import { absoluteUrl, localePath } from "@/lib/site";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { speciesImage } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -75,7 +76,7 @@ export default async function DangerousAnimalsRoute({
             hero.scientificName,
             hero.location,
           )}
-          heroSrc={hero.image}
+          heroSrc={speciesImage(hero)}
           karakurtName={widow.commonName}
           locale={locale}
           publishedAt={dates.datePublished}

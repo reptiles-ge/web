@@ -297,7 +297,7 @@ describe("SpeciesDetailPage", () => {
     expect(within(gallery).getByRole("button", { name: "Edit" })).toBeEnabled();
     expect(
       within(gallery).getByRole("button", { name: "Delete" }),
-    ).toBeDisabled();
+    ).toBeEnabled();
   });
 
   it("edits a photo credit with its English overlay and reloads", async () => {

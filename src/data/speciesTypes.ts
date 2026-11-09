@@ -36,7 +36,7 @@ export type Species = {
   habitat: string;
   id: string;
   identification?: SpeciesIdentification;
-  image: string;
+  image?: string;
   imageCredit?: PhotoCredit;
   interaction?: string;
   location: string;

@@ -91,7 +91,7 @@ const base = z.strictObject({
   gallery: z.array(galleryImage),
   genus: required,
   id: z.string().regex(SLUG).max(100),
-  image: url,
+  image: url.optional(),
   imageCredit: photoCredit.optional(),
   mobileImage: url.optional(),
   mobileImageCredit: photoCredit.optional(),

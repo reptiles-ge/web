@@ -127,7 +127,7 @@ export function speciesRecordRows(record: SpeciesRecord) {
       photoConfidence ?? null,
       ...creditCells(credit, person),
     ]);
-  addMedia("hero", 0, base.image, base.imageCredit);
+  if (base.image) addMedia("hero", 0, base.image, base.imageCredit);
   if (base.mobileImage) {
     addMedia("mobile", 0, base.mobileImage, base.mobileImageCredit);
   }

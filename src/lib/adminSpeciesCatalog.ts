@@ -7,7 +7,7 @@ export type AdminSpeciesSummary = {
   galleryCount: number;
   group: AnimalGroup;
   id: string;
-  image: string;
+  image?: string;
   scientificName: string;
 };
 

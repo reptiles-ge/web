@@ -2,6 +2,7 @@ import type { DangerLevel, SpeciesSummary } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import { speciesImage } from "@/lib/speciesContent";
 
 import {
   getRegionById,
@@ -104,7 +105,7 @@ export function toRegionSpeciesCard(
   return {
     commonName: species.commonName,
     id: species.id,
-    image: species.image,
+    image: speciesImage(species),
     location: species.location,
     scientificName: species.scientificName,
     ...(species.danger ? { danger: species.danger } : {}),

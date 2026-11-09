@@ -39,7 +39,7 @@ type ListRow = {
   danger_id: DangerLevel | null;
   group_id: AnimalGroup;
   id: string;
-  image: string;
+  image: null | string;
   scientific_name: string;
   slug_ka: null | string;
   updated_at: string;
@@ -132,7 +132,7 @@ export async function listPublishedSpecies(
   locale: AppLocale,
   group?: AnimalGroup,
 ) {
-  const query = `SELECT s.id, s.scientific_name, s.group_id, s.danger_id, s.slug_ka, t.common_name, COALESCE(t.updated_at, k.updated_at) AS updated_at, m.src AS image FROM species s JOIN species_texts t ON t.species_id = s.id AND t.locale = ? JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' JOIN species_media m ON m.species_id = s.id AND m.role = 'hero' WHERE s.status = 'published'${group ? " AND s.group_id = ?" : ""} ORDER BY s.catalog_position`;
+  const query = `SELECT s.id, s.scientific_name, s.group_id, s.danger_id, s.slug_ka, t.common_name, COALESCE(t.updated_at, k.updated_at) AS updated_at, m.src AS image FROM species s JOIN species_texts t ON t.species_id = s.id AND t.locale = ? JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' LEFT JOIN species_media m ON m.species_id = s.id AND m.role = 'hero' WHERE s.status = 'published'${group ? " AND s.group_id = ?" : ""} ORDER BY s.catalog_position`;
   const statement = db.prepare(query);
   const { results } = await (
     group ? statement.bind(locale, group) : statement.bind(locale)
@@ -142,7 +142,7 @@ export async function listPublishedSpecies(
     danger: row.danger_id,
     group: row.group_id,
     id: row.id,
-    image: row.image,
+    ...(row.image ? { image: row.image } : {}),
     scientificName: row.scientific_name,
     slug: publicSlug(row.id, row.slug_ka, locale),
     updatedAt: row.updated_at,

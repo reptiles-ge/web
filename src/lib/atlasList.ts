@@ -11,6 +11,7 @@ import {
   getCatalogMatches,
   getVenomousSnakeCards,
 } from "@/lib/speciesCatalogApi";
+import { speciesImage } from "@/lib/speciesContent";
 
 export type AtlasPage = {
   facets: AtlasFacets;
@@ -64,7 +65,7 @@ function toAtlasCardItem(item: CatalogCard): AtlasCardItem {
   return {
     commonName: item.commonName,
     id: item.id,
-    image: item.image,
+    image: speciesImage(item),
     location: item.location,
     regionIds: getRegionsForSpecies(item.id).map((region) => region.id),
     scientificName: item.scientificName,
