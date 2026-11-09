@@ -28,6 +28,12 @@ function limiter(success: boolean): RateLimiter {
   return { limit: vi.fn(async () => ({ success })) };
 }
 
+function pageViews() {
+  return sqlite
+    .prepare("SELECT path, locale, views FROM page_views ORDER BY path, locale")
+    .all();
+}
+
 async function post(body: unknown, headers: Record<string, string> = {}) {
   const response = await app.request(
     "/v1/views",
@@ -57,6 +63,14 @@ function publishedNewsId() {
     )
     .get() as { id: string };
   return row.id;
+}
+
+function sources() {
+  return sqlite
+    .prepare(
+      "SELECT source, referrer, path, locale, visits FROM traffic_sources ORDER BY source, referrer, path",
+    )
+    .all();
 }
 
 function views() {
@@ -181,6 +195,128 @@ describe("POST /v1/views", () => {
     );
 
     expect(views()).toEqual([]);
+  });
+
+  it("counts any page once per visitor per day across locales", async () => {
+    await post({ locale: "ka", path: "/regions/kakheti" });
+    await post({ locale: "en", path: "/regions/kakheti" });
+    await post(
+      { locale: "en", path: "/regions/kakheti" },
+      { "cf-connecting-ip": "203.0.113.6" },
+    );
+    await post({ locale: "ka", path: "/" });
+
+    expect(pageViews()).toEqual([
+      { locale: "ka", path: "/", views: 1 },
+      { locale: "en", path: "/regions/kakheti", views: 1 },
+      { locale: "ka", path: "/regions/kakheti", views: 1 },
+    ]);
+    expect(views()).toEqual([]);
+    expect(sources()).toEqual([]);
+  });
+
+  it("counts the species behind a species page as well", async () => {
+    await post({ locale: "en", path: "/snakes/macrovipera-lebetina" });
+    await post({ id: "macrovipera-lebetina", kind: "species" });
+
+    expect(pageViews()).toEqual([
+      { locale: "en", path: "/snakes/macrovipera-lebetina", views: 1 },
+    ]);
+    expect(views()).toEqual([
+      { kind: "species", target_id: "macrovipera-lebetina", views: 1 },
+    ]);
+  });
+
+  it("does not count pages of unpublished species or news", async () => {
+    sqlite.exec(
+      "UPDATE species SET status = 'unpublished' WHERE id = 'macrovipera-lebetina'",
+    );
+    await post({
+      entry: { referrer: "google.com" },
+      locale: "ka",
+      path: "/snakes/macrovipera-lebetina",
+    });
+    await post({ locale: "ka", path: "/news/no-such-article" });
+
+    expect(pageViews()).toEqual([]);
+    expect(sources()).toEqual([]);
+  });
+
+  it("counts a news page and the article", async () => {
+    const id = publishedNewsId();
+    await post({ locale: "ka", path: `/news/${id}` });
+
+    expect(views()).toEqual([{ kind: "news", target_id: id, views: 1 }]);
+  });
+
+  it("counts each source once per visitor per day with its landing page", async () => {
+    await post({
+      entry: { referrer: "www.google.com" },
+      locale: "ka",
+      path: "/",
+    });
+    await post({
+      entry: { referrer: "google.ge" },
+      locale: "ka",
+      path: "/regions/kakheti",
+    });
+    await post({ entry: { clickId: "fbclid" }, locale: "en", path: "/about" });
+    await post({ entry: {}, locale: "ka", path: "/" });
+    await post(
+      { entry: { utmSource: "newsletter" }, locale: "ka", path: "/" },
+      { "cf-connecting-ip": "203.0.113.6" },
+    );
+
+    expect(sources()).toEqual([
+      { locale: "ka", path: "/", referrer: "", source: "direct", visits: 1 },
+      {
+        locale: "en",
+        path: "/about",
+        referrer: "",
+        source: "facebook",
+        visits: 1,
+      },
+      {
+        locale: "ka",
+        path: "/",
+        referrer: "google.com",
+        source: "google",
+        visits: 1,
+      },
+      {
+        locale: "ka",
+        path: "/",
+        referrer: "utm:newsletter",
+        source: "other",
+        visits: 1,
+      },
+    ]);
+  });
+
+  it("forgets page and source visitors on a new day", async () => {
+    await post({ entry: {}, locale: "ka", path: "/" });
+    vi.setSystemTime(new Date("2026-10-25T08:00:00Z"));
+    await post({ locale: "ka", path: "/about" });
+
+    expect(sqlite.prepare("SELECT day FROM page_view_visitors").all()).toEqual([
+      { day: "2026-10-25" },
+    ]);
+    expect(
+      sqlite.prepare("SELECT day FROM traffic_source_visitors").all(),
+    ).toEqual([]);
+  });
+
+  it.each([
+    { locale: "ka", path: "/no-such-page" },
+    { locale: "de", path: "/" },
+    { entry: { referrer: "https://google.com/" }, locale: "ka", path: "/" },
+    { entry: { clickId: "sessionid" }, locale: "ka", path: "/" },
+    { entry: { utmSource: "Big Campaign" }, locale: "ka", path: "/" },
+  ])("rejects the page view %j", async (body) => {
+    const response = await post(body);
+
+    expect(response.status).toBe(400);
+    expect(pageViews()).toEqual([]);
   });
 
   it("rejects an invalid body", async () => {

@@ -40,7 +40,18 @@ export async function forgetViewVisitorsBefore(db: ApiDatabase, day: string) {
   await db.batch([
     db.prepare("DELETE FROM content_view_visitors WHERE day < ?").bind(day),
     db.prepare("DELETE FROM content_view_salts WHERE day < ?").bind(day),
+    db.prepare("DELETE FROM page_view_visitors WHERE day < ?").bind(day),
+    db.prepare("DELETE FROM traffic_source_visitors WHERE day < ?").bind(day),
   ]);
+}
+
+export async function isPublishedTarget(
+  db: ApiDatabase,
+  kind: ContentViewKind,
+  id: string,
+) {
+  const row = await db.prepare(PUBLISHED_TARGET[kind]).bind(id).first();
+  return row !== null;
 }
 
 export async function listAdminViews(

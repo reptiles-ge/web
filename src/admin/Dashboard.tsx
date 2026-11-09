@@ -11,11 +11,13 @@ import { DraftDetailPage } from "./DraftDetailPage";
 import { DraftsPage } from "./DraftsPage";
 import { NewsDetailPage } from "./NewsDetailPage";
 import { NewsPage } from "./NewsPage";
+import { PageViewsPage } from "./PageViewsPage";
 import { RatingsPage } from "./RatingsPage";
 import { followLink, navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
 import { SpeciesPage } from "./SpeciesPage";
+import { TrafficSourcesPage } from "./TrafficSourcesPage";
 import { ViewsPage } from "./ViewsPage";
 
 type SectionProps = { onSessionExpired: () => void };
@@ -32,6 +34,8 @@ const SECTIONS: Array<{
   { label: "Cache", page: CachePage, path: "/cache" },
   { label: "Ratings", page: RatingsPage, path: "/ratings" },
   { label: "Views", page: ViewsPage, path: "/views" },
+  { label: "Page views", page: PageViewsPage, path: "/page-views" },
+  { label: "Sources", page: TrafficSourcesPage, path: "/sources" },
   { label: "API keys", page: ApiKeysPage, path: "/api-keys" },
 ];
 

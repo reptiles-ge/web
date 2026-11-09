@@ -19,6 +19,7 @@ import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
+import { PageViewBeacon } from "@/components/PageViewBeacon";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
@@ -29,6 +30,7 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
+import { apiOrigin } from "@/lib/apiClient";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
@@ -88,6 +90,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ScrollToTop />
           <LogoPreload />
           <AnalyticsPageContext />
+          <PageViewBeacon apiOrigin={apiOrigin()} />
           <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
             {SelectionContentEditor && editorT ? (

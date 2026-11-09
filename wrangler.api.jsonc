@@ -25,7 +25,7 @@
     {
       "name": "RATING_GLOBAL_LIMITER",
       "namespace_id": "1231",
-      "simple": { "limit": 30, "period": 60 },
+      "simple": { "limit": 60, "period": 60 },
     },
     {
       "name": "LOGIN_LIMITER",
@@ -40,7 +40,7 @@
     {
       "name": "VIEW_LIMITER",
       "namespace_id": "1234",
-      "simple": { "limit": 30, "period": 60 },
+      "simple": { "limit": 60, "period": 60 },
     },
     {
       "name": "API_KEY_LIMITER",
@@ -50,7 +50,7 @@
     {
       "name": "UPLOAD_LIMITER",
       "namespace_id": "1236",
-      "simple": { "limit": 30, "period": 60 },
+      "simple": { "limit": 60, "period": 60 },
     },
     {
       "name": "ACCESS_REQUEST_VISITOR_LIMITER",
