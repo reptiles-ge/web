@@ -76,9 +76,28 @@ describe("PageViewBeacon", () => {
     expect(sentBodies()).toEqual([
       { entry: { referrer: "google.com" }, locale: "ka", path: "/" },
     ]);
-    expect(window.localStorage.getItem("reptiles:page-viewed:/")).toBe(
-      "2026-10-24",
-    );
+    expect(window.localStorage.getItem("reptiles:page-viewed:/")).toBeNull();
+  });
+
+  it("sends a page without a new source only when it counts a species or article", async () => {
+    window.localStorage.setItem("reptiles:entry:{}", "2026-10-24");
+    const first = await renderBeacon();
+    first.unmount();
+    Object.assign(route, {
+      params: { slug: "giurza" },
+      pathname: "/snakes/[slug]",
+    });
+    const second = await renderBeacon();
+    second.rerender();
+
+    expect(sentBodies()).toEqual([
+      { locale: "ka", path: "/snakes/macrovipera-lebetina" },
+    ]);
+    expect(
+      window.localStorage.getItem(
+        "reptiles:page-viewed:/snakes/macrovipera-lebetina",
+      ),
+    ).toBe("2026-10-24");
   });
 
   it("names a species page by id and sends no entry after landing", async () => {

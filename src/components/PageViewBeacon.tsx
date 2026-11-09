@@ -10,6 +10,7 @@ import type { TrafficEntry } from "@/lib/pageViewInput";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { usePathname } from "@/i18n/navigation";
 import { sendPageView } from "@/lib/pageViewBeacon";
+import { contentViewForPath } from "@/lib/pageViewPath";
 import { pageViewPath } from "@/lib/pageViewTarget";
 import { siteDay } from "@/lib/siteTime";
 import { readTrafficEntry } from "@/lib/trafficEntry";
@@ -38,12 +39,13 @@ export function PageViewBeacon({ apiOrigin }: { apiOrigin: string }) {
     if (!path) return;
     const entry = takeLandingEntry();
     const today = siteDay(new Date());
+    const counted = contentViewForPath(path) !== undefined;
     const pageKey = `${PAGE_PREFIX}${path}`;
     const entryKey = entry ? `${ENTRY_PREFIX}${JSON.stringify(entry)}` : null;
-    const pageSeen = readStored(pageKey) === today;
+    const pageSeen = !counted || readStored(pageKey) === today;
     const entrySeen = entryKey === null || readStored(entryKey) === today;
     if (pageSeen && entrySeen) return;
-    writeStored(pageKey, today);
+    if (counted) writeStored(pageKey, today);
     if (entryKey) writeStored(entryKey, today);
     sendPageView(apiOrigin, {
       ...(entry && !entrySeen ? { entry } : {}),

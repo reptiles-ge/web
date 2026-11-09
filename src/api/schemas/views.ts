@@ -35,5 +35,11 @@ export const adminPageViewListQuery = pageViewQuery.refine(
 );
 
 export const adminTrafficSourceListQuery = pageViewQuery
-  .extend({ source: z.enum(TRAFFIC_SOURCE_IDS).optional() })
+  .extend({
+    country: z
+      .string()
+      .regex(/^[A-Z]{2}$/)
+      .optional(),
+    source: z.enum(TRAFFIC_SOURCE_IDS).optional(),
+  })
   .refine(orderedRange, RANGE_ORDER);

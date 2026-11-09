@@ -22,6 +22,7 @@ export type AdminPageViewsPage = InferResponseType<
 export type AdminTrafficSource = AdminTrafficSourcesPage["data"][number];
 
 export type AdminTrafficSourceFilters = AdminPageViewFilters & {
+  country: string;
   source: TrafficSourceId;
 };
 
