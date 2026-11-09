@@ -67,6 +67,7 @@ function setup(
       id="larus-genei"
       onPicked={onPicked}
       onSessionExpired={onSessionExpired}
+      onUploaded={vi.fn()}
       scientificName="Larus genei"
     />,
   );
@@ -255,6 +256,9 @@ describe("PhotoCandidatesButton", () => {
     const shortlist = within(dialog).getByRole("region", {
       name: "Saved photos",
     });
+    expect(
+      within(shortlist).getByRole("button", { name: "Bulk create" }),
+    ).toBeEnabled();
     const order = () =>
       within(shortlist)
         .getAllByAltText(/Saved photo by/)

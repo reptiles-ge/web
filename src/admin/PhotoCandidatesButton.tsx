@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 
 import { SessionExpiredError } from "./adminResponse";
+import { BulkCreateButton } from "./BulkCreateButton";
 import {
   type CandidateLicence,
   type CandidateScope,
@@ -57,12 +58,14 @@ export function PhotoCandidatesButton({
   id,
   onPicked,
   onSessionExpired,
+  onUploaded,
   scientificName,
 }: {
   gallery: GalleryPhoto[];
   id: string;
   onPicked: (result: INaturalistImport, observationUrl: string) => void;
   onSessionExpired: () => void;
+  onUploaded: () => void;
   scientificName: string;
 }) {
   const [open, setOpen] = useState(false);
@@ -176,6 +179,14 @@ export function PhotoCandidatesButton({
           </Typography.Text>
           <SavedCandidates
             adding={adding}
+            bulk={
+              <BulkCreateButton
+                candidates={shortlist.saved}
+                id={id}
+                onSessionExpired={onSessionExpired}
+                onUploaded={onUploaded}
+              />
+            }
             onAdd={(candidate) => void pick(candidate)}
             onMove={shortlist.move}
             onUnsave={shortlist.toggle}
