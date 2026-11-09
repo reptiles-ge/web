@@ -7,9 +7,10 @@ import type { ApiDatabase } from "./database";
 import { containsPattern } from "./search";
 
 export type AdminViewFilters = {
+  from?: string;
   kind?: ContentViewKind;
   q?: string;
-  since?: string;
+  to?: string;
 };
 
 export type ContentView = {
@@ -29,18 +30,60 @@ type AdminViewRow = {
 };
 
 const ADMIN_VIEW_FROM =
-  "FROM (SELECT v.kind, v.target_id, SUM(v.views) AS views, MAX(v.day) AS last_day, COALESCE(sk.common_name, nk.title) AS name_ka, COALESCE(se.common_name, ne.title) AS name_en FROM content_views v LEFT JOIN species_texts sk ON v.kind = 'species' AND sk.species_id = v.target_id AND sk.locale = 'ka' LEFT JOIN species_texts se ON v.kind = 'species' AND se.species_id = v.target_id AND se.locale = 'en' LEFT JOIN news_texts nk ON v.kind = 'news' AND nk.article_id = v.target_id AND nk.locale = 'ka' LEFT JOIN news_texts ne ON v.kind = 'news' AND ne.article_id = v.target_id AND ne.locale = 'en' WHERE (?1 IS NULL OR v.day >= ?1) AND (?2 IS NULL OR v.kind = ?2) GROUP BY v.kind, v.target_id) t WHERE (?3 IS NULL OR t.target_id LIKE ?3 ESCAPE '\\' OR t.name_ka LIKE ?3 ESCAPE '\\' OR t.name_en LIKE ?3 ESCAPE '\\')";
+  "FROM (SELECT v.kind, v.target_id, SUM(v.views) AS views, MAX(v.day) AS last_day, COALESCE(sk.common_name, nk.title) AS name_ka, COALESCE(se.common_name, ne.title) AS name_en FROM content_views v LEFT JOIN species_texts sk ON v.kind = 'species' AND sk.species_id = v.target_id AND sk.locale = 'ka' LEFT JOIN species_texts se ON v.kind = 'species' AND se.species_id = v.target_id AND se.locale = 'en' LEFT JOIN news_texts nk ON v.kind = 'news' AND nk.article_id = v.target_id AND nk.locale = 'ka' LEFT JOIN news_texts ne ON v.kind = 'news' AND ne.article_id = v.target_id AND ne.locale = 'en' WHERE (?1 IS NULL OR v.day >= ?1) AND (?2 IS NULL OR v.day <= ?2) AND (?3 IS NULL OR v.kind = ?3) GROUP BY v.kind, v.target_id) t WHERE (?4 IS NULL OR t.target_id LIKE ?4 ESCAPE '\\' OR t.name_ka LIKE ?4 ESCAPE '\\' OR t.name_en LIKE ?4 ESCAPE '\\')";
 
 const PUBLISHED_TARGET: Record<ContentViewKind, string> = {
   news: "SELECT 1 FROM news_articles WHERE id = ? AND status = 'published'",
   species: "SELECT 1 FROM species WHERE id = ? AND status = 'published'",
 };
 
+export async function countPublishedNews(db: ApiDatabase) {
+  const row = await db
+    .prepare(
+      "SELECT COUNT(*) AS total FROM news_articles WHERE status = 'published'",
+    )
+    .first<{ total: number }>();
+  return row?.total ?? 0;
+}
+
 export async function forgetViewVisitorsBefore(db: ApiDatabase, day: string) {
   await db.batch([
     db.prepare("DELETE FROM content_view_visitors WHERE day < ?").bind(day),
     db.prepare("DELETE FROM content_view_salts WHERE day < ?").bind(day),
+    db.prepare("DELETE FROM page_view_visitors WHERE day < ?").bind(day),
+    db.prepare("DELETE FROM traffic_source_visitors WHERE day < ?").bind(day),
   ]);
+}
+
+export async function isContributor(db: ApiDatabase, id: string) {
+  const row = await db
+    .prepare("SELECT 1 FROM authors WHERE id = ? AND is_contributor = 1")
+    .bind(id)
+    .first();
+  return row !== null;
+}
+
+export async function isPublishedSpeciesInGroup(
+  db: ApiDatabase,
+  id: string,
+  group: string,
+) {
+  const row = await db
+    .prepare(
+      "SELECT 1 FROM species WHERE id = ? AND group_id = ? AND status = 'published'",
+    )
+    .bind(id, group)
+    .first();
+  return row !== null;
+}
+
+export async function isPublishedTarget(
+  db: ApiDatabase,
+  kind: ContentViewKind,
+  id: string,
+) {
+  const row = await db.prepare(PUBLISHED_TARGET[kind]).bind(id).first();
+  return row !== null;
 }
 
 export async function listAdminViews(
@@ -49,14 +92,15 @@ export async function listAdminViews(
   page: PageParams,
 ) {
   const where = [
-    filters.since ?? null,
+    filters.from ?? null,
+    filters.to ?? null,
     filters.kind ?? null,
     containsPattern(filters.q),
   ];
   const [rows, count] = await Promise.all([
     db
       .prepare(
-        `SELECT t.kind, t.target_id, t.views, t.last_day, t.name_ka, t.name_en ${ADMIN_VIEW_FROM} ORDER BY t.views DESC, t.last_day DESC, t.kind, t.target_id LIMIT ?4 OFFSET ?5`,
+        `SELECT t.kind, t.target_id, t.views, t.last_day, t.name_ka, t.name_en ${ADMIN_VIEW_FROM} ORDER BY t.views DESC, t.last_day DESC, t.kind, t.target_id LIMIT ?5 OFFSET ?6`,
       )
       .bind(...where, page.limit, pageOffset(page))
       .all<AdminViewRow>(),
@@ -85,16 +129,19 @@ export async function readViewSalt(
   day: string,
   candidate: string,
 ) {
-  const [, selected] = await db.batch([
+  const [inserted, selected] = await db.batch([
     db
       .prepare(
-        "INSERT INTO content_view_salts (day, salt) VALUES (?, ?) ON CONFLICT (day) DO NOTHING",
+        "INSERT INTO content_view_salts (day, salt) VALUES (?, ?) ON CONFLICT (day) DO NOTHING RETURNING salt",
       )
       .bind(day, candidate),
     db.prepare("SELECT salt FROM content_view_salts WHERE day = ?").bind(day),
   ]);
   const row = selected?.results[0] as undefined | { salt: string };
-  return row?.salt ?? candidate;
+  return {
+    created: (inserted?.results.length ?? 0) > 0,
+    salt: row?.salt ?? candidate,
+  };
 }
 
 export async function readViewTotal(
@@ -114,9 +161,9 @@ export async function readViewTotal(
 export async function recordView(db: ApiDatabase, view: ContentView) {
   const { results } = await db
     .prepare(
-      `INSERT OR IGNORE INTO content_view_visitors (day, kind, target_id, visitor) SELECT ?, ?, ?, ? WHERE EXISTS (${PUBLISHED_TARGET[view.kind]}) RETURNING visitor`,
+      "INSERT OR IGNORE INTO content_view_visitors (day, kind, target_id, visitor) VALUES (?, ?, ?, ?) RETURNING visitor",
     )
-    .bind(view.day, view.kind, view.id, view.visitor, view.id)
+    .bind(view.day, view.kind, view.id, view.visitor)
     .all<{ visitor: string }>();
   if (results.length === 0) return;
   await db

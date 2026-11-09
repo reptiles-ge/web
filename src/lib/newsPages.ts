@@ -4,6 +4,7 @@ import type { NewsListArticle, NewsSummary } from "@/data/newsTypes";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { newestNewsDateTime, newsArticleUrl, newsDateTime } from "@/lib/news";
 import { getNewsListArticlesPage, type NewsListQuery } from "@/lib/newsApi";
+import { NEWS_PAGE_SIZE, newsPageCount } from "@/lib/newsArchivePages";
 import { newsIndexHref } from "@/lib/newsHrefs";
 import { breadcrumbListLd, webPageIds } from "@/lib/pageStructuredData";
 import { pageOffset } from "@/lib/pagination";
@@ -30,7 +31,7 @@ type NewsListingJsonLdInput = {
   url: string;
 };
 
-export const NEWS_PAGE_SIZE = 24;
+export { NEWS_PAGE_SIZE, parseNewsArchivePage } from "@/lib/newsArchivePages";
 
 type NewsPageCounts = Record<AppLocale, number>;
 
@@ -187,12 +188,6 @@ export function newsPageUrl(locale: AppLocale, page: number) {
   return absoluteUrl(localePath(locale, newsPageHref(page)));
 }
 
-export function parseNewsArchivePage(value: string) {
-  if (!/^[1-9]\d{0,5}$/.test(value)) return null;
-  const page = Number(value);
-  return page >= 2 ? page : null;
-}
-
 function newsPageOf<T>(all: readonly T[], page: number): NewsPage<T> | null {
   const pageCount = pageCountFor(all.length);
   if (!Number.isSafeInteger(page) || page < 1 || page > pageCount) return null;
@@ -209,5 +204,5 @@ function newsPageOf<T>(all: readonly T[], page: number): NewsPage<T> | null {
 }
 
 function pageCountFor(total: number) {
-  return Math.max(1, Math.ceil(total / NEWS_PAGE_SIZE));
+  return newsPageCount(total);
 }

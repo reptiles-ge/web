@@ -2,6 +2,13 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { AppLocale } from "@/i18n/routing";
 import type { PageType } from "@/lib/analytics";
 
+import {
+  SPECIES_HUB_BY_PAGE,
+  SPECIES_HUBS,
+  type SpeciesHub,
+  type SpeciesHubId,
+} from "@/lib/speciesHubs";
+
 export type LocaleSpeciesHref = {
   params: { slug: string };
   pathname:
@@ -42,43 +49,11 @@ type LocaleSwitchGuide = {
   id: string;
 };
 
-type LocaleSwitchHubId =
-  | "amphibians"
-  | "birds"
-  | "insects"
-  | "lizards"
-  | "mammals"
-  | "scorpions"
-  | "snakes"
-  | "spiders"
-  | "turtles";
+type LocaleSwitchHubId = SpeciesHubId;
 
-const SPECIES_PATH_TO_HUB: Record<string, LocaleSwitchHubId> = {
-  "/amphibians/[slug]": "amphibians",
-  "/birds/[slug]": "birds",
-  "/insects/[slug]": "insects",
-  "/lizards/[slug]": "lizards",
-  "/mammals/[slug]": "mammals",
-  "/scorpions/[slug]": "scorpions",
-  "/snakes/[slug]": "snakes",
-  "/spiders/[slug]": "spiders",
-  "/turtles/[slug]": "turtles",
-};
-
-const HUB_BY_PATH: Record<
-  string,
-  { group: AnimalGroup; id: LocaleSwitchHubId }
-> = {
-  "/amphibians": { group: "amphibian", id: "amphibians" },
-  "/birds": { group: "bird", id: "birds" },
-  "/insects": { group: "insect", id: "insects" },
-  "/lizards": { group: "lizard", id: "lizards" },
-  "/mammals": { group: "mammal", id: "mammals" },
-  "/scorpions": { group: "scorpion", id: "scorpions" },
-  "/snakes": { group: "snake", id: "snakes" },
-  "/spiders": { group: "spider", id: "spiders" },
-  "/turtles": { group: "turtle", id: "turtles" },
-};
+const HUB_BY_PATH: ReadonlyMap<string, SpeciesHub> = new Map(
+  SPECIES_HUBS.map((hub) => [`/${hub.id}`, hub]),
+);
 
 const STANDALONE_GUIDES = new Set([
   "/dangerous-animals",
@@ -140,7 +115,7 @@ export function resolvePageContextFromIndex(
     };
   }
 
-  const speciesHub = SPECIES_PATH_TO_HUB[pathname];
+  const speciesHub = SPECIES_HUB_BY_PAGE.get(pathname)?.id;
   if (speciesHub && params.slug) {
     const id = resolveSpeciesIdFromIndex(index, params.slug);
     if (id && index.hubById[id] === speciesHub) {
@@ -153,7 +128,7 @@ export function resolvePageContextFromIndex(
     return { page_type: "other" };
   }
 
-  const hub = HUB_BY_PATH[pathname];
+  const hub = HUB_BY_PATH.get(pathname);
   if (hub) {
     return {
       entity_id: hub.id,

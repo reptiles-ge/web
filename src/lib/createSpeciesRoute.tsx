@@ -8,7 +8,6 @@ import type { Species } from "@/data/species";
 import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
-import { ContentViewBeacon } from "@/components/ContentViewBeacon";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
@@ -18,7 +17,6 @@ import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { apiOrigin } from "@/lib/apiClient";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
@@ -278,7 +276,6 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           mobileHeroSrc={mobileSlideSrc}
         />
         <JsonLd data={structuredData} />
-        <ContentViewBeacon apiOrigin={apiOrigin()} id={raw.id} kind="species" />
         <ClientMessagesProvider
           locale={locale}
           namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}

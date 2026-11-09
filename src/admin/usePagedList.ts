@@ -13,7 +13,9 @@ import { SessionExpiredError } from "./adminResponse";
 
 const SEARCH_DELAY_MS = 300;
 
-export type UrlFilters<F> = { [K in keyof F]?: readonly F[K][] };
+export type UrlFilters<F> = {
+  [K in keyof F]?: ((value: string) => F[K] | undefined) | readonly F[K][];
+};
 
 type FilterValues = Parameters<ServerPaging["onChange"]>[0]["filters"];
 
@@ -151,7 +153,13 @@ function readUrlQuery<F>(
   } as PagedQuery<F>;
   for (const key of Object.keys(filters) as Array<keyof F & string>) {
     const value = params.get(key);
-    const match = filters[key]?.find((option) => String(option) === value);
+    const filter = filters[key];
+    const match =
+      typeof filter === "function"
+        ? value === null
+          ? undefined
+          : filter(value)
+        : filter?.find((option) => String(option) === value);
     if (match !== undefined) query[key] = match as PagedQuery<F>[typeof key];
   }
   return query;
