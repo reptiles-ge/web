@@ -16,6 +16,7 @@ export type AdminPageViewFilters = {
 };
 
 export type AdminTrafficSourceFilters = AdminPageViewFilters & {
+  country?: string;
   source?: TrafficSourceId;
 };
 
@@ -27,6 +28,7 @@ export type PageView = {
 };
 
 export type TrafficVisit = PageView & {
+  country: null | string;
   referrer: string;
   source: TrafficSourceId;
 };
@@ -34,6 +36,7 @@ export type TrafficVisit = PageView & {
 type PageViewRow = { last_day: string; path: string; views: number };
 
 type TrafficSourceRow = {
+  country: string;
   last_day: string;
   path: string;
   referrer: string;
@@ -45,7 +48,10 @@ const PAGE_VIEW_FROM =
   "FROM (SELECT path, SUM(views) AS views, MAX(day) AS last_day FROM page_views WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) GROUP BY path) t WHERE (?4 IS NULL OR t.path LIKE ?4 ESCAPE '\\')";
 
 const TRAFFIC_SOURCE_FROM =
-  "FROM (SELECT source, referrer, path, SUM(visits) AS visits, MAX(day) AS last_day FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) AND (?4 IS NULL OR source = ?4) GROUP BY source, referrer, path) t WHERE (?5 IS NULL OR t.referrer LIKE ?5 ESCAPE '\\' OR t.path LIKE ?5 ESCAPE '\\')";
+  "FROM (SELECT source, referrer, path, country, SUM(visits) AS visits, MAX(day) AS last_day FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) AND (?4 IS NULL OR source = ?4) AND (?5 IS NULL OR country = ?5) GROUP BY source, referrer, path, country) t WHERE (?6 IS NULL OR t.referrer LIKE ?6 ESCAPE '\\' OR t.path LIKE ?6 ESCAPE '\\')";
+
+const TRAFFIC_SUMMARY_WHERE =
+  "WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) AND (?4 IS NULL OR source = ?4) AND (?5 IS NULL OR country = ?5)";
 
 export async function listAdminPageViews(
   db: ApiDatabase,
@@ -92,28 +98,37 @@ export async function listAdminTrafficSources(
     filters.to ?? null,
     filters.lang ?? null,
     filters.source ?? null,
+    filters.country ?? null,
     containsPattern(filters.q),
   ];
-  const [{ rows, total }, summary] = await Promise.all([
+  const [{ rows, total }, summary, countrySummary] = await Promise.all([
     readPage<TrafficSourceRow>(
       db,
       {
         from: TRAFFIC_SOURCE_FROM,
-        order: "t.visits DESC, t.last_day DESC, t.source, t.referrer, t.path",
-        select: "t.source, t.referrer, t.path, t.visits, t.last_day",
+        order:
+          "t.visits DESC, t.last_day DESC, t.source, t.referrer, t.path, t.country",
+        select: "t.source, t.referrer, t.path, t.country, t.visits, t.last_day",
       },
       params,
       page,
     ),
     db
       .prepare(
-        "SELECT source, SUM(visits) AS visits FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) GROUP BY source ORDER BY visits DESC, source",
+        `SELECT source, SUM(visits) AS visits FROM traffic_sources ${TRAFFIC_SUMMARY_WHERE} GROUP BY source ORDER BY visits DESC, source`,
       )
-      .bind(params[0], params[1], params[2])
+      .bind(params[0], params[1], params[2], null, params[4])
       .all<{ source: string; visits: number }>(),
+    db
+      .prepare(
+        `SELECT country, SUM(visits) AS visits FROM traffic_sources ${TRAFFIC_SUMMARY_WHERE} GROUP BY country ORDER BY visits DESC, country`,
+      )
+      .bind(params[0], params[1], params[2], params[3], null)
+      .all<{ country: string; visits: number }>(),
   ]);
   const data = rows.map((row) => ({
     channel: trafficChannel(row.source),
+    country: row.country || null,
     lastDay: row.last_day,
     path: row.path,
     referrer: row.referrer || null,
@@ -125,27 +140,16 @@ export async function listAdminTrafficSources(
     source: row.source,
     visits: row.visits,
   }));
+  const countries = countrySummary.results.map((row) => ({
+    country: row.country || null,
+    visits: row.visits,
+  }));
   return {
     ...toPage(data, total, page),
+    countries,
     sources,
     visits: sources.reduce((sum, row) => sum + row.visits, 0),
   };
-}
-
-export async function recordPageView(db: ApiDatabase, view: PageView) {
-  const { results } = await db
-    .prepare(
-      "INSERT OR IGNORE INTO page_view_visitors (day, path, visitor) VALUES (?, ?, ?) RETURNING visitor",
-    )
-    .bind(view.day, view.path, view.visitor)
-    .all<{ visitor: string }>();
-  if (results.length === 0) return;
-  await db
-    .prepare(
-      "INSERT INTO page_views (path, locale, day, views) VALUES (?, ?, ?, 1) ON CONFLICT (path, locale, day) DO UPDATE SET views = views + 1",
-    )
-    .bind(view.path, view.locale, view.day)
-    .run();
 }
 
 export async function recordTrafficVisit(db: ApiDatabase, visit: TrafficVisit) {
@@ -158,8 +162,15 @@ export async function recordTrafficVisit(db: ApiDatabase, visit: TrafficVisit) {
   if (results.length === 0) return;
   await db
     .prepare(
-      "INSERT INTO traffic_sources (day, source, referrer, path, locale, visits) VALUES (?, ?, ?, ?, ?, 1) ON CONFLICT (day, source, referrer, path, locale) DO UPDATE SET visits = visits + 1",
+      "INSERT INTO traffic_sources (day, source, referrer, path, locale, country, visits) VALUES (?, ?, ?, ?, ?, ?, 1) ON CONFLICT (day, source, referrer, path, locale, country) DO UPDATE SET visits = visits + 1",
     )
-    .bind(visit.day, visit.source, visit.referrer, visit.path, visit.locale)
+    .bind(
+      visit.day,
+      visit.source,
+      visit.referrer,
+      visit.path,
+      visit.locale,
+      visit.country ?? "",
+    )
     .run();
 }

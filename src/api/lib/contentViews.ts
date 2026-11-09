@@ -10,7 +10,7 @@ import { classifyTrafficEntry } from "@/lib/trafficSource";
 
 import type { ApiDatabase } from "../db/database";
 
-import { recordPageView, recordTrafficVisit } from "../db/pageViews";
+import { recordTrafficVisit } from "../db/pageViews";
 import {
   countPublishedNews,
   forgetViewVisitorsBefore,
@@ -26,6 +26,7 @@ const BOT_USER_AGENT =
 
 export type ViewRequest = {
   acceptLanguage: string | undefined;
+  country: null | string;
   ip: string | undefined;
   now: Date;
   userAgent: string | undefined;
@@ -43,13 +44,15 @@ export async function countPageView(
       ? { id: target.id, kind: target.kind }
       : undefined;
   const { day, visitor } = await dailyVisitor(db, request);
-  const view = { day, locale: input.locale, path: input.path, visitor };
   await Promise.all([
-    recordPageView(db, view),
     content ? recordView(db, { day, ...content, visitor }) : undefined,
     input.entry
       ? recordTrafficVisit(db, {
-          ...view,
+          country: request.country,
+          day,
+          locale: input.locale,
+          path: input.path,
+          visitor,
           ...classifyTrafficEntry(input.entry),
         })
       : undefined,

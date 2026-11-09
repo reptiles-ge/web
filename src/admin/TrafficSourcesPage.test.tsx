@@ -11,9 +11,14 @@ beforeEach(() => {
   vi.mocked(fetchAdminTrafficSources).mockReset();
   window.history.replaceState(null, "", "/sources");
   vi.mocked(fetchAdminTrafficSources).mockResolvedValue({
+    countries: [
+      { country: "GE", visits: 75 },
+      { country: null, visits: 25 },
+    ],
     data: [
       {
         channel: "search",
+        country: "GE",
         lastDay: "2026-10-24",
         path: "/snakes",
         referrer: "google.com",
@@ -22,6 +27,7 @@ beforeEach(() => {
       },
       {
         channel: "direct",
+        country: null,
         lastDay: "2026-10-23",
         path: "/",
         referrer: null,
@@ -51,6 +57,34 @@ describe("TrafficSourcesPage", () => {
       screen.getByRole("button", { name: /google 75 · 75%/ }),
     ).toBeInTheDocument();
     expect(screen.getByText("—")).toBeInTheDocument();
+  });
+
+  it("shows the visitor's country and filters by it", async () => {
+    render(<TrafficSourcesPage onSessionExpired={vi.fn()} />);
+    expect(await screen.findByText("🇬🇪 Georgia")).toBeInTheDocument();
+    expect(screen.getByText("Unknown")).toBeInTheDocument();
+    await userEvent.click(screen.getByLabelText("Country"));
+    await userEvent.click(await screen.findByTitle("🇬🇪 Georgia · 75"));
+    await vi.waitFor(() =>
+      expect(fetchAdminTrafficSources).toHaveBeenLastCalledWith({
+        country: "GE",
+        limit: 50,
+        page: 1,
+      }),
+    );
+  });
+
+  it("reads a country from the address and keeps it selectable", async () => {
+    window.history.replaceState(null, "", "/sources?country=US&lang=en");
+    render(<TrafficSourcesPage onSessionExpired={vi.fn()} />);
+    await screen.findByText("google.com");
+    expect(fetchAdminTrafficSources).toHaveBeenLastCalledWith({
+      country: "US",
+      lang: "en",
+      limit: 50,
+      page: 1,
+    });
+    expect(screen.getByTitle("🇺🇸 United States · 0")).toBeInTheDocument();
   });
 
   it("keeps a chosen source clearable when it has no visits", async () => {
