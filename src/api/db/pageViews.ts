@@ -20,17 +20,17 @@ export type AdminTrafficSourceFilters = AdminPageViewFilters & {
   source?: TrafficSourceId;
 };
 
-export type PageView = {
-  day: string;
-  locale: AppLocale;
-  path: string;
-  visitor: string;
-};
-
 export type TrafficVisit = PageView & {
   country: null | string;
   referrer: string;
   source: TrafficSourceId;
+};
+
+type PageView = {
+  day: string;
+  locale: AppLocale;
+  path: string;
+  visitor: string;
 };
 
 type PageViewRow = { last_day: string; path: string; views: number };
