@@ -95,6 +95,13 @@ describe("uploadSpeciesPhoto", () => {
     ).rejects.toBeInstanceOf(SessionExpiredError);
   });
 
+  it("marks a rate-limited upload so it can be sent again", async () => {
+    server.use(http.post(URL, () => new HttpResponse(null, { status: 429 })));
+    await expect(
+      uploadSpeciesPhoto("bufo-viridis", {}, PHOTO),
+    ).rejects.toMatchObject({ code: "rate_limited" });
+  });
+
   it("fails loudly on any other error", async () => {
     server.use(http.post(URL, () => new HttpResponse(null, { status: 502 })));
     await expect(uploadSpeciesPhoto("bufo-viridis", {}, PHOTO)).rejects.toThrow(

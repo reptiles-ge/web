@@ -21,7 +21,9 @@ import { importINaturalistLookup, type PhotoCreditFields } from "./photos";
 import {
   creditFromINaturalist,
   isSettled,
+  keepUploadOrder,
   profileNameOf,
+  retryWhenRateLimited,
   runPhotoUploads,
   UploadedAlert,
   type UploadStatus,
@@ -34,6 +36,7 @@ type BulkItem = {
   loadError?: string;
   message?: string;
   metadata?: INaturalistPhotoMetadata;
+  src?: string;
   status?: UploadStatus;
 };
 
@@ -57,6 +60,7 @@ export function BulkCreateButton({
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<BulkItem[]>([]);
   const [running, setRunning] = useState(false);
+  const [orderError, setOrderError] = useState<null | string>(null);
   const session = useRef(0);
   const loading = items.filter((item) => !item.file && !item.loadError).length;
   const ready = items.filter((item) => item.file && item.status !== "added");
@@ -76,9 +80,8 @@ export function BulkCreateButton({
 
   async function load(candidate: PhotoCandidate, run: number) {
     try {
-      const { file, metadata } = await importINaturalistLookup(
-        id,
-        candidate.lookup,
+      const { file, metadata } = await retryWhenRateLimited(() =>
+        importINaturalistLookup(id, candidate.lookup),
       );
       if (session.current !== run) return;
       form.setFieldValue(
@@ -137,6 +140,7 @@ export function BulkCreateButton({
     session.current += 1;
     setOpen(false);
     setItems([]);
+    setOrderError(null);
     form.resetFields();
   }
 
@@ -161,17 +165,41 @@ export function BulkCreateButton({
       ),
     );
     setRunning(true);
-    let uploaded = 0;
+    setOrderError(null);
+    const srcs = new Map(
+      items.flatMap((item) =>
+        item.src ? [[item.candidate.key, item.src] as const] : [],
+      ),
+    );
     try {
-      uploaded = await runPhotoUploads({
+      const results = await runPhotoUploads({
         id,
         jobs,
         onSessionExpired,
         onStatus: (uid, status, message) => patch(uid, { message, status }),
+        parallel: true,
       });
+      for (const { src, uid } of results) {
+        srcs.set(uid, src);
+        patch(uid, { src });
+      }
+      if (results.length > 0) {
+        await keepUploadOrder(
+          id,
+          items.flatMap((item) => srcs.get(item.candidate.key) ?? []),
+        ).catch((error: unknown) => {
+          if (error instanceof SessionExpiredError) throw error;
+          setOrderError(
+            "The photos were added, but their order could not be kept. Drag them into place on the Photos tab.",
+          );
+        });
+        onUploaded();
+      }
+    } catch (error) {
+      if (error instanceof SessionExpiredError) onSessionExpired();
+      else throw error;
     } finally {
       setRunning(false);
-      if (uploaded > 0) onUploaded();
     }
   }
 
@@ -236,6 +264,14 @@ export function BulkCreateButton({
           </Space>
         </Form>
         {finished && added > 0 ? <UploadedAlert count={added} /> : null}
+        {orderError ? (
+          <Alert
+            showIcon
+            style={{ marginTop: 16 }}
+            title={orderError}
+            type="warning"
+          />
+        ) : null}
       </Modal>
     </>
   );

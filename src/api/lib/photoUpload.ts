@@ -171,6 +171,7 @@ export async function storePhoto(
   photo: CheckedPhoto,
   record: SpeciesRecord,
   photographer: string | undefined,
+  reserve: (key: string) => Promise<boolean>,
 ) {
   const used = new Set(
     record.base.gallery.flatMap((item) =>
@@ -189,7 +190,13 @@ export async function storePhoto(
       n,
       slug,
     });
-    if (!used.has(candidate) && !existing.has(candidate)) key = candidate;
+    if (
+      !used.has(candidate) &&
+      !existing.has(candidate) &&
+      (await reserve(candidate))
+    ) {
+      key = candidate;
+    }
   }
   if (!key) {
     throw new ApiError(

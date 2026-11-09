@@ -232,6 +232,39 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(siteFetch).not.toHaveBeenCalled();
   });
 
+  it("gives parallel uploads their own CDN names and adds every one", async () => {
+    const before = await record();
+    const results = await Promise.all([send(), send(), send(), send()]);
+    expect(results.map(({ response }) => response.status)).toStrictEqual([
+      201, 201, 201, 201,
+    ]);
+    const srcs = results.map(({ body }) => body.data.photo.src);
+    expect(new Set(srcs).size).toBe(4);
+    expect(
+      puts()
+        .filter(({ key }) => !key.startsWith("optimized/"))
+        .map(({ key }) => key)
+        .sort(),
+    ).toStrictEqual([2, 3, 4, 5].map((n) => `${ID}-ana-${n}.jpg`));
+    const after = await record();
+    expect(after.version).toBe(before.version + 4);
+    expect(
+      after.record.base.gallery
+        .slice(-4)
+        .map(({ src }) => src)
+        .sort(),
+    ).toStrictEqual([...srcs].sort());
+  });
+
+  it("never reuses a reserved CDN name", async () => {
+    sqlite
+      .prepare("INSERT INTO photo_upload_keys (key, created_at) VALUES (?, ?)")
+      .run(`${ID}-ana-2.jpg`, "2026-11-09T00:00:00.000Z");
+    const { body, response } = await send();
+    expect(response.status).toBe(201);
+    expect(body.data.photo.src).toBe(`https://cdn.reptiles.ge/${ID}-ana-3.jpg`);
+  });
+
   it("adds no English overlay when the English credit is the same", async () => {
     const before = await record();
     const { response } = await send({});

@@ -10,14 +10,23 @@ import { BulkCreateButton } from "./BulkCreateButton";
 import {
   encodePhotoFile,
   importINaturalistLookup,
+  type PhotoCreditFields,
   uploadSpeciesPhoto,
 } from "./photos";
+import { fetchAdminSpeciesRecord, reorderSpeciesPhotos } from "./species";
 
 vi.mock("./photos", () => ({
   encodePhotoFile: vi.fn(),
   importINaturalistLookup: vi.fn(),
   uploadSpeciesPhoto: vi.fn(),
 }));
+vi.mock("./species", () => ({
+  fetchAdminSpeciesRecord: vi.fn(),
+  reorderSpeciesPhotos: vi.fn(),
+}));
+
+const CDN = "https://cdn.reptiles.ge/larus-genei";
+let gallery: string[] = [];
 
 const ENCODED = {
   derivatives: [],
@@ -86,13 +95,27 @@ beforeEach(() => {
       lookup.photoUrl === "1" ? imported("1", "ana") : imported("2", "beka"),
     );
   vi.mocked(encodePhotoFile).mockReset().mockResolvedValue(ENCODED);
+  gallery = [`${CDN}-old.jpg`];
   vi.mocked(uploadSpeciesPhoto)
     .mockReset()
-    .mockResolvedValue({
-      optimized: true,
-      photo: { src: "https://cdn.reptiles.ge/larus-genei-1.jpg" },
-      version: 2,
+    .mockImplementation(async (_id, credit: PhotoCreditFields) => {
+      const src = `${CDN}-${credit.photographer}.jpg`;
+      if (credit.photographer === "ana") {
+        await new Promise((resolve) => setTimeout(resolve, 30));
+      }
+      gallery.push(src);
+      return { optimized: true, photo: { src }, version: 2 };
     });
+  vi.mocked(fetchAdminSpeciesRecord)
+    .mockReset()
+    .mockImplementation(
+      async () =>
+        ({
+          record: { base: { gallery: gallery.map((src) => ({ src })) } },
+          version: 7,
+        }) as unknown as Awaited<ReturnType<typeof fetchAdminSpeciesRecord>>,
+    );
+  vi.mocked(reorderSpeciesPhotos).mockReset().mockResolvedValue(8);
 });
 
 async function openReady(user: ReturnType<typeof userEvent.setup>) {
@@ -135,8 +158,7 @@ describe("BulkCreateButton", () => {
     await user.type(place, "ბათუმი");
     await user.click(screen.getByRole("button", { name: "Upload 2 photos" }));
     await screen.findByText(/2 photos added to the gallery/);
-    expect(uploadSpeciesPhoto).toHaveBeenNthCalledWith(
-      1,
+    expect(uploadSpeciesPhoto).toHaveBeenCalledWith(
       "larus-genei",
       expect.objectContaining({
         georgiaField: true,
@@ -145,15 +167,50 @@ describe("BulkCreateButton", () => {
       }),
       ENCODED,
     );
-    expect(uploadSpeciesPhoto).toHaveBeenNthCalledWith(
-      2,
+    expect(uploadSpeciesPhoto).toHaveBeenCalledWith(
       "larus-genei",
       expect.objectContaining({ georgiaField: false, photographer: "beka" }),
       ENCODED,
     );
     expect(screen.getAllByText("Added")).toHaveLength(2);
     expect(onUploaded).toHaveBeenCalledTimes(1);
-    expect(screen.getByRole("button", { name: "Upload" })).toBeDisabled();
+    expect(screen.getByText("Upload").closest("button")).toBeDisabled();
+  });
+
+  it("uploads at the same time and keeps the saved order in the gallery", async () => {
+    let running = 0;
+    let most = 0;
+    vi.mocked(encodePhotoFile).mockImplementation(async () => {
+      running += 1;
+      most = Math.max(most, running);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      running -= 1;
+      return ENCODED;
+    });
+    const { user } = setup();
+    await openReady(user);
+    await user.click(screen.getByRole("button", { name: "Upload 2 photos" }));
+    await screen.findByText(/2 photos added to the gallery/);
+    expect(most).toBe(2);
+    expect(gallery).toStrictEqual([
+      `${CDN}-old.jpg`,
+      `${CDN}-beka.jpg`,
+      `${CDN}-ana.jpg`,
+    ]);
+    expect(reorderSpeciesPhotos).toHaveBeenCalledWith(
+      "larus-genei",
+      [`${CDN}-old.jpg`, `${CDN}-ana.jpg`, `${CDN}-beka.jpg`],
+      7,
+    );
+  });
+
+  it("warns when the order cannot be kept", async () => {
+    vi.mocked(reorderSpeciesPhotos).mockRejectedValue(new Error("Nope"));
+    const { onUploaded, user } = setup();
+    await openReady(user);
+    await user.click(screen.getByRole("button", { name: "Upload 2 photos" }));
+    await screen.findByText(/their order could not be kept/);
+    expect(onUploaded).toHaveBeenCalledTimes(1);
   });
 
   it("leaves a removed photo out", async () => {

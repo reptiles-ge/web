@@ -13,6 +13,7 @@ import type { ApiEnv } from "../env";
 
 import { readFieldRecords } from "../db/fieldRecords";
 import { upsertOptimizedImageStatement } from "../db/optimizedImages";
+import { reservePhotoUploadKey } from "../db/photoUploadKeys";
 import { listAdminSpecies } from "../db/species";
 import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
@@ -80,6 +81,8 @@ import {
   speciesTextsBody,
   speciesWriteBody,
 } from "../schemas/speciesRecord";
+
+const MAX_SAVE_ATTEMPTS = 12;
 
 export const adminSpecies = new Hono<ApiEnv>()
   .get(
@@ -195,10 +198,12 @@ export const adminSpecies = new Hono<ApiEnv>()
         photo,
         current.record,
         credit.photographer,
+        (candidate) =>
+          reservePhotoUploadKey(c.env.DB, candidate, new Date().toISOString()),
       );
       const src = storage.urlFor(key);
       const optimized = optimizedImage(photo, key, storage);
-      const { result, version } = await change(
+      const { result, version } = await changeWithRetry(
         c,
         id,
         c.var.user!.email,
@@ -542,6 +547,31 @@ async function change<T>(
   );
   c.header("Cache-Control", NO_STORE);
   return { record, result, version };
+}
+
+async function changeWithRetry<T>(
+  ...[c, id, actor, summary, apply, alsoRun, read]: Parameters<typeof change<T>>
+) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      return await change(
+        c,
+        id,
+        actor,
+        summary,
+        apply,
+        alsoRun,
+        attempt === 1 ? read : undefined,
+      );
+    } catch (error) {
+      const conflict =
+        error instanceof ApiError && error.code === "version_conflict";
+      if (!conflict || attempt >= MAX_SAVE_ATTEMPTS) throw error;
+      await new Promise((resolve) =>
+        setTimeout(resolve, 20 + Math.random() * 80 * attempt),
+      );
+    }
+  }
 }
 
 function covers(record: SpeciesRecord) {

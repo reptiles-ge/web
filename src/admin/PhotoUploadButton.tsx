@@ -142,7 +142,7 @@ export function PhotoUploadButton({
     setRunning(true);
     let uploaded = 0;
     try {
-      uploaded = await runPhotoUploads({
+      const results = await runPhotoUploads({
         id,
         jobs,
         onSessionExpired,
@@ -153,6 +153,7 @@ export function PhotoUploadButton({
             ),
           ),
       });
+      uploaded = results.length;
     } finally {
       setRunning(false);
       if (uploaded > 0) onUploaded();

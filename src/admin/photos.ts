@@ -9,7 +9,11 @@ import {
 
 import type { EncodedPhoto } from "./photoEncoding";
 
-import { checkAdminResponse, checkAdminSave } from "./adminResponse";
+import {
+  AdminSaveError,
+  checkAdminResponse,
+  checkAdminSave,
+} from "./adminResponse";
 import { api } from "./apiClient";
 
 const INATURALIST_LOOKUP_ERRORS: Record<
@@ -115,6 +119,13 @@ export async function uploadSpeciesPhoto(
   if (status === 400) {
     const body = (await response.json()) as { error?: { message?: string } };
     throw new Error(body.error?.message ?? "The photo was rejected");
+  }
+  if (status === 429) {
+    throw new AdminSaveError(
+      "rate_limited",
+      "Too many uploads at once. Try again in a minute.",
+      [],
+    );
   }
   checkAdminResponse(response, "Photo upload failed");
   return ((await response.json()) as { data: UploadedPhoto }).data;
