@@ -7,8 +7,8 @@ import type { ContentViewKind } from "@/lib/contentViewInput";
 import { AdminListView } from "./AdminListView";
 import { nameColumn, serverFilter } from "./listColumns";
 import { serverPaging, usePagedList } from "./usePagedList";
-import { PeriodSwitch } from "./ViewFilters";
-import { VIEW_PERIODS } from "./viewPeriods";
+import { DateRangeFilter } from "./ViewFilters";
+import { VIEW_RANGE_URL } from "./viewRange";
 import {
   type AdminView,
   type AdminViewFilters,
@@ -25,7 +25,7 @@ export function ViewsPage({
   onSessionExpired: () => void;
 }) {
   const list = usePagedList(fetchAdminViews, onSessionExpired, {
-    days: VIEW_PERIODS,
+    ...VIEW_RANGE_URL,
     kind: KINDS,
   });
   const { items, lastPage, query, setFilters } = list;
@@ -62,10 +62,7 @@ export function ViewsPage({
     <AdminListView<ViewRow>
       actions={
         <>
-          <PeriodSwitch
-            onChange={(days) => setFilters({ days })}
-            value={query.days}
-          />
+          <DateRangeFilter onChange={setFilters} value={query} />
           <Typography.Text type="secondary">
             {(lastPage?.views ?? 0).toLocaleString("en")} views
           </Typography.Text>

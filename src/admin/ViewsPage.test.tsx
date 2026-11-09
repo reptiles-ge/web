@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { SessionExpiredError } from "./species";
+import { lastDays } from "./viewRange";
 import { type AdminView, fetchAdminViews } from "./views";
 import { ViewsPage } from "./ViewsPage";
 
@@ -64,24 +65,40 @@ describe("ViewsPage", () => {
     });
   });
 
-  it("asks the API for another period from page one", async () => {
+  it("asks the API for a preset range from page one", async () => {
     open();
     await screen.findByText("გიურზა");
-    await userEvent.click(screen.getByText("7 days"));
+    await userEvent.click(screen.getByPlaceholderText("All time"));
+    await userEvent.click(await screen.findByText("7 days"));
     await vi.waitFor(() =>
       expect(fetchAdminViews).toHaveBeenLastCalledWith({
-        days: 7,
+        ...lastDays(7),
         limit: 50,
         page: 1,
       }),
     );
-    await userEvent.click(screen.getByText("All time"));
+  });
+
+  it("reads a date range from the address and ignores a bad one", async () => {
+    window.history.replaceState(
+      null,
+      "",
+      "/views?from=2026-09-01&to=2026-09-30",
+    );
+    open();
+    await screen.findByText("გიურზა");
+    expect(fetchAdminViews).toHaveBeenLastCalledWith({
+      from: "2026-09-01",
+      limit: 50,
+      page: 1,
+      to: "2026-09-30",
+    });
+    expect(screen.getByPlaceholderText("All time")).toHaveValue("2026-09-01");
+    window.history.replaceState(null, "", "/views?from=2026-02-30&to=soon");
+    vi.mocked(fetchAdminViews).mockClear();
+    open();
     await vi.waitFor(() =>
-      expect(fetchAdminViews).toHaveBeenLastCalledWith({
-        days: undefined,
-        limit: 50,
-        page: 1,
-      }),
+      expect(fetchAdminViews).toHaveBeenLastCalledWith({ limit: 50, page: 1 }),
     );
   });
 

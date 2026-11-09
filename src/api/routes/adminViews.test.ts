@@ -131,30 +131,25 @@ describe("GET /v1/admin/views", () => {
     ]);
   });
 
-  it("counts only the chosen period, today included", async () => {
-    const today = await list("?days=1");
+  it("counts only the days in the range, both ends included", async () => {
+    const today = await list("?from=2026-10-24&to=2026-10-24");
     expect(today.body.data.map((item) => [item.id, item.views])).toEqual([
       [newsId, 5],
       ["macrovipera-lebetina", 2],
     ]);
-    const week = await list("?days=7");
+    const week = await list("?from=2026-10-18&to=2026-10-24");
     expect(week.body.data.map((item) => [item.id, item.views])).toEqual([
       ["paralaudakia-caucasia", 12],
       [newsId, 5],
       ["macrovipera-lebetina", 2],
     ]);
     expect(week.body.views).toBe(19);
-  });
-
-  it("starts today at midnight in Tbilisi, not UTC", async () => {
-    vi.setSystemTime(new Date("2026-10-24T20:30:00Z"));
-    addViews("species", "paralaudakia-caucasia", "2026-10-25", 4);
-    const today = await list("?days=1");
-    expect(today.body.data.map((item) => [item.id, item.views])).toEqual([
-      ["paralaudakia-caucasia", 4],
+    const until = await list("?to=2026-10-20");
+    expect(until.body.data.map((item) => [item.id, item.views])).toEqual([
+      ["macrovipera-lebetina", 40],
+      ["paralaudakia-caucasia", 9],
+      ["removed-species", 1],
     ]);
-    const week = await list("?days=7");
-    expect(week.body.views).toBe(23);
   });
 
   it("filters by kind and searches the id and names", async () => {
@@ -200,7 +195,13 @@ describe("GET /v1/admin/views", () => {
   });
 
   it("refuses an invalid query and a missing sign-in", async () => {
-    for (const query of ["?days=3", "?kind=regions", "?limit=101", "?page=0"]) {
+    for (const query of [
+      "?from=yesterday",
+      "?from=2026-10-24&to=2026-10-23",
+      "?kind=regions",
+      "?limit=101",
+      "?page=0",
+    ]) {
       const { response } = await list(query);
       expect(response.status, query).toBe(400);
     }

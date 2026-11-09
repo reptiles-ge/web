@@ -7,27 +7,33 @@ import { TRAFFIC_SOURCE_IDS } from "@/lib/trafficSource";
 
 import { listSearch, pageQuery } from "./common";
 
-const VIEW_PERIOD_DAYS = ["1", "7", "30"] as const;
+const viewDay = z.iso.date().optional();
 
-const viewPeriod = z
-  .enum(VIEW_PERIOD_DAYS)
-  .optional()
-  .transform((value) => (value === undefined ? undefined : Number(value)));
+const viewRange = pageQuery.extend({
+  from: viewDay,
+  q: listSearch,
+  to: viewDay,
+});
+
+function orderedRange<T extends { from?: string; to?: string }>(query: T) {
+  return !query.from || !query.to || query.from <= query.to;
+}
+
+const RANGE_ORDER = { message: "from must not be after to", path: ["from"] };
 
 export const viewBody = z.union([pageViewInputSchema, contentViewInputSchema]);
 
-export const adminViewListQuery = pageQuery.extend({
-  days: viewPeriod,
-  kind: contentViewInputSchema.shape.kind.optional(),
-  q: listSearch,
-});
+export const adminViewListQuery = viewRange
+  .extend({ kind: contentViewInputSchema.shape.kind.optional() })
+  .refine(orderedRange, RANGE_ORDER);
 
-export const adminPageViewListQuery = pageQuery.extend({
-  days: viewPeriod,
-  lang: z.enum(locales).optional(),
-  q: listSearch,
-});
+const pageViewQuery = viewRange.extend({ lang: z.enum(locales).optional() });
 
-export const adminTrafficSourceListQuery = adminPageViewListQuery.extend({
-  source: z.enum(TRAFFIC_SOURCE_IDS).optional(),
-});
+export const adminPageViewListQuery = pageViewQuery.refine(
+  orderedRange,
+  RANGE_ORDER,
+);
+
+export const adminTrafficSourceListQuery = pageViewQuery
+  .extend({ source: z.enum(TRAFFIC_SOURCE_IDS).optional() })
+  .refine(orderedRange, RANGE_ORDER);

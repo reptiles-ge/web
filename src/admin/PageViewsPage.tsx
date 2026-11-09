@@ -6,8 +6,8 @@ import { locales } from "@/i18n/locales";
 
 import { AdminListView } from "./AdminListView";
 import { serverPaging, usePagedList } from "./usePagedList";
-import { LangSelect, PeriodSwitch } from "./ViewFilters";
-import { VIEW_PERIODS } from "./viewPeriods";
+import { DateRangeFilter, LangSelect } from "./ViewFilters";
+import { VIEW_RANGE_URL } from "./viewRange";
 import { type AdminPageView, fetchAdminPageViews } from "./views";
 
 const COLUMNS: ColumnsType<AdminPageView> = [
@@ -33,7 +33,7 @@ export function PageViewsPage({
   onSessionExpired: () => void;
 }) {
   const list = usePagedList(fetchAdminPageViews, onSessionExpired, {
-    days: VIEW_PERIODS,
+    ...VIEW_RANGE_URL,
     lang: locales,
   });
   const { items, lastPage, query, setFilters } = list;
@@ -46,10 +46,7 @@ export function PageViewsPage({
             onChange={(lang) => setFilters({ lang })}
             value={query.lang}
           />
-          <PeriodSwitch
-            onChange={(days) => setFilters({ days })}
-            value={query.days}
-          />
+          <DateRangeFilter onChange={setFilters} value={query} />
           <Typography.Text type="secondary">
             {(lastPage?.views ?? 0).toLocaleString("en")} views
           </Typography.Text>

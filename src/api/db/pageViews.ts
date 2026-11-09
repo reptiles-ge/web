@@ -9,9 +9,10 @@ import { readPage } from "./paging";
 import { containsPattern } from "./search";
 
 export type AdminPageViewFilters = {
+  from?: string;
   lang?: AppLocale;
   q?: string;
-  since?: string;
+  to?: string;
 };
 
 export type AdminTrafficSourceFilters = AdminPageViewFilters & {
@@ -41,10 +42,10 @@ type TrafficSourceRow = {
 };
 
 const PAGE_VIEW_FROM =
-  "FROM (SELECT path, SUM(views) AS views, MAX(day) AS last_day FROM page_views WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR locale = ?2) GROUP BY path) t WHERE (?3 IS NULL OR t.path LIKE ?3 ESCAPE '\\')";
+  "FROM (SELECT path, SUM(views) AS views, MAX(day) AS last_day FROM page_views WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) GROUP BY path) t WHERE (?4 IS NULL OR t.path LIKE ?4 ESCAPE '\\')";
 
 const TRAFFIC_SOURCE_FROM =
-  "FROM (SELECT source, referrer, path, SUM(visits) AS visits, MAX(day) AS last_day FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR locale = ?2) AND (?3 IS NULL OR source = ?3) GROUP BY source, referrer, path) t WHERE (?4 IS NULL OR t.referrer LIKE ?4 ESCAPE '\\' OR t.path LIKE ?4 ESCAPE '\\')";
+  "FROM (SELECT source, referrer, path, SUM(visits) AS visits, MAX(day) AS last_day FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) AND (?4 IS NULL OR source = ?4) GROUP BY source, referrer, path) t WHERE (?5 IS NULL OR t.referrer LIKE ?5 ESCAPE '\\' OR t.path LIKE ?5 ESCAPE '\\')";
 
 export async function listAdminPageViews(
   db: ApiDatabase,
@@ -52,7 +53,8 @@ export async function listAdminPageViews(
   page: PageParams,
 ) {
   const params = [
-    filters.since ?? null,
+    filters.from ?? null,
+    filters.to ?? null,
     filters.lang ?? null,
     containsPattern(filters.q),
   ];
@@ -86,7 +88,8 @@ export async function listAdminTrafficSources(
   page: PageParams,
 ) {
   const params = [
-    filters.since ?? null,
+    filters.from ?? null,
+    filters.to ?? null,
     filters.lang ?? null,
     filters.source ?? null,
     containsPattern(filters.q),
@@ -104,9 +107,9 @@ export async function listAdminTrafficSources(
     ),
     db
       .prepare(
-        "SELECT source, SUM(visits) AS visits FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR locale = ?2) GROUP BY source ORDER BY visits DESC, source",
+        "SELECT source, SUM(visits) AS visits FROM traffic_sources WHERE (?1 IS NULL OR day >= ?1) AND (?2 IS NULL OR day <= ?2) AND (?3 IS NULL OR locale = ?3) GROUP BY source ORDER BY visits DESC, source",
       )
-      .bind(filters.since ?? null, filters.lang ?? null)
+      .bind(params[0], params[1], params[2])
       .all<{ source: string; visits: number }>(),
   ]);
   const data = rows.map((row) => ({

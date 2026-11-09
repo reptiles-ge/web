@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PageViewsPage } from "./PageViewsPage";
 import { SessionExpiredError } from "./species";
+import { lastDays } from "./viewRange";
 import { fetchAdminPageViews } from "./views";
 
 vi.mock("./views", () => ({ fetchAdminPageViews: vi.fn() }));
@@ -40,14 +41,15 @@ describe("PageViewsPage", () => {
     });
   });
 
-  it("asks the API for a period, a language and a path", async () => {
+  it("asks the API for a date range, a language and a path", async () => {
     resolveWith();
     render(<PageViewsPage onSessionExpired={vi.fn()} />);
     await screen.findByText("/regions/kakheti");
-    await userEvent.click(screen.getByText("30 days"));
+    await userEvent.click(screen.getByPlaceholderText("All time"));
+    await userEvent.click(await screen.findByText("30 days"));
     await vi.waitFor(() =>
       expect(fetchAdminPageViews).toHaveBeenLastCalledWith({
-        days: 30,
+        ...lastDays(30),
         limit: 50,
         page: 1,
       }),
@@ -56,7 +58,7 @@ describe("PageViewsPage", () => {
     await userEvent.click(await screen.findByTitle("EN"));
     await vi.waitFor(() =>
       expect(fetchAdminPageViews).toHaveBeenLastCalledWith({
-        days: 30,
+        ...lastDays(30),
         lang: "en",
         limit: 50,
         page: 1,
@@ -65,7 +67,7 @@ describe("PageViewsPage", () => {
     await userEvent.type(screen.getByLabelText("Search pages"), "regions");
     await vi.waitFor(() =>
       expect(fetchAdminPageViews).toHaveBeenLastCalledWith({
-        days: 30,
+        ...lastDays(30),
         lang: "en",
         limit: 50,
         page: 1,

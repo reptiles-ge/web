@@ -11,8 +11,8 @@ import {
 
 import { AdminListView } from "./AdminListView";
 import { serverPaging, usePagedList } from "./usePagedList";
-import { LangSelect, PeriodSwitch } from "./ViewFilters";
-import { VIEW_PERIODS } from "./viewPeriods";
+import { DateRangeFilter, LangSelect } from "./ViewFilters";
+import { VIEW_RANGE_URL } from "./viewRange";
 import { type AdminTrafficSource, fetchAdminTrafficSources } from "./views";
 
 type SourceRow = AdminTrafficSource & { key: string };
@@ -79,7 +79,7 @@ export function TrafficSourcesPage({
   onSessionExpired: () => void;
 }) {
   const list = usePagedList(fetchAdminTrafficSources, onSessionExpired, {
-    days: VIEW_PERIODS,
+    ...VIEW_RANGE_URL,
     lang: locales,
     source: TRAFFIC_SOURCE_IDS,
   });
@@ -98,10 +98,7 @@ export function TrafficSourcesPage({
             onChange={(lang) => setFilters({ lang })}
             value={query.lang}
           />
-          <PeriodSwitch
-            onChange={(days) => setFilters({ days })}
-            value={query.days}
-          />
+          <DateRangeFilter onChange={setFilters} value={query} />
           <Typography.Text type="secondary">
             {visits.toLocaleString("en")} visits
           </Typography.Text>

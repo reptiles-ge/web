@@ -68,12 +68,19 @@ describe("GET /v1/admin/page-views", () => {
     ]);
   });
 
-  it("filters by period, language and path", async () => {
-    const week = await pageViews("?days=7");
+  it("filters by date range, language and path", async () => {
+    const week = await pageViews("?from=2026-10-18&to=2026-10-24");
     expect(week.body.data.map((row) => [row.path, row.views])).toEqual([
       ["/", 30],
       ["/regions/kakheti", 9],
     ]);
+    const before = await pageViews("?from=2026-10-01&to=2026-10-22");
+    expect(before.body.data.map((row) => [row.path, row.views])).toEqual([
+      ["/", 12],
+      ["/regions/kakheti", 8],
+    ]);
+    const until = await pageViews("?to=2026-09-30");
+    expect(until.body).toMatchObject({ total: 1, views: 2 });
     const russian = await pageViews("?lang=ru");
     expect(russian.body).toMatchObject({ total: 1, views: 1 });
     const search = await pageViews("?q=kakheti");
@@ -87,7 +94,13 @@ describe("GET /v1/admin/page-views", () => {
   it("accepts an admin session and refuses bad input or no sign-in", async () => {
     const session = await pageViews("", await adminSessionHeaders(sqlite));
     expect(session.response.status).toBe(200);
-    for (const query of ["?days=2", "?lang=de", "?limit=0"]) {
+    for (const query of [
+      "?from=2026-02-30",
+      "?from=2026-10-24&to=2026-10-01",
+      "?days=7&to=today",
+      "?lang=de",
+      "?limit=0",
+    ]) {
       const { body, response } = await pageViews(query);
       expect(response.status, query).toBe(400);
       expect(body.error.code).toBe("invalid_request");

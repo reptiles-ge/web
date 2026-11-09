@@ -7,9 +7,10 @@ import type { ApiDatabase } from "./database";
 import { containsPattern } from "./search";
 
 export type AdminViewFilters = {
+  from?: string;
   kind?: ContentViewKind;
   q?: string;
-  since?: string;
+  to?: string;
 };
 
 export type ContentView = {
@@ -29,7 +30,7 @@ type AdminViewRow = {
 };
 
 const ADMIN_VIEW_FROM =
-  "FROM (SELECT v.kind, v.target_id, SUM(v.views) AS views, MAX(v.day) AS last_day, COALESCE(sk.common_name, nk.title) AS name_ka, COALESCE(se.common_name, ne.title) AS name_en FROM content_views v LEFT JOIN species_texts sk ON v.kind = 'species' AND sk.species_id = v.target_id AND sk.locale = 'ka' LEFT JOIN species_texts se ON v.kind = 'species' AND se.species_id = v.target_id AND se.locale = 'en' LEFT JOIN news_texts nk ON v.kind = 'news' AND nk.article_id = v.target_id AND nk.locale = 'ka' LEFT JOIN news_texts ne ON v.kind = 'news' AND ne.article_id = v.target_id AND ne.locale = 'en' WHERE (?1 IS NULL OR v.day >= ?1) AND (?2 IS NULL OR v.kind = ?2) GROUP BY v.kind, v.target_id) t WHERE (?3 IS NULL OR t.target_id LIKE ?3 ESCAPE '\\' OR t.name_ka LIKE ?3 ESCAPE '\\' OR t.name_en LIKE ?3 ESCAPE '\\')";
+  "FROM (SELECT v.kind, v.target_id, SUM(v.views) AS views, MAX(v.day) AS last_day, COALESCE(sk.common_name, nk.title) AS name_ka, COALESCE(se.common_name, ne.title) AS name_en FROM content_views v LEFT JOIN species_texts sk ON v.kind = 'species' AND sk.species_id = v.target_id AND sk.locale = 'ka' LEFT JOIN species_texts se ON v.kind = 'species' AND se.species_id = v.target_id AND se.locale = 'en' LEFT JOIN news_texts nk ON v.kind = 'news' AND nk.article_id = v.target_id AND nk.locale = 'ka' LEFT JOIN news_texts ne ON v.kind = 'news' AND ne.article_id = v.target_id AND ne.locale = 'en' WHERE (?1 IS NULL OR v.day >= ?1) AND (?2 IS NULL OR v.day <= ?2) AND (?3 IS NULL OR v.kind = ?3) GROUP BY v.kind, v.target_id) t WHERE (?4 IS NULL OR t.target_id LIKE ?4 ESCAPE '\\' OR t.name_ka LIKE ?4 ESCAPE '\\' OR t.name_en LIKE ?4 ESCAPE '\\')";
 
 const PUBLISHED_TARGET: Record<ContentViewKind, string> = {
   news: "SELECT 1 FROM news_articles WHERE id = ? AND status = 'published'",
@@ -60,14 +61,15 @@ export async function listAdminViews(
   page: PageParams,
 ) {
   const where = [
-    filters.since ?? null,
+    filters.from ?? null,
+    filters.to ?? null,
     filters.kind ?? null,
     containsPattern(filters.q),
   ];
   const [rows, count] = await Promise.all([
     db
       .prepare(
-        `SELECT t.kind, t.target_id, t.views, t.last_day, t.name_ka, t.name_en ${ADMIN_VIEW_FROM} ORDER BY t.views DESC, t.last_day DESC, t.kind, t.target_id LIMIT ?4 OFFSET ?5`,
+        `SELECT t.kind, t.target_id, t.views, t.last_day, t.name_ka, t.name_en ${ADMIN_VIEW_FROM} ORDER BY t.views DESC, t.last_day DESC, t.kind, t.target_id LIMIT ?5 OFFSET ?6`,
       )
       .bind(...where, page.limit, pageOffset(page))
       .all<AdminViewRow>(),

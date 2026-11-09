@@ -57,13 +57,6 @@ export async function countView(
   await recordView(db, { day, id: input.id, kind: input.kind, visitor });
 }
 
-export function firstViewDay(now: Date, days: number | undefined) {
-  if (days === undefined) return undefined;
-  const first = new Date(`${siteDay(now)}T00:00:00Z`);
-  first.setUTCDate(first.getUTCDate() - (days - 1));
-  return first.toISOString().slice(0, 10);
-}
-
 export function isBotUserAgent(userAgent: string | undefined) {
   return !userAgent || BOT_USER_AGENT.test(userAgent);
 }

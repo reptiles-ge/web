@@ -94,9 +94,13 @@ describe("GET /v1/admin/traffic-sources", () => {
     });
   });
 
-  it("filters by period, language, source and search", async () => {
-    const today = await sources("?days=1");
+  it("filters by date range, language, source and search", async () => {
+    const today = await sources("?from=2026-10-24&to=2026-10-24");
     expect(today.body.visits).toBe(26);
+    const october = await sources("?from=2026-10-01&to=2026-10-23");
+    expect(october.body.sources).toEqual([
+      { channel: "search", source: "google", visits: 9 },
+    ]);
     const english = await sources("?lang=en");
     expect(english.body.sources).toEqual([
       { channel: "search", source: "google", visits: 5 },
@@ -110,7 +114,12 @@ describe("GET /v1/admin/traffic-sources", () => {
   it("accepts an admin session and refuses bad input or no sign-in", async () => {
     const session = await sources("", await adminSessionHeaders(sqlite));
     expect(session.response.status).toBe(200);
-    for (const query of ["?source=myspace", "?days=90", "?lang=xx"]) {
+    for (const query of [
+      "?source=myspace",
+      "?to=2026-13-01",
+      "?from=2026-10-24&to=2026-10-02",
+      "?lang=xx",
+    ]) {
       const { body, response } = await sources(query);
       expect(response.status, query).toBe(400);
       expect(body.error.code).toBe("invalid_request");

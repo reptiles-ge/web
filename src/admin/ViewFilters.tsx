@@ -1,19 +1,46 @@
-import { Segmented, Select } from "antd";
+import { DatePicker, Select } from "antd";
+import dayjs, { type Dayjs } from "dayjs";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { locales } from "@/i18n/locales";
 
-import type { AdminViewPeriod } from "./views";
+import { lastDays, VIEW_PRESET_DAYS, type ViewRange } from "./viewRange";
 
-type Period = "all" | `${AdminViewPeriod}`;
+const DAY_FORMAT = "YYYY-MM-DD";
 
-const PERIODS: Array<{ label: string; value: Period }> = [
-  { label: "Today", value: "1" },
-  { label: "7 days", value: "7" },
-  { label: "30 days", value: "30" },
-  { label: "All time", value: "all" },
-];
+export function DateRangeFilter({
+  onChange,
+  value,
+}: {
+  onChange: (range: ViewRange) => void;
+  value: ViewRange;
+}) {
+  const today = dayjs(lastDays(1).to);
+  return (
+    <DatePicker.RangePicker
+      allowEmpty={[true, true]}
+      aria-label="Period"
+      disabledDate={(day) => day.isAfter(today, "day")}
+      format={DAY_FORMAT}
+      onChange={(dates) =>
+        onChange({
+          from: dates?.[0]?.format(DAY_FORMAT),
+          to: dates?.[1]?.format(DAY_FORMAT),
+        })
+      }
+      placeholder={["All time", "Today"]}
+      presets={VIEW_PRESET_DAYS.map(({ days, label }) => {
+        const range = lastDays(days);
+        return {
+          label,
+          value: [dayjs(range.from), dayjs(range.to)] as [Dayjs, Dayjs],
+        };
+      })}
+      value={[toDay(value.from), toDay(value.to)]}
+    />
+  );
+}
 
 export function LangSelect({
   onChange,
@@ -39,20 +66,6 @@ export function LangSelect({
   );
 }
 
-export function PeriodSwitch({
-  onChange,
-  value,
-}: {
-  onChange: (days: AdminViewPeriod | undefined) => void;
-  value: AdminViewPeriod | undefined;
-}) {
-  return (
-    <Segmented<Period>
-      onChange={(next) =>
-        onChange(next === "all" ? undefined : (Number(next) as AdminViewPeriod))
-      }
-      options={PERIODS}
-      value={value ? `${value}` : "all"}
-    />
-  );
+function toDay(value: string | undefined) {
+  return value ? dayjs(value) : null;
 }
