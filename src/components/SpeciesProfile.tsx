@@ -248,7 +248,6 @@ export async function SpeciesProfile({
           fieldRecords={fieldRecords}
           gallery={gallery}
           guideLinks={guideLinks}
-          hasRange={hasRange}
           heroCredit={mobileHeroCredit}
           linkDangerStats={linkDangerStats}
           locale={locale}

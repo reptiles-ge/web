@@ -547,6 +547,10 @@
     "rangeTitle": "{name}: where it lives in Georgia",
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
     "rangeRegionsLabel": "Range",
+    "rangeEmptyTitle": "No records yet",
+    "rangeEmptyBody": "The atlas has no confirmed observation of this species yet, so we do not know which regions of Georgia it lives in.",
+    "rangeEmptyAction": "Share an observation",
+    "rangeEmptyNote": "Seen this species? A photo and the place are enough.",
     "sensitiveRange": {
       "title": "Exact locations are hidden on purpose",
       "body": "This species is vulnerable and needs protection, so we do not publish the exact places where it has been observed. That way they cannot lead poachers or people who disturb wildlife to it. The map shows only the regions where the species has been recorded.",
