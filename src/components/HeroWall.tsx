@@ -22,7 +22,7 @@ type WallRow = {
 
 const SQUARE_HUBS: ReadonlySet<WallHub> = new Set(["birds", "mammals"]);
 
-export const HERO_WALL_ROWS: WallRow[] = [
+const HERO_WALL_ROWS: WallRow[] = [
   {
     direction: "l",
     durationLg: 95,
