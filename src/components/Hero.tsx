@@ -3,10 +3,11 @@ import { getFormatter, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { HeroWall, heroWallSpeciesIds } from "@/components/HeroWall";
+import { HeroWall } from "@/components/HeroWall";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { summarizeAtlas } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
+import { heroWallSpeciesIds } from "@/lib/heroWall";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 const FOCUS_RING =
@@ -108,7 +109,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
           </div>
           <ul className="mt-[38px] hidden items-center gap-[26px] border-t border-white/12 pt-5 lg:flex">
             {statRow.map((stat, index) => (
-              <li className="flex items-center gap-[26px]" key={index}>
+              <li className="flex items-center gap-[26px]" key={stat.label}>
                 {index > 0 ? (
                   <span
                     aria-hidden="true"

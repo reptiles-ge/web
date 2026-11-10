@@ -500,6 +500,7 @@ function useRangeMapData({
 
   useEffect(() => {
     if (!enabled) return;
+    let active = true;
     const controller = new AbortController();
     Promise.all([
       fetch("/geodata/georgia-regions-v1.json", {
@@ -513,7 +514,7 @@ function useRangeMapData({
         : NO_RECORDS,
     ])
       .then(([georgiaRegions, records]) => {
-        if (controller.signal.aborted) return;
+        if (!active) return;
         const officialIds = new Set(officialRegionIds);
         setMapData({
           range: {
@@ -530,9 +531,12 @@ function useRangeMapData({
         });
       })
       .catch(() => {
-        if (!controller.signal.aborted) setLoadError(true);
+        if (active) setLoadError(true);
       });
-    return () => controller.abort();
+    return () => {
+      active = false;
+      controller.abort();
+    };
   }, [dataRevision, enabled, hasRecords, locale, officialRegionIds, speciesId]);
 
   return { loadError, mapData };

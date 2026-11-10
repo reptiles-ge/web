@@ -1,64 +1,8 @@
 import type { CSSProperties } from "react";
 
 import { CoverImage } from "@/components/CoverImage";
-import {
-  GROUP_HUB_ILLUSTRATIONS,
-  GROUP_HUBS,
-  type GroupHubId,
-} from "@/lib/groupHubs";
-
-type WallHub = Extract<
-  GroupHubId,
-  "amphibians" | "birds" | "lizards" | "mammals" | "snakes" | "turtles"
->;
-
-type WallRow = {
-  direction: "l" | "r";
-  durationLg: number;
-  durationSm: number;
-  hubs: WallHub[];
-  mobile: boolean;
-};
-
-const SQUARE_HUBS: ReadonlySet<WallHub> = new Set(["birds", "mammals"]);
-
-const HERO_WALL_ROWS: WallRow[] = [
-  {
-    direction: "l",
-    durationLg: 95,
-    durationSm: 70,
-    hubs: ["birds", "turtles", "mammals", "amphibians", "lizards", "snakes"],
-    mobile: true,
-  },
-  {
-    direction: "r",
-    durationLg: 104,
-    durationSm: 79,
-    hubs: ["amphibians", "lizards", "mammals", "snakes", "turtles", "birds"],
-    mobile: true,
-  },
-  {
-    direction: "l",
-    durationLg: 113,
-    durationSm: 88,
-    hubs: ["mammals", "birds", "snakes", "turtles", "amphibians", "lizards"],
-    mobile: true,
-  },
-  {
-    direction: "r",
-    durationLg: 122,
-    durationSm: 122,
-    hubs: ["turtles", "amphibians", "birds", "lizards", "snakes", "mammals"],
-    mobile: false,
-  },
-  {
-    direction: "l",
-    durationLg: 131,
-    durationSm: 131,
-    hubs: ["snakes", "mammals", "turtles", "birds", "lizards", "amphibians"],
-    mobile: false,
-  },
-];
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
+import { HERO_WALL_ROWS, SQUARE_HUBS, type WallHub } from "@/lib/heroWall";
 
 export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
   return (
@@ -91,13 +35,6 @@ export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
       </div>
     </div>
   );
-}
-
-export function heroWallSpeciesIds(): Record<WallHub, string> {
-  const hubs = new Set(HERO_WALL_ROWS.flatMap((row) => row.hubs));
-  return Object.fromEntries(
-    [...hubs].map((hub) => [hub, GROUP_HUBS[hub].heroSpeciesId]),
-  ) as Record<WallHub, string>;
 }
 
 function WallTile({ hub, label }: { hub: WallHub; label: string }) {
