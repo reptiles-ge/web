@@ -152,13 +152,18 @@
     "brand": "Reptiles",
     "title": "საქართველოს ცხოველთა ატლასი",
     "subtitle": "იპოვეთ ცხოველი სახელით, ჯგუფით ან რეგიონით.",
+    "lead": "გაიცანი, ვინ ცხოვრობს შენ გარშემო — ტყეში, მთაში, ველზე თუ ეზოში.",
     "statSpecies": "{count} სახეობა",
     "statRegions": "{count} რეგიონი",
     "statPhotos": "{count} ფოტო",
     "statAnd": "და",
-    "popular": "ხშირად ეძებენ",
+    "statLabelSpecies": "{count, plural, other {სახეობა}}",
+    "statLabelRegions": "{count, plural, other {რეგიონი}}",
+    "statLabelPhotos": "{count, plural, other {ფოტო}}",
     "searchSubmit": "ძიება ატლასში",
-    "scrollToGroups": "ჯგუფების ნახვა"
+    "fullAtlas": "სრული ატლასი",
+    "scrollToGroups": "ჯგუფების ნახვა",
+    "pauseWall": "მოძრაობის შეჩერება"
   },
   "home": {
     "safetyStrip": {
