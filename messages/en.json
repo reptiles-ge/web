@@ -152,13 +152,18 @@
     "brand": "Reptiles",
     "title": "Atlas of Georgia's animals",
     "subtitle": "Find an animal by name, group, or region.",
+    "lead": "Meet the animals that live around you — in the forest, the mountains, the fields or your own yard.",
     "statSpecies": "{count} species",
     "statRegions": "{count} regions",
     "statPhotos": "{count} photos",
     "statAnd": "and",
-    "popular": "Popular searches",
+    "statLabelSpecies": "{count, plural, other {species}}",
+    "statLabelRegions": "{count, plural, one {region} other {regions}}",
+    "statLabelPhotos": "{count, plural, one {photo} other {photos}}",
     "searchSubmit": "Search the atlas",
-    "scrollToGroups": "Explore groups"
+    "fullAtlas": "Full atlas",
+    "scrollToGroups": "Explore groups",
+    "pauseWall": "Pause motion"
   },
   "carousel": {
     "eyebrow": "Species discovery",

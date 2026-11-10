@@ -162,6 +162,74 @@ body {
   text-wrap: balance;
 }
 
+@keyframes hero-wall-l {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - var(--wall-gap) / 2), 0, 0);
+  }
+}
+
+@keyframes hero-wall-r {
+  from {
+    transform: translate3d(calc(-50% - var(--wall-gap) / 2), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-wall {
+  --wall-gap: 10px;
+}
+
+.hero-wall-row {
+  animation-duration: var(--wall-duration-sm);
+}
+
+@media (min-width: 64rem) {
+  .hero-wall {
+    --wall-gap: 16px;
+  }
+
+  .hero-wall-row {
+    animation-duration: var(--wall-duration-lg);
+  }
+
+  .hero-wall-fade {
+    --hero-offset: max(0px, 50vw - 720px);
+    background: linear-gradient(
+      90deg,
+      var(--color-ink) 0,
+      var(--color-ink) calc(var(--hero-offset) + 558px),
+      color-mix(in srgb, var(--color-ink) 90%, transparent)
+        calc(var(--hero-offset) + 648px),
+      color-mix(in srgb, var(--color-ink) 50%, transparent)
+        calc(var(--hero-offset) + 774px),
+      transparent calc(var(--hero-offset) + 900px)
+    );
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-wall-row[data-direction="l"] {
+    animation-name: hero-wall-l;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .hero-wall-row[data-direction="r"] {
+    animation-name: hero-wall-r;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.hero-wall:has(.hero-wall-pause:checked) .hero-wall-row {
+  animation-play-state: paused;
+}
+
 @keyframes hero-drift {
   from {
     transform: scale(1.05) translate3d(0, 0, 0);

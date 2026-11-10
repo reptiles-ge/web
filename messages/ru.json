@@ -152,13 +152,18 @@
     "brand": "Reptiles",
     "title": "Атлас животных Грузии",
     "subtitle": "Найдите животное по названию, группе или региону.",
+    "lead": "Узнайте, кто живёт рядом с вами — в лесу, в горах, в поле или во дворе.",
     "statSpecies": "{count} видов",
     "statRegions": "{count} регионов",
     "statPhotos": "{count} фото",
     "statAnd": "и",
-    "popular": "Часто ищут",
+    "statLabelSpecies": "{count, plural, one {вид} few {вида} many {видов} other {вида}}",
+    "statLabelRegions": "{count, plural, one {регион} few {региона} many {регионов} other {региона}}",
+    "statLabelPhotos": "{count, plural, other {фото}}",
     "searchSubmit": "Поиск по атласу",
-    "scrollToGroups": "Смотреть группы"
+    "fullAtlas": "Весь атлас",
+    "scrollToGroups": "Смотреть группы",
+    "pauseWall": "Остановить движение"
   },
   "carousel": {
     "eyebrow": "Знакомство с видами",
