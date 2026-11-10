@@ -13,6 +13,7 @@ import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { RangeHabitatExpandable } from "@/components/map/RangeHabitatExpandable";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
+import { RangeNoRecordsMap } from "@/components/map/RangeNoRecordsMap";
 import { SensitiveRangeNotice } from "@/components/map/SensitiveRangeNotice";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
@@ -45,6 +46,8 @@ type SpeciesRangeMapProps = {
 const EYEBROW_CLASS =
   "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";
 const STATIC_HATCH_ID = "range-hatch-static";
+const EMPTY_MAP_CARD_CLASS =
+  "order-2 mt-5 min-w-0 overflow-hidden rounded-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9";
 
 export async function SpeciesRangeMap({
   editable,
@@ -85,8 +88,6 @@ export async function SpeciesRangeMap({
       />
     );
   }
-
-  if (highlightedIds.length === 0 && !habitatDetails) return null;
 
   return (
     <StaticRangeSection
@@ -409,9 +410,16 @@ async function HalyomorphaRangeSection({
           </p>
           <RangeMapFooter copy={copy} iNaturalistTaxonId={iNaturalistTaxonId} />
         </div>
-        <div className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
-          {map}
-        </div>
+        {confirmedRegions.length === 0 &&
+        occurrenceSummary.totalRecords === 0 ? (
+          <div className={EMPTY_MAP_CARD_CLASS}>
+            <RangeNoRecordsMap locale={locale} />
+          </div>
+        ) : (
+          <div className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
+            {map}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -639,7 +647,11 @@ function StaticRangeSection({
               {subtitle}
             </figcaption>
           </figure>
-        ) : null}
+        ) : (
+          <div className={EMPTY_MAP_CARD_CLASS}>
+            <RangeNoRecordsMap locale={locale} />
+          </div>
+        )}
       </div>
     </section>
   );

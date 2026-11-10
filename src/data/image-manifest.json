@@ -60399,7 +60399,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-11-05T19:54:34.713Z"
+      "updatedAt": "2026-11-10T19:30:11.448Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -60494,7 +60494,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-11-05T19:54:15.677Z"
+      "updatedAt": "2026-11-10T19:30:05.400Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -60589,7 +60589,7 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-11-05T19:54:17.921Z"
+      "updatedAt": "2026-11-10T19:30:00.837Z"
     },
     "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg": {
       "sourceHash": "c4e4cf7006ca0ce9af8febbdfc8a73747c7a7f09a5576ed4ecbe75b56c19f53c",
@@ -61539,7 +61539,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-11-05T19:54:44.526Z"
+      "updatedAt": "2026-11-10T19:30:29.225Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -61634,7 +61634,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-11-05T19:54:52.746Z"
+      "updatedAt": "2026-11-10T19:30:30.119Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -61729,7 +61729,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-11-05T19:54:32.851Z"
+      "updatedAt": "2026-11-10T19:30:33.371Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -61824,7 +61824,7 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-11-05T19:55:19.915Z"
+      "updatedAt": "2026-11-10T19:30:41.564Z"
     },
     "images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan.jpg": {
       "sourceHash": "d5b95e826a5128a019ee9479c32808585a46f5576db802b167ca22b9316b32aa",
@@ -62748,6 +62748,576 @@
       ],
       "updatedAt": "2026-10-23T07:01:21.806Z"
     },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak.jpg": {
+      "sourceHash": "47713eb108e8dd9c5d624f829af41ebfc9cc05aea960d35912563bed68d9476b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak.jpg",
+      "originalSize": 3414643,
+      "width": 2048,
+      "height": 1537,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14661
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19072
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21218
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27052
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47754
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 60222
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 71228
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88620
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 135500
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 167968
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 291096
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 346958
+        }
+      ],
+      "updatedAt": "2026-11-10T19:30:56.742Z"
+    },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan.jpg": {
+      "sourceHash": "dff38cd2c4e871d087388ae101a67cd748133707eebdc56a0d4197288d3a3c0d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan.jpg",
+      "originalSize": 3841335,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13596
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17952
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22470
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29912
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62838
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 87124
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 103228
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 143732
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 218382
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 308550
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 492545
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 706024
+        }
+      ],
+      "updatedAt": "2026-11-10T19:30:55.053Z"
+    },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye.jpg": {
+      "sourceHash": "60e92a43b5f5e66faca863772cbbf0c80be1bd81db02b1d64c74662b57ffd48f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye.jpg",
+      "originalSize": 1571579,
+      "width": 1728,
+      "height": 1296,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7224
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8874
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9586
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12174
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 17810
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 21574
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 24166
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29188
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 40748
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 48984
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 62406
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 77576
+        }
+      ],
+      "updatedAt": "2026-11-10T19:30:46.250Z"
+    },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february.jpg": {
+      "sourceHash": "1b356d3358a75414d461fbfb0a9c1ed61829d6ca6082288720a1f93f31b18479",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february.jpg",
+      "originalSize": 3616435,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16059
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25380
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22898
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 36516
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50555
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 78728
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74039
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114610
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137738
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 204120
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 295492
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 427422
+        }
+      ],
+      "updatedAt": "2026-11-10T19:31:31.576Z"
+    },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair.jpg": {
+      "sourceHash": "a54a59a8a3c4040ca83d49494c8c4079499b28bbeb524a5bc23960a67f2644f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair.jpg",
+      "originalSize": 3716767,
+      "width": 2048,
+      "height": 1537,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12687
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16694
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19401
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26252
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50797
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 71566
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 83640
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 116394
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 177008
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 243896
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 405283
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 537576
+        }
+      ],
+      "updatedAt": "2026-11-10T19:31:06.466Z"
+    },
+    "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan.jpg": {
+      "sourceHash": "2e113f5a1f88a667e6f33aa19a1442823c4200f2a4c65f36263b4a17b6b6bd94",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan.jpg",
+      "originalSize": 3233029,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10703
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15760
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15295
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22328
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31703
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47842
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46319
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 69894
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 85293
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 130046
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 186569
+        },
+        {
+          "key": "optimized/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 266364
+        }
+      ],
+      "updatedAt": "2026-11-10T19:31:11.502Z"
+    },
     "images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge.jpg": {
       "sourceHash": "05e9a1310f1c099954bf01a56475f713e4e6920094d03af2758bc2bb01acfd35",
       "configFingerprint": "409788ee46c653d8",
@@ -63003,7 +63573,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-11-05T19:54:47.785Z"
+      "updatedAt": "2026-11-10T19:31:08.969Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -63098,7 +63668,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-11-05T19:55:06.600Z"
+      "updatedAt": "2026-11-10T19:31:23.292Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -63193,7 +63763,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-11-05T19:55:08.651Z"
+      "updatedAt": "2026-11-10T19:31:41.696Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -63288,7 +63858,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-11-05T19:55:12.537Z"
+      "updatedAt": "2026-11-10T19:31:32.611Z"
     },
     "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
       "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
@@ -63669,6 +64239,576 @@
         }
       ],
       "updatedAt": "2026-09-17T15:22:39.204Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro.jpg": {
+      "sourceHash": "c55c1538950354b1b32ab25e96047ef02886b42e6073a52bac7d8e1f94cf554a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro.jpg",
+      "originalSize": 974309,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 15950
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 24394
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 21183
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 32884
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 40794
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 67942
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 57777
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 95684
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 101295
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 168984
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 207034
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 341780
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:22.788Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili.jpg": {
+      "sourceHash": "f3e2f19d4eb15dceb2b0fa6746a5931e99e02cb79b7a6a33cbc9a3b1a6ea89f2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili.jpg",
+      "originalSize": 299938,
+      "width": 2048,
+      "height": 1361,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10007
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12598
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12287
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15894
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 22285
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 29086
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 30450
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 39610
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 54310
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 67852
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1361,
+          "byteSize": 150461
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1361,
+          "byteSize": 160144
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:26.477Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg": {
+      "sourceHash": "0381221e01fcc0af6481ad323050de6d5ec8d5c5c2a4cf31c16488ebc6d8f41c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg",
+      "originalSize": 574303,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16465
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26464
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21771
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35278
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40858
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 61550
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 54629
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 80842
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 89604
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 129834
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 207538
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 283142
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:32.611Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand.jpg": {
+      "sourceHash": "e6c2a187260d92545e103ad7e4b31cc5201c0f56e20fa97270fd767c1710d20e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand.jpg",
+      "originalSize": 640268,
+      "width": 2048,
+      "height": 1355,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 9965
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 12706
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 12511
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 16094
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 423,
+          "byteSize": 21391
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 423,
+          "byteSize": 29318
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 529,
+          "byteSize": 28619
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 529,
+          "byteSize": 39676
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 794,
+          "byteSize": 45726
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 794,
+          "byteSize": 65472
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1355,
+          "byteSize": 90252
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1355,
+          "byteSize": 132700
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:21.989Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo.jpg": {
+      "sourceHash": "64f591c36576484d33732990dcd9bbe7aa2361e5dabcc30d6611057ff00af5b6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo.jpg",
+      "originalSize": 150552,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11835
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17934
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16995
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25724
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 34367
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49344
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 52339
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72928
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 93690
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 122272
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 135192
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 174470
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:31.468Z"
+    },
+    "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro.jpg": {
+      "sourceHash": "b3645c3916d604a2580ef5dafc4ec0c25d73103eaee8b84b8cced7abe1b786d4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro.jpg",
+      "originalSize": 777848,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5275
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7276
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7375
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10038
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15240
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21160
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22112
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30750
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 39437
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 54566
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 82698
+        },
+        {
+          "key": "optimized/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 112060
+        }
+      ],
+      "updatedAt": "2026-11-10T19:10:42.973Z"
     },
     "images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg": {
       "sourceHash": "3de23139c40d86da492586d6a580ca0d7777ba25c9ef0b1b62fe0b41c3606f60",
@@ -64129,7 +65269,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-11-05T19:55:32.258Z"
+      "updatedAt": "2026-11-10T19:32:12.430Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -64224,7 +65364,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-11-05T19:55:27.368Z"
+      "updatedAt": "2026-11-10T19:32:13.707Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -64319,7 +65459,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-11-05T19:55:34.327Z"
+      "updatedAt": "2026-11-10T19:32:08.956Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -64414,7 +65554,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-11-05T19:55:54.366Z"
+      "updatedAt": "2026-11-10T19:32:18.451Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",

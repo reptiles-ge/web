@@ -221,6 +221,26 @@
         "width": 1200
       }
     ],
+    "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg",
+        "width": 1200
+      }
+    ],
     "https://cdn.reptiles.ge/news-armenia-red-book-2010-red-book-cover.jpg": [
       {
         "height": 675,

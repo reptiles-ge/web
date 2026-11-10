@@ -70,7 +70,6 @@ type SpeciesProfileBodyProps = {
   fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
-  hasRange: boolean;
   heroCredit?: PhotoCredit;
   linkDangerStats: boolean;
   locale: AppLocale;
@@ -144,7 +143,6 @@ export async function SpeciesProfileBody({
   fieldRecords,
   gallery,
   guideLinks,
-  hasRange,
   heroCredit,
   linkDangerStats,
   locale,
@@ -195,7 +193,7 @@ export async function SpeciesProfileBody({
           gallery: gallery.length > 0,
           habitat: false,
           identification: showIdentification,
-          range: hasRange || Boolean(habitatBlock),
+          range: true,
           sources: species.sources.length > 0,
         }}
         updatedAt={species.updatedAt}

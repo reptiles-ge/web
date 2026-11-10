@@ -77,7 +77,9 @@ export function useQuizDraft(
   }, [byId, quizId]);
 
   useEffect(() => {
+    let active = true;
     queueMicrotask(() => {
+      if (!active) return;
       try {
         const key = draftKey(quizIdRef.current);
         const raw = sessionStorage.getItem(key);
@@ -92,9 +94,12 @@ export function useQuizDraft(
       } catch {
         return;
       } finally {
-        setDraftReady(true);
+        if (active) setDraftReady(true);
       }
     });
+    return () => {
+      active = false;
+    };
   }, [dispatch]);
 
   useEffect(() => {

@@ -5226,6 +5226,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-agarak",
+    "width": 2048,
+    "height": 1537,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-ijevan",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-eye",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-february",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-meghri-pair",
+    "width": 2048,
+    "height": 1537,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan.jpg": {
+    "path": "images/news/kaspiuri-gekoni-somkhetshi-akhali-lokaciebi/tenuidactylus-caspius-yerevan",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge.jpg": {
     "path": "images/news/kutaisi-kaspiuri-gekoni/kutaisi-rioni-white-bridge",
     "width": 2400,
@@ -5266,6 +5308,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1497,
     "height": 1051,
     "widths": [320, 400, 640, 800, 1200, 1497],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili",
+    "width": 2048,
+    "height": 1361,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand",
+    "width": 2048,
+    "height": 1355,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg": {
