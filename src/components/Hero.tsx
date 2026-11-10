@@ -60,8 +60,11 @@ export async function Hero({ locale }: { locale: AppLocale }) {
             <span className="size-1.5 rounded-full bg-[#6fad88]" />
             {t("kicker")}
           </p>
-          <h1 className="max-w-[600px] font-display text-[clamp(2rem,8.7vw,2.6rem)] leading-[1.08] font-semibold tracking-[-0.01em] text-white lg:mt-[22px] lg:text-[64px] lg:leading-[1.06]">
-            {t("title")}
+          <h1 className="font-display text-[clamp(1.75rem,8vw,2.6rem)] leading-[1.08] font-semibold tracking-[-0.01em] text-white lg:mt-[22px] lg:text-[56px] lg:leading-[1.06]">
+            <span className="block lg:whitespace-nowrap">{t("title")}</span>
+            <span className="block lg:whitespace-nowrap">
+              {t("titleCategory")}
+            </span>
           </h1>
           <p className="mt-3 text-[15px] leading-[1.6] text-white/75 lg:hidden">
             <strong className="font-semibold text-white">

@@ -148,11 +148,12 @@
     "title": "Reptiles.ge'yi nasıl buldunuz?"
   },
   "hero": {
-    "kicker": "Saha atlası",
+    "kicker": "Reptiles.ge · Saha atlası",
     "brand": "Reptiles",
-    "title": "Gürcistan hayvanları atlası",
+    "title": "Gürcistan Doğası",
+    "titleCategory": "Hayvan atlası",
     "subtitle": "Bir hayvanı adına, grubuna veya bölgesine göre bulun.",
-    "lead": "Çevrenizde kimlerin yaşadığını keşfedin — ormanda, dağda, kırda ya da bahçenizde.",
+    "lead": "Çevrenizde kimlerin yaşadığını keşfedin — ormanda, dağda, kırda ya da bahçenizde. Fotoğraflar, yayılış haritaları ve tanı işaretleri.",
     "statSpecies": "{count} tür",
     "statRegions": "{count} bölge",
     "statPhotos": "{count} fotoğraf",
@@ -1189,8 +1190,8 @@
     "summary": "Kısaca"
   },
   "site": {
-    "title": "Reptiles.ge — Gürcistan hayvanları atlası",
-    "description": "Gürcistan hayvanları tür atlası: profiller, yayılış ve tanıma. Sürüngenler, amfibiler, kuşlar, memeliler ve dahası — Gürcüce, İngilizce, Rusça ve Türkçe."
+    "title": "Reptiles.ge — Gürcistan Doğası: hayvan atlası",
+    "description": "Gürcistan doğası tek bir atlasta: sürüngenler, amfibiler, kuşlar, memeliler ve diğer hayvanlar — fotoğraflar, yayılış haritaları ve tanı, dört dilde."
   },
   "notFound": {
     "eyebrow": "Atlasda kayboldunuz",
