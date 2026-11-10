@@ -65,7 +65,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
             {t("kicker")}
           </p>
           <h1 className="font-display text-[clamp(1.75rem,8vw,2.6rem)] leading-[1.08] font-semibold tracking-[-0.01em] text-white lg:mt-[22px] lg:text-[56px] lg:leading-[1.06]">
-            <span className="block lg:whitespace-nowrap">{t("title")}</span>
+            <span className="block lg:whitespace-nowrap">{t("title")}</span>{" "}
             <span className="block lg:whitespace-nowrap">
               {t("titleCategory")}
             </span>
