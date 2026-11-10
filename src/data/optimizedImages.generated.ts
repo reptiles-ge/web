@@ -5268,6 +5268,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1497],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-dedoplistskaro",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-iankoshvili",
+    "width": 2048,
+    "height": 1361,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-kakheti",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/dolichophis-schmidti-sand",
+    "width": 2048,
+    "height": 1355,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/natrix-tessellata-sagarejo",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro.jpg": {
+    "path": "images/news/tsitelmutsela-mtsuravi-135-gveli-septikshi/platyceps-najadum-dedoplistskaro",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi.jpg": {
     "path": "images/news/vashlovani-obobebis-sami-akhali-saxeoba/bogdocosa-kronebergi",
     "width": 1600,
