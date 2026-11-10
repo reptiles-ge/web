@@ -1,5 +1,4 @@
 export const newsSlugs = [
-  "tsitelmutsela-mtsuravi-135-gveli-septikshi",
   "imeretioniscus-akhali-gvari-sakartvelos-mghvimeebi",
   "batumi-raptor-count-2026-season-ends",
   "armenia-red-book-update-urartian-ratsnake",
