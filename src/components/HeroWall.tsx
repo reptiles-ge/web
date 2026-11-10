@@ -1,73 +1,19 @@
 import type { CSSProperties } from "react";
 
 import { CoverImage } from "@/components/CoverImage";
-import {
-  GROUP_HUB_ILLUSTRATIONS,
-  GROUP_HUBS,
-  type GroupHubId,
-} from "@/lib/groupHubs";
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
+import { HERO_WALL_ROWS, type HeroWallHub } from "@/lib/heroWall";
 
-type WallHub = Extract<
-  GroupHubId,
-  "amphibians" | "birds" | "lizards" | "mammals" | "snakes" | "turtles"
->;
+const SQUARE_HUBS: ReadonlySet<HeroWallHub> = new Set(["birds", "mammals"]);
 
-type WallRow = {
-  direction: "l" | "r";
-  durationLg: number;
-  durationSm: number;
-  hubs: WallHub[];
-  mobile: boolean;
-};
-
-const SQUARE_HUBS: ReadonlySet<WallHub> = new Set(["birds", "mammals"]);
-
-const HERO_WALL_ROWS: WallRow[] = [
-  {
-    direction: "l",
-    durationLg: 95,
-    durationSm: 70,
-    hubs: ["birds", "turtles", "mammals", "amphibians", "lizards", "snakes"],
-    mobile: true,
-  },
-  {
-    direction: "r",
-    durationLg: 104,
-    durationSm: 79,
-    hubs: ["amphibians", "lizards", "mammals", "snakes", "turtles", "birds"],
-    mobile: true,
-  },
-  {
-    direction: "l",
-    durationLg: 113,
-    durationSm: 88,
-    hubs: ["mammals", "birds", "snakes", "turtles", "amphibians", "lizards"],
-    mobile: true,
-  },
-  {
-    direction: "r",
-    durationLg: 122,
-    durationSm: 122,
-    hubs: ["turtles", "amphibians", "birds", "lizards", "snakes", "mammals"],
-    mobile: false,
-  },
-  {
-    direction: "l",
-    durationLg: 131,
-    durationSm: 131,
-    hubs: ["snakes", "mammals", "turtles", "birds", "lizards", "amphibians"],
-    mobile: false,
-  },
-];
-
-export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
+export function HeroWall({ labels }: { labels: Record<HeroWallHub, string> }) {
   return (
     <div
       aria-hidden="true"
       className="absolute inset-x-0 top-0 h-[316px] overflow-hidden lg:inset-y-0 lg:h-auto"
     >
       <div className="absolute top-[-52px] left-[-70px] flex w-[560px] -rotate-7 flex-col gap-(--wall-gap) lg:top-[-140px] lg:right-[-130px] lg:left-auto lg:w-[1060px]">
-        {HERO_WALL_ROWS.map((row, rowIndex) => (
+        {HERO_WALL_ROWS.map((row) => (
           <div
             className={
               row.mobile
@@ -75,7 +21,7 @@ export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
                 : "hero-wall-row flex w-max gap-(--wall-gap) max-lg:hidden"
             }
             data-direction={row.direction}
-            key={rowIndex}
+            key={`${row.direction}-${row.durationLg}`}
             style={
               {
                 "--wall-duration-lg": `${row.durationLg}s`,
@@ -84,7 +30,7 @@ export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
             }
           >
             {[...row.hubs, ...row.hubs].map((hub, index) => (
-              <WallTile hub={hub} key={index} label={labels[hub]} />
+              <WallTile hub={hub} key={`${hub}-${index}`} label={labels[hub]} />
             ))}
           </div>
         ))}
@@ -93,14 +39,7 @@ export function HeroWall({ labels }: { labels: Record<WallHub, string> }) {
   );
 }
 
-export function heroWallSpeciesIds(): Record<WallHub, string> {
-  const hubs = new Set(HERO_WALL_ROWS.flatMap((row) => row.hubs));
-  return Object.fromEntries(
-    [...hubs].map((hub) => [hub, GROUP_HUBS[hub].heroSpeciesId]),
-  ) as Record<WallHub, string>;
-}
-
-function WallTile({ hub, label }: { hub: WallHub; label: string }) {
+function WallTile({ hub, label }: { hub: HeroWallHub; label: string }) {
   const square = SQUARE_HUBS.has(hub);
   return (
     <span
