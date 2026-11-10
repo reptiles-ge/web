@@ -542,6 +542,10 @@
     "rangeTitle": "{name} Gürcistan’da nerede yaşar",
     "rangeSubtitle": "Vurgulanan bölgeler bu türün kaydedildiği yerleri gösterir.",
     "rangeRegionsLabel": "Yayılış",
+    "rangeEmptyTitle": "Henüz kayıt yok",
+    "rangeEmptyBody": "Atlasta bu türün henüz doğrulanmış bir gözlemi yok, bu yüzden Gürcistan’ın hangi bölgelerinde yaşadığını bilmiyoruz.",
+    "rangeEmptyAction": "Gözlem paylaş",
+    "rangeEmptyNote": "Bu türü gördünüz mü? Bir fotoğraf ve yer yeterli.",
     "sensitiveRange": {
       "title": "Kesin konumlar bilerek gizlendi",
       "body": "Bu tür hassastır ve korunmaya ihtiyaç duyar; bu yüzden gözlendiği kesin yerleri yayımlamıyoruz, böylece kaçak avcılara ve hayvanları rahatsız edenlere yol göstermiyoruz. Harita yalnızca türün kaydedildiği bölgeleri gösterir.",
