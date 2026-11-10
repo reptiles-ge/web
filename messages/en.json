@@ -148,11 +148,12 @@
     "title": "How do you like Reptiles.ge?"
   },
   "hero": {
-    "kicker": "A field atlas",
+    "kicker": "Reptiles.ge · A field atlas",
     "brand": "Reptiles",
-    "title": "Atlas of Georgia's animals",
+    "title": "Georgia's Nature",
+    "titleCategory": "The animal atlas",
     "subtitle": "Find an animal by name, group, or region.",
-    "lead": "Meet the animals that live around you — in the forest, the mountains, the fields or your own yard.",
+    "lead": "Meet the animals that live around you — in the forest, the mountains, the fields or your own yard. Photos, range maps and identification marks.",
     "statSpecies": "{count} species",
     "statRegions": "{count} regions",
     "statPhotos": "{count} photos",
@@ -1185,8 +1186,8 @@
     "summary": "In short"
   },
   "site": {
-    "title": "Reptiles.ge — atlas of animals of Georgia",
-    "description": "Species atlas of Georgia’s animals: profiles, range, and ID. Reptiles, amphibians, birds, mammals, and more — in Georgian, English, Russian, and Turkish."
+    "title": "Reptiles.ge — Georgia's Nature: the animal atlas",
+    "description": "Georgia's nature in one atlas: reptiles, amphibians, birds, mammals and other animals — photos, range maps and identification, in four languages."
   },
   "notFound": {
     "eyebrow": "Lost in the atlas",
