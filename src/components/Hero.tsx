@@ -87,7 +87,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
           </div>
           <div className="mt-3 flex flex-wrap gap-2 lg:mt-[22px] lg:items-center lg:gap-[22px]">
             <Link
-              className={`inline-flex h-12 flex-auto items-center justify-center gap-2 rounded-full border border-white/30 px-3.5 text-[14px] font-medium whitespace-nowrap text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:h-[52px] lg:flex-none lg:pr-6 lg:pl-[26px] lg:text-[15px] ${FOCUS_RING}`}
+              className={`inline-flex h-12 flex-auto items-center justify-center gap-2 rounded-full border border-white/30 px-3.5 text-[14px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:h-[52px] lg:flex-none lg:pr-6 lg:pl-[26px] lg:text-[15px] ${FOCUS_RING}`}
               href="/species"
             >
               {t("fullAtlas")}
