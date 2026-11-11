@@ -20,6 +20,13 @@ export function parseToSiteDateTime(raw: string): null | string {
   return toSiteDateTime(parsed);
 }
 
+export function siteDateTimeOrRaw<T extends null | string | undefined>(
+  raw: T,
+): T {
+  if (!raw) return raw;
+  return (parseToSiteDateTime(raw) ?? raw) as T;
+}
+
 export function siteDay(value: Date): string {
   return toSiteDateTime(value).slice(0, 10);
 }

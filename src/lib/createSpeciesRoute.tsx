@@ -48,6 +48,7 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
+import { siteDateTimeOrRaw } from "@/lib/siteTime";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -188,8 +189,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         description,
         images: [ogImageTag],
         locale: openGraphLocale(locale),
-        modifiedTime: item.updatedAt,
-        publishedTime: raw.publishedAt,
+        modifiedTime: siteDateTimeOrRaw(item.updatedAt),
+        publishedTime: siteDateTimeOrRaw(raw.publishedAt),
         siteName: siteConfig.name,
         title,
         type: "article",
@@ -476,8 +477,8 @@ function speciesStructuredData({
     about: taxon,
     author: organizationRef(),
     citation: raw.sources.map(sourceCreativeWork),
-    dateModified: item.updatedAt,
-    datePublished: raw.publishedAt,
+    dateModified: siteDateTimeOrRaw(item.updatedAt),
+    datePublished: siteDateTimeOrRaw(raw.publishedAt),
     description: item.description,
     ...(photoObjects.length > 0
       ? {

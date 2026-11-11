@@ -29,7 +29,7 @@ import {
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { liveQuizzes } from "@/lib/quizzes";
-import { parseToSiteDateTime } from "@/lib/siteTime";
+import { parseToSiteDateTime, siteDateTimeOrRaw } from "@/lib/siteTime";
 import {
   type CatalogCard,
   getCreditPhotoCatalog,
@@ -172,19 +172,19 @@ function authorMembersDate(
 }
 
 function laterDate(base: string, candidate: null | string | undefined) {
-  if (!candidate) return base;
-  const candidateTime = Date.parse(candidate);
-  if (Number.isNaN(candidateTime)) return base;
-  return candidateTime > Date.parse(base) ? candidate : base;
+  const next = candidate ? parseToSiteDateTime(candidate) : null;
+  if (!next) return base;
+  return Date.parse(next) > Date.parse(base) ? next : base;
 }
 
 function latestDate(values: Array<null | string | undefined>) {
   let latest: null | string = null;
   for (const value of values) {
-    if (!value || Number.isNaN(Date.parse(value))) continue;
-    latest = latest ? laterDate(latest, value) : value;
+    const next = value ? parseToSiteDateTime(value) : null;
+    if (!next) continue;
+    latest = latest ? laterDate(latest, next) : next;
   }
-  return latest ? siteDateTime(latest) : latest;
+  return latest;
 }
 
 function membersForPath(path: string, catalog: readonly CatalogCard[]) {
@@ -265,11 +265,6 @@ function regionMembersDate(id: string, catalog: readonly CatalogCard[]) {
   return region ? speciesDate(getRegionSpecies(region, catalog)) : null;
 }
 
-function siteDateTime(value: string) {
-  if (!value.includes("T")) return value;
-  return parseToSiteDateTime(value) ?? value;
-}
-
 function speciesDate(items: readonly CatalogCard[]) {
   return latestDate(items.map((item) => item.updatedAt));
 }
@@ -278,7 +273,7 @@ function withFloor(
   dateModified: null | string,
   rawDatePublished: string,
 ): DateFields {
-  const datePublished = siteDateTime(rawDatePublished);
+  const datePublished = siteDateTimeOrRaw(rawDatePublished);
   return {
     dateModified: laterDate(datePublished, dateModified),
     datePublished,
