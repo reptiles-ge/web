@@ -162,7 +162,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       );
     }
 
-    for (const hub of GROUP_HUB_LIST) add(page(hub.path));
+    for (const hub of GROUP_HUB_LIST) {
+      if (cards.some((card) => card.group === hub.group)) add(page(hub.path));
+    }
 
     add(page("/regions"));
 

@@ -63,6 +63,7 @@ type PageCopy = {
 const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   amphibian: { en: "Amphibian", ka: "ამფიბია", ru: "Амфибия", tr: "Amfibi" },
   bird: { en: "Bird", ka: "ფრინველი", ru: "Птица", tr: "Kuş" },
+  fish: { en: "Fish", ka: "თევზი", ru: "Рыба", tr: "Balık" },
   insect: { en: "Insect", ka: "მწერი", ru: "Насекомое", tr: "Böcek" },
   lizard: { en: "Lizard", ka: "ხვლიკი", ru: "Ящерица", tr: "Kertenkele" },
   mammal: {
@@ -117,6 +118,22 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ფრინველები საქართველოში",
       ru: "Птицы Грузии",
       tr: "Gürcistan kuşları",
+    },
+  },
+  fish: {
+    icon: "hub",
+    keywords: ["თევზები", "თევზი", "tevzebi", "fish", "рыбы", "рыба", "balık"],
+    subtitle: {
+      en: "Fish profiles in the nature atlas",
+      ka: "თევზების პროფილები ბუნების ატლასში",
+      ru: "Профили рыб в атласе природы",
+      tr: "Doğa atlasında balık profilleri",
+    },
+    title: {
+      en: "Fish in Georgia",
+      ka: "თევზები საქართველოში",
+      ru: "Рыбы Грузии",
+      tr: "Gürcistan balıkları",
     },
   },
   insects: {
@@ -1218,6 +1235,7 @@ function speciesGroupText(species: CatalogCard) {
   );
   extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
   extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
+  extra.push(group === "fish" ? "თევზი თევზები fish рыбы balıklar" : "");
   extra.push(
     group === "insect"
       ? "მწერი მწერები insects mantis ჩოქელა богомол böcek peygamberdevesi"

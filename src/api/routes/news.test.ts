@@ -182,7 +182,7 @@ describe("GET /v1/news", () => {
       "?page=0",
       "?limit=0",
       "?limit=101",
-      "?hub=fish",
+      "?hub=dragon",
       "?series=unknown",
       `?q=${"a".repeat(101)}`,
     ]) {

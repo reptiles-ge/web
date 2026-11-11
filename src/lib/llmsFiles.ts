@@ -66,11 +66,13 @@ const GROUP_ORDER: AnimalGroup[] = [
   "spider",
   "scorpion",
   "insect",
+  "fish",
 ];
 
 const GROUP_HEADING: Record<AnimalGroup, string> = {
   amphibian: "Amphibians",
   bird: "Birds",
+  fish: "Fish",
   insect: "Insects",
   lizard: "Lizards",
   mammal: "Mammals",
@@ -94,6 +96,7 @@ const GROUP_INDEX_PATH: Partial<Record<AnimalGroup, string>> = {
 const GROUP_HUB_PATH: Record<AnimalGroup, string> = {
   amphibian: "/amphibians",
   bird: "/birds",
+  fish: "/fish",
   insect: "/insects",
   lizard: "/lizards",
   mammal: "/mammals",

@@ -88,6 +88,7 @@
     "metadata:check": "tsx scripts/check-metadata-head.ts",
     "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc",
     "dev:api": "wrangler dev --config wrangler.api.jsonc --port 8787",
+    "deploy:web": "pnpm run deploy:vinext",
     "deploy:api": "wrangler deploy --config wrangler.api.jsonc",
     "dev:admin": "vite --config vite.admin.config.ts",
     "prebuild:admin": "pnpm run images:compile",

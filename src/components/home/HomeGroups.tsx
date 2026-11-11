@@ -20,6 +20,7 @@ const GROUPS = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ] as const;
 
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
@@ -58,7 +59,10 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
           const hub = GROUP_HUBS[hubId];
           const name = tNav(hubId);
           const wide =
-            index < 4 || hubId === "scorpions" || hubId === "insects";
+            index < 4 ||
+            hubId === "scorpions" ||
+            hubId === "insects" ||
+            hubId === "fish";
           return (
             <Link
               className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${wide ? "lg:w-[495px]" : "lg:w-[330px]"}`}
@@ -134,6 +138,8 @@ function groupCount(
       return stats.amphibians;
     case "bird":
       return stats.birds;
+    case "fish":
+      return stats.fish;
     case "insect":
       return stats.insects;
     case "lizard":

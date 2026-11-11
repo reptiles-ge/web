@@ -3,6 +3,7 @@ import type { DangerLevel } from "./speciesTypes";
 export type AnimalGroup =
   | "amphibian"
   | "bird"
+  | "fish"
   | "insect"
   | "lizard"
   | "mammal"
