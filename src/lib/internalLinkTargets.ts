@@ -5,13 +5,13 @@ export type InternalLinkTarget =
   | { href: InternalRouteHref; type: "route" }
   | { slug: string; type: "species" };
 
-export type InternalRouteHref =
-  PathnameKey | { params: Record<string, string>; pathname: PathnameKey };
-
 type DynamicPathname = {
   key: PathnameKey;
   patterns: readonly string[][];
 };
+
+type InternalRouteHref =
+  PathnameKey | { params: Record<string, string>; pathname: PathnameKey };
 
 type PathnameKey = keyof typeof pathnames;
 
