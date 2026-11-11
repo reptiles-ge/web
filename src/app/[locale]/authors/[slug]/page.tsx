@@ -10,7 +10,6 @@ import { AuthorPage } from "@/components/AuthorPage";
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
-import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -28,6 +27,7 @@ import {
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
+import { getNewsListArticlesForAuthor } from "@/lib/newsApi";
 import {
   breadcrumbListLd,
   speciesTaxonRef,
@@ -59,10 +59,11 @@ export default async function AuthorRoute({ params }: Props) {
   const author = await getContributor(slug, locale);
   if (!author) notFound();
 
-  const [t, creditPhotos, catalog] = await Promise.all([
+  const [t, creditPhotos, catalog, relatedNews] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getCreditPhotoCatalog(),
     getSpeciesCatalog(locale),
+    getNewsListArticlesForAuthor(locale, author.id),
   ]);
   const photos = getCreditAuthorPhotos(author, creditPhotos);
   const byId = new Map(catalog.map((item) => [item.id, item]));
@@ -71,7 +72,6 @@ export default async function AuthorRoute({ params }: Props) {
   const url = creditAuthorUrl(locale, author.id);
   const indexUrl = creditAuthorIndexUrl(locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
-  const relatedNews = getPublishedNewsForCreditAuthor(author, locale);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: indexUrl, name: t("index.breadcrumb") },
