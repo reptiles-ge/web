@@ -36,6 +36,7 @@ const TOPIC_ORDER: readonly GroupHubId[] = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ];
 
 const FEATURED_COUNT = 3;

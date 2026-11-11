@@ -86,7 +86,11 @@ function hubClusterCardImage(card: HubClusterCard, species: SpeciesCard[]) {
   if (override) return override;
 
   const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
-  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
+  if (hub) {
+    return hub.heroSpeciesId
+      ? speciesCardImage(hub.heroSpeciesId, species)
+      : GROUP_HUB_ILLUSTRATIONS[hub.id];
+  }
 
   return undefined;
 }

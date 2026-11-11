@@ -38,6 +38,7 @@ const groupLinks = [
   { href: "/spiders" as const, labelKey: "spiders" as const },
   { href: "/scorpions" as const, labelKey: "scorpions" as const },
   { href: "/insects" as const, labelKey: "insects" as const },
+  { href: "/fish" as const, labelKey: "fish" as const },
 ];
 
 const footerGuideIds = new Set([

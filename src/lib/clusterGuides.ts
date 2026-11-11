@@ -157,6 +157,7 @@ export type ClusterGuidePath =
   | "/amphibians/tritoni-salamandra"
   | "/birds"
   | "/birds/saxeoebebi"
+  | "/fish"
   | "/insects"
   | "/insects/saxeoebebi"
   | "/lizards/darevskia"
@@ -593,6 +594,7 @@ export type HubClusterCard =
         | "birdsHub"
         | "bite"
         | "dangerousAnimals"
+        | "fishHub"
         | "frogs"
         | "frogsIndex"
         | "glassLizard"
@@ -646,6 +648,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
+  fish: [],
   insects: [
     { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
     { href: "/insects/tkipis-nakbeni", key: "tickBite", kind: "page" },
@@ -779,6 +782,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds/saxeoebebi",
+  fish: "/fish",
   insects: "/insects/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
@@ -797,6 +801,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
   switch (hubId) {
     case "birds":
       return "cluster.birdIndex.title" as const;
+    case "fish":
+      return "cluster.fishHub.title" as const;
     case "insects":
       return "cluster.insectIndex.title" as const;
     case "lizards":
@@ -1119,6 +1125,8 @@ export function getSpeciesGuideLinks(
     });
   } else if (group === "scorpion") {
     links.push({ href: "/scorpions", key: "scorpionsHub", kind: "page" });
+  } else if (group === "fish") {
+    links.push({ href: "/fish", key: "fishHub", kind: "page" });
   } else if (group === "spider") {
     links.push({
       href: "/spiders/saxeoebebi",

@@ -66,6 +66,7 @@ function facetsOf(articles: FakeArticle[]) {
     all: articles.length,
     amphibians: 0,
     birds: 0,
+    fish: 0,
     insects: 0,
     lizards: 0,
     mammals: 0,

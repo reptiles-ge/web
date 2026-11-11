@@ -28,6 +28,7 @@ export type CreditAuthorPhoto = {
 const GROUP_RANK: Record<AnimalGroup, number> = {
   amphibian: 2,
   bird: 4,
+  fish: 8,
   insect: 7,
   lizard: 1,
   mammal: 5,

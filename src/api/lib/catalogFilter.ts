@@ -2,10 +2,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { regions } from "@/data/mapRegions";
 import {
+  type AnimalGroup,
   groupHasVenomConcept,
   type HabitatTag,
   isVenomousDanger,
-  type SpeciesGroup,
 } from "@/data/speciesAtlasMeta";
 import { type DangerLevel } from "@/data/speciesTypes";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
@@ -14,7 +14,7 @@ import { HABITATS } from "../schemas/speciesRecord";
 
 export type CatalogFilters = {
   danger?: CatalogDangerFilter;
-  group?: SpeciesGroup;
+  group?: AnimalGroup;
   habitat?: HabitatTag;
   q?: string;
   region?: string;
@@ -23,7 +23,7 @@ export type CatalogFilters = {
 export type CatalogIndexEntry = {
   commonName: string;
   danger?: DangerLevel;
-  group: SpeciesGroup;
+  group: AnimalGroup;
   habitats: HabitatTag[];
   hasPhoto: boolean;
   id: string;

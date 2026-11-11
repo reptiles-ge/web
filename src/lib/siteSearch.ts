@@ -53,6 +53,7 @@ export type SearchPageHref = Exclude<
   | "/amphibians/[slug]"
   | "/authors/[slug]"
   | "/birds/[slug]"
+  | "/fish/[slug]"
   | "/insects/[slug]"
   | "/lizards/[slug]"
   | "/mammals/[slug]"
@@ -73,6 +74,7 @@ type SpeciesHref = {
   pathname:
     | "/amphibians/[slug]"
     | "/birds/[slug]"
+    | "/fish/[slug]"
     | "/insects/[slug]"
     | "/lizards/[slug]"
     | "/mammals/[slug]"

@@ -72,15 +72,17 @@ export async function GroupHubSpeciesList({
           lead={t("speciesBody")}
           title={t("speciesTitle", { count: species.length })}
         />
-        <OptimizedImageScope>
-          <GroupHubSpeciesCatalog
-            allLabel={tAtlas("filters.all")}
-            group={group}
-            indexLink={indexLink}
-            items={items}
-            showRisk={showRisk}
-          />
-        </OptimizedImageScope>
+        {items.length > 0 ? (
+          <OptimizedImageScope>
+            <GroupHubSpeciesCatalog
+              allLabel={tAtlas("filters.all")}
+              group={group}
+              indexLink={indexLink}
+              items={items}
+              showRisk={showRisk}
+            />
+          </OptimizedImageScope>
+        ) : null}
         <GroupHubQuizCard hubId={hubId} locale={locale} species={species} />
       </div>
     </section>

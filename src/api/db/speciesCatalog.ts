@@ -1,5 +1,5 @@
 import type { HerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
-import type { HabitatTag, SpeciesGroup } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup, HabitatTag } from "@/data/speciesAtlasMeta";
 import type {
   DangerLevel,
   GalleryImage,
@@ -56,7 +56,7 @@ type SpeciesCatalogMeta = {
   checklistStatus: HerpetofaunaChecklistStatus | null;
   class: null | string;
   featured: boolean;
-  group: SpeciesGroup;
+  group: AnimalGroup;
   habitats: HabitatTag[];
   order: null | string;
 };
@@ -67,7 +67,7 @@ type SpeciesRow = {
   family: string;
   featured: number;
   genus: string;
-  group_id: SpeciesGroup;
+  group_id: AnimalGroup;
   id: string;
   published_at: string;
   scientific_name: string;

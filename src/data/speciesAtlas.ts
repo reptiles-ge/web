@@ -26,6 +26,7 @@ const venomousDangerOrder: Record<DangerLevel, number> = {
 export type AtlasStats = {
   amphibians: number;
   birds: number;
+  fish: number;
   insects: number;
   lastUpdated: null | string;
   lizards: number;
@@ -48,6 +49,7 @@ export async function getAtlasStats(locale: AppLocale): Promise<AtlasStats> {
   return {
     amphibians: groups.amphibian,
     birds: groups.bird,
+    fish: groups.fish,
     insects: groups.insect,
     lastUpdated,
     lizards: groups.lizard,
@@ -122,6 +124,7 @@ export function summarizeAtlas(catalog: readonly CatalogCard[]): AtlasStats {
   const byGroup: Record<AnimalGroup, number> = {
     amphibian: 0,
     bird: 0,
+    fish: 0,
     insect: 0,
     lizard: 0,
     mammal: 0,
@@ -146,6 +149,7 @@ export function summarizeAtlas(catalog: readonly CatalogCard[]): AtlasStats {
   return {
     amphibians: byGroup.amphibian,
     birds: byGroup.bird,
+    fish: byGroup.fish,
     insects: byGroup.insect,
     lastUpdated,
     lizards: byGroup.lizard,
