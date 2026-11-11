@@ -230,10 +230,6 @@ export function isDarevskiaSpecies(
   return species.genus === "Darevskia";
 }
 
-export function isFishSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
-  return speciesGroup(species) === "fish";
-}
-
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
 }
@@ -270,6 +266,10 @@ export function orderSpeciesByIds<T extends Pick<SpeciesSummary, "id">>(
 
 function isAmphibianSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
   return speciesGroup(species) === "amphibian";
+}
+
+function isFishSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
+  return speciesGroup(species) === "fish";
 }
 
 function isInsectSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
