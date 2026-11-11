@@ -6,7 +6,11 @@ import {
   formatContentMonth,
   formatPhotoDate,
 } from "@/lib/formatDate";
-import { parseToSiteDateTime, toSiteDateTime } from "@/lib/siteTime";
+import {
+  parseToSiteDateTime,
+  siteDateTimeOrRaw,
+  toSiteDateTime,
+} from "@/lib/siteTime";
 
 describe("siteTime", () => {
   it("stores date-only values at midnight in Asia/Tbilisi", () => {
@@ -21,6 +25,15 @@ describe("siteTime", () => {
 
   it("rejects invalid timestamps", () => {
     expect(parseToSiteDateTime("not-a-date")).toBeNull();
+  });
+
+  it("writes schema dates as full site datetimes", () => {
+    expect(siteDateTimeOrRaw("2026-11-07")).toBe("2026-11-07T00:00:00+04:00");
+    expect(siteDateTimeOrRaw("2026-11-10T19:14:08.000Z")).toBe(
+      "2026-11-10T23:14:08+04:00",
+    );
+    expect(siteDateTimeOrRaw("not-a-date")).toBe("not-a-date");
+    expect(siteDateTimeOrRaw(undefined)).toBeUndefined();
   });
 
   it("formats UTC instants in Asia/Tbilisi without DST shift", () => {

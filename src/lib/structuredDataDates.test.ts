@@ -15,6 +15,7 @@ import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
   atlasDateFields,
   authorDateFields,
+  authorModifiedDate,
   hasMeaningfulUpdate,
   pageDateFields,
   pageModifiedDate,
@@ -133,6 +134,25 @@ describe("member-derived dates", () => {
     expect((await authorDateFields(author, "ka")).dateModified).toBe(
       "2099-10-25T15:52:00+04:00",
     );
+  });
+
+  it("writes a date-only species text date as a full site datetime", async () => {
+    const author = sandroKhakhva();
+    const ids = new Set(
+      getCreditAuthorSpeciesIds(
+        getCreditAuthorPhotos(author, speciesCatalogFixture("en")),
+      ),
+    );
+    const catalog = speciesCatalogFixture("en").map((item) =>
+      ids.has(item.id) ? { ...item, updatedAt: "2099-11-11" } : item,
+    );
+    expect(
+      await authorModifiedDate(
+        { ...author, updatedAt: "2099-11-10T19:14:08.000Z" },
+        "en",
+        catalog,
+      ),
+    ).toBe("2099-11-11T00:00:00+04:00");
   });
 
   it("writes a contributor's published timestamp in the site time zone", async () => {
