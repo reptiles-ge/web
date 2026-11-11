@@ -31,7 +31,11 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
 
 export const HOME_NEWS_LIMIT = 5;
 
-export type NewsListQuery = PageParams & { hub?: GroupHubId; q?: string };
+export type NewsListQuery = PageParams & {
+  author?: string;
+  hub?: GroupHubId;
+  q?: string;
+};
 
 type NewsListItem = Awaited<ReturnType<typeof fetchNewsPage>>["data"][number];
 
@@ -39,14 +43,15 @@ export const getNewsList = cache(async (locale: AppLocale, limit?: number) => {
   if (limit !== undefined) {
     return (await fetchNewsPage(locale, { limit, page: 1 })).data;
   }
-  const first = await fetchNewsPage(locale, { limit: MAX_PAGE_SIZE, page: 1 });
-  const rest = await Promise.all(
-    Array.from({ length: first.pageCount - 1 }, (_, index) =>
-      fetchNewsPage(locale, { limit: MAX_PAGE_SIZE, page: index + 2 }),
-    ),
-  );
-  return [first, ...rest].flatMap((result) => result.data);
+  return fetchAllNews(locale);
 });
+
+export const getNewsListArticlesForAuthor = cache(
+  async (locale: AppLocale, authorId: string): Promise<NewsListArticle[]> =>
+    (await fetchAllNews(locale, authorId)).map((item) =>
+      toNewsListArticle(item, locale),
+    ),
+);
 
 export const getNewsListArticles = cache(
   async (locale: AppLocale, limit?: number): Promise<NewsListArticle[]> =>
@@ -182,14 +187,29 @@ export const getNewsArticle = cache(
   },
 );
 
+async function fetchAllNews(locale: AppLocale, author?: string) {
+  const first = await fetchNewsPage(locale, {
+    author,
+    limit: MAX_PAGE_SIZE,
+    page: 1,
+  });
+  const rest = await Promise.all(
+    Array.from({ length: first.pageCount - 1 }, (_, index) =>
+      fetchNewsPage(locale, { author, limit: MAX_PAGE_SIZE, page: index + 2 }),
+    ),
+  );
+  return [first, ...rest].flatMap((result) => result.data);
+}
+
 async function fetchNewsPage(
   locale: AppLocale,
-  { hub, limit, page, q }: NewsListQuery,
+  { author, hub, limit, page, q }: NewsListQuery,
 ) {
   const response = await createApiClient().v1.news.$get(
     {
       header: { "x-locale": locale },
       query: {
+        ...(author ? { author } : {}),
         ...(hub ? { hub } : {}),
         limit: String(limit),
         page: String(page),
