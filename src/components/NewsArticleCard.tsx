@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -13,7 +14,7 @@ import { newsCategoryHub } from "@/lib/newsVisual";
 import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
 type NewsArticleCardProps = {
-  article: NewsArticle;
+  article: NewsArticle | NewsListArticle;
   locale: AppLocale;
   prefetch?: boolean;
   variant?: "featured" | "grid";
@@ -30,8 +31,10 @@ export async function NewsArticleCard({
     getTranslations({ locale, namespace: "nav" }),
     loadNewsVisuals([article], locale),
   ]);
-  const title = newsLocalizedTitle(article, locale);
-  const dek = newsLocalizedDek(article, locale);
+  const title =
+    "copy" in article ? newsLocalizedTitle(article, locale) : article.title;
+  const dek =
+    "copy" in article ? newsLocalizedDek(article, locale) : article.dek;
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const hub = newsCategoryHub(article);
   const category = hub ? tNav(hub) : null;

@@ -3,15 +3,20 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
-import { getPublishedNewsArticles } from "@/data/news";
+import {
+  getPublishedNewsArticles,
+  getPublishedNewsForCreditAuthor,
+} from "@/data/news";
 import { routing } from "@/i18n/routing";
 
 import { toNewsListArticle } from "../../tests/fixtures/manyNews";
+import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 import { server } from "../../tests/msw/server";
 import {
   getNewsArticle,
   getNewsList,
   getNewsListArticles,
+  getNewsListArticlesForAuthor,
   getNewsListArticlesPage,
   getNewsSummaries,
   HOME_NEWS_LIMIT,
@@ -108,6 +113,33 @@ describe("getNewsListArticles with a limit", () => {
         .slice(0, HOME_NEWS_LIMIT)
         .map(({ slug }) => slug),
     );
+  });
+});
+
+describe("getNewsListArticlesForAuthor", () => {
+  it("lists the articles that name a contributor, from the API", async () => {
+    let matched = 0;
+    for (const author of contributorsFixture("en")) {
+      const expected = getPublishedNewsForCreditAuthor(author, "en").map(
+        (article) => toNewsListArticle(article, "en"),
+      );
+      matched += expected.length;
+      const found = await getNewsListArticlesForAuthor("en", author.id);
+      expect(found.map(withoutAuthorIds), author.id).toStrictEqual(expected);
+    }
+    expect(matched).toBeGreaterThan(0);
+  });
+
+  it("asks the API for the author filter", async () => {
+    const queries: string[] = [];
+    const listen = ({ request }: { request: Request }) => {
+      const url = new URL(request.url);
+      if (url.pathname === "/v1/news") queries.push(url.search);
+    };
+    server.events.on("request:start", listen);
+    await getNewsListArticlesForAuthor("ka", "no-such-author");
+    server.events.removeListener("request:start", listen);
+    expect(queries).toEqual(["?author=no-such-author&limit=100&page=1"]);
   });
 });
 

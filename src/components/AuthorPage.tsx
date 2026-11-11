@@ -2,7 +2,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { ContributorProfile } from "@/data/authors";
-import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
@@ -36,7 +36,7 @@ export async function AuthorPage({
   author: ContributorProfile;
   locale: AppLocale;
   photos: CreditAuthorPhoto[];
-  relatedNews: NewsArticle[];
+  relatedNews: NewsListArticle[];
 }) {
   const [t, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
