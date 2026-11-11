@@ -1,5 +1,5 @@
 import type { HerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
-import type { HabitatTag, SpeciesGroup } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup, HabitatTag } from "@/data/speciesAtlasMeta";
 import type {
   GalleryImage,
   PhotoCredit,
@@ -22,7 +22,7 @@ export type SpeciesRecord = {
   class: null | string;
   featured: boolean;
   fieldRecords: SpeciesFieldRecord[];
-  group: SpeciesGroup;
+  group: AnimalGroup;
   habitats: HabitatTag[];
   lookalikes: string[];
   order: null | string;

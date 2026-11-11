@@ -70,6 +70,7 @@ export const SITE_PAGE_GROUPS: SitePageGroup[] = [
   animalSection("birds", "Birds", "birds"),
   animalSection("mammals", "Mammals", "mammals"),
   animalSection("insects", "Insects", "insects"),
+  animalSection("fish", "Fish", "fish"),
   animalSection("spiders", "Spiders", "spiders"),
   animalSection("scorpions", "Scorpions", "scorpions"),
   {

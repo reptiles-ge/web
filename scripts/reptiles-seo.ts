@@ -158,6 +158,7 @@ type PageType =
   | "home"
   | "hub/index"
   | "insect profile"
+  | "fish profile"
   | "legal"
   | "lizard profile"
   | "mammal profile"
@@ -1647,6 +1648,7 @@ function speciesPageType(group: AnimalGroup): PageType {
   const map: Record<AnimalGroup, PageType> = {
     amphibian: "amphibian profile",
     bird: "bird profile",
+    fish: "fish profile",
     insect: "insect profile",
     lizard: "lizard profile",
     mammal: "mammal profile",

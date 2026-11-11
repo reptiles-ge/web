@@ -3,6 +3,7 @@ import type { DangerLevel } from "./speciesTypes";
 export type AnimalGroup =
   | "amphibian"
   | "bird"
+  | "fish"
   | "insect"
   | "lizard"
   | "mammal"
@@ -18,9 +19,7 @@ export type SpeciesAtlasMeta = {
   habitats: HabitatTag[];
 };
 
-export type SpeciesGroup = "fish" | AnimalGroup;
-
-export function groupHasVenomConcept(group: SpeciesGroup) {
+export function groupHasVenomConcept(group: AnimalGroup) {
   return (
     group === "snake" ||
     group === "lizard" ||

@@ -71,7 +71,7 @@ describe("newsArticleSchema", () => {
   it("refuses unknown keys, hubs and series", () => {
     expect(messages({ ...article(), extra: true }).length).toBeGreaterThan(0);
     expect(
-      messages({ ...article(), relatedHubIds: ["fish"] }).length,
+      messages({ ...article(), relatedHubIds: ["dragons"] }).length,
     ).toBeGreaterThan(0);
     expect(
       messages({ ...article(), series: "unknown-series" }).length,

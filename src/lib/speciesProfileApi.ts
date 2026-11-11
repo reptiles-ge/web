@@ -5,7 +5,6 @@ import type { Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { createApiClient } from "@/lib/apiClient";
-import { hasGroupHub } from "@/lib/groupHubs";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
@@ -41,7 +40,6 @@ export const getSpeciesProfile = cache(
       slug: _slug,
       ...species
     } = data;
-    if (!hasGroupHub(group)) return null;
     return {
       group,
       ranks: { class: className, order },

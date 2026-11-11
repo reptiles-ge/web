@@ -88,7 +88,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 ## Catalog
 
 - **146** species in D1, **145** published. `dolichophis-caspius` is unpublished and 302s to the snake hub.
-- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 45 birds, 17 mammals, 8 spiders, 4 scorpions, 4 insects. D1 also has a `fish` group (migration `0028`) with no species and no site hub yet: the API and admin accept it, and the site leaves out any species of a group without a hub (`hasGroupHub` in `src/lib/groupHubs.ts`, applied in `getSpeciesCatalog` and `getSpeciesProfile`). A fish hub needs the full new-hub wiring before a fish species is published.
+- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 45 birds, 17 mammals, 8 spiders, 4 scorpions, 4 insects. The `fish` group (migration `0028`) has a hub (`/tevzebi`, `/en/fish`) and no published species yet. A hub with no published species renders with its group illustration, is `noindex, follow` and stays out of the sitemap until its first species is published.
 - SSOT for live pages, quiz, atlas, search: the API, through `getSpeciesCatalog(locale, view)` and `getSpeciesProfile(id, locale)` — never a parallel species list.
 - Atlas group + habitat tags come from D1 (`group`, `habitats` on the species record). `pnpm slugs:compile` writes them to the gitignored `src/data/speciesAtlasMeta.generated.ts`, and `getSpeciesAtlasMeta` (`src/data/speciesAtlasMetaTable.ts`) reads that file. There is no hand-written list; a new species gets its group on the next deploy after it is published.
 - Nose-horned viper: the taxon is _Vipera ammodytes_, subspecies _transcaucasiana_ (Tarkhnishvili et al. 2026), and the species id is `vipera-transcaucasiana`. `vipera-ammodytes` URLs 301 to that single profile. Name it _Vipera transcaucasiana_ only as an older or alternative name (2009 IUCN account).
@@ -149,6 +149,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi`        | `/en/mammals`, `/en/mammals/species`                        | Hub + published-profile index                       |
 | `/dzuzumtsovrebi/ghamura-sakhlshi`                     | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
 | `/mtserebi/krazanis-bude`                              | `/en/insects/wasp-nest`                                     | Guide article                                       |
+| `/tevzebi`                                             | `/en/fish`                                                  | Hub (no index page; noindex while empty)            |
 | `/regions`, `/regions/{id}`                            | same                                                        | 12 regions                                          |
 | `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes                              |
 | `/riskis-doneebi`                                      | `/en/risk-to-humans`                                        | Risk legend                                         |

@@ -48,7 +48,7 @@ describe("GET /api/atlas/[locale]", () => {
   it("rejects an unknown locale or filter", async () => {
     expect((await get("de")).status).toBe(404);
     for (const search of [
-      "?group=fish",
+      "?group=dragon",
       "?region=paris",
       "?sort=random",
       "?page=0",

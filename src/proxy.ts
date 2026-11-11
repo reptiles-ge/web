@@ -20,6 +20,7 @@ const intlMiddleware = createMiddleware(routing);
 const KA_HUB: Record<GroupHubId, string> = {
   amphibians: "amfibiebi",
   birds: "prinvelebi",
+  fish: "tevzebi",
   insects: "mtserebi",
   lizards: "xvlikebi",
   mammals: "dzuzumtsovrebi",
@@ -39,13 +40,14 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   mtserebi: "insects",
   obobebi: "spiders",
   prinvelebi: "birds",
+  tevzebi: "fish",
   xvlikebi: "lizards",
 };
 
 const HUB_SEGMENT =
-  "snakes|lizards|turtles|amphibians|birds|mammals|scorpions|spiders|insects";
+  "snakes|lizards|turtles|amphibians|birds|mammals|scorpions|spiders|insects|fish";
 const KA_HUB_SEGMENT =
-  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|morieli|moriebi|obobebi|mtserebi";
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|morieli|moriebi|obobebi|mtserebi|tevzebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
 const GUIDE_REDIRECTS = guideArticleRedirects();

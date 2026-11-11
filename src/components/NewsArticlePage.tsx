@@ -533,7 +533,9 @@ async function newsAtlasLinks(
       title: localizeRegionText(region.name, locale),
     })),
     ...newsRelatedHubs(article).map((item) => {
-      const hero = byId.get(item.heroSpeciesId);
+      const hero = item.heroSpeciesId
+        ? byId.get(item.heroSpeciesId)
+        : undefined;
       return {
         href: item.path,
         image:

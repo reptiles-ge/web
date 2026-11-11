@@ -1,4 +1,4 @@
-import type { SpeciesGroup } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
 export const ANIMAL_GROUPS = [
   "amphibian",
@@ -11,4 +11,4 @@ export const ANIMAL_GROUPS = [
   "snake",
   "spider",
   "turtle",
-] as const satisfies readonly SpeciesGroup[];
+] as const satisfies readonly AnimalGroup[];

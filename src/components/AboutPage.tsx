@@ -95,6 +95,7 @@ const CATEGORY_HUBS: readonly GroupHubId[] = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ];
 
 const AVATAR_LIMIT = { desktop: 8, mobile: 6 };

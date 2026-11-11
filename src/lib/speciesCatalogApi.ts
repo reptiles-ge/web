@@ -11,7 +11,6 @@ import type {
 
 import { type AppLocale, routing } from "@/i18n/routing";
 import { createApiClient } from "@/lib/apiClient";
-import { hasGroupHub } from "@/lib/groupHubs";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
 export type { CatalogCard };
@@ -40,10 +39,7 @@ export const getSpeciesCatalog = cache(
     if (!response.ok) {
       throw new Error(`Species catalog API answered ${response.status}`);
     }
-    const { data } = await response.json();
-    return data.filter((item) =>
-      hasGroupHub(item.group),
-    ) as CatalogEntries<View>;
+    return (await response.json()).data as CatalogEntries<View>;
   },
 );
 

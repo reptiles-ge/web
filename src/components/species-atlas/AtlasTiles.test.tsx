@@ -13,6 +13,7 @@ const TOTALS: Record<"all" | AnimalGroup, number> = {
   all: 125,
   amphibian: 12,
   bird: 45,
+  fish: 0,
   insect: 0,
   lizard: 29,
   mammal: 17,

@@ -3,6 +3,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 export const SPECIES_HUBS = [
   { group: "amphibian", id: "amphibians" },
   { group: "bird", id: "birds" },
+  { group: "fish", id: "fish" },
   { group: "insect", id: "insects" },
   { group: "lizard", id: "lizards" },
   { group: "mammal", id: "mammals" },

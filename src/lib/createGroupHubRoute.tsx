@@ -19,7 +19,11 @@ import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
 import { type HubFaqValues, hubFaqValues } from "@/lib/groupHubFaqValues";
 import { HUB_HERO_IMAGE_SIZES } from "@/lib/groupHubLayout";
-import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import {
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUBS,
+  type GroupHubId,
+} from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   breadcrumbListLd,
@@ -27,6 +31,7 @@ import {
   sitePageLd,
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
+import { NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
 import { absoluteUrl, localePath, speciesOgImageUrl } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -54,16 +59,22 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
 
-    return buildPageMetadata({
+    const metadata = buildPageMetadata({
       description: t("metaDescription", { count: catalog.length }),
       indexable: true,
       keywords: t("keywords"),
       locale,
       metadataTitle: { absolute: title },
-      ogImageUrl: speciesOgImageUrl(hub.heroSpeciesId, hero?.image),
+      ogImageUrl: speciesOgImageUrl(
+        hero?.id ?? hub.heroSpeciesId ?? "",
+        hero?.image,
+      ),
       pagePath: hub.path,
       title,
     });
+    return catalog.length > 0
+      ? metadata
+      : { ...metadata, robots: NOINDEX_FOLLOW_ROBOTS };
   }
 
   async function Page({ params }: Props) {
@@ -86,7 +97,11 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const hero =
       species.find((item) => item.id === hub.heroSpeciesId) ?? species[0];
     const heroSrc =
-      hero?.image && !isPlaceholderMedia(hero.image) ? hero.image : images.hero;
+      hero?.image && !isPlaceholderMedia(hero.image)
+        ? hero.image
+        : species.length > 0
+          ? images.hero
+          : GROUP_HUB_ILLUSTRATIONS[hubId];
     const heroMobileSrc =
       hero?.mobileImage && !isPlaceholderMedia(hero.mobileImage)
         ? hero.mobileImage
