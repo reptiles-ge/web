@@ -3,7 +3,23 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { optimizedEntry } from "@/data/optimizedImages";
-import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
+import { ANIMAL_GROUPS } from "@/lib/animalGroups";
+import {
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUBS,
+  hasGroupHub,
+} from "@/lib/groupHubs";
+
+describe("hasGroupHub", () => {
+  it("is true for every hub group and false for fish, which has no hub yet", () => {
+    expect(ANIMAL_GROUPS.filter((group) => !hasGroupHub(group))).toEqual([
+      "fish",
+    ]);
+    for (const hub of Object.values(GROUP_HUBS)) {
+      expect(hasGroupHub(hub.group), hub.group).toBe(true);
+    }
+  });
+});
 
 describe("group hub illustrations", () => {
   it("covers every hub", () => {

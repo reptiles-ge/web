@@ -1,4 +1,4 @@
-import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup, SpeciesGroup } from "@/data/speciesAtlasMeta";
 
 export type GroupHubConfig = {
   group: AnimalGroup;
@@ -110,6 +110,10 @@ export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   spider: "spiders",
   turtle: "turtles",
 };
+
+export function hasGroupHub(group: SpeciesGroup): group is AnimalGroup {
+  return Object.hasOwn(ANIMAL_GROUP_TO_HUB, group);
+}
 
 export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
   amphibians: [

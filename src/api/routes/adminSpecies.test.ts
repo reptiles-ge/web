@@ -439,7 +439,7 @@ describe("GET /v1/admin/species", () => {
     expect(none.body).toMatchObject({ data: [], total: 0 });
   });
 
-  it.each(["?page=0", "?limit=101", "?group=fish", "?status=gone"])(
+  it.each(["?page=0", "?limit=101", "?group=dragon", "?status=gone"])(
     "rejects %s",
     async (query) => {
       const { body, response } = await list(auth, query);

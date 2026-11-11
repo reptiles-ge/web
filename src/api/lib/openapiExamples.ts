@@ -101,6 +101,7 @@ const catalogFacets = {
     all: 145,
     amphibian: 12,
     bird: 45,
+    fish: 0,
     insect: 4,
     lizard: 29,
     mammal: 17,

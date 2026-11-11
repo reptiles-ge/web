@@ -303,7 +303,7 @@ describe("GET /v1/catalog", () => {
       "/v1/catalog?page=2",
       "/v1/catalog?limit=10&page=0",
       "/v1/catalog?limit=10&page=2&cursor=vipera-kaznakovi",
-      "/v1/catalog?group=fish",
+      "/v1/catalog?group=dragon",
       "/v1/catalog?danger=mild",
       "/v1/catalog?habitat=desert",
       "/v1/catalog?region=paris",

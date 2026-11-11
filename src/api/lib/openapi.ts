@@ -147,7 +147,7 @@ const NEWS_PARAMETER_DOCS: Record<string, ParameterDoc> = {
 const DESCRIPTION = `
 Open, read-only JSON API of [Reptiles.ge](https://reptiles.ge), the atlas of animals of Georgia (the country in the Caucasus).
 
-It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna. The atlas news articles are under \`/v1/news\`.
+It serves the same published species profiles as the site: amphibians and reptiles (the deepest layer, following the Tarkhnishvili et al. 2026 checklist), birds, mammals, spiders, scorpions and insects. The \`fish\` group exists, but no fish profile is published yet. Lists contain published atlas profiles only; they are not a complete list of Georgia's fauna. The atlas news articles are under \`/v1/news\`.
 
 ## Quick start
 

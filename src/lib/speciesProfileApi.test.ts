@@ -30,6 +30,27 @@ describe("getSpeciesProfile", () => {
     expect(seen).toEqual([null]);
   });
 
+  it("returns null for a species of a group with no site hub", async () => {
+    server.use(
+      http.get("https://api.reptiles.ge/v1/species/:slug", () =>
+        HttpResponse.json({
+          data: {
+            ...speciesFixture("macrovipera-lebetina"),
+            checklistStatus: null,
+            class: "Actinopterygii",
+            group: "fish",
+            habitats: [],
+            lookalikes: [],
+            order: "Salmoniformes",
+            slug: "salmo-trutta",
+          },
+          views: 0,
+        }),
+      ),
+    );
+    expect(await getSpeciesProfile("salmo-trutta", "en")).toBeNull();
+  });
+
   it("loads the localized profile from api.reptiles.ge", async () => {
     server.use(reptilesApi);
     const requests = recordRequests();

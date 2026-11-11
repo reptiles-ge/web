@@ -110,6 +110,20 @@ describe("species in D1", () => {
     expect(insertSpecies("snake", "confirmed", "Squamata")).not.toThrow();
   });
 
+  it("accepts fish as a group outside the herpetofauna checklist", () => {
+    const { sqlite } = database;
+    const insertFish = (id: string, status: null | string) => () =>
+      sqlite
+        .prepare(
+          "INSERT INTO species (id, scientific_name, genus, family, group_id, status, catalog_position, slug_ka, published_at, taxon_order, taxon_class, checklist_status_id) VALUES (?, 'Salmo trutta', 'Salmo', 'Salmonidae', 'fish', 'draft', 9998, ?, '2026-11-11', 'Salmoniformes', 'Actinopterygii', ?)",
+        )
+        .run(id, id, status);
+    expect(insertFish("salmo-trutta-checklist", "confirmed")).toThrow(
+      /checklist/,
+    );
+    expect(insertFish("salmo-trutta", null)).not.toThrow();
+  });
+
   it("enforces lookups, foreign keys and checks", () => {
     const { sqlite } = database;
     const insertSpecies =
@@ -120,7 +134,7 @@ describe("species in D1", () => {
             "INSERT INTO species (id, scientific_name, genus, family, group_id, status, catalog_position, slug_ka, published_at) VALUES (?, 'Test', 'T', 'T', ?, 'published', 9999, 'test', '2026-01-01')",
           )
           .run(id, group);
-    expect(insertSpecies("fish")).toThrow();
+    expect(insertSpecies("dragon")).toThrow();
     expect(insertSpecies("snake", "Bad Id")).toThrow();
     expect(() =>
       sqlite

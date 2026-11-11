@@ -80,7 +80,7 @@ describe("GET /v1/species", () => {
   it("rejects an unknown locale or group", async () => {
     for (const [url, headers] of [
       ["/v1/species", { "X-Locale": "de" }],
-      ["/v1/species?group=fish", {}],
+      ["/v1/species?group=dragon", {}],
     ] as const) {
       const { body, response } = await requestJson<ErrorBody>(url, env, {
         headers,
