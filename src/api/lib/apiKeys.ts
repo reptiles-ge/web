@@ -9,7 +9,13 @@ const VISIBLE_PREFIX_LENGTH = 12;
 
 const API_KEY_MODES = ["enforce", "log", "off"] as const;
 
-const KEYLESS_PATHS = ["/v1/admin", "/v1/auth", "/v1/docs", "/v1/views"];
+const KEYLESS_PATHS = [
+  "/v1/admin",
+  "/v1/auth",
+  "/v1/docs",
+  "/v1/health",
+  "/v1/views",
+];
 
 export type ApiKeyMode = (typeof API_KEY_MODES)[number];
 

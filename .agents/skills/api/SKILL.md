@@ -37,6 +37,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 
 - One resource = one file in `routes/`, exporting `new Hono<ApiEnv>()` with chained methods (`.get().post()`), so `AppType` keeps the RPC types.
 - Mount it in `app.ts` with `.route("/v1/{resource}", …)`. Every path MUST start with `/v1/`. A breaking change goes to `/v2/`, never in place.
+- The one exception is the health check: `GET /health` (unversioned, for uptime monitors) and `GET /v1/health` serve the same `routes/health.ts`. Both answer `{ data: { database: "ok", status: "ok" } }` after a `SELECT 1` on D1 (`db/health.ts`), or 503 `service_unavailable` when D1 fails, with `NO_STORE`. They need no API key, are not edge-cached and stay out of the OpenAPI document (`UNDOCUMENTED_PATH_PREFIXES`). `structure.test.ts` allows only `/health` outside `/v1/` (`UNVERSIONED_MOUNTS`).
 - Write handlers inline after the path. NEVER write Rails-style controllers `(c: Context) => …`, because they lose path-param types. If a handler must be shared, use `factory.createHandlers()`.
 - Pass an explicit status to `c.json(body, status)`.
 - Success shape: `{ data, …meta }`. Lists add `total` and the resolved `locale`.
