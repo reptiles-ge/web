@@ -1,10 +1,10 @@
 import type { ApiBindings } from "../env";
 
-export const SITE_ORIGIN = "https://reptiles.ge";
+const SITE_ORIGIN = "https://reptiles.ge";
 
 export const WARM_CONCURRENCY = 3;
 
-export const WARM_USER_AGENT = "reptiles-cache-warmer";
+const WARM_USER_AGENT = "reptiles-cache-warmer";
 
 export const WARM_WORKFLOW_URL =
   "https://api.github.com/repos/reptiles-ge/web/actions/workflows/warm-cache.yml/dispatches";
