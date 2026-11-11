@@ -137,7 +137,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Bats in Georgia",
         paragraphs: [
           "An expert-curated occurrence dataset published in 2023 records 30 bat species for Georgia across four families. That is a national fauna overview, not a household checklist, and this guide does not attempt species-level identification from an indoor sighting.",
-          "If bats repeatedly appear in living rooms, there may be gaps from a roost space into the interior. Sealing internal gaps is a building issue that should not trap animals inside wall cavities; when in doubt, seek advice before permanent works. Reptiles.ge does not yet publish individual bat species profiles.",
+          "If bats repeatedly appear in living rooms, there may be gaps from a roost space into the interior. Sealing internal gaps is a building issue that should not trap animals inside wall cavities; when in doubt, seek advice before permanent works.",
         ],
       },
     ],
@@ -273,7 +273,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "ღამურები საქართველოში",
         paragraphs: [
           "2023 წელს გამოქვეყნებული ექსპერტულად შემოწმებული გავრცელების მონაცემთა ნაკრები საქართველოში 30 სახეობის ღამურას ასახელებს ოთხი ოჯახიდან. ეს ეროვნული ფაუნის მიმოხილვაა და არა საყოფაცხოვრებო სია; ეს გიდი შიდა დანახვით სახეობის იდენტიფიკაციას არ ცდილობს.",
-          "თუ საცხოვრებელ ოთახებში განმეორებით ჩნდებიან, შესაძლოა ღრუდან შიგნით ხვრელები იყოს. შიდა ხვრელების დახშობა სამშენებლო საკითხია და ცხოველები კედლის ღრუში არ უნდა ჩაიჭედონ; მუდმივ სამუშაოებამდე გაურკვევლობისას რჩევა მიიღეთ. Reptiles.ge-ზე ღამურების სახეობრივი პროფილები ჯერ არ არის გამოქვეყნებული.",
+          "თუ საცხოვრებელ ოთახებში განმეორებით ჩნდებიან, შესაძლოა ღრუდან შიგნით ხვრელები იყოს. შიდა ხვრელების დახშობა სამშენებლო საკითხია და ცხოველები კედლის ღრუში არ უნდა ჩაიჭედონ; მუდმივ სამუშაოებამდე გაურკვევლობისას რჩევა მიიღეთ.",
         ],
       },
     ],
@@ -409,7 +409,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Летучие мыши в Грузии",
         paragraphs: [
           "Опубликованный в 2023 году экспертно проверенный набор данных о встречах указывает 30 видов летучих мышей Грузии из четырёх семейств. Это обзор национальной фауны, а не бытовой список; гид не пытается определить вид по комнатному наблюдению.",
-          "Если животные повторно появляются в жилых комнатах, возможны щели из укрытия внутрь. Закрытие внутренних щелей — строительный вопрос, и животных не следует запирать в полостях стен; перед постоянными работами при сомнениях обратитесь за советом. На Reptiles.ge пока нет видовых профилей летучих мышей.",
+          "Если животные повторно появляются в жилых комнатах, возможны щели из укрытия внутрь. Закрытие внутренних щелей — строительный вопрос, и животных не следует запирать в полостях стен; перед постоянными работами при сомнениях обратитесь за советом.",
         ],
       },
     ],
@@ -545,7 +545,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Gürcistan’da yarasalar",
         paragraphs: [
           "2023’te yayımlanan uzman denetimli bir gözlem veri seti Gürcistan için dört familyadan 30 yarasa türü kaydeder. Bu ulusal fauna özetidir, ev checklist’i değildir; bu rehber oda gözleminden tür teşhisi yapmaz.",
-          "Yarasalar oturma odalarında tekrar tekrar görünüyorsa barınaktan içeri boşluklar olabilir. İç boşlukları kapatmak yapı işidir ve hayvanları duvar boşluklarında hapsetmemelidir; kalıcı işlerden önce emin değilseniz danışın. Reptiles.ge’de henüz yarasa tür profili yayımlanmamıştır.",
+          "Yarasalar oturma odalarında tekrar tekrar görünüyorsa barınaktan içeri boşluklar olabilir. İç boşlukları kapatmak yapı işidir ve hayvanları duvar boşluklarında hapsetmemelidir; kalıcı işlerden önce emin değilseniz danışın.",
         ],
       },
     ],

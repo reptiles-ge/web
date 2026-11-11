@@ -369,6 +369,14 @@ function RegionProfileRange({
         <div className="mt-12 lg:mt-14">
           <GeorgiaMap highlightedIds={[regionId]} interactive={false} />
         </div>
+        <p className="mt-8 text-center text-[15px] text-muted-foreground">
+          <Link
+            className="font-medium text-foreground underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current"
+            href="/snakes/gavrtseleba"
+          >
+            {t("snakeRangeLink")}
+          </Link>
+        </p>
       </div>
     </section>
   );
