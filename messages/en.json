@@ -452,7 +452,8 @@
     "backToTop": "Top",
     "backToTopLabel": "Back to top",
     "photoUse": "Photo use",
-    "developers": "For developers"
+    "developers": "For developers",
+    "status": "Service status"
   },
   "legal": {
     "privacy": {

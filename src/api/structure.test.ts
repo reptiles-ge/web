@@ -7,6 +7,7 @@ import { walkFiles } from "../../tests/support/walkFiles";
 const ROOT = path.resolve(import.meta.dirname, "../..");
 const API_DIR = path.join(ROOT, "src/api");
 const MIGRATIONS_DIR = path.join(ROOT, "migrations/api");
+const UNVERSIONED_MOUNTS = ["/health"];
 const SKILL_PATH = ".agents/skills/api/SKILL.md";
 
 const TOP_LEVEL = new Set([
@@ -123,8 +124,12 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     const mounts = [...appSource.matchAll(/\.route\("([^"]+)"/g)].map(
       (match) => match[1],
     );
-    expect(mounts.length).toBe(routeFiles.length);
-    expect(mounts.every((mount) => mount?.startsWith("/v1/"))).toBe(true);
+    const versioned = mounts.filter(
+      (mount) => !UNVERSIONED_MOUNTS.includes(mount ?? ""),
+    );
+    expect(versioned.length).toBe(routeFiles.length);
+    expect(versioned.every((mount) => mount?.startsWith("/v1/"))).toBe(true);
+    expect(mounts).toEqual(expect.arrayContaining(UNVERSIONED_MOUNTS));
   });
 
   it("names migrations NNNN_snake_case.sql with no gaps", () => {

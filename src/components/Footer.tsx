@@ -13,6 +13,7 @@ import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import { getGuideArticles } from "@/data/guideArticles";
 import { releaseVersion } from "@/data/releaseVersion.generated";
 import { cn } from "@/lib/cn";
+import { STATUS_PAGE_URL } from "@/lib/site";
 
 type FooterHref = ComponentProps<typeof LocalizedLink>["href"];
 
@@ -187,6 +188,7 @@ export async function Footer({
           />
           <FooterColumn
             className="col-start-2 row-start-2 mt-8 lg:order-4 lg:col-start-auto lg:row-start-auto lg:mt-0"
+            externalLinks={[{ href: STATUS_PAGE_URL, label: t("status") }]}
             links={toLinks(companyLinks)}
             locale={locale}
             title={t("companyTitle")}
@@ -334,6 +336,7 @@ function FooterAccordion({
 
 function FooterColumn({
   className,
+  externalLinks = [],
   linkClassName = columnLinkClass,
   links,
   listClassName,
@@ -341,6 +344,7 @@ function FooterColumn({
   title,
 }: {
   className?: string;
+  externalLinks?: ReadonlyArray<{ href: string; label: string }>;
   linkClassName?: string;
   links: FooterLink[];
   listClassName?: string;
@@ -361,6 +365,18 @@ function FooterColumn({
             >
               {link.label}
             </LocalizedLink>
+          </li>
+        ))}
+        {externalLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              className={linkClassName}
+              href={link.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {link.label}
+            </a>
           </li>
         ))}
       </ul>

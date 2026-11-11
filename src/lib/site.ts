@@ -136,6 +136,8 @@ export const ORGANIZATION_NAME = "Reptiles.ge";
 
 export const CONTACT_EMAIL = "hello@reptiles.ge";
 
+export const STATUS_PAGE_URL = "https://status.reptiles.ge";
+
 export function organizationJsonLd(
   locale: AppLocale,
   options?: { description?: string },
