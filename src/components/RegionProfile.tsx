@@ -57,6 +57,7 @@ const REGION_SPECIES_GROUPS = [
   { group: "scorpion", navKey: "scorpions" },
   { group: "spider", navKey: "spiders" },
   { group: "insect", navKey: "insects" },
+  { group: "fish", navKey: "fish" },
 ] as const satisfies readonly { group: AnimalGroup; navKey: string }[];
 
 export function RegionProfile({

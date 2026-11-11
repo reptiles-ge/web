@@ -425,6 +425,7 @@ export const RESPONSE_EXAMPLES = {
         all: 5,
         amphibians: 0,
         birds: 4,
+        fish: 0,
         insects: 0,
         lizards: 0,
         mammals: 1,

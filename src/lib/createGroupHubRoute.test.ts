@@ -74,6 +74,7 @@ const BRAND_SUFFIX = ` — ${siteConfig.titleBrand}`;
 const KA_HEAD_TERMS: Record<GroupHubId, string> = {
   amphibians: "ამფიბიები",
   birds: "ფრინველები",
+  fish: "თევზები",
   insects: "მწერები",
   lizards: "ხვლიკი",
   mammals: "ძუძუმწოვრები",
@@ -100,6 +101,23 @@ function renderedTitle(title: Metadata["title"]) {
 }
 
 describe("group hub metadata", () => {
+  it.each(routing.locales)(
+    "keeps the empty fish hub out of the index in %s",
+    async (locale) => {
+      const metadata = await createGroupHubRoute("fish").generateMetadata({
+        params: Promise.resolve({ locale }),
+      });
+      expect(metadata.robots).toEqual({ follow: true, index: false });
+    },
+  );
+
+  it("keeps a hub with species indexable", async () => {
+    const metadata = await createGroupHubRoute("snakes").generateMetadata({
+      params: Promise.resolve({ locale: "ka" }),
+    });
+    expect(metadata.robots).toMatchObject({ index: true });
+  });
+
   it.each(routing.locales)(
     "fits %s titles and descriptions in the snippet limits",
     async (locale) => {

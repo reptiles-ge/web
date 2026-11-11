@@ -64,7 +64,7 @@ describe("GET /api/news/[locale]", () => {
 
   it("refuses bad queries, pages past the end and unknown locales", async () => {
     for (const search of [
-      "?hub=fish",
+      "?hub=dragon",
       "?page=0",
       "?page=x",
       `?q=${"a".repeat(101)}`,

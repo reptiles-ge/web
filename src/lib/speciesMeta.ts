@@ -19,6 +19,7 @@ export function speciesFallbackDescriptionKey(
 ):
   | "descriptionAmphibian"
   | "descriptionBird"
+  | "descriptionFish"
   | "descriptionInsect"
   | "descriptionMammal"
   | "descriptionReptile"
@@ -30,6 +31,7 @@ export function speciesFallbackDescriptionKey(
   }
   if (group === "amphibian") return "descriptionAmphibian";
   if (group === "bird") return "descriptionBird";
+  if (group === "fish") return "descriptionFish";
   if (group === "insect") return "descriptionInsect";
   if (group === "mammal") return "descriptionMammal";
   if (group === "scorpion") return "descriptionScorpion";
@@ -44,6 +46,7 @@ const SCIENTIFIC_TITLE_LOCALES = new Set<AppLocale>(["en", "ka"]);
 const SPECIES_TITLE_INTENT_KEYS = {
   amphibian: { intent: "titleAmphibian", question: "titleAmphibianQuestion" },
   bird: { intent: "titleBird", question: "titleBirdQuestion" },
+  fish: { intent: "titleFish", question: "titleFishQuestion" },
   insect: { intent: "titleInsect", question: "titleInsectQuestion" },
   lizard: { intent: "titleLizard", question: "titleLizardQuestion" },
   mammal: { intent: "titleMammal", question: "titleMammalQuestion" },

@@ -45,7 +45,7 @@ describe("atlas query params", () => {
 
   it("rejects unknown values", () => {
     for (const search of [
-      "group=fish",
+      "group=dragon",
       "danger=mild",
       "habitat=desert",
       "region=paris",

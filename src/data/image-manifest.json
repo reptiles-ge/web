@@ -59331,6 +59331,101 @@
       ],
       "updatedAt": "2026-10-03T18:23:28.297Z"
     },
+    "images/home/groups/fish.jpg": {
+      "sourceHash": "844bf6791b0ef681af56098a9e2d63ff39a14e2fd51dfe847e47593e5a386f70",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/fish.jpg",
+      "originalSize": 883939,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/fish-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15593
+        },
+        {
+          "key": "optimized/images/home/groups/fish-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24532
+        },
+        {
+          "key": "optimized/images/home/groups/fish-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22632
+        },
+        {
+          "key": "optimized/images/home/groups/fish-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 36740
+        },
+        {
+          "key": "optimized/images/home/groups/fish-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 52729
+        },
+        {
+          "key": "optimized/images/home/groups/fish-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 83636
+        },
+        {
+          "key": "optimized/images/home/groups/fish-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79077
+        },
+        {
+          "key": "optimized/images/home/groups/fish-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 124150
+        },
+        {
+          "key": "optimized/images/home/groups/fish-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 159043
+        },
+        {
+          "key": "optimized/images/home/groups/fish-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 242590
+        },
+        {
+          "key": "optimized/images/home/groups/fish-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 259547
+        },
+        {
+          "key": "optimized/images/home/groups/fish-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 368954
+        }
+      ],
+      "updatedAt": "2026-11-11T08:12:57.578Z"
+    },
     "images/home/groups/insects-mantis.jpg": {
       "sourceHash": "5b43bcf38fe9d98f6a37aa7d03c419ca8e6b6b1fad6094356e112f6d6a44c402",
       "configFingerprint": "409788ee46c653d8",

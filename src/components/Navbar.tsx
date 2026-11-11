@@ -32,6 +32,7 @@ const OTHER_GROUP_IDS = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ] as const;
 
 export function Navbar({ images, stats }: NavbarData) {
@@ -238,7 +239,9 @@ function hasDarkHeroTop(pathname: string) {
     pathname === "/spiders" ||
     pathname.startsWith("/spiders/") ||
     pathname === "/insects" ||
-    pathname.startsWith("/insects/")
+    pathname.startsWith("/insects/") ||
+    pathname === "/fish" ||
+    pathname.startsWith("/fish/")
   ) {
     return true;
   }

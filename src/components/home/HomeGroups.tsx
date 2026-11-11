@@ -20,6 +20,7 @@ const GROUPS = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ] as const;
 
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
@@ -134,6 +135,8 @@ function groupCount(
       return stats.amphibians;
     case "bird":
       return stats.birds;
+    case "fish":
+      return stats.fish;
     case "insect":
       return stats.insects;
     case "lizard":

@@ -60,6 +60,7 @@ export const HUB_DISPLAY_ORDER: readonly GroupHubId[] = [
   "spiders",
   "scorpions",
   "insects",
+  "fish",
 ];
 
 export type HubCatalogItem = {

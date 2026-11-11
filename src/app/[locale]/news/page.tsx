@@ -20,6 +20,7 @@ const EMPTY_FACETS: NewsTopicFacets = {
     all: 0,
     amphibians: 0,
     birds: 0,
+    fish: 0,
     insects: 0,
     lizards: 0,
     mammals: 0,

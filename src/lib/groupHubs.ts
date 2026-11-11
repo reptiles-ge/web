@@ -1,8 +1,8 @@
-import type { AnimalGroup, SpeciesGroup } from "@/data/speciesAtlasMeta";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
 export type GroupHubConfig = {
   group: AnimalGroup;
-  heroSpeciesId: string;
+  heroSpeciesId?: string;
   id: GroupHubId;
   messageKey: GroupHubId;
   path: `/${GroupHubId}`;
@@ -11,6 +11,7 @@ export type GroupHubConfig = {
 export type GroupHubId =
   | "amphibians"
   | "birds"
+  | "fish"
   | "insects"
   | "lizards"
   | "mammals"
@@ -33,6 +34,12 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
     id: "birds",
     messageKey: "birds",
     path: "/birds",
+  },
+  fish: {
+    group: "fish",
+    id: "fish",
+    messageKey: "fish",
+    path: "/fish",
   },
   insects: {
     group: "insect",
@@ -90,6 +97,7 @@ export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
 export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   amphibians: "/images/home/groups/amphibians.jpg",
   birds: "/images/home/groups/birds.jpg",
+  fish: "/images/home/groups/fish.jpg",
   insects: "/images/home/groups/insects-mantis.jpg",
   lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
@@ -102,6 +110,7 @@ export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
 export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   amphibian: "amphibians",
   bird: "birds",
+  fish: "fish",
   insect: "insects",
   lizard: "lizards",
   mammal: "mammals",
@@ -110,10 +119,6 @@ export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   spider: "spiders",
   turtle: "turtles",
 };
-
-export function hasGroupHub(group: SpeciesGroup): group is AnimalGroup {
-  return Object.hasOwn(ANIMAL_GROUP_TO_HUB, group);
-}
 
 export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
   amphibians: [
@@ -125,6 +130,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "newts",
   ],
   birds: ["saxeoebebi", "species"],
+  fish: [],
   insects: [
     "saxeoebebi",
     "species",
