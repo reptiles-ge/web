@@ -30,6 +30,7 @@ import { authors } from "./routes/authors";
 import { catalog } from "./routes/catalog";
 import { contributors } from "./routes/contributors";
 import { docs } from "./routes/docs";
+import { health } from "./routes/health";
 import { images } from "./routes/images";
 import { news } from "./routes/news";
 import { ratings } from "./routes/ratings";
@@ -72,6 +73,8 @@ export const app = new Hono<ApiEnv>()
   .use((c, next) => bodyLimitFor(c.req.path)(c, next))
   .use((c, next) => (needsApiKey(c.req.path) ? requireApiKey(c, next) : next()))
   .use(etag())
+  .route("/health", health)
+  .route("/v1/health", health)
   .route("/v1/species", species)
   .route("/v1/site/species", siteSpecies)
   .route("/v1/catalog", catalog)

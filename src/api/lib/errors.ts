@@ -12,6 +12,7 @@ export type ApiErrorCode =
   | "not_found"
   | "payload_too_large"
   | "rate_limited"
+  | "service_unavailable"
   | "site_unavailable"
   | "storage_failed"
   | "storage_unavailable"

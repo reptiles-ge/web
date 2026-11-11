@@ -487,9 +487,11 @@ const OPERATIONS: Operation[] = [
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = [
+  "/health",
   "/v1/access-requests",
   "/v1/admin/",
   "/v1/auth/",
+  "/v1/health",
   "/v1/ratings",
   "/v1/site/",
   "/v1/views",
