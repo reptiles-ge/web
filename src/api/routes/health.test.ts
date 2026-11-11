@@ -36,12 +36,12 @@ describe("GET /health", () => {
     expect(response.status).toBe(200);
   });
 
-  it("answers 503 when the database fails", async () => {
+  it("answers 503 with the API still ok when the database fails", async () => {
     const response = await app.request("/health", {}, { DB: brokenDatabase });
     expect(response.status).toBe(503);
     expect(response.headers.get("Cache-Control")).toBe(NO_STORE);
     expect(await response.json()).toStrictEqual({
-      error: { code: "service_unavailable", message: "Database unavailable" },
+      data: { database: "error", status: "ok" },
     });
   });
 
