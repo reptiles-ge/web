@@ -18,7 +18,9 @@ export type SpeciesAtlasMeta = {
   habitats: HabitatTag[];
 };
 
-export function groupHasVenomConcept(group: AnimalGroup) {
+export type SpeciesGroup = "fish" | AnimalGroup;
+
+export function groupHasVenomConcept(group: SpeciesGroup) {
   return (
     group === "snake" ||
     group === "lizard" ||

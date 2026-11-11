@@ -35,6 +35,22 @@ describe("getSpeciesCatalog", () => {
     });
   });
 
+  it("leaves out species of a group with no site hub", async () => {
+    const [first] = catalogSpeciesFixture();
+    server.use(
+      http.get("https://api.reptiles.ge/v1/catalog", () =>
+        HttpResponse.json({
+          data: [
+            { ...first, group: "snake", id: "kept" },
+            { ...first, group: "fish", id: "salmo-trutta" },
+          ],
+        }),
+      ),
+    );
+    const cards = await getSpeciesCatalog("ka");
+    expect(cards.map((entry) => entry.id)).toEqual(["kept"]);
+  });
+
   it("fails loudly when the API errors, with no fallback", async () => {
     server.use(
       http.get("https://api.reptiles.ge/v1/catalog", () =>

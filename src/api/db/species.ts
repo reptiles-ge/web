@@ -1,4 +1,4 @@
-import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+import type { SpeciesGroup } from "@/data/speciesAtlasMeta";
 import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -13,7 +13,7 @@ import { containsPattern } from "./search";
 import { readSpeciesCatalog } from "./speciesCatalog";
 
 export type AdminSpeciesFilters = {
-  group?: AnimalGroup;
+  group?: SpeciesGroup;
   q?: string;
   status?: AdminListRow["status"];
 };
@@ -22,7 +22,7 @@ type AdminListRow = {
   common_name_en: null | string;
   common_name_ka: string;
   danger_id: DangerLevel | null;
-  group_id: AnimalGroup;
+  group_id: SpeciesGroup;
   id: string;
   image: null | string;
   last_edited_at: null | string;
@@ -37,7 +37,7 @@ type AdminListRow = {
 type ListRow = {
   common_name: string;
   danger_id: DangerLevel | null;
-  group_id: AnimalGroup;
+  group_id: SpeciesGroup;
   id: string;
   image: null | string;
   scientific_name: string;
@@ -130,7 +130,7 @@ export async function listAdminSpecies(
 export async function listPublishedSpecies(
   db: ApiDatabase,
   locale: AppLocale,
-  group?: AnimalGroup,
+  group?: SpeciesGroup,
 ) {
   const query = `SELECT s.id, s.scientific_name, s.group_id, s.danger_id, s.slug_ka, t.common_name, COALESCE(t.updated_at, k.updated_at) AS updated_at, m.src AS image FROM species s JOIN species_texts t ON t.species_id = s.id AND t.locale = ? JOIN species_texts k ON k.species_id = s.id AND k.locale = 'ka' LEFT JOIN species_media m ON m.species_id = s.id AND m.role = 'hero' WHERE s.status = 'published'${group ? " AND s.group_id = ?" : ""} ORDER BY s.catalog_position`;
   const statement = db.prepare(query);
