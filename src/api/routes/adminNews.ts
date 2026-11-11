@@ -17,7 +17,7 @@ import {
   setNewsStatus,
   writeNewsCopy,
 } from "../db/newsWrite";
-import { inBackground } from "../lib/background";
+import { defer, inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
@@ -61,7 +61,7 @@ export const adminNews = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateNewsSection(c.env));
+      await ensureSiteRevalidated(revalidateNewsSection(c.env, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["news"] } }, 200);
     },
@@ -77,7 +77,7 @@ export const adminNews = new Hono<ApiEnv>()
       if (!(await readNewsState(c.env.DB, slug))) {
         throw new ApiError(404, "not_found", "Article not found");
       }
-      await ensureSiteRevalidated(revalidateNewsArticle(c.env, slug));
+      await ensureSiteRevalidated(revalidateNewsArticle(c.env, slug, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id: slug } }, 200);
     },
@@ -202,7 +202,7 @@ export const adminNews = new Hono<ApiEnv>()
         }
         throw error;
       }
-      inBackground(c, revalidateNewsPages(c.env, slug));
+      inBackground(c, revalidateNewsPages(c.env, slug, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id: slug, status, version } }, 200);
     },

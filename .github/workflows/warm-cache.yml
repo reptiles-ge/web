@@ -4,12 +4,17 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      warm_only:
+        description: Warm the pages only, without the OG image upload
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: warm-cache
+  group: warm-cache-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -41,6 +46,7 @@ jobs:
           key: indexnow-state-${{ github.run_id }}
 
   images:
+    if: ${{ !inputs.warm_only }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:

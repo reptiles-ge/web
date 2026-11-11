@@ -10,16 +10,30 @@ const CACHE_CONTROL_BY_PATH: Record<string, string> = {
   "/sitemap.xml": SITEMAP_CACHE_CONTROL,
 };
 
+export const PAGE_CACHE_CONTROL = "private, max-age=0, must-revalidate";
+
+const PENDING_ADMISSION_CACHE_CONTROL = "no-store, must-revalidate";
+
 export function withResponseCacheControl(
   request: Request,
   response: Response,
 ): Response {
   if (response.status !== 200) return response;
   if (request.method !== "GET" && request.method !== "HEAD") return response;
-  const cacheControl = CACHE_CONTROL_BY_PATH[new URL(request.url).pathname];
+  const cacheControl =
+    CACHE_CONTROL_BY_PATH[new URL(request.url).pathname] ??
+    (isAdmittedPageMiss(response) ? PAGE_CACHE_CONTROL : undefined);
   if (!cacheControl) return response;
 
   const cached = new Response(response.body, response);
   cached.headers.set("Cache-Control", cacheControl);
   return cached;
+}
+
+function isAdmittedPageMiss(response: Response) {
+  return (
+    response.headers.get("X-Vinext-Cache") === "MISS" &&
+    response.headers.get("Cache-Control") === PENDING_ADMISSION_CACHE_CONTROL &&
+    response.headers.get("Content-Type")?.startsWith("text/html") === true
+  );
 }

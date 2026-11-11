@@ -12,7 +12,7 @@ import {
   writeAuthor,
   writeAuthorTexts,
 } from "../db/authors";
-import { inBackground } from "../lib/background";
+import { defer, inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import {
@@ -56,7 +56,7 @@ export const adminAuthors = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateAuthorsSection(c.env));
+      await ensureSiteRevalidated(revalidateAuthorsSection(c.env, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["authors"] } }, 200);
     },
@@ -72,7 +72,9 @@ export const adminAuthors = new Hono<ApiEnv>()
       if (!(await authorExists(c.env.DB, id))) {
         throw new ApiError(404, "not_found", "Author not found");
       }
-      await ensureSiteRevalidated(revalidateContributorPage(c.env, id));
+      await ensureSiteRevalidated(
+        revalidateContributorPage(c.env, id, defer(c)),
+      );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -121,7 +123,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthorTexts(c.env.DB, checked.data as AuthorRecord);
-      inBackground(c, revalidateAuthorPages(c.env, id));
+      inBackground(c, revalidateAuthorPages(c.env, id, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -156,7 +158,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
-      inBackground(c, revalidateAuthorPages(c.env, id));
+      inBackground(c, revalidateAuthorPages(c.env, id, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
