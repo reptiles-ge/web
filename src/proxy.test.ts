@@ -322,7 +322,11 @@ describe("internal pathname redirects", () => {
     ["/scorpions", "/morieli"],
     ["/spiders", "/obobebi"],
     ["/fish", "/tevzebi"],
+    ["/fish/saxeoebebi", "/tevzebi/saxeoebebi"],
+    ["/fish/species", "/tevzebi/saxeoebebi"],
     ["/en/tevzebi", "/en/fish"],
+    ["/en/tevzebi/saxeoebebi", "/en/fish/species"],
+    ["/en/fish/saxeoebebi", "/en/fish/species"],
     ["/en/mtserebi", "/en/insects"],
     ["/tr/morieli", "/tr/scorpions"],
   ])("permanently redirects %s to %s", (from, to) => {
@@ -356,7 +360,10 @@ describe("internal pathname redirects", () => {
     "/ru/mammals",
     "/tr/scorpions",
     "/tevzebi",
+    "/tevzebi/saxeoebebi",
     "/en/fish",
+    "/en/fish/species",
+    "/tr/fish/species",
   ])("does not redirect the canonical path %s", (path) => {
     const response = call(path);
     expect(response.status).toBe(200);

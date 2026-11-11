@@ -129,6 +129,7 @@ export type ClusterGuideId =
   | "amphibian-index"
   | "amphibian-newts"
   | "bird-index"
+  | "fish-index"
   | "insect-index"
   | "lizard-darevskia"
   | "lizard-glass"
@@ -158,6 +159,7 @@ export type ClusterGuidePath =
   | "/birds"
   | "/birds/saxeoebebi"
   | "/fish"
+  | "/fish/saxeoebebi"
   | "/insects"
   | "/insects/saxeoebebi"
   | "/lizards/darevskia"
@@ -189,6 +191,7 @@ type ClusterMessageKey =
   | "amphibianIndex"
   | "amphibianNewts"
   | "birdIndex"
+  | "fishIndex"
   | "insectIndex"
   | "lizardCompare"
   | "lizardDarevskia"
@@ -225,6 +228,10 @@ export function isDarevskiaSpecies(
   species: Pick<SpeciesSummary, "genus" | "id">,
 ) {
   return species.genus === "Darevskia";
+}
+
+export function isFishSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
+  return speciesGroup(species) === "fish";
 }
 
 export function isFrogSpecies(id: string) {
@@ -326,6 +333,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "birdIndex",
     parentHub: "birds",
     pathname: "/birds/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "fish-index": {
+    faqCount: 4,
+    heroSpeciesId: "acipenser-gueldenstaedtii",
+    id: "fish-index",
+    matches: isFishSpecies,
+    messageKey: "fishIndex",
+    parentHub: "fish",
+    pathname: "/fish/saxeoebebi",
     primaryCta: "hash",
     schema: "collection",
   },
@@ -595,6 +613,7 @@ export type HubClusterCard =
         | "bite"
         | "dangerousAnimals"
         | "fishHub"
+        | "fishIndex"
         | "frogs"
         | "frogsIndex"
         | "glassLizard"
@@ -648,7 +667,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
-  fish: [],
+  fish: [{ href: "/fish/saxeoebebi", key: "fishIndex", kind: "page" }],
   insects: [
     { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
     { href: "/insects/tkipis-nakbeni", key: "tickBite", kind: "page" },
@@ -782,7 +801,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds/saxeoebebi",
-  fish: "/fish",
+  fish: "/fish/saxeoebebi",
   insects: "/insects/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
@@ -802,7 +821,7 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
     case "birds":
       return "cluster.birdIndex.title" as const;
     case "fish":
-      return "cluster.fishHub.title" as const;
+      return "cluster.fishIndex.title" as const;
     case "insects":
       return "cluster.insectIndex.title" as const;
     case "lizards":
@@ -1127,6 +1146,7 @@ export function getSpeciesGuideLinks(
     links.push({ href: "/scorpions", key: "scorpionsHub", kind: "page" });
   } else if (group === "fish") {
     links.push({ href: "/fish", key: "fishHub", kind: "page" });
+    links.push({ href: "/fish/saxeoebebi", key: "fishIndex", kind: "page" });
   } else if (group === "spider") {
     links.push({
       href: "/spiders/saxeoebebi",

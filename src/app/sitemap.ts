@@ -153,6 +153,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
+      if (guide.schema === "collection" && !cards.some(guide.matches)) {
+        continue;
+      }
       const images = guidePageImageUrls([guide.heroImage]);
       add(
         page(guide.pathname).then((entry) => ({

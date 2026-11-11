@@ -32,6 +32,9 @@ import {
 } from "../../tests/fixtures/speciesCatalog";
 
 const HUB_IDS = Object.keys(GROUP_HUBS) as GroupHubId[];
+const FIXTURE_GUIDES = CLUSTER_GUIDE_LIST.filter(
+  (guide) => guide.parentHub !== "fish",
+);
 
 function keys(id: string) {
   return getSpeciesGuideLinks(species(id)).map((link) =>
@@ -55,19 +58,25 @@ describe("cluster guide configuration", () => {
   });
 
   it("points every guide at an existing hero species and a real hub", () => {
-    for (const guide of CLUSTER_GUIDE_LIST) {
+    for (const guide of FIXTURE_GUIDES) {
       expect(speciesFixture(guide.heroSpeciesId), guide.id).toBeDefined();
       expect(HUB_IDS, guide.id).toContain(guide.parentHub);
     }
   });
 
   it("matches at least one published species for every guide", () => {
-    for (const guide of CLUSTER_GUIDE_LIST) {
+    for (const guide of FIXTURE_GUIDES) {
       expect(
         catalogSpeciesFixture().filter(guide.matches).length,
         guide.id,
       ).toBeGreaterThan(0);
     }
+  });
+
+  it("matches no fixture species for the fish index, which has none", () => {
+    expect(
+      catalogSpeciesFixture().filter(CLUSTER_GUIDES["fish-index"].matches),
+    ).toEqual([]);
   });
 
   it("has an index path and title key for every hub", () => {

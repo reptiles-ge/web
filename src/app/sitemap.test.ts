@@ -216,6 +216,11 @@ describe("sitemap", () => {
     expect(speciesEntries.length).toBeGreaterThanOrEqual(perLocale);
   });
 
+  it("leaves a species index with no published species out", () => {
+    expect(urls.some((url) => url.includes("/fish/saxeoebebi"))).toBe(false);
+    expect(urls).toContain("https://reptiles.ge/birds/saxeoebebi");
+  });
+
   it("does not list the unpublished Dolichophis caspius", () => {
     expect(urls.some((url) => url.includes("dolichophis-caspius"))).toBe(false);
   });

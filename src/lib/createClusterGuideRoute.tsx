@@ -45,6 +45,7 @@ import {
   sitePageLd,
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
+import { NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
 import { absoluteUrl, localePath, speciesOgImageUrl } from "@/lib/site";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -62,6 +63,7 @@ const CLUSTER_PAGES: Record<
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
   "bird-index": CatalogSpeciesIndexPage,
+  "fish-index": CatalogSpeciesIndexPage,
   "insect-index": CatalogSpeciesIndexPage,
   "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
@@ -112,7 +114,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       ? absoluteUrl(guide.heroImage)
       : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
 
-    return buildPageMetadata({
+    const metadata = buildPageMetadata({
       description: t("metaDescription"),
       indexable: true,
       keywords: t("keywords"),
@@ -125,6 +127,9 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       pagePath: guide.pathname,
       title,
     });
+    return guide.schema === "collection" && matched.length === 0
+      ? { ...metadata, robots: NOINDEX_FOLLOW_ROBOTS }
+      : metadata;
   }
 
   async function Page({ params }: Props) {

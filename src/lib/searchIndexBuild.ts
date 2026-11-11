@@ -398,6 +398,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "საქართველოს ფრინველების სახეობები",
     },
   },
+  "fish-index": {
+    icon: "atlas",
+    keywords: [
+      "თევზების სახეობები",
+      "fish species",
+      "виды рыб",
+      "balık türleri",
+    ],
+    subtitle: {
+      en: "Published fish profiles — not a full national list",
+      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
+    },
+    title: {
+      en: "Fish species of Georgia",
+      ka: "საქართველოს თევზების სახეობები",
+    },
+  },
   "insect-index": {
     icon: "atlas",
     keywords: [

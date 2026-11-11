@@ -11,6 +11,7 @@ import { generateMetadata as newsMetadata } from "@/app/[locale]/news/page";
 import { generateMetadata as homeMetadata } from "@/app/[locale]/page";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
+import { createClusterGuideRoute } from "@/lib/createClusterGuideRoute";
 import { createGroupHubRoute } from "@/lib/createGroupHubRoute";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { siteConfig } from "@/lib/site";
@@ -110,6 +111,23 @@ describe("group hub metadata", () => {
       expect(metadata.robots).toEqual({ follow: true, index: false });
     },
   );
+
+  it.each(routing.locales)(
+    "keeps the empty fish index out of the index in %s",
+    async (locale) => {
+      const metadata = await createClusterGuideRoute(
+        "fish-index",
+      ).generateMetadata({ params: Promise.resolve({ locale }) });
+      expect(metadata.robots).toEqual({ follow: true, index: false });
+    },
+  );
+
+  it("keeps a species index with species indexable", async () => {
+    const metadata = await createClusterGuideRoute(
+      "bird-index",
+    ).generateMetadata({ params: Promise.resolve({ locale: "ka" }) });
+    expect(metadata.robots).toMatchObject({ index: true });
+  });
 
   it("keeps a hub with species indexable", async () => {
     const metadata = await createGroupHubRoute("snakes").generateMetadata({

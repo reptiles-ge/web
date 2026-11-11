@@ -130,7 +130,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "newts",
   ],
   birds: ["saxeoebebi", "species"],
-  fish: [],
+  fish: ["saxeoebebi", "species"],
   insects: [
     "saxeoebebi",
     "species",

@@ -26,6 +26,7 @@ export async function CatalogSpeciesIndexPage({
   const messageKey = CLUSTER_GUIDES[guideId].messageKey;
   if (
     messageKey !== "birdIndex" &&
+    messageKey !== "fishIndex" &&
     messageKey !== "insectIndex" &&
     messageKey !== "mammalIndex" &&
     messageKey !== "spiderIndex" &&
