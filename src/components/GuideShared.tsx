@@ -85,12 +85,16 @@ export function GuideEditorialNote({
 }: {
   body: ReactNode;
   disclaimer: ReactNode;
-  updated: string;
+  updated?: string;
 }) {
   return (
     <aside className="mt-12 max-w-3xl rounded-card border border-border bg-surface p-6 sm:p-7">
-      <p className="text-[13px] font-medium text-foreground">{updated}</p>
-      <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+      {updated ? (
+        <p className="mb-3 text-[13px] font-medium text-foreground">
+          {updated}
+        </p>
+      ) : null}
+      <p className="text-[14px] leading-relaxed text-muted-foreground">
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
       <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">

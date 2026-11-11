@@ -28,6 +28,24 @@ const LLMS = createLlmsSpecies(
 );
 
 const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
+const ALL_LOCALES = ["ka", ...PREFIXED_LOCALES] as const;
+
+function withFishFixture(locale: (typeof ALL_LOCALES)[number]) {
+  const catalog = speciesCatalogFixture(locale);
+  const fish = catalog.find((item) => item.id === "pseudopus-apodus");
+  if (!fish) throw new Error("pseudopus-apodus fixture is missing");
+  return [...catalog, { ...fish, group: "fish" as const, id: "fish-fixture" }];
+}
+
+const LLMS_WITH_FISH = createLlmsSpecies(
+  {
+    en: withFishFixture("en"),
+    ka: withFishFixture("ka"),
+    ru: withFishFixture("ru"),
+    tr: withFishFixture("tr"),
+  },
+  getPublishedNewsArticles(),
+);
 const DEEP_GROUPS = new Set([
   "amphibian",
   "insect",
@@ -323,6 +341,27 @@ describe("per-locale llms files", () => {
           expect(href, `${locale} ${href}`).toMatch(/^https:\/\//);
         }
       }
+    }
+  });
+
+  it("never prints undefined in any locale file", () => {
+    for (const locale of ALL_LOCALES) {
+      for (const body of [
+        buildLlmsFullText(LLMS_WITH_FISH, locale),
+        buildLlmsIndexText(LLMS_WITH_FISH, locale),
+      ]) {
+        const lines = body.split("\n").filter((line) => /undefined/.test(line));
+        expect(lines, locale).toEqual([]);
+      }
+    }
+  });
+
+  it("describes every group hub, fish included", () => {
+    for (const locale of ALL_LOCALES) {
+      const body = buildLlmsIndexText(LLMS_WITH_FISH, locale);
+      expect(body, locale).toMatch(
+        /^- \[Fish\]\(https:\/\/reptiles\.ge\/.+\): Fish hub \(\d+ published profiles?; published atlas profiles only, not a national fish list\)\.$/m,
+      );
     }
   });
 

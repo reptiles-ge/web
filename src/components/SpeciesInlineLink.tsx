@@ -27,16 +27,17 @@ export function SpeciesInlineLink({
 }) {
   const locale = useLocale() as AppLocale;
   const switchIndex = useLocaleSwitchIndex();
-  if (!switchIndex.hubById[id]) return children;
+  const speciesId = switchIndex.hubById[id] ? id : switchIndex.idBySlug[id];
+  if (!speciesId || !switchIndex.hubById[speciesId]) return children;
 
   return (
     <Link
       className={className}
-      href={speciesHrefFromIndex(switchIndex, id, locale)}
+      href={speciesHrefFromIndex(switchIndex, speciesId, locale)}
       onClick={() =>
         trackSpeciesClick({
           source,
-          species_id: id,
+          species_id: speciesId,
         })
       }
     >

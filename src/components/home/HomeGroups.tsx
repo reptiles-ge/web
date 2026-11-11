@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { HomeGroupCarousel } from "@/components/home/HomeGroupCarousel";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { type AnimalGroup, getAtlasStats } from "@/data/speciesAtlas";
@@ -23,6 +24,8 @@ const GROUPS = [
   "fish",
 ] as const;
 
+const PRIORITY_CARDS = 2;
+
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
   const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "home.groups" }),
@@ -32,6 +35,10 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
 
   return (
     <section className="bg-background py-11 lg:py-20" id="groups">
+      <CoverImagePreload
+        sizes={cardSizes(true)}
+        src={GROUP_HUB_ILLUSTRATIONS[GROUPS[0]]}
+      />
       <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
         <HomeSectionHeading
           eyebrow={t("eyebrow")}
@@ -74,7 +81,8 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
                   alt={t("illustrationAlt", { name })}
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                   defer
-                  sizes={`(max-width: 1023px) 300px, ${wide ? 495 : 330}px`}
+                  priority={index < PRIORITY_CARDS}
+                  sizes={cardSizes(wide)}
                   src={GROUP_HUB_ILLUSTRATIONS[hubId]}
                 />
               </span>
@@ -127,6 +135,10 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
       </div>
     </section>
   );
+}
+
+function cardSizes(wide: boolean) {
+  return `(max-width: 1023px) 300px, ${wide ? 495 : 330}px`;
 }
 
 function groupCount(

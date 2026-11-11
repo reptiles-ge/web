@@ -674,13 +674,15 @@ function formatSpeciesIndexLine(
   return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item.id)}): ${details.join(". ")}.`;
 }
 
-function groupSummary(group: AnimalGroup, count: number) {
+function groupSummary(group: AnimalGroup, count: number): string {
   const countLabel = `${count} published ${count === 1 ? "profile" : "profiles"}`;
   switch (group) {
     case "amphibian":
       return `Amphibian hub (${countLabel})`;
     case "bird":
       return `Bird hub (${countLabel}; published atlas profiles only, not a national avifauna list)`;
+    case "fish":
+      return `Fish hub (${countLabel}; published atlas profiles only, not a national fish list)`;
     case "insect":
       return `Insect hub (${countLabel}; published atlas profiles only)`;
     case "lizard":

@@ -10,6 +10,7 @@ import {
 
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
+import { resolveInternalLinkTarget } from "@/lib/internalLinkTargets";
 import { splitPhoneLinks } from "@/lib/phoneLinks";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 
@@ -31,10 +32,29 @@ type RouteLinkPart =
       label: string;
       type: "external";
     }
+  | { key: string; label: string; slug: string; type: "species" }
   | { key: string; type: "text"; value: string };
 
 export function PhoneLinkedText({ children }: { children: ReactNode }) {
   return <>{linkPhonesInNode(children)}</>;
+}
+
+function internalRoutePart(
+  href: string,
+  label: string,
+  index: number,
+): RouteLinkPart {
+  const key = `r:${index}:${href}`;
+  const target = resolveInternalLinkTarget(href);
+  if (target?.type === "species") {
+    return { key, label, slug: target.slug, type: "species" };
+  }
+  return {
+    href: (target?.href ?? href) as ComponentProps<typeof Link>["href"],
+    key,
+    label,
+    type: "route",
+  };
 }
 
 function isSkippable(element: ReactElement): boolean {
@@ -71,6 +91,19 @@ function renderPhoneLinkedString(text: string): ReactNode {
           >
             {part.label}
           </Link>
+        );
+      }
+
+      if (part.type === "species") {
+        return (
+          <SpeciesInlineLink
+            className={INLINE_LINK_CLASS_NAME}
+            id={part.slug}
+            key={part.key}
+            source="other"
+          >
+            {part.label}
+          </SpeciesInlineLink>
         );
       }
 
@@ -165,12 +198,7 @@ function splitInternalRouteLinks(text: string): RouteLinkPart[] {
     }
     const href = match[2];
     if (href.startsWith("/")) {
-      parts.push({
-        href: href as ComponentProps<typeof Link>["href"],
-        key: `r:${match.index}:${href}`,
-        label: match[1],
-        type: "route",
-      });
+      parts.push(internalRoutePart(href, match[1], match.index));
     } else {
       parts.push({
         href,
