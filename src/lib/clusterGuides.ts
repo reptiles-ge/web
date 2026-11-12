@@ -1138,13 +1138,6 @@ export function getSpeciesGuideLinks(
       key: "insectIndex",
       kind: "page",
     });
-    if (id === "halyomorpha-halys") {
-      links.push({
-        href: "/insects/farosana-sakhlshi",
-        key: "stinkBugInHouse",
-        kind: "page",
-      });
-    }
   } else if (group === "mammal") {
     if (yardCanidIdSet.has(id)) {
       links.push({
@@ -1157,15 +1150,6 @@ export function getSpeciesGuideLinks(
       links.push({
         href: "/mammals/datvi-shekhvedra",
         key: "bearEncounter",
-        kind: "page",
-      });
-    }
-    // TODO(PR #1803 review): duplicates relatedSpeciesIds in src/content/guides/hedgehogInWinter.ts.
-    // Derive guide-article links from each guide's relatedSpeciesIds instead of one branch per species.
-    if (id === "erinaceus-concolor") {
-      links.push({
-        href: "/mammals/zgharbi-zamtarshi",
-        key: "hedgehogInWinter",
         kind: "page",
       });
     }

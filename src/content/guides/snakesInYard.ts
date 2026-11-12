@@ -619,7 +619,7 @@ export const SNAKES_IN_YARD = defineGuideArticle({
   ogImage: "/og/images/guides/snakes-in-yard.jpg",
   parentHub: "snakes",
   pathname: "/snakes/gveli-ezoshi",
-  relatedGuideIds: ["snake-bite", "mouse-in-house"],
+  relatedGuideIds: ["snake-bite", "gyurza-bite", "mouse-in-house"],
   relatedSpeciesIds: [
     "natrix-natrix",
     "natrix-tessellata",

@@ -786,6 +786,7 @@
     "regionTitle": "{name}: зарегистрированные виды",
     "rangeEyebrow": "Ареал",
     "rangeTitle": "{name} на карте Грузии",
+    "snakeRangeLink": "Где встречаются змеи в Грузии — карта {count, plural, one {# региона} other {# регионов}}",
     "habitatsEyebrow": "География",
     "habitatsTitle": "Местообитания",
     "speciesEyebrow": "Виды",

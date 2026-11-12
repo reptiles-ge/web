@@ -350,15 +350,6 @@ describe("getSpeciesGuideLinks", () => {
     expect(keys("pseudopus-apodus")).toContain("lizardsHub");
   });
 
-  it("links only the hedgehog to the winter hedgehog guide", () => {
-    for (const item of speciesGroupFixture("mammal")) {
-      expect(keys(item.id).includes("hedgehogInWinter"), item.id).toBe(
-        item.id === "erinaceus-concolor",
-      );
-    }
-    expect(keys("erinaceus-concolor")).toContain("hedgehogInWinter");
-  });
-
   it("splits tortoises from water turtles", () => {
     expect(keys("testudo-graeca")).toContain("turtleLand");
     expect(keys("testudo-graeca")).not.toContain("turtleWater");

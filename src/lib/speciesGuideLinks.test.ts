@@ -27,6 +27,13 @@ function clusterCopy(locale: string): ClusterCopy {
   return messages.groupHubShared.cluster;
 }
 
+function profileHrefs(id: string) {
+  const species = speciesFixture(id) ?? { danger: "harmless", genus: "", id };
+  return getSpeciesProfileGuideLinks(
+    species as Parameters<typeof getSpeciesProfileGuideLinks>[0],
+  ).map((link) => (link.kind === "page" ? link.href : null));
+}
+
 describe("species profile guide links", () => {
   const catalog = catalogSpeciesFixture();
 
@@ -41,6 +48,31 @@ describe("species profile guide links", () => {
         );
       }
     }
+  });
+
+  it("links every species listed for profiles back to that guide", () => {
+    for (const article of getGuideArticles()) {
+      for (const id of article.profileSpeciesIds ?? []) {
+        const hrefs = profileHrefs(id);
+        expect(hrefs, `${id} -> ${article.pathname}`).toContain(
+          article.pathname,
+        );
+      }
+    }
+  });
+
+  it("keeps bats that do not use buildings off the bat-in-the-house guide", () => {
+    for (const id of [
+      "miniopterus-schreibersii",
+      "nyctalus-lasiopterus",
+      "rhinolophus-blasii",
+      "rhinolophus-mehelyi",
+    ]) {
+      expect(profileHrefs(id), id).not.toContain("/mammals/ghamura-sakhlshi");
+    }
+    expect(profileHrefs("rattus-norvegicus")).not.toContain(
+      "/mammals/tagvi-sakhlshi",
+    );
   });
 
   it("leads with the practical guide written for that animal", () => {

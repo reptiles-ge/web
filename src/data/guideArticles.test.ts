@@ -17,9 +17,11 @@ import { routing } from "@/i18n/routing";
 import { HUB_CLUSTER_CARDS } from "@/lib/clusterGuides";
 import { RESERVED_HUB_SLUGS } from "@/lib/groupHubs";
 import { findPageReferences } from "@/lib/pageTalkProse";
+import { SPECIES_HUBS } from "@/lib/speciesHubs";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 import { speciesFixture } from "../../tests/fixtures/speciesCatalog";
+import { liveSpeciesGroups } from "../../tests/support/liveSpeciesGroups";
 
 const articles = getGuideArticles();
 const messages = Object.fromEntries(
@@ -314,6 +316,21 @@ describe.each(articles.map((article) => [article.id, article] as const))(
         expect(speciesFixture(id), id).toBeDefined();
       }
     });
+
+    it.skipIf(!liveSpeciesGroups)(
+      "lists profile species that exist in the API catalog and belong to its hub",
+      () => {
+        const group = SPECIES_HUBS.find(
+          (hub) => hub.id === article.parentHub,
+        )?.group;
+        const ids = article.profileSpeciesIds ?? [];
+        expect(new Set(ids).size).toBe(ids.length);
+        for (const id of ids) {
+          expect(liveSpeciesGroups?.[id], id).toBe(group);
+          expect(article.relatedSpeciesIds ?? [], id).not.toContain(id);
+        }
+      },
+    );
 
     it("links only to other registered guides", () => {
       for (const id of article.relatedGuideIds ?? []) {

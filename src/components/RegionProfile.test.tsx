@@ -83,6 +83,24 @@ describe("RegionProfile outline", () => {
     );
   });
 
+  it("links the region to the snake range guide", () => {
+    renderWithMessages(
+      <RegionProfile
+        content={content}
+        editable={false}
+        region={region}
+        species={species}
+        summary={summary}
+        venomous={venomous}
+      />,
+    );
+    expect(
+      screen.getByRole("link", {
+        name: "Where snakes occur in Georgia — map of 12 regions",
+      }),
+    ).toHaveAttribute("href", expect.stringContaining("/snakes/gavrtseleba"));
+  });
+
   it("renders the summary under its own heading", () => {
     renderWithMessages(
       <RegionProfile
