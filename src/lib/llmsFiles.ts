@@ -85,6 +85,7 @@ const GROUP_HEADING: Record<AnimalGroup, string> = {
 const GROUP_INDEX_PATH: Partial<Record<AnimalGroup, string>> = {
   amphibian: "/amphibians/saxeoebebi",
   bird: "/birds/saxeoebebi",
+  fish: "/fish/saxeoebebi",
   insect: "/insects/saxeoebebi",
   lizard: "/lizards/saxeoebebi",
   mammal: "/mammals/saxeoebebi",

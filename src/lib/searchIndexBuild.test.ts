@@ -29,6 +29,12 @@ describe.each(routing.locales)("buildSearchIndex(%s)", (locale) => {
     }
   });
 
+  it("leaves out a species index with no published species", () => {
+    const ids = index.map((doc) => doc.id);
+    expect(ids).not.toContain("fish-index");
+    expect(ids).toContain("bird-index");
+  });
+
   it("has a unique key per document", () => {
     const keys = index.map((doc) => doc.key);
     expect(new Set(keys).size).toBe(keys.length);

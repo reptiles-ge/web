@@ -30,6 +30,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   CLUSTER_GUIDE_LIST,
   type ClusterGuideId,
+  hasGuideSpecies,
   isFrogSpecies,
   isNewtSpecies,
 } from "@/lib/clusterGuides";
@@ -396,6 +397,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     title: {
       en: "Bird species of Georgia",
       ka: "საქართველოს ფრინველების სახეობები",
+    },
+  },
+  "fish-index": {
+    icon: "atlas",
+    keywords: [
+      "თევზების სახეობები",
+      "fish species",
+      "виды рыб",
+      "balık türleri",
+    ],
+    subtitle: {
+      en: "Published fish profiles — not a full national list",
+      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
+    },
+    title: {
+      en: "Fish species of Georgia",
+      ka: "საქართველოს თევზების სახეობები",
     },
   },
   "insect-index": {
@@ -1101,14 +1119,15 @@ export function buildSearchIndex(
         coverFromSpecies(hub.heroSpeciesId),
       ),
     ),
-    ...CLUSTER_GUIDE_LIST.map((guide) =>
-      toPageDocument(
-        locale,
-        guide.id,
-        guide.pathname,
-        CLUSTER_COPY[guide.id],
-        coverFromSpecies(guide.heroSpeciesId, guide.heroImage),
-      ),
+    ...CLUSTER_GUIDE_LIST.filter((guide) => hasGuideSpecies(guide, base)).map(
+      (guide) =>
+        toPageDocument(
+          locale,
+          guide.id,
+          guide.pathname,
+          CLUSTER_COPY[guide.id],
+          coverFromSpecies(guide.heroSpeciesId, guide.heroImage),
+        ),
     ),
   ];
 

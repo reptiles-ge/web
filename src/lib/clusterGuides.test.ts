@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 import {
   CLUSTER_GUIDES,
   getRearFangedSpecies,
+  HUB_CLUSTER_CARDS,
+  HUB_INDEX_PATH,
   isBirdSpecies,
   isDarevskiaSpecies,
   isMammalSpecies,
@@ -91,6 +93,13 @@ describe("bird and mammal indexes", () => {
       "/spiders/obobis-nakbeni",
     );
     expect(CLUSTER_GUIDES["spider-index"].pathname).toBe("/spiders/saxeoebebi");
+    expect(CLUSTER_GUIDES["fish-index"].pathname).toBe("/fish/saxeoebebi");
+    expect(HUB_INDEX_PATH.fish).toBe("/fish/saxeoebebi");
+    expect(HUB_CLUSTER_CARDS.fish).toContainEqual({
+      href: "/fish/saxeoebebi",
+      key: "fishIndex",
+      kind: "page",
+    });
     expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
       "/lizards/xvliki-sakhlshi",
     );

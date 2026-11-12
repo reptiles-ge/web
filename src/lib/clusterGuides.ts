@@ -129,6 +129,7 @@ export type ClusterGuideId =
   | "amphibian-index"
   | "amphibian-newts"
   | "bird-index"
+  | "fish-index"
   | "insect-index"
   | "lizard-darevskia"
   | "lizard-glass"
@@ -158,6 +159,7 @@ export type ClusterGuidePath =
   | "/birds"
   | "/birds/saxeoebebi"
   | "/fish"
+  | "/fish/saxeoebebi"
   | "/insects"
   | "/insects/saxeoebebi"
   | "/lizards/darevskia"
@@ -189,6 +191,7 @@ type ClusterMessageKey =
   | "amphibianIndex"
   | "amphibianNewts"
   | "birdIndex"
+  | "fishIndex"
   | "insectIndex"
   | "lizardCompare"
   | "lizardDarevskia"
@@ -265,6 +268,10 @@ function isAmphibianSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
   return speciesGroup(species) === "amphibian";
 }
 
+function isFishSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
+  return speciesGroup(species) === "fish";
+}
+
 function isInsectSpecies(species: Pick<SpeciesSummary, "genus" | "id">) {
   return speciesGroup(species) === "insect";
 }
@@ -326,6 +333,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "birdIndex",
     parentHub: "birds",
     pathname: "/birds/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "fish-index": {
+    faqCount: 4,
+    heroSpeciesId: "acipenser-gueldenstaedtii",
+    id: "fish-index",
+    matches: isFishSpecies,
+    messageKey: "fishIndex",
+    parentHub: "fish",
+    pathname: "/fish/saxeoebebi",
     primaryCta: "hash",
     schema: "collection",
   },
@@ -566,6 +584,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
 
 export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
 
+export const CATALOG_INDEX_MESSAGE_KEYS = {
+  "bird-index": "birdIndex",
+  "fish-index": "fishIndex",
+  "insect-index": "insectIndex",
+  "mammal-index": "mammalIndex",
+  "spider-index": "spiderIndex",
+  "turtle-index": "turtleIndex",
+} as const satisfies Partial<Record<ClusterGuideId, ClusterMessageKey>>;
+
+export type CatalogIndexGuideId = keyof typeof CATALOG_INDEX_MESSAGE_KEYS;
+
 export type ClusterGuideViewProps = {
   guideId: ClusterGuideId;
   heroSrc: string;
@@ -595,6 +624,7 @@ export type HubClusterCard =
         | "bite"
         | "dangerousAnimals"
         | "fishHub"
+        | "fishIndex"
         | "frogs"
         | "frogsIndex"
         | "glassLizard"
@@ -640,6 +670,27 @@ export type HubClusterCard =
       kind: "species";
     };
 
+export function hasGuideSpecies(
+  guide: ClusterGuideConfig,
+  catalog: readonly SpeciesSummary[],
+) {
+  return guide.schema !== "collection" || catalog.some(guide.matches);
+}
+
+export function isCatalogIndexGuide(
+  id: ClusterGuideId,
+): id is CatalogIndexGuideId {
+  return Object.hasOwn(CATALOG_INDEX_MESSAGE_KEYS, id);
+}
+
+export function isEmptyGuidePath(
+  path: string,
+  catalog: readonly SpeciesSummary[],
+) {
+  const guide = CLUSTER_GUIDE_LIST.find((item) => item.pathname === path);
+  return guide !== undefined && !hasGuideSpecies(guide, catalog);
+}
+
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   amphibians: [
     { href: "/amphibians/saxeoebebi", key: "amphibianIndex", kind: "page" },
@@ -648,7 +699,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
-  fish: [],
+  fish: [{ href: "/fish/saxeoebebi", key: "fishIndex", kind: "page" }],
   insects: [
     { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
     { href: "/insects/tkipis-nakbeni", key: "tickBite", kind: "page" },
@@ -782,7 +833,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds/saxeoebebi",
-  fish: "/fish",
+  fish: "/fish/saxeoebebi",
   insects: "/insects/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
@@ -802,7 +853,7 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
     case "birds":
       return "cluster.birdIndex.title" as const;
     case "fish":
-      return "cluster.fishHub.title" as const;
+      return "cluster.fishIndex.title" as const;
     case "insects":
       return "cluster.insectIndex.title" as const;
     case "lizards":
@@ -1127,6 +1178,7 @@ export function getSpeciesGuideLinks(
     links.push({ href: "/scorpions", key: "scorpionsHub", kind: "page" });
   } else if (group === "fish") {
     links.push({ href: "/fish", key: "fishHub", kind: "page" });
+    links.push({ href: "/fish/saxeoebebi", key: "fishIndex", kind: "page" });
   } else if (group === "spider") {
     links.push({
       href: "/spiders/saxeoebebi",
