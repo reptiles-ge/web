@@ -9,6 +9,7 @@ import {
   listAdminAuthors,
   listAuthorPhotos,
   readAuthor,
+  readAuthorContributor,
   writeAuthor,
   writeAuthorTexts,
 } from "../db/authors";
@@ -69,11 +70,12 @@ export const adminAuthors = new Hono<ApiEnv>()
     validate("param", authorParam),
     async (c) => {
       const { id } = c.req.valid("param");
-      if (!(await authorExists(c.env.DB, id))) {
+      const isContributor = await readAuthorContributor(c.env.DB, id);
+      if (isContributor === null) {
         throw new ApiError(404, "not_found", "Author not found");
       }
       await ensureSiteRevalidated(
-        revalidateContributorPage(c.env, id, defer(c)),
+        revalidateContributorPage(c.env, { id, isContributor }, defer(c)),
       );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
@@ -122,8 +124,9 @@ export const adminAuthors = new Hono<ApiEnv>()
           checked.error.issues,
         );
       }
-      await writeAuthorTexts(c.env.DB, checked.data as AuthorRecord);
-      inBackground(c, revalidateAuthorPages(c.env, id, defer(c)));
+      const record = checked.data as AuthorRecord;
+      await writeAuthorTexts(c.env.DB, record);
+      inBackground(c, revalidateAuthorPages(c.env, record, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -158,7 +161,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
-      inBackground(c, revalidateAuthorPages(c.env, id, defer(c)));
+      inBackground(c, revalidateAuthorPages(c.env, author, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },

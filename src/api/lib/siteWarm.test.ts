@@ -5,8 +5,8 @@ import type { ApiBindings } from "../env";
 import {
   requestFullSiteWarm,
   WARM_CONCURRENCY,
-  WARM_WORKFLOW_URL,
   warmSitePaths,
+  warmWorkflowUrl,
 } from "./siteWarm";
 
 afterEach(() => {
@@ -81,10 +81,16 @@ describe("requestFullSiteWarm", () => {
       async () => new Response(null, { status: 204 }),
     );
     vi.stubGlobal("fetch", fetch);
-    const env = { WARM_DISPATCH_TOKEN: "gh-token" } as ApiBindings;
+    const env = {
+      WARM_DISPATCH_REPOSITORY: "owner/repo",
+      WARM_DISPATCH_TOKEN: "gh-token",
+    } as ApiBindings;
     expect(await requestFullSiteWarm(env)).toBe(true);
     const [url, init] = fetch.mock.calls[0]!;
-    expect(url).toBe(WARM_WORKFLOW_URL);
+    expect(url).toBe(
+      "https://api.github.com/repos/owner/repo/actions/workflows/warm-cache.yml/dispatches",
+    );
+    expect(warmWorkflowUrl("owner/repo")).toBe(url);
     expect(init.method).toBe("POST");
     expect((init.headers as Record<string, string>).Authorization).toBe(
       "Bearer gh-token",
@@ -95,6 +101,19 @@ describe("requestFullSiteWarm", () => {
     });
   });
 
+  it("logs and skips without a target repository", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    const fetch = vi.fn();
+    vi.stubGlobal("fetch", fetch);
+    expect(
+      await requestFullSiteWarm({
+        WARM_DISPATCH_TOKEN: "gh-token",
+      } as ApiBindings),
+    ).toBe(false);
+    expect(fetch).not.toHaveBeenCalled();
+    expect(log).toHaveBeenCalledWith("Site warm is not configured");
+  });
+
   it("logs and skips without a token, on a refusal and on a network error", async () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => {});
     const fetch = vi.fn(async () => new Response(null, { status: 403 }));
@@ -102,7 +121,10 @@ describe("requestFullSiteWarm", () => {
     expect(await requestFullSiteWarm({} as ApiBindings)).toBe(false);
     expect(fetch).not.toHaveBeenCalled();
     expect(log).toHaveBeenCalledWith("Site warm is not configured");
-    const env = { WARM_DISPATCH_TOKEN: "gh-token" } as ApiBindings;
+    const env = {
+      WARM_DISPATCH_REPOSITORY: "owner/repo",
+      WARM_DISPATCH_TOKEN: "gh-token",
+    } as ApiBindings;
     expect(await requestFullSiteWarm(env)).toBe(false);
     expect(log).toHaveBeenCalledWith("Site warm dispatch answered 403");
     fetch.mockRejectedValueOnce(new Error("offline"));

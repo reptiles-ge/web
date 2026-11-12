@@ -14,6 +14,8 @@ export const PAGE_CACHE_CONTROL = "private, max-age=0, must-revalidate";
 
 const PENDING_ADMISSION_CACHE_CONTROL = "no-store, must-revalidate";
 
+const PAGE_CONTENT_TYPES = ["text/html", "text/x-component"];
+
 export function withResponseCacheControl(
   request: Request,
   response: Response,
@@ -34,6 +36,8 @@ function isAdmittedPageMiss(response: Response) {
   return (
     response.headers.get("X-Vinext-Cache") === "MISS" &&
     response.headers.get("Cache-Control") === PENDING_ADMISSION_CACHE_CONTROL &&
-    response.headers.get("Content-Type")?.startsWith("text/html") === true
+    PAGE_CONTENT_TYPES.some(
+      (type) => response.headers.get("Content-Type")?.startsWith(type) === true,
+    )
   );
 }

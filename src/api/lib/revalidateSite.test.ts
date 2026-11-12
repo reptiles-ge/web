@@ -3,12 +3,17 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ApiBindings } from "../env";
 
 import {
+  revalidateAuthorPages,
+  revalidateContributorPage,
+  revalidateMergedSpecies,
   revalidateNewsArticle,
   revalidatePageGroup,
   revalidateSpeciesPage,
   revalidateSpeciesSite,
 } from "./revalidateSite";
-import { WARM_WORKFLOW_URL } from "./siteWarm";
+import { warmWorkflowUrl } from "./siteWarm";
+
+const WARM_WORKFLOW_URL = warmWorkflowUrl("reptiles-ge/web");
 
 const WARM = [
   "/gvelebi/giurza",
@@ -41,6 +46,7 @@ beforeEach(() => {
   env = {
     REVALIDATE_TOKEN: "site-secret",
     SITE: { fetch: siteFetch },
+    WARM_DISPATCH_REPOSITORY: "reptiles-ge/web",
     WARM_DISPATCH_TOKEN: "gh-token",
   } as unknown as ApiBindings;
 });
@@ -84,6 +90,43 @@ describe("cache warm after a clear", () => {
       "https://reptiles.ge/news/a",
       "https://reptiles.ge/news/a?_rsc",
     ]);
+  });
+
+  it("warms the merged species instead of the whole site", async () => {
+    expect(await revalidateMergedSpecies(env, ["a", "b"], defer)).toBe(true);
+    await Promise.all(tasks);
+    expect(github).not.toHaveBeenCalled();
+    expect(warmedUrls()).toHaveLength(WARM.length * 2);
+  });
+
+  it("warms an author's contributor page only, and nothing for other authors", async () => {
+    const contributor = { id: "sandro", isContributor: true };
+    expect(await revalidateAuthorPages(env, contributor, defer)).toBe(true);
+    expect(await revalidateContributorPage(env, contributor, defer)).toBe(true);
+    expect(tasks).toHaveLength(2);
+    const photographer = { id: "someone", isContributor: false };
+    expect(await revalidateAuthorPages(env, photographer, defer)).toBe(true);
+    expect(await revalidateContributorPage(env, photographer, defer)).toBe(
+      true,
+    );
+    expect(tasks).toHaveLength(2);
+    await Promise.all(tasks);
+    expect(github).not.toHaveBeenCalled();
+  });
+
+  it("warms nothing when the API purge fails", async () => {
+    env = {
+      ...env,
+      CACHE_PURGE_TOKEN: "purge-token",
+      CACHE_PURGE_ZONE_ID: "zone",
+    } as ApiBindings;
+    github.mockResolvedValue(new Response(null, { status: 500 }));
+    expect(
+      await revalidateSpeciesPage(env, "macrovipera-lebetina", defer),
+    ).toBe(false);
+    expect(await revalidateSpeciesSite(env, ["a"], defer)).toBe(false);
+    expect(await revalidateMergedSpecies(env, ["a"], defer)).toBe(false);
+    expect(tasks).toEqual([]);
   });
 
   it("dispatches the full warm for a page group and a species batch", async () => {

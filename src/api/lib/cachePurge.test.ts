@@ -70,7 +70,7 @@ describe("purgeApiCache", () => {
 describe("cache clears", () => {
   it("purges the API data each kind of clear depends on", async () => {
     await revalidateNewsArticle(env, "kori-news");
-    await revalidateAuthorPages(env, "sandro");
+    await revalidateAuthorPages(env, { id: "sandro", isContributor: true });
     await revalidatePageGroup(env, "regions");
     await revalidatePageGroup(env, "site");
     await revalidatePageGroup(env, "about");

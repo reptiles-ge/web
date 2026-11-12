@@ -1,23 +1,21 @@
 import type { ApiBindings } from "../env";
 
-const SITE_ORIGIN = "https://reptiles.ge";
+export const SITE_ORIGIN = "https://reptiles.ge";
 
 export const WARM_CONCURRENCY = 3;
 
 const WARM_USER_AGENT = "reptiles-cache-warmer";
 
-export const WARM_WORKFLOW_URL =
-  "https://api.github.com/repos/reptiles-ge/web/actions/workflows/warm-cache.yml/dispatches";
-
 export type Defer = (task: Promise<unknown>) => void;
 
 export async function requestFullSiteWarm(env: ApiBindings) {
-  if (!env.WARM_DISPATCH_TOKEN) {
+  const repository = env.WARM_DISPATCH_REPOSITORY;
+  if (!env.WARM_DISPATCH_TOKEN || !repository) {
     console.error("Site warm is not configured");
     return false;
   }
   try {
-    const response = await fetch(WARM_WORKFLOW_URL, {
+    const response = await fetch(warmWorkflowUrl(repository), {
       body: JSON.stringify({ inputs: { warm_only: "true" }, ref: "main" }),
       headers: {
         Accept: "application/vnd.github+json",
@@ -66,4 +64,8 @@ export async function warmSitePaths(env: ApiBindings, paths: string[]) {
   };
   await Promise.all(Array.from({ length: WARM_CONCURRENCY }, worker));
   return warmed;
+}
+
+export function warmWorkflowUrl(repository: string) {
+  return `https://api.github.com/repos/${repository}/actions/workflows/warm-cache.yml/dispatches`;
 }

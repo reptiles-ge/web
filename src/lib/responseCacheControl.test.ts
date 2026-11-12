@@ -73,6 +73,14 @@ describe("page cache control on a response-store miss", () => {
     return new Response("<html></html>", { headers });
   }
 
+  it("sends the HIT header on an admitted RSC MISS", () => {
+    const response = withResponseCacheControl(
+      new Request("https://reptiles.ge/gvelebi?_rsc"),
+      page("no-store, must-revalidate", "MISS", "text/x-component"),
+    );
+    expect(response.headers.get("Cache-Control")).toBe(PAGE_CACHE_CONTROL);
+  });
+
   it("sends the HIT header on an admitted MISS", async () => {
     const response = withResponseCacheControl(
       new Request("https://reptiles.ge/prinvelebi/mekiria"),
@@ -92,8 +100,8 @@ describe("page cache control on a response-store miss", () => {
     ["a bypassed page", page("no-store, must-revalidate", "BYPASS")],
     ["a page outside the store", page("no-store, must-revalidate", null)],
     [
-      "an RSC payload",
-      page("no-store, must-revalidate", "MISS", "text/x-component"),
+      "a JSON response",
+      page("no-store, must-revalidate", "MISS", "application/json"),
     ],
   ])("leaves %s alone", (_, original) => {
     const response = withResponseCacheControl(

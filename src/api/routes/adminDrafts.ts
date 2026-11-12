@@ -9,8 +9,8 @@ import { defer } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError, type ApiErrorCode } from "../lib/errors";
 import {
+  revalidateMergedSpecies,
   revalidateSpeciesPage,
-  revalidateSpeciesSite,
 } from "../lib/revalidateSite";
 import {
   approveSpeciesDraft,
@@ -69,7 +69,7 @@ export const adminDrafts = new Hono<ApiEnv>()
       ];
       const revalidated =
         species.length === 0 ||
-        (await revalidateSpeciesSite(c.env, species, defer(c)));
+        (await revalidateMergedSpecies(c.env, species, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { results, revalidated } }, 200);
     },

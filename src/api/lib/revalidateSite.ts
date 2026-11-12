@@ -2,11 +2,18 @@ import type { ApiBindings } from "../env";
 
 import { purgeApiCache } from "./cachePurge";
 import { ApiError } from "./errors";
-import { type Defer, requestFullSiteWarm, warmSitePaths } from "./siteWarm";
+import {
+  type Defer,
+  requestFullSiteWarm,
+  SITE_ORIGIN,
+  warmSitePaths,
+} from "./siteWarm";
 
 const MAX_TAGS_PER_REQUEST = 20;
 
 const ALL_API_TAGS = ["species", "catalog", "images", "news", "authors"];
+
+type AuthorWarmTarget = { id: string; isContributor: boolean };
 
 type SitePayload = { groups: string[] } | { tags: string[] };
 
@@ -35,11 +42,16 @@ export async function ensureSiteRevalidated(pending: Promise<boolean>) {
 
 export function revalidateAuthorPages(
   env: ApiBindings,
-  id: string,
+  author: AuthorWarmTarget,
   defer?: Defer,
 ) {
-  const tags = ["authors", `author:${id}`, "species", "news"];
-  return clearCaches(env, [...tags, "catalog"], { tags }, full(defer));
+  const tags = ["authors", `author:${author.id}`, "species", "news"];
+  return clearCaches(
+    env,
+    [...tags, "catalog"],
+    { tags },
+    author.isContributor ? paths(defer) : undefined,
+  );
 }
 
 export function revalidateAuthorsSection(env: ApiBindings, defer?: Defer) {
@@ -48,11 +60,24 @@ export function revalidateAuthorsSection(env: ApiBindings, defer?: Defer) {
 
 export function revalidateContributorPage(
   env: ApiBindings,
-  id: string,
+  author: AuthorWarmTarget,
   defer?: Defer,
 ) {
-  const tags = [`author:${id}`];
-  return clearCaches(env, tags, { tags }, paths(defer));
+  const tags = [`author:${author.id}`];
+  return clearCaches(
+    env,
+    tags,
+    { tags },
+    author.isContributor ? paths(defer) : undefined,
+  );
+}
+
+export function revalidateMergedSpecies(
+  env: ApiBindings,
+  ids: string[],
+  defer?: Defer,
+) {
+  return clearSpecies(env, ids, paths(defer));
 }
 
 export function revalidateNewsArticle(
@@ -103,38 +128,41 @@ export function revalidateSpeciesPage(
   );
 }
 
-export async function revalidateSpeciesSite(
+export function revalidateSpeciesSite(
   env: ApiBindings,
   ids: string[],
   defer?: Defer,
 ) {
-  const purged = await purgeApiCache(env, ["species", "catalog", "images"]);
-  const tags = ["species", ...ids.map((id) => `species:${id}`)];
-  for (let start = 0; start < tags.length; start += MAX_TAGS_PER_REQUEST) {
-    const warmPaths = await revalidateSite(env, {
-      tags: tags.slice(start, start + MAX_TAGS_PER_REQUEST),
-    });
-    if (!warmPaths) return false;
-  }
-  defer?.(requestFullSiteWarm(env));
-  return purged !== "failed";
+  return clearSpecies(env, ids, full(defer));
 }
 
-function clearCaches(
+async function clearCaches(
   env: ApiBindings,
   apiTags: string[],
   payload: SitePayload,
   warm?: Warm,
 ) {
-  return purgeApiCache(env, apiTags).then(async (purged) => {
-    const warmPaths = await revalidateSite(env, payload);
-    if (!warmPaths) return false;
-    if (warm?.scope === "full") warm.defer(requestFullSiteWarm(env));
-    if (warm?.scope === "paths" && warmPaths.length > 0) {
-      warm.defer(warmSitePaths(env, warmPaths));
-    }
-    return purged !== "failed";
-  });
+  const purged = await purgeApiCache(env, apiTags);
+  const warmPaths = await revalidateSite(env, payload);
+  if (!warmPaths || purged === "failed") return false;
+  scheduleWarm(env, warm, warmPaths);
+  return true;
+}
+
+async function clearSpecies(env: ApiBindings, ids: string[], warm?: Warm) {
+  const purged = await purgeApiCache(env, ["species", "catalog", "images"]);
+  const tags = ["species", ...ids.map((id) => `species:${id}`)];
+  const warmPaths: string[] = [];
+  for (let start = 0; start < tags.length; start += MAX_TAGS_PER_REQUEST) {
+    const chunk = await revalidateSite(env, {
+      tags: tags.slice(start, start + MAX_TAGS_PER_REQUEST),
+    });
+    if (!chunk) return false;
+    warmPaths.push(...chunk);
+  }
+  if (purged === "failed") return false;
+  scheduleWarm(env, warm, warmPaths);
+  return true;
 }
 
 function full(defer?: Defer): undefined | Warm {
@@ -152,7 +180,7 @@ async function revalidateSite(env: ApiBindings, payload: SitePayload) {
   }
   try {
     const response = await env.SITE.fetch(
-      new Request("https://reptiles.ge/api/revalidate", {
+      new Request(`${SITE_ORIGIN}/api/revalidate`, {
         body: JSON.stringify(payload),
         headers: {
           Authorization: `Bearer ${env.REVALIDATE_TOKEN}`,
@@ -169,6 +197,17 @@ async function revalidateSite(env: ApiBindings, payload: SitePayload) {
   } catch (error) {
     console.error("Site revalidation failed", error);
     return null;
+  }
+}
+
+function scheduleWarm(
+  env: ApiBindings,
+  warm: undefined | Warm,
+  paths: string[],
+) {
+  if (warm?.scope === "full") warm.defer(requestFullSiteWarm(env));
+  if (warm?.scope === "paths" && paths.length > 0) {
+    warm.defer(warmSitePaths(env, paths));
   }
 }
 
