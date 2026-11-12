@@ -10,14 +10,12 @@ import {
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
 
-import { getGuideArticles } from "../src/data/guideArticles";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
   SCHEMA_IMAGE_MIN_WIDTH,
   SCHEMA_RATIOS,
   type SchemaCrop,
 } from "../src/data/schemaImages";
-import { optimizedEntry, optimizedImgSrc } from "../src/data/optimizedImages";
 import {
   newsHeroImage,
   type NewsHeroImage as CropSource,
@@ -25,8 +23,6 @@ import {
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
-import { isPlaceholderMedia } from "../src/lib/speciesContent";
-import type { PhotoCredit } from "../src/data/speciesTypes";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 const MANIFEST_PATH = path.join(process.cwd(), "src/data/schemaImages.json");
@@ -35,18 +31,8 @@ const MAX_BYTES = 600_000;
 type CliOptions = {
   check: boolean;
   force: boolean;
-  guides: null | string[];
   slugs: string[];
-  species: null | string[];
   upload: boolean;
-};
-
-type SpeciesCover = {
-  commonName: string;
-  id: string;
-  image: string;
-  imageCredit?: PhotoCredit;
-  scientificName: string;
 };
 
 type Selected = { hero: CropSource; key: string };
@@ -58,8 +44,6 @@ type Manifest = {
 
 function parseArguments(argv: string[]): CliOptions {
   const slugs: string[] = [];
-  let guides: null | string[] = null;
-  let species: null | string[] = null;
   let check = false;
   let force = false;
   let upload = false;
@@ -87,14 +71,6 @@ function parseArguments(argv: string[]): CliOptions {
           }
         }
         break;
-      case "--guides":
-        index += 1;
-        guides = listValue(argument, argv[index]);
-        break;
-      case "--species":
-        index += 1;
-        species = listValue(argument, argv[index]);
-        break;
       case "--upload":
         upload = true;
         break;
@@ -106,33 +82,7 @@ function parseArguments(argv: string[]): CliOptions {
   if (check && upload) {
     throw new Error("--check and --upload cannot be combined.");
   }
-  if ((guides || species) && slugs.length > 0) {
-    throw new Error("--species and --guides cannot be combined with --news.");
-  }
-
-  return { check, force, guides, slugs, species, upload };
-}
-
-function listValue(flag: string, value: string | undefined) {
-  if (!value || value.startsWith("--")) {
-    throw new Error(`${flag} requires "all" or a comma-separated list of ids.`);
-  }
-  if (value === "all") return [];
-  return value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
-function coverHero(src: string): CropSource | null {
-  const entry = optimizedEntry(src);
-  if (!entry) return null;
-  return {
-    height: entry.height,
-    src,
-    url: optimizedImgSrc(src, entry.width),
-    width: entry.width,
-  };
+  return { check, force, slugs, upload };
 }
 
 function addHero(
@@ -157,46 +107,6 @@ function addHero(
   }
   if (!force && manifest.entries[hero.src]) return;
   heroes.set(hero.src, { hero, key });
-}
-
-function checkKnown(kind: string, wanted: string[], known: Set<string>) {
-  const unknown = wanted.filter((id) => !known.has(id));
-  if (unknown.length > 0) {
-    throw new Error(`Unknown ${kind}: ${unknown.join(", ")}.`);
-  }
-}
-
-function selectCovers(
-  options: CliOptions,
-  manifest: Manifest,
-  catalog: readonly SpeciesCover[],
-) {
-  const heroes = new Map<string, Selected>();
-  if (options.species) {
-    const wanted = options.species;
-    checkKnown("species", wanted, new Set(catalog.map((item) => item.id)));
-    for (const item of catalog) {
-      if (wanted.length > 0 && !wanted.includes(item.id)) continue;
-      if (isPlaceholderMedia(item.image)) continue;
-      addHero(heroes, item.id, coverHero(item.image), manifest, options.force);
-    }
-  }
-  if (options.guides) {
-    const wanted = options.guides;
-    const guides = getGuideArticles();
-    checkKnown("guide", wanted, new Set(guides.map((guide) => guide.id)));
-    for (const guide of guides) {
-      if (wanted.length > 0 && !wanted.includes(guide.id)) continue;
-      addHero(
-        heroes,
-        guide.id,
-        coverHero(guide.hero.src),
-        manifest,
-        options.force,
-      );
-    }
-  }
-  return [...heroes.values()];
 }
 
 function readManifest(): Manifest {
@@ -242,7 +152,7 @@ function createStorage(upload: boolean): StorageAdapter {
 function selectHeroes(
   options: CliOptions,
   manifest: Manifest,
-  catalog: readonly SpeciesCover[],
+  catalog: Parameters<typeof newsHeroImage>[1],
 ) {
   const articles = getPublishedNewsArticles();
   const known = new Set(articles.map((article) => article.slug));
@@ -274,10 +184,7 @@ async function main() {
   const catalog = (await getSpeciesCatalog("ka")).filter(
     (item): item is typeof item & { image: string } => Boolean(item.image),
   );
-  const heroes =
-    options.species || options.guides
-      ? selectCovers(options, manifest, catalog)
-      : selectHeroes(options, manifest, catalog);
+  const heroes = selectHeroes(options, manifest, catalog);
 
   if (heroes.length === 0) {
     console.log(

@@ -11,7 +11,7 @@ import {
   newsImageRights,
   type NewsSpecies,
 } from "@/lib/newsVisual";
-import { schemaImageObject } from "@/lib/schemaCropImages";
+import { schemaImageObject } from "@/lib/schemaImageObject";
 import { absoluteImageUrl } from "@/lib/site";
 
 export type NewsHeroImage = {

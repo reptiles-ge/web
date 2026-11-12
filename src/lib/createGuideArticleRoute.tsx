@@ -27,7 +27,6 @@ import {
   pageNodeId,
   webPageRef,
 } from "@/lib/pageStructuredData";
-import { schemaCropImageObjects } from "@/lib/schemaCropImages";
 import {
   absoluteImageUrl,
   absoluteUrl,
@@ -134,7 +133,6 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
           width: shareImage.width,
           ...heroRights,
         },
-        ...schemaCropImageObjects(article.hero.src, heroRights),
         heroImage,
       ],
       inLanguage: locale,
