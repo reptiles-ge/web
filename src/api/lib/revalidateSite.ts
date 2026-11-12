@@ -136,17 +136,18 @@ export function revalidateSpeciesSite(
   return clearSpecies(env, ids, full(defer));
 }
 
-async function clearCaches(
+function clearCaches(
   env: ApiBindings,
   apiTags: string[],
   payload: SitePayload,
   warm?: Warm,
 ) {
-  const purged = await purgeApiCache(env, apiTags);
-  const warmPaths = await revalidateSite(env, payload);
-  if (!warmPaths || purged === "failed") return false;
-  scheduleWarm(env, warm, warmPaths);
-  return true;
+  return purgeApiCache(env, apiTags).then(async (purged) => {
+    const warmPaths = await revalidateSite(env, payload);
+    if (!warmPaths || purged === "failed") return false;
+    scheduleWarm(env, warm, warmPaths);
+    return true;
+  });
 }
 
 async function clearSpecies(env: ApiBindings, ids: string[], warm?: Warm) {
