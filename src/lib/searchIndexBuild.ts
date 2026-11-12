@@ -30,6 +30,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   CLUSTER_GUIDE_LIST,
   type ClusterGuideId,
+  hasGuideSpecies,
   isFrogSpecies,
   isNewtSpecies,
 } from "@/lib/clusterGuides";
@@ -1118,14 +1119,15 @@ export function buildSearchIndex(
         coverFromSpecies(hub.heroSpeciesId),
       ),
     ),
-    ...CLUSTER_GUIDE_LIST.map((guide) =>
-      toPageDocument(
-        locale,
-        guide.id,
-        guide.pathname,
-        CLUSTER_COPY[guide.id],
-        coverFromSpecies(guide.heroSpeciesId, guide.heroImage),
-      ),
+    ...CLUSTER_GUIDE_LIST.filter((guide) => hasGuideSpecies(guide, base)).map(
+      (guide) =>
+        toPageDocument(
+          locale,
+          guide.id,
+          guide.pathname,
+          CLUSTER_COPY[guide.id],
+          coverFromSpecies(guide.heroSpeciesId, guide.heroImage),
+        ),
     ),
   ];
 

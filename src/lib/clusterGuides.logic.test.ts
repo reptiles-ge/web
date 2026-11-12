@@ -4,6 +4,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { getRegionById } from "@/data/regions";
 import {
+  CATALOG_INDEX_MESSAGE_KEYS,
   CLUSTER_GUIDE_LIST,
   CLUSTER_GUIDES,
   dedupeGuideLinks,
@@ -13,8 +14,11 @@ import {
   getRelatedGuideCards,
   getSpeciesGuideLinks,
   getViperSpecies,
+  hasGuideSpecies,
   HUB_CLUSTER_CARDS,
   HUB_INDEX_PATH,
+  isCatalogIndexGuide,
+  isEmptyGuidePath,
   isFrogSpecies,
   isLizardSpecies,
   isNewtSpecies,
@@ -89,6 +93,39 @@ describe("cluster guide configuration", () => {
   it("uses distinct title keys for distinct hubs", () => {
     const titles = HUB_IDS.map((hub) => getHubIndexTitleKey(hub));
     expect(new Set(titles).size).toBe(titles.length);
+  });
+});
+
+describe("empty collection guides", () => {
+  const fish = {
+    ...species("natrix-natrix"),
+    group: "fish" as const,
+    id: CLUSTER_GUIDES["fish-index"].heroSpeciesId,
+  };
+
+  it("finds a collection guide empty only when no species matches it", () => {
+    const fishIndex = CLUSTER_GUIDES["fish-index"];
+    expect(hasGuideSpecies(fishIndex, catalogSpeciesFixture())).toBe(false);
+    expect(hasGuideSpecies(fishIndex, [fish])).toBe(true);
+    expect(hasGuideSpecies(CLUSTER_GUIDES["lizard-glass"], [])).toBe(true);
+  });
+
+  it("finds empty guide paths and ignores paths that are not guides", () => {
+    const catalog = catalogSpeciesFixture();
+    expect(isEmptyGuidePath("/fish/saxeoebebi", catalog)).toBe(true);
+    expect(isEmptyGuidePath("/fish/saxeoebebi", [fish])).toBe(false);
+    expect(isEmptyGuidePath("/birds/saxeoebebi", catalog)).toBe(false);
+    expect(isEmptyGuidePath("/fish", [])).toBe(false);
+  });
+
+  it("gives every catalog index its own message key", () => {
+    for (const [id, key] of Object.entries(CATALOG_INDEX_MESSAGE_KEYS)) {
+      const guideId = id as keyof typeof CATALOG_INDEX_MESSAGE_KEYS;
+      expect(isCatalogIndexGuide(guideId)).toBe(true);
+      expect(CLUSTER_GUIDES[guideId].messageKey, id).toBe(key);
+      expect(CLUSTER_GUIDES[guideId].schema, id).toBe("collection");
+    }
+    expect(isCatalogIndexGuide("snake-index")).toBe(false);
   });
 });
 

@@ -33,9 +33,12 @@ import {
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
+  type CatalogIndexGuideId,
   CLUSTER_GUIDES,
   type ClusterGuideId,
   type ClusterGuideViewProps,
+  hasGuideSpecies,
+  isCatalogIndexGuide,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
@@ -55,33 +58,27 @@ type Props = {
 };
 
 const CLUSTER_PAGES: Record<
-  ClusterGuideId,
+  Exclude<ClusterGuideId, CatalogIndexGuideId>,
   ComponentType<ClusterGuideViewProps>
 > = {
   "amphibian-frogs": ClusterGuidePage,
   "amphibian-frogs-index": FrogSpeciesIndexPage,
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
-  "bird-index": CatalogSpeciesIndexPage,
-  "fish-index": CatalogSpeciesIndexPage,
-  "insect-index": CatalogSpeciesIndexPage,
   "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
   "lizard-house": LizardHousePage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-index": LizardSpeciesIndexPage,
   "mammal-bear": MammalBearPage,
-  "mammal-index": CatalogSpeciesIndexPage,
   "mammal-jackal-yard": MammalJackalYardPage,
   "snake-identify": SnakeIdentifyPage,
   "snake-index": SnakeSpeciesIndexPage,
   "snake-largest": SnakeLargestPage,
   "snake-range": SnakeRangePage,
   "spider-bite": SpiderBitePage,
-  "spider-index": CatalogSpeciesIndexPage,
   "spider-venomous": SpiderVenomousPage,
   "turtle-identify": TurtleIdentifyPage,
-  "turtle-index": CatalogSpeciesIndexPage,
   "turtle-land": ClusterGuidePage,
   "turtle-water": ClusterGuidePage,
 };
@@ -93,7 +90,6 @@ const CLIENT_COPY_GUIDES: ReadonlySet<ClusterGuideId> = new Set([
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
-  const PageView = CLUSTER_PAGES[guideId];
   const clientMessageNamespaces: ClientMessagePath[] = [
     ...CLUSTER_GUIDE_CLIENT_MESSAGES,
     ...(CLIENT_COPY_GUIDES.has(guideId) ? [guide.messageKey] : []),
@@ -112,7 +108,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       catalog.find((item) => item.id === guide.heroSpeciesId) ?? matched[0];
     const ogImageUrl = guide.heroImage
       ? absoluteUrl(guide.heroImage)
-      : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
+      : speciesOgImageUrl(hero?.id ?? guide.heroSpeciesId, hero?.image);
 
     const metadata = buildPageMetadata({
       description: t("metaDescription"),
@@ -127,9 +123,9 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       pagePath: guide.pathname,
       title,
     });
-    return guide.schema === "collection" && matched.length === 0
-      ? { ...metadata, robots: NOINDEX_FOLLOW_ROBOTS }
-      : metadata;
+    return hasGuideSpecies(guide, matched)
+      ? metadata
+      : { ...metadata, robots: NOINDEX_FOLLOW_ROBOTS };
   }
 
   async function Page({ params }: Props) {
@@ -191,7 +187,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
           locale={locale}
           namespaces={clientMessageNamespaces}
         >
-          <PageView
+          <GuidePageView
             guideId={guideId}
             heroSrc={heroSrc}
             locale={locale}
@@ -207,4 +203,13 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     Page,
   };
+}
+
+function GuidePageView(props: ClusterGuideViewProps) {
+  const { guideId } = props;
+  if (isCatalogIndexGuide(guideId)) {
+    return <CatalogSpeciesIndexPage {...props} guideId={guideId} />;
+  }
+  const View = CLUSTER_PAGES[guideId];
+  return <View {...props} />;
 }

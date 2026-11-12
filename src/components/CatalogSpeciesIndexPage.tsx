@@ -13,7 +13,8 @@ import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import {
-  CLUSTER_GUIDES,
+  CATALOG_INDEX_MESSAGE_KEYS,
+  type CatalogIndexGuideId,
   type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
 
@@ -22,18 +23,8 @@ export async function CatalogSpeciesIndexPage({
   heroSrc,
   locale,
   species,
-}: ClusterGuideViewProps) {
-  const messageKey = CLUSTER_GUIDES[guideId].messageKey;
-  if (
-    messageKey !== "birdIndex" &&
-    messageKey !== "fishIndex" &&
-    messageKey !== "insectIndex" &&
-    messageKey !== "mammalIndex" &&
-    messageKey !== "spiderIndex" &&
-    messageKey !== "turtleIndex"
-  ) {
-    return null;
-  }
+}: Omit<ClusterGuideViewProps, "guideId"> & { guideId: CatalogIndexGuideId }) {
+  const messageKey = CATALOG_INDEX_MESSAGE_KEYS[guideId];
   const t = await getTranslations({ locale, namespace: messageKey });
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;

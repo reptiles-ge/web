@@ -584,6 +584,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
 
 export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
 
+export const CATALOG_INDEX_MESSAGE_KEYS = {
+  "bird-index": "birdIndex",
+  "fish-index": "fishIndex",
+  "insect-index": "insectIndex",
+  "mammal-index": "mammalIndex",
+  "spider-index": "spiderIndex",
+  "turtle-index": "turtleIndex",
+} as const satisfies Partial<Record<ClusterGuideId, ClusterMessageKey>>;
+
+export type CatalogIndexGuideId = keyof typeof CATALOG_INDEX_MESSAGE_KEYS;
+
 export type ClusterGuideViewProps = {
   guideId: ClusterGuideId;
   heroSrc: string;
@@ -658,6 +669,27 @@ export type HubClusterCard =
       key: "giurza" | "gvelxokera" | "jojo" | "najadum" | "slider" | "tortoise";
       kind: "species";
     };
+
+export function hasGuideSpecies(
+  guide: ClusterGuideConfig,
+  catalog: readonly SpeciesSummary[],
+) {
+  return guide.schema !== "collection" || catalog.some(guide.matches);
+}
+
+export function isCatalogIndexGuide(
+  id: ClusterGuideId,
+): id is CatalogIndexGuideId {
+  return Object.hasOwn(CATALOG_INDEX_MESSAGE_KEYS, id);
+}
+
+export function isEmptyGuidePath(
+  path: string,
+  catalog: readonly SpeciesSummary[],
+) {
+  const guide = CLUSTER_GUIDE_LIST.find((item) => item.pathname === path);
+  return guide !== undefined && !hasGuideSpecies(guide, catalog);
+}
 
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   amphibians: [

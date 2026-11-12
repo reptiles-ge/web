@@ -36,6 +36,7 @@ import {
   getHubIndexTitleKey,
   HUB_CLUSTER_CARDS,
   HUB_INDEX_PATH,
+  isEmptyGuidePath,
   splitHubSpecies,
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
@@ -78,13 +79,15 @@ export async function GroupHubPage({
     articles.map((article) => article.pathname),
   );
   const guideCards = hubGuideCards(HUB_CLUSTER_CARDS[hubId]).filter(
-    (card) => card.kind !== "page" || !articlePaths.has(card.href),
+    (card) =>
+      card.kind !== "page" ||
+      (!articlePaths.has(card.href) && !isEmptyGuidePath(card.href, species)),
   );
   const guideCount = guideCards.length + articles.length;
   const faqCount = hubFaqCount(hubId, (key) => t.has(key as never));
   const indexPath = HUB_INDEX_PATH[hubId];
   const indexLink =
-    indexPath === hub.path
+    indexPath === hub.path || isEmptyGuidePath(indexPath, species)
       ? undefined
       : {
           href: indexPath,
