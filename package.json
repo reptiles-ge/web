@@ -194,7 +194,7 @@
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^6",
-    "vite": "^8.3.5",
+    "vite": "^8.3.6",
     "vitest": "5.0.5",
     "wrangler": "^4.157.0",
     "zod": "4.6.7"
