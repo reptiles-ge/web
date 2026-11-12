@@ -12,6 +12,18 @@ feature branch ──PR──▶ staging ──"Staging to main" PR──▶ mai
                                                            └── tag vX.Y.Z + GitHub Release (on request)
 ```
 
+## Merge methods
+
+- Feature pull requests into `staging` are squash-merged: one commit per pull request.
+- `Staging to main` pull requests use **Create a merge commit**. The ruleset "main: merge commit only" allows nothing else on `main`. A squash here would leave every `staging` commit outside the history of `main`, and each later `Staging to main` pull request would list them all again.
+- After the merge, `staging` is one merge commit behind `main`. `main` requires an up-to-date branch, so the next `Staging to main` pull request asks to update `staging` first. Click **Update branch**, or fast-forward it:
+
+```bash
+git fetch origin && git push origin origin/main:staging
+```
+
+The push is a fast-forward and fails safely if `staging` has new commits since the merge. In that case use **Update branch**.
+
 ## Rules
 
 1. Tags are `vMAJOR.MINOR.PATCH` (for example `v1.4.2`). No other tag format.
