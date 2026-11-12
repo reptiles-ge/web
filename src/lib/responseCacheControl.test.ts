@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  PAGE_CACHE_CONTROL,
   REVALIDATED_ASSET_CACHE_CONTROL,
   SITEMAP_CACHE_CONTROL,
   withResponseCacheControl,
@@ -55,6 +56,59 @@ describe("withResponseCacheControl", () => {
     );
     expect(response).toBe(original);
     expect(response.headers.get("Cache-Control")).toBe(VINEXT_DEFAULT);
+  });
+});
+
+describe("page cache control on a response-store miss", () => {
+  function page(
+    cacheControl: string,
+    cacheStatus: null | string = "MISS",
+    contentType = "text/html; charset=utf-8",
+  ) {
+    const headers = new Headers({
+      "Cache-Control": cacheControl,
+      "Content-Type": contentType,
+    });
+    if (cacheStatus) headers.set("X-Vinext-Cache", cacheStatus);
+    return new Response("<html></html>", { headers });
+  }
+
+  it("sends the HIT header on an admitted RSC MISS", () => {
+    const response = withResponseCacheControl(
+      new Request("https://reptiles.ge/gvelebi?_rsc"),
+      page("no-store, must-revalidate", "MISS", "text/x-component"),
+    );
+    expect(response.headers.get("Cache-Control")).toBe(PAGE_CACHE_CONTROL);
+  });
+
+  it("sends the HIT header on an admitted MISS", async () => {
+    const response = withResponseCacheControl(
+      new Request("https://reptiles.ge/prinvelebi/mekiria"),
+      page("no-store, must-revalidate"),
+    );
+    expect(response.headers.get("Cache-Control")).toBe(PAGE_CACHE_CONTROL);
+    expect(PAGE_CACHE_CONTROL).toBe(VINEXT_DEFAULT);
+    expect(response.headers.get("X-Vinext-Cache")).toBe("MISS");
+    expect(await response.text()).toBe("<html></html>");
+  });
+
+  it.each([
+    [
+      "a dynamic page",
+      page("private, no-cache, no-store, max-age=0, must-revalidate"),
+    ],
+    ["a bypassed page", page("no-store, must-revalidate", "BYPASS")],
+    ["a page outside the store", page("no-store, must-revalidate", null)],
+    [
+      "a JSON response",
+      page("no-store, must-revalidate", "MISS", "application/json"),
+    ],
+  ])("leaves %s alone", (_, original) => {
+    const response = withResponseCacheControl(
+      new Request("https://reptiles.ge/gvelebi"),
+      original,
+    );
+    expect(response).toBe(original);
   });
 });
 

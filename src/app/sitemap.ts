@@ -9,7 +9,7 @@ import {
 import { regions } from "@/data/regions";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getContributors } from "@/lib/authorsApi";
-import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
+import { CLUSTER_GUIDE_LIST, hasGuideSpecies } from "@/lib/clusterGuides";
 import {
   creditAuthorAlternates,
   creditAuthorUrl,
@@ -153,6 +153,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
+      if (!hasGuideSpecies(guide, cards)) continue;
       const images = guidePageImageUrls([guide.heroImage]);
       add(
         page(guide.pathname).then((entry) => ({

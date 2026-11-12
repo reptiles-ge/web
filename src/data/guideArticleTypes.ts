@@ -13,6 +13,7 @@ export type GuideArticle<ImageKey extends string = string> = {
   ogImage: GuideArticleOgImage;
   parentHub: GroupHubId;
   pathname: GuideArticlePath;
+  profileSpeciesIds?: readonly string[];
   relatedGuideIds?: readonly string[];
   relatedSpeciesIds?: readonly string[];
   search: GuideArticleSearch;

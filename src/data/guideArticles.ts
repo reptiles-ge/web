@@ -83,8 +83,10 @@ export function getGuideArticlesForHub(hubId: GroupHubId) {
 }
 
 export function getGuideArticlesForSpecies(speciesId: string) {
-  return GUIDE_ARTICLES.filter((article) =>
-    article.relatedSpeciesIds?.includes(speciesId),
+  return GUIDE_ARTICLES.filter(
+    (article) =>
+      article.relatedSpeciesIds?.includes(speciesId) ||
+      article.profileSpeciesIds?.includes(speciesId),
   );
 }
 

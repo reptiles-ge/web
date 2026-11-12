@@ -20,7 +20,6 @@ import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { VenomousSnakesCompare } from "@/components/VenomousSnakesCompare";
 import { Link } from "@/i18n/navigation";
-import { formatContentDate } from "@/lib/formatDate";
 
 const MYTHS = [1, 2, 3, 4] as const;
 const HIKING_ZONES = [1, 2, 3, 4, 5] as const;
@@ -41,7 +40,6 @@ const HIKING_SPECIES_LINKS = Object.fromEntries(
     ),
   ]),
 );
-const EDITORIAL_UPDATED = "2026-09-07";
 
 type VenomousSnakesGuidesProps = {
   locale: AppLocale;
@@ -306,9 +304,6 @@ export async function VenomousSnakesGuides({
         <GuideEditorialNote
           body={t("editorialBody")}
           disclaimer={t("editorialDisclaimer")}
-          updated={t("editorialUpdated", {
-            date: formatContentDate(EDITORIAL_UPDATED, locale),
-          })}
         />
       </ClusterContentSection>
     </>

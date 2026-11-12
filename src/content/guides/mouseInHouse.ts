@@ -986,6 +986,7 @@ export const MOUSE_IN_HOUSE = defineGuideArticle({
   ogImage: "https://cdn.reptiles.ge/og/images/guides/mouse-in-house.jpg",
   parentHub: "mammals",
   pathname: "/mammals/tagvi-sakhlshi",
+  profileSpeciesIds: ["mus-musculus"],
   search: {
     icon: "guide",
     keywords: [

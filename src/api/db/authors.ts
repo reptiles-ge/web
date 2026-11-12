@@ -203,6 +203,14 @@ export async function getContributorDetail(
   };
 }
 
+export async function readAuthorContributor(db: ApiDatabase, id: string) {
+  const row = await db
+    .prepare("SELECT is_contributor FROM authors WHERE id = ?")
+    .bind(id)
+    .first<{ is_contributor: number }>();
+  return row ? row.is_contributor === 1 : null;
+}
+
 const ADMIN_AUTHOR_FROM =
   "FROM authors a LEFT JOIN author_texts k ON k.author_id = a.id AND k.locale = 'ka' LEFT JOIN author_texts e ON e.author_id = a.id AND e.locale = 'en' WHERE (?1 IS NULL OR a.is_contributor = ?1) AND (?2 IS NULL OR a.kind_id = ?2) AND (?3 IS NULL OR a.role_id = ?3) AND (?4 IS NULL OR a.id LIKE ?4 ESCAPE '\\' OR k.name LIKE ?4 ESCAPE '\\' OR e.name LIKE ?4 ESCAPE '\\')";
 

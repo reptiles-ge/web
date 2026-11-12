@@ -579,6 +579,7 @@ export const WASP_NEST = defineGuideArticle({
   ogImage: "https://cdn.reptiles.ge/og/images/guides/wasp-nest.jpg",
   parentHub: "insects",
   pathname: "/insects/krazanis-bude",
+  profileSpeciesIds: ["vespa-crabro"],
   search: {
     icon: "safety",
     keywords: [
