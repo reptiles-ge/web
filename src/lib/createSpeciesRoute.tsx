@@ -32,6 +32,7 @@ import {
 } from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
+import { schemaCropImageObjects } from "@/lib/schemaCropImages";
 import {
   speciesAlternateNames,
   speciesJsonLdKeywords,
@@ -460,16 +461,19 @@ function speciesStructuredData({
     "@id": taxonId,
     ...speciesTaxonJsonLd(raw, item, locale, ranks),
   };
+  const coverRights =
+    item.image && ogImage !== speciesOgImageUrl(item.id)
+      ? photoRights(item.image, item.imageCredit, locale, contributors)
+      : photoRights(ogImage, undefined, locale, contributors);
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
     name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     url: ogImage,
     ...ogImageDimensions(ogImage),
-    ...(item.image && ogImage !== speciesOgImageUrl(item.id)
-      ? photoRights(item.image, item.imageCredit, locale, contributors)
-      : photoRights(ogImage, undefined, locale, contributors)),
+    ...coverRights,
   };
+  const cropObjects = schemaCropImageObjects(item.image, coverRights);
   const jsonLd = {
     "@context": "https://schema.org",
     "@id": pageNodeId(pageUrl, "article"),
@@ -489,7 +493,11 @@ function speciesStructuredData({
         }
       : {}),
     headline: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
-    image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
+    image: [
+      ogImageObject,
+      ...cropObjects,
+      ...photoObjects.map((photo) => photo.contentUrl),
+    ],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
     mainEntityOfPage: webPageRef(pageUrl),

@@ -20,7 +20,7 @@ const crops = vi.hoisted(() => new Map<string, NewsSchemaCrop[]>());
 
 vi.mock("@/data/newsSchemaImages", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/data/newsSchemaImages")>()),
-  newsSchemaCrops: (src: string) => crops.get(src) ?? [],
+  schemaImageCrops: (src: string) => crops.get(src) ?? [],
 }));
 
 const articles = getPublishedNewsArticles();

@@ -4,7 +4,7 @@ import type { ContributorDirectory } from "@/lib/contributorCredits";
 
 import {
   NEWS_SCHEMA_IMAGE_MIN_WIDTH,
-  newsSchemaCrops,
+  schemaImageCrops,
 } from "@/data/newsSchemaImages";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { newsOgImageDimensions, newsOgImageUrl } from "@/lib/news";
@@ -71,7 +71,7 @@ export function newsSchemaImages(
 
   const seen = new Set([ogImage]);
   if (ogImage === absoluteImageUrl(hero.src)) seen.add(hero.url);
-  const candidates = [...newsSchemaCrops(hero.src), hero];
+  const candidates = [...schemaImageCrops(hero.src), hero];
   for (const candidate of candidates) {
     if (seen.has(candidate.url)) continue;
     seen.add(candidate.url);

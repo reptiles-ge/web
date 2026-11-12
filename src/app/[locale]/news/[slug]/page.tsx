@@ -12,12 +12,13 @@ import { getRegionById, localizeRegionText } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getContributorDirectory } from "@/lib/authorsApi";
+import { compactRepeatedNodes } from "@/lib/jsonLdNodes";
 import {
   newsArticleAlternates,
   newsArticleUrl,
+  newsDateTime,
   newsIndexUrl,
   newsOgImageUrl,
-  newsSchemaDate,
 } from "@/lib/news";
 import { getNewsArticle, getNewsList } from "@/lib/newsApi";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
@@ -70,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = newsArticleUrl(locale, article.slug);
   const description = copy.metaDescription;
   const ogImage = newsOgImageUrl(article, await getSpeciesCatalog(locale));
-  const published = newsSchemaDate(article.publishedAt);
+  const published = newsDateTime(article.publishedAt);
 
   return {
     alternates: newsArticleAlternates(locale, article),
@@ -84,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url,
       ...(article.updatedAt
-        ? { modifiedTime: newsSchemaDate(article.updatedAt) }
+        ? { modifiedTime: newsDateTime(article.updatedAt) }
         : {}),
       images: [openGraphJpeg(ogImage, title)],
     },
@@ -135,8 +136,8 @@ export default async function NewsArticleRoute({ params }: Props) {
       getContributorDirectory(locale),
     ]);
   const url = newsArticleUrl(locale, article.slug);
-  const published = newsSchemaDate(article.publishedAt);
-  const modified = newsSchemaDate(article.updatedAt ?? article.publishedAt);
+  const published = newsDateTime(article.publishedAt);
+  const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
@@ -157,7 +158,7 @@ export default async function NewsArticleRoute({ params }: Props) {
   const mentions = newsRelatedSpecies(article, catalog).map((species) =>
     speciesTaxonRef(locale, species),
   );
-  const articleLd = {
+  const articleLd = compactRepeatedNodes({
     "@context": "https://schema.org",
     "@id": pageNodeId(url, "article"),
     "@type": "NewsArticle",
@@ -200,7 +201,7 @@ export default async function NewsArticleRoute({ params }: Props) {
     mentions,
     publisher: organizationRef(),
     url,
-  };
+  });
 
   return (
     <>

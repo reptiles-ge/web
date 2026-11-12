@@ -17,6 +17,6 @@ export const NEWS_SCHEMA_RATIOS = [
 
 const entries: Record<string, readonly NewsSchemaCrop[]> = manifest.entries;
 
-export function newsSchemaCrops(src: string): readonly NewsSchemaCrop[] {
+export function schemaImageCrops(src: string): readonly NewsSchemaCrop[] {
   return entries[src] ?? [];
 }

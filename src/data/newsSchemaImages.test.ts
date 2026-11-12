@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   NEWS_SCHEMA_IMAGE_MIN_WIDTH,
   NEWS_SCHEMA_RATIOS,
-  newsSchemaCrops,
+  schemaImageCrops,
 } from "@/data/newsSchemaImages";
 import { CDN_BASE } from "@/lib/site";
 
@@ -24,13 +24,13 @@ describe("news schema crops", () => {
   });
 
   it("has no crops for an unknown photo", () => {
-    expect(newsSchemaCrops("https://cdn.reptiles.ge/unknown.jpg")).toEqual([]);
+    expect(schemaImageCrops("https://cdn.reptiles.ge/unknown.jpg")).toEqual([]);
   });
 
   it("stores every ratio on the CDN for each listed photo", () => {
     const entries: Record<
       string,
-      ReturnType<typeof newsSchemaCrops>
+      ReturnType<typeof schemaImageCrops>
     > = manifest.entries;
     for (const [src, crops] of Object.entries(entries)) {
       expect(
@@ -43,7 +43,7 @@ describe("news schema crops", () => {
         );
         expect(crop.width).toBeGreaterThanOrEqual(NEWS_SCHEMA_IMAGE_MIN_WIDTH);
       }
-      expect(newsSchemaCrops(src)).toEqual(crops);
+      expect(schemaImageCrops(src)).toEqual(crops);
     }
   });
 });

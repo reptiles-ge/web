@@ -13,7 +13,6 @@ import {
   newsOgImageDimensions,
   newsOgImageUrl,
   newsReadMinutes,
-  newsSchemaDate,
   newsSourceBadges,
 } from "@/lib/news";
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
@@ -51,18 +50,6 @@ describe("newsDateTime", () => {
 
   it("falls back to midnight for an unparseable value", () => {
     expect(newsDateTime("not-a-date")).toBe("not-a-dateT00:00:00+04:00");
-  });
-});
-
-describe("newsSchemaDate", () => {
-  it("keeps a bare date without inventing a time", () => {
-    expect(newsSchemaDate("2026-10-24")).toBe("2026-10-24");
-  });
-
-  it("converts a timestamp to the site time zone", () => {
-    expect(newsSchemaDate("2026-10-23T07:30:00Z")).toBe(
-      "2026-10-23T11:30:00+04:00",
-    );
   });
 });
 
