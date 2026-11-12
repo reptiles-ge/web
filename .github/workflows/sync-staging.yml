@@ -1,0 +1,37 @@
+name: Sync staging
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-staging
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Point staging at main when both hold the same tree
+        run: |
+          git fetch origin main staging
+          main_sha=$(git rev-parse origin/main)
+          staging_sha=$(git rev-parse origin/staging)
+          if [ "$main_sha" = "$staging_sha" ]; then
+            echo "staging is already main"
+            exit 0
+          fi
+          if [ "$(git rev-parse "origin/main^{tree}")" != "$(git rev-parse "origin/staging^{tree}")" ]; then
+            echo "staging differs from main, left as it is"
+            exit 0
+          fi
+          git push --force-with-lease="staging:$staging_sha" origin "$main_sha:refs/heads/staging"
+          echo "staging moved from $staging_sha to $main_sha"

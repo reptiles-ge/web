@@ -14,15 +14,10 @@ feature branch ──PR──▶ staging ──"Staging to main" PR──▶ mai
 
 ## Merge methods
 
-- Feature pull requests into `staging` are squash-merged: one commit per pull request.
-- `Staging to main` pull requests use **Create a merge commit**. The ruleset "main: merge commit only" allows nothing else on `main`. A squash here would leave every `staging` commit outside the history of `main`, and each later `Staging to main` pull request would list them all again.
-- After the merge, `staging` is one merge commit behind `main`. `main` requires an up-to-date branch, so the next `Staging to main` pull request asks to update `staging` first. Click **Update branch**, or fast-forward it:
+Every pull request is squash-merged, into `staging` and into `main`. A squash leaves the `staging` commits outside the history of `main`, so `.github/workflows/sync-staging.yml` runs after every push to `main`: when `staging` holds the same tree as `main`, it moves `staging` to the `main` commit (force push with lease). The next `Staging to main` pull request then lists only the work merged since. Do not merge `main` back into `staging` by hand.
 
-```bash
-git fetch origin && git push origin origin/main:staging
-```
-
-The push is a fast-forward and fails safely if `staging` has new commits since the merge. In that case use **Update branch**.
+- If `staging` gained a commit before the workflow ran, the trees differ and the workflow leaves `staging` as it is. The next `Staging to main` pull request carries the old commits once more, and the workflow moves `staging` after that merge.
+- A feature pull request that was open during the move shows the previous batch under **Files changed** until it is updated. Click **Update branch** on it; the squash merge is correct either way.
 
 ## Rules
 
