@@ -23,7 +23,7 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 - `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against `optimizedImages.generated`), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
 - `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsLinkedSpeciesIds`, `newsSearchKeywords`, `newsSourceOrg`, …).
 - No client component imports news data. Everything is server-side or build-time.
-- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in `src/data/newsSchemaImages.json` (`images:news-schema`).
+- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in `src/data/schemaImages.json` (`images:schema`).
 - The local admin text editor (`src/lib/contentEditorTarget.ts`, kind `news`) edits `title`, `dek`, `lead` and body fields in the MDX files and opens a PR.
 - Guard tests: `src/data/newsContent.test.ts` (one folder per slug, section and figure parity across locales, figures only from the article's own photos, links only to existing species, regions, hubs and contributors, linked ids present in the related ids), `newsData.test.ts`, `newsSeries.test.ts`.
 
@@ -165,7 +165,7 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
 ### Original plan
 
 - `sitemap.ts`, `feed.xml` routes (`newsFeed.ts`), `llmsFiles.ts`, `searchIndexBuild.ts`: read `getNewsList` (the list has everything except sections; `llms-full` needs `GET /v1/news/:slug` per article or a `?view=full` list).
-- Scripts: `export-seo-graph.ts`, `reptiles-seo.ts`, `fetch-photo-licenses.ts`, `generate-news-schema-images.ts`, `optimize-images.ts --news`. Load from the API the way S2.12a does for species (`tsx` cannot use React `cache` or `next` fetch options).
+- Scripts: `export-seo-graph.ts`, `reptiles-seo.ts`, `fetch-photo-licenses.ts`, `generate-schema-images.ts`, `optimize-images.ts --news`. Load from the API the way S2.12a does for species (`tsx` cannot use React `cache` or `next` fetch options).
 - Outputs must match the old ones exactly (sitemap, all feeds, all llms files, search index) before the PR merges.
 
 ---
@@ -193,13 +193,13 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
   - `scripts/news-export.ts` (`pnpm news:export <slug>`): `GET /v1/admin/news/:slug`, serialize to the four MDX files. Test: export → parse → `toStrictEqual` for every article in the seed.
   - Typed calls in `src/lib/adminNewsApi.ts` (like `adminSpeciesApi.ts`); the scripts use them.
   - Update `AGENTS.md` (News section) and the writing skills: the last step is `news:import`, not a PR with MDX and a `newsSlugs` entry. The order inside a day comes from `position`, which the API sets at the end on create.
-  - Images: a new news photo still needs the CDN upload and the derivatives catalog PR (`images:optimize:news`, `images:news-schema`) before the import, because the hero check reads that catalog.
+  - Images: a new news photo still needs the CDN upload and the derivatives catalog PR (`images:optimize:news`, `images:schema`) before the import, because the hero check reads that catalog.
 
 ---
 
 ## Phase 6 — delete MDX
 
-Remove `src/content/news/`, `scripts/compile-news.ts`, `src/data/news.generated.ts`, `src/data/newsPublish.ts`, `news:compile` from `compile` / `predev` / `prebuild` / `seo:graph` / `images:news-schema`, and `newsContent.test.ts` (its checks now live in `schemas/newsRecord.ts`). **Keep** `src/lib/newsMdx.ts`, `src/lib/newsFrontmatter.ts` and `newsArticleFromMdx`: `news:import` and `news:export` need them. Update `AGENTS.md` (News section) and `.agents/skills/api/SKILL.md` (a "News data in D1" section).
+Remove `src/content/news/`, `scripts/compile-news.ts`, `src/data/news.generated.ts`, `src/data/newsPublish.ts`, `news:compile` from `compile` / `predev` / `prebuild` / `seo:graph` / `images:schema`, and `newsContent.test.ts` (its checks now live in `schemas/newsRecord.ts`). **Keep** `src/lib/newsMdx.ts`, `src/lib/newsFrontmatter.ts` and `newsArticleFromMdx`: `news:import` and `news:export` need them. Update `AGENTS.md` (News section) and `.agents/skills/api/SKILL.md` (a "News data in D1" section).
 
 ---
 
@@ -210,5 +210,5 @@ Remove `src/content/news/`, `scripts/compile-news.ts`, `src/data/news.generated.
 - **Build needs the API.** Sitemap, feeds and `llms.txt` are static at build, so `next build` needs `api.reptiles.ge` reachable, as it already does for species.
 - **Link validation moves from CI to the API.** Today a broken species link fails `newsContent.test.ts` in CI. After the move it must fail the write. Deleting or unpublishing a species that a news article links needs a check too (or the link renders as plain text).
 - **Credit authors.** News credits link to contributors by spelling today. Derive `news_media.author_id` from `author_aliases` on write, the same as species photos.
-- **Images catalog** (`optimizedImages.generated.ts`, `newsSchemaImages.json`) stays in the repo, as it does for species. A new news photo still needs a catalog PR until that catalog moves.
+- **Images catalog** (`optimizedImages.generated.ts`, `schemaImages.json`) stays in the repo, as it does for species. A new news photo still needs a catalog PR until that catalog moves.
 - **Fetch cache limit.** One full article is about 46 KB for four locales, so it is far under the 2 MB limit. Never ship a full list with sections to a normal page render.

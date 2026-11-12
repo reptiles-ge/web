@@ -39,6 +39,16 @@ export function newsArticleAlternates(
   };
 }
 
+export function newsArticleDates(
+  article: Pick<NewsArticle, "publishedAt" | "updatedAt">,
+) {
+  const datePublished = newsDateTime(article.publishedAt);
+  const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
+  const dateModified =
+    Date.parse(modified) > Date.parse(datePublished) ? modified : datePublished;
+  return { dateModified, datePublished };
+}
+
 export function newsArticleModifiedDateTime(
   article: Pick<NewsArticle, "publishedAt" | "updatedAt">,
 ) {
@@ -113,10 +123,6 @@ export function newsOgImageUrl(
 }
 export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
   return newsCopyReadMinutes(getNewsCopy(article, locale) ?? article.copy.ka);
-}
-
-export function newsSchemaDate(isoDate: string) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(isoDate) ? isoDate : newsDateTime(isoDate);
 }
 
 export function newsSourceBadges(

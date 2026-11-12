@@ -130,7 +130,8 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     description: t("metaDescription"),
     hasPart: liveQuizzes().map((quiz) => ({
       "@id": pageNodeId(quizPageUrl(locale, quiz.id), "quiz"),
-      "@type": "Quiz",
+      "@type": "LearningResource",
+      learningResourceType: "Quiz",
       name: t(`${quiz.messageKey}Title`),
       url: quizPageUrl(locale, quiz.id),
     })),
