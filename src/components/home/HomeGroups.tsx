@@ -26,6 +26,8 @@ const GROUPS = [
 
 const PRIORITY_CARDS = 2;
 
+const MOBILE_MEDIA = "(max-width: 1023px)";
+
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
   const [t, tNav, stats] = await Promise.all([
     getTranslations({ locale, namespace: "home.groups" }),
@@ -35,10 +37,14 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
 
   return (
     <section className="bg-background py-11 lg:py-20" id="groups">
-      <CoverImagePreload
-        sizes={cardSizes(true)}
-        src={GROUP_HUB_ILLUSTRATIONS[GROUPS[0]]}
-      />
+      {GROUPS.slice(0, PRIORITY_CARDS).map((hubId) => (
+        <CoverImagePreload
+          key={hubId}
+          media={MOBILE_MEDIA}
+          sizes={cardSizes(true)}
+          src={GROUP_HUB_ILLUSTRATIONS[hubId]}
+        />
+      ))}
       <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
         <HomeSectionHeading
           eyebrow={t("eyebrow")}
@@ -138,7 +144,7 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
 }
 
 function cardSizes(wide: boolean) {
-  return `(max-width: 1023px) 300px, ${wide ? 495 : 330}px`;
+  return `${MOBILE_MEDIA} 300px, ${wide ? 495 : 330}px`;
 }
 
 function groupCount(

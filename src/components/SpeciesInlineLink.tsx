@@ -5,8 +5,9 @@ import type { ReactNode } from "react";
 import { useLocale } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { SpeciesHubId } from "@/lib/speciesHubs";
 
-import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { useOptionalLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
@@ -17,18 +18,24 @@ const inlineLinkClassName =
 export function SpeciesInlineLink({
   children,
   className = inlineLinkClassName,
+  hub,
   id,
   source = "guide",
 }: {
   children: ReactNode;
   className?: string;
+  hub?: SpeciesHubId;
   id: string;
   source?: SpeciesClickSource;
 }) {
   const locale = useLocale() as AppLocale;
-  const switchIndex = useLocaleSwitchIndex();
+  const switchIndex = useOptionalLocaleSwitchIndex();
+  if (!switchIndex) return children;
   const speciesId = switchIndex.hubById[id] ? id : switchIndex.idBySlug[id];
-  if (!speciesId || !switchIndex.hubById[speciesId]) return children;
+  const speciesHub = speciesId ? switchIndex.hubById[speciesId] : undefined;
+  if (!speciesId || !speciesHub || (hub && hub !== speciesHub)) {
+    return children;
+  }
 
   return (
     <Link

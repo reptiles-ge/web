@@ -8,11 +8,13 @@ import {
   readAdminSpecies,
 } from "../src/lib/adminSpeciesApi";
 import { apiOrigin } from "../src/lib/apiClient";
+import { findUnresolvedInternalLinks } from "../src/lib/internalLinkTargets";
 import { getOccurrenceSummary } from "../src/lib/occurrenceSummaries";
 import { listAdminSpecies } from "../src/lib/adminSpeciesCatalog";
 import { addedPageTalk, findPageTalkInRecord } from "../src/lib/pageTalkProse";
 import {
   addedSourceFraming,
+  findInRecordTexts,
   findSourceNamesInRecord,
   sourceFramingInRecord,
 } from "../src/lib/sourceNameProse";
@@ -270,6 +272,7 @@ async function scan(only: string[]) {
     const hits = [
       ...findSourceNamesInRecord(record),
       ...sourceFramingInRecord(record),
+      ...findInRecordTexts(record, findUnresolvedInternalLinks),
       ...findPageTalkInRecord(record).map((hit) => ({
         field: `${hit.locale}.${hit.field}`,
         label: "page talk",

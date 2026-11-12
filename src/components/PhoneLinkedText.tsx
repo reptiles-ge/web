@@ -8,6 +8,8 @@ import {
   type ReactNode,
 } from "react";
 
+import type { SpeciesHubId } from "@/lib/speciesHubs";
+
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
 import { resolveInternalLinkTarget } from "@/lib/internalLinkTargets";
@@ -32,7 +34,13 @@ type RouteLinkPart =
       label: string;
       type: "external";
     }
-  | { key: string; label: string; slug: string; type: "species" }
+  | {
+      hub: SpeciesHubId;
+      key: string;
+      label: string;
+      slug: string;
+      type: "species";
+    }
   | { key: string; type: "text"; value: string };
 
 export function PhoneLinkedText({ children }: { children: ReactNode }) {
@@ -47,7 +55,7 @@ function internalRoutePart(
   const key = `r:${index}:${href}`;
   const target = resolveInternalLinkTarget(href);
   if (target?.type === "species") {
-    return { key, label, slug: target.slug, type: "species" };
+    return { hub: target.hub, key, label, slug: target.slug, type: "species" };
   }
   return {
     href: (target?.href ?? href) as ComponentProps<typeof Link>["href"],
@@ -98,6 +106,7 @@ function renderPhoneLinkedString(text: string): ReactNode {
         return (
           <SpeciesInlineLink
             className={INLINE_LINK_CLASS_NAME}
+            hub={part.hub}
             id={part.slug}
             key={part.key}
             source="other"
