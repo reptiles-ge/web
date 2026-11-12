@@ -7,6 +7,7 @@ export type ClientMessagePath =
 export type ClientMessages = Partial<Record<ClientMessageNamespace, unknown>>;
 
 export const ROOT_CLIENT_MESSAGE_NAMESPACES = [
+  "danger",
   "language",
   "nav",
   "notFound",
