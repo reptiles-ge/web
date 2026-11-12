@@ -5,8 +5,7 @@ type SentryModule = typeof import("@/lib/sentryClient");
 const IDLE_TIMEOUT_MS = 4000;
 
 let captureRouterTransitionStart:
-  | SentryModule["captureRouterTransitionStart"]
-  | undefined;
+  SentryModule["captureRouterTransitionStart"] | undefined;
 let sentryPromise: Promise<SentryModule> | undefined;
 const pendingErrors: unknown[] = [];
 
