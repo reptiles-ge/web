@@ -9,6 +9,7 @@ import type { NavLink } from "@/components/NavbarMenu";
 import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
+import { SavedHeaderButton } from "@/components/SavedHeaderButton";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
@@ -142,6 +143,7 @@ export function NavbarChrome({
           shortcut={heroSearch ? "scrolled" : undefined}
           variant={variant}
         />
+        <SavedHeaderButton variant={variant} />
         <div className="hidden lg:block">
           <ThemeToggle variant={variant} />
         </div>

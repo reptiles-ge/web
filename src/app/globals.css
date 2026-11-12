@@ -571,3 +571,30 @@ input[type="search"]::-webkit-search-results-decoration {
   background: none;
   opacity: 0.86;
 }
+
+@keyframes saved-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  body:has(> [data-print-sheet]) > :not([data-print-sheet]) {
+    display: none !important;
+  }
+
+  body:has(> [data-print-sheet]) {
+    background: #ffffff !important;
+  }
+
+  [data-print-sheet] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

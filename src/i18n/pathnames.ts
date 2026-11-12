@@ -129,6 +129,7 @@ export const pathnames = {
   "/regions": "/regions",
   "/regions/[id]": "/regions/[id]",
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
+  "/saved": "/saved",
   "/scorpions": kaLatin("/morieli", "/scorpions"),
   "/scorpions/[slug]": kaLatin("/morieli/[slug]", "/scorpions/[slug]"),
   "/scorpions/morieli-sakhlshi": kaLatin(

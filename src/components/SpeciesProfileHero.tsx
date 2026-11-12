@@ -11,6 +11,7 @@ import {
   type MobileHeroSlide,
   SpeciesMobileHeroCarousel,
 } from "@/components/SpeciesMobileHeroCarousel";
+import { SpeciesSaveButton } from "@/components/SpeciesSaveButton";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import {
@@ -208,6 +209,11 @@ export async function SpeciesProfileHero({
                 speciesId={species.id}
               />
             ) : null}
+            <span aria-hidden="true" className="flex-1 lg:hidden" />
+            <SpeciesSaveButton
+              name={species.commonName}
+              speciesId={species.id}
+            />
           </div>
         </div>
       </div>
