@@ -40,7 +40,7 @@ async function get(url, rsc = false) {
   return fetch(url, {
     headers: rsc
       ? { rsc: "1", "user-agent": USER_AGENT }
-      : { "user-agent": USER_AGENT },
+      : { accept: "text/html", "user-agent": USER_AGENT },
     redirect: "manual",
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });

@@ -4,13 +4,18 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      warm_only:
+        description: Warm the pages only, without IndexNow or the OG image upload
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
   group: warm-cache
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
   warm:
@@ -24,6 +29,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Restore the last URLs sent to IndexNow
+        if: ${{ !inputs.warm_only }}
         uses: actions/cache/restore@v6
         with:
           path: .indexnow-state.json
@@ -31,16 +37,22 @@ jobs:
           restore-keys: indexnow-state-
 
       - name: Wait for the deploy, request every sitemap URL, submit changed URLs to IndexNow
+        if: ${{ !inputs.warm_only }}
         run: node scripts/warm-cache.mjs --indexnow-state .indexnow-state.json --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
 
+      - name: Request every sitemap URL
+        if: ${{ inputs.warm_only }}
+        run: node scripts/warm-cache.mjs
+
       - name: Save the URLs sent to IndexNow
-        if: ${{ !cancelled() && hashFiles('.indexnow-state.json') != '' }}
+        if: ${{ !cancelled() && !inputs.warm_only && hashFiles('.indexnow-state.json') != '' }}
         uses: actions/cache/save@v6
         with:
           path: .indexnow-state.json
           key: indexnow-state-${{ github.run_id }}
 
   images:
+    if: ${{ !inputs.warm_only }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:

@@ -26,6 +26,8 @@ export type ApiBindings = {
   TELEGRAM_CHAT_ID?: string;
   UPLOAD_LIMITER?: RateLimiter;
   VIEW_LIMITER?: RateLimiter;
+  WARM_DISPATCH_REPOSITORY?: string;
+  WARM_DISPATCH_TOKEN?: string;
 };
 
 export type ApiEnv = {

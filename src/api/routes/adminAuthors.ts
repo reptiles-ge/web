@@ -9,10 +9,11 @@ import {
   listAdminAuthors,
   listAuthorPhotos,
   readAuthor,
+  readAuthorContributor,
   writeAuthor,
   writeAuthorTexts,
 } from "../db/authors";
-import { inBackground } from "../lib/background";
+import { defer, inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import {
@@ -56,7 +57,7 @@ export const adminAuthors = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateAuthorsSection(c.env));
+      await ensureSiteRevalidated(revalidateAuthorsSection(c.env, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["authors"] } }, 200);
     },
@@ -69,10 +70,13 @@ export const adminAuthors = new Hono<ApiEnv>()
     validate("param", authorParam),
     async (c) => {
       const { id } = c.req.valid("param");
-      if (!(await authorExists(c.env.DB, id))) {
+      const isContributor = await readAuthorContributor(c.env.DB, id);
+      if (isContributor === null) {
         throw new ApiError(404, "not_found", "Author not found");
       }
-      await ensureSiteRevalidated(revalidateContributorPage(c.env, id));
+      await ensureSiteRevalidated(
+        revalidateContributorPage(c.env, { id, isContributor }, defer(c)),
+      );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -120,8 +124,9 @@ export const adminAuthors = new Hono<ApiEnv>()
           checked.error.issues,
         );
       }
-      await writeAuthorTexts(c.env.DB, checked.data as AuthorRecord);
-      inBackground(c, revalidateAuthorPages(c.env, id));
+      const record = checked.data as AuthorRecord;
+      await writeAuthorTexts(c.env.DB, record);
+      inBackground(c, revalidateAuthorPages(c.env, record, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -156,7 +161,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
-      inBackground(c, revalidateAuthorPages(c.env, id));
+      inBackground(c, revalidateAuthorPages(c.env, author, defer(c)));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },

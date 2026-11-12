@@ -5,6 +5,31 @@ import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 
 import { POST } from "./route";
 
+vi.mock("@/i18n/navigation", async () => {
+  const { pathnames } = await import("@/i18n/pathnames");
+  return {
+    getPathname: ({
+      href,
+      locale,
+    }: {
+      href: string | { params?: Record<string, string>; pathname: string };
+      locale: string;
+    }) => {
+      const key = typeof href === "string" ? href : href.pathname;
+      const entry = pathnames[key as keyof typeof pathnames];
+      const pattern =
+        typeof entry === "string" ? entry : entry[locale as keyof typeof entry];
+      const path =
+        typeof href === "string"
+          ? pattern
+          : pattern.replace(
+              /\[(\w+)\]/g,
+              (_match, name: string) => href.params?.[name] ?? name,
+            );
+      return locale === "ka" ? path : `/${locale}${path}`;
+    },
+  };
+});
 vi.mock("next/cache", () => ({
   revalidatePath: vi.fn(),
   revalidateTag: vi.fn(),
@@ -35,7 +60,7 @@ describe("POST /api/revalidate", () => {
     const response = await POST(
       request({ tags: ["species", "species:macrovipera-lebetina"] }, "secret"),
     );
-    expect(response.status).toBe(204);
+    expect(response.status).toBe(200);
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
     expect(revalidateTag).toHaveBeenCalledWith("species", "max");
     expect(revalidateTag).toHaveBeenCalledWith(
@@ -46,6 +71,14 @@ describe("POST /api/revalidate", () => {
       "species",
       "species:macrovipera-lebetina",
     ]);
+    expect(await response.json()).toEqual({
+      warm: [
+        "/gvelebi/giurza",
+        "/en/snakes/macrovipera-lebetina",
+        "/ru/snakes/macrovipera-lebetina",
+        "/tr/snakes/macrovipera-lebetina",
+      ],
+    });
     expect(
       vi.mocked(refreshSpeciesApiCache).mock.invocationCallOrder[0],
     ).toBeLessThan(vi.mocked(revalidateTag).mock.invocationCallOrder[0]!);
@@ -68,23 +101,39 @@ describe("POST /api/revalidate", () => {
     const response = await POST(
       request({ tags: ["news", "news:lagodekhi-iucn-mwvane-sia"] }, "secret"),
     );
-    expect(response.status).toBe(204);
+    expect(response.status).toBe(200);
     expect(revalidateTag).toHaveBeenCalledWith("news", "max");
     expect(revalidateTag).toHaveBeenCalledWith(
       "news:lagodekhi-iucn-mwvane-sia",
       "max",
     );
+    expect(await response.json()).toEqual({
+      warm: [
+        "/news/lagodekhi-iucn-mwvane-sia",
+        "/en/news/lagodekhi-iucn-mwvane-sia",
+        "/ru/news/lagodekhi-iucn-mwvane-sia",
+        "/tr/news/lagodekhi-iucn-mwvane-sia",
+      ],
+    });
   });
 
   it("revalidates author tags", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
     const tags = ["authors", "author:sandro-khakhva", "species", "news"];
     const response = await POST(request({ tags }, "secret"));
-    expect(response.status).toBe(204);
+    expect(response.status).toBe(200);
     for (const tag of tags) {
       expect(revalidateTag).toHaveBeenCalledWith(tag, "max");
     }
     expect(refreshSpeciesApiCache).toHaveBeenCalledWith(tags);
+    expect(await response.json()).toEqual({
+      warm: [
+        "/kontributorebi/sandro-khakhva",
+        "/en/contributors/sandro-khakhva",
+        "/ru/contributors/sandro-khakhva",
+        "/tr/contributors/sandro-khakhva",
+      ],
+    });
   });
 
   it("only accepts species, news and author tags", async () => {
@@ -110,7 +159,7 @@ describe("POST /api/revalidate", () => {
     const response = await POST(
       request({ groups: ["about", "legal", "snakes"] }, "secret"),
     );
-    expect(response.status).toBe(204);
+    expect(response.status).toBe(200);
     expect(vi.mocked(revalidatePath).mock.calls).toEqual([
       ["/[locale]/about", "page"],
       ["/[locale]/privacy", "page"],
@@ -124,9 +173,9 @@ describe("POST /api/revalidate", () => {
 
   it("revalidates the whole site from the root layout", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    expect((await POST(request({ groups: ["site"] }, "secret"))).status).toBe(
-      204,
-    );
+    const response = await POST(request({ groups: ["site"] }, "secret"));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ warm: [] });
     expect(revalidatePath).toHaveBeenCalledExactlyOnceWith("/", "layout");
   });
 

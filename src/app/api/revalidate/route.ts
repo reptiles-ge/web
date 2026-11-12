@@ -1,7 +1,12 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 
+import { creditAuthorHref } from "@/data/authors";
+import { getPathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
+import { newsArticleHref } from "@/lib/newsHrefs";
+import { speciesPageUrl } from "@/lib/site";
 import { findSitePageGroup, SITE_PAGE_GROUP_IDS } from "@/lib/sitePageGroups";
 import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 
@@ -54,7 +59,7 @@ export async function POST(request: Request) {
       revalidatePath(route.path, route.type);
     }
   }
-  return new Response(null, { headers: noindex, status: 204 });
+  return Response.json({ warm: warmPaths(tags) }, { headers: noindex });
 }
 
 async function sameSecret(header: null | string, token: string) {
@@ -67,4 +72,18 @@ async function sameSecret(header: null | string, token: string) {
   const a = new Uint8Array(left!);
   const b = new Uint8Array(right!);
   return a.every((byte, index) => byte === b[index]);
+}
+
+function warmPaths(tags: string[]) {
+  return tags.flatMap((tag) => {
+    const [kind, id] = tag.split(":");
+    if (!id) return [];
+    return routing.locales.map((locale) => {
+      if (kind === "species") {
+        return new URL(speciesPageUrl(locale, id)).pathname;
+      }
+      const href = kind === "news" ? newsArticleHref(id) : creditAuthorHref(id);
+      return getPathname({ href, locale });
+    });
+  });
 }
