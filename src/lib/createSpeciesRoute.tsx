@@ -32,7 +32,6 @@ import {
 } from "@/lib/pageStructuredData";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
-import { schemaCropImageObjects } from "@/lib/schemaCropImages";
 import {
   speciesAlternateNames,
   speciesJsonLdKeywords,
@@ -473,12 +472,6 @@ function speciesStructuredData({
     ...ogImageDimensions(ogImage),
     ...coverRights,
   };
-  const cropObjects = item.image
-    ? schemaCropImageObjects(
-        item.image,
-        photoRights(item.image, item.imageCredit, locale, contributors),
-      )
-    : [];
   const jsonLd = {
     "@context": "https://schema.org",
     "@id": pageNodeId(pageUrl, "article"),
@@ -498,11 +491,7 @@ function speciesStructuredData({
         }
       : {}),
     headline: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
-    image: [
-      ogImageObject,
-      ...cropObjects,
-      ...photoObjects.map((photo) => photo.contentUrl),
-    ],
+    image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
     mainEntityOfPage: webPageRef(pageUrl),
