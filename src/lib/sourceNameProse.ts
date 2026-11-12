@@ -181,6 +181,21 @@ export function addedSourceFraming(
   });
 }
 
+export function findInRecordTexts(
+  record: SpeciesTexts,
+  find: (text: string) => Array<Omit<SourceNameHit, "field">>,
+): SourceNameHit[] {
+  return [
+    ["ka", record.base] as const,
+    ...Object.entries(record.translations ?? {}),
+  ].flatMap(([locale, texts]) =>
+    walkFields(texts, "", find).map((hit) => ({
+      ...hit,
+      field: `${locale}.${hit.field}`,
+    })),
+  );
+}
+
 export function findSourceFraming(text: string) {
   return SOURCE_FRAMING_PATTERNS.flatMap(({ label, pattern }) =>
     [...text.matchAll(new RegExp(pattern.source, `${pattern.flags}g`))].map(
@@ -213,15 +228,7 @@ export function findSourceNamesInRecord(record: SpeciesTexts) {
 }
 
 export function sourceFramingInRecord(record: SpeciesTexts) {
-  return [
-    ["ka", record.base] as const,
-    ...Object.entries(record.translations ?? {}),
-  ].flatMap(([locale, texts]) =>
-    walkFields(texts, "", findSourceFraming).map((hit) => ({
-      ...hit,
-      field: `${locale}.${hit.field}`,
-    })),
-  );
+  return findInRecordTexts(record, findSourceFraming);
 }
 
 function matchPatterns(

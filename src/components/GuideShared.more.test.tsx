@@ -92,6 +92,17 @@ describe("GuideEditorialNote", () => {
     ).toBeInTheDocument();
     expect(within(note).getByText("Not medical advice.")).toBeInTheDocument();
   });
+
+  it("leaves out the update line when the page dates itself elsewhere", () => {
+    render(
+      <GuideEditorialNote
+        body="Compiled from sources."
+        disclaimer="Not medical advice."
+      />,
+    );
+    const note = screen.getByRole("complementary");
+    expect(within(note).getAllByText(/./)).toHaveLength(2);
+  });
 });
 
 describe("GuideFactColumn", () => {

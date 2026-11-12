@@ -27,11 +27,15 @@ export function LocaleSwitchProvider({
 }
 
 export function useLocaleSwitchIndex() {
-  const index = useContext(LocaleSwitchContext);
+  const index = useOptionalLocaleSwitchIndex();
   if (!index) {
     throw new Error("LocaleSwitchProvider is required");
   }
   return index;
+}
+
+export function useOptionalLocaleSwitchIndex() {
+  return useContext(LocaleSwitchContext);
 }
 
 export function useSpeciesHref(

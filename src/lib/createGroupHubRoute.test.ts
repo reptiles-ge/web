@@ -25,7 +25,8 @@ import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 const messages = { en, ka, ru, tr };
 
 vi.mock("@/i18n/navigation", async () => {
-  const { pathnames } = await import("@/i18n/pathnames");
+  const { compilePathname } =
+    await import("../../tests/support/compilePathname");
   return {
     getPathname: ({
       href,
@@ -33,21 +34,7 @@ vi.mock("@/i18n/navigation", async () => {
     }: {
       href: string | { params?: Record<string, string>; pathname: string };
       locale: string;
-    }) => {
-      const key = typeof href === "string" ? href : href.pathname;
-      const entry = pathnames[key as keyof typeof pathnames];
-      const pattern =
-        typeof entry === "string" ? entry : entry[locale as keyof typeof entry];
-      const path =
-        typeof href === "string"
-          ? pattern
-          : pattern.replace(
-              /\[(\w+)\]/g,
-              (_match, name: string) => href.params?.[name] ?? name,
-            );
-      if (locale === "ka") return path;
-      return path === "/" ? `/${locale}` : `/${locale}${path}`;
-    },
+    }) => compilePathname(href, locale),
   };
 });
 
