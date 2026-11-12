@@ -16,8 +16,6 @@ import type { SavedSpeciesCard } from "@/lib/savedSpeciesCards";
 
 import { SavedHeaderButton } from "@/components/SavedHeaderButton";
 import { SavedPage } from "@/components/SavedPage";
-import { savedAgoMessage } from "@/components/SavedPageParts";
-import { printDate } from "@/components/SavedPrintSheet";
 import { SpeciesSaveButton } from "@/components/SpeciesSaveButton";
 import { resetSavedCardsCache } from "@/components/useSavedCards";
 import {
@@ -25,6 +23,7 @@ import {
   resetSavedSpeciesCache,
   SAVED_STORAGE_KEY,
 } from "@/lib/savedSpecies";
+import { printDate, savedAgoMessage } from "@/lib/savedSpeciesFormat";
 
 import ka from "../../messages/ka.json";
 import { server } from "../../tests/msw/server";
@@ -78,6 +77,12 @@ function wrap(node: ReactNode) {
   );
 }
 
+async function wrapAsync(node: ReactNode) {
+  await act(async () => {
+    wrap(node);
+  });
+}
+
 describe("saved species UI", () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -116,7 +121,9 @@ describe("saved species UI", () => {
     wrap(<SavedHeaderButton variant="dark" />);
 
     const button = screen.getByRole("button", { name: "შენახული (2)" });
-    fireEvent.click(button);
+    await act(async () => {
+      fireEvent.click(button);
+    });
     const menu = await screen.findByRole("dialog", { name: "შენახული" });
     expect(await within(menu).findByText("გიურზა")).toBeTruthy();
     expect(within(menu).getByText("ყველას ნახვა")).toBeTruthy();
@@ -142,7 +149,7 @@ describe("saved species UI", () => {
 
   it("lists, filters, removes and restores saved species", async () => {
     seed(["macrovipera-lebetina", "natrix-tessellata"]);
-    wrap(
+    await wrapAsync(
       <SavedPage
         emptyImages={["/a.jpg", "/b.jpg"]}
         pageUrl="https://reptiles.ge/saved"
@@ -185,7 +192,7 @@ describe("saved species UI", () => {
       "",
       "/saved?ids=natrix-tessellata,bad%20id",
     );
-    wrap(
+    await wrapAsync(
       <SavedPage
         emptyImages={["/a.jpg", "/b.jpg"]}
         pageUrl="https://reptiles.ge/saved"
@@ -214,7 +221,7 @@ describe("saved species UI", () => {
       configurable: true,
       value: print,
     });
-    wrap(
+    await wrapAsync(
       <SavedPage
         emptyImages={["/a.jpg", "/b.jpg"]}
         pageUrl="https://reptiles.ge/saved"

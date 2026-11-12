@@ -1,25 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { Logo } from "@/components/Logo";
-import { RISK_SWATCH } from "@/components/SavedPageParts";
 import { type SavedItem } from "@/components/useSavedCards";
-
-export function printDate(locale: AppLocale, date: Date) {
-  const supported = Intl.DateTimeFormat.supportedLocalesOf(locale).length > 0;
-  return new Intl.DateTimeFormat(
-    supported ? locale : "en-GB",
-    supported
-      ? { dateStyle: "long" }
-      : { day: "2-digit", month: "2-digit", year: "numeric" },
-  )
-    .format(date)
-    .replaceAll("/", ".");
-}
+import { printDate, RISK_SWATCH } from "@/lib/savedSpeciesFormat";
 
 export function SavedPrintSheet({
   harmless,
@@ -36,6 +25,12 @@ export function SavedPrintSheet({
 }) {
   const t = useTranslations("saved");
   const tDanger = useTranslations("danger");
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+  if (!mounted) return null;
   const date = printDate(locale, new Date());
 
   return createPortal(
@@ -130,4 +125,8 @@ export function SavedPrintSheet({
     </div>,
     document.body,
   );
+}
+
+function noopSubscribe() {
+  return () => {};
 }

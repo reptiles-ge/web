@@ -6,7 +6,7 @@ export type SavedEntry = {
 };
 
 export const SAVED_STORAGE_KEY = "reptiles:saved-species";
-export const SAVED_LIMIT = 200;
+const SAVED_LIMIT = 200;
 const SPECIES_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,80}$/;
 
 const EMPTY: SavedEntry[] = [];
@@ -30,10 +30,6 @@ export function getSavedEntries(): SavedEntry[] {
 
 export function isSaved(id: string) {
   return getSavedEntries().some((entry) => entry.id === id);
-}
-
-export function isSpeciesId(id: string) {
-  return SPECIES_ID_PATTERN.test(id);
 }
 
 export function mergeSavedIds(ids: string[], now = Date.now()) {
@@ -90,10 +86,6 @@ export function saveSpecies(id: string, savedAt = Date.now()) {
   ]);
 }
 
-export function sortSaved(entries: SavedEntry[]) {
-  return [...entries].sort((a, b) => b.savedAt - a.savedAt);
-}
-
 export function toggleSavedSpecies(id: string) {
   if (isSaved(id)) {
     if (lastSavedId === id) lastSavedId = null;
@@ -125,6 +117,10 @@ function emit() {
   for (const listener of listeners) listener();
 }
 
+function isSpeciesId(id: string) {
+  return SPECIES_ID_PATTERN.test(id);
+}
+
 function onStorage(event: StorageEvent) {
   if (event.key !== null && event.key !== SAVED_STORAGE_KEY) return;
   cache = null;
@@ -137,6 +133,10 @@ function readStorage() {
   } catch {
     return null;
   }
+}
+
+function sortSaved(entries: SavedEntry[]) {
+  return [...entries].sort((a, b) => b.savedAt - a.savedAt);
 }
 
 function subscribe(listener: () => void) {
