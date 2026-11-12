@@ -108,35 +108,6 @@ const YARD_CANID_IDS = [
   "canis-lupus",
 ] as const;
 
-const BAT_IN_HOUSE_IDS = [
-  "barbastella-barbastellus",
-  "eptesicus-nilssonii",
-  "eptesicus-serotinus",
-  "hypsugo-savii",
-  "myotis-alcathoe",
-  "myotis-bechsteinii",
-  "myotis-blythii",
-  "myotis-brandtii",
-  "myotis-daubentonii",
-  "myotis-davidii",
-  "myotis-emarginatus",
-  "myotis-mystacinus",
-  "myotis-nattereri",
-  "nyctalus-leisleri",
-  "nyctalus-noctula",
-  "pipistrellus-kuhlii",
-  "pipistrellus-nathusii",
-  "pipistrellus-pipistrellus",
-  "pipistrellus-pygmaeus",
-  "plecotus-auritus",
-  "plecotus-macrobullaris",
-  "rhinolophus-euryale",
-  "rhinolophus-ferrumequinum",
-  "rhinolophus-hipposideros",
-  "tadarida-teniotis",
-  "vespertilio-murinus",
-] as const;
-
 export const VENOMOUS_SPIDER_IDS = ["latrodectus-tredecimguttatus"] as const;
 
 export type ClusterGuideConfig = {
@@ -957,7 +928,6 @@ export function splitHubSpecies<T extends SpeciesSummary>(
 
 const houseLizardIdSet = new Set<string>(HOUSE_LIZARD_IDS);
 const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
-const batInHouseIdSet = new Set<string>(BAT_IN_HOUSE_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
@@ -1117,35 +1087,7 @@ export function getSpeciesGuideLinks(
       key: "insectIndex",
       kind: "page",
     });
-    if (id === "halyomorpha-halys") {
-      links.push({
-        href: "/insects/farosana-sakhlshi",
-        key: "stinkBugInHouse",
-        kind: "page",
-      });
-    }
-    if (id === "vespa-crabro") {
-      links.push({
-        href: "/insects/krazanis-bude",
-        key: "waspNest",
-        kind: "page",
-      });
-    }
   } else if (group === "mammal") {
-    if (batInHouseIdSet.has(id)) {
-      links.push({
-        href: "/mammals/ghamura-sakhlshi",
-        key: "batInHouse",
-        kind: "page",
-      });
-    }
-    if (id === "mus-musculus") {
-      links.push({
-        href: "/mammals/tagvi-sakhlshi",
-        key: "mouseInHouse",
-        kind: "page",
-      });
-    }
     if (yardCanidIdSet.has(id)) {
       links.push({
         href: "/mammals/tura-ezoshi",
@@ -1157,15 +1099,6 @@ export function getSpeciesGuideLinks(
       links.push({
         href: "/mammals/datvi-shekhvedra",
         key: "bearEncounter",
-        kind: "page",
-      });
-    }
-    // TODO(PR #1803 review): duplicates relatedSpeciesIds in src/content/guides/hedgehogInWinter.ts.
-    // Derive guide-article links from each guide's relatedSpeciesIds instead of one branch per species.
-    if (id === "erinaceus-concolor") {
-      links.push({
-        href: "/mammals/zgharbi-zamtarshi",
-        key: "hedgehogInWinter",
         kind: "page",
       });
     }

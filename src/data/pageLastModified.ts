@@ -30,7 +30,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/scorpions/morielis-nakbeni": "2026-09-25T15:48:18+04:00",
   "/snakes": "2026-10-10T02:05:00+04:00",
   "/snakes/giurzas-nakbeni": "2026-10-17T12:00:00+04:00",
-  "/snakes/gveli-ezoshi": "2026-10-25T21:00:00+04:00",
+  "/snakes/gveli-ezoshi": "2026-11-12T00:30:00+04:00",
   "/snakes/gvelis-nakbeni": "2026-10-14T11:45:00+04:00",
   "/snakes/shxamiani-gvelis-amocnoba": "2026-09-19T12:17:05+04:00",
   "/species": "2026-10-10T12:01:00+04:00",
@@ -119,8 +119,18 @@ const SITEMAP_QUIZ_DATE_PUBLISHED: Record<string, string> = {
 };
 
 const SITEMAP_REGION_LAST_MODIFIED: Partial<Record<string, string>> = {
-  guria: "2026-09-17T14:32:57+04:00",
-  "samegrelo-zemo-svaneti": "2026-09-17T13:58:48+04:00",
+  abkhazia: "2026-11-12T00:30:00+04:00",
+  adjara: "2026-11-12T00:30:00+04:00",
+  guria: "2026-11-12T00:30:00+04:00",
+  imereti: "2026-11-12T00:30:00+04:00",
+  kakheti: "2026-11-12T00:30:00+04:00",
+  "kvemo-kartli": "2026-11-12T00:30:00+04:00",
+  "mtskheta-mtianeti": "2026-11-12T00:30:00+04:00",
+  racha: "2026-11-12T00:30:00+04:00",
+  "samegrelo-zemo-svaneti": "2026-11-12T00:30:00+04:00",
+  "samtskhe-javakheti": "2026-11-12T00:30:00+04:00",
+  "shida-kartli": "2026-11-12T00:30:00+04:00",
+  tbilisi: "2026-11-12T00:30:00+04:00",
 };
 
 const SITEMAP_REGION_DATE_PUBLISHED: Record<string, string> = {

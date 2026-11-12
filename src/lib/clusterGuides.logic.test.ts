@@ -304,45 +304,6 @@ describe("getSpeciesGuideLinks", () => {
     expect(keys("pseudopus-apodus")).toContain("lizardsHub");
   });
 
-  it("links only the hedgehog to the winter hedgehog guide", () => {
-    for (const item of speciesGroupFixture("mammal")) {
-      expect(keys(item.id).includes("hedgehogInWinter"), item.id).toBe(
-        item.id === "erinaceus-concolor",
-      );
-    }
-    expect(keys("erinaceus-concolor")).toContain("hedgehogInWinter");
-  });
-
-  it("links bats that roost in buildings to the bat-in-the-house guide", () => {
-    const linkKeys = (id: string, group: "insect" | "mammal") =>
-      getSpeciesGuideLinks({
-        genus: "",
-        group,
-        id,
-      } as Parameters<typeof getSpeciesGuideLinks>[0]).map((link) =>
-        link.kind === "page" ? link.key : link.kind,
-      );
-    expect(linkKeys("pipistrellus-pipistrellus", "mammal")).toContain(
-      "batInHouse",
-    );
-    expect(linkKeys("vespertilio-murinus", "mammal")).toContain("batInHouse");
-    expect(linkKeys("rhinolophus-mehelyi", "mammal")).not.toContain(
-      "batInHouse",
-    );
-    expect(linkKeys("miniopterus-schreibersii", "mammal")).not.toContain(
-      "batInHouse",
-    );
-    expect(linkKeys("mus-musculus", "mammal")).toContain("mouseInHouse");
-    expect(linkKeys("rattus-norvegicus", "mammal")).not.toContain(
-      "mouseInHouse",
-    );
-    expect(linkKeys("vespa-crabro", "insect")).toContain("waspNest");
-    expect(linkKeys("halyomorpha-halys", "insect")).not.toContain("waspNest");
-    for (const item of speciesGroupFixture("mammal")) {
-      expect(keys(item.id), item.id).not.toContain("batInHouse");
-    }
-  });
-
   it("splits tortoises from water turtles", () => {
     expect(keys("testudo-graeca")).toContain("turtleLand");
     expect(keys("testudo-graeca")).not.toContain("turtleWater");
