@@ -10,7 +10,7 @@ Four dependencies are held back on purpose. Dependabot does not update them. Cha
 
 **Upstream status (2026-10-29).** `1.4.0` still ships the unpatched function. Since `1.1.0` vinext renders regenerations and cache warm-ups in full (cloudflare/vinext#3435), but a cold miss with no `User-Agent` still streams the metadata (cloudflare/vinext#3764), so the patch stays until that issue is fixed.
 
-**Dependabot.** `vinext` and `@vinext/*` are in `ignore` in `.github/dependabot.yml`. A bump that misses the patch key would fail `pnpm install`, and it used to block the whole `worker-build` group with it.
+**Dependabot.** `vinext`, `@vinext/*` and `@cloudflare/workers-response-store` are in `ignore` in `.github/dependabot.yml`. A response-store bump on its own leaves the direct dependency ahead of the version `@vinext/cloudflare` pins, so the lockfile carries two copies and `wrangler.response-store.jsonc` deploys a different store than the site talks to (#1859). A bump that misses the patch key would fail `pnpm install`, and it used to block the whole `worker-build` group with it.
 
 **Release age.** `vinext@1.4.0`, `@vinext/cloudflare@1.3.0` and `@vinext/types@1.0.2` are in `minimumReleaseAgeExclude` in `pnpm-workspace.yaml`, because the upgrade from `1.0.1` (#1745) was taken a day after the release. Remove these three entries once the versions are 7 days old (2026-11-04); later vinext versions follow the normal 7-day rule.
 
