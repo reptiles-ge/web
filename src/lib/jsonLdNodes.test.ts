@@ -21,6 +21,17 @@ describe("compactRepeatedNodes", () => {
     expect(result.image[1]?.creator).toEqual({ "@id": person["@id"] });
   });
 
+  it("keeps properties that only a later copy of a node carries", () => {
+    const result = compactRepeatedNodes({
+      a: { "@id": "x", "@type": "Person", name: "A" },
+      b: { "@id": "x", "@type": "Person", name: "B", url: "https://u" },
+    });
+    expect(result).toEqual({
+      a: { "@id": "x", "@type": "Person", name: "A", url: "https://u" },
+      b: { "@id": "x" },
+    });
+  });
+
   it("leaves references, nodes without an id and plain values alone", () => {
     const data = {
       author: { "@id": "https://reptiles.ge/#organization" },

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { NewsSchemaCrop } from "@/data/newsSchemaImages";
+import type { SchemaCrop } from "@/data/schemaImages";
 
 import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
@@ -16,10 +16,10 @@ import {
 
 const contributors = contributorDirectoryFixture();
 
-const crops = vi.hoisted(() => new Map<string, NewsSchemaCrop[]>());
+const crops = vi.hoisted(() => new Map<string, SchemaCrop[]>());
 
-vi.mock("@/data/newsSchemaImages", async (importOriginal) => ({
-  ...(await importOriginal<typeof import("@/data/newsSchemaImages")>()),
+vi.mock("@/data/schemaImages", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/data/schemaImages")>()),
   schemaImageCrops: (src: string) => crops.get(src) ?? [],
 }));
 

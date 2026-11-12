@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { schemaCropImageObjects } from "@/lib/schemaCropImages";
 
-vi.mock("@/data/newsSchemaImages", () => ({
+vi.mock("@/data/schemaImages", () => ({
   schemaImageCrops: (src: string) =>
     src === "/images/cover.jpg"
       ? [

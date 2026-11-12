@@ -4,6 +4,7 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
+  newsArticleDates,
   newsArticleModifiedDateTime,
   newsArticleUrl,
   newsDateTime,
@@ -50,6 +51,29 @@ describe("newsDateTime", () => {
 
   it("falls back to midnight for an unparseable value", () => {
     expect(newsDateTime("not-a-date")).toBe("not-a-dateT00:00:00+04:00");
+  });
+});
+
+describe("newsArticleDates", () => {
+  it("never dates the update before the publication", () => {
+    expect(
+      newsArticleDates({
+        publishedAt: "2026-11-10T09:30:00Z",
+        updatedAt: "2026-11-10",
+      }),
+    ).toEqual({
+      dateModified: "2026-11-10T13:30:00+04:00",
+      datePublished: "2026-11-10T13:30:00+04:00",
+    });
+  });
+
+  it("uses the update time when it is later", () => {
+    expect(
+      newsArticleDates({ publishedAt: "2026-11-01", updatedAt: "2026-11-10" }),
+    ).toEqual({
+      dateModified: "2026-11-10T00:00:00+04:00",
+      datePublished: "2026-11-01T00:00:00+04:00",
+    });
   });
 });
 

@@ -100,6 +100,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
     const dates = await pageDateFields(pathname, locale);
     const shareImage = guideShareImage(article, locale);
     const heroImage = guideImageObject(article.hero, locale);
+    const heroRights = guideImageRights(article.hero, locale);
     const breadcrumbLd = breadcrumbListLd([
       { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
       {
@@ -131,12 +132,9 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
           height: shareImage.height,
           url: shareImage.url,
           width: shareImage.width,
-          ...guideImageRights(article.hero, locale),
+          ...heroRights,
         },
-        ...schemaCropImageObjects(
-          article.hero.src,
-          guideImageRights(article.hero, locale),
-        ),
+        ...schemaCropImageObjects(article.hero.src, heroRights),
         heroImage,
       ],
       inLanguage: locale,

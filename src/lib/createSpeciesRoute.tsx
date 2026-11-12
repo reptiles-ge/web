@@ -473,7 +473,12 @@ function speciesStructuredData({
     ...ogImageDimensions(ogImage),
     ...coverRights,
   };
-  const cropObjects = schemaCropImageObjects(item.image, coverRights);
+  const cropObjects = item.image
+    ? schemaCropImageObjects(
+        item.image,
+        photoRights(item.image, item.imageCredit, locale, contributors),
+      )
+    : [];
   const jsonLd = {
     "@context": "https://schema.org",
     "@id": pageNodeId(pageUrl, "article"),

@@ -13,12 +13,15 @@ import {
 import { getGuideArticles } from "../src/data/guideArticles";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
-  NEWS_SCHEMA_IMAGE_MIN_WIDTH,
-  NEWS_SCHEMA_RATIOS,
-  type NewsSchemaCrop,
-} from "../src/data/newsSchemaImages";
+  SCHEMA_IMAGE_MIN_WIDTH,
+  SCHEMA_RATIOS,
+  type SchemaCrop,
+} from "../src/data/schemaImages";
 import { optimizedEntry, optimizedImgSrc } from "../src/data/optimizedImages";
-import { newsHeroImage, type NewsHeroImage } from "../src/lib/newsSchemaImages";
+import {
+  newsHeroImage,
+  type NewsHeroImage as CropSource,
+} from "../src/lib/newsSchemaImages";
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
@@ -26,10 +29,7 @@ import { isPlaceholderMedia } from "../src/lib/speciesContent";
 import type { PhotoCredit } from "../src/data/speciesTypes";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
-const MANIFEST_PATH = path.join(
-  process.cwd(),
-  "src/data/newsSchemaImages.json",
-);
+const MANIFEST_PATH = path.join(process.cwd(), "src/data/schemaImages.json");
 const MAX_BYTES = 600_000;
 
 type CliOptions = {
@@ -49,10 +49,10 @@ type SpeciesCover = {
   scientificName: string;
 };
 
-type Selected = { hero: NewsHeroImage; key: string };
+type Selected = { hero: CropSource; key: string };
 
 type Manifest = {
-  entries: Record<string, NewsSchemaCrop[]>;
+  entries: Record<string, SchemaCrop[]>;
   version: number;
 };
 
@@ -106,10 +106,8 @@ function parseArguments(argv: string[]): CliOptions {
   if (check && upload) {
     throw new Error("--check and --upload cannot be combined.");
   }
-  if ((guides || species) && (check || slugs.length > 0)) {
-    throw new Error(
-      "--species and --guides cannot be combined with --check or --news.",
-    );
+  if ((guides || species) && slugs.length > 0) {
+    throw new Error("--species and --guides cannot be combined with --news.");
   }
 
   return { check, force, guides, slugs, species, upload };
@@ -126,7 +124,7 @@ function listValue(flag: string, value: string | undefined) {
     .filter(Boolean);
 }
 
-function coverHero(src: string): NewsHeroImage | null {
+function coverHero(src: string): CropSource | null {
   const entry = optimizedEntry(src);
   if (!entry) return null;
   return {
@@ -140,7 +138,7 @@ function coverHero(src: string): NewsHeroImage | null {
 function addHero(
   heroes: Map<string, Selected>,
   label: string,
-  hero: NewsHeroImage | null,
+  hero: CropSource | null,
   manifest: Manifest,
   force: boolean,
 ) {
@@ -148,7 +146,7 @@ function addHero(
     console.log(`${label}: image size unknown, skipped.`);
     return;
   }
-  if (hero.width < NEWS_SCHEMA_IMAGE_MIN_WIDTH) {
+  if (hero.width < SCHEMA_IMAGE_MIN_WIDTH) {
     console.log(`${label}: image is ${hero.width} px wide, skipped.`);
     return;
   }
@@ -223,7 +221,7 @@ function storageKey(src: string) {
   return null;
 }
 
-async function readSource(hero: NewsHeroImage) {
+async function readSource(hero: CropSource) {
   if (hero.src.startsWith("/")) {
     const local = path.join(PUBLIC_ROOT, hero.src);
     if (fs.existsSync(local)) return fs.readFileSync(local);
@@ -292,8 +290,8 @@ async function main() {
     for (const { hero } of heroes) console.error(`Missing crops: ${hero.src}`);
     throw new Error(
       [
-        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} news hero(es).`,
-        "Fix the image manifest locally: run `pnpm images:news-schema --upload` and commit the updated manifest.",
+        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} image(s).`,
+        "Fix the image manifest locally: run `pnpm images:schema --upload` and commit the updated manifest.",
       ].join("\n"),
     );
   }
@@ -302,8 +300,8 @@ async function main() {
 
   for (const { hero, key } of heroes) {
     const source = await readSource(hero);
-    const crops: NewsSchemaCrop[] = [];
-    for (const ratio of NEWS_SCHEMA_RATIOS) {
+    const crops: SchemaCrop[] = [];
+    for (const ratio of SCHEMA_RATIOS) {
       const result = await renderAndStoreOgImage({
         alt: hero.src,
         key,

@@ -35,7 +35,7 @@ vi.mock("next-intl/server", () => ({
     namespace,
   }: {
     locale: keyof typeof messages;
-    namespace: "author" | "groupHubShared";
+    namespace: "author";
   }) => createTranslator({ locale, messages: messages[locale], namespace }),
   setRequestLocale: () => undefined,
 }));
@@ -128,7 +128,7 @@ async function profileJsonLd(locale: string, slug: string) {
 
 describe("contributor profile JSON-LD", () => {
   it.each(routing.locales)(
-    "starts the %s breadcrumb at Home and puts the species under knowsAbout",
+    "keeps the %s breadcrumb to the visible trail and puts the species under knowsAbout",
     async (locale) => {
       const author = contributorsFixture(locale).find(
         (item) => item.kind === "person",
@@ -139,8 +139,8 @@ describe("contributor profile JSON-LD", () => {
         item: string;
         position: number;
       }>;
-      expect(items.map((item) => item.position)).toEqual([1, 2, 3]);
-      expect(items[0]?.item).toMatch(/^https:\/\/reptiles\.ge(\/(en|ru|tr))?$/);
+      expect(items.map((item) => item.position)).toEqual([1, 2]);
+      expect(items[0]?.item).toMatch(/\/(kontributorebi|contributors)$/);
       const person = profile.mainEntity as Record<string, unknown>;
       expect(profile["@type"]).toBe("ProfilePage");
       expect(profile.about).toEqual({ "@id": person["@id"] });

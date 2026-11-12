@@ -39,6 +39,16 @@ export function newsArticleAlternates(
   };
 }
 
+export function newsArticleDates(
+  article: Pick<NewsArticle, "publishedAt" | "updatedAt">,
+) {
+  const datePublished = newsDateTime(article.publishedAt);
+  const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
+  const dateModified =
+    Date.parse(modified) > Date.parse(datePublished) ? modified : datePublished;
+  return { dateModified, datePublished };
+}
+
 export function newsArticleModifiedDateTime(
   article: Pick<NewsArticle, "publishedAt" | "updatedAt">,
 ) {

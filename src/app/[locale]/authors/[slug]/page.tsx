@@ -31,7 +31,6 @@ import { sentenceMetaDescription } from "@/lib/metaDescription";
 import { getNewsListArticlesForAuthor } from "@/lib/newsApi";
 import {
   breadcrumbListLd,
-  localePageUrl,
   speciesTaxonRef,
   webPageIds,
 } from "@/lib/pageStructuredData";
@@ -61,9 +60,8 @@ export default async function AuthorRoute({ params }: Props) {
   const author = await getContributor(slug, locale);
   if (!author) notFound();
 
-  const [t, tShared, creditPhotos, catalog, relatedNews] = await Promise.all([
+  const [t, creditPhotos, catalog, relatedNews] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
     getCreditPhotoCatalog(),
     getSpeciesCatalog(locale),
     getNewsListArticlesForAuthor(locale, author.id),
@@ -84,7 +82,6 @@ export default async function AuthorRoute({ params }: Props) {
   });
 
   const breadcrumbLd = breadcrumbListLd([
-    { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
     { item: indexUrl, name: t("index.breadcrumb") },
     { item: url, name },
   ]);
