@@ -331,7 +331,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Approve and reject are safe against races: `decideDraftStatement` sets `decided_by` to `NULL` when the row is no longer pending, which breaks the table's `CHECK`, so a draft decided between the read and the write aborts the whole batch (answered as 400 `Draft is already …`). A second merge of the same draft answers 400; a stale one 409 `version_conflict` and stays pending.
 - **Every AI change MUST land as a draft.** NEVER let AI output call `PUT` or a photo action directly. A local AI submits drafts with `pnpm species:draft` (`scripts/species-draft.ts`, playbook in `.agents/skills/species-drafts/SKILL.md`): it reads `GET /v1/admin/species/:id`, checks the edited record against `speciesRecordSchema`, refuses changes to status, group, slugs, ids, cover images or gallery `src`, and posts `POST /v1/admin/species/:id/drafts` only.
 - The local admin page lists pending drafts with a field-level diff (`src/lib/speciesDraftDiff.ts`, `AdminSpeciesDrafts`) and approves or rejects them through `/api/admin/species-drafts`.
-- Not yet on the API: AI analysis and workflow, and new species creation. Their local admin routes answer 503 until the admin phase. Adding a photo is on the API (see "Photo uploads").
+- Not on the API and not in either admin: AI analysis and workflow, and new species creation (both removed in November 2026; a new species is created in D1 by the owner). Adding a photo is on the API (see "Photo uploads").
 
 ### Species pages (SSR from the API)
 

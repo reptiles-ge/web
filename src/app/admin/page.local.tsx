@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { AdminSpeciesCreate } from "@/components/admin/AdminSpeciesCreate";
 import { AdminSpeciesList } from "@/components/admin/AdminSpeciesList";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 import { listAdminSpecies } from "@/lib/adminSpeciesCatalog";
@@ -20,9 +19,8 @@ export default async function AdminIndexPage() {
         სახეობები API-დან იკითხება. ცვლილებები პირდაპირ D1-ში იწერება ან დრაფტად
         ინახება დასამტკიცებლად.
       </p>
-      <AdminSpeciesCreate />
       <Link
-        className="mt-3 inline-flex rounded-lg border border-border bg-card px-4 py-3 text-[14px] font-medium hover:bg-secondary"
+        className="mt-6 inline-flex rounded-lg border border-border bg-card px-4 py-3 text-[14px] font-medium hover:bg-secondary"
         href="/admin/cdn-upload"
       >
         ცალკე ფოტოების CDN-ზე ატვირთვა →
