@@ -93,16 +93,9 @@ export async function putImageManifest(
   images: ImageManifestWrite[],
 ) {
   const client = createApiClient({ token });
-  for (let start = 0; start < images.length; start += WRITE_BATCH) {
-    const response = await client.v1.admin.images.manifest.$put({
-      json: { images: images.slice(start, start + WRITE_BATCH) },
-    });
-    if (!response.ok) {
-      throw new Error(
-        `Image manifest API refused the write (${response.status}): ${await response.text()}`,
-      );
-    }
-  }
+  await writeInBatches(images, "Image manifest", (batch) =>
+    client.v1.admin.images.manifest.$put({ json: { images: batch } }),
+  );
 }
 
 export async function putSchemaImageCrops(
@@ -110,14 +103,25 @@ export async function putSchemaImageCrops(
   images: SchemaImageCropsRecord[],
 ) {
   const client = createApiClient({ token });
-  for (let start = 0; start < images.length; start += WRITE_BATCH) {
-    const response = await client.v1.admin.images["schema-crops"].$put({
-      json: { images: images.slice(start, start + WRITE_BATCH) },
-    });
-    if (!response.ok) {
-      throw new Error(
-        `Schema crops API refused the write (${response.status}): ${await response.text()}`,
-      );
-    }
+  await writeInBatches(images, "Schema crops", (batch) =>
+    client.v1.admin.images["schema-crops"].$put({ json: { images: batch } }),
+  );
+}
+
+async function writeInBatches<T>(
+  items: T[],
+  label: string,
+  write: (batch: T[]) => Promise<Response>,
+) {
+  const batches = Array.from(
+    { length: Math.ceil(items.length / WRITE_BATCH) },
+    (_, index) => items.slice(index * WRITE_BATCH, (index + 1) * WRITE_BATCH),
+  );
+  const responses = await Promise.all(batches.map(write));
+  const refused = responses.find((response) => !response.ok);
+  if (refused) {
+    throw new Error(
+      `${label} API refused the write (${refused.status}): ${await refused.text()}`,
+    );
   }
 }
