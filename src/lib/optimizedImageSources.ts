@@ -1,3 +1,5 @@
+export const OPTIMIZED_BASE_URL = "https://cdn.reptiles.ge/optimized/";
+
 export type OptimizedImageEntry = {
   baseUrl?: string;
   formats: OptimizedImageFormat[];

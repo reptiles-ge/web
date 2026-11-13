@@ -1,11 +1,8 @@
-import manifest from "./schemaImages.json";
+import type { SchemaCrop } from "@/lib/schemaCropTypes";
 
-export type SchemaCrop = {
-  height: number;
-  ratio: string;
-  url: string;
-  width: number;
-};
+import { uploadedSchemaImageCrops } from "@/data/optimizedImages.api.generated";
+
+export type { SchemaCrop } from "@/lib/schemaCropTypes";
 
 export const SCHEMA_IMAGE_MIN_WIDTH = 1200;
 
@@ -15,7 +12,7 @@ export const SCHEMA_RATIOS = [
   { height: 1200, id: "1x1", width: 1200 },
 ] as const;
 
-const entries: Record<string, readonly SchemaCrop[]> = manifest.entries;
+const entries: Record<string, readonly SchemaCrop[]> = uploadedSchemaImageCrops;
 
 export function schemaImageCrops(src: string): readonly SchemaCrop[] {
   return entries[src] ?? [];

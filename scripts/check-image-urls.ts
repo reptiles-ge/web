@@ -3,8 +3,8 @@ import fs from "node:fs";
 import http2 from "node:http2";
 import path from "node:path";
 import matter from "gray-matter";
-import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
+import { OPTIMIZED_BASE_URL as optimizedBaseUrl } from "../src/lib/optimizedImageSources";
 import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { mapPool, printProgress, walkFiles } from "./scriptUtils";
@@ -25,8 +25,7 @@ const PLACEHOLDER_IMAGE_SRCS = new Set([
 const SKIP_DIR_NAMES = new Set([".git", ".next", "node_modules"]);
 const SKIP_FILE_NAMES = new Set([
   "georgia-paths.generated.ts",
-  "image-manifest.json",
-  "optimizedImages.generated.ts",
+  "optimizedImages.api.generated.ts",
 ]);
 const SKIP_FILE_SUFFIXES = [".test.ts", ".test.tsx"];
 const SCAN_EXTS = new Set([

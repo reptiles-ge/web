@@ -20,10 +20,10 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 ### Today
 
 - 31 articles in `src/content/news/{slug}/{ka,en,ru,tr}.mdx` (about 1.2 MB). The order lives in `newsSlugs` (`src/data/newsPublish.ts`); it breaks ties between articles with the same `publishedAt`.
-- `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against `optimizedImages.generated`), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
+- `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against the API image catalog in `optimizedImages.api.generated`, so `images:compile` runs first), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
 - `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsLinkedSpeciesIds`, `newsSearchKeywords`, `newsSourceOrg`, …).
 - No client component imports news data. Everything is server-side or build-time.
-- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in `src/data/schemaImages.json` (`images:schema`).
+- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in D1 (`schema_image_crops`, written by `images:schema --upload`, read by `images:compile`).
 - Guard tests: `src/data/newsContent.test.ts` (one folder per slug, section and figure parity across locales, figures only from the article's own photos, links only to existing species, regions, hubs and contributors, linked ids present in the related ids), `newsData.test.ts`, `newsSeries.test.ts`.
 
 ---
@@ -191,7 +191,7 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
   - `scripts/news-export.ts` (`pnpm news:export <slug>`): `GET /v1/admin/news/:slug`, serialize to the four MDX files. Test: export → parse → `toStrictEqual` for every article in the seed.
   - Typed calls in `src/lib/adminNewsApi.ts` (like `adminSpeciesApi.ts`); the scripts use them.
   - Update `AGENTS.md` (News section) and the writing skills: the last step is `news:import`, not a PR with MDX and a `newsSlugs` entry. The order inside a day comes from `position`, which the API sets at the end on create.
-  - Images: a new news photo still needs the CDN upload and the derivatives catalog PR (`images:optimize:news`, `images:schema`) before the import, because the hero check reads that catalog.
+  - Images: a new news photo still needs the CDN upload (`images:optimize:news`, `images:schema --upload`) before the import, because the hero check reads the API image catalog.
 
 ---
 
@@ -208,5 +208,5 @@ Remove `src/content/news/`, `scripts/compile-news.ts`, `src/data/news.generated.
 - **Build needs the API.** Sitemap, feeds and `llms.txt` are static at build, so `next build` needs `api.reptiles.ge` reachable, as it already does for species.
 - **Link validation moves from CI to the API.** Today a broken species link fails `newsContent.test.ts` in CI. After the move it must fail the write. Deleting or unpublishing a species that a news article links needs a check too (or the link renders as plain text).
 - **Credit authors.** News credits link to contributors by spelling today. Derive `news_media.author_id` from `author_aliases` on write, the same as species photos.
-- **Images catalog** (`optimizedImages.generated.ts`, `schemaImages.json`) stays in the repo, as it does for species. A new news photo still needs a catalog PR until that catalog moves.
+- **Images catalog**: in D1 since 2026-11-14 (`image_manifest`, `optimized_images`, `schema_image_crops`). A new news photo needs `images:optimize:news` and `images:schema --upload`, then a site deploy; no catalog PR.
 - **Fetch cache limit.** One full article is about 46 KB for four locales, so it is far under the 2 MB limit. Never ship a full list with sections to a normal page render.

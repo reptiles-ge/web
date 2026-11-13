@@ -46,7 +46,7 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 - `POST /api/admin/photos` (upload form in `AdminSpeciesEditor`) calls `uploadSpeciesPhoto` in `src/lib/adminPhotos.ts`.
   - Validation: 12 MB max, sharp format checks (`prepareOriginal`), `creditFromInput`. `georgia-field` needs a location, and coordinates go through `parsePhotoCoordinatesInput`. Duplicate src is checked.
   - Upload: original plus AVIF/WebP derivatives to Bunny via `optimizeUploadedOriginal`.
-  - Then `openPhotoPullRequest`, which runs `appendGalleryItemToSpecies` (KA gallery item; an EN overlay item only when the EN credit differs) and writes `image-manifest.json` + `optimizedImages.generated.ts`.
+  - Then `openPhotoPullRequest`, which runs `appendGalleryItemToSpecies` (KA gallery item; an EN overlay item only when the EN credit differs) and wrote `image-manifest.json` + `optimizedImages.generated.ts` (since 2026-11-14 the catalog is in D1: `applyOptimizeCatalog` pushes it through `PUT /v1/admin/images/manifest`).
   - It reads `readAdminSpeciesGallery` (MDX) to pick unique CDN keys.
 - `POST /api/admin/inaturalist-photo` only prefills the form. It writes nothing and needs no change.
 
@@ -54,7 +54,7 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 - API: `POST /v1/admin/species/:id/photos` with `{ actor, src, credit?, photoConfidence?, overlays?: { en?: credit } }`. A pure `addPhoto(record, item, overlays)` refuses a duplicate src and appends to the KA gallery, plus the EN overlay when given. It is validated and saved through `change()`.
 - Admin: `uploadSpeciesPhoto` reads the existing gallery from `readAdminSpecies` instead of MDX, uploads to the CDN as today, then calls `addAdminSpeciesPhoto`.
-- **Derivatives catalog** (`image-manifest.json`, `optimizedImages.generated.ts`) stays in the repo for now. Open a catalog-only PR with `openStandalonePhotoPullRequest([optimized])`, the same as crop does. Moving the catalog to D1 belongs to phase 3.
+- **Derivatives catalog**: done on 2026-11-14. `image_manifest`, `optimized_images` and `schema_image_crops` live in D1 (migration `0029`); the site reads them at build time through `pnpm images:compile`. No catalog PRs any more (see "Image catalog" in `.agents/skills/api/SKILL.md`).
 - Remove `openPhotoPullRequest`, `appendGalleryItemToSpecies`, `appendGalleryItemToMdx` and their tests when they are unused. Check `adminPhotoPullRequest.test.ts`, which still exercises `openPhotoPullRequest`.
 
 **Tests:** API (append, duplicate → 400, EN overlay, validation, 401), admin route through MSW, and the upload helper with the CDN mocked.

@@ -332,6 +332,34 @@ export const RESPONSE_EXAMPLES = {
     ],
     total: 1,
   },
+  imageSchemaCrops: {
+    data: [
+      {
+        crops: [
+          {
+            height: 675,
+            ratio: "16x9",
+            url: "https://cdn.reptiles.ge/schema/16x9/macrovipera-lebetina-laura-1.jpg",
+            width: 1200,
+          },
+          {
+            height: 900,
+            ratio: "4x3",
+            url: "https://cdn.reptiles.ge/schema/4x3/macrovipera-lebetina-laura-1.jpg",
+            width: 1200,
+          },
+          {
+            height: 1200,
+            ratio: "1x1",
+            url: "https://cdn.reptiles.ge/schema/1x1/macrovipera-lebetina-laura-1.jpg",
+            width: 1200,
+          },
+        ],
+        src: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+      },
+    ],
+    total: 1,
+  },
   invalidRequest: {
     error: {
       code: "invalid_request",
