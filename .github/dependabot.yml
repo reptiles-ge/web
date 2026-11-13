@@ -27,6 +27,7 @@ updates:
       - dependency-name: vinext
       - dependency-name: "@vinext/*"
       - dependency-name: "@cloudflare/workers-response-store"
+      - dependency-name: "@swc/*"
     groups:
       nextjs:
         patterns:

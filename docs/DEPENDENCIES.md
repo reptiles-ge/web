@@ -1,6 +1,6 @@
 # Pinned and patched dependencies
 
-Four dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
+Five dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
 
 ## vinext (patched)
 
@@ -51,3 +51,13 @@ Four dependencies are held back on purpose. Dependabot does not update them. Cha
 **Dependabot.** `msw` major updates are in `ignore` in `.github/dependabot.yml`. Minor and patch updates still arrive.
 
 **To upgrade:** follow the msw 3 migration guide for `tests/setup/msw.ts` and `tests/msw/`, then run `pnpm typecheck` and `pnpm test:coverage` until both pass.
+
+## @swc/core (pinned to 1.16.2)
+
+`@swc/core` is not a direct dependency. `next-intl/plugin` requires it as soon as `next.config.ts` loads, so every build loads its native addon. `package.json` → `pnpm.overrides` pins it to `1.16.2`, inside `next-intl`'s `~1.16.0` range.
+
+**Why.** From `1.16.12` the Linux package ships a compressed addon that unpacks itself into a cache folder on first load. Before it does, it checks every parent of that folder and refuses to load if one is writable by another user without the sticky bit (`ERR_SWC_NATIVE_CACHE`, "cache root has a parent writable by another user without trusted sticky protection"). On 2026-11-13 the Cloudflare Workers Builds image started failing that check for both `/opt/buildhome/.cache` and `/tmp/swc-native` (set through `SWC_NATIVE_BINDING_CACHE`), so `vinext build` stopped at "Failed to load next.config.ts: Failed to load native binding". `1.16.2` is the last release that ships a plain `.node` file with no cache step.
+
+**Dependabot.** `@swc/*` is in `ignore` in `.github/dependabot.yml`.
+
+**To upgrade:** check that a newer `@swc/core` loads with an unsafe cache parent, or that the Cloudflare build image passes the check again. Locally: `mkdir -m 777 /tmp/x && mkdir -m 700 /tmp/x/cache`, then `HOME=/tmp/x XDG_CACHE_HOME=/tmp/x/cache node -e 'require("@swc/core")'` from a folder that resolves `@swc/core` (macOS: use `/private/tmp`, because `/tmp` is a symlink). Then remove the override, run `pnpm install`, and confirm the next Workers Build passes before merging to `main`.
