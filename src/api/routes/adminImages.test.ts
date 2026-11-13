@@ -97,7 +97,7 @@ describe("/v1/admin/images/manifest", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe(NO_STORE);
     expect(await response.json()).toStrictEqual({
-      data: { purge: "not_configured", written: 1 },
+      data: { purge: "purged", written: 1 },
     });
 
     const listed = await app.request(
@@ -184,7 +184,7 @@ describe("/v1/admin/images/schema-crops", () => {
     );
     expect(first.status).toBe(200);
     expect(await first.json()).toStrictEqual({
-      data: { purge: "not_configured", written: 1 },
+      data: { purge: "purged", written: 1 },
     });
 
     const replaced = crops.map((crop) => ({
