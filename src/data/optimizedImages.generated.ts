@@ -5100,6 +5100,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi",
+    "width": 1979,
+    "height": 1319,
+    "widths": [320, 400, 640, 800, 1200, 1979],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh.jpg": {
+    "path": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg": {
     "path": "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia",
     "width": 2048,
