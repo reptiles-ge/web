@@ -1,15 +1,14 @@
 diff --git a/dist/server/streaming-metadata.js b/dist/server/streaming-metadata.js
-index 48e7bcb2001cd552dcf1e712942051d51b9418d4..b70ef810116cf759b301e54182d4527ddfa11f84 100644
+index 2556dafb0892998a67830e4e98907fe44ec646a7..fb2b60aa126fc21d1d337b1712a78e1996d948ab 100644
 --- a/dist/server/streaming-metadata.js
 +++ b/dist/server/streaming-metadata.js
-@@ -1,8 +1,8 @@
+@@ -1,7 +1,7 @@
  import { getHtmlLimitedBotRegex } from "../utils/html-limited-bots.js";
- //#region src/server/streaming-metadata.ts
+ // src/server/streaming-metadata.ts
  function shouldServeStreamingMetadata(userAgent, htmlLimitedBots) {
 -	if (!userAgent) return true;
 -	return !getHtmlLimitedBotRegex(htmlLimitedBots).test(userAgent);
 +	if (!userAgent && !htmlLimitedBots) return true;
 +	return !getHtmlLimitedBotRegex(htmlLimitedBots).test(userAgent ?? "");
  }
- //#endregion
  export { shouldServeStreamingMetadata };
