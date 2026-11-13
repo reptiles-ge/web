@@ -1,6 +1,6 @@
-import { openStandalonePhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import { uploadStandalonePhotos } from "@/lib/adminPhotos";
 import { adminErrorResponse, readLocalAdminFormData } from "@/lib/adminRequest";
+import { applyOptimizeCatalog } from "@/lib/imageOptimize";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -41,19 +41,17 @@ export async function POST(request: Request) {
       return Response.json({
         ...result,
         ...(result.uploaded.length > 0
-          ? {
-              pullRequestError: "No optimized photos were added to the catalog",
-            }
+          ? { catalogError: "No optimized photos were added to the catalog" }
           : {}),
       });
     }
     try {
-      const pullRequestUrl = await openStandalonePhotoPullRequest(catalog);
-      return Response.json({ ...result, pullRequestUrl });
+      await applyOptimizeCatalog(catalog);
+      return Response.json({ ...result, cataloged: catalog.length });
     } catch (error) {
-      const pullRequestError =
-        error instanceof Error ? error.message : "Could not open pull request";
-      return Response.json({ ...result, pullRequestError });
+      const catalogError =
+        error instanceof Error ? error.message : "Could not update the catalog";
+      return Response.json({ ...result, catalogError });
     }
   } catch (error) {
     return adminErrorResponse(error, "Upload failed");

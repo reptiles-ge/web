@@ -4,6 +4,10 @@ import type { ApiDatabase } from "./database";
 
 export type OptimizedImageRow = OptimizedImageEntry & { src: string };
 
+export function deleteOptimizedImageStatement(db: ApiDatabase, src: string) {
+  return db.prepare("DELETE FROM optimized_images WHERE src = ?").bind(src);
+}
+
 export async function listOptimizedImages(
   db: ApiDatabase,
 ): Promise<OptimizedImageRow[]> {

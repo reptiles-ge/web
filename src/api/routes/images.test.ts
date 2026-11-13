@@ -58,3 +58,71 @@ describe("GET /v1/images", () => {
     expect(response.status).toBe(404);
   });
 });
+
+describe("GET /v1/images/schema-crops", () => {
+  it("returns an empty list before any crop", async () => {
+    const { db } = createTestDatabase();
+    const response = await app.request(
+      "/v1/images/schema-crops",
+      {},
+      { DB: db },
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe(PUBLIC_CACHE);
+    expect(await response.json()).toStrictEqual({ data: [], total: 0 });
+  });
+
+  it("groups the crops of a photo in ratio order", async () => {
+    const { db, sqlite } = createTestDatabase();
+    const src = "https://cdn.reptiles.ge/bufo-viridis-1.jpg";
+    for (const [ratio, height] of [
+      ["1x1", 1200],
+      ["16x9", 675],
+      ["4x3", 900],
+    ] as const) {
+      sqlite
+        .prepare(
+          "INSERT INTO schema_image_crops (src, ratio, url, width, height, updated_at) VALUES (?, ?, ?, 1200, ?, '2026-11-14T10:00:00.000Z')",
+        )
+        .run(
+          src,
+          ratio,
+          `https://cdn.reptiles.ge/schema/${ratio}/bufo-viridis-1.jpg`,
+          height,
+        );
+    }
+    const response = await app.request(
+      "/v1/images/schema-crops",
+      {},
+      { DB: db },
+    );
+    expect(await response.json()).toStrictEqual({
+      data: [
+        {
+          crops: [
+            {
+              height: 675,
+              ratio: "16x9",
+              url: "https://cdn.reptiles.ge/schema/16x9/bufo-viridis-1.jpg",
+              width: 1200,
+            },
+            {
+              height: 900,
+              ratio: "4x3",
+              url: "https://cdn.reptiles.ge/schema/4x3/bufo-viridis-1.jpg",
+              width: 1200,
+            },
+            {
+              height: 1200,
+              ratio: "1x1",
+              url: "https://cdn.reptiles.ge/schema/1x1/bufo-viridis-1.jpg",
+              width: 1200,
+            },
+          ],
+          src,
+        },
+      ],
+      total: 1,
+    });
+  });
+});

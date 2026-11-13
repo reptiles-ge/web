@@ -17,6 +17,10 @@ import {
   type SchemaCrop,
 } from "../src/data/schemaImages";
 import {
+  getAdminSchemaImageCrops,
+  putSchemaImageCrops,
+} from "../src/lib/optimizedImagesApi";
+import {
   newsHeroImage,
   type NewsHeroImage as CropSource,
 } from "../src/lib/newsSchemaImages";
@@ -25,7 +29,6 @@ import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
-const MANIFEST_PATH = path.join(process.cwd(), "src/data/schemaImages.json");
 const MAX_BYTES = 600_000;
 
 type CliOptions = {
@@ -39,7 +42,6 @@ type Selected = { hero: CropSource; key: string };
 
 type Manifest = {
   entries: Record<string, SchemaCrop[]>;
-  version: number;
 };
 
 function parseArguments(argv: string[]): CliOptions {
@@ -109,18 +111,19 @@ function addHero(
   heroes.set(hero.src, { hero, key });
 }
 
-function readManifest(): Manifest {
-  return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8")) as Manifest;
+function writeToken(): string {
+  const token = process.env.API_WRITE_TOKEN;
+  if (!token) {
+    throw new Error("API_WRITE_TOKEN must be in .env.local");
+  }
+  return token;
 }
 
-function writeManifest(manifest: Manifest) {
-  const entries = Object.fromEntries(
-    Object.entries(manifest.entries).sort(([a], [b]) => a.localeCompare(b)),
-  );
-  fs.writeFileSync(
-    MANIFEST_PATH,
-    `${JSON.stringify({ ...manifest, entries }, null, 2)}\n`,
-  );
+async function readManifest(token: string): Promise<Manifest> {
+  const rows = await getAdminSchemaImageCrops(token);
+  return {
+    entries: Object.fromEntries(rows.map((row) => [row.src, row.crops])),
+  };
 }
 
 function storageKey(src: string) {
@@ -180,7 +183,8 @@ function selectHeroes(
 async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
-  const manifest = readManifest();
+  const token = writeToken();
+  const manifest = await readManifest(token);
   const catalog = (await getSpeciesCatalog("ka")).filter(
     (item): item is typeof item & { image: string } => Boolean(item.image),
   );
@@ -197,8 +201,8 @@ async function main() {
     for (const { hero } of heroes) console.error(`Missing crops: ${hero.src}`);
     throw new Error(
       [
-        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} image(s).`,
-        "Fix the image manifest locally: run `pnpm images:schema --upload` and commit the updated manifest.",
+        `The API is missing schema crops for ${heroes.length} image(s).`,
+        "Run `pnpm images:schema --upload` locally, then deploy the site.",
       ].join("\n"),
     );
   }
@@ -241,14 +245,13 @@ async function main() {
       });
     }
     if (options.upload) {
-      manifest.entries[hero.src] = crops;
-      writeManifest(manifest);
+      await putSchemaImageCrops(token, [{ crops, src: hero.src }]);
     }
   }
 
   console.log(
     options.upload
-      ? `Updated ${path.relative(process.cwd(), MANIFEST_PATH)}.`
+      ? `Wrote ${heroes.length} crop set(s) to the API. Deploy the site to use them.`
       : "Dry run: nothing uploaded. Pass --upload to publish.",
   );
 }

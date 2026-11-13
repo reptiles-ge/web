@@ -4,7 +4,7 @@ import path from "node:path";
 import type { NewsArticle } from "../src/data/newsTypes";
 
 import { newsSlugs } from "../src/data/newsPublish";
-import { optimizedImages } from "../src/data/optimizedImages.generated";
+import { uploadedOptimizedImages as optimizedImages } from "../src/data/optimizedImages.api.generated";
 import { checkNewsHeroes, type NewsHeroInput } from "../src/lib/newsHeroImage";
 import {
   newsArticleFromMdx,

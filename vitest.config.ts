@@ -13,6 +13,13 @@ export default defineConfig({
         ),
       },
       {
+        find: "@/data/optimizedImages.api.generated",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/optimizedImagesApiGenerated.ts",
+        ),
+      },
+      {
         find: "@/data/speciesSlugs.generated",
         replacement: path.resolve(
           import.meta.dirname,

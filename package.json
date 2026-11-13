@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "compile": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && pnpm run images:compile",
+    "compile": "pnpm run images:compile && pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile",
     "predev": "pnpm run compile",
     "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
@@ -56,6 +56,7 @@
     "news:import": "tsx scripts/news-import.ts",
     "species:draft": "tsx scripts/species-draft.ts",
     "slugs:compile": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/compile-species-slugs.ts",
+    "images:import": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/import-image-catalog.ts",
     "images:compile": "tsx --env-file-if-exists=.env --env-file-if-exists=.env.local scripts/compile-optimized-images.ts",
     "content:compile": "tsx scripts/compile-content-dates.ts && tsx scripts/compile-release-version.ts",
     "taxon:ids": "tsx scripts/fetch-taxon-identifiers.ts",
@@ -65,7 +66,7 @@
     "images:check-og": "pnpm run slugs:compile && tsx scripts/check-og-images.ts",
     "images:og-missing": "pnpm run slugs:compile && pnpm run images:compile && tsx scripts/generate-missing-og.ts",
     "images:og-guides": "tsx scripts/generate-guide-og.ts",
-    "images:schema": "pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && tsx scripts/generate-schema-images.ts",
+    "images:schema": "pnpm run images:compile && pnpm run news:compile && pnpm run content:compile && pnpm run slugs:compile && tsx scripts/generate-schema-images.ts",
     "images:unused": "node scripts/remove-unused-images.js",
     "images:unused:delete": "node scripts/remove-unused-images.js --delete",
     "images:cdn-unused": "tsx scripts/cdn-unused-images.ts",
@@ -73,7 +74,6 @@
     "images:optimize:dry": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --dry-run",
     "images:optimize:news": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --news",
     "images:optimize:site": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --site",
-    "images:emit": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --emit-only",
     "images:warm": "pnpm run images:og-missing && pnpm run images:schema --check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

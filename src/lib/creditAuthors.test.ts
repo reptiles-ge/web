@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import imageManifest from "@/data/image-manifest.json";
-import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
+import {
+  allOptimizedImageEntries,
+  optimizedEntry,
+  optimizedImgSrc,
+} from "@/data/optimizedImages";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
@@ -278,9 +281,11 @@ describe("getCreditAuthorFieldSummary", () => {
 
 describe("portrait URLs outside the picture element", () => {
   const uploaded = new Set(
-    Object.values(imageManifest.entries).flatMap((entry) =>
-      entry.derivatives.map(
-        (derivative) => `https://cdn.reptiles.ge/${derivative.key}`,
+    Object.values(allOptimizedImageEntries()).flatMap((entry) =>
+      entry.formats.flatMap((format) =>
+        entry.widths.map(
+          (width) => `${entry.baseUrl}${entry.path}-${width}.${format}`,
+        ),
       ),
     ),
   );

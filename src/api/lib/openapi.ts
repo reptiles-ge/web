@@ -484,6 +484,26 @@ const OPERATIONS: Operation[] = [
     summary: "List optimized photos",
     tag: "Images",
   },
+  {
+    description:
+      "Photos that have 1200 px wide 16:9, 4:3 and 1:1 JPEG crops, made for structured data (`ImageObject` on species and news pages). Use a crop where a fixed aspect ratio is needed instead of resizing the original.",
+    errors: [],
+    method: "get",
+    operationId: "listImageSchemaCrops",
+    path: "/v1/images/schema-crops",
+    success: {
+      description: "Structured-data crops.",
+      examples: {
+        levantineViper: {
+          summary: "One photo",
+          value: RESPONSE_EXAMPLES.imageSchemaCrops,
+        },
+      },
+      schema: ref("SchemaImageCropListResponse"),
+    },
+    summary: "List structured-data crops",
+    tag: "Images",
+  },
 ];
 
 export const UNDOCUMENTED_PATH_PREFIXES = [

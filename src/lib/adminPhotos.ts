@@ -10,7 +10,6 @@ import { createRequire } from "node:module";
 import path from "node:path";
 
 import { optimizedImgSrc } from "@/data/optimizedImages";
-import { openStandalonePhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import { readAdminSpecies, setAdminSpeciesCover } from "@/lib/adminSpeciesApi";
 import {
   type CoverCropRect,
@@ -20,6 +19,7 @@ import {
 } from "@/lib/coverCrop";
 import { serverEnv } from "@/lib/env";
 import {
+  applyOptimizeCatalog,
   type OptimizeCatalogUpdate,
   optimizeUploadedOriginal,
 } from "@/lib/imageOptimize";
@@ -67,7 +67,7 @@ export async function cropSpeciesCover(input: {
   id: string;
   src: string;
   target: "desktop" | "mobile";
-}): Promise<{ coverSrc: string; pullRequestUrl?: string }> {
+}): Promise<{ coverSrc: string }> {
   const { record } = await readAdminSpecies(input.id);
   if (!record.base.gallery.some((item) => item.src === input.src)) {
     throw new Error(`Unknown gallery src: ${input.src}`);
@@ -109,12 +109,8 @@ export async function cropSpeciesCover(input: {
     src: input.src,
     target: input.target,
   });
-  return {
-    coverSrc,
-    ...(optimized
-      ? { pullRequestUrl: await openStandalonePhotoPullRequest([optimized]) }
-      : {}),
-  };
+  if (optimized) await applyOptimizeCatalog([optimized]);
+  return { coverSrc };
 }
 
 export async function uploadStandalonePhotos(
