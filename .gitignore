@@ -41,7 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-src/data/news.generated.ts
 src/data/speciesSlugs.generated.ts
 src/data/speciesAtlasMeta.generated.ts
 src/data/optimizedImages.api.generated.ts
@@ -67,5 +66,6 @@ progress.md
 .dev.vars*
 
 .drafts/
+.news/
 
 gbd-species-candidates.md

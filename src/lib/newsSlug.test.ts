@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { newsSlugs } from "@/data/newsPublish";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
 import {
@@ -28,10 +27,8 @@ function localizedPaths(internal: keyof typeof pathnames) {
 
 describe("news slugs never shadow news archive URLs", () => {
   it("accepts every registered news slug", () => {
-    for (const slug of newsSlugs) {
-      expect(newsSlugIssue(slug), slug).toBeNull();
-    }
     for (const article of getAllNewsArticles()) {
+      expect(newsSlugIssue(article.slug), article.slug).toBeNull();
       expect(NEWS_RESERVED_SLUGS, article.slug).not.toContain(article.slug);
     }
   });
