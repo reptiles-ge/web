@@ -64,7 +64,6 @@ describe("RegionProfile outline", () => {
     const { container } = renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -87,7 +86,6 @@ describe("RegionProfile outline", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -105,7 +103,6 @@ describe("RegionProfile outline", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -128,7 +125,6 @@ describe("RegionProfile FAQ", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}

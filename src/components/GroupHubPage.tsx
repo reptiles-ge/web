@@ -31,7 +31,6 @@ import {
 } from "@/data/herpetofauna-checklist";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import {
   getHubIndexTitleKey,
   HUB_CLUSTER_CARDS,
@@ -40,7 +39,6 @@ import {
   splitHubSpecies,
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { hubFaqValues } from "@/lib/groupHubFaqValues";
 import { HUB_DISPLAY_ORDER, hubGuideCards } from "@/lib/groupHubLayout";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
@@ -207,7 +205,6 @@ async function GroupHubCta({
     getTranslations({ locale, namespace: hubId }),
     getTranslations({ locale, namespace: "groupHubShared" }),
   ]);
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const outline =
     "flex h-[54px] items-center justify-center gap-2 rounded-full border border-white/30 px-[26px] text-[15px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px]";
 
@@ -219,24 +216,10 @@ async function GroupHubCta({
             <p className={cn(HUB_EYEBROW, "text-white/60")}>
               {t("ctaEyebrow")}
             </p>
-            <h2
-              className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
-              {...contentEditorAttributes(
-                "message",
-                editable ? "messages" : undefined,
-                `${hubId}.ctaTitle`,
-              )}
-            >
+            <h2 className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]">
               {t("ctaTitle")}
             </h2>
-            <p
-              className="mt-3 text-[14.5px] leading-[1.6] text-white/70 lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]"
-              {...contentEditorAttributes(
-                "message",
-                editable ? "messages" : undefined,
-                `${hubId}.ctaBody`,
-              )}
-            >
+            <p className="mt-3 text-[14.5px] leading-[1.6] text-white/70 lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]">
               {t("ctaBody")}
             </p>
           </div>

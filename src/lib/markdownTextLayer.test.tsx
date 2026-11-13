@@ -79,9 +79,9 @@ describe("Markdown text layer", () => {
             countLabel="3 sections"
             headingId="bite-contents"
             items={[
-              { anchor: "first", editorAttributes: {}, label: "First steps" },
-              { anchor: "avoid", editorAttributes: {}, label: "What to avoid" },
-              { anchor: "signs", editorAttributes: {}, label: "Symptoms" },
+              { anchor: "first", label: "First steps" },
+              { anchor: "avoid", label: "What to avoid" },
+              { anchor: "signs", label: "Symptoms" },
             ]}
             label="In this guide"
           />

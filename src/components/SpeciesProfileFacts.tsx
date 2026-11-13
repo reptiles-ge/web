@@ -25,7 +25,6 @@ type SpeciesProfileFactsProps = {
   danger?: DangerLevel;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
-  editable: boolean;
   linkDangerStats: boolean;
   locale: AppLocale;
   publishedAt?: string;
@@ -48,7 +47,6 @@ export async function SpeciesProfileFacts({
   danger,
   dangerValue,
   displayStats,
-  editable,
   linkDangerStats,
   locale,
   publishedAt,
@@ -91,28 +89,11 @@ export async function SpeciesProfileFacts({
                 )}
                 key={tile.stat.label}
               >
-                <dt
-                  className="text-[11px] leading-relaxed font-medium tracking-[0.14em] wrap-break-word text-muted-foreground"
-                  data-content-field={
-                    editable
-                      ? `stats.${stats.indexOf(tile.stat)}.label`
-                      : undefined
-                  }
-                  data-content-id={editable ? speciesId : undefined}
-                  data-content-kind={editable ? "species" : undefined}
-                >
+                <dt className="text-[11px] leading-relaxed font-medium tracking-[0.14em] wrap-break-word text-muted-foreground">
                   {tile.stat.label}
                 </dt>
                 <dd className="mt-[7px] font-display text-[16px] leading-[1.3] font-semibold wrap-break-word text-foreground lg:mt-2 lg:text-[19px]">
-                  <span
-                    data-content-field={
-                      editable
-                        ? `stats.${stats.indexOf(tile.stat)}.value`
-                        : undefined
-                    }
-                    data-content-id={editable ? speciesId : undefined}
-                    data-content-kind={editable ? "species" : undefined}
-                  >
+                  <span>
                     <SpeciesProfileStatValue
                       danger={danger}
                       dangerValue={dangerValue}

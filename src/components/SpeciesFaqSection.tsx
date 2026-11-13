@@ -5,7 +5,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { SpeciesFaqItems } from "@/components/SpeciesFaqItems";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { type PageType } from "@/lib/analytics";
 import { georgianTanPhrase } from "@/lib/georgianGrammar";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -55,7 +54,6 @@ export async function SpeciesFaqSection({
           </div>
 
           <SpeciesFaqItems
-            editable={locale === "ka" && isLocalAdminEnabled()}
             entityId={entityId}
             items={items}
             moreLabel={t("faqMore", {

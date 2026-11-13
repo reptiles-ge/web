@@ -11,16 +11,12 @@ const PREVIEW_LINES = 3;
 
 export function RangeHabitatExpandable({
   body,
-  editorField,
   readLess,
   readMore,
-  speciesId,
 }: {
   body: string;
-  editorField?: string;
   readLess: string;
   readMore: string;
-  speciesId?: string;
 }) {
   const { buttonRef, open, textRef, toggle } = useExpandableText(PREVIEW_LINES);
   const textId = useId();
@@ -32,8 +28,6 @@ export function RangeHabitatExpandable({
           "scroll-mt-40 text-[17px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:text-[16px]",
           !open && "line-clamp-3",
         )}
-        data-content-field={editorField}
-        data-content-id={speciesId}
         id={textId}
         ref={textRef}
       >
