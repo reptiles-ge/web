@@ -52,6 +52,7 @@ describe("getSpeciesProfile", () => {
     const profile = await getSpeciesProfile("macrovipera-lebetina", "ka");
     requests.stop();
     expect(requests.urls).toEqual([
+      "https://api.reptiles.ge/v1/catalog?view=card",
       "https://api.reptiles.ge/v1/species/giurza",
     ]);
     expect(profile?.species.id).toBe("macrovipera-lebetina");
@@ -70,6 +71,7 @@ describe("getSpeciesProfile", () => {
           { status: 500 },
         ),
       ),
+      reptilesApi,
     );
     await expect(getSpeciesProfile("testudo-graeca", "ka")).rejects.toThrow(
       "Species API answered 500 for testudo-graeca",

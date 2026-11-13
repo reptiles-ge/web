@@ -84,6 +84,26 @@ describe("POST /api/revalidate", () => {
     ).toBeLessThan(vi.mocked(revalidateTag).mock.invocationCallOrder[0]!);
   });
 
+  it("warms a species published after the deploy at its live slug", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    vi.mocked(refreshSpeciesApiCache).mockResolvedValueOnce({
+      hubById: { "new-bird": "birds" },
+      idByAnySlug: { "akhali-chiti": "new-bird", "new-bird": "new-bird" },
+      kaSlugById: { "new-bird": "akhali-chiti" },
+    });
+    const response = await POST(
+      request({ tags: ["species", "species:new-bird"] }, "secret"),
+    );
+    expect(await response.json()).toEqual({
+      warm: [
+        "/prinvelebi/akhali-chiti",
+        "/en/birds/new-bird",
+        "/ru/birds/new-bird",
+        "/tr/birds/new-bird",
+      ],
+    });
+  });
+
   it("rejects a missing or wrong token, and a missing secret", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
     expect((await POST(request({ tags: ["species"] }))).status).toBe(401);

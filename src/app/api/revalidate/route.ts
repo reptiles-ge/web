@@ -1,14 +1,17 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 
+import type { SpeciesSlugMaps } from "@/lib/speciesSlugRules";
+
 import { creditAuthorHref } from "@/data/authors";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
 import { newsArticleHref } from "@/lib/newsHrefs";
-import { speciesPageUrl } from "@/lib/site";
 import { findSitePageGroup, SITE_PAGE_GROUP_IDS } from "@/lib/sitePageGroups";
 import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
+import { speciesHref } from "@/lib/speciesRoutes";
+import { liveSpeciesPath } from "@/lib/speciesSlugRuntime";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 
@@ -52,14 +55,18 @@ export async function POST(request: Request) {
     );
   }
   const { groups = [], tags = [] } = parsed.data;
-  if (tags.length > 0) await refreshSpeciesApiCache(tags);
+  const slugMaps =
+    tags.length > 0 ? await refreshSpeciesApiCache(tags) : undefined;
   for (const tag of tags) revalidateTag(tag, "max");
   for (const id of groups) {
     for (const route of findSitePageGroup(id)?.routes ?? []) {
       revalidatePath(route.path, route.type);
     }
   }
-  return Response.json({ warm: warmPaths(tags) }, { headers: noindex });
+  return Response.json(
+    { warm: warmPaths(tags, slugMaps) },
+    { headers: noindex },
+  );
 }
 
 async function sameSecret(header: null | string, token: string) {
@@ -74,13 +81,15 @@ async function sameSecret(header: null | string, token: string) {
   return a.every((byte, index) => byte === b[index]);
 }
 
-function warmPaths(tags: string[]) {
+function warmPaths(tags: string[], slugMaps: SpeciesSlugMaps | undefined) {
   return tags.flatMap((tag) => {
     const [kind, id] = tag.split(":");
     if (!id) return [];
     return routing.locales.map((locale) => {
       if (kind === "species") {
-        return new URL(speciesPageUrl(locale, id)).pathname;
+        return slugMaps
+          ? liveSpeciesPath(slugMaps, id, locale)
+          : getPathname({ href: speciesHref(id, locale), locale });
       }
       const href = kind === "news" ? newsArticleHref(id) : creditAuthorHref(id);
       return getPathname({ href, locale });
