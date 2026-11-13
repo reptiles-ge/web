@@ -147,7 +147,6 @@ Route files are thin. They call a factory in `src/lib/`:
 
 | Output                                 | Source                                               | Script                 |
 | -------------------------------------- | ---------------------------------------------------- | ---------------------- |
-| `src/data/news.generated.ts`           | `src/content/news/*/*.mdx`                           | `pnpm news:compile`    |
 | `src/data/speciesSlugs.generated.ts`   | API card catalog and slug aliases (used by the edge) | `pnpm slugs:compile`   |
 | `src/data/contentDates.generated.ts`   | Git dates of guides, page files and messages         | `pnpm content:compile` |
 | `src/data/releaseVersion.generated.ts` | Latest Git tag (shown in the footer)                 | `pnpm content:compile` |
@@ -193,7 +192,7 @@ Practical long-form guides (bat in the house, wasp nest, tick bite, …) live in
 
 ### News
 
-Articles live in `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `scripts/compile-news.ts` turns them into the gitignored `src/data/news.generated.ts`, read through `src/data/news.ts`. Register a new slug in `src/data/newsPublish.ts`. Drafts stay out of the sitemap and static params. There are no tag or category archives.
+Articles live in D1 and reach the site through `reptiles-api` (`src/lib/newsApi.ts`). A new article is written as `{ka,en,ru,tr}.mdx` in the gitignored `.news/{slug}/` inbox and imported with `pnpm news:import <slug>`; the MDX is not committed. Drafts stay out of the sitemap and static params. There are no tag or category archives.
 
 ### UI strings
 
@@ -310,32 +309,32 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 
 ## Command reference
 
-| Command                  | Purpose                                                                  |
-| ------------------------ | ------------------------------------------------------------------------ |
-| `pnpm dev`               | Compile generated data, then start Next.js on port 3333                  |
-| `pnpm build`             | Next.js production build                                                 |
-| `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                   |
-| `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler        |
-| `pnpm compile`           | `news:compile`, `content:compile`, `slugs:compile`, and `images:compile` |
-| `pnpm content:compile`   | Content dates and release version                                        |
-| `pnpm slugs:compile`     | Slug table from the API card catalog                                     |
-| `pnpm map:compile`       | Georgia SVG to map paths (output is committed; not part of `compile`)    |
-| `pnpm lint` / `lint:fix` | ESLint                                                                   |
-| `pnpm typecheck`         | TypeScript                                                               |
-| `pnpm test`              | Vitest and the proxy cacheability test                                   |
-| `pnpm test:watch`        | Vitest in watch mode                                                     |
-| `pnpm test:coverage`     | Vitest with coverage thresholds                                          |
-| `pnpm test:e2e`          | Playwright end-to-end and accessibility tests                            |
-| `pnpm doctor`            | React Doctor health scan (`doctor:changed` scans only your diff)         |
-| `pnpm knip`              | Unused code and dependencies                                             |
-| `pnpm cpd`               | Copy-paste detection                                                     |
-| `pnpm i18n:check`        | Locale parity                                                            |
-| `pnpm i18n:usage`        | Unused or undefined message keys                                         |
-| `pnpm images:*`          | Image checks, optimization, and OG generation (see `scripts/README.md`)  |
-| `pnpm seo:*`             | SEO audits and the SEO graph export                                      |
-| `pnpm analyze`           | Bundle analyzer                                                          |
-| `pnpm format`            | Prettier on the whole repository                                         |
-| `pnpm format:check`      | Fails on any file Prettier would change (runs in CI)                     |
+| Command                  | Purpose                                                                 |
+| ------------------------ | ----------------------------------------------------------------------- |
+| `pnpm dev`               | Compile generated data, then start Next.js on port 3333                 |
+| `pnpm build`             | Next.js production build                                                |
+| `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                  |
+| `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler       |
+| `pnpm compile`           | `images:compile`, `content:compile`, and `slugs:compile`                |
+| `pnpm content:compile`   | Content dates and release version                                       |
+| `pnpm slugs:compile`     | Slug table from the API card catalog                                    |
+| `pnpm map:compile`       | Georgia SVG to map paths (output is committed; not part of `compile`)   |
+| `pnpm lint` / `lint:fix` | ESLint                                                                  |
+| `pnpm typecheck`         | TypeScript                                                              |
+| `pnpm test`              | Vitest and the proxy cacheability test                                  |
+| `pnpm test:watch`        | Vitest in watch mode                                                    |
+| `pnpm test:coverage`     | Vitest with coverage thresholds                                         |
+| `pnpm test:e2e`          | Playwright end-to-end and accessibility tests                           |
+| `pnpm doctor`            | React Doctor health scan (`doctor:changed` scans only your diff)        |
+| `pnpm knip`              | Unused code and dependencies                                            |
+| `pnpm cpd`               | Copy-paste detection                                                    |
+| `pnpm i18n:check`        | Locale parity                                                           |
+| `pnpm i18n:usage`        | Unused or undefined message keys                                        |
+| `pnpm images:*`          | Image checks, optimization, and OG generation (see `scripts/README.md`) |
+| `pnpm seo:*`             | SEO audits and the SEO graph export                                     |
+| `pnpm analyze`           | Bundle analyzer                                                         |
+| `pnpm format`            | Prettier on the whole repository                                        |
+| `pnpm format:check`      | Fails on any file Prettier would change (runs in CI)                    |
 
 ## Further documentation
 

@@ -4,20 +4,20 @@ Status as of 2026-10-25. Phases 1 and 2, slices 3.1 and 3.2, the `news:import` c
 
 ## Where things stand
 
-| Phase | What                                                                                                  | State                                                    |
-| ----- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                                |
-| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production                  |
-| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                             |
-| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                               |
-| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ✅ done (hubs, regions, species, series 2026-11-13)      |
-| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳ sitemap, feeds, llms and search done                  |
-| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done                |
-| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳ tests and scripts off the compiled table (2026-11-14) |
+| Phase | What                                                                                                  | State                                                                                                |
+| ----- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                                                                            |
+| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production                                                              |
+| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                                                                         |
+| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                                                                           |
+| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ✅ done (hubs, regions, species, series 2026-11-13)                                                  |
+| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳ sitemap, feeds, llms and search done                                                              |
+| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done                                                            |
+| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ✅ done 2026-11-14 (`newsMdx.ts`, `newsFrontmatter.ts`, `newsArticleFromMdx` stay for `news:import`) |
 
 Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can each be split into several PRs. Exception: the create path of `news:import` (`POST /v1/admin/news` + the script) must ship **before** phase 3 switches the site to the API. From then on the site no longer reads MDX, so an article written in MDX reaches the site only through the import. Until phase 3, new articles are added both ways: MDX on `main` as today, and `news:import` into D1.
 
-### Today
+### Today (as it was before phase 6; kept for the record)
 
 - 31 articles in `src/content/news/{slug}/{ka,en,ru,tr}.mdx` (about 1.2 MB). The order lives in `newsSlugs` (`src/data/newsPublish.ts`); it breaks ties between articles with the same `publishedAt`.
 - `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against the API image catalog in `optimizedImages.api.generated`, so `images:compile` runs first), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).

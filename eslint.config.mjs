@@ -291,7 +291,6 @@ const eslintConfig = defineConfig([
     "dist/**",
     "dist-admin/**",
     "next-env.d.ts",
-    "src/data/news.generated.ts",
     "src/data/speciesSlugs.generated.ts",
     "src/data/speciesAtlasMeta.generated.ts",
     "src/data/search-index.generated.ts",

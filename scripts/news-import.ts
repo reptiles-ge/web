@@ -1,15 +1,23 @@
 import path from "node:path";
 
+import { newsArticlePhotos } from "../src/data/news";
+import { isOptimizedImageSrc } from "../src/data/optimizedImages";
+import { uploadedOptimizedImages } from "../src/data/optimizedImages.api.generated";
 import { createAdminNews, publishAdminNews } from "../src/lib/adminNewsApi";
 import { apiOrigin } from "../src/lib/apiClient";
+import { checkNewsHero } from "../src/lib/newsHeroImage";
 import {
   newsArticleFromMdx,
   readNewsMdxFiles,
 } from "../src/lib/newsMdxArticle";
+import { newsArticleLocales } from "../src/lib/newsRules";
+import { newsSlugIssue } from "../src/lib/newsSlug";
+import { findPageReferences } from "../src/lib/pageTalkProse";
 import { loadEnv } from "./scriptUtils";
 
 const USAGE =
-  "Usage: pnpm news:import <slug> [--dry-run] [--publish] [--actor <name>]";
+  "Usage: pnpm news:import <slug> [--dir <folder>] [--dry-run] [--publish] [--actor <name>]";
+const DEFAULT_DIR = ".news";
 
 const args = process.argv.slice(2);
 const slug = args.find((arg) => !arg.startsWith("--"));
@@ -20,8 +28,14 @@ const actor =
   (actorIndex >= 0 ? args[actorIndex + 1] : undefined) ??
   process.env.USER ??
   "news-import";
+const dirIndex = args.indexOf("--dir");
+const dir = (dirIndex >= 0 ? args[dirIndex + 1] : undefined) ?? DEFAULT_DIR;
 
-if (!slug || (actorIndex >= 0 && !args[actorIndex + 1])) {
+if (
+  !slug ||
+  (actorIndex >= 0 && !args[actorIndex + 1]) ||
+  (dirIndex >= 0 && !args[dirIndex + 1])
+) {
   console.error(USAGE);
   process.exit(1);
 }
@@ -32,12 +46,44 @@ if (dryRun && publish) {
 
 loadEnv();
 
-const contentRoot = path.join(process.cwd(), "src/content/news");
-const { article, errors } = newsArticleFromMdx(
+const contentRoot = path.resolve(process.cwd(), dir);
+const { article, errors, heroImageException } = newsArticleFromMdx(
   slug,
   readNewsMdxFiles(contentRoot, slug),
 );
 if (!article || errors.length > 0) {
+  console.error(
+    errors.length > 0
+      ? errors.join("\n")
+      : `${slug}: no MDX files in ${path.relative(process.cwd(), contentRoot)}/${slug}`,
+  );
+  process.exit(1);
+}
+
+const slugProblem = newsSlugIssue(slug);
+if (slugProblem) errors.push(`${slug}: ${slugProblem}`);
+for (const photo of newsArticlePhotos(article)) {
+  if (!isOptimizedImageSrc(photo.src))
+    errors.push(
+      `${slug}: ${photo.src} has no AVIF/WebP ladder; run images:optimize:news first`,
+    );
+}
+for (const locale of newsArticleLocales(article)) {
+  for (const hit of findPageReferences(article.copy[locale], locale, locale))
+    errors.push(`${slug}: ${hit.field}: page talk: ${hit.match}`);
+}
+const hero = checkNewsHero(
+  {
+    exception: heroImageException,
+    image: article.image,
+    publishedAt: article.publishedAt,
+    slug,
+  },
+  uploadedOptimizedImages,
+);
+if (hero.error) errors.push(hero.error);
+if (hero.warning) console.warn(hero.warning);
+if (errors.length > 0) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
