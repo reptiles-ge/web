@@ -80,11 +80,11 @@ describe("SpeciesShareButton", () => {
     expect(writeText).toHaveBeenCalledWith(SHARE.url);
   });
 
-  it("closes on Escape and with the close button and restores the scroll", async () => {
+  it("closes when the dialog closes and restores the scroll", async () => {
     renderButton();
     await openDialog();
 
-    fireEvent.keyDown(document, { key: "Escape" });
+    fireEvent(screen.getByRole("dialog"), new Event("close"));
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
     expect(document.body.style.overflow).toBe("");
 

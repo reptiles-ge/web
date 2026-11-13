@@ -43,7 +43,6 @@ export function SpeciesShareButton({
         <SpeciesShareDialog
           ogImage={ogImage}
           onClose={() => setOpen(false)}
-          open={open}
           share={share}
           speciesId={speciesId}
         />
