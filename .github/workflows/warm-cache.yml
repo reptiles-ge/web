@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       warm_only:
-        description: Warm the pages only, without IndexNow or the OG image upload
+        description: Warm the pages only, without IndexNow
         type: boolean
         default: false
 
@@ -50,33 +50,3 @@ jobs:
         with:
           path: .indexnow-state.json
           key: indexnow-state-${{ github.run_id }}
-
-  images:
-    if: ${{ !inputs.warm_only }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: staging
-
-      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
-        with:
-          version: 10.34.5
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-
-      - name: Upload missing OG images, check the news schema manifest
-        run: pnpm images:warm
-        env:
-          BUNNY_STORAGE_ZONE: ${{ vars.BUNNY_STORAGE_ZONE }}
-          BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
-          BUNNY_STORAGE_REGION: ${{ vars.BUNNY_STORAGE_REGION }}
-          SITE_API_KEY: ${{ secrets.SITE_API_KEY }}
