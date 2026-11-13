@@ -75,7 +75,15 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
 export function creditAuthorEntityJsonLd(
   author: AuthorProfile,
   locale: AppLocale,
-  { description, jobTitle }: { description?: string; jobTitle?: string },
+  {
+    description,
+    jobTitle,
+    knowsAbout,
+  }: {
+    description?: string;
+    jobTitle?: string;
+    knowsAbout?: readonly unknown[];
+  },
 ) {
   const isPerson = author.kind === "person";
   const affiliations = isPerson ? authorAffiliationNames(author, locale) : [];
@@ -94,6 +102,7 @@ export function creditAuthorEntityJsonLd(
     description,
     image: creditAuthorPortraitImage(author).url,
     ...(isPerson && jobTitle ? { jobTitle } : {}),
+    ...(isPerson && knowsAbout && knowsAbout.length > 0 ? { knowsAbout } : {}),
     name: author.name,
     ...(sameAs.length > 0 ? { sameAs } : {}),
     url: creditAuthorUrl(locale, author.id),

@@ -460,15 +460,17 @@ function speciesStructuredData({
     "@id": taxonId,
     ...speciesTaxonJsonLd(raw, item, locale, ranks),
   };
+  const coverRights =
+    item.image && ogImage !== speciesOgImageUrl(item.id)
+      ? photoRights(item.image, item.imageCredit, locale, contributors)
+      : photoRights(ogImage, undefined, locale, contributors);
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
     name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
     url: ogImage,
     ...ogImageDimensions(ogImage),
-    ...(item.image && ogImage !== speciesOgImageUrl(item.id)
-      ? photoRights(item.image, item.imageCredit, locale, contributors)
-      : photoRights(ogImage, undefined, locale, contributors)),
+    ...coverRights,
   };
   const jsonLd = {
     "@context": "https://schema.org",

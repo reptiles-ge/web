@@ -4,7 +4,8 @@ type SentryModule = typeof import("@/lib/sentryClient");
 
 const IDLE_TIMEOUT_MS = 4000;
 
-let sentry: SentryModule | undefined;
+let captureRouterTransitionStart:
+  SentryModule["captureRouterTransitionStart"] | undefined;
 let sentryPromise: Promise<SentryModule> | undefined;
 const pendingErrors: unknown[] = [];
 
@@ -14,7 +15,7 @@ function loadSentry() {
       dsn: SENTRY_DSN,
       tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
     });
-    sentry = module;
+    captureRouterTransitionStart = module.captureRouterTransitionStart;
     window.removeEventListener("error", onEarlyError);
     window.removeEventListener("unhandledrejection", onEarlyRejection);
     for (const error of pendingErrors.splice(0)) module.captureException(error);
@@ -57,5 +58,5 @@ if (typeof window !== "undefined") {
 export function onRouterTransitionStart(
   ...args: Parameters<SentryModule["captureRouterTransitionStart"]>
 ) {
-  sentry?.captureRouterTransitionStart(...args);
+  captureRouterTransitionStart?.(...args);
 }

@@ -19,6 +19,7 @@ import {
   creditAuthorEntityJsonLd,
   creditAuthorIndexUrl,
   creditAuthorPageSchemaType,
+  creditAuthorPersonId,
   creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
@@ -72,6 +73,13 @@ export default async function AuthorRoute({ params }: Props) {
   const url = creditAuthorUrl(locale, author.id);
   const indexUrl = creditAuthorIndexUrl(locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
+  const isPerson = author.kind === "person";
+  const georgiaPlace = { "@type": "Place", name: georgiaPlaceName(locale) };
+  const taxa = speciesIds.flatMap((id) => {
+    const species = byId.get(id);
+    if (!species) return [];
+    return [speciesTaxonRef(locale, species)];
+  });
 
   const breadcrumbLd = breadcrumbListLd([
     { item: indexUrl, name: t("index.breadcrumb") },
@@ -82,17 +90,9 @@ export default async function AuthorRoute({ params }: Props) {
     "@context": "https://schema.org",
     ...webPageIds(url),
     "@type": creditAuthorPageSchemaType(author),
-    about: [
-      {
-        "@type": "Place",
-        name: georgiaPlaceName(locale),
-      },
-      ...speciesIds.flatMap((id) => {
-        const species = byId.get(id);
-        if (!species) return [];
-        return [speciesTaxonRef(locale, species)];
-      }),
-    ],
+    about: isPerson
+      ? { "@id": creditAuthorPersonId(locale, author.id) }
+      : [georgiaPlace, ...taxa],
     description:
       bio ??
       t("metaDescription", {
@@ -106,6 +106,7 @@ export default async function AuthorRoute({ params }: Props) {
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
       description: bio,
       jobTitle: author.jobTitle ? t(`jobTitles.${author.jobTitle}`) : undefined,
+      knowsAbout: isPerson ? [georgiaPlace, ...taxa] : undefined,
     }),
     name,
     url,

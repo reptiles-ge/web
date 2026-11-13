@@ -4,6 +4,7 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
+  newsArticleDates,
   newsArticleModifiedDateTime,
   newsArticleUrl,
   newsDateTime,
@@ -13,7 +14,6 @@ import {
   newsOgImageDimensions,
   newsOgImageUrl,
   newsReadMinutes,
-  newsSchemaDate,
   newsSourceBadges,
 } from "@/lib/news";
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
@@ -54,15 +54,26 @@ describe("newsDateTime", () => {
   });
 });
 
-describe("newsSchemaDate", () => {
-  it("keeps a bare date without inventing a time", () => {
-    expect(newsSchemaDate("2026-10-24")).toBe("2026-10-24");
+describe("newsArticleDates", () => {
+  it("never dates the update before the publication", () => {
+    expect(
+      newsArticleDates({
+        publishedAt: "2026-11-10T09:30:00Z",
+        updatedAt: "2026-11-10",
+      }),
+    ).toEqual({
+      dateModified: "2026-11-10T13:30:00+04:00",
+      datePublished: "2026-11-10T13:30:00+04:00",
+    });
   });
 
-  it("converts a timestamp to the site time zone", () => {
-    expect(newsSchemaDate("2026-10-23T07:30:00Z")).toBe(
-      "2026-10-23T11:30:00+04:00",
-    );
+  it("uses the update time when it is later", () => {
+    expect(
+      newsArticleDates({ publishedAt: "2026-11-01", updatedAt: "2026-11-10" }),
+    ).toEqual({
+      dateModified: "2026-11-10T00:00:00+04:00",
+      datePublished: "2026-11-01T00:00:00+04:00",
+    });
   });
 });
 

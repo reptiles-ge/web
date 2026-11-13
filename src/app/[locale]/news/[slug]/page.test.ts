@@ -65,6 +65,31 @@ describe("news article JSON-LD", () => {
       expect(Array.isArray(articleLd.image)).toBe(true);
     },
   );
+
+  it("dates the article with a full time and the Tbilisi offset", async () => {
+    const articleLd = await articleJsonLd("en");
+    const dateTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+04:00$/;
+    expect(articleLd.datePublished).toMatch(dateTime);
+    expect(articleLd.dateModified).toMatch(dateTime);
+  });
+
+  it("defines each node with an id once and refers to it after that", async () => {
+    const counts = new Map<string, number>();
+    const visit = (value: unknown) => {
+      if (Array.isArray(value)) return value.forEach(visit);
+      if (!value || typeof value !== "object") return;
+      const node = value as Record<string, unknown>;
+      if (typeof node["@id"] === "string" && Object.keys(node).length > 1) {
+        counts.set(node["@id"], (counts.get(node["@id"]) ?? 0) + 1);
+      }
+      Object.values(node).forEach(visit);
+    };
+    for (const locale of routing.locales) {
+      counts.clear();
+      visit(await articleJsonLd(locale));
+      for (const [id, count] of counts) expect(count, id).toBe(1);
+    }
+  });
 });
 
 describe("news article metadata", () => {

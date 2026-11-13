@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
@@ -8,7 +10,7 @@ import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
 import { contributorsFixture } from "../../../../../tests/fixtures/speciesCatalog";
-import { dynamicParams, generateMetadata } from "./page";
+import AuthorRoute, { dynamicParams, generateMetadata } from "./page";
 
 const messages = { en, ka, ru, tr };
 
@@ -35,6 +37,7 @@ vi.mock("next-intl/server", () => ({
     locale: keyof typeof messages;
     namespace: "author";
   }) => createTranslator({ locale, messages: messages[locale], namespace }),
+  setRequestLocale: () => undefined,
 }));
 
 const cases = routing.locales.flatMap((locale) =>
@@ -111,4 +114,37 @@ describe("contributor profile metadata", () => {
       ["en", "ka", "ru", "tr", "x-default"].sort(),
     );
   });
+});
+
+async function profileJsonLd(locale: string, slug: string) {
+  const page = (await AuthorRoute({
+    params: Promise.resolve({ locale, slug }),
+  })) as ReactElement<{
+    children: ReactElement<{ data: Record<string, unknown> }>[];
+  }>;
+  const [, breadcrumb, profile] = page.props.children;
+  return { breadcrumb: breadcrumb.props.data, profile: profile.props.data };
+}
+
+describe("contributor profile JSON-LD", () => {
+  it.each(routing.locales)(
+    "keeps the %s breadcrumb to the visible trail and puts the species under knowsAbout",
+    async (locale) => {
+      const author = contributorsFixture(locale).find(
+        (item) => item.kind === "person",
+      );
+      if (!author) throw new Error("No person contributor in the fixture.");
+      const { breadcrumb, profile } = await profileJsonLd(locale, author.id);
+      const items = breadcrumb.itemListElement as Array<{
+        item: string;
+        position: number;
+      }>;
+      expect(items.map((item) => item.position)).toEqual([1, 2]);
+      expect(items[0]?.item).toMatch(/\/(kontributorebi|contributors)$/);
+      const person = profile.mainEntity as Record<string, unknown>;
+      expect(profile["@type"]).toBe("ProfilePage");
+      expect(profile.about).toEqual({ "@id": person["@id"] });
+      expect(Array.isArray(person.knowsAbout)).toBe(true);
+    },
+  );
 });

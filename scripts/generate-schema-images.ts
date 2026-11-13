@@ -12,21 +12,20 @@ import {
 
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
-  NEWS_SCHEMA_IMAGE_MIN_WIDTH,
-  NEWS_SCHEMA_RATIOS,
-  type NewsSchemaCrop,
-} from "../src/data/newsSchemaImages";
-import { newsHeroImage, type NewsHeroImage } from "../src/lib/newsSchemaImages";
+  SCHEMA_IMAGE_MIN_WIDTH,
+  SCHEMA_RATIOS,
+  type SchemaCrop,
+} from "../src/data/schemaImages";
+import {
+  newsHeroImage,
+  type NewsHeroImage as CropSource,
+} from "../src/lib/newsSchemaImages";
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
-import type { PhotoCredit } from "../src/data/speciesTypes";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
-const MANIFEST_PATH = path.join(
-  process.cwd(),
-  "src/data/newsSchemaImages.json",
-);
+const MANIFEST_PATH = path.join(process.cwd(), "src/data/schemaImages.json");
 const MAX_BYTES = 600_000;
 
 type CliOptions = {
@@ -36,8 +35,10 @@ type CliOptions = {
   upload: boolean;
 };
 
+type Selected = { hero: CropSource; key: string };
+
 type Manifest = {
-  entries: Record<string, NewsSchemaCrop[]>;
+  entries: Record<string, SchemaCrop[]>;
   version: number;
 };
 
@@ -81,8 +82,31 @@ function parseArguments(argv: string[]): CliOptions {
   if (check && upload) {
     throw new Error("--check and --upload cannot be combined.");
   }
-
   return { check, force, slugs, upload };
+}
+
+function addHero(
+  heroes: Map<string, Selected>,
+  label: string,
+  hero: CropSource | null,
+  manifest: Manifest,
+  force: boolean,
+) {
+  if (!hero) {
+    console.log(`${label}: image size unknown, skipped.`);
+    return;
+  }
+  if (hero.width < SCHEMA_IMAGE_MIN_WIDTH) {
+    console.log(`${label}: image is ${hero.width} px wide, skipped.`);
+    return;
+  }
+  const key = storageKey(hero.src);
+  if (!key) {
+    console.log(`${label}: image is not on the CDN, skipped.`);
+    return;
+  }
+  if (!force && manifest.entries[hero.src]) return;
+  heroes.set(hero.src, { hero, key });
 }
 
 function readManifest(): Manifest {
@@ -107,7 +131,7 @@ function storageKey(src: string) {
   return null;
 }
 
-async function readSource(hero: NewsHeroImage) {
+async function readSource(hero: CropSource) {
   if (hero.src.startsWith("/")) {
     const local = path.join(PUBLIC_ROOT, hero.src);
     if (fs.existsSync(local)) return fs.readFileSync(local);
@@ -128,13 +152,7 @@ function createStorage(upload: boolean): StorageAdapter {
 function selectHeroes(
   options: CliOptions,
   manifest: Manifest,
-  catalog: ReadonlyArray<{
-    commonName: string;
-    id: string;
-    image: string;
-    imageCredit?: PhotoCredit;
-    scientificName: string;
-  }>,
+  catalog: Parameters<typeof newsHeroImage>[1],
 ) {
   const articles = getPublishedNewsArticles();
   const known = new Set(articles.map((article) => article.slug));
@@ -143,27 +161,18 @@ function selectHeroes(
     throw new Error(`Unknown news slug(s): ${unknown.join(", ")}.`);
   }
 
-  const heroes = new Map<string, { hero: NewsHeroImage; key: string }>();
+  const heroes = new Map<string, Selected>();
   for (const article of articles) {
     if (options.slugs.length > 0 && !options.slugs.includes(article.slug)) {
       continue;
     }
-    const hero = newsHeroImage(article, catalog);
-    if (!hero) {
-      console.log(`${article.slug}: hero size unknown, skipped.`);
-      continue;
-    }
-    if (hero.width < NEWS_SCHEMA_IMAGE_MIN_WIDTH) {
-      console.log(`${article.slug}: hero is ${hero.width} px wide, skipped.`);
-      continue;
-    }
-    const key = storageKey(hero.src);
-    if (!key) {
-      console.log(`${article.slug}: hero is not on the CDN, skipped.`);
-      continue;
-    }
-    if (!options.force && manifest.entries[hero.src]) continue;
-    heroes.set(hero.src, { hero, key });
+    addHero(
+      heroes,
+      article.slug,
+      newsHeroImage(article, catalog),
+      manifest,
+      options.force,
+    );
   }
   return [...heroes.values()];
 }
@@ -172,16 +181,15 @@ async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
   const manifest = readManifest();
-  const heroes = selectHeroes(
-    options,
-    manifest,
-    (await getSpeciesCatalog("ka")).filter(
-      (item): item is typeof item & { image: string } => Boolean(item.image),
-    ),
+  const catalog = (await getSpeciesCatalog("ka")).filter(
+    (item): item is typeof item & { image: string } => Boolean(item.image),
   );
+  const heroes = selectHeroes(options, manifest, catalog);
 
   if (heroes.length === 0) {
-    console.log("Every news hero already has its schema crops. Nothing to do.");
+    console.log(
+      "Every selected image already has its schema crops. Nothing to do.",
+    );
     return;
   }
 
@@ -189,8 +197,8 @@ async function main() {
     for (const { hero } of heroes) console.error(`Missing crops: ${hero.src}`);
     throw new Error(
       [
-        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} news hero(es).`,
-        "Fix the image manifest locally: run `pnpm images:news-schema --upload` and commit the updated manifest.",
+        `${path.relative(process.cwd(), MANIFEST_PATH)} is missing schema crops for ${heroes.length} image(s).`,
+        "Fix the image manifest locally: run `pnpm images:schema --upload` and commit the updated manifest.",
       ].join("\n"),
     );
   }
@@ -199,8 +207,8 @@ async function main() {
 
   for (const { hero, key } of heroes) {
     const source = await readSource(hero);
-    const crops: NewsSchemaCrop[] = [];
-    for (const ratio of NEWS_SCHEMA_RATIOS) {
+    const crops: SchemaCrop[] = [];
+    for (const ratio of SCHEMA_RATIOS) {
       const result = await renderAndStoreOgImage({
         alt: hero.src,
         key,

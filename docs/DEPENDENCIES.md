@@ -1,18 +1,18 @@
 # Pinned and patched dependencies
 
-Four dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
+Five dependencies are held back on purpose. Dependabot does not update them. Change them by hand, with the steps below.
 
 ## vinext (patched)
 
-`vinext` is pinned to `1.4.0` and `@vinext/cloudflare` to `1.3.0`. `patches/vinext@1.4.0.patch` (wired in `package.json` → `pnpm.patchedDependencies`) changes `dist/server/streaming-metadata.js`.
+`vinext` is pinned to `1.4.5`, `@vinext/cloudflare` to `1.3.4` and `@cloudflare/workers-response-store` to `1.1.5`. `patches/vinext@1.4.5.patch` (wired in `package.json` → `pnpm.patchedDependencies`) changes `dist/server/streaming-metadata.js`.
 
 **Why.** `next.config.ts` sets `htmlLimitedBots` to match every user agent, so page metadata always renders in `<head>`. Unpatched vinext ignores that setting when the `User-Agent` is empty and streams the `<title>`, description, canonical, `robots` and `hreflang` tags into a hidden body boundary instead. The response store regenerates pages with requests that carry no user agent, and it serves that cached copy to every visitor, crawlers included (#1132). The patch applies `htmlLimitedBots` to an empty user agent too. `src/lib/metadataPlacement.test.ts` imports the installed file and fails if the fix is missing, and `pnpm metadata:check` checks a running build.
 
-**Upstream status (2026-10-29).** `1.4.0` still ships the unpatched function. Since `1.1.0` vinext renders regenerations and cache warm-ups in full (cloudflare/vinext#3435), but a cold miss with no `User-Agent` still streams the metadata (cloudflare/vinext#3764), so the patch stays until that issue is fixed.
+**Upstream status (2026-11-13).** `1.4.5` still ships the unpatched function. Since `1.1.0` vinext renders regenerations and cache warm-ups in full (cloudflare/vinext#3435), but a cold miss with no `User-Agent` still streams the metadata (cloudflare/vinext#3764), so the patch stays until that issue is fixed.
 
-**Dependabot.** `vinext` and `@vinext/*` are in `ignore` in `.github/dependabot.yml`. A bump that misses the patch key would fail `pnpm install`, and it used to block the whole `worker-build` group with it.
+**Dependabot.** `vinext`, `@vinext/*` and `@cloudflare/workers-response-store` are in `ignore` in `.github/dependabot.yml`. A response-store bump on its own leaves the direct dependency ahead of the version `@vinext/cloudflare` pins, so the lockfile carries two copies and `wrangler.response-store.jsonc` deploys a different store than the site talks to (#1859). A bump that misses the patch key would fail `pnpm install`, and it used to block the whole `worker-build` group with it.
 
-**Release age.** `vinext@1.4.0`, `@vinext/cloudflare@1.3.0` and `@vinext/types@1.0.2` are in `minimumReleaseAgeExclude` in `pnpm-workspace.yaml`, because the upgrade from `1.0.1` (#1745) was taken a day after the release. Remove these three entries once the versions are 7 days old (2026-11-04); later vinext versions follow the normal 7-day rule.
+**Release age.** `vinext@1.4.5` and `@vinext/cloudflare@1.3.4` are in `minimumReleaseAgeExclude` in `pnpm-workspace.yaml`, because the upgrade from `1.4.0` was taken three days after the 2026-11-10 release. Remove these two entries once the versions are 7 days old (2026-11-17); later vinext versions follow the normal 7-day rule.
 
 **To upgrade:**
 
@@ -51,3 +51,13 @@ Four dependencies are held back on purpose. Dependabot does not update them. Cha
 **Dependabot.** `msw` major updates are in `ignore` in `.github/dependabot.yml`. Minor and patch updates still arrive.
 
 **To upgrade:** follow the msw 3 migration guide for `tests/setup/msw.ts` and `tests/msw/`, then run `pnpm typecheck` and `pnpm test:coverage` until both pass.
+
+## @swc/core (pinned to 1.16.2)
+
+`@swc/core` is not a direct dependency. `next-intl/plugin` requires it as soon as `next.config.ts` loads, so every build loads its native addon. `package.json` → `pnpm.overrides` pins it to `1.16.2`, inside `next-intl`'s `~1.16.0` range.
+
+**Why.** From `1.16.12` the Linux package ships a compressed addon that unpacks itself into a cache folder on first load. Before it does, it checks every parent of that folder and refuses to load if one is writable by another user without the sticky bit (`ERR_SWC_NATIVE_CACHE`, "cache root has a parent writable by another user without trusted sticky protection"). On 2026-11-13 the Cloudflare Workers Builds image started failing that check for both `/opt/buildhome/.cache` and `/tmp/swc-native` (set through `SWC_NATIVE_BINDING_CACHE`), so `vinext build` stopped at "Failed to load next.config.ts: Failed to load native binding". `1.16.2` is the last release that ships a plain `.node` file with no cache step.
+
+**Dependabot.** `@swc/*` is in `ignore` in `.github/dependabot.yml`.
+
+**To upgrade:** check that a newer `@swc/core` loads with an unsafe cache parent, or that the Cloudflare build image passes the check again. Locally: `mkdir -m 777 /tmp/x && mkdir -m 700 /tmp/x/cache`, then `HOME=/tmp/x XDG_CACHE_HOME=/tmp/x/cache node -e 'require("@swc/core")'` from a folder that resolves `@swc/core` (macOS: use `/private/tmp`, because `/tmp` is a symlink). Then remove the override, run `pnpm install`, and confirm the next Workers Build passes before merging to `main`.
