@@ -119,7 +119,7 @@ describe("cache warm after a clear", () => {
       ...env,
       CACHE_PURGE_TOKEN: "purge-token",
       CACHE_PURGE_ZONE_ID: "zone",
-    } as ApiBindings;
+    };
     github.mockResolvedValue(new Response(null, { status: 500 }));
     expect(
       await revalidateSpeciesPage(env, "macrovipera-lebetina", defer),

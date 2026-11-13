@@ -76,7 +76,9 @@ function linkPhonesInNode(node: ReactNode): ReactNode {
   if (typeof node === "number") return node;
   if (typeof node === "string") return renderPhoneLinkedString(node);
   if (Array.isArray(node)) {
-    return Children.map(node, (child) => linkPhonesInNode(child));
+    return Children.map(node as readonly ReactNode[], (child) =>
+      linkPhonesInNode(child),
+    );
   }
   if (!isValidElement(node)) return node;
   if (isSkippable(node)) return node;

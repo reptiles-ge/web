@@ -14,7 +14,7 @@ import { HERPETOFAUNA_CHECKLIST_SOURCE } from "@/data/herpetofauna-checklist";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { SPECIES_GUIDE_ROW_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import {
   breadcrumbListLd,
   localePageUrl,
@@ -34,7 +34,7 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   return speciesOgPageMetadata({
     locale,
     namespace: "venomousSnakes",
@@ -54,7 +54,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "venomousSnakes" });

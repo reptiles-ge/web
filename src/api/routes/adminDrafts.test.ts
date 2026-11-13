@@ -504,7 +504,7 @@ describe("POST /v1/admin/drafts/merge", () => {
         {
           code: "version_conflict",
           draftId: second,
-          message: expect.any(String),
+          message: expect.any(String) as string,
           status: "failed",
         },
         {

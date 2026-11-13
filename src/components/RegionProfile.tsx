@@ -10,7 +10,6 @@ import type {
   RegionRelatedLink,
 } from "@/data/regionContent";
 import type { RegionSpeciesCardItem } from "@/data/regions";
-import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ClientCoverImage } from "@/components/ClientCoverImage";
@@ -68,7 +67,7 @@ export function RegionProfile({
   summary,
   venomous,
 }: RegionProfileProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
   const { biome, faq, overview, related } = content;
@@ -172,7 +171,7 @@ function RegionProfileHabitats({
   habitats: string[];
   regionId: string;
 }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("regions");
 
   return (

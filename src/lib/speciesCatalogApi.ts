@@ -10,7 +10,7 @@ import type {
 } from "@/data/speciesCatalogTypes";
 
 import { type AppLocale, routing } from "@/i18n/routing";
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
 export type { CatalogCard };
@@ -36,7 +36,7 @@ export const getSpeciesCatalog = cache(
       { header: { "x-locale": locale }, query: { view } },
       speciesFetchOptions(["species"]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       throw new Error(`Species catalog API answered ${response.status}`);
     }
     return (await response.json()).data as CatalogEntries<View>;
@@ -75,7 +75,7 @@ export const getSpeciesCatalogCounts = cache(
       { header: { "x-locale": locale }, query: { limit: "1", view: "card" } },
       speciesFetchOptions(["species"]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       throw new Error(`Species catalog API answered ${response.status}`);
     }
     const { facets, stats, total } = await response.json();
@@ -101,7 +101,7 @@ export const getVenomousSnakeCards = cache(
       },
       speciesFetchOptions(["species"]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       throw new Error(`Species catalog API answered ${response.status}`);
     }
     return (await response.json()).data as CatalogCard[];
@@ -120,7 +120,7 @@ export function getCatalogMatches(
 ): Promise<CatalogMatches> {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(query)) {
-    if (value !== undefined) params.set(key, String(value));
+    params.set(key, String(value));
   }
   params.sort();
   return getCatalogMatchesBySearch(locale, params.toString());
@@ -143,7 +143,7 @@ const getCatalogMatchesBySearch = cache(
       { header: { "x-locale": locale }, query: { ...query, view: "card" } },
       speciesFetchOptions(["species"]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       throw new CatalogQueryError(response.status);
     }
     const { data, facets, stats, total } = await response.json();

@@ -24,6 +24,12 @@ export const HARMLESS_EXAMPLE_IDS = [
 
 export function dangerLevelTone(level: DangerLevel) {
   switch (level) {
+    case "Harmless":
+      return {
+        chip: "bg-primary/15 text-primary",
+        dot: "bg-primary",
+        value: "text-primary",
+      };
     case "High":
       return {
         chip: "bg-destructive/15 text-destructive",
@@ -35,12 +41,6 @@ export function dangerLevelTone(level: DangerLevel) {
         chip: "bg-gold/20 text-gold",
         dot: "bg-gold",
         value: "text-gold",
-      };
-    default:
-      return {
-        chip: "bg-primary/15 text-primary",
-        dot: "bg-primary",
-        value: "text-primary",
       };
   }
 }

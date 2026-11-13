@@ -185,7 +185,7 @@ export function PhotoUploadButton({
           id={formId}
           initialValues={INITIAL_CREDIT}
           layout="vertical"
-          onFinish={upload}
+          onFinish={(values) => void upload(values)}
           ref={formMounted}
         >
           <Form.Item

@@ -404,11 +404,11 @@ describe("GET /v1/admin/species", () => {
     expect(listed.some(({ status }) => status !== "published")).toBe(true);
     const { body } = first;
     expect(body.data.find(({ id }) => id === ID)).toMatchObject({
-      commonName: { en: expect.any(String), ka: "გიურზა" },
+      commonName: { en: expect.any(String) as string, ka: "გიურზა" },
       group: "snake",
       lastEditedAt: null,
       pendingDrafts: 0,
-      photoCount: expect.any(Number),
+      photoCount: expect.any(Number) as number,
       version: 1,
     });
   });

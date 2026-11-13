@@ -17,10 +17,10 @@ describe("admin flows that edited species MDX", () => {
     ["photos", uploadPhotos],
     ["species-create", createSpecies],
   ])("%s answers 503 with an explanation", async (_, handler) => {
-    const response = await handler(post("http://localhost"));
+    const response = handler(post("http://localhost"));
     expect(response.status).toBe(503);
     const { error } = (await response.json()) as { error: string };
     expect(error).toContain("MDX");
-    expect((await handler(post("http://evil.test"))).status).toBe(404);
+    expect(handler(post("http://evil.test")).status).toBe(404);
   });
 });

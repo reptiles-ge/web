@@ -10,7 +10,7 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
@@ -34,7 +34,7 @@ export async function generateMetadata({
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   return speciesOgPageMetadata({
-    locale: localeParam as AppLocale,
+    locale: localeParam,
     namespace: "riskToHumans",
     ogSpeciesId: OG_SPECIES,
     pagePath: PATH,
@@ -52,7 +52,7 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const [t, catalog] = await Promise.all([

@@ -4,8 +4,6 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { useContributorDirectory } from "@/components/ContributorsProvider";
 import { creditAuthorHref } from "@/data/authors";
 import { type PhotoCredit } from "@/data/speciesTypes";
@@ -35,7 +33,7 @@ export function PhotoCreditCaption({
   variant = "thumb",
 }: PhotoCreditCaptionProps) {
   const t = useTranslations("profile");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const georgiaField = isGeorgiaFieldPhoto(photoConfidence, credit);
 
   if (variant === "hero") return null;

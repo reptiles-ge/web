@@ -2,6 +2,7 @@ import type { InferResponseType } from "hono/client";
 
 import type { Page } from "@/lib/pagination";
 
+import { responseOk } from "@/lib/apiClient";
 import { draftMergeBatches } from "@/lib/draftMergeBatch";
 
 import { checkAdminResponse, SessionExpiredError } from "./adminResponse";
@@ -66,7 +67,7 @@ export async function mergeDraft(id: number) {
   const response = await api.v1.admin.drafts[":draftId"].merge.$post({
     param: { draftId: String(id) },
   });
-  if (response.ok) return (await response.json()).data;
+  if (responseOk(response)) return (await response.json()).data;
   throw await decisionError(response);
 }
 
@@ -77,7 +78,7 @@ export async function mergeDrafts(ids: number[]) {
     const response = await api.v1.admin.drafts.merge.$post({
       json: { draftIds },
     });
-    if (!response.ok) throw await decisionError(response);
+    if (!responseOk(response)) throw await decisionError(response);
     const { data } = await response.json();
     results.push(...data.results);
     revalidated &&= data.revalidated;
@@ -89,7 +90,7 @@ export async function rejectDraft(id: number) {
   const response = await api.v1.admin.drafts[":draftId"].reject.$post({
     param: { draftId: String(id) },
   });
-  if (response.ok) return;
+  if (responseOk(response)) return;
   throw await decisionError(response);
 }
 

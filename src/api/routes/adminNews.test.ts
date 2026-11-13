@@ -2,7 +2,7 @@ import type { DatabaseSync } from "node:sqlite";
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { NewsArticle, NewsMark } from "@/data/newsTypes";
+import type { NewsArticle } from "@/data/newsTypes";
 
 import { NEWS_ARTICLES } from "@/data/news.generated";
 
@@ -527,8 +527,8 @@ describe("admin news text edits", () => {
     const block = copy.ka.sections
       .flatMap((section) => section.blocks)
       .find((item) => item.type === "p");
-    if (!block || block.type !== "p") throw new Error("No paragraph");
-    return block as { parts: NewsMark[]; type: "p" };
+    if (!block) throw new Error("No paragraph");
+    return block;
   }
 
   it("reads the whole article with its version", async () => {

@@ -66,7 +66,7 @@ const Figure = Node.create<FigureOptions>({
   name: "figure",
   renderHTML: ({ HTMLAttributes }) => [
     "figure",
-    { class: "news-figure", "data-src": HTMLAttributes.src },
+    { class: "news-figure", "data-src": HTMLAttributes.src as string },
   ],
   selectable: true,
 });
@@ -92,8 +92,8 @@ const NewsLink = Mark.create({
     "a",
     {
       class: `news-link news-link--${HTMLAttributes.kind}`,
-      "data-kind": HTMLAttributes.kind,
-      "data-target": HTMLAttributes.target,
+      "data-kind": HTMLAttributes.kind as string,
+      "data-target": HTMLAttributes.target as string,
       title: `${HTMLAttributes.kind}: ${HTMLAttributes.target || "news index"}`,
     },
     0,

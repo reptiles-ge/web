@@ -52,7 +52,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
   async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale: value } = await params;
     if (!hasLocale(routing.locales, value)) return {};
-    const locale = value as AppLocale;
+    const locale = value;
     const copy = article.copy[locale];
     const url = absoluteUrl(localePath(locale, pathname));
     const description = kaMetaDescriptionOverride(
@@ -87,7 +87,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
   async function Page({ params }: Props) {
     const { locale: value } = await params;
     if (!hasLocale(routing.locales, value)) notFound();
-    const locale = value as AppLocale;
+    const locale = value;
     setRequestLocale(locale);
 
     const [tShared, tParent] = await Promise.all([

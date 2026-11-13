@@ -5,7 +5,7 @@ import { LIZARD_HOUSE_CONFIG } from "@/components/conflictGuideConfig";
 import { ConflictGuideSections } from "@/components/ConflictGuideSections";
 import { toSpeciesCards } from "@/data/speciesCard";
 
-export async function LizardHousePage({
+export function LizardHousePage({
   guideId,
   heroSrc,
   locale,

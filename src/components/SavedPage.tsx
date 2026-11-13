@@ -104,7 +104,10 @@ export function SavedPage({
             </p>
           </div>
           {count > 0 ? (
-            <SavedActions onPrint={() => setPrinting(true)} onShare={share} />
+            <SavedActions
+              onPrint={() => setPrinting(true)}
+              onShare={() => void share()}
+            />
           ) : null}
         </div>
         {count > 0 ? <SavedLocalNote /> : null}
@@ -215,7 +218,7 @@ function SavedList({
   pageUrl: string;
   printing: boolean;
 }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const items = useSavedItems(locale, entries);
   const [filter, setFilter] = useState<SavedFilter>("all");
   const [sort, setSort] = useState<SavedSort>("recent");

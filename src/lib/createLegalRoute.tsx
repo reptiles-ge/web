@@ -10,7 +10,7 @@ import {
   LegalDocumentPage,
 } from "@/components/LegalDocumentPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { LEGAL_PATHS } from "@/lib/legalPages";
 import { homeChildBreadcrumbLd, webPageIds } from "@/lib/pageStructuredData";
@@ -35,7 +35,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const { locale: localeParam } = await params;
     if (!hasLocale(routing.locales, localeParam)) return {};
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     const t = await getTranslations({
       locale,
       namespace: `legal.${documentId}`,
@@ -79,7 +79,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
       notFound();
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     setRequestLocale(locale);
 
     const [tFooter, tShared] = await Promise.all([

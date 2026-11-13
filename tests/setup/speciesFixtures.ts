@@ -24,7 +24,7 @@ export async function setup() {
     API_WRITE_TOKEN: "unused",
     DB: database.db,
     REVALIDATE_TOKEN: "unused",
-    SITE: { fetch: async () => new Response(null, { status: 204 }) },
+    SITE: { fetch: () => Promise.resolve(new Response(null, { status: 204 })) },
   };
 
   const api = async <T>(locale: string, path: string) => {

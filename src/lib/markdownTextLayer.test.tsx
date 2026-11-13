@@ -26,7 +26,7 @@ function page(body: string) {
 function textOf(html: string) {
   const container = document.createElement("div");
   container.innerHTML = html;
-  return container.textContent ?? "";
+  return container.textContent;
 }
 
 describe("Markdown text layer", () => {

@@ -17,7 +17,7 @@ function memoryStore() {
     store: {
       fetch: vi.fn(),
       getTagExpiration: vi.fn(),
-      purge: vi.fn(),
+      purge: vi.fn<(options: { tags: string[] }) => Promise<void>>(),
       put: vi.fn(async (...args: Put) => {
         puts.push(args);
       }),
@@ -56,7 +56,7 @@ describe("NonReplayingResponseStoreCache", () => {
     );
     expect(puts[0]![2].revalidator).toEqual({
       args: ["key", '{"page":"/"}'],
-      id: expect.any(String),
+      id: expect.any(String) as string,
     });
   });
 

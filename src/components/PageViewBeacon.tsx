@@ -4,7 +4,6 @@ import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { TrafficEntry } from "@/lib/pageViewInput";
 
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
@@ -23,7 +22,7 @@ let landingRead = false;
 export function PageViewBeacon({ apiOrigin }: { apiOrigin: string }) {
   const switchIndex = useLocaleSwitchIndex();
   const pathname = usePathname();
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const params = useParams();
   const slug = stringParam(params.slug);
   const id = stringParam(params.id);

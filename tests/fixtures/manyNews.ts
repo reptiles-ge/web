@@ -125,6 +125,8 @@ export function withManyNews(actual: typeof NewsModule): typeof NewsModule {
   return {
     ...actual,
     getPublishedNewsArticles: (locale?: AppLocale) =>
-      locale ? many.filter((article) => article.copy[locale]) : many,
+      locale
+        ? many.filter((article) => actual.hasNewsCopy(article, locale))
+        : many,
   };
 }

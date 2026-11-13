@@ -139,7 +139,7 @@ export function createHalyomorphaRangeMap({
     updateWhenZooming: false,
   }).addTo(map);
   const handleTileError = (event: L.TileEvent) => {
-    const tile = event.tile as HTMLImageElement;
+    const tile = event.tile;
     if (tile.dataset.fallback === "true") {
       tile.onerror = null;
       tile.src = ERROR_TILE_URL;

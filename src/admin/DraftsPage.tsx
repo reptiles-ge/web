@@ -177,7 +177,7 @@ export function DraftsPage({
               <Popconfirm
                 description="Each draft is saved as a new version, then the species pages on reptiles.ge are refreshed."
                 okText="Merge"
-                onConfirm={mergeSelected}
+                onConfirm={() => void mergeSelected()}
                 title={`Merge ${selected.length} drafts?`}
               >
                 <Button

@@ -50,7 +50,7 @@ export function LoginPage({
         <Form<Credentials>
           disabled={pending}
           layout="vertical"
-          onFinish={submit}
+          onFinish={(values) => void submit(values)}
           requiredMark={false}
         >
           <Form.Item

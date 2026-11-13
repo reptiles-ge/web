@@ -104,7 +104,7 @@ export function AuthorTextsEditor({
               setDrafts(saved);
               setFailure(null);
             }}
-            onSave={save}
+            onSave={() => void save()}
             saved={
               done ? (
                 <Flex align="center" gap="small" wrap>

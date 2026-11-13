@@ -138,7 +138,7 @@ export function ApiKeysPage({
             description="Requests with this key stop working within a minute. This cannot be undone; create a new key instead."
             okButtonProps={{ danger: true }}
             okText="Revoke"
-            onConfirm={() => revoke(key)}
+            onConfirm={() => void revoke(key)}
             title={`Revoke the key of ${key.name}?`}
           >
             <Button danger size="small">
@@ -182,7 +182,11 @@ export function ApiKeysPage({
         open={creating}
         title="New API key"
       >
-        <Form<KeyForm> form={form} layout="vertical" onFinish={submit}>
+        <Form<KeyForm>
+          form={form}
+          layout="vertical"
+          onFinish={(values) => void submit(values)}
+        >
           <Form.Item
             label="Client"
             name="name"

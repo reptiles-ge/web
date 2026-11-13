@@ -247,8 +247,8 @@ describe("species structured data", () => {
       (entry) => entry["@type"] === "ImageGallery",
     ) as GalleryJsonLd;
 
-    expect(article?.inLanguage).toBe("en");
-    expect(article?.mainEntityOfPage).toEqual({
+    expect(article.inLanguage).toBe("en");
+    expect(article.mainEntityOfPage).toEqual({
       "@id": `${CHEIRACANTHIUM_URL}#webpage`,
       "@type": "WebPage",
       breadcrumb: { "@id": `${CHEIRACANTHIUM_URL}#breadcrumb` },
@@ -257,14 +257,14 @@ describe("species structured data", () => {
     expect(
       jsonLd.find((entry) => entry["@type"] === "BreadcrumbList"),
     ).toHaveProperty("@id", `${CHEIRACANTHIUM_URL}#breadcrumb`);
-    expect(article?.citation.map((source) => source.url)).toContain(
+    expect(article.citation.map((source) => source.url)).toContain(
       CORRECT_NENTWIG_DOI,
     );
-    expect(article?.citation.map((source) => source.url)).toContain(
+    expect(article.citation.map((source) => source.url)).toContain(
       GEORGIAN_RED_LIST_URL,
     );
-    expect(article?.about.sameAs).toEqual(sameAs);
-    expect(gallery?.about).toEqual({ "@id": `${CHEIRACANTHIUM_URL}#taxon` });
+    expect(article.about.sameAs).toEqual(sameAs);
+    expect(gallery.about).toEqual({ "@id": `${CHEIRACANTHIUM_URL}#taxon` });
   });
 
   it("uses წავი as the Georgian otter label and keeps only the current IUCN assessment in sameAs", () => {
@@ -307,12 +307,12 @@ describe("species structured data", () => {
       (entry) => entry["@type"] === "Article",
     ) as ArticleJsonLd;
 
-    expect(article?.about.alternateName?.[0]).toBe("წავი");
-    expect(article?.about.sameAs).toEqual(sameAs);
-    expect(article?.citation.map((source) => source.url)).toContain(
+    expect(article.about.alternateName?.[0]).toBe("წავი");
+    expect(article.about.sameAs).toEqual(sameAs);
+    expect(article.citation.map((source) => source.url)).toContain(
       OTTER_REPORT_URL,
     );
-    expect(article?.citation.map((source) => source.url)).toContain(
+    expect(article.citation.map((source) => source.url)).toContain(
       GEORGIAN_RED_LIST_URL,
     );
   });

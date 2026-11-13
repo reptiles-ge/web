@@ -523,7 +523,7 @@ export function AdminSpeciesEditor({
           delete credit.lng;
           if (
             typeof payload.credit?.lat === "number" &&
-            typeof payload.credit?.lng === "number"
+            typeof payload.credit.lng === "number"
           ) {
             credit.lat = payload.credit.lat;
             credit.lng = payload.credit.lng;
@@ -595,7 +595,7 @@ export function AdminSpeciesEditor({
       <div className="grid gap-5">
         <form
           className="rounded-xl border border-border bg-card p-5"
-          onSubmit={onImportPhoto}
+          onSubmit={(event) => void onImportPhoto(event)}
         >
           <h2 className="font-display text-lg font-medium">
             iNaturalist-იდან ფოტოს წამოღება
@@ -649,7 +649,7 @@ export function AdminSpeciesEditor({
         </form>
         <form
           className="rounded-xl border border-border bg-card p-5"
-          onSubmit={onSubmit}
+          onSubmit={(event) => void onSubmit(event)}
           ref={uploadFormRef}
         >
           <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
@@ -796,7 +796,7 @@ export function AdminSpeciesEditor({
 
         <FieldRecordsPanel
           busy={busy}
-          onSubmit={onFieldRecordSubmit}
+          onSubmit={(event) => void onFieldRecordSubmit(event)}
           records={records}
           saving={saving}
         />

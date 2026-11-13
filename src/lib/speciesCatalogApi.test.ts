@@ -29,9 +29,9 @@ describe("getSpeciesCatalog", () => {
     expect(cards[0]).not.toHaveProperty("overview");
     expect(full[0]).toHaveProperty("overview");
     expect(cards[0]).toMatchObject({
-      group: expect.any(String),
-      lookalikes: expect.any(Array),
-      slug: expect.any(String),
+      group: expect.any(String) as string,
+      lookalikes: expect.any(Array) as unknown[],
+      slug: expect.any(String) as string,
     });
   });
 

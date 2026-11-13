@@ -19,14 +19,30 @@ function comparePaths(a: string, b: string) {
   return a.localeCompare(b, "en", { numeric: true });
 }
 
-function flatten(value: unknown, prefix = "", out = new Map<string, string>()) {
-  if (value === null || value === undefined) return out;
-  if (typeof value !== "object") {
-    out.set(prefix, String(value));
-    return out;
-  }
-  for (const [key, child] of Object.entries(value)) {
-    flatten(child, prefix ? `${prefix}.${key}` : key, out);
+function flatten(
+  value: unknown,
+  prefix = "",
+  out = new Map<string, string>(),
+): Map<string, string> {
+  if (value === null) return out;
+  switch (typeof value) {
+    case "bigint":
+    case "boolean":
+    case "number":
+    case "string":
+      out.set(prefix, String(value));
+      return out;
+    case "function":
+    case "symbol":
+      out.set(prefix, value.toString());
+      return out;
+    case "object":
+      for (const [key, child] of Object.entries(value)) {
+        flatten(child, prefix ? `${prefix}.${key}` : key, out);
+      }
+      return out;
+    case "undefined":
+      break;
   }
   return out;
 }

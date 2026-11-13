@@ -271,10 +271,10 @@ function quizReducer(state: QuizSession, action: QuizAction): QuizSession {
     }
     case "restore":
       return {
-        answers: action.draft.answers ?? [],
+        answers: action.draft.answers,
         complete: false,
         hintOpen: Boolean(action.draft.hintOpen),
-        index: action.draft.index ?? 0,
+        index: action.draft.index,
         playing: true,
         questions: action.draft.questions,
         selectedId: action.draft.selectedId ?? null,

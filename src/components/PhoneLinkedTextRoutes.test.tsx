@@ -20,7 +20,7 @@ const INDEX = getLocaleSwitchIndex(speciesCatalogFixture("ka"));
 function hrefOf(name: string) {
   return JSON.parse(
     screen.getByRole("link", { name }).getAttribute("href") ?? "null",
-  );
+  ) as unknown;
 }
 
 function renderKa(text: string) {

@@ -15,7 +15,7 @@ const withFigures = NEWS_ARTICLES.find(
 )!;
 
 function article(change: (draft: NewsArticle) => void = () => {}) {
-  const draft = structuredClone(withFigures) as NewsArticle;
+  const draft = structuredClone<NewsArticle>(withFigures);
   change(draft);
   return draft;
 }

@@ -8,13 +8,14 @@ import {
 
 function codecs(): PhotoCodecs {
   const bytes = (label: string) => async (image: ImageData) =>
-    new TextEncoder().encode(`${label}:${image.width}x${image.height}`)
-      .buffer as ArrayBuffer;
+    new TextEncoder().encode(`${label}:${image.width}x${image.height}`).buffer;
   return {
     avif: vi.fn(bytes("avif")),
     jpeg: vi.fn(bytes("jpeg")),
     png: vi.fn(bytes("png")),
-    resize: vi.fn(async (_image, width, height) => imageData(width, height)),
+    resize: vi.fn(async (_image: ImageData, width: number, height: number) =>
+      imageData(width, height),
+    ),
     webp: vi.fn(bytes("webp")),
   };
 }

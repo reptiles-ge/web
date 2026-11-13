@@ -747,8 +747,8 @@ function localizedNewsUrl(locale: AppLocale, slug: string) {
 }
 
 function localizedPath(locale: AppLocale, path: string) {
+  if (!(path in pathnames)) return withLocalePrefix(locale, path);
   const mapped = pathnames[path as keyof typeof pathnames];
-  if (!mapped) return withLocalePrefix(locale, path);
   const template = typeof mapped === "string" ? mapped : mapped[locale];
   return withLocalePrefix(locale, template);
 }
@@ -756,8 +756,7 @@ function localizedPath(locale: AppLocale, path: string) {
 function localizedSpeciesUrl(locale: AppLocale, id: string) {
   const href = speciesHref(id, locale);
   const mapped = pathnames[href.pathname];
-  const template =
-    typeof mapped === "string" ? mapped : mapped[locale] || mapped.en;
+  const template = typeof mapped === "string" ? mapped : mapped[locale];
   return absoluteUrl(
     withLocalePrefix(locale, template.replace("[slug]", href.params.slug)),
   );

@@ -171,7 +171,7 @@ function linkTargets(
   authors: AdminAuthor[],
 ): LinkTargets {
   const speciesNames = new Map(
-    species.map((item) => [item.id, item.commonName.ka ?? item.id]),
+    species.map((item) => [item.id, item.commonName.ka]),
   );
   return {
     "credit-author": authors
@@ -222,7 +222,7 @@ function NewsArticleEditor({
   );
 
   const dirty = new Set(
-    locales.filter((code) => isDirty(drafts[code]!, saved[code]!)),
+    locales.filter((code) => isDirty(drafts[code]!, saved[code])),
   );
   useLeaveWarning(dirty.size > 0);
   const draft = drafts[locale]!;
@@ -401,7 +401,7 @@ function NewsArticleEditor({
           setResets((count) => count + 1);
           setFailure(null);
         }}
-        onSave={save}
+        onSave={(summary) => void save(summary)}
         saved={
           savedVersion ? (
             <Typography.Text type="success">
@@ -422,7 +422,7 @@ function photoMap(article: Article) {
     ...(article.image ? [article.image] : []),
     ...(article.gallery ?? []),
   ]) {
-    photos.set(photo.src, photo as NewsPhoto);
+    photos.set(photo.src, photo);
   }
   return photos;
 }

@@ -27,4 +27,4 @@ const route = staticLocaleJsonRoute(async (locale) => {
 });
 
 export const generateStaticParams = route.generateStaticParams;
-export const GET = route.GET;
+export const GET = route.GET.bind(route);

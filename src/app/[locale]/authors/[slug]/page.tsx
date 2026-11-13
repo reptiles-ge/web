@@ -54,7 +54,7 @@ export default async function AuthorRoute({ params }: Props) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const author = await getContributor(slug, locale);
@@ -144,7 +144,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const author = await getContributor(slug, locale);
   if (!author) {
     const t = await getTranslations({ locale, namespace: "author" });

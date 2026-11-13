@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale } from "next-intl";
 
 import type { SpeciesCard } from "@/data/speciesCard";
-import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
@@ -26,7 +25,7 @@ export function GuideSpeciesSection({
   links,
   species,
 }: GuideSpeciesSectionProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">

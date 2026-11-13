@@ -4,8 +4,6 @@ import { ArrowRight, Check, RotateCcw, Share2 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { useQuizCopy } from "@/components/QuizCopyContext";
@@ -50,7 +48,7 @@ export function QuizResultOverlay({
   total,
 }: QuizResultOverlayProps) {
   const t = useQuizCopy();
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const switchIndex = useLocaleSwitchIndex();
   const percent = scorePercent(correctCount, total);
   const [copied, setCopied] = useState(false);
@@ -121,7 +119,7 @@ export function QuizResultOverlay({
         </button>
         <button
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10 sm:w-auto"
-          onClick={onShare}
+          onClick={() => void onShare()}
           type="button"
         >
           {copied ? (

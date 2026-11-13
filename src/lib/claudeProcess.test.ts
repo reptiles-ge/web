@@ -151,7 +151,9 @@ describe("Claude subprocess", () => {
       expect.any(Array),
       expect.objectContaining({
         cwd: "/tmp/worktree",
-        env: expect.not.objectContaining({ CLAUDECODE: expect.anything() }),
+        env: expect.not.objectContaining({
+          CLAUDECODE: expect.anything() as string,
+        }) as NodeJS.ProcessEnv,
       }),
     );
   });

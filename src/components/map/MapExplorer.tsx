@@ -5,7 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
-import type { AppLocale } from "@/i18n/routing";
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { regions } from "@/data/mapRegions";
@@ -19,7 +18,7 @@ export function MapExplorer({
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
 }) {
   const t = useTranslations("map");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const [activeId, setActiveId] = useState<null | string>(null);
   const highlightedIds = useMemo(
     () => (activeId ? [activeId] : []),

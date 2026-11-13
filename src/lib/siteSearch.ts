@@ -171,16 +171,9 @@ export function readRecent(): RecentRef[] {
   try {
     const raw = window.localStorage.getItem(SEARCH_RECENT_KEY);
     if (!raw) return [];
-    const parsed = JSON.parse(raw) as RecentRef[];
+    const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (item) =>
-        item &&
-        (item.kind === "page" ||
-          item.kind === "species" ||
-          item.kind === "region") &&
-        typeof item.id === "string",
-    );
+    return parsed.filter(isRecentRef);
   } catch {
     return [];
   }
@@ -234,6 +227,15 @@ function groupDocuments(
   });
 
   return groups;
+}
+
+function isRecentRef(item: unknown): item is RecentRef {
+  if (typeof item !== "object" || item === null) return false;
+  const { id, kind } = item as Record<string, unknown>;
+  return (
+    (kind === "page" || kind === "species" || kind === "region") &&
+    typeof id === "string"
+  );
 }
 
 function normalize(value: string) {

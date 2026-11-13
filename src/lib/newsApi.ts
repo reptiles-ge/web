@@ -10,7 +10,7 @@ import type {
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { type AppLocale, routing } from "@/i18n/routing";
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { MAX_PAGE_SIZE, type PageParams } from "@/lib/pagination";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
@@ -21,7 +21,7 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
     { header: { "x-locale": locale }, param: { slug } },
     speciesFetchOptions(["news", `news:${slug}`]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     const status: number = response.status;
     if (status === 404) return null;
     throw new Error(`News API answered ${status} for ${slug}`);
@@ -218,7 +218,7 @@ async function fetchNewsPage(
     },
     speciesFetchOptions(["news"]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     throw new Error(`News API answered ${response.status}`);
   }
   return response.json();

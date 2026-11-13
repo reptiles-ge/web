@@ -63,7 +63,7 @@ export async function HomeField({ locale }: { locale: AppLocale }) {
                     href={
                       guide.key === "quiz"
                         ? quizHref("snake", locale)
-                        : guide.href!
+                        : guide.href
                     }
                   >
                     <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-card text-[13px] font-semibold text-primary tabular-nums">

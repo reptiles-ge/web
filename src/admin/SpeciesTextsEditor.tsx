@@ -280,7 +280,7 @@ export function SpeciesTextsEditor({
               setDrafts(saved);
               setFailure(null);
             }}
-            onSave={save}
+            onSave={(summary) => void save(summary)}
             saved={
               savedVersion ? (
                 <Flex align="center" gap="small" wrap>

@@ -24,7 +24,6 @@ import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
-  type ClientMessages,
   LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
 } from "@/i18n/clientMessages";
@@ -57,7 +56,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = pickClientMessages(
-    (await getMessages({ locale })) as ClientMessages,
+    await getMessages({ locale }),
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
   const [t, tSite, stats, footerData] = await Promise.all([

@@ -47,7 +47,7 @@ describe("BiologyDisclosure", () => {
     const { container } = renderBlocks();
     for (const block of BLOCKS) {
       expect(screen.getAllByText(block.body)).toHaveLength(1);
-      expect(container.textContent?.split(block.body)).toHaveLength(2);
+      expect(container.textContent.split(block.body)).toHaveLength(2);
       expect(
         screen.getByRole("heading", {
           level: 3,

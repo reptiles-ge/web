@@ -29,7 +29,7 @@ describe("ClusterGuideLead", () => {
     expect(
       [...container.querySelectorAll("p")]
         .map((p) => p.textContent)
-        .filter((text) => ["One", "Three", "Two"].includes(text ?? "")),
+        .filter((text) => ["One", "Three", "Two"].includes(text)),
     ).toEqual(["One", "Two", "Three"]);
   });
 

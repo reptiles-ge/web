@@ -4,7 +4,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
@@ -24,7 +24,7 @@ export const getSpeciesProfile = cache(
       },
       speciesFetchOptions(["species", `species:${id}`]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       const status: number = response.status;
       if (status === 404) return null;
       throw new Error(`Species API answered ${status} for ${id}`);
@@ -43,7 +43,7 @@ export const getSpeciesProfile = cache(
     return {
       group,
       ranks: { class: className, order },
-      species: species as Species,
+      species: species,
       views,
     };
   },

@@ -32,7 +32,7 @@ export function RegionDetailsPanel({
   region,
   species,
 }: RegionDetailsPanelProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("map");
   const open = Boolean(region);
   const [isDesktop, setIsDesktop] = useState(false);

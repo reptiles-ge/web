@@ -343,7 +343,7 @@ function onSearchKeyDown(
 }
 
 function useSpeciesSearch(shortcut?: SearchShortcutZone) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("search");
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);

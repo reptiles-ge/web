@@ -31,7 +31,7 @@ import {
   CLUSTER_GUIDE_CLIENT_MESSAGES,
 } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import {
   type CatalogIndexGuideId,
   CLUSTER_GUIDES,
@@ -99,7 +99,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const { locale: localeParam } = await params;
     if (!hasLocale(routing.locales, localeParam)) return {};
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     const t = await getTranslations({ locale, namespace: guide.messageKey });
     const title = t("metaTitle");
     const catalog = await getSpeciesCatalog(locale);
@@ -134,7 +134,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       notFound();
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     setRequestLocale(locale);
 
     const [t, tShared, tParent] = await Promise.all([

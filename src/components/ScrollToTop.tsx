@@ -38,7 +38,7 @@ function resetScroll() {
 }
 
 function routeKey(pathname: string, params: ReturnType<typeof useParams>) {
-  const dynamic = Object.entries(params ?? {})
+  const dynamic = Object.entries(params)
     .filter(([key]) => key !== "locale")
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([key, value]) => `${key}=${String(value)}`);

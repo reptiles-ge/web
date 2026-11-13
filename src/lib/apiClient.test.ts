@@ -20,7 +20,6 @@ describe("createApiClient", () => {
       query: { group: "turtle" },
     });
     expect(response.status).toBe(200);
-    if (response.status !== 200) return;
     const body = await response.json();
     expect(body.locale).toBe("en");
     expect(body.data.every((item) => item.group === "turtle")).toBe(true);

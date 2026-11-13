@@ -46,7 +46,7 @@ export function ClearCacheButton({
       <Popconfirm
         description={description}
         okText="Clear cache"
-        onConfirm={clear}
+        onConfirm={() => void clear()}
         title={title}
       >
         <Button danger={danger} loading={pending} size={size}>

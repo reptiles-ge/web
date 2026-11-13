@@ -159,7 +159,7 @@ export async function AboutEditorial({ locale }: { locale: AppLocale }) {
   );
 }
 
-export async function AboutPage({ locale }: { locale: AppLocale }) {
+export function AboutPage({ locale }: { locale: AppLocale }) {
   return (
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <AboutHero locale={locale} />

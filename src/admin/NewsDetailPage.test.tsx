@@ -92,8 +92,9 @@ const RECORD = {
 } as unknown as AdminNewsRecord;
 
 function bodyEditor() {
-  const element = document.querySelector(".news-editor__body") as
-    (HTMLElement & { editor?: Editor }) | null;
+  const element = document.querySelector<HTMLElement & { editor?: Editor }>(
+    ".news-editor__body",
+  );
   return element!.editor!;
 }
 

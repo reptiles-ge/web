@@ -10,6 +10,7 @@ import {
   getPublishedNewsForHub,
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
+  hasNewsCopy,
   newsArticlePhotos,
   newsLinkedSpeciesIds,
   newsLocalizedDek,
@@ -233,7 +234,7 @@ describe("news source names", () => {
   it("keeps Georgian script out of non-Georgian source names", () => {
     for (const item of published) {
       for (const locale of routing.locales) {
-        if (locale === "ka" || !item.copy[locale]) continue;
+        if (locale === "ka" || !hasNewsCopy(item, locale)) continue;
         for (const source of item.sources) {
           expect(newsSourceName(source, locale), item.slug).not.toMatch(
             /[\u10A0-\u10FF\u1C90-\u1CBF\u2D00-\u2D2F]/,

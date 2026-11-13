@@ -6,7 +6,10 @@ const BUILD_ONLY_KEYS = new Set(["build", "main", "no_bundle", "rules"]);
 
 function readWranglerConfig(file: string): Record<string, unknown> {
   const source = readFileSync(path.join(process.cwd(), file), "utf8");
-  return JSON.parse(source.replace(/,(\s*[}\]])/g, "$1"));
+  return JSON.parse(source.replace(/,(\s*[}\]])/g, "$1")) as Record<
+    string,
+    unknown
+  >;
 }
 
 function sharedSettings(config: Record<string, unknown>) {

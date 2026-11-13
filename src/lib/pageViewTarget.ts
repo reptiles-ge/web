@@ -25,12 +25,12 @@ export function pageViewPath(
       ? pathname.replace("[slug]", context.entity_id)
       : undefined;
   }
-  let complete = true;
+  const missing: string[] = [];
   const path = pathname.replace(/\[([a-z]+)\]/g, (_, name: string) => {
     const value = params[name];
     if (value && PAGE_PATH_SEGMENT.test(value)) return value;
-    complete = false;
+    missing.push(name);
     return "";
   });
-  return complete ? path : undefined;
+  return missing.length === 0 ? path : undefined;
 }

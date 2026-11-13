@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { SpeciesListItem } from "@/data/speciesListItem";
-import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
@@ -19,7 +18,7 @@ type SpeciesCardProps = {
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const tDanger = useTranslations("danger");
   const tMap = useTranslations("map");
   const riskChip = getSpeciesRiskChip(species);
@@ -87,6 +86,12 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
 
 function safetyTone(level?: SpeciesListItem["danger"]) {
   switch (level) {
+    case "Harmless":
+    case undefined:
+      return {
+        chip: "bg-primary/12 text-primary",
+        dot: "bg-primary",
+      };
     case "High":
       return {
         chip: "bg-destructive/12 text-destructive",
@@ -96,11 +101,6 @@ function safetyTone(level?: SpeciesListItem["danger"]) {
       return {
         chip: "bg-gold/15 text-gold",
         dot: "bg-gold",
-      };
-    default:
-      return {
-        chip: "bg-primary/12 text-primary",
-        dot: "bg-primary",
       };
   }
 }

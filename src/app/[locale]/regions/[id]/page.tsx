@@ -32,7 +32,7 @@ import {
   openGraphLocale,
   pickLocalized,
 } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
@@ -73,7 +73,7 @@ export async function generateMetadata({
     };
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const t = await getTranslations({ locale, namespace: "regions" });
   const region = getRegionById(id);
 
@@ -163,7 +163,7 @@ export default async function RegionPage({ params }: PageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const region = getRegionById(id);

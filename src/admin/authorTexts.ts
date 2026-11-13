@@ -41,5 +41,5 @@ export function authorTextsInput(drafts: AuthorDrafts): AuthorTextsInput {
         ],
       ];
     }),
-  ) as AuthorTextsInput;
+  );
 }

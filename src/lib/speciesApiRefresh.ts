@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
 import { HOME_NEWS_LIMIT } from "@/lib/newsApi";
 import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
@@ -62,7 +62,7 @@ export async function refreshSpeciesApiCache(tags: string[]) {
               },
               options,
             );
-            if (!every || !response.ok) return;
+            if (!every || !responseOk(response)) return;
             pageCount = (await response.json()).pageCount;
           }
         }),

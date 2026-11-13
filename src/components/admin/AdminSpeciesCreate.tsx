@@ -86,7 +86,10 @@ export function AdminSpeciesCreate() {
           დახურვა
         </button>
       </div>
-      <form className="mt-5 grid gap-4 sm:grid-cols-2" onSubmit={prepare}>
+      <form
+        className="mt-5 grid gap-4 sm:grid-cols-2"
+        onSubmit={(event) => void prepare(event)}
+      >
         <label className="text-[13px] font-medium">
           დასახელება
           <input

@@ -5,7 +5,7 @@ import { JACKAL_YARD_CONFIG } from "@/components/conflictGuideConfig";
 import { ConflictGuideSections } from "@/components/ConflictGuideSections";
 import { toSpeciesCards } from "@/data/speciesCard";
 
-export async function MammalJackalYardPage({
+export function MammalJackalYardPage({
   guideId,
   heroSrc,
   locale,

@@ -81,7 +81,7 @@ describe("local Codex subprocess", () => {
       codexArgs(task, CODEX_SETTINGS),
       expect.objectContaining({
         cwd: "/tmp/worktree",
-        signal: expect.any(AbortSignal),
+        signal: expect.any(AbortSignal) as AbortSignal,
       }),
     );
     expect(child.stdin.end).toHaveBeenCalledWith("Read sources");

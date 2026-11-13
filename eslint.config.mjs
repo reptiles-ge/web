@@ -8,6 +8,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 import { defineConfig, globalIgnores } from "eslint/config";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import tseslint from "typescript-eslint";
 
 const cssConfigPath = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -16,9 +17,40 @@ const cssConfigPath = path.resolve(
 
 const perfectionistNatural = perfectionist.configs["recommended-natural"];
 
+const tsconfigRootDir = path.dirname(fileURLToPath(import.meta.url));
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    extends: [tseslint.configs.recommendedTypeChecked],
+    files: ["**/*.{ts,tsx,mts,cts}"],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ["src/app/.well-known/security.txt/route.ts"],
+        },
+        tsconfigRootDir,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-misused-promises": "error",
+      "@typescript-eslint/no-unnecessary-condition": "warn",
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/switch-exhaustiveness-check": "error",
+    },
+  },
+  {
+    files: ["**/*.test.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/require-await": "off",
+    },
+  },
+  {
+    extends: [tseslint.configs.disableTypeChecked],
+    files: ["**/*.{js,mjs,cjs,jsx}", "e2e/**/*.{ts,tsx}"],
+  },
   {
     ...perfectionistNatural,
     rules: {

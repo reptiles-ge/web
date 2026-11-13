@@ -95,7 +95,7 @@ export function useQuizDraft(
       } catch {
         return;
       } finally {
-        if (active) setDraftReady(true);
+        setDraftReady(true);
       }
     });
     return () => {

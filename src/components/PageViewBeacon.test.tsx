@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const route = vi.hoisted(() => ({
   locale: "ka",
-  params: {} as Record<string, string | string[]>,
+  params: {},
   pathname: "/",
 }));
 
@@ -34,9 +34,9 @@ async function renderBeacon() {
 
 function sentBodies() {
   return vi.mocked(fetch).mock.calls.map(([url, init]) => {
-    expect(String(url)).toBe(`${API}/v1/views`);
+    expect(url).toBe(`${API}/v1/views`);
     expect(init?.method).toBe("POST");
-    return JSON.parse(String(init?.body)) as Record<string, unknown>;
+    return JSON.parse(init?.body as string) as Record<string, unknown>;
   });
 }
 

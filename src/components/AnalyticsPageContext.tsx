@@ -4,8 +4,6 @@ import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { usePathname } from "@/i18n/navigation";
 import { pushPageContext } from "@/lib/analytics";
@@ -14,7 +12,7 @@ import { resolvePageContextFromIndex } from "@/lib/localeSwitch";
 export function AnalyticsPageContext() {
   const switchIndex = useLocaleSwitchIndex();
   const pathname = usePathname();
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const params = useParams();
 
   const slug = typeof params.slug === "string" ? params.slug : undefined;

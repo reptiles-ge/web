@@ -850,6 +850,8 @@ export type SpeciesSection<T extends SpeciesSummary = SpeciesSummary> = {
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
   switch (hubId) {
+    case "amphibians":
+      return "cluster.amphibianIndex.title" as const;
     case "birds":
       return "cluster.birdIndex.title" as const;
     case "fish":
@@ -868,8 +870,6 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "cluster.spiderIndex.title" as const;
     case "turtles":
       return "cluster.turtleIndex.title" as const;
-    default:
-      return "cluster.amphibianIndex.title" as const;
   }
 }
 

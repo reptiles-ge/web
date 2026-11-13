@@ -32,7 +32,7 @@ const UNCACHEABLE = /(?:^|,\s*)(?:private|no-(?:store|cache))(?:\s*(?:=|,|$))/i;
 export const edgeCache = (cacheName: string, baseTags: string[]) =>
   factory.createMiddleware(async (c, next) => {
     if (
-      !globalThis.caches ||
+      !("caches" in globalThis) ||
       c.req.method !== "GET" ||
       c.req.raw.headers.has("Authorization")
     ) {

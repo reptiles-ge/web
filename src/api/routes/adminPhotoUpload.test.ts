@@ -225,7 +225,7 @@ describe("POST /v1/admin/species/:id/photos", () => {
         )
         .get(ID),
     ).toMatchObject({
-      actor: expect.stringMatching(/@reptiles\.ge$/),
+      actor: expect.stringMatching(/@reptiles\.ge$/) as string,
       source: "admin",
       summary: "Add gallery photo",
     });
