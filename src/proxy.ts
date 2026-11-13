@@ -417,7 +417,7 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
     prefixedKaHubSlug &&
     isPrefixedLocale(kaHubLocale)
   ) {
-    const locale = kaHubLocale as PrefixedLocale;
+    const locale = kaHubLocale;
     const id = resolveSpeciesIdInHub(prefixedKaHubId, prefixedKaHubSlug);
     if (id) {
       const next = speciesPath(locale, id);
@@ -435,7 +435,7 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
     prefixedHubSlug &&
     isPrefixedLocale(hubLocale)
   ) {
-    const locale = hubLocale as PrefixedLocale;
+    const locale = hubLocale;
     const id = resolveSpeciesIdInHub(
       prefixedHub as GroupHubId,
       prefixedHubSlug,

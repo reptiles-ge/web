@@ -55,7 +55,7 @@ describe("purgeApiCache", () => {
     const tags = Array.from({ length: 150 }, (_, index) => `news:n${index}`);
     expect(await purgeApiCache(env, [...tags, "news:n0"])).toBe("purged");
     expect(purgedTags().map((batch) => batch.length)).toEqual([100, 50]);
-    expect(purgedTags()[0][0]).toBe("api:news:n0");
+    expect(purgedTags()[0]![0]).toBe("api:news:n0");
   });
 
   it("does nothing for no tags and reports a missing setup", async () => {

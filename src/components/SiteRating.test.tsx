@@ -27,7 +27,7 @@ function renderRating({ pagesBefore = 1 } = {}) {
 }
 
 function sentBody() {
-  const [url, init] = vi.mocked(fetch).mock.calls[0];
+  const [url, init] = vi.mocked(fetch).mock.calls[0]!;
   expect(url).toBe("/api/rating");
   expect(init?.method).toBe("POST");
   return JSON.parse(init?.body as string) as Record<string, unknown>;

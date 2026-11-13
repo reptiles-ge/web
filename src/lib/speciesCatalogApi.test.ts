@@ -21,7 +21,7 @@ describe("getSpeciesCatalog", () => {
       "https://api.reptiles.ge/v1/catalog?view=full",
     ]);
     expect(cards[0]?.commonName).toBe(
-      localizedFixture(catalogSpeciesFixture()[0], "en").commonName,
+      localizedFixture(catalogSpeciesFixture()[0]!, "en").commonName,
     );
     expect(cards.map((entry) => entry.id)).toEqual(
       catalogSpeciesFixture().map((entry) => entry.id),

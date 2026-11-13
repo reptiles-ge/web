@@ -189,7 +189,7 @@ describe("POST /v1/admin/news/:slug/status", () => {
     );
     expect(served.response.status).toBe(200);
     expect(served.body.data.title).toBe(article.copy.ka.title);
-    const [request] = siteFetch.mock.calls[0];
+    const [request] = siteFetch.mock.calls[0]!;
     expect(await request.json()).toEqual({
       tags: ["news", `news:${article.id}`],
     });
@@ -289,7 +289,7 @@ describe("GET /v1/admin/news", () => {
       pageCount: order.length,
       total: order.length,
     });
-    expect(second.body.data.map(({ id }) => id)).toEqual([order[1].id]);
+    expect(second.body.data.map(({ id }) => id)).toEqual([order[1]!.id]);
     const series = order.find((row) => row.series_id)!.series_id!;
     const inSeries = await list(auth, `?series=${series}`);
     expect(inSeries.body.data.map(({ id }) => id)).toEqual(
@@ -317,7 +317,7 @@ describe("GET /v1/admin/news", () => {
       status: "draft",
       version: 1,
     });
-    expect(body.data[0].lastEditedAt).toEqual(expect.any(String));
+    expect(body.data[0]!.lastEditedAt).toEqual(expect.any(String));
   });
 
   it("lets a signed-in admin read the list, but not write", async () => {
@@ -383,7 +383,7 @@ describe("POST /v1/admin/news/:slug/revalidate", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({ id: article.id });
     expect(siteFetch).toHaveBeenCalledTimes(1);
-    const [request] = siteFetch.mock.calls[0];
+    const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
     expect(await request.json()).toEqual({ tags: [`news:${article.id}`] });
@@ -455,7 +455,7 @@ describe("POST /v1/admin/news/revalidate", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({ tags: ["news"] });
-    const [request] = siteFetch.mock.calls[0];
+    const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(await request.json()).toEqual({ tags: ["news"] });
   });

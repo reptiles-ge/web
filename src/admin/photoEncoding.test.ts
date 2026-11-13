@@ -45,8 +45,8 @@ describe("encodePhoto", () => {
       "1000.avif",
       "1000.webp",
     ]);
-    expect(await photo.derivatives[0].text()).toBe("avif:320x240");
-    expect(photo.derivatives[1].type).toBe("image/webp");
+    expect(await photo.derivatives[0]!.text()).toBe("avif:320x240");
+    expect(photo.derivatives[1]!.type).toBe("image/webp");
     expect(used.resize).toHaveBeenCalledTimes(4);
     expect(used.png).not.toHaveBeenCalled();
     expect({ height: photo.height, width: photo.width }).toStrictEqual({

@@ -77,7 +77,7 @@ describe("RegionProfile outline", () => {
       expect(headings, item.id).not.toContain(item.commonName);
     }
     expect(headings.length).toBeLessThan(15);
-    expect(screen.getAllByText(species[0].commonName).length).toBeGreaterThan(
+    expect(screen.getAllByText(species[0]!.commonName).length).toBeGreaterThan(
       0,
     );
   });
@@ -142,7 +142,7 @@ describe("RegionProfile FAQ", () => {
 
 describe("RegionSpeciesCard", () => {
   it("renders the name as text, not a heading, with location or risk", () => {
-    const item = venomous[0];
+    const item = venomous[0]!;
     const { container, rerender } = renderWithMessages(
       <RegionSpeciesCard species={item} />,
     );

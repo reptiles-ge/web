@@ -16,7 +16,7 @@ vi.mock("vinext/server/fetch-handler", () => ({
 }));
 
 const VINEXT_DEFAULT = "private, max-age=0, must-revalidate";
-const baseFetch = vi.mocked((handler as { fetch: typeof worker.fetch }).fetch);
+const baseFetch = vi.mocked(handler.fetch);
 
 function appResponse(contentType = "application/xml") {
   return new Response("body", {

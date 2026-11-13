@@ -93,7 +93,7 @@ export const getNewsSummaries = cache(async (): Promise<NewsSummary[]> => {
         sources: base.sources.map((source, index) =>
           localizedSource(
             source.url,
-            items.map(([locale, item]) => [locale, item.sources[index].name]),
+            items.map(([locale, item]) => [locale, item.sources[index]!.name]),
           ),
         ),
         status: "published",
@@ -177,7 +177,7 @@ export const getNewsArticle = cache(
       sources: base.sources.map((source, index) =>
         localizedSource(
           source.url,
-          details.map(([locale, data]) => [locale, data.sources[index].name]),
+          details.map(([locale, data]) => [locale, data.sources[index]!.name]),
         ),
       ),
       status: "published",
@@ -229,7 +229,7 @@ function localizedSource(
   names: Array<readonly [AppLocale, string]>,
 ): NewsSource {
   const values = new Set(names.map(([, name]) => name));
-  if (values.size === 1) return { name: names[0][1], url };
+  if (values.size === 1) return { name: names[0]![1], url };
   return {
     name: Object.fromEntries(names) as Record<AppLocale, string>,
     url,

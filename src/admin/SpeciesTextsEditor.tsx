@@ -209,7 +209,7 @@ export function SpeciesTextsEditor({
                       multiline={false}
                       onChange={(value) =>
                         update(
-                          (next) => void (next.stats[position].label = value),
+                          (next) => void (next.stats[position]!.label = value),
                         )
                       }
                       reference={reference?.stats[position]?.label}
@@ -223,7 +223,7 @@ export function SpeciesTextsEditor({
                       multiline={false}
                       onChange={(value) =>
                         update(
-                          (next) => void (next.stats[position].value = value),
+                          (next) => void (next.stats[position]!.value = value),
                         )
                       }
                       reference={reference?.stats[position]?.value}
@@ -249,7 +249,7 @@ export function SpeciesTextsEditor({
                     multiline={false}
                     onChange={(value) =>
                       update(
-                        (next) => void (next.faq![position].question = value),
+                        (next) => void (next.faq![position]!.question = value),
                       )
                     }
                     reference={reference?.faq?.[position]?.question}
@@ -261,7 +261,7 @@ export function SpeciesTextsEditor({
                     linked
                     onChange={(value) =>
                       update(
-                        (next) => void (next.faq![position].answer = value),
+                        (next) => void (next.faq![position]!.answer = value),
                       )
                     }
                     reference={reference?.faq?.[position]?.answer}

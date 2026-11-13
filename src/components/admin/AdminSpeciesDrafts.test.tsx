@@ -50,7 +50,7 @@ describe("AdminSpeciesDrafts", () => {
     expect(screen.getByText("ახალი")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "დადასტურება" }));
     await waitFor(() => expect(refresh).toHaveBeenCalled());
-    const [, init] = vi.mocked(fetch).mock.calls[0];
+    const [, init] = vi.mocked(fetch).mock.calls[0]!;
     expect(JSON.parse(init?.body as string)).toEqual({
       decision: "approve",
       draftId: 7,
@@ -64,7 +64,7 @@ describe("AdminSpeciesDrafts", () => {
     );
     render(<AdminSpeciesDrafts currentVersion={4} drafts={[draft]} id="x" />);
     expect(
-      (screen.getByRole("button", { name: "დადასტურება" }) as HTMLButtonElement)
+      screen.getByRole<HTMLButtonElement>("button", { name: "დადასტურება" })
         .disabled,
     ).toBe(true);
     fireEvent.click(screen.getByRole("button", { name: "უარყოფა" }));

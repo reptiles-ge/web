@@ -98,7 +98,7 @@ describe("species structured data", () => {
       mobileImage: undefined,
       mobileImageCredit: undefined,
     };
-    const raw = { ...catalogSpeciesFixture()[0], ...noPhoto };
+    const raw = { ...catalogSpeciesFixture()[0]!, ...noPhoto };
     const localized = { ...localizedFixture(raw, "ka"), ...noPhoto };
     const ogImage = speciesOgImageUrl(raw.id, localized.image);
     const graph = speciesStructuredData({

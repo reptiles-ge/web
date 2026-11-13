@@ -106,7 +106,7 @@ export function toNewsListArticle(
 export function withManyNews(actual: typeof NewsModule): typeof NewsModule {
   const base = actual.getPublishedNewsArticles();
   const many = Array.from({ length: MANY_NEWS_TOTAL }, (_, index) => {
-    const article = base[index % base.length];
+    const article = base[index % base.length]!;
     const { tr: _tr, ...withoutTr } = article.copy;
     return {
       ...article,
