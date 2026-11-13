@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import type { NewsArticle } from "@/data/news";
+import type { NewsListArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { NewsArticleCard } from "@/components/NewsArticleCard";
@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { newsIndexHref } from "@/lib/newsHrefs";
 
 type NewsRelatedBlockProps = {
-  articles: NewsArticle[];
+  articles: NewsListArticle[];
   locale: AppLocale;
 };
 

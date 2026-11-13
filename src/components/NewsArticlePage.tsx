@@ -2,7 +2,7 @@ import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
-import type { NewsSectionBlock } from "@/data/newsTypes";
+import type { NewsListArticle, NewsSectionBlock } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -18,9 +18,6 @@ import { NewsShareButtons } from "@/components/NewsShareButtons";
 import { ViewCount } from "@/components/ViewCount";
 import {
   getNewsCopy,
-  getPublishedNewsArticles,
-  getPublishedNewsArticlesInSeries,
-  newsLocalizedTitle,
   newsPhotoBySrc,
   newsRelatedHubs,
   newsRelatedRegions,
@@ -38,6 +35,10 @@ import {
   formatPhotoDate,
 } from "@/lib/formatDate";
 import { newsArticlePath, newsArticleUrl, newsReadMinutes } from "@/lib/news";
+import {
+  getNewsListArticles,
+  getNewsListArticlesInSeries,
+} from "@/lib/newsApi";
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import {
   localizeNewsPhoto,
@@ -388,14 +389,14 @@ async function NewsArticleHeader({
 async function NewsArticleSeries({ article, locale }: NewsArticlePageProps) {
   if (!article.series) return null;
   const t = await getTranslations({ locale, namespace: "news" });
-  const items = getPublishedNewsArticlesInSeries(article, locale).map(
+  const items = (await getNewsListArticlesInSeries(locale, article.series)).map(
     (item) => ({
       current: item.id === article.id,
       dateLabel: formatContentDate(item.publishedAt, locale),
       href: newsArticlePath(locale, item.slug),
       id: item.id,
       publishedAt: item.publishedAt,
-      title: newsLocalizedTitle(item, locale),
+      title: item.title,
     }),
   );
 
@@ -568,7 +569,7 @@ function NewsContinueCard({
   locale,
   visual,
 }: {
-  article: NewsArticle;
+  article: NewsListArticle;
   dark?: boolean;
   eyebrow: null | string;
   footer: string;
@@ -609,7 +610,7 @@ function NewsContinueCard({
           <time dateTime={article.publishedAt}>{dateLabel}</time>
         </span>
         <span className="line-clamp-3 text-[16px] leading-[1.3] font-semibold md:text-[20px]">
-          {newsLocalizedTitle(article, locale)}
+          {article.title}
         </span>
         <span
           className={`inline-flex items-center gap-2 text-[13px] ${
@@ -637,7 +638,7 @@ async function NewsContinueReading({
   article: NewsArticle;
   locale: AppLocale;
 }) {
-  const { next, related } = pickContinueReading(article, locale);
+  const { next, related } = await pickContinueReading(article, locale);
   const [t, tNav, [relatedVisual, nextVisual]] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
@@ -678,9 +679,7 @@ async function NewsContinueReading({
             <NewsContinueCard
               article={related}
               eyebrow={relatedHubId ? tNav(relatedHubId) : null}
-              footer={t("readTime", {
-                minutes: newsReadMinutes(related, locale),
-              })}
+              footer={t("readTime", { minutes: related.readMinutes })}
               locale={locale}
               visual={relatedVisual}
             />
@@ -910,8 +909,8 @@ function NewsVisualPreload({ visual }: { visual: NewsVisual | null }) {
   );
 }
 
-function pickContinueReading(article: NewsArticle, locale: AppLocale) {
-  const articles = getPublishedNewsArticles(locale);
+async function pickContinueReading(article: NewsArticle, locale: AppLocale) {
+  const articles = await getNewsListArticles(locale);
   const index = articles.findIndex((item) => item.id === article.id);
   const next =
     articles.length > 1 ? articles[(index + 1) % articles.length] : undefined;
@@ -932,7 +931,7 @@ function sectionNumber(index: number) {
   return String(index + 1).padStart(2, "0");
 }
 
-function sharesTopic(article: NewsArticle, topics: ReadonlySet<string>) {
+function sharesTopic(article: NewsListArticle, topics: ReadonlySet<string>) {
   return (
     article.relatedSpeciesIds.some((id) => topics.has(`species:${id}`)) ||
     article.relatedRegionIds.some((id) => topics.has(`region:${id}`)) ||

@@ -5,9 +5,15 @@ import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 import {
   getPublishedNewsArticles,
+  getPublishedNewsArticlesInSeries,
   getPublishedNewsForCreditAuthor,
+  getPublishedNewsForHub,
+  getPublishedNewsForRegion,
+  getPublishedNewsForSpecies,
 } from "@/data/news";
+import { newsSeriesIds } from "@/data/newsSeries";
 import { routing } from "@/i18n/routing";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 
 import { toNewsListArticle } from "../../tests/fixtures/manyNews";
 import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
@@ -17,6 +23,10 @@ import {
   getNewsList,
   getNewsListArticles,
   getNewsListArticlesForAuthor,
+  getNewsListArticlesForHub,
+  getNewsListArticlesForRegion,
+  getNewsListArticlesForSpecies,
+  getNewsListArticlesInSeries,
   getNewsListArticlesPage,
   getNewsSummaries,
   HOME_NEWS_LIMIT,
@@ -140,6 +150,100 @@ describe("getNewsListArticlesForAuthor", () => {
     await getNewsListArticlesForAuthor("ka", "no-such-author");
     server.events.removeListener("request:start", listen);
     expect(queries).toEqual(["?author=no-such-author&limit=100&page=1"]);
+  });
+});
+
+function listedQueries(run: () => Promise<unknown>) {
+  const queries: string[] = [];
+  const listen = ({ request }: { request: Request }) => {
+    const url = new URL(request.url);
+    if (url.pathname === "/v1/news") queries.push(url.search);
+  };
+  server.events.on("request:start", listen);
+  return run().then(() => {
+    server.events.removeListener("request:start", listen);
+    return queries;
+  });
+}
+
+describe("filtered news lists", () => {
+  it("lists the articles of a hub, from the API", async () => {
+    let matched = 0;
+    for (const hub of Object.keys(GROUP_HUBS) as GroupHubId[]) {
+      const expected = getPublishedNewsForHub(hub, "en").map((article) =>
+        toNewsListArticle(article, "en"),
+      );
+      matched += expected.length;
+      const found = await getNewsListArticlesForHub("en", hub);
+      expect(found.map(withoutAuthorIds), hub).toStrictEqual(expected);
+    }
+    expect(matched).toBeGreaterThan(0);
+  });
+
+  it("lists the articles of a region, from the API", async () => {
+    const regions = new Set(
+      getPublishedNewsArticles().flatMap((article) => article.relatedRegionIds),
+    );
+    expect(regions.size).toBeGreaterThan(0);
+    for (const region of regions) {
+      const expected = getPublishedNewsForRegion(region, "ka").map((article) =>
+        toNewsListArticle(article, "ka"),
+      );
+      expect(expected.length, region).toBeGreaterThan(0);
+      const found = await getNewsListArticlesForRegion("ka", region);
+      expect(found.map(withoutAuthorIds), region).toStrictEqual(expected);
+    }
+  });
+
+  it("lists the articles that relate to or link a species, from the API", async () => {
+    const species = new Set(
+      getPublishedNewsArticles().flatMap(
+        (article) => article.relatedSpeciesIds,
+      ),
+    );
+    expect(species.size).toBeGreaterThan(0);
+    for (const id of species) {
+      const expected = getPublishedNewsForSpecies(id, "ka").map((article) =>
+        toNewsListArticle(article, "ka"),
+      );
+      expect(expected.length, id).toBeGreaterThan(0);
+      const found = await getNewsListArticlesForSpecies("ka", id);
+      expect(found.map(withoutAuthorIds), id).toStrictEqual(expected);
+    }
+  });
+
+  it("lists a series oldest first, from the API", async () => {
+    let matched = 0;
+    for (const series of newsSeriesIds) {
+      const first = getPublishedNewsArticles("en").find(
+        (article) => article.series === series,
+      );
+      const expected = first
+        ? getPublishedNewsArticlesInSeries(first, "en").map((article) =>
+            toNewsListArticle(article, "en"),
+          )
+        : [];
+      matched += expected.length;
+      const found = await getNewsListArticlesInSeries("en", series);
+      expect(found.map(withoutAuthorIds), series).toStrictEqual(expected);
+    }
+    expect(matched).toBeGreaterThan(1);
+  });
+
+  it("asks the API for each filter", async () => {
+    expect(
+      await listedQueries(() => getNewsListArticlesForHub("ka", "fish")),
+    ).toEqual(["?hub=fish&limit=100&page=1"]);
+    expect(
+      await listedQueries(() =>
+        getNewsListArticlesForRegion("ka", "no-region"),
+      ),
+    ).toEqual(["?limit=100&page=1&region=no-region"]);
+    expect(
+      await listedQueries(() =>
+        getNewsListArticlesForSpecies("ka", "no-such-species"),
+      ),
+    ).toEqual(["?limit=100&page=1&species=no-such-species"]);
   });
 });
 

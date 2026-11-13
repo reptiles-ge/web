@@ -12,7 +12,6 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { getPublishedNewsForSpecies } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -23,6 +22,7 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
 import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { getNewsListArticlesForSpecies } from "@/lib/newsApi";
 import {
   breadcrumbListLd,
   pageNodeId,
@@ -295,7 +295,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           />
         </ClientMessagesProvider>
         <NewsRelatedBlock
-          articles={getPublishedNewsForSpecies(raw.id, locale)}
+          articles={await getNewsListArticlesForSpecies(locale, raw.id)}
           locale={locale}
         />
       </>
