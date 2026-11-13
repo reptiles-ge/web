@@ -13,6 +13,8 @@ import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { liveSpeciesPath } from "@/lib/speciesSlugRuntime";
 
+const EXPIRE_NOW = { expire: 0 };
+
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 
 const body = z
@@ -57,7 +59,7 @@ export async function POST(request: Request) {
   const { groups = [], tags = [] } = parsed.data;
   const slugMaps =
     tags.length > 0 ? await refreshSpeciesApiCache(tags) : undefined;
-  for (const tag of tags) revalidateTag(tag, "max");
+  for (const tag of tags) revalidateTag(tag, EXPIRE_NOW);
   for (const id of groups) {
     for (const route of findSitePageGroup(id)?.routes ?? []) {
       revalidatePath(route.path, route.type);

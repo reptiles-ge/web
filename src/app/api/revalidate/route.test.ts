@@ -62,11 +62,10 @@ describe("POST /api/revalidate", () => {
     );
     expect(response.status).toBe(200);
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
-    expect(revalidateTag).toHaveBeenCalledWith("species", "max");
-    expect(revalidateTag).toHaveBeenCalledWith(
-      "species:macrovipera-lebetina",
-      "max",
-    );
+    expect(revalidateTag).toHaveBeenCalledWith("species", { expire: 0 });
+    expect(revalidateTag).toHaveBeenCalledWith("species:macrovipera-lebetina", {
+      expire: 0,
+    });
     expect(refreshSpeciesApiCache).toHaveBeenCalledWith([
       "species",
       "species:macrovipera-lebetina",
@@ -122,10 +121,10 @@ describe("POST /api/revalidate", () => {
       request({ tags: ["news", "news:lagodekhi-iucn-mwvane-sia"] }, "secret"),
     );
     expect(response.status).toBe(200);
-    expect(revalidateTag).toHaveBeenCalledWith("news", "max");
+    expect(revalidateTag).toHaveBeenCalledWith("news", { expire: 0 });
     expect(revalidateTag).toHaveBeenCalledWith(
       "news:lagodekhi-iucn-mwvane-sia",
-      "max",
+      { expire: 0 },
     );
     expect(await response.json()).toEqual({
       warm: [
@@ -143,7 +142,7 @@ describe("POST /api/revalidate", () => {
     const response = await POST(request({ tags }, "secret"));
     expect(response.status).toBe(200);
     for (const tag of tags) {
-      expect(revalidateTag).toHaveBeenCalledWith(tag, "max");
+      expect(revalidateTag).toHaveBeenCalledWith(tag, { expire: 0 });
     }
     expect(refreshSpeciesApiCache).toHaveBeenCalledWith(tags);
     expect(await response.json()).toEqual({
