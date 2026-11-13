@@ -58,17 +58,6 @@ export function liveSpeciesAlternates(
   };
 }
 
-export function liveSpeciesHref(
-  maps: SpeciesSlugMaps,
-  id: string,
-  locale: AppLocale,
-): LocaleSpeciesHref {
-  return speciesHrefForHub(
-    maps.hubById[id] ?? getSpeciesHubId(id),
-    liveSpeciesPublicSlug(maps, id, locale),
-  );
-}
-
 export function liveSpeciesPageUrl(
   maps: SpeciesSlugMaps,
   locale: AppLocale,
@@ -117,4 +106,15 @@ export async function resolveLiveSpeciesIdInHub(
   const id = maps.idByAnySlug[slug];
   if (!id || maps.hubById[id] !== hubId) return undefined;
   return id;
+}
+
+function liveSpeciesHref(
+  maps: SpeciesSlugMaps,
+  id: string,
+  locale: AppLocale,
+): LocaleSpeciesHref {
+  return speciesHrefForHub(
+    maps.hubById[id] ?? getSpeciesHubId(id),
+    liveSpeciesPublicSlug(maps, id, locale),
+  );
 }
