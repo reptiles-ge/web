@@ -1,11 +1,18 @@
 import { http, HttpResponse } from "msw";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 import { REPTILES_API_TEST_SITE_KEY } from "../../tests/msw/reptilesApi";
 import { server } from "../../tests/msw/server";
 import { refreshSpeciesApiCache } from "./speciesApiRefresh";
 
-function recordBypass(body: (url: URL) => object = () => ({ data: [] })) {
+function catalogOrEmpty(url: URL) {
+  return url.pathname === "/v1/catalog"
+    ? { data: speciesCatalogFixture("ka") }
+    : { data: [] };
+}
+
+function recordBypass(body: (url: URL) => object = catalogOrEmpty) {
   const seen: Array<{
     bypass: null | string;
     locale: null | string;
@@ -44,12 +51,55 @@ describe("refreshSpeciesApiCache", () => {
     expect(
       seen.map(({ locale, url }) => `${locale} ${new URL(url).pathname}`),
     ).toEqual([
+      "ka /v1/catalog",
       "ka /v1/species/giurza",
       "en /v1/species/macrovipera-lebetina",
       "ru /v1/species/macrovipera-lebetina",
       "tr /v1/species/macrovipera-lebetina",
       "en /v1/species/macrovipera-lebetina/field-records",
     ]);
+  });
+
+  it("reads the fresh catalog so a species published after the deploy gets its Georgian slug", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    const seen = recordBypass((url) =>
+      url.pathname === "/v1/catalog"
+        ? {
+            data: [
+              {
+                ...speciesCatalogFixture("ka")[0]!,
+                id: "new-bird",
+                slug: "akhali-chiti",
+                slugAliases: [],
+              },
+            ],
+          }
+        : { data: [] },
+    );
+    const maps = await refreshSpeciesApiCache(["species:new-bird"]);
+    expect(maps?.kaSlugById["new-bird"]).toBe("akhali-chiti");
+    expect(
+      seen.map(({ bypass, locale, url }) =>
+        [bypass, locale, new URL(url).pathname].join(" "),
+      ),
+    ).toContain("fresh-secret ka /v1/species/akhali-chiti");
+  });
+
+  it("warms the profile by id when the fresh catalog cannot be read", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "fresh-secret");
+    const error = vi.spyOn(console, "error").mockImplementation(() => {});
+    const seen = recordBypass();
+    server.use(
+      http.get("https://api.reptiles.ge/v1/catalog", () =>
+        HttpResponse.json({ error: { code: "unavailable" } }, { status: 503 }),
+      ),
+    );
+    const maps = await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
+    expect(maps).toBeUndefined();
+    expect(error).not.toHaveBeenCalled();
+    expect(seen.map(({ url }) => new URL(url).pathname)[0]).toBe(
+      "/v1/species/macrovipera-lebetina",
+    );
   });
 
   it("also refreshes the site-only field records when the site has its key", async () => {
@@ -153,7 +203,7 @@ describe("refreshSpeciesApiCache", () => {
       }),
     );
     await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
-    expect(calls).toBe(5);
+    expect(calls).toBe(6);
     expect(error).toHaveBeenCalledWith(
       "Species API cache refresh failed",
       expect.any(Error),

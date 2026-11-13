@@ -15,7 +15,6 @@ import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
@@ -44,9 +43,7 @@ import {
   openGraphJpeg,
   organizationRef,
   siteConfig,
-  speciesAlternates,
   speciesOgImageUrl,
-  speciesPageUrl,
 } from "@/lib/site";
 import { siteDateTimeOrRaw } from "@/lib/siteTime";
 import {
@@ -73,8 +70,14 @@ import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
-import { getSpeciesPublicSlug, speciesHref } from "@/lib/speciesRoutes";
-import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import {
+  getSpeciesSlugMaps,
+  liveSpeciesAlternates,
+  liveSpeciesPageUrl,
+  liveSpeciesPath,
+  liveSpeciesPublicSlug,
+  resolveLiveSpeciesIdInHub,
+} from "@/lib/speciesSlugRuntime";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
@@ -133,7 +136,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const locale = localeParam;
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
-    const id = resolveSpeciesIdInHub(hubId, slug);
+    const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     const loaded = id ? await loadSpeciesPage(id, locale) : null;
 
     if (!loaded) {
@@ -164,7 +167,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             scientific: item.scientificName,
           })
         : speciesMetaDescription(item, locale));
-    const url = speciesPageUrl(locale, item.id);
+    const slugMaps = await getSpeciesSlugMaps();
+    const url = liveSpeciesPageUrl(slugMaps, locale, item.id);
     const description = kaMetaDescriptionOverride(
       locale,
       new URL(url).pathname,
@@ -182,7 +186,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     );
 
     return {
-      alternates: speciesAlternates(locale, item.id),
+      alternates: liveSpeciesAlternates(slugMaps, locale, item.id),
       description,
       keywords,
       openGraph: {
@@ -218,14 +222,15 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const locale = localeParam;
     setRequestLocale(locale);
 
-    const id = resolveSpeciesIdInHub(hubId, slug);
+    const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     if (!id) {
       notFound();
     }
 
-    const expectedSlug = getSpeciesPublicSlug(id, locale);
+    const slugMaps = await getSpeciesSlugMaps();
+    const expectedSlug = liveSpeciesPublicSlug(slugMaps, id, locale);
     if (slug !== expectedSlug) {
-      permanentRedirect(getPathname({ href: speciesHref(id, locale), locale }));
+      permanentRedirect(liveSpeciesPath(slugMaps, id, locale));
     }
 
     const loaded = await loadSpeciesPage(id, locale);
@@ -255,7 +260,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       venomousLabel: tProfile("breadcrumbVenomous"),
     });
 
-    const pageUrl = speciesPageUrl(locale, item.id);
+    const pageUrl = liveSpeciesPageUrl(slugMaps, locale, item.id);
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const structuredData = speciesStructuredData({
       breadcrumbCrumbs,

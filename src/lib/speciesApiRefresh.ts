@@ -1,3 +1,5 @@
+import type { SpeciesSlugMaps } from "@/lib/speciesSlugRules";
+
 import { routing } from "@/i18n/routing";
 import { createApiClient, responseOk } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
@@ -5,7 +7,10 @@ import { HOME_NEWS_LIMIT } from "@/lib/newsApi";
 import { NEWS_PAGE_SIZE } from "@/lib/newsPages";
 import { MAX_PAGE_SIZE } from "@/lib/pagination";
 import { fetchSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
-import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
+import {
+  liveSpeciesPublicSlug,
+  readFreshSpeciesSlugMaps,
+} from "@/lib/speciesSlugRuntime";
 
 const AUTHOR_TAG_PREFIX = "author:";
 
@@ -19,37 +24,48 @@ const NEWS_TAG_PREFIX = "news:";
 
 const SPECIES_TAG_PREFIX = "species:";
 
-export async function refreshSpeciesApiCache(tags: string[]) {
+export async function refreshSpeciesApiCache(
+  tags: string[],
+): Promise<SpeciesSlugMaps | undefined> {
   const token = serverEnv().REVALIDATE_TOKEN;
-  if (!token) return;
+  if (!token) return undefined;
   const api = createApiClient();
   const options = {
     headers: { "X-Cache-Bypass": token },
     init: { cache: "no-store" as const },
   };
-  const profiles = tags
+  const speciesIds = tags
     .filter((tag) => tag.startsWith(SPECIES_TAG_PREFIX))
-    .map((tag) => tag.slice(SPECIES_TAG_PREFIX.length))
-    .flatMap((id) => [
-      ...routing.locales.map(
-        (locale) => () =>
-          api.v1.species[":slug"].$get(
-            {
-              header: { "x-locale": locale },
-              param: { slug: getSpeciesPublicSlug(id, locale) },
-            },
-            options,
-          ),
-      ),
-      () =>
-        api.v1.species[":slug"]["field-records"].$get(
-          { header: { "x-locale": "en" }, param: { slug: id } },
+    .map((tag) => tag.slice(SPECIES_TAG_PREFIX.length));
+  const slugMaps =
+    speciesIds.length > 0
+      ? await readFreshSpeciesSlugMaps(api, options).catch((error: unknown) => {
+          console.error("Species API cache refresh failed", error);
+          return undefined;
+        })
+      : undefined;
+  const kaSlug = (id: string) =>
+    slugMaps ? liveSpeciesPublicSlug(slugMaps, id, "ka") : id;
+  const profiles = speciesIds.flatMap((id) => [
+    ...routing.locales.map(
+      (locale) => () =>
+        api.v1.species[":slug"].$get(
+          {
+            header: { "x-locale": locale },
+            param: { slug: locale === "ka" ? kaSlug(id) : id },
+          },
           options,
         ),
-      ...(serverEnv().SITE_API_KEY
-        ? [() => fetchSpeciesFieldRecords(api, id, options)]
-        : []),
-    ]);
+    ),
+    () =>
+      api.v1.species[":slug"]["field-records"].$get(
+        { header: { "x-locale": "en" }, param: { slug: id } },
+        options,
+      ),
+    ...(serverEnv().SITE_API_KEY
+      ? [() => fetchSpeciesFieldRecords(api, id, options)]
+      : []),
+  ]);
   const newsList = tags.includes("news")
     ? routing.locales.flatMap((locale) =>
         NEWS_LIST_PAGINGS.map(({ every, limit }) => async () => {
@@ -119,4 +135,5 @@ export async function refreshSpeciesApiCache(tags: string[]) {
       ),
     Promise.resolve(),
   );
+  return slugMaps;
 }
