@@ -13,7 +13,7 @@ Status as of 2026-10-22. This file picks up where the work stopped. Binding API 
 | **2b-b** | Adding a photo (upload + iNaturalist)                                                                         | ⏳ next         |
 | **2b-e** | Field records into D1                                                                                         | ⏳              |
 | **2b-d** | AI analysis / workflow / super-analysis → drafts                                                              | ❌ dropped      |
-| **2b-f** | New species creation                                                                                          | ⏳              |
+| **2b-f** | New species creation                                                                                          | ❌ dropped      |
 | 3        | Rest of the site reads species from the API                                                                   | ⏳              |
 | 4        | Slugs and 301s in `proxy.ts` from D1/KV                                                                       | ⏳              |
 | 5        | Delete species MDX, `compile-species`, generated files, MDX admin helpers                                     | ⏳              |
@@ -84,16 +84,9 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 **Removed in November 2026.** The local-admin selection editor, the species page pipeline launcher and the `/api/admin/species-analysis`, `species-workflow`, `species-super-analysis`, `species-texts` and `content-edit` routes are gone, with their libs, prompts, messages and tests. Nothing was rebuilt on the API. AI edits to a species page go through `pnpm species:draft` (`.agents/skills/species-drafts/SKILL.md`) and land as drafts for the owner to merge. The old code is in Git history; anything of the kind would start from the API record with results as drafts.
 
-## 2b-f — New species creation
+## 2b-f — New species creation (dropped, November 2026)
 
-**Today:** `/api/admin/species-create` validates the input (`validateSpeciesCreationInput`: Latin binomial, derived id) and only returns a Codex prompt. A human then creates 4 MDX files and registers the species in `speciesPublish.ts`, `speciesAtlasMeta.ts`, `herpetofauna-checklist.ts`, `mapRegions.ts` and `speciesSlugRules.ts`. Lookalikes are now part of the D1 record, so they need no code edit.
-
-**Target**
-
-- API: `POST /v1/admin/species` creates a **draft** species: `status: 'draft'`, version 1, `catalog_position` at the end, slug from `kaToSlug` and checked for uniqueness against `species_slugs`. It needs a create path in `speciesWrite.ts` (insert, not update) and the same validation. A draft species is not served publicly, because `listPublishedSpecies` and `findPublishedSpeciesId` filter on `published`.
-- Publishing = a status change to `published` through `PUT` (needs `slugKa`).
-- Still in code until phase 3/4: the herpetofauna checklist status, region membership (`regions.ts` / `mapRegions.ts`) and the 301 slug table. Document what the admin still has to register by hand.
-- Optional: AI-assisted first draft. The AI fills the texts and the result lands as a draft (2b-c pattern).
+The local-admin form (`AdminSpeciesCreate`), its route `/api/admin/species-create` (a 503 stub since S5b) and the `species-page-create` prompt were removed. Nothing was rebuilt on the API: the owner creates a new species in D1, and the site picks it up at request time once it is published and the species cache is cleared (#1902, #1903, #1904). The old code is in Git history; a creation endpoint would start from a draft record (`status: 'draft'`, slug checked against `species_slugs`) and publish through the status route.
 
 ---
 
@@ -145,4 +138,4 @@ Image derivatives catalog to D1 and the Service Binding from the site to the API
 
 ## Phase 5 — delete MDX (done, S5a #1521 and S5b)
 
-Species MDX, `compile-species`, the generated species files, the MDX admin helpers, the MDX-based AI analysis and the `db:import:*` scripts are gone. Tests use the committed seed `tests/fixtures/speciesSeed.sql`. The MDX-only local admin flows (adding field records, species creation) answer 503 until 2b-e and 2b-f rebuild them on the API; adding photos moved to the admin app (2b-b) and the AI analysis and workflow were dropped (2b-d). See `docs/SPECIES-API-HANDOFF.md` for the full list.
+Species MDX, `compile-species`, the generated species files, the MDX admin helpers, the MDX-based AI analysis and the `db:import:*` scripts are gone. Tests use the committed seed `tests/fixtures/speciesSeed.sql`. The MDX-only local admin flow for adding field records answers 503 until 2b-e rebuilds it on the API; adding photos moved to the admin app (2b-b), and the AI analysis and workflow (2b-d) and species creation (2b-f) were dropped. See `docs/SPECIES-API-HANDOFF.md` for the full list.

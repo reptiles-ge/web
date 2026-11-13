@@ -60,7 +60,6 @@ export default defineConfig({
         "src/components/admin/AdminCoverCrop.tsx",
         "src/components/admin/AdminCoverPreview.tsx",
         "src/components/admin/AdminGalleryReorder.tsx",
-        "src/components/admin/AdminSpeciesCreate.tsx",
         "src/components/admin/AdminSpeciesEditor.tsx",
         "src/components/admin/AdminSpeciesList.tsx",
         "src/app/api/admin/**",
