@@ -24,7 +24,6 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 - `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsLinkedSpeciesIds`, `newsSearchKeywords`, `newsSourceOrg`, …).
 - No client component imports news data. Everything is server-side or build-time.
 - Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in `src/data/schemaImages.json` (`images:schema`).
-- The local admin text editor (`src/lib/contentEditorTarget.ts`, kind `news`) edits `title`, `dek`, `lead` and body fields in the MDX files and opens a PR.
 - Guard tests: `src/data/newsContent.test.ts` (one folder per slug, section and figure parity across locales, figures only from the article's own photos, links only to existing species, regions, hubs and contributors, linked ids present in the related ids), `newsData.test.ts`, `newsSeries.test.ts`.
 
 ---
@@ -187,7 +186,6 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
 - `POST /v1/admin/news` creates a draft article (`status: 'draft'`). Publishing is a status change through `PUT`.
 - AI edits to a published article go through `POST …/drafts` + approve (species 2b-c), never a direct write. A new article from `news:import` is already safe: it lands with `status: 'draft'` and stays off the site until the owner publishes it.
 - After a write, the API calls `/api/revalidate` through the `SITE` binding with `news`, `news:<slug>`, and the hub, region and species tags the article touches.
-- `contentEditorTarget.ts` kind `news` calls the API instead of editing MDX and opening a PR.
 - **MDX import workflow (phase 0 decision):**
   - `scripts/news-import.ts` (`pnpm news:import <slug> [--dry-run]`): parse with `newsArticleFromMdx`, then `POST /v1/admin/news` for a new slug or `GET` + `PUT` for an existing one. `--dry-run` validates through the API without saving (a `validate` flag or `POST /v1/admin/news/validate`), so a writer can check the MDX before the real import. Prints the API's 400 details as file and field. On success it deletes the input folder.
   - `scripts/news-export.ts` (`pnpm news:export <slug>`): `GET /v1/admin/news/:slug`, serialize to the four MDX files. Test: export → parse → `toStrictEqual` for every article in the seed.

@@ -9,12 +9,9 @@ import { useExpandableText } from "@/lib/useExpandableText";
 type BiologyExpandableProps = {
   body: string;
   clampFromDesktop?: boolean;
-  collapseEditable?: boolean;
-  editorField?: string;
   needsExpand: boolean;
   readLess: string;
   readMore: string;
-  speciesId?: string;
 };
 
 const PREVIEW_LINES = 3;
@@ -22,16 +19,13 @@ const PREVIEW_LINES = 3;
 export function BiologyExpandable({
   body,
   clampFromDesktop = false,
-  collapseEditable = false,
-  editorField,
   needsExpand,
   readLess,
   readMore,
-  speciesId,
 }: BiologyExpandableProps) {
   const { buttonRef, open, textRef, toggle } = useExpandableText(PREVIEW_LINES);
   const [overflows, setOverflows] = useState(false);
-  const canCollapse = needsExpand && (collapseEditable || !editorField);
+  const canCollapse = needsExpand;
 
   useEffect(() => {
     const text = textRef.current;
@@ -62,8 +56,6 @@ export function BiologyExpandable({
           !open && canCollapse && clampFromDesktop && "lg:line-clamp-3",
           !open && canCollapse && !clampFromDesktop && "line-clamp-3",
         )}
-        data-content-field={editorField}
-        data-content-id={speciesId}
         ref={textRef}
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>

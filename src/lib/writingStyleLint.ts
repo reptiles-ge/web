@@ -102,15 +102,6 @@ const KA_HEDGES = [
   "სავარაუდოდ",
 ];
 
-export function formatStyleIssues(issues: StyleIssue[]) {
-  return issues
-    .map(
-      (issue) =>
-        `- ${issue.locale} ${issue.field} [${issue.rule}]: ${issue.message}`,
-    )
-    .join("\n");
-}
-
 export function lintFieldStyle(
   text: string,
   field: string,

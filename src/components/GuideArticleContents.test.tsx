@@ -4,9 +4,9 @@ import { describe, expect, it } from "vitest";
 import { GuideArticleContents } from "@/components/GuideArticleContents";
 
 const ITEMS = [
-  { anchor: "what-to-do", editorAttributes: {}, label: "What to do" },
-  { anchor: "what-not-to-do", editorAttributes: {}, label: "What not to do" },
-  { anchor: "rabies", editorAttributes: {}, label: "Bats and rabies" },
+  { anchor: "what-to-do", label: "What to do" },
+  { anchor: "what-not-to-do", label: "What not to do" },
+  { anchor: "rabies", label: "Bats and rabies" },
 ];
 
 describe("GuideArticleContents", () => {

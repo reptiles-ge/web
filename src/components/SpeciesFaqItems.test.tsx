@@ -17,7 +17,6 @@ function buttonFor(question: string) {
 function renderItems(visibleCount = 5) {
   return render(
     <SpeciesFaqItems
-      editable={false}
       entityId="macrovipera-lebetina"
       items={items}
       moreLabel="Show more"
