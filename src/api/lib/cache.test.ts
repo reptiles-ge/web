@@ -3,6 +3,7 @@ import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ApiBindings } from "../env";
 
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
+import { purgeApiCache } from "./cachePurge";
 
 const URL = "/v1/species/cheiracanthium-punctorium";
 
@@ -103,6 +104,34 @@ describe("edgeCache", () => {
     expect(await overview({ "X-Cache-Bypass": "fresh-secret" })).toBe(
       "changed",
     );
+  });
+
+  it("misses every stored entry after a purge, in every data center", async () => {
+    await overview();
+    sqlite
+      .prepare(
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
+      )
+      .run();
+    expect(await purgeApiCache(env, ["catalog"])).toBe("purged");
+    expect(await overview()).toBe("changed");
+  });
+
+  it("keeps caching when the generation cannot be read", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    sqlite.exec("DROP TABLE api_cache_generation");
+    const first = await overview();
+    sqlite
+      .prepare(
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
+      )
+      .run();
+    expect(await overview()).toBe(first);
+    expect(log).toHaveBeenCalledWith(
+      "API cache generation could not be read",
+      expect.any(Error),
+    );
+    log.mockRestore();
   });
 
   it("tags every stored entry so a clear can purge it in every data center", async () => {

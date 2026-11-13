@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { ApiBindings } from "../env";
 
+import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 import {
   revalidateAuthorPages,
   revalidateContributorPage,
@@ -44,11 +45,12 @@ beforeEach(() => {
   github = vi.fn(async () => new Response(null, { status: 204 }));
   vi.stubGlobal("fetch", github);
   env = {
+    DB: createSpeciesTestDatabase().db,
     REVALIDATE_TOKEN: "site-secret",
     SITE: { fetch: siteFetch },
     WARM_DISPATCH_REPOSITORY: "reptiles-ge/web",
     WARM_DISPATCH_TOKEN: "gh-token",
-  } as unknown as ApiBindings;
+  };
 });
 
 afterEach(() => {
@@ -117,10 +119,13 @@ describe("cache warm after a clear", () => {
   it("warms nothing when the API purge fails", async () => {
     env = {
       ...env,
-      CACHE_PURGE_TOKEN: "purge-token",
-      CACHE_PURGE_ZONE_ID: "zone",
+      DB: {
+        batch: async () => [],
+        prepare: () => {
+          throw new Error("D1 unavailable");
+        },
+      },
     };
-    github.mockResolvedValue(new Response(null, { status: 500 }));
     expect(
       await revalidateSpeciesPage(env, "macrovipera-lebetina", defer),
     ).toBe(false);
