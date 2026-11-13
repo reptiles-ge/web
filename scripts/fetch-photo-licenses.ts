@@ -1,10 +1,11 @@
 import path from "node:path";
 
+import type { NewsArticle } from "../src/data/newsTypes";
 import type { PhotoLicense } from "../src/data/photoLicenses";
 import type { PhotoCredit } from "../src/data/speciesTypes";
 
-import { getPublishedNewsArticles } from "../src/data/news";
 import { createPoliteJson, writeOrCheckModule } from "./remoteDataScript";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import type { SpeciesPhotoFields } from "../src/data/speciesTypes";
 
@@ -53,7 +54,10 @@ const cachedJson = createPoliteJson({
   userAgent: USER_AGENT,
 });
 
-function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
+function collectPhotos(
+  catalog: readonly SpeciesPhotoFields[],
+  news: readonly NewsArticle[],
+) {
   const photos: PhotoRef[] = [];
   for (const species of catalog) {
     photos.push(
@@ -82,7 +86,7 @@ function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
       })),
     );
   }
-  for (const article of getPublishedNewsArticles()) {
+  for (const article of news) {
     if (article.image) {
       photos.push({
         credit: article.image.credit,
@@ -225,7 +229,10 @@ ${lines.join("\n")}
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const photos = collectPhotos(await getSpeciesCatalog("ka", "photos"));
+  const photos = collectPhotos(
+    await getSpeciesCatalog("ka", "photos"),
+    await getNewsArticles(),
+  );
   const bySrc = new Map<string, PhotoRef>();
   for (const photo of photos) {
     if (!bySrc.has(photo.src)) bySrc.set(photo.src, photo);

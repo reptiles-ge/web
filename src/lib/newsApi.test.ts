@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
+import { newsSeriesIds } from "@/data/newsSeries";
+import { routing } from "@/i18n/routing";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+
+import { toNewsListArticle } from "../../tests/fixtures/manyNews";
 import {
   getPublishedNewsArticles,
   getPublishedNewsArticlesInSeries,
@@ -10,16 +15,12 @@ import {
   getPublishedNewsForHub,
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
-} from "@/data/news";
-import { newsSeriesIds } from "@/data/newsSeries";
-import { routing } from "@/i18n/routing";
-import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
-
-import { toNewsListArticle } from "../../tests/fixtures/manyNews";
+} from "../../tests/fixtures/newsSeed";
 import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 import { server } from "../../tests/msw/server";
 import {
   getNewsArticle,
+  getNewsArticles,
   getNewsList,
   getNewsListArticles,
   getNewsListArticlesForAuthor,
@@ -76,6 +77,18 @@ describe("getNewsArticle", () => {
     await expect(getNewsArticle("broken-article")).rejects.toThrow(
       "News API answered 500 for broken-article",
     );
+  });
+});
+
+describe("getNewsArticles", () => {
+  it("rebuilds every published article, newest first", async () => {
+    const articles = await getNewsArticles();
+    expect(articles.map((article) => article.slug)).toEqual(
+      getPublishedNewsArticles().map((article) => article.slug),
+    );
+    expect(
+      articles.map(({ views: _views, ...rest }) => withoutAuthorIds(rest)),
+    ).toStrictEqual(getPublishedNewsArticles());
   });
 });
 

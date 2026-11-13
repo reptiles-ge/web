@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { NO_CONTRIBUTORS } from "@/lib/contributorCredits";
 import { getNewsVisual } from "@/lib/newsVisual";
 import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,

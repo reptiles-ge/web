@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsSection } from "@/data/newsTypes";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
 import { locales } from "@/i18n/locales";
 
+import { NEWS_ARTICLES } from "../../tests/fixtures/newsArticlesSnapshot";
 import {
   newsDocFigures,
   newsDocToSections,

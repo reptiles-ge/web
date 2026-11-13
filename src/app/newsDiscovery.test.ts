@@ -1,10 +1,6 @@
 import { createTranslator } from "next-intl";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 
-import {
-  getPublishedNewsArticleBySlug,
-  getPublishedNewsArticles,
-} from "@/data/news";
 import { createAdminNews, publishAdminNews } from "@/lib/adminNewsApi";
 import { llmsFileResponse } from "@/lib/llmsResponse";
 
@@ -12,6 +8,10 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import {
+  getPublishedNewsArticleBySlug,
+  getPublishedNewsArticles,
+} from "../../tests/fixtures/newsSeed";
 import {
   REPTILES_API_TEST_TOKEN,
   resetReptilesApi,

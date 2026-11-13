@@ -1,15 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  getAllNewsArticles,
   getNewsArticleLocales,
   getNewsCopy,
-  getPublishedNewsArticleBySlug,
-  getPublishedNewsArticles,
-  getPublishedNewsForCreditAuthor,
-  getPublishedNewsForHub,
-  getPublishedNewsForRegion,
-  getPublishedNewsForSpecies,
   hasNewsCopy,
   newsArticlePhotos,
   newsLinkedSpeciesIds,
@@ -26,6 +19,15 @@ import {
 } from "@/data/news";
 import { routing } from "@/i18n/routing";
 
+import {
+  getAllNewsArticles,
+  getPublishedNewsArticleBySlug,
+  getPublishedNewsArticles,
+  getPublishedNewsForCreditAuthor,
+  getPublishedNewsForHub,
+  getPublishedNewsForRegion,
+  getPublishedNewsForSpecies,
+} from "../../tests/fixtures/newsSeed";
 import {
   contributorsFixture,
   speciesCatalogFixture,

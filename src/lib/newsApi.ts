@@ -81,6 +81,14 @@ export const getNewsListArticles = cache(
     ),
 );
 
+export const getNewsArticles = cache(async (): Promise<NewsArticle[]> => {
+  const summaries = await getNewsSummaries();
+  const articles = await Promise.all(
+    summaries.map(({ slug }) => getNewsArticle(slug)),
+  );
+  return articles.filter((article) => article !== null);
+});
+
 export const getNewsSummaries = cache(async (): Promise<NewsSummary[]> => {
   const lists = await Promise.all(
     routing.locales.map(

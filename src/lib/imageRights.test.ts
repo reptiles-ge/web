@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
 import { photoLicenses } from "@/data/photoLicenses";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
@@ -19,6 +18,7 @@ import { newsImageRights } from "@/lib/newsVisual";
 import { galleryImageObject } from "@/lib/photoMeta";
 import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   catalogSpeciesFixture,
   contributorDirectoryFixture,

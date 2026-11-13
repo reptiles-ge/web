@@ -2,12 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
-import {
-  getNewsArticleLocales,
-  getPublishedNewsArticles,
-} from "../src/data/news";
+import { getNewsArticleLocales } from "../src/data/news";
 import { regions } from "../src/data/regions";
 import { type AppLocale, routing } from "../src/i18n/routing";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
 import {
   creditAuthorAlternates,
@@ -149,7 +147,7 @@ function addLocalizedStatic() {
   }
 }
 
-function addNews() {
+async function addNews() {
   for (const locale of routing.locales) {
     const { canonical, languages } = newsIndexAlternates(locale);
     addRoute({
@@ -161,7 +159,7 @@ function addNews() {
     });
   }
 
-  for (const article of getPublishedNewsArticles()) {
+  for (const article of await getNewsArticles()) {
     for (const locale of getNewsArticleLocales(article)) {
       const { canonical, languages } = newsArticleAlternates(locale, article);
       addRoute({
@@ -240,7 +238,7 @@ async function main() {
   addRegions();
   addSpecies(await getSpeciesCatalog(routing.defaultLocale));
   await addAuthors();
-  addNews();
+  await addNews();
   addQuizzes();
 
   const graph = {

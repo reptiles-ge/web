@@ -3,11 +3,11 @@ import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { NewsArchivePage } from "@/components/NewsArchivePage";
-import { getPublishedNewsArticles } from "@/data/news";
 import { formatContentMonth } from "@/lib/formatDate";
 
 import en from "../../messages/en.json";
 import { toNewsListArticle } from "../../tests/fixtures/manyNews";
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 
 vi.mock("next-intl/server", () => ({
   getTranslations: async ({ namespace }: { namespace: "news" }) =>

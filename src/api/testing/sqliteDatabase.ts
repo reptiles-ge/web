@@ -2,10 +2,9 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
-
 import type { ApiDatabase } from "../db/database";
 
+import { NEWS_ARTICLES } from "../../../tests/fixtures/newsArticlesSnapshot";
 import { RELINK_MEDIA_AUTHORS } from "../db/authors";
 import { buildNewsImport } from "../db/newsRows";
 

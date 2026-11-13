@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getAllNewsArticles, getPublishedNewsArticles } from "@/data/news";
 import { newsSlugs } from "@/data/newsPublish";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
@@ -14,6 +13,11 @@ import {
   NEWS_RESERVED_SLUGS,
   newsSlugIssue,
 } from "@/lib/newsSlug";
+
+import {
+  getAllNewsArticles,
+  getPublishedNewsArticles,
+} from "../../tests/fixtures/newsSeed";
 
 function localizedPaths(internal: keyof typeof pathnames) {
   const value = pathnames[internal];

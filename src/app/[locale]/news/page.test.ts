@@ -29,16 +29,14 @@ vi.mock("next-intl/server", () => ({
 vi.mock("@/lib/newsApi", async () => {
   const { manyNewsListArticles, manyNewsListPage } =
     await import("../../../../tests/fixtures/manyNews");
-  const actual =
-    await vi.importActual<typeof import("@/data/news")>("@/data/news");
   return {
     getNewsListArticles: async (locale: AppLocale) =>
-      manyNewsListArticles(actual, locale),
+      manyNewsListArticles(locale),
     getNewsListArticlesPage: async (
       locale: AppLocale,
       page: number,
       limit: number,
-    ) => manyNewsListPage(actual, locale, page, limit),
+    ) => manyNewsListPage(locale, page, limit),
   };
 });
 
