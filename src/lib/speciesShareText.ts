@@ -8,7 +8,7 @@ import {
 } from "@/data/speciesAtlasMeta";
 import { localePath } from "@/lib/site";
 import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHref, type SpeciesRouteSource } from "@/lib/speciesRoutes";
 
 const SHARE_ORIGIN = "https://reptiles.ge";
 
@@ -31,6 +31,7 @@ type SpeciesShareInput = {
   labels: Record<"details" | SpeciesShareStatusKind, string>;
   locale: AppLocale;
   scientificName: string;
+  slug?: string;
 };
 
 export function speciesShareMessage(input: SpeciesShareInput) {
@@ -45,10 +46,11 @@ export function speciesShareParts({
   labels,
   locale,
   scientificName,
+  slug,
 }: SpeciesShareInput): SpeciesShareParts {
   const kind = speciesShareStatusKind(id, group, danger);
   const status = kind ? labels[kind] : null;
-  const url = speciesShareUrl(locale, id);
+  const url = speciesShareUrl(locale, { group, id, slug });
   return {
     displayUrl: url.replace(/^https?:\/\//, ""),
     heading: speciesShareHeading({ commonName, scientificName, status }),
@@ -111,6 +113,6 @@ function speciesShareHeading({
   return status ? `${names} - ${status}` : names;
 }
 
-function speciesShareUrl(locale: AppLocale, id: string) {
-  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
+function speciesShareUrl(locale: AppLocale, species: SpeciesRouteSource) {
+  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(species, locale))}`;
 }

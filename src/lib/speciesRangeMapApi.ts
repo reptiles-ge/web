@@ -4,11 +4,17 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { createApiClient, responseOk } from "@/lib/apiClient";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
-import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
+import {
+  getSpeciesSlugMaps,
+  liveSpeciesPublicSlug,
+} from "@/lib/speciesSlugRuntime";
 
 export const getSpeciesRangeMap = cache(
   async (id: string, locale: AppLocale) => {
-    const slug = getSpeciesPublicSlug(id, locale);
+    const slug =
+      locale === "ka"
+        ? liveSpeciesPublicSlug(await getSpeciesSlugMaps(), id, locale)
+        : id;
     const response = await createApiClient().v1.species[":slug"][
       "range-map"
     ].$get(

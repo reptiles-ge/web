@@ -5,7 +5,7 @@ import {
   resolveSpeciesId,
   speciesHref,
 } from "@/lib/speciesRoutes";
-import { hasSpeciesRoute, resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
 import {
@@ -25,16 +25,29 @@ describe("speciesHref with a catalog item", () => {
   });
 
   it("takes the hub from the item's group when the build table lacks the species", () => {
-    expect(hasSpeciesRoute("vespa-crabro")).toBe(false);
     expect(speciesHref({ group: "insect", id: "vespa-crabro" }, "en")).toEqual({
       params: { slug: "vespa-crabro" },
       pathname: "/insects/[slug]",
     });
   });
 
-  it("knows which species have a built route", () => {
-    expect(hasSpeciesRoute("macrovipera-lebetina")).toBe(true);
-    expect(hasSpeciesRoute("constructor")).toBe(false);
+  it("takes the Georgian slug from the catalog item when the build table lacks the species", () => {
+    const item = {
+      group: "bird" as const,
+      id: "new-bird",
+      slug: "akhali-chiti",
+    };
+    expect(speciesHref(item, "ka")).toEqual({
+      params: { slug: "akhali-chiti" },
+      pathname: "/birds/[slug]",
+    });
+    expect(speciesHref(item, "en")).toEqual({
+      params: { slug: "new-bird" },
+      pathname: "/birds/[slug]",
+    });
+    expect(
+      speciesHref({ group: "bird", id: "new-bird", slug: "new-bird" }, "ka"),
+    ).toEqual({ params: { slug: "new-bird" }, pathname: "/birds/[slug]" });
   });
 });
 

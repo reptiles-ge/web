@@ -1,3 +1,5 @@
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+
 import { type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -14,8 +16,10 @@ type BreadcrumbCrumb = {
 
 type ListedSpecies = {
   commonName: string;
+  group?: AnimalGroup;
   id: string;
   scientificName: string;
+  slug?: string;
 };
 
 type SitePageLdInput = {
@@ -135,7 +139,7 @@ export function speciesItemListLd(
       "@type": "ListItem",
       name: `${speciesNameWithScientific(item.commonName, item.scientificName)}`,
       position: index + 1,
-      url: speciesPageUrl(locale, item.id),
+      url: speciesPageUrl(locale, item),
     })),
     numberOfItems: species.length,
   };
@@ -143,10 +147,10 @@ export function speciesItemListLd(
 
 export function speciesTaxonRef(
   locale: AppLocale,
-  species: Pick<ListedSpecies, "id" | "scientificName">,
+  species: Pick<ListedSpecies, "group" | "id" | "scientificName" | "slug">,
 ) {
   return {
-    "@id": `${speciesPageUrl(locale, species.id)}#taxon`,
+    "@id": `${speciesPageUrl(locale, species)}#taxon`,
     "@type": "Taxon",
     name: species.scientificName,
     taxonRank: "Species",

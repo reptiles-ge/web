@@ -253,7 +253,7 @@ function PhotoUseCreditExample({
         <figure className="overflow-hidden rounded-3xl bg-ink md:rounded-[30px]">
           <Link
             className="relative block aspect-4/3"
-            href={speciesHref(example.photo.speciesId, locale)}
+            href={speciesHref(localized, locale)}
           >
             <PhotoUsePicture
               alt={speciesPhotoAlt(
@@ -465,7 +465,7 @@ function PhotoUseShowcase({
       className="mt-8 grid grid-cols-2 gap-x-3 gap-y-5 md:mt-12 md:gap-x-4 md:gap-y-7 lg:grid-cols-3 lg:gap-x-5"
     >
       {tiles.map(({ photo, species }, index) => {
-        const href = speciesHref(photo.speciesId, locale);
+        const href = speciesHref(species, locale);
         return (
           <li key={photo.src}>
             <figure>

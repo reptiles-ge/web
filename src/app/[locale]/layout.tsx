@@ -31,11 +31,10 @@ import { routing } from "@/i18n/routing";
 import { apiOrigin } from "@/lib/apiClient";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
+import { getLiveLocaleSwitchIndex } from "@/lib/liveLocaleSwitchIndex";
 import { getNavbarData } from "@/lib/navbarData";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
-import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 type Props = {
   children: ReactNode;
@@ -59,11 +58,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     await getMessages({ locale }),
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, tSite, stats, footerData] = await Promise.all([
+  const [t, tSite, stats, footerData, switchIndex] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "site" }),
     getAtlasStats(locale),
     getFooterData(locale),
+    getLiveLocaleSwitchIndex(),
   ]);
   const siteDescription = kaMetaDescriptionOverride(
     locale,
@@ -74,9 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider
-          index={getLocaleSwitchIndex(publishedSpeciesSlugRows())}
-        >
+        <LocaleSwitchProvider index={switchIndex}>
           <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />
           <SkipLink label={t("skipToContent")} />
           <NavigationProgress />
