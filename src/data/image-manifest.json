@@ -60494,7 +60494,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-11-10T19:30:11.448Z"
+      "updatedAt": "2026-11-13T20:36:52.375Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -60589,7 +60589,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-11-10T19:30:05.400Z"
+      "updatedAt": "2026-11-13T20:37:01.000Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -60684,7 +60684,577 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-11-10T19:30:00.837Z"
+      "updatedAt": "2026-11-13T20:36:50.963Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev.jpg": {
+      "sourceHash": "90889599461403fb1889075e4c49d343b2fdb69900c55b63227ec10f11a48724",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev.jpg",
+      "originalSize": 1125260,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10748
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12514
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13974
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16316
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24975
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30024
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 33959
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 41584
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58557
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 70320
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 151532
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-armenia-demenev-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 173934
+        }
+      ],
+      "updatedAt": "2026-11-13T20:36:52.835Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi.jpg": {
+      "sourceHash": "32ae28dc1fa55865f849fef39b0c6e2c76bb721237e4908983803de610307d20",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi.jpg",
+      "originalSize": 761238,
+      "width": 1979,
+      "height": 1319,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12601
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17578
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17575
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24566
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32963
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50342
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47402
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74024
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88765
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 139070
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-1979.avif",
+          "format": "avif",
+          "width": 1979,
+          "height": 1319,
+          "byteSize": 191322
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/capra-aegagrus-nakhchivan-levi-1979.webp",
+          "format": "webp",
+          "width": 1979,
+          "height": 1319,
+          "byteSize": 301952
+        }
+      ],
+      "updatedAt": "2026-11-13T20:37:06.010Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh.jpg": {
+      "sourceHash": "3cc0b0bddc7634a0d790781e53bc24686a9b96949a3e9b2f9018280d86978079",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh.jpg",
+      "originalSize": 2764480,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13173
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17024
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17235
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22436
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32191
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43794
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45586
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 62766
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92288
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 127420
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 337355
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-evtukh-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 515492
+        }
+      ],
+      "updatedAt": "2026-11-13T20:37:06.656Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova.jpg": {
+      "sourceHash": "e09b7a3950569ae9509cf489bb98c1e9a79684f06d15e3ad737063311faeffe7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova.jpg",
+      "originalSize": 1764388,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9125
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11794
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13616
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17264
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29155
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39166
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42357
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58024
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 79624
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 105824
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 175793
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-aran-merkulova-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224552
+        }
+      ],
+      "updatedAt": "2026-11-13T20:37:01.009Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier.jpg": {
+      "sourceHash": "6368c957fce3266ffcc250925ca1065445b58365d0fd5b4e28f8e9b977cfe29b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier.jpg",
+      "originalSize": 1276600,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7719
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9412
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11181
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13890
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25057
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31834
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 37362
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47704
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73014
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 92866
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 171583
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-kakheti-olivier-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 213018
+        }
+      ],
+      "updatedAt": "2026-11-13T20:37:13.762Z"
+    },
+    "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh.jpg": {
+      "sourceHash": "8f1256500eeafbd420ab81e2a28b9f3ab2b53c8ddacc063290e77f94765d785a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh.jpg",
+      "originalSize": 2017040,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10153
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12780
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12978
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16568
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23937
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32256
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33286
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45900
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61872
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88692
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 233242
+        },
+        {
+          "key": "optimized/images/news/azerbaijani-jeirani-niamori-gadasakhleba/gazella-subgutturosa-pair-evtukh-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 349854
+        }
+      ],
+      "updatedAt": "2026-11-13T20:37:11.157Z"
     },
     "images/news/black-sea-dolphins-war-2026/beached-harbour-porpoise-abkhazia.jpg": {
       "sourceHash": "c4e4cf7006ca0ce9af8febbdfc8a73747c7a7f09a5576ed4ecbe75b56c19f53c",
@@ -61634,7 +62204,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-11-10T19:30:29.225Z"
+      "updatedAt": "2026-11-13T20:37:23.016Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -61729,7 +62299,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-11-10T19:30:30.119Z"
+      "updatedAt": "2026-11-13T20:37:22.571Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -61824,7 +62394,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-11-10T19:30:33.371Z"
+      "updatedAt": "2026-11-13T20:37:21.094Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -61919,7 +62489,7 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-11-10T19:30:41.564Z"
+      "updatedAt": "2026-11-13T20:37:35.096Z"
     },
     "images/news/cop17-yerevan-pathway-final/cop17-venue-entrance-yerevan.jpg": {
       "sourceHash": "d5b95e826a5128a019ee9479c32808585a46f5576db802b167ca22b9316b32aa",
@@ -63668,7 +64238,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-11-10T19:31:08.969Z"
+      "updatedAt": "2026-11-13T20:37:34.340Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -63763,7 +64333,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-11-10T19:31:23.292Z"
+      "updatedAt": "2026-11-13T20:37:40.729Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -63858,7 +64428,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-11-10T19:31:41.696Z"
+      "updatedAt": "2026-11-13T20:37:37.996Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -63953,7 +64523,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-11-10T19:31:32.611Z"
+      "updatedAt": "2026-11-13T20:37:42.457Z"
     },
     "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
       "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
@@ -65364,7 +65934,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-11-10T19:32:12.430Z"
+      "updatedAt": "2026-11-13T20:38:03.269Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -65459,7 +66029,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-11-10T19:32:13.707Z"
+      "updatedAt": "2026-11-13T20:37:52.742Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -65554,7 +66124,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-11-10T19:32:08.956Z"
+      "updatedAt": "2026-11-13T20:37:54.501Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -65649,7 +66219,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-11-10T19:32:18.451Z"
+      "updatedAt": "2026-11-13T20:37:53.867Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
