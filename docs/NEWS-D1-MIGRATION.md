@@ -21,7 +21,7 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 
 - 31 articles in `src/content/news/{slug}/{ka,en,ru,tr}.mdx` (about 1.2 MB). The order lives in `newsSlugs` (`src/data/newsPublish.ts`); it breaks ties between articles with the same `publishedAt`.
 - `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against the API image catalog in `optimizedImages.api.generated`, so `images:compile` runs first), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
-- `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsLinkedSpeciesIds`, `newsSearchKeywords`, `newsSourceOrg`, …).
+- `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsSearchKeywords`, `newsSourceName`, …).
 - No client component imports news data. Everything is server-side or build-time.
 - Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in D1 (`schema_image_crops`, written by `images:schema --upload`, read by `images:compile`).
 - Guard tests: `src/data/newsContent.test.ts` (one folder per slug, section and figure parity across locales, figures only from the article's own photos, links only to existing species, regions, hubs and contributors, linked ids present in the related ids), `newsData.test.ts`, `newsSeries.test.ts`.
@@ -88,7 +88,7 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 - inline marks only to species, regions, hubs and authors that exist (species and authors from D1, regions and hubs from code);
 - every linked species, region and hub listed in the related ids (keep the region exceptions the test allows today);
 - at least one source;
-- hero check (`checkNewsHeroes`) stays a warning, as today.
+- hero check (`checkNewsHero`, run by `news:import`) stays a warning, as today.
 
 ---
 

@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 
+import { speciesHref } from "@/lib/speciesRoutes";
 import {
   getSpeciesPublicSlug,
   resolveSpeciesId,
-  speciesHref,
-} from "@/lib/speciesRoutes";
-import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+  resolveSpeciesIdInHub,
+} from "@/lib/speciesSlugTable";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 
 import {

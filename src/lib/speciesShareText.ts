@@ -34,10 +34,6 @@ type SpeciesShareInput = {
   slug?: string;
 };
 
-export function speciesShareMessage(input: SpeciesShareInput) {
-  return speciesShareParts(input).text;
-}
-
 export function speciesShareParts({
   commonName,
   danger,
@@ -90,14 +86,6 @@ export function speciesShareText({
 }) {
   const heading = speciesShareHeading({ commonName, scientificName, status });
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
-}
-
-export function speciesShareVenomous(
-  group: AnimalGroup,
-  danger?: DangerLevel,
-): boolean | null {
-  if (!groupHasVenomConcept(group) || !danger) return null;
-  return isVenomousDanger(danger);
 }
 
 function speciesShareHeading({

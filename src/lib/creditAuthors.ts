@@ -226,23 +226,6 @@ export function getCreditAuthorGroupStats(
   );
 }
 
-export function getCreditAuthorHubIds(
-  photos: readonly Pick<CreditAuthorPhoto, "group">[],
-): GroupHubId[] {
-  const hubs: GroupHubId[] = [];
-  const seen = new Set<GroupHubId>();
-  const ranked = [...photos].sort(
-    (a, b) => GROUP_RANK[a.group] - GROUP_RANK[b.group],
-  );
-  for (const photo of ranked) {
-    const hub = ANIMAL_GROUP_TO_HUB[photo.group];
-    if (seen.has(hub)) continue;
-    seen.add(hub);
-    hubs.push(hub);
-  }
-  return hubs;
-}
-
 export function getCreditAuthorPhotos(
   author: Pick<AuthorProfile, "id">,
   catalog: readonly CreditPhotoSource[],

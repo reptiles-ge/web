@@ -1,10 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  optimizedImgSrc,
-  pictureSources,
-  srcSetPreloadUrl,
-} from "@/data/optimizedImages";
+import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
+import { srcSetPreloadUrl } from "@/lib/optimizedImageSources";
 
 describe("optimized image helpers", () => {
   it("picks an 800px candidate for LCP preloads", () => {
