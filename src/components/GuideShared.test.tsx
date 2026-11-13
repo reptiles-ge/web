@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 
 import { GuideMythList, GuideSummaryBlock } from "@/components/GuideShared";
 
+import { defined } from "../../tests/support/defined";
+
 describe("GuideMythList", () => {
   const myths = [
     { claim: "Myth one", id: 1, truth: "Truth one" },
@@ -13,9 +15,13 @@ describe("GuideMythList", () => {
     render(<GuideMythList myths={myths} />);
     const items = screen.getAllByRole("listitem");
     expect(items).toHaveLength(2);
-    expect(within(items[0]).getByText("Myth one")).toBeInTheDocument();
-    expect(within(items[0]).getByText("Truth one")).toBeInTheDocument();
-    expect(within(items[1]).getByText("Truth two")).toBeInTheDocument();
+    expect(within(defined(items[0])).getByText("Myth one")).toBeInTheDocument();
+    expect(
+      within(defined(items[0])).getByText("Truth one"),
+    ).toBeInTheDocument();
+    expect(
+      within(defined(items[1])).getByText("Truth two"),
+    ).toBeInTheDocument();
   });
 
   it("renders nothing but an empty list without myths", () => {

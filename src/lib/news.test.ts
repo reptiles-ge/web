@@ -20,8 +20,9 @@ import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 describe("news urls", () => {
   it("builds the article and index hrefs", () => {

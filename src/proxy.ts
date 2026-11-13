@@ -309,24 +309,22 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
   );
   if (contributor) return [`/kontributorebi/${contributor[1]}`, 301];
 
-  const prefixed = pathname.match(
-    new RegExp(`^\\/(${PREFIX_SEGMENT})(\\/.*)$`),
-  );
-  if (prefixed && isPrefixedLocale(prefixed[1])) {
-    const quiz = prefixedQuizRedirectPath(prefixed[1], prefixed[2]);
+  const [, prefix, prefixedPath] =
+    pathname.match(new RegExp(`^\\/(${PREFIX_SEGMENT})(\\/.*)$`)) ?? [];
+  if (prefix && prefixedPath && isPrefixedLocale(prefix)) {
+    const quiz = prefixedQuizRedirectPath(prefix, prefixedPath);
     if (quiz && quiz !== pathname) return [quiz, 301];
 
-    const temporary = PREFIXED_TEMPORARY_REDIRECTS[prefixed[2]];
-    if (temporary) return [`/${prefixed[1]}${temporary}`, 302];
+    const temporary = PREFIXED_TEMPORARY_REDIRECTS[prefixedPath];
+    if (temporary) return [`/${prefix}${temporary}`, 302];
 
-    const permanent = PREFIXED_PERMANENT_REDIRECTS[prefixed[2]];
-    if (permanent) return [`/${prefixed[1]}${permanent}`, 301];
+    const permanent = PREFIXED_PERMANENT_REDIRECTS[prefixedPath];
+    if (permanent) return [`/${prefix}${permanent}`, 301];
 
-    const contributor = prefixed[2].match(
+    const contributor = prefixedPath.match(
       /^\/(?:avtorebi|authors|fotografebi|kontributorebi|photographers)\/([^/]+)$/,
     );
-    if (contributor)
-      return [`/${prefixed[1]}/contributors/${contributor[1]}`, 301];
+    if (contributor) return [`/${prefix}/contributors/${contributor[1]}`, 301];
   }
 
   return null;
@@ -386,39 +384,61 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
 
   if (pathname === "/moriebi") return ["/morieli", 301];
 
-  const legacy = pathname.match(
-    new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
-  );
-  if (legacy) {
-    const id = resolveSpeciesId(legacy[3]);
+  const [, , legacyLocale, legacySlug] =
+    pathname.match(
+      new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
+    ) ?? [];
+  if (legacySlug) {
+    const id = resolveSpeciesId(legacySlug);
     if (id) {
-      const locale = (legacy[2] ?? "ka") as AppLocale;
+      const locale = (legacyLocale ?? "ka") as AppLocale;
       return [speciesPath(locale, id), 301];
     }
   }
 
-  const unprefixedLatinHub = pathname.match(
-    new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (unprefixedLatinHub) {
-    const id = resolveSpeciesIdInHub(
-      unprefixedLatinHub[1] as GroupHubId,
-      unprefixedLatinHub[2],
-    );
+  const [, latinHub, latinHubSlug] =
+    pathname.match(new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`)) ?? [];
+  if (latinHub && latinHubSlug) {
+    const id = resolveSpeciesIdInHub(latinHub as GroupHubId, latinHubSlug);
     if (id) {
       const next = speciesPath("ka", id);
       if (next !== pathname) return [next, 301];
     }
   }
 
-  const prefixedKaHub = pathname.match(
-    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
-    const locale = prefixedKaHub[1];
+  const [, kaHubLocale, prefixedKaHub, prefixedKaHubSlug] =
+    pathname.match(
+      new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
+    ) ?? [];
+  const prefixedKaHubId = prefixedKaHub && KA_PREFIX_TO_HUB[prefixedKaHub];
+  if (
+    kaHubLocale &&
+    prefixedKaHubId &&
+    prefixedKaHubSlug &&
+    isPrefixedLocale(kaHubLocale)
+  ) {
+    const locale = kaHubLocale as PrefixedLocale;
+    const id = resolveSpeciesIdInHub(prefixedKaHubId, prefixedKaHubSlug);
+    if (id) {
+      const next = speciesPath(locale, id);
+      if (next !== pathname) return [next, 301];
+    }
+  }
+
+  const [, hubLocale, prefixedHub, prefixedHubSlug] =
+    pathname.match(
+      new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
+    ) ?? [];
+  if (
+    hubLocale &&
+    prefixedHub &&
+    prefixedHubSlug &&
+    isPrefixedLocale(hubLocale)
+  ) {
+    const locale = hubLocale as PrefixedLocale;
     const id = resolveSpeciesIdInHub(
-      KA_PREFIX_TO_HUB[prefixedKaHub[2]],
-      prefixedKaHub[3],
+      prefixedHub as GroupHubId,
+      prefixedHubSlug,
     );
     if (id) {
       const next = speciesPath(locale, id);
@@ -426,26 +446,11 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
     }
   }
 
-  const prefixedHub = pathname.match(
-    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
-    const locale = prefixedHub[1];
-    const id = resolveSpeciesIdInHub(
-      prefixedHub[2] as GroupHubId,
-      prefixedHub[3],
-    );
-    if (id) {
-      const next = speciesPath(locale, id);
-      if (next !== pathname) return [next, 301];
-    }
-  }
-
-  const kaHub = pathname.match(
-    new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (kaHub) {
-    const id = resolveSpeciesIdInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
+  const [, kaHub, kaHubSlug] =
+    pathname.match(new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`)) ?? [];
+  const kaHubId = kaHub && KA_PREFIX_TO_HUB[kaHub];
+  if (kaHubId && kaHubSlug) {
+    const id = resolveSpeciesIdInHub(kaHubId, kaHubSlug);
     if (id) {
       const next = speciesPath("ka", id);
       if (next !== pathname) return [next, 301];

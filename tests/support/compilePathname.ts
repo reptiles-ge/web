@@ -19,9 +19,10 @@ export function compilePathname(href: TestHref, locale: string) {
   const mapped = pathnames[pathname as keyof typeof pathnames];
   const template =
     typeof mapped === "string" ? mapped : mapped[locale as keyof typeof mapped];
-  const path = template.replace(/\[(\w+)\]/g, (_, name: string) =>
-    name in params ? encodeURIComponent(params[name]) : name,
-  );
+  const path = template.replace(/\[(\w+)\]/g, (_, name: string) => {
+    const value = params[name];
+    return value === undefined ? name : encodeURIComponent(value);
+  });
   const prefixed =
     locale === "ka" ? path : `/${locale}${path === "/" ? "" : path}`;
   const search = query ? `?${new URLSearchParams(query)}` : "";

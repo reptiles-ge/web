@@ -36,6 +36,7 @@ export function AuthorGalleryGrid({
     (expanded ? visible : visible.slice(0, INITIAL)).map((item) => item.id),
   );
   const first = visible[0]?.id;
+  if (!current) return null;
 
   return (
     <>

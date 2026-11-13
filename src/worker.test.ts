@@ -9,6 +9,8 @@ import { MARKDOWN_CONTENT_TYPE } from "@/lib/markdownNegotiation";
 import { SITEMAP_CACHE_CONTROL } from "@/lib/responseCacheControl";
 import worker from "@/worker";
 
+import { defined } from "../tests/support/defined";
+
 vi.mock("vinext/server/fetch-handler", () => ({
   default: { fetch: vi.fn() },
 }));
@@ -23,7 +25,7 @@ function appResponse(contentType = "application/xml") {
 }
 
 function forwarded() {
-  return baseFetch.mock.calls[0][0];
+  return defined(baseFetch.mock.calls[0])[0];
 }
 
 describe("Worker fetch", () => {

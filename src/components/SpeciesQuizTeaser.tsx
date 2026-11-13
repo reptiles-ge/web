@@ -169,7 +169,7 @@ export function SpeciesQuizTeaser({
                       <OptionMark
                         isCorrect={isCorrect}
                         isSelected={isSelected}
-                        label={OPTION_MARKS[locale][index]}
+                        label={OPTION_MARKS[locale][index] ?? ""}
                         revealed={revealed}
                       />
                     </span>

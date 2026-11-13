@@ -17,11 +17,6 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 import { useFaqAccordion } from "@/lib/faqAccordion";
 
-type ClusterFaqEditable = {
-  id: string;
-  kind: string;
-};
-
 type ClusterFaqItem = {
   answer: ReactNode;
   question: string;
@@ -38,23 +33,13 @@ type ClusterFaqSectionProps = {
 };
 
 export function ClusterFaqList({
-  editable,
   items,
   onOpen,
 }: {
-  editable?: ClusterFaqEditable;
   items: ClusterFaqItem[];
   onOpen?: (index: number) => void;
 }) {
   const accordion = useFaqAccordion(onOpen);
-  const contentAttributes = (index: number, part: "answer" | "question") =>
-    editable
-      ? {
-          "data-content-field": `faq.${index}.${part}`,
-          "data-content-id": editable.id,
-          "data-content-kind": editable.kind,
-        }
-      : {};
 
   return (
     <div>
@@ -70,19 +55,13 @@ export function ClusterFaqList({
                 isOpen={isOpen}
                 onToggle={() => accordion.toggle(index)}
               >
-                <span
-                  className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
-                  {...contentAttributes(index, "question")}
-                >
+                <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                   {item.question}
                 </span>
                 <FaqToggleIcon isOpen={isOpen} />
               </FaqQuestion>
               <FaqAnswerPanel ids={ids} isOpen={isOpen}>
-                <p
-                  className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]"
-                  {...contentAttributes(index, "answer")}
-                >
+                <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
                   <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                 </p>
               </FaqAnswerPanel>

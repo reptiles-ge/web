@@ -6,6 +6,7 @@ import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
 import { type HubCatalogItem, matchesHubCatalog } from "@/lib/groupHubLayout";
 
 import ka from "../../messages/ka.json";
+import { defined } from "../../tests/support/defined";
 
 function item(
   id: string,
@@ -76,8 +77,8 @@ describe("GroupHubSpeciesCatalog", () => {
     renderCatalog();
     const items = screen.getAllByRole("listitem");
     expect(items).toHaveLength(21);
-    expect(items[8].className).toContain("max-lg:hidden");
-    expect(items[16].className).toContain("lg:hidden");
+    expect(defined(items[8]).className).toContain("max-lg:hidden");
+    expect(defined(items[16]).className).toContain("lg:hidden");
     fireEvent.click(screen.getByRole("button", { expanded: false }));
     expect(
       screen

@@ -9,7 +9,6 @@ import {
 import { notFound } from "next/navigation";
 
 import { RootDocument } from "@/app/RootDocument";
-import { loadSelectionContentEditor } from "@/components/admin/devAdminComponents";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -72,11 +71,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     tSite("description"),
   );
   const navbarData = getNavbarData(stats);
-  const SelectionContentEditor =
-    locale === "ka" ? await loadSelectionContentEditor() : null;
-  const editorT = SelectionContentEditor
-    ? await getTranslations({ locale, namespace: "contentEditor" })
-    : null;
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
@@ -92,24 +86,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PageViewBeacon apiOrigin={apiOrigin()} />
           <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
-            {SelectionContentEditor && editorT ? (
-              <SelectionContentEditor
-                copy={{
-                  action: editorT("action"),
-                  close: editorT("close"),
-                  codexError: editorT("codexError"),
-                  error: editorT("error"),
-                  gitError: editorT("gitError"),
-                  jobs: editorT("jobs"),
-                  networkError: editorT("networkError"),
-                  openPr: editorT("openPr"),
-                  processing: editorT("processing"),
-                  requestError: editorT("requestError"),
-                  retry: editorT("retry"),
-                  success: editorT("success"),
-                }}
-              />
-            ) : null}
             {children}
           </main>
           <FooterGate>

@@ -16,6 +16,7 @@ import {
   speciesCatalogFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const LLMS = createLlmsSpecies(
   {
@@ -206,10 +207,10 @@ describe("buildLlmsFullText", () => {
         `- English title: ${article.copy.en.title}\n`,
       );
       expect(guides, article.id).toContain(
-        `- Q: ${article.copy.ka.faq[0].question}`,
+        `- Q: ${defined(article.copy.ka.faq[0]).question}`,
       );
       expect(guides, article.id).not.toContain(
-        `- Q: ${article.copy.en.faq[0].question}`,
+        `- Q: ${defined(article.copy.en.faq[0]).question}`,
       );
     }
     for (const line of guides.split("\n")) {

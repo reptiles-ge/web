@@ -221,7 +221,7 @@ describe("splitHubSpecies", () => {
 
   it("puts the featured lizards first and keeps Darevskia together", () => {
     const sections = splitHubSpecies("lizards", speciesGroupFixture("lizard"));
-    expect(sections[0].key).toBe("featured");
+    expect(sections[0]?.key).toBe("featured");
     const darevskia = sections.find((section) => section.key === "darevskia");
     expect(darevskia?.items.every((item) => item.genus === "Darevskia")).toBe(
       true,

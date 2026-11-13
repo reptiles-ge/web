@@ -72,6 +72,8 @@ export function pickClientMessages(
 
   for (const path of paths) {
     const keys = path.split(".");
+    const leaf = keys.at(-1);
+    if (leaf === undefined) continue;
     let source: unknown = messages;
     for (const key of keys) {
       source =
@@ -87,7 +89,7 @@ export function pickClientMessages(
       target[key] = isMessageTree(next) ? next : {};
       target = target[key] as MessageTree;
     }
-    target[keys[keys.length - 1]] = source;
+    target[leaf] = source;
   }
 
   return picked;

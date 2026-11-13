@@ -20,14 +20,22 @@ import { SpeciesPage } from "./SpeciesPage";
 import { TrafficSourcesPage } from "./TrafficSourcesPage";
 import { ViewsPage } from "./ViewsPage";
 
-type SectionProps = { onSessionExpired: () => void };
-
-const SECTIONS: Array<{
+type Section = {
   label: string;
   page: (props: SectionProps) => ReactNode;
   path: string;
-}> = [
-  { label: "Species", page: SpeciesPage, path: "/species" },
+};
+
+type SectionProps = { onSessionExpired: () => void };
+
+const HOME_SECTION: Section = {
+  label: "Species",
+  page: SpeciesPage,
+  path: "/species",
+};
+
+const SECTIONS: Section[] = [
+  HOME_SECTION,
   { label: "Drafts", page: DraftsPage, path: "/drafts" },
   { label: "News", page: NewsPage, path: "/news" },
   { label: "Authors", page: AuthorsPage, path: "/authors" },
@@ -39,7 +47,7 @@ const SECTIONS: Array<{
   { label: "API keys", page: ApiKeysPage, path: "/api-keys" },
 ];
 
-const HOME_PATH = SECTIONS[0].path;
+const HOME_PATH = HOME_SECTION.path;
 
 type DetailProps = { id: string; onSessionExpired: () => void };
 

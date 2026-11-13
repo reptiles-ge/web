@@ -64,7 +64,7 @@ The owner chose a build-time table over a KV snapshot (2026-10-23). `scripts/com
 - **S5b:**
   - Deleted: `src/content/species/*`, `scripts/compile-species.ts`, `scripts/speciesFrontmatter.ts`, the SQL export scripts and `db:import:*`, `species.generated.ts`, `fieldRecords.generated.json`, `speciesImportSource`, the API import builders, `adminGalleryMdx`, and the AI analysis code that edited MDX in a worktree (`speciesPageAnalysis`, `speciesSuperAnalysis*`, `speciesAnalysisInventory`, `speciesAnalysisValidation`, the iNaturalist-to-MDX import and its prompts).
   - Kept and moved: content dates now come from `scripts/compile-content-dates.ts` (`pnpm content:compile`, same output). The Halyomorpha profile copy moved to `src/content/halyomorphaProfileCopy.ts`.
-  - Local admin: the species list and page, cover, crop, reorder, remove, coordinates, drafts, the text editor and AI page texts work through the API. Adding field records, AI analysis, workflow, super-analysis and species creation answer 503 with a message until step 4. Adding photos moved to the admin app (`POST /v1/admin/species/:id/photos`).
+  - Local admin: the species list and page, cover, crop, reorder, remove, coordinates, drafts and the text editor work through the API. Adding field records and species creation answer 503 with a message until step 4. Adding photos moved to the admin app (`POST /v1/admin/species/:id/photos`).
   - `pnpm db:seed:local` loads the test seed into an empty local D1 for `dev:api`. `dev:api` and `deploy:api` no longer run a compile step: the API bundle uses no generated file.
 
 ### 4. Admin on the API (last)
@@ -77,7 +77,7 @@ Detailed plans are in `docs/SPECIES-D1-MIGRATION.md` (sections 2b-b, 2b-d, 2b-f)
 - a typed call in `src/lib/adminSpeciesApi.ts`;
 
 1. **2b-b Adding a photo:** upload and iNaturalist import.
-2. **2b-d AI analysis, workflow, super-analysis:** rebuild on the API record; results become drafts. The old MDX-based design is in `docs/SPECIES-SUPER-ANALYSIS.md`, and the code is in Git history before S5b.
+2. **2b-d AI analysis, workflow, super-analysis:** removed from the site in November 2026 (the local-admin selection editor and the species page pipeline launcher). Anything of the kind would be rebuilt on the API record with results as drafts; the old code is in Git history.
 3. **2b-f New species creation:** create the D1 record and every registration (atlas meta, checklist status, regions, lookalikes, slugs) through the API.
 4. **Field records:** an API write endpoint and the admin form (the route answers 503 today).
 

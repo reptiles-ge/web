@@ -38,7 +38,6 @@ type RegionFaqItem = LocalizedRegionContent["faq"][number];
 type RegionProfileProps = {
   attribution?: ReactNode;
   content: LocalizedRegionContent;
-  editable: boolean;
   region: Region;
   species: RegionSpeciesCardItem[];
   summary: string[];
@@ -63,7 +62,6 @@ const REGION_SPECIES_GROUPS = [
 export function RegionProfile({
   attribution,
   content,
-  editable,
   region,
   species,
   summary,
@@ -79,7 +77,6 @@ export function RegionProfile({
       <div>
         <RegionProfileHero
           biome={biome}
-          editable={editable}
           name={name}
           nameIn={nameIn}
           overview={overview}
@@ -91,7 +88,6 @@ export function RegionProfile({
         <RegionProfileSummary name={name} paragraphs={summary} />
         <RegionProfileHabitats
           description={region.description}
-          editable={editable}
           habitats={content.habitats}
           regionId={region.id}
         />
@@ -105,7 +101,6 @@ export function RegionProfile({
         ) : null}
         {faq.length > 0 ? (
           <RegionFaqSection
-            editable={editable}
             items={faq}
             name={name}
             nameIn={nameIn}
@@ -120,13 +115,11 @@ export function RegionProfile({
 }
 
 function RegionFaqSection({
-  editable,
   items,
   name,
   nameIn,
   regionId,
 }: {
-  editable: boolean;
   items: RegionFaqItem[];
   name: string;
   nameIn: string;
@@ -154,7 +147,6 @@ function RegionFaqSection({
             </p>
           </div>
           <ClusterFaqList
-            editable={editable ? { id: regionId, kind: "region" } : undefined}
             items={items}
             onOpen={(index) =>
               trackEvent("faq_open", {
@@ -172,12 +164,10 @@ function RegionFaqSection({
 
 function RegionProfileHabitats({
   description,
-  editable,
   habitats,
   regionId,
 }: {
   description: LocalizedText;
-  editable: boolean;
   habitats: string[];
   regionId: string;
 }) {
@@ -199,12 +189,7 @@ function RegionProfileHabitats({
             >
               {t("habitatsTitle")}
             </AnchoredHeading>
-            <p
-              className="mt-5 text-[15px] leading-relaxed text-muted-foreground"
-              data-content-field={editable ? "description" : undefined}
-              data-content-id={editable ? regionId : undefined}
-              data-content-kind={editable ? "region" : undefined}
-            >
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
               {localizeRegionText(description, locale)}
             </p>
           </div>
@@ -214,14 +199,7 @@ function RegionProfileHabitats({
                 className="flex items-baseline justify-between gap-6 py-5"
                 key={habitat}
               >
-                <span
-                  className="font-display text-[18px] font-medium text-foreground sm:text-[20px]"
-                  data-content-field={
-                    editable ? `habitats.${index}` : undefined
-                  }
-                  data-content-id={editable ? regionId : undefined}
-                  data-content-kind={editable ? "region" : undefined}
-                >
+                <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
                   {habitat}
                 </span>
                 <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
@@ -238,7 +216,6 @@ function RegionProfileHabitats({
 
 function RegionProfileHero({
   biome,
-  editable,
   name,
   nameIn,
   overview,
@@ -247,7 +224,6 @@ function RegionProfileHero({
   venomousCount,
 }: {
   biome: null | string;
-  editable: boolean;
   name: string;
   nameIn: string;
   overview: null | string;
@@ -302,23 +278,13 @@ function RegionProfileHero({
           {t("regionTitle", { name, nameIn })}
         </h1>
         {overview ? (
-          <p
-            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:mt-5 sm:text-[16px]"
-            data-content-field={editable ? "overview" : undefined}
-            data-content-id={editable ? regionId : undefined}
-            data-content-kind={editable ? "region" : undefined}
-          >
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:mt-5 sm:text-[16px]">
             {overview}
           </p>
         ) : null}
         <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7">
           {biome ? (
-            <span
-              className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md"
-              data-content-field={editable ? "biome" : undefined}
-              data-content-id={editable ? regionId : undefined}
-              data-content-kind={editable ? "region" : undefined}
-            >
+            <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
               {biome}
             </span>
           ) : null}

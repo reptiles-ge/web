@@ -80,9 +80,11 @@ function buildProfileRelatedIndex(catalog: readonly RelatedCandidate[]) {
       ({ item }) => !lookalikes.has(item.id),
     );
     const kept = ranked.slice(0, PROFILE_RELATED_LIMIT);
+    const last = kept.at(-1);
     const weakLast =
       kept.length === PROFILE_RELATED_LIMIT &&
-      kept[PROFILE_RELATED_LIMIT - 1].score < STRONG_RELATED_SCORE;
+      last !== undefined &&
+      last.score < STRONG_RELATED_SCORE;
     const ids = (weakLast ? kept.slice(0, -1) : kept).map(
       ({ item }) => item.id,
     );

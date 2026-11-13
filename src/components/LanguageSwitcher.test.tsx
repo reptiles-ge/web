@@ -10,6 +10,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
+import { defined } from "../../tests/support/defined";
 
 const replace = vi.hoisted(() => vi.fn());
 
@@ -70,9 +71,9 @@ describe("LanguageSwitcher", () => {
     "shows a globe icon button in the %s mobile header",
     (variant) => {
       renderSwitcher("en", variant);
-      const [chip] = screen.getAllByRole("button", {
-        name: en.language.switch,
-      });
+      const chip = defined(
+        screen.getAllByRole("button", { name: en.language.switch })[0],
+      );
       expect(chip.querySelector("svg.lucide-globe")).not.toBeNull();
       expect(chip).toHaveAttribute("aria-haspopup", "dialog");
       expect(chip).toHaveAttribute("aria-expanded", "false");
@@ -83,7 +84,9 @@ describe("LanguageSwitcher", () => {
 
   it("labels the globe button in Georgian on KA pages", () => {
     renderSwitcher("ka");
-    const [chip] = screen.getAllByRole("button", { name: ka.language.switch });
+    const chip = defined(
+      screen.getAllByRole("button", { name: ka.language.switch })[0],
+    );
     expect(chip).not.toHaveTextContent("ქა");
     expect(chip.querySelector("svg.lucide-globe")).not.toBeNull();
   });
@@ -91,7 +94,9 @@ describe("LanguageSwitcher", () => {
   it("opens the locale list and switches through the hreflang alternate", async () => {
     addAlternate("ka", "https://reptiles.ge/gvelebi");
     renderSwitcher("en");
-    const [chip] = screen.getAllByRole("button", { name: en.language.switch });
+    const chip = defined(
+      screen.getAllByRole("button", { name: en.language.switch })[0],
+    );
     fireEvent.click(chip);
     expect(chip).toHaveAttribute("aria-expanded", "true");
 
@@ -99,7 +104,9 @@ describe("LanguageSwitcher", () => {
       name: en.language.switch,
     });
     fireEvent.click(
-      within(lists[0]).getByRole("option", { name: /Georgian|ქართული/ }),
+      within(defined(lists[0])).getByRole("option", {
+        name: /Georgian|ქართული/,
+      }),
     );
     expect(replace).toHaveBeenCalledWith("/gvelebi");
   });
@@ -107,12 +114,12 @@ describe("LanguageSwitcher", () => {
   it("does nothing for the active locale or a missing alternate", async () => {
     renderSwitcher("en");
     fireEvent.click(
-      screen.getAllByRole("button", { name: en.language.switch })[0],
+      defined(screen.getAllByRole("button", { name: en.language.switch })[0]),
     );
     const [list] = await screen.findAllByRole("listbox", {
       name: en.language.switch,
     });
-    const options = within(list).getAllByRole("option");
+    const options = within(defined(list)).getAllByRole("option");
     expect(options).toHaveLength(4);
     for (const option of options) fireEvent.click(option);
     expect(replace).not.toHaveBeenCalled();

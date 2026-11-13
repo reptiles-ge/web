@@ -11,10 +11,8 @@ import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { regions } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { HUB_CLUSTER_CARDS } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import {
   HUB_EMERGENCY_GUIDES,
   HUB_FEATURED_GUIDE,
@@ -59,7 +57,6 @@ export async function GroupHubHero({
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "nav" }),
   ]);
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const stats = heroStats({ showRisk, species, t, tShared });
 
   return (
@@ -94,24 +91,10 @@ export async function GroupHubHero({
                 {t("breadcrumbCurrent")}
               </span>
             </nav>
-            <h1
-              className="mt-2 font-display text-[36px] leading-[1.08] font-semibold tracking-[-0.01em] text-balance lg:mt-5 lg:text-[60px] lg:leading-[1.06]"
-              {...contentEditorAttributes(
-                "message",
-                editable ? "messages" : undefined,
-                `${hubId}.title`,
-              )}
-            >
+            <h1 className="mt-2 font-display text-[36px] leading-[1.08] font-semibold tracking-[-0.01em] text-balance lg:mt-5 lg:text-[60px] lg:leading-[1.06]">
               {t("title")}
             </h1>
-            <p
-              className="mt-3.5 text-[15px] leading-[1.6] text-white/75 lg:mt-5 lg:max-w-[520px] lg:text-[17px]"
-              {...contentEditorAttributes(
-                "message",
-                editable ? "messages" : undefined,
-                `${hubId}.subtitle`,
-              )}
-            >
+            <p className="mt-3.5 text-[15px] leading-[1.6] text-white/75 lg:mt-5 lg:max-w-[520px] lg:text-[17px]">
               <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
             </p>
 

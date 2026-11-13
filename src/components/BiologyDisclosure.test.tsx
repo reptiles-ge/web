@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 
 import { BiologyDisclosure } from "@/components/BiologyDisclosure";
 
+import { defined } from "../../tests/support/defined";
+
 const BLOCKS = [
   {
     body: "Adult gyurzas mainly eat rodents, but they also catch small birds and lizards.",
@@ -75,7 +77,7 @@ describe("BiologyDisclosure", () => {
 
   it("clamps the text only from the desktop breakpoint", () => {
     renderBlocks();
-    const text = screen.getByText(BLOCKS[0].body).closest("p");
+    const text = screen.getByText(defined(BLOCKS[0]).body).closest("p");
     expect(text).toHaveClass("lg:line-clamp-3");
     expect(text).not.toHaveClass("line-clamp-3");
   });

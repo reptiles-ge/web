@@ -19,7 +19,6 @@ import {
   type GalleryImage,
   type SpeciesIdentification as Identification,
 } from "@/data/speciesTypes";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
 import {
@@ -71,12 +70,6 @@ export async function SpeciesIdentification({
   photoAlt,
   speciesId,
 }: SpeciesIdentificationProps) {
-  const [t, tDanger] = await Promise.all([
-    getTranslations({ locale, namespace: "profile" }),
-    getTranslations({ locale, namespace: "danger" }),
-  ]);
-  const editable = locale === "ka" && isLocalAdminEnabled();
-
   if (speciesId === "macrovipera-lebetina" && photo) {
     return (
       <GiurzaIdentification
@@ -91,14 +84,17 @@ export async function SpeciesIdentification({
     );
   }
 
+  const [t, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "danger" }),
+  ]);
+
   return (
     <section className={SECTION_CLASS_NAME}>
       <div className={cn(LAYOUT_CLASS_NAME, photo && PHOTO_LAYOUT_CLASS_NAME)}>
         <IdentificationIntro
           anchorLabel={t("anchorLink")}
-          editable={editable}
           eyebrow={t("identification")}
-          speciesId={speciesId}
           summary={identification.summary}
           title={t("identificationTitle", { name })}
         />
@@ -110,17 +106,12 @@ export async function SpeciesIdentification({
           />
         ) : null}
         {identification.traits.length > 0 ? (
-          <IdentificationTraits
-            editable={editable}
-            speciesId={speciesId}
-            traits={identification.traits}
-          />
+          <IdentificationTraits traits={identification.traits} />
         ) : null}
         <div className="min-w-0 lg:col-start-2 lg:row-start-4">
           <SpeciesIdentificationColors
             identification={identification}
             locale={locale}
-            speciesId={speciesId}
           />
         </div>
       </div>
@@ -163,15 +154,7 @@ function IdentificationRichText({ text }: { text: string }) {
   );
 }
 
-function IdentificationTraits({
-  editable,
-  speciesId,
-  traits,
-}: {
-  editable: boolean;
-  speciesId: string;
-  traits: string[];
-}) {
+function IdentificationTraits({ traits }: { traits: string[] }) {
   return (
     <ol className="mt-3 min-w-0 rounded-[28px] bg-card px-5 pt-1 pb-1.5 shadow-[0_1px_2px_rgba(14,20,17,0.04),0_14px_36px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-3 lg:mt-[22px] lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none">
       {traits.map((trait, index) => (
@@ -185,14 +168,7 @@ function IdentificationTraits({
           >
             {index + 1}
           </span>
-          <p
-            className="min-w-0 text-[17px] leading-[1.6] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
-            data-content-field={
-              editable ? `identification.traits.${index}` : undefined
-            }
-            data-content-id={editable ? speciesId : undefined}
-            data-content-kind={editable ? "species" : undefined}
-          >
+          <p className="min-w-0 text-[17px] leading-[1.6] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]">
             <IdentificationRichText text={trait} />
           </p>
         </li>
@@ -216,7 +192,6 @@ async function GiurzaIdentification({
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "danger" }),
   ]);
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const tGiurza = await getTranslations({
     locale,
     namespace: "giurzaIdentification",
@@ -232,9 +207,7 @@ async function GiurzaIdentification({
       <div className={cn(LAYOUT_CLASS_NAME, PHOTO_LAYOUT_CLASS_NAME)}>
         <IdentificationIntro
           anchorLabel={t("anchorLink")}
-          editable={editable}
           eyebrow={t("identification")}
-          speciesId={speciesId}
           summary={identification.summary}
           title={t("identificationTitle", { name })}
         />
@@ -243,18 +216,13 @@ async function GiurzaIdentification({
           locale={locale}
           photo={photo}
         />
-        <IdentificationTraits
-          editable={editable}
-          speciesId={speciesId}
-          traits={identification.traits}
-        />
+        <IdentificationTraits traits={identification.traits} />
         <div className="min-w-0 lg:col-start-2 lg:row-start-4">
           {identification.colors?.length ||
           identification.coloration?.trim() ? (
             <SpeciesIdentificationColors
               identification={identification}
               locale={locale}
-              speciesId={speciesId}
             />
           ) : (
             <div className={COLORS_CARD_CLASS_NAME}>
@@ -339,16 +307,12 @@ function IdentificationHeading({
 
 function IdentificationIntro({
   anchorLabel,
-  editable,
   eyebrow,
-  speciesId,
   summary,
   title,
 }: {
   anchorLabel: string;
-  editable: boolean;
   eyebrow: string;
-  speciesId: string;
   summary: string;
   title: string;
 }) {
@@ -359,12 +323,7 @@ function IdentificationIntro({
         eyebrow={eyebrow}
         title={title}
       />
-      <p
-        className={SUMMARY_CLASS_NAME}
-        data-content-field={editable ? "identification.summary" : undefined}
-        data-content-id={editable ? speciesId : undefined}
-        data-content-kind={editable ? "species" : undefined}
-      >
+      <p className={SUMMARY_CLASS_NAME}>
         <IdentificationRichText text={summary} />
       </p>
     </div>
@@ -388,17 +347,14 @@ function photoCreditLine(
 async function SpeciesIdentificationColors({
   identification,
   locale,
-  speciesId,
 }: {
   identification: Identification;
   locale: AppLocale;
-  speciesId: string;
 }) {
   const colors = identification.colors ?? [];
   const text = identification.coloration?.trim();
   if (!colors.length && !text) return null;
   const t = await getTranslations({ locale, namespace: "profile" });
-  const editable = locale === "ka" && isLocalAdminEnabled();
   return (
     <div className={COLORS_CARD_CLASS_NAME}>
       <div className="lg:flex lg:flex-wrap lg:items-center lg:gap-2">
@@ -419,14 +375,7 @@ async function SpeciesIdentificationColors({
         ) : null}
       </div>
       {text ? (
-        <p
-          className="mt-2.5 text-[13.5px] leading-[1.55] whitespace-pre-line text-muted-foreground lg:mt-3 lg:text-[16px] lg:leading-[1.65] lg:text-foreground/85"
-          data-content-field={
-            editable ? "identification.coloration" : undefined
-          }
-          data-content-id={editable ? speciesId : undefined}
-          data-content-kind={editable ? "species" : undefined}
-        >
+        <p className="mt-2.5 text-[13.5px] leading-[1.55] whitespace-pre-line text-muted-foreground lg:mt-3 lg:text-[16px] lg:leading-[1.65] lg:text-foreground/85">
           <IdentificationRichText text={text} />
         </p>
       ) : null}

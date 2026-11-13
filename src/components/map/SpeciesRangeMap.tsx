@@ -32,7 +32,6 @@ import { getSpeciesRangeMap } from "@/lib/speciesRangeMapApi";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
-  editable?: boolean;
   fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   group: AnimalGroup;
@@ -50,7 +49,6 @@ const EMPTY_MAP_CARD_CLASS =
   "order-2 mt-5 min-w-0 overflow-hidden rounded-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9";
 
 export async function SpeciesRangeMap({
-  editable,
   fieldRecords,
   gallery,
   group,
@@ -71,7 +69,6 @@ export async function SpeciesRangeMap({
     return (
       <HalyomorphaRangeSection
         anchorLabel={t("anchorLink")}
-        editable={editable}
         eyebrow={t("range")}
         group={group}
         habitatDetails={habitatDetails}
@@ -92,7 +89,6 @@ export async function SpeciesRangeMap({
   return (
     <StaticRangeSection
       anchorLabel={t("anchorLink")}
-      editable={editable}
       eyebrow={t("range")}
       habitatDetails={habitatDetails}
       locale={locale}
@@ -100,7 +96,6 @@ export async function SpeciesRangeMap({
       readLess={t("readLess")}
       readMore={t("readMore")}
       regionsLabel={t("rangeRegionsLabel")}
-      speciesId={speciesId}
       subtitle={t("rangeSubtitle")}
       title={t("rangeTitle", { name: speciesName })}
     />
@@ -233,7 +228,6 @@ async function GiurzaRangeSection({
 async function HalyomorphaRangeSection({
   anchorLabel,
   copy,
-  editable,
   eyebrow,
   group,
   habitatDetails,
@@ -247,7 +241,6 @@ async function HalyomorphaRangeSection({
 }: {
   anchorLabel: string;
   copy: HalyomorphaRangeCopy;
-  editable?: boolean;
   eyebrow: string;
   group: AnimalGroup;
   habitatDetails?: string;
@@ -365,10 +358,8 @@ async function HalyomorphaRangeSection({
             {habitatDetails ? (
               <RangeHabitatDetails
                 body={habitatDetails}
-                editorField={editable ? "habitat" : undefined}
                 readLess={tProfile("readLess")}
                 readMore={tProfile("readMore")}
-                speciesId={editable ? speciesId : undefined}
               />
             ) : null}
           </div>
@@ -474,24 +465,16 @@ function interactiveRangeProps(
 
 function RangeHabitatDetails({
   body,
-  editorField,
   readLess,
   readMore,
-  speciesId,
 }: {
   body: string;
-  editorField?: string;
   readLess: string;
   readMore: string;
-  speciesId?: string;
 }) {
   if (body.length <= 520) {
     return (
-      <p
-        className="text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground"
-        data-content-field={editorField}
-        data-content-id={speciesId}
-      >
+      <p className="text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground">
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
     );
@@ -500,10 +483,8 @@ function RangeHabitatDetails({
   return (
     <RangeHabitatExpandable
       body={body}
-      editorField={editorField}
       readLess={readLess}
       readMore={readMore}
-      speciesId={speciesId}
     />
   );
 }
@@ -563,7 +544,6 @@ function RangeMapFooter({
 
 function StaticRangeSection({
   anchorLabel,
-  editable,
   eyebrow,
   habitatDetails,
   locale,
@@ -571,12 +551,10 @@ function StaticRangeSection({
   readLess,
   readMore,
   regionsLabel,
-  speciesId,
   subtitle,
   title,
 }: {
   anchorLabel: string;
-  editable?: boolean;
   eyebrow: string;
   habitatDetails?: string;
   locale: AppLocale;
@@ -584,7 +562,6 @@ function StaticRangeSection({
   readLess: string;
   readMore: string;
   regionsLabel: string;
-  speciesId: string;
   subtitle: string;
   title: string;
 }) {
@@ -601,10 +578,8 @@ function StaticRangeSection({
             <div className="order-4 mt-4 lg:mt-[18px]">
               <RangeHabitatDetails
                 body={habitatDetails}
-                editorField={editable ? "habitat" : undefined}
                 readLess={readLess}
                 readMore={readMore}
-                speciesId={editable ? speciesId : undefined}
               />
             </div>
           ) : null}

@@ -18,9 +18,9 @@ export function sentenceMetaDescription(
   const cleaned = stripInlineMarkdownLinks(text).replace(/\s+/g, " ").trim();
   if (cleaned.length <= maxLength) return cleaned;
 
-  const sentences = cleaned.split(SENTENCE_BOUNDARY);
-  let description = sentences[0];
-  for (const sentence of sentences.slice(1)) {
+  const [first = "", ...rest] = cleaned.split(SENTENCE_BOUNDARY);
+  let description = first;
+  for (const sentence of rest) {
     const next = `${description} ${sentence}`;
     if (next.length > maxLength) break;
     description = next;

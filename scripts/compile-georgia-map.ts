@@ -24,11 +24,11 @@ const LABEL_GRID = 60;
 type RegionPathId = (typeof REGION_PATH_IDS)[number];
 
 function parseViewBox(svg: string): string {
-  const match = svg.match(/\bviewBox="([^"]+)"/);
-  if (!match) {
+  const [, viewBox] = svg.match(/\bviewBox="([^"]+)"/) ?? [];
+  if (!viewBox) {
     throw new Error("georgia.svg is missing viewBox");
   }
-  return match[1];
+  return viewBox;
 }
 
 function parsePaths(svg: string): Record<RegionPathId, string> {
@@ -36,15 +36,14 @@ function parsePaths(svg: string): Record<RegionPathId, string> {
   const pathRe = /<path\b([^>]*)\/>/g;
   let match: RegExpExecArray | null;
   while ((match = pathRe.exec(svg))) {
-    const attrs = match[1];
-    const idMatch = attrs.match(/\bid="([^"]+)"/);
-    const dMatch = attrs.match(/\bd="([^"]+)"/);
-    if (!idMatch || !dMatch) continue;
-    const id = idMatch[1];
+    const attrs = match[1] ?? "";
+    const [, id] = attrs.match(/\bid="([^"]+)"/) ?? [];
+    const [, d] = attrs.match(/\bd="([^"]+)"/) ?? [];
+    if (!id || !d) continue;
     if (!(REGION_PATH_IDS as readonly string[]).includes(id)) {
       throw new Error(`Unknown region path id in georgia.svg: ${id}`);
     }
-    paths[id as RegionPathId] = dMatch[1];
+    paths[id as RegionPathId] = d;
   }
 
   for (const id of REGION_PATH_IDS) {
@@ -85,9 +84,8 @@ function labelPoint(d: string): [number, number] {
 
 function distanceToRing(x: number, y: number, ring: [number, number][]) {
   let min = Infinity;
-  for (let i = 0; i < ring.length; i += 1) {
-    const [ax, ay] = ring[i];
-    const [bx, by] = ring[(i + 1) % ring.length];
+  for (const [i, [ax, ay]] of ring.entries()) {
+    const [bx, by] = ring[(i + 1) % ring.length] ?? [ax, ay];
     const dx = bx - ax;
     const dy = by - ay;
     const length = dx * dx + dy * dy;
@@ -107,14 +105,21 @@ function pathVertices(d: string): [number, number][] {
   }
   const numbers = (value: string) =>
     (value.match(/-?\d*\.?\d+/g) ?? []).map(Number);
-  const [startX, startY] = numbers(match[1]);
-  const deltas = numbers(match[2]);
+  const [, start = "", moves = ""] = match;
+  const [startX, startY] = numbers(start);
+  if (startX === undefined || startY === undefined) {
+    throw new Error("georgia.svg path has no start point");
+  }
+  const deltas = numbers(moves);
   const ring: [number, number][] = [[startX, startY]];
   let x = startX;
   let y = startY;
   for (let i = 0; i + 1 < deltas.length; i += 2) {
-    x += deltas[i];
-    y += deltas[i + 1];
+    const dx = deltas[i];
+    const dy = deltas[i + 1];
+    if (dx === undefined || dy === undefined) break;
+    x += dx;
+    y += dy;
     ring.push([x, y]);
   }
   return ring;
@@ -122,9 +127,11 @@ function pathVertices(d: string): [number, number][] {
 
 function pointInRing(x: number, y: number, ring: [number, number][]) {
   let inside = false;
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
-    const [xi, yi] = ring[i];
-    const [xj, yj] = ring[j];
+  let previous = ring.at(-1);
+  for (const point of ring) {
+    const [xi, yi] = point;
+    const [xj, yj] = previous ?? point;
+    previous = point;
     if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) {
       inside = !inside;
     }

@@ -4,7 +4,6 @@ import type { AppLocale } from "@/i18n/routing";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { creditAuthorHref } from "@/data/authors";
 import { Link } from "@/i18n/navigation";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
@@ -14,14 +13,12 @@ const linkClass =
 export function NewsRichText({
   articleId,
   blockIndex,
-  editable,
   locale,
   parts,
   sectionIndex,
 }: {
   articleId: string;
   blockIndex: number;
-  editable: boolean;
   locale: AppLocale;
   parts: NewsMark[];
   sectionIndex: number;
@@ -30,8 +27,6 @@ export function NewsRichText({
     <>
       {parts.map((mark, index) => (
         <NewsMarkNode
-          editorField={`sections.${sectionIndex}.blocks.${blockIndex}.parts.${index}`}
-          editorId={editable ? articleId : undefined}
           key={newsMarkKey(mark, index)}
           locale={locale}
           mark={mark}
@@ -52,37 +47,22 @@ function newsMarkKey(mark: NewsMark, index: number) {
   return `sp:${index}:${mark.id}`;
 }
 
-function NewsMarkNode({
-  editorField,
-  editorId,
-  locale,
-  mark,
-}: {
-  editorField: string;
-  editorId?: string;
-  locale: AppLocale;
-  mark: NewsMark;
-}) {
+function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
   if (typeof mark === "string")
     return (
-      <span {...contentEditorAttributes("news", editorId, editorField)}>
+      <span>
         <PhoneLinkedText>{mark}</PhoneLinkedText>
       </span>
     );
 
   if (mark.type === "sci") {
-    return (
-      <i {...contentEditorAttributes("news", editorId, `${editorField}.name`)}>
-        {mark.name}
-      </i>
-    );
+    return <i>{mark.name}</i>;
   }
 
   if (mark.type === "external") {
     return (
       <a
         className={linkClass}
-        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={mark.href}
         rel="noopener noreferrer"
         target="_blank"
@@ -94,11 +74,7 @@ function NewsMarkNode({
 
   if (mark.type === "credit-author") {
     return (
-      <Link
-        className={linkClass}
-        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
-        href={creditAuthorHref(mark.slug)}
-      >
+      <Link className={linkClass} href={creditAuthorHref(mark.slug)}>
         {mark.label}
       </Link>
     );
@@ -106,11 +82,7 @@ function NewsMarkNode({
 
   if (mark.type === "news-index") {
     return (
-      <Link
-        className={linkClass}
-        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
-        href="/news"
-      >
+      <Link className={linkClass} href="/news">
         {mark.label}
       </Link>
     );
@@ -118,11 +90,7 @@ function NewsMarkNode({
 
   if (mark.type === "hub") {
     return (
-      <Link
-        className={linkClass}
-        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
-        href={GROUP_HUBS[mark.id].path}
-      >
+      <Link className={linkClass} href={GROUP_HUBS[mark.id].path}>
         {mark.label}
       </Link>
     );
@@ -130,22 +98,14 @@ function NewsMarkNode({
 
   if (mark.type === "region") {
     return (
-      <Link
-        className={linkClass}
-        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
-        href={regionHref(mark.id)}
-      >
+      <Link className={linkClass} href={regionHref(mark.id)}>
         {mark.label}
       </Link>
     );
   }
 
   return (
-    <Link
-      className={linkClass}
-      {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
-      href={speciesHref(mark.id, locale)}
-    >
+    <Link className={linkClass} href={speciesHref(mark.id, locale)}>
       {mark.label}
     </Link>
   );

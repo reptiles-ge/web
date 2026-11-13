@@ -66,7 +66,6 @@ type SpeciesProfileBodyProps = {
   biologyTitle?: string;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
-  editable: boolean;
   fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
@@ -139,7 +138,6 @@ export async function SpeciesProfileBody({
   biologyTitle,
   dangerValue,
   displayStats,
-  editable,
   fieldRecords,
   gallery,
   guideLinks,
@@ -167,7 +165,6 @@ export async function SpeciesProfileBody({
       <SpeciesProfileSummary
         dangerValue={dangerValue}
         displayStats={displayStats}
-        editable={editable}
         gallery={mobileGallery}
         guideLinks={guideLinks}
         heroCredit={heroCredit}
@@ -216,11 +213,7 @@ export async function SpeciesProfileBody({
             </AnchoredHeading>
           </div>
           <div className={SPLIT_SECTION_BODY_CLASS}>
-            <SpeciesOverviewText
-              body={species.overview}
-              editable={editable}
-              speciesId={species.id}
-            />
+            <SpeciesOverviewText body={species.overview} />
           </div>
         </div>
       </section>
@@ -253,7 +246,6 @@ export async function SpeciesProfileBody({
       <SpeciesProfileQuiz locale={locale} species={species} />
 
       <SpeciesRangeMap
-        editable={editable}
         fieldRecords={fieldRecords}
         gallery={gallery}
         group={speciesGroup(species)}
@@ -266,7 +258,6 @@ export async function SpeciesProfileBody({
 
       <SpeciesProfileBiology
         blocks={naturalHistoryBlocks}
-        editable={editable}
         locale={locale}
         speciesId={species.id}
         title={biologyTitle}
@@ -573,13 +564,11 @@ function HalyomorphaPestSections({
 
 async function SpeciesProfileBiology({
   blocks,
-  editable,
   locale,
   speciesId,
   title,
 }: {
   blocks: BiologyBlockItem[];
-  editable: boolean;
   locale: AppLocale;
   speciesId: string;
   title?: string;
@@ -608,23 +597,20 @@ async function SpeciesProfileBiology({
           if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
             return [block];
           }
+          const [first = "", second = "", ...rest] = behaviorParagraphs;
           return [
             {
               ...block,
-              body: [
-                behaviorParagraphs[0],
-                ...behaviorParagraphs.slice(2),
-              ].join("\n\n"),
+              body: [first, ...rest].join("\n\n"),
             },
             {
-              body: behaviorParagraphs[1],
+              body: second,
               id: "reproduction",
               title: t("reproduction"),
             },
           ];
         })
       : orderedBlocks;
-  const editorField = editable && speciesId !== "macrovipera-lebetina";
 
   return (
     <section className="bg-background py-9 lg:py-20">
@@ -653,12 +639,10 @@ async function SpeciesProfileBiology({
                   : undefined
               }
               defaultOpen={index === 0}
-              editorField={editorField ? block.id : undefined}
               id={block.id}
               key={block.id}
               readLess={t("readLess")}
               readMore={t("readMore")}
-              speciesId={editorField ? speciesId : undefined}
               title={block.title}
             />
           ))}
@@ -771,7 +755,6 @@ async function SpeciesProfileNavigation({
 async function SpeciesProfileSummary({
   dangerValue,
   displayStats,
-  editable,
   gallery,
   guideLinks,
   heroCredit,
@@ -783,7 +766,6 @@ async function SpeciesProfileSummary({
   SpeciesProfileBodyProps,
   | "dangerValue"
   | "displayStats"
-  | "editable"
   | "gallery"
   | "guideLinks"
   | "heroCredit"
@@ -828,7 +810,6 @@ async function SpeciesProfileSummary({
           danger={species.danger}
           dangerValue={dangerValue}
           displayStats={displayStats}
-          editable={editable}
           linkDangerStats={linkDangerStats}
           locale={locale}
           publishedAt={species.publishedAt}
@@ -848,11 +829,9 @@ async function SpeciesProfileSummary({
             </AnchoredHeading>
             <BiologyExpandable
               body={interactionBody}
-              editorField={editable ? "interaction" : undefined}
               needsExpand={interactionBody.length > 260}
               readLess={t("readLess")}
               readMore={t("readMore")}
-              speciesId={editable ? species.id : undefined}
             />
           </aside>
         ) : null}

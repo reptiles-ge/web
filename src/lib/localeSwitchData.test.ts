@@ -9,6 +9,7 @@ import {
   catalogSpeciesFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const index = getLocaleSwitchIndex(speciesCatalogFixture("ka"));
 
@@ -16,7 +17,9 @@ describe("getLocaleSwitchIndex", () => {
   it("indexes every published species by id and by its KA slug", () => {
     for (const item of catalogSpeciesFixture()) {
       expect(index.idBySlug[item.id], item.id).toBe(item.id);
-      expect(index.idBySlug[index.kaSlugById[item.id]], item.id).toBe(item.id);
+      expect(index.idBySlug[defined(index.kaSlugById[item.id])], item.id).toBe(
+        item.id,
+      );
       expect(index.hubById[item.id], item.id).toBeTruthy();
       expect(index.groupById[item.id], item.id).toBeTruthy();
     }

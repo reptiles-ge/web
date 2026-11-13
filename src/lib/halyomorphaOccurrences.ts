@@ -253,10 +253,13 @@ function distanceToRingKm(lng: number, lat: number, ring: [number, number][]) {
   const kmPerLng = KM_PER_DEGREE_LAT * Math.cos((lat * Math.PI) / 180);
   let best = Number.POSITIVE_INFINITY;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
-    const ax = (ring[j][0] - lng) * kmPerLng;
-    const ay = (ring[j][1] - lat) * KM_PER_DEGREE_LAT;
-    const bx = (ring[i][0] - lng) * kmPerLng;
-    const by = (ring[i][1] - lat) * KM_PER_DEGREE_LAT;
+    const pointA = ring[j];
+    const pointB = ring[i];
+    if (!pointA || !pointB) continue;
+    const ax = (pointA[0] - lng) * kmPerLng;
+    const ay = (pointA[1] - lat) * KM_PER_DEGREE_LAT;
+    const bx = (pointB[0] - lng) * kmPerLng;
+    const by = (pointB[1] - lat) * KM_PER_DEGREE_LAT;
     const dx = bx - ax;
     const dy = by - ay;
     const length = dx * dx + dy * dy;
@@ -496,8 +499,11 @@ function pointInFeature(lng: number, lat: number, rings: [number, number][][]) {
 function pointInRing(lng: number, lat: number, ring: [number, number][]) {
   let inside = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
-    const [lngI, latI] = ring[i];
-    const [lngJ, latJ] = ring[j];
+    const pointI = ring[i];
+    const pointJ = ring[j];
+    if (!pointI || !pointJ) continue;
+    const [lngI, latI] = pointI;
+    const [lngJ, latJ] = pointJ;
     const intersects =
       latI > lat !== latJ > lat &&
       lng < ((lngJ - lngI) * (lat - latI)) / (latJ - latI) + lngI;

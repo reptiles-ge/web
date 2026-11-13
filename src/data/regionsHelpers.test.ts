@@ -16,6 +16,7 @@ import {
   localizedFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 let catalog: CatalogCard[];
 
@@ -55,7 +56,10 @@ describe("getRegionSpecies", () => {
   });
 
   it("skips ids that are not in the catalog", () => {
-    const region = { ...regions[0], speciesIds: ["no-such-species"] };
+    const region = {
+      ...defined(regions[0]),
+      speciesIds: ["no-such-species"],
+    };
     expect(getRegionSpecies(region, catalog)).toEqual([]);
   });
 });

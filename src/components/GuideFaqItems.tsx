@@ -11,11 +11,9 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { faqItemIds } from "@/lib/faqAccordion";
 
 export function GuideFaqItems({
-  editable,
   id: articleId,
   items,
 }: {
-  editable?: boolean;
   id?: string;
   items: { answer: string; question: string }[];
 }) {
@@ -45,27 +43,13 @@ export function GuideFaqItems({
                 )
               }
             >
-              <span
-                className="font-display text-xl font-semibold text-foreground"
-                data-content-field={
-                  editable ? `faq.${index}.question` : undefined
-                }
-                data-content-id={editable ? articleId : undefined}
-                data-content-kind={editable ? "guide" : undefined}
-              >
+              <span className="font-display text-xl font-semibold text-foreground">
                 {item.question}
               </span>
               <FaqToggleIcon isOpen={isOpen} />
             </FaqQuestion>
             <FaqAnswerPanel ids={ids} isOpen={isOpen}>
-              <p
-                className="pr-12 pb-7 text-[16px] leading-[1.8] text-muted-foreground"
-                data-content-field={
-                  editable ? `faq.${index}.answer` : undefined
-                }
-                data-content-id={editable ? articleId : undefined}
-                data-content-kind={editable ? "guide" : undefined}
-              >
+              <p className="pr-12 pb-7 text-[16px] leading-[1.8] text-muted-foreground">
                 <PhoneLinkedText>{item.answer}</PhoneLinkedText>
               </p>
             </FaqAnswerPanel>

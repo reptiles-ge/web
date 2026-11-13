@@ -10,6 +10,7 @@ import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
 import { contributorsFixture } from "../../../../../tests/fixtures/speciesCatalog";
+import { defined } from "../../../../../tests/support/defined";
 import AuthorRoute, { dynamicParams, generateMetadata } from "./page";
 
 const messages = { en, ka, ru, tr };
@@ -123,7 +124,10 @@ async function profileJsonLd(locale: string, slug: string) {
     children: ReactElement<{ data: Record<string, unknown> }>[];
   }>;
   const [, breadcrumb, profile] = page.props.children;
-  return { breadcrumb: breadcrumb.props.data, profile: profile.props.data };
+  return {
+    breadcrumb: defined(breadcrumb).props.data,
+    profile: defined(profile).props.data,
+  };
 }
 
 describe("contributor profile JSON-LD", () => {

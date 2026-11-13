@@ -463,7 +463,7 @@ function absoluteLinks(text: string, locale: AppLocale, catalog: LlmsSpecies) {
     (match, label: string, href: string) => {
       if (/^https?:\/\//.test(href)) return match;
       if (href.startsWith("/")) {
-        const [path, hash] = href.split("#");
+        const [path = "", hash] = href.split("#");
         return `[${label}](${absoluteUrl(localizedLinkPath(locale, path))}${hash ? `#${hash}` : ""})`;
       }
       if (catalog.ids.has(href)) {
@@ -734,9 +734,9 @@ function languageSection() {
 }
 
 function localizedLinkPath(locale: AppLocale, path: string) {
-  const species = path.match(/^\/([a-z]+)\/([^/]+)$/);
-  if (species && species[1] in GROUP_HUBS) {
-    const id = resolveSpeciesIdInHub(species[1] as GroupHubId, species[2]);
+  const [, hub, slug] = path.match(/^\/([a-z]+)\/([^/]+)$/) ?? [];
+  if (hub !== undefined && slug !== undefined && hub in GROUP_HUBS) {
+    const id = resolveSpeciesIdInHub(hub as GroupHubId, slug);
     if (id) return new URL(localizedSpeciesUrl(locale, id)).pathname;
   }
   return localizedPath(locale, path);

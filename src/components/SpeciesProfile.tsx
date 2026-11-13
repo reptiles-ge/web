@@ -4,7 +4,6 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { CatalogCard } from "@/lib/speciesCatalogApi";
 
-import { loadSpeciesPageAnalysis } from "@/components/admin/devAdminComponents";
 import { ContributorsProvider } from "@/components/ContributorsProvider";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
@@ -15,7 +14,6 @@ import { type Species } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { speciesGroup } from "@/data/speciesAtlasMetaTable";
 import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
@@ -92,15 +90,13 @@ export async function SpeciesProfile({
   species,
   views,
 }: SpeciesProfileProps) {
-  const [t, tHubs, tDanger, tAnalysis, fieldRecords, contributors] =
-    await Promise.all([
-      getTranslations({ locale, namespace: "profile" }),
-      getTranslations({ locale, namespace: "groupHubShared" }),
-      getTranslations({ locale, namespace: "danger" }),
-      getTranslations({ locale, namespace: "pageAnalysis" }),
-      getSpeciesFieldRecords(species.id),
-      getContributorDirectory(locale),
-    ]);
+  const [t, tHubs, tDanger, fieldRecords, contributors] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "danger" }),
+    getSpeciesFieldRecords(species.id),
+    getContributorDirectory(locale),
+  ]);
   const guideLinks = getSpeciesProfileGuideLinks(species);
   const parent = getSpeciesParentHub(species);
   const tParent = await getTranslations({
@@ -207,9 +203,6 @@ export async function SpeciesProfile({
       title: biologyCopy?.conservation ?? t("conservation"),
     },
   ].filter((block) => !isPlaceholderBody(block.body));
-  const localAdmin = isLocalAdminEnabled();
-  const editable = locale === "ka" && localAdmin;
-  const SpeciesPageAnalysis = await loadSpeciesPageAnalysis();
 
   return (
     <ContributorsProvider directory={contributors}>
@@ -244,7 +237,6 @@ export async function SpeciesProfile({
           biologyTitle={biologyCopy?.biologyTitle}
           dangerValue={dangerValue}
           displayStats={displayStats}
-          editable={editable}
           fieldRecords={fieldRecords}
           gallery={gallery}
           guideLinks={guideLinks}
@@ -258,55 +250,6 @@ export async function SpeciesProfile({
           species={species}
           views={views}
         />
-        {SpeciesPageAnalysis ? (
-          <SpeciesPageAnalysis
-            copy={{
-              action: tAnalysis("action"),
-              superAction: tAnalysis("superAction"),
-              superCompleted: tAnalysis("superCompleted"),
-              superDescription: tAnalysis("superDescription"),
-              superFailed: tAnalysis("superFailed"),
-              superPending: tAnalysis("superPending"),
-              superReconnecting: tAnalysis("superReconnecting"),
-              superResume: tAnalysis("superResume"),
-              superRunning: tAnalysis("superRunning"),
-              superValidation: tAnalysis("superValidation"),
-
-              addStep: tAnalysis("addStep"),
-              availableSteps: tAnalysis("availableSteps"),
-              closeWorkflow: tAnalysis("closeWorkflow"),
-              configureWorkflow: tAnalysis("configureWorkflow"),
-              emptyWorkflow: tAnalysis("emptyWorkflow"),
-              error: tAnalysis("error"),
-              linksAction: tAnalysis("linksAction"),
-              linksProcessing: tAnalysis("linksProcessing"),
-              lookalikesAction: tAnalysis("lookalikesAction"),
-              lookalikesProcessing: tAnalysis("lookalikesProcessing"),
-              moveDown: tAnalysis("moveDown"),
-              moveUp: tAnalysis("moveUp"),
-              noChanges: tAnalysis("noChanges"),
-              openPr: tAnalysis("openPr"),
-              processing: tAnalysis("processing"),
-              recordsAction: tAnalysis("recordsAction"),
-              recordsProcessing: tAnalysis("recordsProcessing"),
-              removeStep: tAnalysis("removeStep"),
-              report: tAnalysis("report"),
-              runWorkflow: tAnalysis("runWorkflow"),
-              sameBranch: tAnalysis("sameBranch"),
-              sameBranchHint: tAnalysis("sameBranchHint"),
-              textsAction: tAnalysis("textsAction"),
-              textsError: tAnalysis("textsError"),
-              textsNoChanges: tAnalysis("textsNoChanges"),
-              textsProcessing: tAnalysis("textsProcessing"),
-              textsReport: tAnalysis("textsReport"),
-              workflowDescription: tAnalysis("workflowDescription"),
-              workflowError: tAnalysis("workflowError"),
-              workflowProcessing: tAnalysis("workflowProcessing"),
-              workflowTitle: tAnalysis("workflowTitle"),
-            }}
-            id={species.id}
-          />
-        ) : null}
       </div>
     </ContributorsProvider>
   );

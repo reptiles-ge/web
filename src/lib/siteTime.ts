@@ -41,7 +41,7 @@ function offsetFromParts(parts: Intl.DateTimeFormatPart[]): string {
   const raw = part(parts, "timeZoneName") || "GMT+04:00";
   const match = raw.match(/([+-])(\d{1,2})(?::?(\d{2}))?/);
   if (!match) return "+04:00";
-  const hours = match[2].padStart(2, "0");
+  const hours = (match[2] ?? "").padStart(2, "0");
   const minutes = (match[3] ?? "00").padStart(2, "0");
   return `${match[1]}${hours}:${minutes}`;
 }

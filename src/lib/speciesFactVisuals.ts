@@ -86,12 +86,13 @@ export function getSpeciesFactVisual(
 }
 
 export function parseMeasuredRange(value: string): MeasuredRange | null {
-  const match = RANGE_PATTERN.exec(value);
-  if (!match) return null;
-  const min = toNumber(match[1]);
-  const max = toNumber(match[2]);
+  const [, rawMin, rawMax, unit] = RANGE_PATTERN.exec(value) ?? [];
+  if (rawMin === undefined || rawMax === undefined || unit === undefined)
+    return null;
+  const min = toNumber(rawMin);
+  const max = toNumber(rawMax);
   if (max <= min) return null;
-  return { max, min, unit: match[3] };
+  return { max, min, unit };
 }
 
 function iucnCodesIn(value: string) {

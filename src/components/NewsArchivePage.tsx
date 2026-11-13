@@ -80,7 +80,7 @@ export async function NewsArchivePage({
       {groupNewsByMonth(items).map((month) => (
         <NewsMonthSection
           countLabel={t("articleWord", { count: month.items.length })}
-          heading={monthLabels[month.key]}
+          heading={monthLabels[month.key] ?? month.key}
           items={month.items}
           key={month.key}
         />

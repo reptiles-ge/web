@@ -18,6 +18,8 @@ import {
   newsFeedUrl,
 } from "@/lib/newsFeed";
 
+import { defined } from "../../tests/support/defined";
+
 vi.mock("@/i18n/navigation", () => ({
   getPathname({
     href,
@@ -34,7 +36,7 @@ vi.mock("@/i18n/navigation", () => ({
   },
 }));
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 function feed(locale: (typeof routing.locales)[number], articles?: never[]) {
   return buildNewsFeedXml({
@@ -102,8 +104,8 @@ describe("buildNewsFeedXml", () => {
     const ids = entries.map((entry) => entry.querySelector("id")?.textContent);
     expect(new Set(ids).size).toBe(ids.length);
 
-    const first = entries[0];
-    const expected = published[0];
+    const first = defined(entries[0]);
+    const expected = defined(published[0]);
     expect(first.querySelector("id")?.textContent).toBe(
       newsArticleUrl("en", expected.slug),
     );

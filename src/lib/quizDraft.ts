@@ -47,7 +47,8 @@ export function isRestorableDraft(
   );
   return (
     valid &&
-    (selectedId == null || questions[index].optionIds.includes(selectedId))
+    (selectedId == null ||
+      questions[index]?.optionIds.includes(selectedId) === true)
   );
 }
 

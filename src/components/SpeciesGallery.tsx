@@ -131,7 +131,7 @@ export async function SpeciesGallery({
               </Link>
               <a
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-[translate,background-color] hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                data-species-gallery-src={slides[0].src}
+                data-species-gallery-src={slides[0]?.src}
                 href={`#${SPECIES_SECTION_IDS.gallery}`}
               >
                 {t("viewAllPhotos")}
@@ -187,7 +187,10 @@ export async function SpeciesGallery({
                   )}
                   key={photo.src}
                 >
-                  <GalleryOpenButton alt={slides[index].alt} index={index}>
+                  <GalleryOpenButton
+                    alt={slides[index]?.alt ?? ""}
+                    index={index}
+                  >
                     <picture className="media-placeholder absolute inset-0 block size-full">
                       {pictureSources(photo.src, { sizes }).map((source) => (
                         <source key={source.key} {...source.props} />

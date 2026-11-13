@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { SpeciesShareButton } from "@/components/SpeciesShareButton";
 
 import ka from "../../messages/ka.json";
+import { defined } from "../../tests/support/defined";
 
 const SHARE = {
   displayUrl: "reptiles.ge/gvelebi/giurza",
@@ -56,10 +57,10 @@ describe("SpeciesShareButton", () => {
       "Viber",
       "X",
     ]);
-    expect(links[0].getAttribute("href")).toContain(
+    expect(defined(links[0]).getAttribute("href")).toContain(
       encodeURIComponent(SHARE.url),
     );
-    expect(links[0].getAttribute("target")).toBe("_blank");
+    expect(defined(links[0]).getAttribute("target")).toBe("_blank");
     expect(document.body.style.overflow).toBe("hidden");
   });
 
@@ -89,7 +90,9 @@ describe("SpeciesShareButton", () => {
     expect(document.body.style.overflow).toBe("");
 
     await openDialog();
-    fireEvent.click(screen.getAllByRole("button", { name: "დახურვა" })[1]);
+    fireEvent.click(
+      defined(screen.getAllByRole("button", { name: "დახურვა" })[1]),
+    );
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
   });
 });

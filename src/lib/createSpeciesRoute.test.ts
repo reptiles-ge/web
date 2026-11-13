@@ -10,6 +10,7 @@ import {
   localizedFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const contributors = contributorDirectoryFixture();
 
@@ -350,7 +351,7 @@ describe("species structured data", () => {
 
   it("only uses a source as sameAs when it names the Taxon's own binomial", () => {
     for (const raw of catalogSpeciesFixture()) {
-      const [genus, epithet] = raw.scientificName.split(" ");
+      const [genus, epithet = ""] = raw.scientificName.split(" ");
       const sameAs = new Set(speciesSameAs(raw));
       for (const source of raw.sources) {
         if (!source.url || !sameAs.has(source.url)) continue;
@@ -358,7 +359,7 @@ describe("species structured data", () => {
           source.name.matchAll(
             new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g"),
           ),
-          (match) => match[1],
+          (match) => defined(match[1]),
         );
         if (named.length === 0) continue;
         expect(
