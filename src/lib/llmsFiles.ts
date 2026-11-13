@@ -18,7 +18,7 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
 import { absoluteUrl } from "@/lib/site";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHref, type SpeciesRouteSource } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 
 export type LlmsSpecies = {
@@ -544,11 +544,8 @@ function formatSpeciesCard(
   const lines: string[] = [
     `### ${item.scientificName} — ${name}`,
     "",
-    `- URL: ${localizedSpeciesUrl(locale, item.id)}`,
-    alternateLine(
-      locale,
-      localizedSpeciesUrl(alternateLocale(locale), item.id),
-    ),
+    `- URL: ${localizedSpeciesUrl(locale, item)}`,
+    alternateLine(locale, localizedSpeciesUrl(alternateLocale(locale), item)),
     `- Catalog id: ${item.id}`,
     `- Updated: ${catalog.localized(item, locale).updatedAt}`,
   ];
@@ -672,7 +669,7 @@ function formatSpeciesIndexLine(
     item.danger,
     `Catalog id \`${item.id}\``,
   ].filter(Boolean);
-  return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item.id)}): ${details.join(". ")}.`;
+  return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item)}): ${details.join(". ")}.`;
 }
 
 function groupSummary(group: AnimalGroup, count: number): string {
@@ -753,8 +750,8 @@ function localizedPath(locale: AppLocale, path: string) {
   return withLocalePrefix(locale, template);
 }
 
-function localizedSpeciesUrl(locale: AppLocale, id: string) {
-  const href = speciesHref(id, locale);
+function localizedSpeciesUrl(locale: AppLocale, species: SpeciesRouteSource) {
+  const href = speciesHref(species, locale);
   const mapped = pathnames[href.pathname];
   const template = typeof mapped === "string" ? mapped : mapped[locale];
   return absoluteUrl(

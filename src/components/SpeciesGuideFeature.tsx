@@ -7,10 +7,9 @@ import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
+import { getLiveLocaleSwitchIndex } from "@/lib/liveLocaleSwitchIndex";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { quizHref } from "@/lib/quizzes";
-import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 const GUIDE_KEYS = ["gyurzaBite", "bite", "venomous", "identify"] as const;
 
@@ -27,11 +26,11 @@ export async function SpeciesGuideFeature({
   speciesId: string;
   speciesName: string;
 }) {
-  const [t, tGuides] = await Promise.all([
+  const [t, tGuides, switchIndex] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getLiveLocaleSwitchIndex(),
   ]);
-  const switchIndex = getLocaleSwitchIndex(publishedSpeciesSlugRows());
   const pageLinks = guideLinks.filter((item) => item.kind === "page");
   const guides =
     speciesId === "macrovipera-lebetina"

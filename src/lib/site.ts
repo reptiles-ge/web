@@ -9,7 +9,7 @@ import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { publicEnv } from "@/lib/env";
 import { quizHref } from "@/lib/quizzes";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHref, type SpeciesRouteSource } from "@/lib/speciesRoutes";
 
 export const siteConfig = {
   description:
@@ -211,15 +211,18 @@ export function siteGraphJsonLd(locale: AppLocale, description: string) {
   };
 }
 
-export function speciesAlternates(locale: AppLocale, id: string) {
+export function speciesAlternates(
+  locale: AppLocale,
+  species: SpeciesRouteSource,
+) {
   const languages: Record<string, string> = {
-    "x-default": speciesPageUrl("ka", id),
+    "x-default": speciesPageUrl("ka", species),
   };
   for (const loc of routing.locales) {
-    languages[loc] = speciesPageUrl(loc, id);
+    languages[loc] = speciesPageUrl(loc, species);
   }
   return {
-    canonical: speciesPageUrl(locale, id),
+    canonical: speciesPageUrl(locale, species),
     languages,
   };
 }
@@ -250,8 +253,10 @@ export function speciesOgImageUrl(
   return FALLBACK_OG_IMAGE_URL;
 }
 
-export function speciesPageUrl(locale: AppLocale, id: string) {
-  return absoluteUrl(getPathname({ href: speciesHref(id, locale), locale }));
+export function speciesPageUrl(locale: AppLocale, species: SpeciesRouteSource) {
+  return absoluteUrl(
+    getPathname({ href: speciesHref(species, locale), locale }),
+  );
 }
 
 export function websiteJsonLd(options: {

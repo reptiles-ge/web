@@ -15,10 +15,9 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
+import { getLiveLocaleSwitchIndex } from "@/lib/liveLocaleSwitchIndex";
 import { getNavbarData } from "@/lib/navbarData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
-import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 export function generateMetadata(): Promise<Metadata> {
   return notFoundMetadata(routing.defaultLocale);
@@ -30,16 +29,15 @@ export default async function RootNotFound() {
     await getMessages({ locale }),
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, stats] = await Promise.all([
+  const [t, stats, switchIndex] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getAtlasStats(locale),
+    getLiveLocaleSwitchIndex(),
   ]);
   return (
     <RootDocument locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider
-          index={getLocaleSwitchIndex(publishedSpeciesSlugRows())}
-        >
+        <LocaleSwitchProvider index={switchIndex}>
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
           <Navbar {...getNavbarData(stats)} />

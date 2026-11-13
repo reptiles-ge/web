@@ -12,7 +12,6 @@ import { absoluteUrl } from "@/lib/site";
 import { speciesImage } from "@/lib/speciesContent";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { type SpeciesHref, speciesHref } from "@/lib/speciesRoutes";
-import { hasSpeciesRoute } from "@/lib/speciesSlugTable";
 
 export type SavedSpeciesCard = {
   commonName: string;
@@ -31,32 +30,30 @@ export function buildSavedSpeciesCards(
   catalog: CatalogCard[],
   locale: AppLocale,
 ): SavedSpeciesCard[] {
-  return catalog
-    .filter((item) => hasSpeciesRoute(item.id))
-    .map((item) => {
-      const group = speciesGroup(item);
-      const href = speciesHref({ group, id: item.id }, locale);
-      const photo = atlasSpeciesImage({
-        image: speciesImage(item),
-        mobileImage: item.mobileImage,
-      });
-      return {
-        commonName: item.commonName,
-        danger: getSpeciesRiskChip(item, group)?.level ?? null,
-        href,
-        id: item.id,
-        publicUrl: absoluteUrl(getPathname({ href, locale })).replace(
-          /^https?:\/\//,
-          "",
-        ),
-        regions: getRegionsForSpecies(item.id).map((region) =>
-          localizeRegionText(region.name, locale),
-        ),
-        scientificName: item.scientificName,
-        thumb: optimizedImgSrc(
-          photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]],
-          THUMB_WIDTH,
-        ),
-      };
+  return catalog.map((item) => {
+    const group = speciesGroup(item);
+    const href = speciesHref({ group, id: item.id, slug: item.slug }, locale);
+    const photo = atlasSpeciesImage({
+      image: speciesImage(item),
+      mobileImage: item.mobileImage,
     });
+    return {
+      commonName: item.commonName,
+      danger: getSpeciesRiskChip(item, group)?.level ?? null,
+      href,
+      id: item.id,
+      publicUrl: absoluteUrl(getPathname({ href, locale })).replace(
+        /^https?:\/\//,
+        "",
+      ),
+      regions: getRegionsForSpecies(item.id).map((region) =>
+        localizeRegionText(region.name, locale),
+      ),
+      scientificName: item.scientificName,
+      thumb: optimizedImgSrc(
+        photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]],
+        THUMB_WIDTH,
+      ),
+    };
+  });
 }
