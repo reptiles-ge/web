@@ -6,6 +6,7 @@ import type { DangerLevel, GalleryImage, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
+import type { SpeciesShareParts } from "@/lib/speciesShareText";
 
 import {
   type MobileHeroSlide,
@@ -13,6 +14,7 @@ import {
 } from "@/components/SpeciesMobileHeroCarousel";
 import { SpeciesSaveButton } from "@/components/SpeciesSaveButton";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
+import { SpeciesShareButton } from "@/components/SpeciesShareButton";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import {
   optimizedEntry,
@@ -26,6 +28,7 @@ import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
+import { speciesOgImageUrl } from "@/lib/site";
 import { getSpeciesParentHub } from "@/lib/speciesBreadcrumbs";
 import { SPECIES_HERO_SIZES } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
@@ -46,7 +49,7 @@ type SpeciesProfileHeroProps = {
   mobileGallery: GalleryImage[];
   mobileHeroSrc: null | string;
   mobileImageAlt: string;
-  shareText: string;
+  share: SpeciesShareParts;
   species: Species;
 };
 
@@ -70,7 +73,7 @@ export async function SpeciesProfileHero({
   mobileGallery,
   mobileHeroSrc,
   mobileImageAlt,
-  shareText,
+  share,
   species,
 }: SpeciesProfileHeroProps) {
   const [t, tCard, tDanger, tNav, tSafety, contributors] = await Promise.all([
@@ -182,7 +185,7 @@ export async function SpeciesProfileHero({
             <span className="pointer-events-auto">
               <SpeciesScientificNameCopy
                 speciesId={species.id}
-                text={shareText}
+                text={share.text}
               />
             </span>
           </p>
@@ -212,6 +215,11 @@ export async function SpeciesProfileHero({
             <span aria-hidden="true" className="flex-1 lg:hidden" />
             <SpeciesSaveButton
               name={species.commonName}
+              speciesId={species.id}
+            />
+            <SpeciesShareButton
+              ogImage={speciesOgImageUrl(species.id, species.image)}
+              share={share}
               speciesId={species.id}
             />
           </div>
