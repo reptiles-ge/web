@@ -108,7 +108,7 @@ describe("ViewsPage", () => {
     );
     render(<ViewsPage onSessionExpired={vi.fn()} />);
     expect(await screen.findByText("1–2 of 120 pages")).toBeInTheDocument();
-    await userEvent.click(screen.getByTitle("2"));
+    await userEvent.click(within(screen.getByTitle("2")).getByRole("button"));
     await vi.waitFor(() =>
       expect(fetchAdminViews).toHaveBeenLastCalledWith({ limit: 50, page: 2 }),
     );

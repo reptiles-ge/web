@@ -130,7 +130,7 @@ describe("RatingsPage", () => {
         total: 52,
       }),
     );
-    await userEvent.click(screen.getByTitle("2"));
+    await userEvent.click(within(screen.getByTitle("2")).getByRole("button"));
     expect(await screen.findByText("/kuebi")).toBeInTheDocument();
     expect(screen.getByText("51–51 of 52 ratings")).toBeInTheDocument();
     expect(fetchAdminRatings).toHaveBeenLastCalledWith({ limit: 50, page: 2 });
