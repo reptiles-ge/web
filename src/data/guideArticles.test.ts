@@ -42,6 +42,7 @@ function jpegSize(bytes: Buffer) {
   while (offset + 9 < bytes.length) {
     if (bytes[offset] !== 0xff) return null;
     const marker = bytes[offset + 1];
+    if (marker === undefined) return null;
     const length = bytes.readUInt16BE(offset + 2);
     const isFrame =
       marker >= 0xc0 &&
@@ -254,7 +255,7 @@ describe.each(articles.map((article) => [article.id, article] as const))(
         }
         for (const locale of routing.locales) {
           expect(
-            image.alt[locale]?.trim(),
+            image.alt[locale].trim(),
             `${image.src} ${locale}`,
           ).toBeTruthy();
         }
@@ -296,7 +297,7 @@ describe.each(articles.map((article) => [article.id, article] as const))(
         expect(source.url, source.name).toMatch(/^https:\/\//);
         for (const locale of routing.locales) {
           expect(
-            source.supports[locale]?.trim(),
+            source.supports[locale].trim(),
             `${source.name} ${locale}`,
           ).toBeTruthy();
         }
@@ -306,8 +307,8 @@ describe.each(articles.map((article) => [article.id, article] as const))(
     it("has localized search copy", () => {
       expect(article.search.keywords.length).toBeGreaterThan(0);
       for (const locale of routing.locales) {
-        expect(article.search.title[locale]?.trim(), locale).toBeTruthy();
-        expect(article.search.subtitle[locale]?.trim(), locale).toBeTruthy();
+        expect(article.search.title[locale].trim(), locale).toBeTruthy();
+        expect(article.search.subtitle[locale].trim(), locale).toBeTruthy();
       }
     });
 

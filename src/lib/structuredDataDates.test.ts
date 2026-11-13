@@ -66,9 +66,7 @@ describe("member-derived dates", () => {
         );
         if (members.length === 0) continue;
         expect(
-          Date.parse(
-            (await await pageDateFields(hub.path, locale)).dateModified,
-          ),
+          Date.parse((await pageDateFields(hub.path, locale)).dateModified),
           hub.path,
         ).toBeGreaterThanOrEqual(newest(members, locale));
       }
@@ -84,7 +82,7 @@ describe("member-derived dates", () => {
         if (members.length === 0) continue;
         expect(
           Date.parse(
-            (await await pageDateFields(guide.pathname, locale)).dateModified,
+            (await pageDateFields(guide.pathname, locale)).dateModified,
           ),
           guide.pathname,
         ).toBeGreaterThanOrEqual(newest(members, locale));
@@ -99,9 +97,7 @@ describe("member-derived dates", () => {
         const members = getRegionSpecies(region, catalogSpeciesFixture());
         if (members.length === 0) continue;
         expect(
-          Date.parse(
-            (await await regionDateFields(region.id, locale)).dateModified,
-          ),
+          Date.parse((await regionDateFields(region.id, locale)).dateModified),
           region.id,
         ).toBeGreaterThanOrEqual(newest(members, locale));
       }
@@ -170,7 +166,7 @@ describe("member-derived dates", () => {
       (item) => getSpeciesAtlasMeta(item.id).group === "snake",
     );
     expect(
-      Date.parse((await await quizDateFields("snake", "ka")).dateModified),
+      Date.parse((await quizDateFields("snake", "ka")).dateModified),
     ).toBeGreaterThanOrEqual(newest(pool, "ka"));
   });
 

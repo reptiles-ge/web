@@ -1,7 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
-
+import { NEWS_ARTICLES } from "../../tests/fixtures/newsArticlesSnapshot";
 import {
   REPTILES_API_TEST_TOKEN,
   resetReptilesApi,

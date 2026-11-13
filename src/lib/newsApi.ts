@@ -1,5 +1,6 @@
 import { cache } from "react";
 
+import type { NewsSeriesId } from "@/data/newsSeries";
 import type {
   NewsArticle,
   NewsListArticle,
@@ -10,7 +11,7 @@ import type {
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { type AppLocale, routing } from "@/i18n/routing";
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { MAX_PAGE_SIZE, type PageParams } from "@/lib/pagination";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
@@ -21,7 +22,7 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
     { header: { "x-locale": locale }, param: { slug } },
     speciesFetchOptions(["news", `news:${slug}`]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     const status: number = response.status;
     if (status === 404) return null;
     throw new Error(`News API answered ${status} for ${slug}`);
@@ -31,11 +32,15 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
 
 export const HOME_NEWS_LIMIT = 5;
 
-export type NewsListQuery = PageParams & {
+export type NewsListFilters = {
   author?: string;
   hub?: GroupHubId;
-  q?: string;
+  region?: string;
+  series?: NewsSeriesId;
+  species?: string;
 };
+
+export type NewsListQuery = NewsListFilters & PageParams & { q?: string };
 
 type NewsListItem = Awaited<ReturnType<typeof fetchNewsPage>>["data"][number];
 
@@ -47,10 +52,26 @@ export const getNewsList = cache(async (locale: AppLocale, limit?: number) => {
 });
 
 export const getNewsListArticlesForAuthor = cache(
-  async (locale: AppLocale, authorId: string): Promise<NewsListArticle[]> =>
-    (await fetchAllNews(locale, authorId)).map((item) =>
-      toNewsListArticle(item, locale),
-    ),
+  (locale: AppLocale, authorId: string) =>
+    fetchFilteredNews(locale, { author: authorId }),
+);
+
+export const getNewsListArticlesForHub = cache(
+  (locale: AppLocale, hub: GroupHubId) => fetchFilteredNews(locale, { hub }),
+);
+
+export const getNewsListArticlesForRegion = cache(
+  (locale: AppLocale, region: string) => fetchFilteredNews(locale, { region }),
+);
+
+export const getNewsListArticlesForSpecies = cache(
+  (locale: AppLocale, species: string) =>
+    fetchFilteredNews(locale, { species }),
+);
+
+export const getNewsListArticlesInSeries = cache(
+  async (locale: AppLocale, series: NewsSeriesId) =>
+    (await fetchFilteredNews(locale, { series })).reverse(),
 );
 
 export const getNewsListArticles = cache(
@@ -59,6 +80,14 @@ export const getNewsListArticles = cache(
       toNewsListArticle(item, locale),
     ),
 );
+
+export const getNewsArticles = cache(async (): Promise<NewsArticle[]> => {
+  const summaries = await getNewsSummaries();
+  const articles = await Promise.all(
+    summaries.map(({ slug }) => getNewsArticle(slug)),
+  );
+  return articles.filter((article) => article !== null);
+});
 
 export const getNewsSummaries = cache(async (): Promise<NewsSummary[]> => {
   const lists = await Promise.all(
@@ -187,23 +216,36 @@ export const getNewsArticle = cache(
   },
 );
 
-async function fetchAllNews(locale: AppLocale, author?: string) {
+async function fetchAllNews(locale: AppLocale, filters: NewsListFilters = {}) {
   const first = await fetchNewsPage(locale, {
-    author,
+    ...filters,
     limit: MAX_PAGE_SIZE,
     page: 1,
   });
   const rest = await Promise.all(
     Array.from({ length: first.pageCount - 1 }, (_, index) =>
-      fetchNewsPage(locale, { author, limit: MAX_PAGE_SIZE, page: index + 2 }),
+      fetchNewsPage(locale, {
+        ...filters,
+        limit: MAX_PAGE_SIZE,
+        page: index + 2,
+      }),
     ),
   );
   return [first, ...rest].flatMap((result) => result.data);
 }
 
+async function fetchFilteredNews(
+  locale: AppLocale,
+  filters: NewsListFilters,
+): Promise<NewsListArticle[]> {
+  return (await fetchAllNews(locale, filters)).map((item) =>
+    toNewsListArticle(item, locale),
+  );
+}
+
 async function fetchNewsPage(
   locale: AppLocale,
-  { author, hub, limit, page, q }: NewsListQuery,
+  { author, hub, limit, page, q, region, series, species }: NewsListQuery,
 ) {
   const response = await createApiClient().v1.news.$get(
     {
@@ -214,11 +256,14 @@ async function fetchNewsPage(
         limit: String(limit),
         page: String(page),
         ...(q ? { q } : {}),
+        ...(region ? { region } : {}),
+        ...(series ? { series } : {}),
+        ...(species ? { species } : {}),
       },
     },
     speciesFetchOptions(["news"]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     throw new Error(`News API answered ${response.status}`);
   }
   return response.json();

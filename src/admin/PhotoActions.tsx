@@ -100,7 +100,7 @@ export function PhotoActions({
           description="It leaves the gallery in every language. A cover that uses it moves to the next photo, or the species is left without a photo. The file stays on the CDN."
           okButtonProps={{ danger: true }}
           okText="Delete"
-          onConfirm={remove}
+          onConfirm={() => void remove()}
           title="Delete this photo?"
         >
           <Button danger loading={deleting} size="small">
@@ -122,7 +122,7 @@ export function PhotoActions({
           form={form}
           id={formId}
           layout="vertical"
-          onFinish={save}
+          onFinish={(values) => void save(values)}
         >
           <PhotoCreditFormFields />
         </Form>

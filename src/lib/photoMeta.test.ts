@@ -30,14 +30,14 @@ describe("galleryImageObject", () => {
         creator: expect.objectContaining({
           "@type": "Person",
           name: "სანდრო ხახვა",
-        }),
+        }) as Record<string, unknown>,
       }),
     );
     expect(data).toEqual(
       expect.objectContaining({
         creator: expect.objectContaining({
-          url: expect.stringMatching(/^https?:\/\//),
-        }),
+          url: expect.stringMatching(/^https?:\/\//) as string,
+        }) as Record<string, unknown>,
       }),
     );
     expect(data.creator).toHaveProperty(
@@ -142,11 +142,11 @@ describe("galleryImageObjects", () => {
       undefined,
       "ზაური ხაჩიძე",
     ]);
-    expect(objects[0].creator).toEqual({
+    expect(objects[0]?.creator).toEqual({
       "@type": "Person",
       name: "Charles J. Sharp",
     });
-    expect(objects[1].creator).toHaveProperty("url");
+    expect(objects[1]?.creator).toHaveProperty("url");
   });
 });
 

@@ -2,7 +2,7 @@ import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
-import type { NewsSectionBlock } from "@/data/newsTypes";
+import type { NewsListArticle, NewsSectionBlock } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -18,9 +18,6 @@ import { NewsShareButtons } from "@/components/NewsShareButtons";
 import { ViewCount } from "@/components/ViewCount";
 import {
   getNewsCopy,
-  getPublishedNewsArticles,
-  getPublishedNewsArticlesInSeries,
-  newsLocalizedTitle,
   newsPhotoBySrc,
   newsRelatedHubs,
   newsRelatedRegions,
@@ -32,14 +29,16 @@ import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import {
   formatContentDate,
   formatContentDateShort,
   formatPhotoDate,
 } from "@/lib/formatDate";
 import { newsArticlePath, newsArticleUrl, newsReadMinutes } from "@/lib/news";
+import {
+  getNewsListArticles,
+  getNewsListArticlesInSeries,
+} from "@/lib/newsApi";
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import {
   localizeNewsPhoto,
@@ -84,7 +83,6 @@ type NewsCopy = NonNullable<ReturnType<typeof getNewsCopy>>;
 type NewsPartProps = {
   article: NewsArticle;
   copy: NewsCopy;
-  editable: boolean;
   locale: AppLocale;
 };
 
@@ -94,8 +92,7 @@ export async function NewsArticlePage({
 }: NewsArticlePageProps) {
   const copy = getNewsCopy(article, locale);
   if (!copy) return null;
-  const editable = locale === "ka" && isLocalAdminEnabled();
-  const [t, facts, atlasLinks, [visual]] = await Promise.all([
+  const [t, facts, atlasLinks, [visual = null]] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     newsFacts(article, locale),
     newsAtlasLinks(article, locale),
@@ -114,7 +111,6 @@ export async function NewsArticlePage({
         <NewsArticleHeader
           article={article}
           copy={copy}
-          editable={editable}
           locale={locale}
           visual={visual}
         />
@@ -130,12 +126,7 @@ export async function NewsArticlePage({
               ) : null}
             </aside>
             <div className="min-w-0">
-              <NewsArticleBody
-                article={article}
-                copy={copy}
-                editable={editable}
-                locale={locale}
-              />
+              <NewsArticleBody article={article} copy={copy} locale={locale} />
               <NewsArticleSources article={article} locale={locale} />
               <NewsArticleSeries article={article} locale={locale} />
             </div>
@@ -161,7 +152,6 @@ function NewsArticleBlock({
   article,
   block,
   blockIndex,
-  editable,
   locale,
   photoCreditLabel,
   photoFromAtlas,
@@ -170,7 +160,6 @@ function NewsArticleBlock({
   article: NewsArticle;
   block: NewsSectionBlock;
   blockIndex: number;
-  editable: boolean;
   locale: AppLocale;
   photoCreditLabel: string;
   photoFromAtlas: string;
@@ -193,7 +182,6 @@ function NewsArticleBlock({
       <NewsRichText
         articleId={article.id}
         blockIndex={blockIndex}
-        editable={editable}
         locale={locale}
         parts={block.parts}
         sectionIndex={sectionIndex}
@@ -202,22 +190,13 @@ function NewsArticleBlock({
   );
 }
 
-async function NewsArticleBody({
-  article,
-  copy,
-  editable,
-  locale,
-}: NewsPartProps) {
+async function NewsArticleBody({ article, copy, locale }: NewsPartProps) {
   const t = await getTranslations({ locale, namespace: "news" });
-  const editorId = editable ? article.id : undefined;
   const updatedLabel = newsUpdatedLabel(article, locale);
 
   return (
     <>
-      <p
-        className="mt-7 text-[18px] leading-[1.65] font-medium xl:mt-0 xl:text-[21px]"
-        {...contentEditorAttributes("news", editorId, "lead")}
-      >
+      <p className="mt-7 text-[18px] leading-[1.65] font-medium xl:mt-0 xl:text-[21px]">
         {copy.lead}
       </p>
       {copy.sections.map((section, sectionIndex) => (
@@ -234,15 +213,7 @@ async function NewsArticleBody({
             className="scroll-mt-36 text-[24px] leading-[1.2] font-semibold tracking-[-0.012em] md:text-[30px]"
             slugSource={section.heading}
           >
-            <span
-              {...contentEditorAttributes(
-                "news",
-                editorId,
-                `sections.${sectionIndex}.heading`,
-              )}
-            >
-              {section.heading}
-            </span>
+            <span>{section.heading}</span>
           </AnchoredHeading>
           <div className="mt-[18px] space-y-[22px] text-[16.5px] leading-[1.8] text-(--nw-soft) md:text-[18px]">
             {section.blocks.map((block, index) => (
@@ -250,7 +221,6 @@ async function NewsArticleBody({
                 article={article}
                 block={block}
                 blockIndex={index}
-                editable={editable}
                 key={`${section.heading}:${index}`}
                 locale={locale}
                 photoCreditLabel={t("photoCredit")}
@@ -283,7 +253,6 @@ async function NewsArticleBody({
 async function NewsArticleHeader({
   article,
   copy,
-  editable,
   locale,
   visual,
 }: NewsPartProps & { visual: NewsVisual | null }) {
@@ -294,7 +263,6 @@ async function NewsArticleHeader({
   ]);
   const hub = newsCategoryHub(article);
   const categoryHub = newsRelatedHubs(article).find((item) => item.id === hub);
-  const editorId = editable ? article.id : undefined;
 
   return (
     <header className={`${wrapClass} pt-[92px] md:pt-[136px]`}>
@@ -350,16 +318,10 @@ async function NewsArticleHeader({
             ) : null}
           </span>
         </div>
-        <h1
-          className="mt-3.5 text-[34px] leading-[1.12] font-semibold tracking-[-0.02em] text-balance md:mt-[22px] md:text-[48px] md:leading-[1.08] lg:text-[60px] lg:leading-[1.06] lg:tracking-[-0.028em]"
-          {...contentEditorAttributes("news", editorId, "title")}
-        >
+        <h1 className="mt-3.5 text-[34px] leading-[1.12] font-semibold tracking-[-0.02em] text-balance md:mt-[22px] md:text-[48px] md:leading-[1.08] lg:text-[60px] lg:leading-[1.06] lg:tracking-[-0.028em]">
           {copy.title}
         </h1>
-        <p
-          className="mt-3.5 text-[17px] leading-[1.55] text-(--nw-soft) md:mx-auto md:mt-[22px] md:max-w-[760px] md:text-[20px]"
-          {...contentEditorAttributes("news", editorId, "dek")}
-        >
+        <p className="mt-3.5 text-[17px] leading-[1.55] text-(--nw-soft) md:mx-auto md:mt-[22px] md:max-w-[760px] md:text-[20px]">
           {copy.dek}
         </p>
         <div className="mt-[18px] flex items-center gap-2.5 md:mt-7 md:justify-center md:gap-3.5">
@@ -427,14 +389,14 @@ async function NewsArticleHeader({
 async function NewsArticleSeries({ article, locale }: NewsArticlePageProps) {
   if (!article.series) return null;
   const t = await getTranslations({ locale, namespace: "news" });
-  const items = getPublishedNewsArticlesInSeries(article, locale).map(
+  const items = (await getNewsListArticlesInSeries(locale, article.series)).map(
     (item) => ({
       current: item.id === article.id,
       dateLabel: formatContentDate(item.publishedAt, locale),
       href: newsArticlePath(locale, item.slug),
       id: item.id,
       publishedAt: item.publishedAt,
-      title: newsLocalizedTitle(item, locale),
+      title: item.title,
     }),
   );
 
@@ -607,7 +569,7 @@ function NewsContinueCard({
   locale,
   visual,
 }: {
-  article: NewsArticle;
+  article: NewsListArticle;
   dark?: boolean;
   eyebrow: null | string;
   footer: string;
@@ -648,7 +610,7 @@ function NewsContinueCard({
           <time dateTime={article.publishedAt}>{dateLabel}</time>
         </span>
         <span className="line-clamp-3 text-[16px] leading-[1.3] font-semibold md:text-[20px]">
-          {newsLocalizedTitle(article, locale)}
+          {article.title}
         </span>
         <span
           className={`inline-flex items-center gap-2 text-[13px] ${
@@ -676,7 +638,7 @@ async function NewsContinueReading({
   article: NewsArticle;
   locale: AppLocale;
 }) {
-  const { next, related } = pickContinueReading(article, locale);
+  const { next, related } = await pickContinueReading(article, locale);
   const [t, tNav, [relatedVisual, nextVisual]] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
@@ -717,9 +679,7 @@ async function NewsContinueReading({
             <NewsContinueCard
               article={related}
               eyebrow={relatedHubId ? tNav(relatedHubId) : null}
-              footer={t("readTime", {
-                minutes: newsReadMinutes(related, locale),
-              })}
+              footer={t("readTime", { minutes: related.readMinutes })}
               locale={locale}
               visual={relatedVisual}
             />
@@ -949,8 +909,8 @@ function NewsVisualPreload({ visual }: { visual: NewsVisual | null }) {
   );
 }
 
-function pickContinueReading(article: NewsArticle, locale: AppLocale) {
-  const articles = getPublishedNewsArticles(locale);
+async function pickContinueReading(article: NewsArticle, locale: AppLocale) {
+  const articles = await getNewsListArticles(locale);
   const index = articles.findIndex((item) => item.id === article.id);
   const next =
     articles.length > 1 ? articles[(index + 1) % articles.length] : undefined;
@@ -971,7 +931,7 @@ function sectionNumber(index: number) {
   return String(index + 1).padStart(2, "0");
 }
 
-function sharesTopic(article: NewsArticle, topics: ReadonlySet<string>) {
+function sharesTopic(article: NewsListArticle, topics: ReadonlySet<string>) {
   return (
     article.relatedSpeciesIds.some((id) => topics.has(`species:${id}`)) ||
     article.relatedRegionIds.some((id) => topics.has(`region:${id}`)) ||

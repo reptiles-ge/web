@@ -50,7 +50,6 @@ import {
 } from "@/lib/siteSearch";
 import { transliterateKa } from "@/lib/slugify";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
-import { hasSpeciesRoute } from "@/lib/speciesSlugTable";
 
 type PageCopy = {
   icon: SearchIcon;
@@ -1131,9 +1130,9 @@ export function buildSearchIndex(
     ),
   ];
 
-  const species = base
-    .filter((item) => hasSpeciesRoute(item.id))
-    .map((item) => toSpeciesDocument(locale, item, localized));
+  const species = base.map((item) =>
+    toSpeciesDocument(locale, item, localized),
+  );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
   const contributorsById = Object.fromEntries(
     routing.locales.map((item) => [
@@ -1186,9 +1185,7 @@ export function buildSearchIndex(
       id: article.id,
       key: `news:${article.id}`,
       kind: "page" as const,
-      scoreTitles: Object.values(article.copy).flatMap((copy) =>
-        copy ? [copy.title] : [],
-      ),
+      scoreTitles: Object.values(article.copy).map((copy) => copy.title),
       searchText: blob(newsSearchKeywords(article)),
       subtitle: dek,
       title,

@@ -139,7 +139,7 @@ export function createHalyomorphaRangeMap({
     updateWhenZooming: false,
   }).addTo(map);
   const handleTileError = (event: L.TileEvent) => {
-    const tile = event.tile as HTMLImageElement;
+    const tile = event.tile;
     if (tile.dataset.fallback === "true") {
       tile.onerror = null;
       tile.src = ERROR_TILE_URL;
@@ -288,7 +288,7 @@ export function createHalyomorphaRangeMap({
   }
 
   L.polyline(
-    rings.map((ring) => [...ring, ring[0]]),
+    rings.map((ring) => [...ring, ...ring.slice(0, 1)]),
     { className: "range-outline", interactive: false, renderer },
   ).addTo(map);
   const hoverOutline = L.polyline([], {
@@ -304,8 +304,8 @@ export function createHalyomorphaRangeMap({
   const ringOf = (regionId: null | RegionPathId) => {
     const layer = regionId ? regionLayers.get(regionId) : undefined;
     if (!layer) return [];
-    const [ring] = layer.getLatLngs() as L.LatLng[][];
-    return [...ring, ring[0]];
+    const [ring = []] = layer.getLatLngs() as L.LatLng[][];
+    return [...ring, ...ring.slice(0, 1)];
   };
 
   const radius = dotRadius();
@@ -648,11 +648,11 @@ function clusterSize(count: number) {
 }
 
 function collidingGroups(groups: RecordGroup[]) {
-  for (let i = 0; i < groups.length; i += 1) {
-    for (let j = i + 1; j < groups.length; j += 1) {
-      const reach = (markRadius(groups[i]) + markRadius(groups[j])) * 0.9;
-      if (groups[i].center.distanceTo(groups[j].center) < reach) {
-        return [groups[i], groups[j]] as const;
+  for (const [i, left] of groups.entries()) {
+    for (const right of groups.slice(i + 1)) {
+      const reach = (markRadius(left) + markRadius(right)) * 0.9;
+      if (left.center.distanceTo(right.center) < reach) {
+        return [left, right] as const;
       }
     }
   }
@@ -723,10 +723,10 @@ function groupRecords(items: RecordPoint[]): RecordGroup[] {
 }
 
 function hasOverlap(members: RecordPoint[]) {
-  for (let i = 0; i < members.length; i += 1) {
-    for (let j = i + 1; j < members.length; j += 1) {
-      const reach = members[i].radius + members[j].radius;
-      if (members[i].point.distanceTo(members[j].point) < reach) return true;
+  for (const [i, left] of members.entries()) {
+    for (const right of members.slice(i + 1)) {
+      const reach = left.radius + right.radius;
+      if (left.point.distanceTo(right.point) < reach) return true;
     }
   }
   return false;
@@ -745,6 +745,7 @@ function outlineRings(features: HalyomorphaRangeRegionFeature[]) {
       for (let index = 0; index < ring.length - 1; index += 1) {
         const from = ring[index];
         const to = ring[index + 1];
+        if (!from || !to) continue;
         const [a, b] = [key(from), key(to)].sort();
         const id = `${a}|${b}`;
         edges.set(id, edges.has(id) ? null : [from, to]);

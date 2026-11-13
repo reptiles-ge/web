@@ -2,7 +2,6 @@ import { describe, expect, it, vi } from "vitest";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { newsArticleUrl, newsDateTime } from "@/lib/news";
 import {
   getNewsListPage,
@@ -25,6 +24,7 @@ import {
   MANY_NEWS_EDITED_AT,
   MANY_NEWS_TOTAL,
   MANY_NEWS_TR_TOTAL,
+  manyPublishedNews,
   toNewsListArticle,
 } from "../../tests/fixtures/manyNews";
 
@@ -33,32 +33,25 @@ vi.mock("@/i18n/navigation", async () => {
   return { getPathname: fakeGetPathname };
 });
 
-vi.mock("@/data/news", async (importOriginal) => {
-  const { withManyNews } = await import("../../tests/fixtures/manyNews");
-  return withManyNews(await importOriginal());
-});
-
 vi.mock("@/lib/newsApi", async () => {
   const { manyNewsListArticles, manyNewsListPage } =
     await import("../../tests/fixtures/manyNews");
-  const actual =
-    await vi.importActual<typeof import("@/data/news")>("@/data/news");
   return {
     getNewsListArticles: async (locale: AppLocale) =>
-      manyNewsListArticles(actual, locale),
+      manyNewsListArticles(locale),
     getNewsListArticlesPage: async (
       locale: AppLocale,
       page: number,
       limit: number,
-    ) => manyNewsListPage(actual, locale, page, limit),
+    ) => manyNewsListPage(locale, page, limit),
   };
 });
 
 describe("news pages", () => {
   it("keeps the first page to the page size and puts the rest on archive pages", () => {
-    const first = getNewsPage(getPublishedNewsArticles("en"), 1);
-    const second = getNewsPage(getPublishedNewsArticles("en"), 2);
-    const third = getNewsPage(getPublishedNewsArticles("en"), 3);
+    const first = getNewsPage(manyPublishedNews("en"), 1);
+    const second = getNewsPage(manyPublishedNews("en"), 2);
+    const third = getNewsPage(manyPublishedNews("en"), 3);
 
     expect(first?.articles).toHaveLength(NEWS_PAGE_SIZE);
     expect(second?.articles).toHaveLength(NEWS_PAGE_SIZE);
@@ -71,33 +64,33 @@ describe("news pages", () => {
       total: MANY_NEWS_TOTAL,
     });
     expect(second?.articles[0]?.slug).toBe(
-      getPublishedNewsArticles("en")[NEWS_PAGE_SIZE]?.slug,
+      manyPublishedNews("en")[NEWS_PAGE_SIZE]?.slug,
     );
   });
 
   it("returns nothing outside the page range", () => {
-    expect(getNewsPage(getPublishedNewsArticles("en"), 0)).toBeNull();
-    expect(getNewsPage(getPublishedNewsArticles("en"), 4)).toBeNull();
-    expect(getNewsPage(getPublishedNewsArticles("en"), 1.5)).toBeNull();
-    expect(getNewsPage(getPublishedNewsArticles("tr"), 3)).toBeNull();
+    expect(getNewsPage(manyPublishedNews("en"), 0)).toBeNull();
+    expect(getNewsPage(manyPublishedNews("en"), 4)).toBeNull();
+    expect(getNewsPage(manyPublishedNews("en"), 1.5)).toBeNull();
+    expect(getNewsPage(manyPublishedNews("tr"), 3)).toBeNull();
   });
 
   it("counts pages per locale", () => {
-    expect(newsPageCounts(getPublishedNewsArticles()).ka).toBe(3);
-    expect(newsPageCounts(getPublishedNewsArticles()).tr).toBe(
+    expect(newsPageCounts(manyPublishedNews()).ka).toBe(3);
+    expect(newsPageCounts(manyPublishedNews()).tr).toBe(
       Math.ceil(MANY_NEWS_TR_TOTAL / NEWS_PAGE_SIZE),
     );
-    expect(
-      newsArchivePages("ka", newsPageCounts(getPublishedNewsArticles())),
-    ).toEqual([2, 3]);
-    expect(
-      newsArchivePages("tr", newsPageCounts(getPublishedNewsArticles())),
-    ).toEqual([2]);
+    expect(newsArchivePages("ka", newsPageCounts(manyPublishedNews()))).toEqual(
+      [2, 3],
+    );
+    expect(newsArchivePages("tr", newsPageCounts(manyPublishedNews()))).toEqual(
+      [2],
+    );
   });
 
   it("pages the API list the same way", async () => {
     expect(await getNewsListPageCounts()).toEqual(
-      newsPageCounts(getPublishedNewsArticles()),
+      newsPageCounts(manyPublishedNews()),
     );
     const second = await getNewsListPage("en", 2);
     expect(second).toMatchObject({
@@ -108,7 +101,7 @@ describe("news pages", () => {
       total: MANY_NEWS_TOTAL,
     });
     expect(second?.articles).toEqual(
-      getNewsPage(getPublishedNewsArticles("en"), 2)!.articles.map((article) =>
+      getNewsPage(manyPublishedNews("en"), 2)!.articles.map((article) =>
         toNewsListArticle(article, "en"),
       ),
     );
@@ -116,15 +109,13 @@ describe("news pages", () => {
   });
 
   it("only emits archive pages that have articles", () => {
-    const params = newsArchiveStaticParams(
-      newsPageCounts(getPublishedNewsArticles()),
-    );
+    const params = newsArchiveStaticParams(newsPageCounts(manyPublishedNews()));
     expect(params).toContainEqual({ locale: "ka", page: "3" });
     expect(params).not.toContainEqual({ locale: "tr", page: "3" });
     expect(params.some((param) => param.page === "1")).toBe(false);
     for (const param of params) {
       expect(
-        getNewsPage(getPublishedNewsArticles(param.locale), Number(param.page))
+        getNewsPage(manyPublishedNews(param.locale), Number(param.page))
           ?.articles.length,
       ).toBeGreaterThan(0);
     }
@@ -148,11 +139,7 @@ describe("news pages", () => {
 
   it("self-canonicalises and lists hreflang only for locales that have the page", () => {
     expect(
-      newsArchiveAlternates(
-        "en",
-        2,
-        newsPageCounts(getPublishedNewsArticles()),
-      ),
+      newsArchiveAlternates("en", 2, newsPageCounts(manyPublishedNews())),
     ).toEqual({
       canonical: "https://reptiles.ge/en/news/page/2",
       languages: {
@@ -164,28 +151,28 @@ describe("news pages", () => {
       },
     });
     expect(
-      newsArchiveAlternates("ka", 3, newsPageCounts(getPublishedNewsArticles()))
+      newsArchiveAlternates("ka", 3, newsPageCounts(manyPublishedNews()))
         .languages,
     ).not.toHaveProperty("tr");
     expect(
-      newsArchiveAlternates("ka", 4, newsPageCounts(getPublishedNewsArticles()))
+      newsArchiveAlternates("ka", 4, newsPageCounts(manyPublishedNews()))
         .languages,
     ).toEqual({});
   });
 
   it("dates a page by its newest edit or by the latest article that shifted it", () => {
-    const [first] = getPublishedNewsArticles("ka");
+    const [first] = manyPublishedNews("ka");
     const newest = newsDateTime(first!.publishedAt);
     expect(
       newsPageDateModified(
         first,
-        getNewsPage(getPublishedNewsArticles("ka"), 3)!.articles,
+        getNewsPage(manyPublishedNews("ka"), 3)!.articles,
       ),
     ).toBe(newest);
     expect(
       newsPageDateModified(
         first,
-        getNewsPage(getPublishedNewsArticles("ka"), 2)!.articles,
+        getNewsPage(manyPublishedNews("ka"), 2)!.articles,
       ),
     ).toBe(newsDateTime(MANY_NEWS_EDITED_AT));
     expect(newsPageDateModified(first, [])).toBe(newest);
@@ -193,16 +180,15 @@ describe("news pages", () => {
     expect(
       newsPageDateModified(
         undefined,
-        getNewsPage(getPublishedNewsArticles("ka"), 2)!.articles,
+        getNewsPage(manyPublishedNews("ka"), 2)!.articles,
       ),
     ).toBe(newsDateTime(MANY_NEWS_EDITED_AT));
   });
 
   it("builds BreadcrumbList and a CollectionPage limited to the listed articles", () => {
-    const articles = getNewsPage(
-      getPublishedNewsArticles("en"),
-      2,
-    )!.articles.map((article) => toNewsListArticle(article, "en"));
+    const articles = getNewsPage(manyPublishedNews("en"), 2)!.articles.map(
+      (article) => toNewsListArticle(article, "en"),
+    );
     const [breadcrumb, collection] = newsListingJsonLd({
       articles,
       breadcrumbs: [

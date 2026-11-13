@@ -12,10 +12,8 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { getPublishedNewsForSpecies } from "@/data/news";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
@@ -24,6 +22,7 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { photoRights } from "@/lib/imageRights";
 import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { getNewsListArticlesForSpecies } from "@/lib/newsApi";
 import {
   breadcrumbListLd,
   pageNodeId,
@@ -44,9 +43,7 @@ import {
   openGraphJpeg,
   organizationRef,
   siteConfig,
-  speciesAlternates,
   speciesOgImageUrl,
-  speciesPageUrl,
 } from "@/lib/site";
 import { siteDateTimeOrRaw } from "@/lib/siteTime";
 import {
@@ -73,8 +70,14 @@ import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
 } from "@/lib/speciesRelated";
-import { getSpeciesPublicSlug, speciesHref } from "@/lib/speciesRoutes";
-import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
+import {
+  getSpeciesSlugMaps,
+  liveSpeciesAlternates,
+  liveSpeciesPageUrl,
+  liveSpeciesPath,
+  liveSpeciesPublicSlug,
+  resolveLiveSpeciesIdInHub,
+} from "@/lib/speciesSlugRuntime";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
@@ -131,9 +134,9 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       };
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
-    const id = resolveSpeciesIdInHub(hubId, slug);
+    const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     const loaded = id ? await loadSpeciesPage(id, locale) : null;
 
     if (!loaded) {
@@ -164,7 +167,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             scientific: item.scientificName,
           })
         : speciesMetaDescription(item, locale));
-    const url = speciesPageUrl(locale, item.id);
+    const slugMaps = await getSpeciesSlugMaps();
+    const url = liveSpeciesPageUrl(slugMaps, locale, item.id);
     const description = kaMetaDescriptionOverride(
       locale,
       new URL(url).pathname,
@@ -182,7 +186,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     );
 
     return {
-      alternates: speciesAlternates(locale, item.id),
+      alternates: liveSpeciesAlternates(slugMaps, locale, item.id),
       description,
       keywords,
       openGraph: {
@@ -215,17 +219,18 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       notFound();
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     setRequestLocale(locale);
 
-    const id = resolveSpeciesIdInHub(hubId, slug);
+    const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     if (!id) {
       notFound();
     }
 
-    const expectedSlug = getSpeciesPublicSlug(id, locale);
+    const slugMaps = await getSpeciesSlugMaps();
+    const expectedSlug = liveSpeciesPublicSlug(slugMaps, id, locale);
     if (slug !== expectedSlug) {
-      permanentRedirect(getPathname({ href: speciesHref(id, locale), locale }));
+      permanentRedirect(liveSpeciesPath(slugMaps, id, locale));
     }
 
     const loaded = await loadSpeciesPage(id, locale);
@@ -255,7 +260,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       venomousLabel: tProfile("breadcrumbVenomous"),
     });
 
-    const pageUrl = speciesPageUrl(locale, item.id);
+    const pageUrl = liveSpeciesPageUrl(slugMaps, locale, item.id);
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const structuredData = speciesStructuredData({
       breadcrumbCrumbs,
@@ -290,7 +295,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           />
         </ClientMessagesProvider>
         <NewsRelatedBlock
-          articles={getPublishedNewsForSpecies(raw.id, locale)}
+          articles={await getNewsListArticlesForSpecies(locale, raw.id)}
           locale={locale}
         />
       </>
@@ -368,7 +373,7 @@ function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
   const ownStems = new Set(epithets.map(epithetStem));
   const binomial = new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g");
   const named = Array.from(sourceName.matchAll(binomial), (match) =>
-    epithetStem(match[1]),
+    epithetStem(match[1] ?? ""),
   );
   return named.length > 0 && !named.some((stem) => ownStems.has(stem));
 }
@@ -581,13 +586,13 @@ function speciesTaxonJsonLd(
 function withoutSupersededIucnAssessments(urls: string[]) {
   const latest = new Map<string, number>();
   for (const url of urls) {
-    const match = IUCN_ASSESSMENT_URL.exec(url);
-    if (!match) continue;
-    latest.set(match[1], Math.max(latest.get(match[1]) ?? 0, Number(match[2])));
+    const [, species, assessment] = IUCN_ASSESSMENT_URL.exec(url) ?? [];
+    if (species === undefined || assessment === undefined) continue;
+    latest.set(species, Math.max(latest.get(species) ?? 0, Number(assessment)));
   }
   return urls.filter((url) => {
-    const match = IUCN_ASSESSMENT_URL.exec(url);
-    return !match || Number(match[2]) === latest.get(match[1]);
+    const [, species, assessment] = IUCN_ASSESSMENT_URL.exec(url) ?? [];
+    return species === undefined || Number(assessment) === latest.get(species);
   });
 }
 

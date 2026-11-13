@@ -59,7 +59,7 @@ export function handleError(error: Error, c: Context) {
   if (error instanceof ApiError) {
     return errorResponse(
       c,
-      error.status as ContentfulStatusCode,
+      error.status,
       error.code,
       error.message,
       error.details,
@@ -68,7 +68,7 @@ export function handleError(error: Error, c: Context) {
   if (error instanceof HTTPException) {
     return errorResponse(
       c,
-      error.status as ContentfulStatusCode,
+      error.status,
       codeForStatus(error.status),
       error.message,
     );

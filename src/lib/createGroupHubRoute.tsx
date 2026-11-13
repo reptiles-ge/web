@@ -9,12 +9,11 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
-import { getPublishedNewsForHub } from "@/data/news";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { GROUP_HUB_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
 import { type HubFaqValues, hubFaqValues } from "@/lib/groupHubFaqValues";
@@ -24,6 +23,7 @@ import {
   GROUP_HUBS,
   type GroupHubId,
 } from "@/lib/groupHubs";
+import { getNewsListArticlesForHub } from "@/lib/newsApi";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   breadcrumbListLd,
@@ -52,7 +52,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const { locale: localeParam } = await params;
     if (!hasLocale(routing.locales, localeParam)) return {};
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
     const catalog = await getCatalogSpeciesByGroup(hub.group, locale);
@@ -83,7 +83,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       notFound();
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     setRequestLocale(locale);
 
     const t = await getTranslations({ locale, namespace: hub.messageKey });
@@ -146,7 +146,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
           />
         </ClientMessagesProvider>
         <NewsRelatedBlock
-          articles={getPublishedNewsForHub(hubId, locale)}
+          articles={await getNewsListArticlesForHub(locale, hubId)}
           locale={locale}
         />
       </>

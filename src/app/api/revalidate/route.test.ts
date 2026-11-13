@@ -62,11 +62,10 @@ describe("POST /api/revalidate", () => {
     );
     expect(response.status).toBe(200);
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
-    expect(revalidateTag).toHaveBeenCalledWith("species", "max");
-    expect(revalidateTag).toHaveBeenCalledWith(
-      "species:macrovipera-lebetina",
-      "max",
-    );
+    expect(revalidateTag).toHaveBeenCalledWith("species", { expire: 0 });
+    expect(revalidateTag).toHaveBeenCalledWith("species:macrovipera-lebetina", {
+      expire: 0,
+    });
     expect(refreshSpeciesApiCache).toHaveBeenCalledWith([
       "species",
       "species:macrovipera-lebetina",
@@ -82,6 +81,26 @@ describe("POST /api/revalidate", () => {
     expect(
       vi.mocked(refreshSpeciesApiCache).mock.invocationCallOrder[0],
     ).toBeLessThan(vi.mocked(revalidateTag).mock.invocationCallOrder[0]!);
+  });
+
+  it("warms a species published after the deploy at its live slug", async () => {
+    vi.stubEnv("REVALIDATE_TOKEN", "secret");
+    vi.mocked(refreshSpeciesApiCache).mockResolvedValueOnce({
+      hubById: { "new-bird": "birds" },
+      idByAnySlug: { "akhali-chiti": "new-bird", "new-bird": "new-bird" },
+      kaSlugById: { "new-bird": "akhali-chiti" },
+    });
+    const response = await POST(
+      request({ tags: ["species", "species:new-bird"] }, "secret"),
+    );
+    expect(await response.json()).toEqual({
+      warm: [
+        "/prinvelebi/akhali-chiti",
+        "/en/birds/new-bird",
+        "/ru/birds/new-bird",
+        "/tr/birds/new-bird",
+      ],
+    });
   });
 
   it("rejects a missing or wrong token, and a missing secret", async () => {
@@ -102,10 +121,10 @@ describe("POST /api/revalidate", () => {
       request({ tags: ["news", "news:lagodekhi-iucn-mwvane-sia"] }, "secret"),
     );
     expect(response.status).toBe(200);
-    expect(revalidateTag).toHaveBeenCalledWith("news", "max");
+    expect(revalidateTag).toHaveBeenCalledWith("news", { expire: 0 });
     expect(revalidateTag).toHaveBeenCalledWith(
       "news:lagodekhi-iucn-mwvane-sia",
-      "max",
+      { expire: 0 },
     );
     expect(await response.json()).toEqual({
       warm: [
@@ -123,7 +142,7 @@ describe("POST /api/revalidate", () => {
     const response = await POST(request({ tags }, "secret"));
     expect(response.status).toBe(200);
     for (const tag of tags) {
-      expect(revalidateTag).toHaveBeenCalledWith(tag, "max");
+      expect(revalidateTag).toHaveBeenCalledWith(tag, { expire: 0 });
     }
     expect(refreshSpeciesApiCache).toHaveBeenCalledWith(tags);
     expect(await response.json()).toEqual({

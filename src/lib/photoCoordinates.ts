@@ -12,7 +12,7 @@ export function hasPhotoCoordinates(
 ): credit is PhotoCoordinates & PhotoCredit {
   return (
     typeof credit?.lat === "number" &&
-    typeof credit?.lng === "number" &&
+    typeof credit.lng === "number" &&
     Number.isFinite(credit.lat) &&
     Number.isFinite(credit.lng)
   );

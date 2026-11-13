@@ -64,7 +64,6 @@ describe("RegionProfile outline", () => {
     const { container } = renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -73,7 +72,7 @@ describe("RegionProfile outline", () => {
     );
     const headings = [...container.querySelectorAll("h1, h2, h3, h4")]
       .filter((node) => !node.querySelector("button[aria-expanded]"))
-      .map((node) => node.textContent ?? "");
+      .map((node) => node.textContent);
     for (const item of species) {
       expect(headings, item.id).not.toContain(item.commonName);
     }
@@ -87,7 +86,6 @@ describe("RegionProfile outline", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -105,7 +103,6 @@ describe("RegionProfile outline", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}
@@ -128,7 +125,6 @@ describe("RegionProfile FAQ", () => {
     renderWithMessages(
       <RegionProfile
         content={content}
-        editable={false}
         region={region}
         species={species}
         summary={summary}

@@ -8,12 +8,13 @@ import { SkipLink } from "@/components/SkipLink";
 import { SpeciesMobileLede } from "@/components/SpeciesMobileLede";
 import { ViewCount } from "@/components/ViewCount";
 import { HALYOMORPHA_RANGE_COPY } from "@/data/speciesRangeMaps/base";
-import { htmlToMarkdown } from "@/lib/markdownNegotiation";
+
+import { pageMarkdown } from "../../tests/support/pageMarkdown";
 
 const LEDE = "The Levantine viper is Georgia's largest venomous viper.";
 
 function markdown(body: string) {
-  return htmlToMarkdown(
+  return pageMarkdown(
     page(body),
     "https://reptiles.ge/en/snakes/macrovipera-lebetina",
   );
@@ -26,11 +27,11 @@ function page(body: string) {
 function textOf(html: string) {
   const container = document.createElement("div");
   container.innerHTML = html;
-  return container.textContent ?? "";
+  return container.textContent;
 }
 
 describe("Markdown text layer", () => {
-  it("keeps a profile free of UI noise, run-on labels and a repeated lede", () => {
+  it("keeps a profile free of UI noise, run-on labels and a repeated lede", async () => {
     const html = renderToStaticMarkup(
       <>
         <SkipLink label="Skip to content" />
@@ -54,7 +55,7 @@ describe("Markdown text layer", () => {
         </main>
       </>,
     );
-    const md = markdown(html);
+    const md = await markdown(html);
 
     expect(textOf(html).split(LEDE)).toHaveLength(2);
     expect(md.split(LEDE)).toHaveLength(2);
@@ -65,8 +66,8 @@ describe("Markdown text layer", () => {
     expect(md).not.toMatch(/\p{L}\d+$/mu);
   });
 
-  it("keeps a guide contents heading without a glued count", () => {
-    const md = markdown(
+  it("keeps a guide contents heading without a glued count", async () => {
+    const md = await markdown(
       renderToStaticMarkup(
         <main>
           <h1>Snakebite in Georgia</h1>
@@ -79,9 +80,9 @@ describe("Markdown text layer", () => {
             countLabel="3 sections"
             headingId="bite-contents"
             items={[
-              { anchor: "first", editorAttributes: {}, label: "First steps" },
-              { anchor: "avoid", editorAttributes: {}, label: "What to avoid" },
-              { anchor: "signs", editorAttributes: {}, label: "Symptoms" },
+              { anchor: "first", label: "First steps" },
+              { anchor: "avoid", label: "What to avoid" },
+              { anchor: "signs", label: "Symptoms" },
             ]}
             label="In this guide"
           />

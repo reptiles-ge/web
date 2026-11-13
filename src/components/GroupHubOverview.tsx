@@ -17,9 +17,7 @@ import {
 } from "@/components/GroupHubSectionHeading";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
@@ -63,7 +61,6 @@ export async function GroupHubOverview({
   species: CatalogCard[];
 }) {
   const t = await getTranslations({ locale, namespace: hubId });
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const guideP1 =
     hubId === "insects"
       ? `${INSECT_DEFINITION[locale]} ${t("guideP1")}`
@@ -89,23 +86,11 @@ export async function GroupHubOverview({
               "mt-3.5 max-w-[640px] space-y-3 lg:mt-[22px] lg:space-y-3.5",
             )}
           >
-            <p
-              {...contentEditorAttributes(
-                "message",
-                editable && hubId !== "insects" ? "messages" : undefined,
-                `${hubId}.guideP1`,
-              )}
-            >
+            <p>
               <PhoneLinkedText>{guideP1}</PhoneLinkedText>
             </p>
             {hubId === "spiders" ? null : (
-              <p
-                {...contentEditorAttributes(
-                  "message",
-                  editable ? "messages" : undefined,
-                  `${hubId}.guideP2`,
-                )}
-              >
+              <p>
                 <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
               </p>
             )}

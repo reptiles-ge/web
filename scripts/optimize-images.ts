@@ -2,51 +2,41 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   emptyManifest,
-  loadManifest,
   ogImageKey,
   optimizeAndStore,
   planOptimization,
   renderAndStoreOgImage,
   resolveImageConfig,
   resolveOgImageConfig,
-  saveManifest,
   type ImageConfig,
   type Manifest,
   type ManifestEntry,
   type OgImageConfig,
 } from "@reptiles-ge/img-compression";
-import {
-  LocalStorageAdapter,
-  type StorageAdapter,
-} from "@reptiles-ge/img-compression/storage";
+import type { StorageAdapter } from "@reptiles-ge/img-compression/storage";
 import {
   georgiaRegionPaths,
   type RegionPathId,
 } from "../src/data/georgia-paths";
-import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
+import { newsArticlePhotos } from "../src/data/news";
+import type { NewsArticle } from "../src/data/newsTypes";
 import { getRegionHeroImage } from "../src/data/regionImages";
 import { images as siteImages } from "../src/data/speciesMedia";
 import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
 import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
-import {
-  buildGeneratedImages,
-  ensureTrailingNewline,
-  formatGeneratedImages,
-  readGeneratedImages,
-} from "../src/lib/imageOptimize";
+import { compactOptimizedAsset } from "../src/lib/imageOptimize";
 import { getContributors } from "../src/lib/authorsApi";
-import { getNewsArticle, getNewsSummaries } from "../src/lib/newsApi";
+import {
+  getImageManifest,
+  type ImageManifestWrite,
+  putImageManifest,
+} from "../src/lib/optimizedImagesApi";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
-const MANIFEST_ROOT = path.join(process.cwd(), "src/data");
-const MANIFEST_KEY = "image-manifest.json";
-const OUT_FILE = path.join(
-  process.cwd(),
-  "src/data/optimizedImages.generated.ts",
-);
 const CHECKPOINT_INTERVAL = 25;
 
 const MAX_WIDTH = 2400;
@@ -71,7 +61,6 @@ type CliOptions = {
   news: boolean;
   site: boolean;
   siteKeys: string[];
-  emitOnly: boolean;
   dryRun: boolean;
   force: boolean;
   limit: number | undefined;
@@ -86,7 +75,6 @@ function parseArguments(argv: string[]): CliOptions {
   let news = false;
   let site = false;
   const siteKeys: string[] = [];
-  let emitOnly = false;
   let dryRun = false;
   let force = false;
   let limit: number | undefined;
@@ -127,9 +115,6 @@ function parseArguments(argv: string[]): CliOptions {
       case "--site-key":
         siteKeys.push(...(argv[++index] ?? "").split(",").filter(Boolean));
         break;
-      case "--emit-only":
-        emitOnly = true;
-        break;
       case "--dry-run":
         dryRun = true;
         break;
@@ -168,7 +153,6 @@ function parseArguments(argv: string[]): CliOptions {
     !news &&
     !site &&
     siteKeys.length === 0 &&
-    !emitOnly &&
     speciesIds.length === 0 &&
     imageSources.length === 0 &&
     !regionId
@@ -192,7 +176,6 @@ function parseArguments(argv: string[]): CliOptions {
     news,
     site,
     siteKeys,
-    emitOnly,
     dryRun,
     force,
     limit,
@@ -213,17 +196,9 @@ function toStorageKey(src: string): string | null {
   return null;
 }
 
-async function loadNewsPhotoSources(): Promise<string[]> {
+function newsPhotoSources(articles: readonly NewsArticle[]): string[] {
   const sources = new Set<string>();
-  for (const article of getAllNewsArticles()) {
-    for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
-  }
-  const summaries = await getNewsSummaries();
-  const articles = await Promise.all(
-    summaries.map((summary) => getNewsArticle(summary.slug)),
-  );
   for (const article of articles) {
-    if (!article) continue;
     for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
   }
   return [...sources];
@@ -344,7 +319,7 @@ function collectCoverKeys(
   species: CatalogPhotoSpecies[],
   ids: string[],
   all: boolean,
-  news: boolean,
+  news: readonly NewsArticle[] | null,
 ): Set<string> {
   const wanted = new Set(ids);
   const keys = new Set<string>();
@@ -357,9 +332,7 @@ function collectCoverKeys(
 
   if (all) add(siteImages.hero);
 
-  if (all || news) {
-    for (const article of getAllNewsArticles()) add(article.image?.src);
-  }
+  for (const article of news ?? []) add(article.image?.src);
 
   for (const item of species) {
     if (!all && !wanted.has(item.id)) continue;
@@ -451,50 +424,60 @@ function formatOgResult(result: Awaited<ReturnType<typeof ensureOgImage>>) {
   return `og written ${result.key}${size}${quality}${enlarged}`;
 }
 
-async function readPreviousSources(): Promise<Map<string, string>> {
-  const previous = new Map<string, string>();
-  if (!fs.existsSync(OUT_FILE)) return previous;
-  const raw = await fs.promises.readFile(OUT_FILE, "utf8");
-  for (const src of Object.keys(readGeneratedImages(raw))) {
-    const key = toStorageKey(src);
-    if (key) previous.set(key, src);
+type ManifestState = {
+  entries: Map<string, ManifestEntry>;
+  sources: Map<string, string>;
+};
+
+async function loadManifestFromApi(token: string): Promise<ManifestState> {
+  const rows = await getImageManifest(token);
+  const entries = new Map<string, ManifestEntry>();
+  const sources = new Map<string, string>();
+  for (const row of rows) {
+    entries.set(row.key, row.entry);
+    sources.set(row.key, row.src);
   }
-  return previous;
+  return { entries, sources };
 }
 
-async function generateDataFile(
-  manifest: Manifest,
-  byKey: Map<string, string>,
+function manifestFor(state: ManifestState): Manifest {
+  return { ...emptyManifest(), entries: Object.fromEntries(state.entries) };
+}
+
+function catalogWrite(
+  key: string,
+  entry: ManifestEntry,
+  src: string,
   storage: StorageAdapter,
-  config: ImageConfig,
-) {
-  const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
+  prefix: string,
+): ImageManifestWrite {
+  return {
+    asset: compactOptimizedAsset(key, entry, storage, prefix),
+    entry: { ...entry, derivatives: [...entry.derivatives] },
+    key,
+    src,
+  };
+}
 
-  const { images, skippedNoGain } = buildGeneratedImages({
-    entries: manifest.entries,
-    previous: await readPreviousSources(),
-    prefix,
-    sources: byKey,
-    storage,
-  });
-
-  const source = `// Generated by scripts/optimize-images.ts — do not edit by hand.
-import type { OptimizedImageEntry } from "./optimizedImages";
-
-export const optimizedBaseUrl = ${JSON.stringify(prefix)};
-
-export const optimizedImages: Record<string, OptimizedImageEntry> = ${formatGeneratedImages(images)};
-`;
-
-  await fs.promises.writeFile(OUT_FILE, source, "utf8");
-  console.log(
-    `\nWrote ${Object.keys(images).length} asset(s) → ${path.relative(process.cwd(), OUT_FILE)}`,
+function resolveSource(
+  key: string,
+  byKey: Map<string, string>,
+  state: ManifestState,
+  storage: StorageAdapter,
+): string | null {
+  return (
+    byKey.get(key) ??
+    state.sources.get(key) ??
+    (key.startsWith("external/") ? storage.urlFor(key) : null)
   );
-  if (skippedNoGain > 0) {
-    console.log(
-      `${skippedNoGain} image(s) left on the original: no derivative beat it.`,
-    );
+}
+
+function writeToken(): string {
+  const token = process.env.API_WRITE_TOKEN;
+  if (!token) {
+    throw new Error("API_WRITE_TOKEN must be in .env.local");
   }
+  return token;
 }
 
 async function run() {
@@ -507,25 +490,17 @@ async function run() {
   });
   const og = resolveOgImageConfig();
   const storage: StorageAdapter = createBunnyStorageContext().storage;
-  const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
+  const token = writeToken();
+  const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 
-  const [species, contributors, newsPhotos] = await Promise.all([
+  const [species, contributors, newsArticles] = await Promise.all([
     getSpeciesCatalog("ka", "photos"),
     getContributors("ka"),
-    loadNewsPhotoSources(),
+    getNewsArticles(),
   ]);
+  const newsPhotos = newsPhotoSources(newsArticles);
   const portraits = contributors.map((author) => author.portraitSrc);
   const byKey = collectSources(species, portraits, newsPhotos);
-
-  if (options.emitOnly) {
-    const current = await loadManifest(
-      manifestStorage,
-      MANIFEST_KEY,
-      (message) => console.warn(`  warning  ${message}`),
-    );
-    await generateDataFile(current, byKey, storage, config);
-    return 0;
-  }
 
   const discovered = collectTargets(
     species,
@@ -543,21 +518,17 @@ async function run() {
     species,
     options.speciesIds,
     options.all,
-    options.news,
+    options.all || options.news ? newsArticles : null,
   );
   const targets =
     options.limit === undefined
       ? discovered
       : discovered.slice(0, options.limit);
 
-  const manifest = await loadManifest(
-    manifestStorage,
-    MANIFEST_KEY,
-    (message) => console.warn(`  warning  ${message}`),
-  );
-  const entries = new Map<string, ManifestEntry>(
-    Object.entries(manifest.entries),
-  );
+  const state = await loadManifestFromApi(token);
+  const manifest = manifestFor(state);
+  const entries = state.entries;
+  const pending = new Map<string, ImageManifestWrite>();
 
   console.log(
     `Storage: ${storage.name}. Widths: ${[...config.additionalWidths, config.maxWidth].join(", ")}. ` +
@@ -581,12 +552,11 @@ async function run() {
   let sinceCheckpoint = 0;
   let checkpointChain: Promise<void> = Promise.resolve();
   const checkpoint = () => {
-    if (options.dryRun) return checkpointChain;
+    if (options.dryRun || pending.size === 0) return checkpointChain;
+    const batch = [...pending.values()];
+    pending.clear();
     checkpointChain = checkpointChain.then(() =>
-      saveManifest(manifestStorage, MANIFEST_KEY, {
-        ...emptyManifest(),
-        entries: Object.fromEntries(entries),
-      }),
+      putImageManifest(token, batch),
     );
     return checkpointChain;
   };
@@ -660,7 +630,19 @@ async function run() {
         });
 
         if (result.entry) {
-          entries.set(target.key, { ...result.entry, originalKey: target.key });
+          const entry = { ...result.entry, originalKey: target.key };
+          entries.set(target.key, entry);
+          const src = resolveSource(target.key, byKey, state, storage);
+          if (src) {
+            pending.set(
+              target.key,
+              catalogWrite(target.key, entry, src, storage, prefix),
+            );
+          } else {
+            failures.push(
+              `${target.key}: optimized, but no page uses it, so it was not cataloged`,
+            );
+          }
         }
 
         originalBytes += result.record.originalSize;
@@ -705,12 +687,9 @@ async function run() {
 
   if (!options.dryRun) {
     await checkpoint();
-    ensureTrailingNewline(path.join(MANIFEST_ROOT, MANIFEST_KEY));
-    const updated: Manifest = {
-      ...emptyManifest(),
-      entries: Object.fromEntries(entries),
-    };
-    await generateDataFile(updated, byKey, storage, config);
+    console.log(
+      `\nCatalog: ${processed} image(s) written to the API. Deploy the site (pnpm images:compile runs in the build) to serve them.`,
+    );
   }
 
   console.log("");

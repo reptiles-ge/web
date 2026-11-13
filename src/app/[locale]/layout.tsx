@@ -9,7 +9,6 @@ import {
 import { notFound } from "next/navigation";
 
 import { RootDocument } from "@/app/RootDocument";
-import { loadSelectionContentEditor } from "@/components/admin/devAdminComponents";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -25,7 +24,6 @@ import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
-  type ClientMessages,
   LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
 } from "@/i18n/clientMessages";
@@ -33,11 +31,10 @@ import { routing } from "@/i18n/routing";
 import { apiOrigin } from "@/lib/apiClient";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
+import { getLiveLocaleSwitchIndex } from "@/lib/liveLocaleSwitchIndex";
 import { getNavbarData } from "@/lib/navbarData";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
-import { publishedSpeciesSlugRows } from "@/lib/speciesSlugTable";
 
 type Props = {
   children: ReactNode;
@@ -58,14 +55,15 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = pickClientMessages(
-    (await getMessages({ locale })) as ClientMessages,
+    await getMessages({ locale }),
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const [t, tSite, stats, footerData] = await Promise.all([
+  const [t, tSite, stats, footerData, switchIndex] = await Promise.all([
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "site" }),
     getAtlasStats(locale),
     getFooterData(locale),
+    getLiveLocaleSwitchIndex(),
   ]);
   const siteDescription = kaMetaDescriptionOverride(
     locale,
@@ -73,17 +71,10 @@ export default async function LocaleLayout({ children, params }: Props) {
     tSite("description"),
   );
   const navbarData = getNavbarData(stats);
-  const SelectionContentEditor =
-    locale === "ka" ? await loadSelectionContentEditor() : null;
-  const editorT = SelectionContentEditor
-    ? await getTranslations({ locale, namespace: "contentEditor" })
-    : null;
   return (
     <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
-        <LocaleSwitchProvider
-          index={getLocaleSwitchIndex(publishedSpeciesSlugRows())}
-        >
+        <LocaleSwitchProvider index={switchIndex}>
           <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />
           <SkipLink label={t("skipToContent")} />
           <NavigationProgress />
@@ -93,24 +84,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PageViewBeacon apiOrigin={apiOrigin()} />
           <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
-            {SelectionContentEditor && editorT ? (
-              <SelectionContentEditor
-                copy={{
-                  action: editorT("action"),
-                  close: editorT("close"),
-                  codexError: editorT("codexError"),
-                  error: editorT("error"),
-                  gitError: editorT("gitError"),
-                  jobs: editorT("jobs"),
-                  networkError: editorT("networkError"),
-                  openPr: editorT("openPr"),
-                  processing: editorT("processing"),
-                  requestError: editorT("requestError"),
-                  retry: editorT("retry"),
-                  success: editorT("success"),
-                }}
-              />
-            ) : null}
             {children}
           </main>
           <FooterGate>

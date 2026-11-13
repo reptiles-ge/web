@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import { buildSearchIndex } from "@/lib/searchIndexBuild";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   catalogSpeciesFixture,
   searchCatalogsFixture,

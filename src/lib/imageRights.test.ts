@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
 import { photoLicenses } from "@/data/photoLicenses";
 import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
@@ -19,6 +18,7 @@ import { newsImageRights } from "@/lib/newsVisual";
 import { galleryImageObject } from "@/lib/photoMeta";
 import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   catalogSpeciesFixture,
   contributorDirectoryFixture,
@@ -46,7 +46,7 @@ function collectImageObjects(value: unknown, found: ImageObject[] = []) {
     for (const item of value) collectImageObjects(item, found);
   } else if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
-    if (record["@type"] === "ImageObject") found.push(record as ImageObject);
+    if (record["@type"] === "ImageObject") found.push(record);
     for (const child of Object.values(record)) {
       collectImageObjects(child, found);
     }
@@ -63,7 +63,7 @@ function collectNamedNodes(
   } else if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
     if (typeof record["@id"] === "string" && record["@type"]) {
-      found.set(record["@id"], record as ImageObject["creator"]);
+      found.set(record["@id"], record);
     }
     for (const child of Object.values(record)) collectNamedNodes(child, found);
   }
@@ -156,7 +156,7 @@ describe("photoRights", () => {
 
   it("overrides the iNaturalist CC record of a contributor photo", () => {
     const src = "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg";
-    expect(photoLicenses[src].license).toBe(
+    expect(photoLicenses[src]?.license).toBe(
       "https://creativecommons.org/licenses/by-nc/4.0/",
     );
     for (const photographer of ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"]) {
@@ -219,7 +219,7 @@ describe("photoRights", () => {
 
   it("sends all-rights-reserved iNaturalist photos to the photo use page", () => {
     const src = Object.keys(photoLicenses).find(
-      (key) => photoLicenses[key].license === null,
+      (key) => photoLicenses[key]?.license === null,
     ) as string;
     const rights = photoRights(
       src,
@@ -265,7 +265,7 @@ describe("photoRights", () => {
   it("leaves out the fallback notice on an uncredited open-licensed photo", () => {
     const src = "https://cdn.reptiles.ge/falco-tinnunculus-paul-1.jpg";
     const rights = photoRights(src, undefined, "en", contributors);
-    expect(rights.license).toBe(photoLicenses[src].license);
+    expect(rights.license).toBe(photoLicenses[src]?.license);
     expect(rights).not.toHaveProperty("copyrightNotice");
   });
 
@@ -293,7 +293,7 @@ describe("photoRights", () => {
 describe("photoRightsCategory", () => {
   it("sorts a photo into exactly one rights category", () => {
     const allRightsReserved = Object.keys(photoLicenses).find(
-      (key) => photoLicenses[key].license === null,
+      (key) => photoLicenses[key]?.license === null,
     ) as string;
     expect(
       photoRightsCategory(

@@ -14,7 +14,7 @@ export type AtlasFilters = {
   group: "all" | AnimalGroup;
   habitat: "all" | HabitatTag;
   query: string;
-  region: "all" | string;
+  region: string;
 };
 
 export type AtlasRegionLabel = { id: string; label: string };

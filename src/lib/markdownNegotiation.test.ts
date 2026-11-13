@@ -1,8 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import {
   htmlRequest,
-  htmlToMarkdown,
   MARKDOWN_CONTENT_TYPE,
   MARKDOWN_TOKENS_HEADER,
   markdownAlternatePath,
@@ -14,6 +13,8 @@ import {
   withMarkdownLocation,
 } from "@/lib/markdownNegotiation";
 import { CONTENT_SIGNAL } from "@/lib/robotsTxt";
+
+import { pageMarkdown } from "../../tests/support/pageMarkdown";
 
 const URL = "https://reptiles.ge/gvelebi/giurza";
 
@@ -143,8 +144,12 @@ describe("htmlRequest", () => {
   });
 });
 
-describe("htmlToMarkdown", () => {
-  const markdown = htmlToMarkdown(PAGE, URL);
+describe("Markdown conversion", () => {
+  let markdown = "";
+
+  beforeAll(async () => {
+    markdown = await pageMarkdown(PAGE, URL);
+  });
 
   it("starts with front matter from the meta tags", () => {
     expect(
@@ -209,7 +214,7 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
     expect(markdown).not.toMatch(/✦|new/);
   });
 
-  it("turns a FAQ toggle inside a heading into the heading text", () => {
+  it("turns a FAQ toggle inside a heading into the heading text", async () => {
     const html = `<body>
       <h2>FAQ</h2>
       <h3><button aria-expanded="true" type="button"><span>რამდენად დიდია?</span><span aria-hidden="true"><svg></svg></span></button></h3>
@@ -218,23 +223,23 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
       <div aria-labelledby="faq-q" id="faq-a" inert role="region"><p>აღმოსავლეთში.</p></div>
       <h3><button aria-expanded="false" type="button">a &lt;b&gt; &amp; c?</button></h3>
     </body>`;
-    expect(htmlToMarkdown(html, URL)).toBe(
+    expect(await pageMarkdown(html, URL)).toBe(
       "## FAQ\n\n### რამდენად დიდია?\n\n70–90 სმ.\n\n### სად გვხვდება?\n\nაღმოსავლეთში.\n\n### a <b> & c?\n",
     );
   });
 
-  it("omits the front matter when the page has no supported meta tags", () => {
+  it("omits the front matter when the page has no supported meta tags", async () => {
     expect(
-      htmlToMarkdown(
+      await pageMarkdown(
         "<html><head><title>სათაური</title></head><body><p>ტექსტი</p></body></html>",
         URL,
       ),
     ).toBe("ტექსტი\n");
   });
 
-  it("prefers the standard meta tags and quotes values YAML would misread", () => {
+  it("prefers the standard meta tags and quotes values YAML would misread", async () => {
     expect(
-      htmlToMarkdown(
+      await pageMarkdown(
         '<meta property="og:title" content="og"><meta name="title" content="true"><meta name="description" content="- სია"><p>x</p>',
         URL,
       ),
@@ -243,9 +248,12 @@ image: https://cdn.reptiles.ge/og/giurza.jpg
 
   it.each(["Off", "2026-10-30", "1e3", ".inf", "0x1F", "Y"])(
     "quotes the typed YAML value %s",
-    (value) => {
+    async (value) => {
       expect(
-        htmlToMarkdown(`<meta name="title" content="${value}"><p>x</p>`, URL),
+        await pageMarkdown(
+          `<meta name="title" content="${value}"><p>x</p>`,
+          URL,
+        ),
       ).toContain(`title: "${value}"`);
     },
   );

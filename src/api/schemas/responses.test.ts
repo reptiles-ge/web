@@ -27,6 +27,7 @@ import {
   newsResponse,
   optimizedImageListResponse,
   rangeMapResponse,
+  schemaImageCropListResponse,
   speciesListResponse,
   speciesResponse,
 } from "./responses";
@@ -170,6 +171,33 @@ describe("documented response schemas", () => {
     const body = (await response.json()) as unknown;
     expectValid(optimizedImageListResponse, body, "images");
     expect(body).toStrictEqual(RESPONSE_EXAMPLES.images);
+  });
+
+  it("describe the structured-data crop list", async () => {
+    const { db, sqlite } = createTestDatabase();
+    const image = RESPONSE_EXAMPLES.imageSchemaCrops.data[0]!;
+    for (const crop of image.crops) {
+      sqlite
+        .prepare(
+          "INSERT INTO schema_image_crops (src, ratio, url, width, height, updated_at) VALUES (?, ?, ?, ?, ?, ?)",
+        )
+        .run(
+          image.src,
+          crop.ratio,
+          crop.url,
+          crop.width,
+          crop.height,
+          "2026-11-14T10:00:00.000Z",
+        );
+    }
+    const response = await app.request(
+      "/v1/images/schema-crops",
+      {},
+      { DB: db },
+    );
+    const body = (await response.json()) as unknown;
+    expectValid(schemaImageCropListResponse, body, "schema crops");
+    expect(body).toStrictEqual(RESPONSE_EXAMPLES.imageSchemaCrops);
   });
 
   it("describe the error responses exactly", async () => {

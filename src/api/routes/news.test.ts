@@ -1,19 +1,19 @@
 import { describe, expect, it } from "vitest";
 
+import { getNewsCopy } from "@/data/news";
+import { locales } from "@/i18n/locales";
+import { newsCopyReadMinutes } from "@/lib/newsReadTime";
+
+import type { NewsSummaryView } from "../db/newsView";
+
 import {
-  getNewsCopy,
   getPublishedNewsArticleBySlug,
   getPublishedNewsArticles,
   getPublishedNewsForCreditAuthor,
   getPublishedNewsForHub,
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
-} from "@/data/news";
-import { locales } from "@/i18n/locales";
-import { newsCopyReadMinutes } from "@/lib/newsReadTime";
-
-import type { NewsSummaryView } from "../db/newsView";
-
+} from "../../../tests/fixtures/newsSeed";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createNewsTestDatabase } from "../testing/sqliteDatabase";
 

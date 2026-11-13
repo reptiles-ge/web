@@ -4,27 +4,26 @@ Status as of 2026-10-25. Phases 1 and 2, slices 3.1 and 3.2, the `news:import` c
 
 ## Where things stand
 
-| Phase | What                                                                                                  | State                                            |
-| ----- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                        |
-| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production          |
-| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                     |
-| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                       |
-| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ⏳ 3.1 + 3.2 code done (article, index, archive) |
-| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳ sitemap, feeds, llms and search done          |
-| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done        |
-| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ⏳                                               |
+| Phase | What                                                                                                  | State                                                                                                |
+| ----- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 0     | Owner decisions: writing workflow (decided: MDX input + import script), body storage, series          | ⏳ 1 of 3                                                                                            |
+| 1a    | Schema `0008_news` + one-off import + 1:1 round-trip test                                             | ✅ code done; not applied to production                                                              |
+| 1b    | MDX parser to `src/lib` + `schemas/newsRecord.ts` validation                                          | ✅ code done                                                                                         |
+| 2     | Public read API: `GET /v1/news`, `GET /v1/news/:slug`                                                 | ✅ code done; not deployed                                                                           |
+| 3     | Site reads news from the API (SSR): article, index, archive, home, hubs, regions, species, authors    | ✅ done (hubs, regions, species, series 2026-11-13)                                                  |
+| 4     | Build-time and SEO consumers: sitemap, feeds, `llms.txt`, search index, scripts                       | ⏳ sitemap, feeds, llms and search done                                                              |
+| 5     | Versioned write API, admin text editor on the API, `news:import` / `news:export`                      | ⏳ create, publish and `news:import` done                                                            |
+| 6     | Delete news MDX folders, `compile-news`, `news.generated.ts`, `newsPublish.ts` (the MDX parser stays) | ✅ done 2026-11-14 (`newsMdx.ts`, `newsFrontmatter.ts`, `newsArticleFromMdx` stay for `news:import`) |
 
 Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can each be split into several PRs. Exception: the create path of `news:import` (`POST /v1/admin/news` + the script) must ship **before** phase 3 switches the site to the API. From then on the site no longer reads MDX, so an article written in MDX reaches the site only through the import. Until phase 3, new articles are added both ways: MDX on `main` as today, and `news:import` into D1.
 
-### Today
+### Today (as it was before phase 6; kept for the record)
 
 - 31 articles in `src/content/news/{slug}/{ka,en,ru,tr}.mdx` (about 1.2 MB). The order lives in `newsSlugs` (`src/data/newsPublish.ts`); it breaks ties between articles with the same `publishedAt`.
-- `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against `optimizedImages.generated`), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
-- `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsLinkedSpeciesIds`, `newsSearchKeywords`, `newsSourceOrg`, …).
+- `scripts/compile-news.ts` (`news:compile`, part of `compile` / `predev` / `prebuild`) validates the frontmatter (`src/lib/newsFrontmatter.ts`), parses the body (`src/lib/newsMdx.ts`: sections, paragraphs, figures and inline marks), checks the slug (`newsSlugIssue`) and heroes (`checkNewsHeroes` against the API image catalog in `optimizedImages.api.generated`, so `images:compile` runs first), then writes the gitignored `src/data/news.generated.ts` (about 1.4 MB, bundled into the site Worker).
+- `src/data/news.ts` is the only reader of the generated file. Every lookup is synchronous: `getPublishedNewsArticles`, `…BySlug`, `…InSeries`, `…ForHub`, `…ForRegion`, `…ForSpecies`, `…ForCreditAuthor`, plus pure helpers (`newsArticlePhotos`, `newsSearchKeywords`, `newsSourceName`, …).
 - No client component imports news data. Everything is server-side or build-time.
-- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in `src/data/schemaImages.json` (`images:schema`).
-- The local admin text editor (`src/lib/contentEditorTarget.ts`, kind `news`) edits `title`, `dek`, `lead` and body fields in the MDX files and opens a PR.
+- Series names live in code (`src/data/newsSeries.ts`). Schema-image crops live in D1 (`schema_image_crops`, written by `images:schema --upload`, read by `images:compile`).
 - Guard tests: `src/data/newsContent.test.ts` (one folder per slug, section and figure parity across locales, figures only from the article's own photos, links only to existing species, regions, hubs and contributors, linked ids present in the related ids), `newsData.test.ts`, `newsSeries.test.ts`.
 
 ---
@@ -89,7 +88,7 @@ Recommended order: **0 → 1 → 2 → 3 → 4 → 5 → 6**. Phases 3 and 4 can
 - inline marks only to species, regions, hubs and authors that exist (species and authors from D1, regions and hubs from code);
 - every linked species, region and hub listed in the related ids (keep the region exceptions the test allows today);
 - at least one source;
-- hero check (`checkNewsHeroes`) stays a warning, as today.
+- hero check (`checkNewsHero`, run by `news:import`) stays a warning, as today.
 
 ---
 
@@ -187,13 +186,12 @@ Pure helpers in `src/data/news.ts` and `src/lib/news*.ts` stay and take the arti
 - `POST /v1/admin/news` creates a draft article (`status: 'draft'`). Publishing is a status change through `PUT`.
 - AI edits to a published article go through `POST …/drafts` + approve (species 2b-c), never a direct write. A new article from `news:import` is already safe: it lands with `status: 'draft'` and stays off the site until the owner publishes it.
 - After a write, the API calls `/api/revalidate` through the `SITE` binding with `news`, `news:<slug>`, and the hub, region and species tags the article touches.
-- `contentEditorTarget.ts` kind `news` calls the API instead of editing MDX and opening a PR.
 - **MDX import workflow (phase 0 decision):**
   - `scripts/news-import.ts` (`pnpm news:import <slug> [--dry-run]`): parse with `newsArticleFromMdx`, then `POST /v1/admin/news` for a new slug or `GET` + `PUT` for an existing one. `--dry-run` validates through the API without saving (a `validate` flag or `POST /v1/admin/news/validate`), so a writer can check the MDX before the real import. Prints the API's 400 details as file and field. On success it deletes the input folder.
   - `scripts/news-export.ts` (`pnpm news:export <slug>`): `GET /v1/admin/news/:slug`, serialize to the four MDX files. Test: export → parse → `toStrictEqual` for every article in the seed.
   - Typed calls in `src/lib/adminNewsApi.ts` (like `adminSpeciesApi.ts`); the scripts use them.
   - Update `AGENTS.md` (News section) and the writing skills: the last step is `news:import`, not a PR with MDX and a `newsSlugs` entry. The order inside a day comes from `position`, which the API sets at the end on create.
-  - Images: a new news photo still needs the CDN upload and the derivatives catalog PR (`images:optimize:news`, `images:schema`) before the import, because the hero check reads that catalog.
+  - Images: a new news photo still needs the CDN upload (`images:optimize:news`, `images:schema --upload`) before the import, because the hero check reads the API image catalog.
 
 ---
 
@@ -210,5 +208,5 @@ Remove `src/content/news/`, `scripts/compile-news.ts`, `src/data/news.generated.
 - **Build needs the API.** Sitemap, feeds and `llms.txt` are static at build, so `next build` needs `api.reptiles.ge` reachable, as it already does for species.
 - **Link validation moves from CI to the API.** Today a broken species link fails `newsContent.test.ts` in CI. After the move it must fail the write. Deleting or unpublishing a species that a news article links needs a check too (or the link renders as plain text).
 - **Credit authors.** News credits link to contributors by spelling today. Derive `news_media.author_id` from `author_aliases` on write, the same as species photos.
-- **Images catalog** (`optimizedImages.generated.ts`, `schemaImages.json`) stays in the repo, as it does for species. A new news photo still needs a catalog PR until that catalog moves.
+- **Images catalog**: in D1 since 2026-11-14 (`image_manifest`, `optimized_images`, `schema_image_crops`). A new news photo needs `images:optimize:news` and `images:schema --upload`, then a site deploy; no catalog PR.
 - **Fetch cache limit.** One full article is about 46 KB for four locales, so it is far under the 2 MB limit. Never ship a full list with sections to a normal page render.

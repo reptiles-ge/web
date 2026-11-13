@@ -10,7 +10,7 @@ import { getNewsCopy, newsRelatedSpecies, newsSourceName } from "@/data/news";
 import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { compactRepeatedNodes } from "@/lib/jsonLdNodes";
 import {
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const article = await getNewsArticle(slug);
   const copy = article ? getNewsCopy(article, locale) : undefined;
   if (!article || !copy) {
@@ -115,7 +115,7 @@ export default async function NewsArticleRoute({ params }: Props) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const article = await getNewsArticle(slug);

@@ -20,10 +20,6 @@ export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
   return kaSlugById[id] ?? id;
 }
 
-export function hasSpeciesRoute(id: string) {
-  return Object.hasOwn(kaSlugById, id);
-}
-
 export function publishedSpeciesSlugRows() {
   return Object.entries(kaSlugById).map(([id, slug]) => ({
     group: GROUP_HUBS[getSpeciesHubId(id)].group,

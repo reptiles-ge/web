@@ -197,7 +197,7 @@ function DraftReview({
                   description="The species keeps its live text and photos."
                   okButtonProps={{ danger: true }}
                   okText="Reject"
-                  onConfirm={() => decide("reject")}
+                  onConfirm={() => void decide("reject")}
                   title="Reject this draft?"
                 >
                   <Button
@@ -211,7 +211,7 @@ function DraftReview({
                 <Popconfirm
                   description="The change is saved as a new version and the species page on reptiles.ge is refreshed."
                   okText="Merge"
-                  onConfirm={() => decide("merge")}
+                  onConfirm={() => void decide("merge")}
                   title="Merge this draft?"
                 >
                   <Button

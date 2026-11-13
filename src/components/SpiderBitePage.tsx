@@ -5,7 +5,7 @@ import { SPIDER_BITE_CONFIG } from "@/components/safetyGuideConfig";
 import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 import { toSpeciesCards } from "@/data/speciesCard";
 
-export async function SpiderBitePage({
+export function SpiderBitePage({
   guideId,
   heroSrc,
   locale,

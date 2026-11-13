@@ -1,30 +1,23 @@
+import { uploadedOptimizedImages } from "@/data/optimizedImages.api.generated";
 import {
   entryImgSize,
   entryImgSrc,
   entryPictureSources,
+  OPTIMIZED_BASE_URL,
+  type OptimizedImageEntry,
   type PictureSource,
   type ResolvedImageEntries,
   type ResolvedImageEntry,
 } from "@/lib/optimizedImageSources";
 
-import { uploadedOptimizedImages } from "./optimizedImages.api.generated";
-import {
-  optimizedImages as committedOptimizedImages,
-  optimizedBaseUrl,
-} from "./optimizedImages.generated";
-
 export type {
-  OptimizedImageEntry,
   PictureSource,
   ResolvedImageEntries,
   ResolvedImageEntry,
 } from "@/lib/optimizedImageSources";
-export { srcSetPreloadUrl } from "@/lib/optimizedImageSources";
 
-const optimizedImages = {
-  ...uploadedOptimizedImages,
-  ...committedOptimizedImages,
-};
+const optimizedImages: Record<string, OptimizedImageEntry> =
+  uploadedOptimizedImages;
 
 export function allOptimizedImageEntries(): ResolvedImageEntries {
   return optimizedImageEntries(Object.keys(optimizedImages));
@@ -40,7 +33,7 @@ export function optimizedEntry(
   if (!src) return null;
   const entry = optimizedImages[src];
   if (!entry) return null;
-  return { ...entry, baseUrl: entry.baseUrl ?? optimizedBaseUrl };
+  return { ...entry, baseUrl: entry.baseUrl ?? OPTIMIZED_BASE_URL };
 }
 
 export function optimizedImageEntries(

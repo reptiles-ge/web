@@ -20,7 +20,7 @@ import { getAtlasStats } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { getAtlasPage, getAtlasRecentItems } from "@/lib/atlasList";
 import { defaultAtlasQuery } from "@/lib/atlasQuery";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
@@ -46,7 +46,7 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const [t, ogSpecies] = await Promise.all([
     getTranslations({ locale, namespace: "speciesAtlas" }),
     getSpeciesProfile("vipera-kaznakovi", locale),
@@ -72,7 +72,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const [t, initial, recent, tooltipSpeciesByRegion, stats] = await Promise.all(

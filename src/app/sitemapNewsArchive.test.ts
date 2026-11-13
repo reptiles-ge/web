@@ -8,13 +8,10 @@ vi.mock("@/i18n/navigation", async () => {
 });
 
 vi.mock("@/lib/newsApi", async (importOriginal) => {
-  const { withManyNews } = await import("../../tests/fixtures/manyNews");
-  const news = withManyNews(
-    await vi.importActual<typeof import("@/data/news")>("@/data/news"),
-  );
+  const { manyPublishedNews } = await import("../../tests/fixtures/manyNews");
   return {
     ...(await importOriginal<typeof import("@/lib/newsApi")>()),
-    getNewsSummaries: async () => news.getPublishedNewsArticles(),
+    getNewsSummaries: async () => manyPublishedNews(),
   };
 });
 

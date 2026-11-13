@@ -3,12 +3,10 @@
 import { useLocale } from "next-intl";
 import { useEffect } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { pushPageContext } from "@/lib/analytics";
 
 export function NotFoundAnalytics() {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
 
   useEffect(() => {
     pushPageContext({

@@ -1,10 +1,11 @@
 import path from "node:path";
 
+import type { NewsArticle } from "../src/data/newsTypes";
 import type { PhotoLicense } from "../src/data/photoLicenses";
 import type { PhotoCredit } from "../src/data/speciesTypes";
 
-import { getPublishedNewsArticles } from "../src/data/news";
 import { createPoliteJson, writeOrCheckModule } from "./remoteDataScript";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import type { SpeciesPhotoFields } from "../src/data/speciesTypes";
 
@@ -53,7 +54,10 @@ const cachedJson = createPoliteJson({
   userAgent: USER_AGENT,
 });
 
-function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
+function collectPhotos(
+  catalog: readonly SpeciesPhotoFields[],
+  news: readonly NewsArticle[],
+) {
   const photos: PhotoRef[] = [];
   for (const species of catalog) {
     photos.push(
@@ -82,7 +86,7 @@ function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
       })),
     );
   }
-  for (const article of getPublishedNewsArticles()) {
+  for (const article of news) {
     if (article.image) {
       photos.push({
         credit: article.image.credit,
@@ -97,9 +101,9 @@ function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
 function lookupFor(sourceUrl: string): Lookup {
   const url = new URL(sourceUrl);
   if (url.hostname === "commons.wikimedia.org") {
-    const match = url.pathname.match(/^\/wiki\/(File:.+)$/);
-    if (match) {
-      return { kind: "commons", title: decodeURIComponent(match[1]) };
+    const [, title] = url.pathname.match(/^\/wiki\/(File:.+)$/) ?? [];
+    if (title) {
+      return { kind: "commons", title: decodeURIComponent(title) };
     }
     return { kind: "unsupported", reason: "Commons URL is not a file page" };
   }
@@ -107,9 +111,9 @@ function lookupFor(sourceUrl: string): Lookup {
     url.hostname === "www.inaturalist.org" ||
     url.hostname === "inaturalist.org"
   ) {
-    const observation = url.pathname.match(/^\/observations\/(\d+)$/);
+    const [, observation] = url.pathname.match(/^\/observations\/(\d+)$/) ?? [];
     if (observation) {
-      return { id: observation[1], kind: "inaturalist-observation" };
+      return { id: observation, kind: "inaturalist-observation" };
     }
     return {
       kind: "unsupported",
@@ -225,7 +229,10 @@ ${lines.join("\n")}
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const photos = collectPhotos(await getSpeciesCatalog("ka", "photos"));
+  const photos = collectPhotos(
+    await getSpeciesCatalog("ka", "photos"),
+    await getNewsArticles(),
+  );
   const bySrc = new Map<string, PhotoRef>();
   for (const photo of photos) {
     if (!bySrc.has(photo.src)) bySrc.set(photo.src, photo);

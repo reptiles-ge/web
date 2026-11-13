@@ -100,7 +100,7 @@ describe("GET /v1/admin/views", () => {
         kind: "species",
         lastDay: "2026-10-24",
         name: {
-          en: expect.any(String),
+          en: expect.any(String) as string,
           ka: nameOf(
             "species_texts",
             "common_name",
@@ -116,7 +116,7 @@ describe("GET /v1/admin/views", () => {
         kind: "news",
         lastDay: "2026-10-24",
         name: {
-          en: expect.any(String),
+          en: expect.any(String) as string,
           ka: nameOf("news_texts", "title", "article_id", newsId),
         },
         views: 5,

@@ -2,11 +2,10 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsSection } from "@/data/newsTypes";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
 import { locales } from "@/i18n/locales";
 
+import { NEWS_ARTICLES } from "../../tests/fixtures/newsArticlesSnapshot";
 import {
-  newsDocFigures,
   newsDocToSections,
   newsSectionIssues,
   newsSectionsToDoc,
@@ -18,7 +17,6 @@ describe("news editor document", () => {
     for (const article of NEWS_ARTICLES) {
       for (const locale of locales) {
         const copy = article.copy[locale];
-        if (!copy) continue;
         expect(newsDocToSections(newsSectionsToDoc(copy.sections))).toEqual(
           copy.sections,
         );
@@ -66,7 +64,6 @@ describe("news editor document", () => {
       },
     ];
     const doc = newsSectionsToDoc(sections);
-    expect(newsDocFigures(doc)).toEqual(["https://cdn.reptiles.ge/a.jpg"]);
     expect(newsDocToSections(doc)).toEqual(sections);
   });
 

@@ -13,6 +13,13 @@ export default defineConfig({
         ),
       },
       {
+        find: "@/data/optimizedImages.api.generated",
+        replacement: path.resolve(
+          import.meta.dirname,
+          "tests/stubs/optimizedImagesApiGenerated.ts",
+        ),
+      },
+      {
         find: "@/data/speciesSlugs.generated",
         replacement: path.resolve(
           import.meta.dirname,
@@ -53,15 +60,11 @@ export default defineConfig({
         "src/components/admin/AdminCoverCrop.tsx",
         "src/components/admin/AdminCoverPreview.tsx",
         "src/components/admin/AdminGalleryReorder.tsx",
-        "src/components/admin/AdminSpeciesCreate.tsx",
         "src/components/admin/AdminSpeciesEditor.tsx",
         "src/components/admin/AdminSpeciesList.tsx",
-        "src/components/admin/SelectionContentEditor.tsx",
-        "src/components/admin/SpeciesPageAnalysis.tsx",
         "src/app/api/admin/**",
         "src/app/api/dev/**",
         "src/lib/admin*.ts",
-        "src/lib/contentEditor*.ts",
         "src/lib/axeDev.ts",
         "src/lib/focusTrap.ts",
         "src/instrumentation*.ts",

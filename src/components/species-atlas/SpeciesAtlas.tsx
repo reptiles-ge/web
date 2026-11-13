@@ -11,7 +11,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
 import type { SpeciesListItem } from "@/data/speciesListItem";
-import type { AppLocale } from "@/i18n/routing";
 import type { AtlasPage } from "@/lib/atlasList";
 
 import { OptimizedImagesProvider } from "@/components/OptimizedImagesProvider";
@@ -94,28 +93,28 @@ export function SpeciesAtlas(props: AtlasData) {
   ) {
     switch (key) {
       case "danger":
-        setDanger(value as AtlasFilters["danger"], {
+        void setDanger(value as AtlasFilters["danger"], {
           history: "replace",
           scroll: false,
           shallow: true,
         });
         break;
       case "group":
-        setGroup(value as AtlasFilters["group"], {
+        void setGroup(value as AtlasFilters["group"], {
           history: "replace",
           scroll: false,
           shallow: true,
         });
         break;
       case "habitat":
-        setHabitat(value as AtlasFilters["habitat"], {
+        void setHabitat(value as AtlasFilters["habitat"], {
           history: "replace",
           scroll: false,
           shallow: true,
         });
         break;
       case "query":
-        setQuery(value as AtlasFilters["query"], {
+        void setQuery(value, {
           history: "replace",
           limitUrlUpdates: throttle(200),
           scroll: false,
@@ -123,7 +122,7 @@ export function SpeciesAtlas(props: AtlasData) {
         });
         break;
       case "region":
-        setRegion(value as AtlasFilters["region"], {
+        void setRegion(value, {
           history: "replace",
           scroll: false,
           shallow: true,
@@ -133,27 +132,27 @@ export function SpeciesAtlas(props: AtlasData) {
   }
 
   function resetFilters() {
-    setGroup(defaultAtlasFilters.group, {
+    void setGroup(defaultAtlasFilters.group, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setDanger(defaultAtlasFilters.danger, {
+    void setDanger(defaultAtlasFilters.danger, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setHabitat(defaultAtlasFilters.habitat, {
+    void setHabitat(defaultAtlasFilters.habitat, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setRegion(defaultAtlasFilters.region, {
+    void setRegion(defaultAtlasFilters.region, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setQuery(defaultAtlasFilters.query, {
+    void setQuery(defaultAtlasFilters.query, {
       history: "replace",
       limitUrlUpdates: throttle(200),
       scroll: false,
@@ -162,23 +161,27 @@ export function SpeciesAtlas(props: AtlasData) {
   }
 
   function applyFilters(next: AtlasFilters) {
-    setGroup(next.group, { history: "replace", scroll: false, shallow: true });
-    setDanger(next.danger, {
+    void setGroup(next.group, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setHabitat(next.habitat, {
+    void setDanger(next.danger, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setRegion(next.region, {
+    void setHabitat(next.habitat, {
       history: "replace",
       scroll: false,
       shallow: true,
     });
-    setQuery(next.query, {
+    void setRegion(next.region, {
+      history: "replace",
+      scroll: false,
+      shallow: true,
+    });
+    void setQuery(next.query, {
       history: "replace",
       limitUrlUpdates: throttle(200),
       scroll: false,
@@ -231,7 +234,7 @@ function SpeciesAtlasView({
   resetFilters: () => void;
   updateFilter: UpdateAtlasFilter;
 }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
 
   const [filterOpen, setFilterOpen] = useState(false);
   const [regionMenuOpen, setRegionMenuOpen] = useState(false);

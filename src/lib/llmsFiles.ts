@@ -18,7 +18,7 @@ import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
 import { quizHref } from "@/lib/quizzes";
 import { absoluteUrl } from "@/lib/site";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHref, type SpeciesRouteSource } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 
 export type LlmsSpecies = {
@@ -463,7 +463,7 @@ function absoluteLinks(text: string, locale: AppLocale, catalog: LlmsSpecies) {
     (match, label: string, href: string) => {
       if (/^https?:\/\//.test(href)) return match;
       if (href.startsWith("/")) {
-        const [path, hash] = href.split("#");
+        const [path = "", hash] = href.split("#");
         return `[${label}](${absoluteUrl(localizedLinkPath(locale, path))}${hash ? `#${hash}` : ""})`;
       }
       if (catalog.ids.has(href)) {
@@ -544,11 +544,8 @@ function formatSpeciesCard(
   const lines: string[] = [
     `### ${item.scientificName} — ${name}`,
     "",
-    `- URL: ${localizedSpeciesUrl(locale, item.id)}`,
-    alternateLine(
-      locale,
-      localizedSpeciesUrl(alternateLocale(locale), item.id),
-    ),
+    `- URL: ${localizedSpeciesUrl(locale, item)}`,
+    alternateLine(locale, localizedSpeciesUrl(alternateLocale(locale), item)),
     `- Catalog id: ${item.id}`,
     `- Updated: ${catalog.localized(item, locale).updatedAt}`,
   ];
@@ -672,7 +669,7 @@ function formatSpeciesIndexLine(
     item.danger,
     `Catalog id \`${item.id}\``,
   ].filter(Boolean);
-  return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item.id)}): ${details.join(". ")}.`;
+  return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item)}): ${details.join(". ")}.`;
 }
 
 function groupSummary(group: AnimalGroup, count: number): string {
@@ -734,9 +731,9 @@ function languageSection() {
 }
 
 function localizedLinkPath(locale: AppLocale, path: string) {
-  const species = path.match(/^\/([a-z]+)\/([^/]+)$/);
-  if (species && species[1] in GROUP_HUBS) {
-    const id = resolveSpeciesIdInHub(species[1] as GroupHubId, species[2]);
+  const [, hub, slug] = path.match(/^\/([a-z]+)\/([^/]+)$/) ?? [];
+  if (hub !== undefined && slug !== undefined && hub in GROUP_HUBS) {
+    const id = resolveSpeciesIdInHub(hub as GroupHubId, slug);
     if (id) return new URL(localizedSpeciesUrl(locale, id)).pathname;
   }
   return localizedPath(locale, path);
@@ -747,17 +744,16 @@ function localizedNewsUrl(locale: AppLocale, slug: string) {
 }
 
 function localizedPath(locale: AppLocale, path: string) {
+  if (!(path in pathnames)) return withLocalePrefix(locale, path);
   const mapped = pathnames[path as keyof typeof pathnames];
-  if (!mapped) return withLocalePrefix(locale, path);
   const template = typeof mapped === "string" ? mapped : mapped[locale];
   return withLocalePrefix(locale, template);
 }
 
-function localizedSpeciesUrl(locale: AppLocale, id: string) {
-  const href = speciesHref(id, locale);
+function localizedSpeciesUrl(locale: AppLocale, species: SpeciesRouteSource) {
+  const href = speciesHref(species, locale);
   const mapped = pathnames[href.pathname];
-  const template =
-    typeof mapped === "string" ? mapped : mapped[locale] || mapped.en;
+  const template = typeof mapped === "string" ? mapped : mapped[locale];
   return absoluteUrl(
     withLocalePrefix(locale, template.replace("[slug]", href.params.slug)),
   );

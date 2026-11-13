@@ -152,7 +152,7 @@ function pickCorrectId(speciesId: string, pool: SnakeQuizSpecies[]) {
 
   const others = pool.filter((item) => item.id !== speciesId);
   if (others.length === 0) return null;
-  return others[stableHash(speciesId) % others.length].id;
+  return others[stableHash(speciesId) % others.length]?.id ?? null;
 }
 
 function seededRandom(seed: string) {

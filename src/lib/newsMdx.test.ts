@@ -2,14 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsSection } from "@/data/newsTypes";
 
-import {
-  escapeNewsText,
-  newsBodyStart,
-  parseNewsBody,
-  readNewsBodyField,
-  replaceNewsBodyField,
-  serializeNewsBody,
-} from "@/lib/newsMdx";
+import { newsBodyStart, parseNewsBody } from "@/lib/newsMdx";
 
 const sections: NewsSection[] = [
   {
@@ -46,31 +39,26 @@ const sections: NewsSection[] = [
   { blocks: [], heading: "Empty section" },
 ];
 
-const raw = `---\ntitle: Test\n---\n\n${serializeNewsBody(sections)}`;
+const body = [
+  "## What happened?",
+  'Streams of <Species id="milvus-migrans">Black Kites</Species> (<Sci>Milvus migrans</Sci>) over <Region id="adjara">Adjara</Region>, see <Hub id="birds">birds</Hub>, <NewsIndex>News</NewsIndex>, <CreditAuthor slug="sandro-khakhva">Sandro</CreditAuthor> and [the \\[data\\]](https://example.org/a?b=1). Braces \\{x\\} \\<y> and a \\\\ stay text.',
+  '<Figure src="https://cdn.reptiles.ge/a.jpg" />',
+  "Second paragraph.",
+  "## Empty section",
+].join("\n\n");
+
+const raw = `---\ntitle: Test\n---\n\n${body}\n`;
 
 describe("news MDX body", () => {
-  it("round-trips every mark type", () => {
-    const body = serializeNewsBody(sections);
-    expect(body).toContain(
-      '<Species id="milvus-migrans">Black Kites</Species>',
-    );
-    expect(body).toContain("[the \\[data\\]](https://example.org/a?b=1)");
-    expect(body).toContain('<Figure src="https://cdn.reptiles.ge/a.jpg" />');
+  it("reads every mark type", () => {
     expect(parseNewsBody(body).sections).toEqual(sections);
   });
 
   it("joins wrapped lines into one paragraph", () => {
     const parsed = parseNewsBody("## H\n\nOne\ntwo\n");
-    expect(parsed.sections[0].blocks).toEqual([
+    expect(parsed.sections[0]?.blocks).toEqual([
       { parts: ["One\ntwo"], type: "p" },
     ]);
-  });
-
-  it("escapes only what the parser treats as markup", () => {
-    expect(escapeNewsText("a > b <c> {d} [e] \\")).toBe(
-      "a > b \\<c> \\{d\\} \\[e\\] \\\\",
-    );
-    expect(() => escapeNewsText("a\nb")).toThrow("line break");
   });
 
   it.each([
@@ -99,32 +87,6 @@ describe("news MDX body", () => {
   ])("rejects %s", (_, body) => {
     expect(() => parseNewsBody(body)).toThrow();
   });
-
-  it("refuses to serialize what it could not read back", () => {
-    const one = (parts: NewsSection["blocks"][number]) => [
-      { blocks: [parts], heading: "H" },
-    ];
-    expect(() =>
-      serializeNewsBody(one({ parts: ["a", "b"], type: "p" })),
-    ).toThrow("text run");
-    expect(() => serializeNewsBody(one({ parts: [" a"], type: "p" }))).toThrow(
-      "paragraph edge",
-    );
-    expect(() => serializeNewsBody(one({ parts: ["# a"], type: "p" }))).toThrow(
-      "paragraph edge",
-    );
-    expect(() =>
-      serializeNewsBody(
-        one({
-          parts: [{ id: "a b", label: "x", type: "species" }],
-          type: "p",
-        }),
-      ),
-    ).toThrow("attribute");
-    expect(() => serializeNewsBody([{ blocks: [], heading: " H" }])).toThrow(
-      "heading",
-    );
-  });
 });
 
 describe("news MDX fields", () => {
@@ -132,59 +94,5 @@ describe("news MDX fields", () => {
     expect(raw.slice(newsBodyStart(raw)).startsWith("\n## What")).toBe(true);
     expect(() => newsBodyStart("## H\n")).toThrow("frontmatter");
     expect(() => newsBodyStart("---\ntitle: x\n")).toThrow("Unclosed");
-  });
-
-  it("reads headings, text runs, labels and names", () => {
-    expect(readNewsBodyField(raw, "sections.0.heading")).toBe("What happened?");
-    expect(readNewsBodyField(raw, "sections.0.blocks.0.parts.0")).toBe(
-      "Streams of ",
-    );
-    expect(readNewsBodyField(raw, "sections.0.blocks.0.parts.1.label")).toBe(
-      "Black Kites",
-    );
-    expect(readNewsBodyField(raw, "sections.0.blocks.0.parts.3.name")).toBe(
-      "Milvus migrans",
-    );
-    expect(readNewsBodyField(raw, "sections.0.blocks.0.parts.14")).toBe(
-      ". Braces {x} <y> and a \\ stay text.",
-    );
-    expect(readNewsBodyField(raw, "sections.0.blocks.2.parts.0")).toBe(
-      "Second paragraph.",
-    );
-    expect(() => readNewsBodyField(raw, "sections.0.blocks.1.parts.0")).toThrow(
-      "unavailable",
-    );
-  });
-
-  it("replaces a field in place and escapes the new text", () => {
-    const updated = replaceNewsBodyField(
-      raw,
-      "sections.0.blocks.0.parts.13.label",
-      "the {new} data",
-    );
-    expect(updated).toContain(
-      "[the \\{new\\} data](https://example.org/a?b=1)",
-    );
-    expect(
-      readNewsBodyField(updated, "sections.0.blocks.0.parts.13.label"),
-    ).toBe("the {new} data");
-    const heading = replaceNewsBodyField(raw, "sections.1.heading", "New");
-    expect(heading).toContain("## New\n");
-    expect(raw.replace("## Empty section", "## New")).toBe(heading);
-  });
-
-  it("rejects empty text, line breaks and unknown fields", () => {
-    expect(() =>
-      replaceNewsBodyField(raw, "sections.0.blocks.0.parts.0", " "),
-    ).toThrow("Invalid");
-    expect(() =>
-      replaceNewsBodyField(raw, "sections.0.blocks.0.parts.0", "a\nb"),
-    ).toThrow("line break");
-    expect(() => replaceNewsBodyField(raw, "sections.9.heading", "x")).toThrow(
-      "unavailable",
-    );
-    expect(() =>
-      replaceNewsBodyField(raw, "sections.0.heading", "a\nb"),
-    ).toThrow("line break");
   });
 });

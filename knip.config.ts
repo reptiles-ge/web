@@ -7,7 +7,7 @@ const config: KnipConfig = {
     "src/api/index.ts",
     "src/api/app.ts",
   ],
-  ignoreBinaries: ["codex", "pbcopy"],
+  ignoreBinaries: ["pbcopy"],
   ignoreDependencies: [
     "@cloudflare/workers-response-store",
     "eslint-plugin-import",

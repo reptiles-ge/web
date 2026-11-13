@@ -8,7 +8,7 @@ import {
   speciesOgImageUrl,
 } from "@/lib/site";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
-import { resolveSpeciesId } from "@/lib/speciesRoutes";
+import { speciesSlugMapsFromCatalog } from "@/lib/speciesSlugRuntime";
 
 export const speciesOgAlt = "Reptiles — Georgia";
 export const speciesOgSize = {
@@ -18,8 +18,8 @@ export const speciesOgSize = {
 export const speciesOgContentType = OG_IMAGE_TYPE;
 
 export async function speciesOpengraphResponse(param: string) {
-  const id = resolveSpeciesId(param) ?? param;
   const catalog = await getSpeciesCatalog(routing.defaultLocale);
+  const id = speciesSlugMapsFromCatalog(catalog).idByAnySlug[param] ?? param;
   const item = catalog.find((entry) => entry.id === id);
   const url = speciesOgImageUrl(id, item?.image);
 

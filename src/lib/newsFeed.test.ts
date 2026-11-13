@@ -1,7 +1,6 @@
 import { Window } from "happy-dom";
 import { describe, expect, it, vi } from "vitest";
 
-import { getAllNewsArticles, getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleModifiedDateTime,
@@ -17,6 +16,12 @@ import {
   newsFeedPath,
   newsFeedUrl,
 } from "@/lib/newsFeed";
+
+import {
+  getAllNewsArticles,
+  getPublishedNewsArticles,
+} from "../../tests/fixtures/newsSeed";
+import { defined } from "../../tests/support/defined";
 
 vi.mock("@/i18n/navigation", () => ({
   getPathname({
@@ -34,7 +39,7 @@ vi.mock("@/i18n/navigation", () => ({
   },
 }));
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 function feed(locale: (typeof routing.locales)[number], articles?: never[]) {
   return buildNewsFeedXml({
@@ -102,8 +107,8 @@ describe("buildNewsFeedXml", () => {
     const ids = entries.map((entry) => entry.querySelector("id")?.textContent);
     expect(new Set(ids).size).toBe(ids.length);
 
-    const first = entries[0];
-    const expected = published[0];
+    const first = defined(entries[0]);
+    const expected = defined(published[0]);
     expect(first.querySelector("id")?.textContent).toBe(
       newsArticleUrl("en", expected.slug),
     );
@@ -148,7 +153,7 @@ describe("buildNewsFeedXml", () => {
         { ...article, slug: "draft-story", status: "draft" },
         {
           ...article,
-          copy: withoutEnglish as typeof article.copy,
+          copy: withoutEnglish,
           slug: "ka-only",
         },
       ],

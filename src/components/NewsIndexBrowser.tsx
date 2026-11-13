@@ -212,8 +212,8 @@ function BrowserMonths({
     <OptimizedImagesProvider entries={result?.entries ?? EMPTY_ENTRIES}>
       {months.map((month) => (
         <NewsMonthSection
-          countLabel={articleWords[month.items.length]}
-          heading={monthLabels[month.key]}
+          countLabel={articleWords[month.items.length] ?? ""}
+          heading={monthLabels[month.key] ?? month.key}
           items={month.items}
           key={month.key}
         />

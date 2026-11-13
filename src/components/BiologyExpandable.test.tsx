@@ -35,19 +35,16 @@ describe("BiologyExpandable", () => {
     expect(text).not.toHaveClass("line-clamp-3");
   });
 
-  it("keeps editor attributes and skips the toggle for short text", () => {
+  it("skips the toggle for short text", () => {
     render(
       <BiologyExpandable
         body={BODY}
-        editorField="interaction"
         needsExpand={false}
         readLess="Read less"
         readMore="Read more"
-        speciesId="meles-canescens"
       />,
     );
     const text = screen.getByText(BODY).closest("p");
-    expect(text).toHaveAttribute("data-content-field", "interaction");
     expect(text).not.toHaveClass("line-clamp-3");
     expect(screen.queryByRole("button")).toBeNull();
   });

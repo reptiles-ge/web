@@ -1,11 +1,10 @@
 import { LocalStorageAdapter } from "@reptiles-ge/img-compression/storage";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { uploadStandalonePhotos } from "@/lib/adminPhotos";
-import { applyOptimizeCatalog } from "@/lib/imageOptimize";
 
 describe("uploadStandalonePhotos", () => {
   it("returns CDN URLs for the compressed original and derivatives while reporting invalid files", async () => {
@@ -52,28 +51,12 @@ describe("uploadStandalonePhotos", () => {
         ).not.toBeNull();
       }
 
-      const dataDir = path.join(root, "src/data");
-      await mkdir(dataDir, { recursive: true });
-      await writeFile(
-        path.join(dataDir, "optimizedImages.generated.ts"),
-        'export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";\nexport const optimizedImages: Record<string, OptimizedImageEntry> = {};\n',
+      expect(result.catalog[0]?.asset?.path).toBe(
+        photo?.url
+          .replace("https://cdn.reptiles.ge/", "")
+          .replace(/\.[a-z]+$/, ""),
       );
-      await applyOptimizeCatalog(root, result.catalog);
-      const manifestText = await readFile(
-        path.join(dataDir, "image-manifest.json"),
-        "utf8",
-      );
-      expect(manifestText.endsWith("}\n")).toBe(true);
-      const manifest = JSON.parse(manifestText) as {
-        entries: Record<string, unknown>;
-      };
-      expect(manifest.entries[result.catalog[0]?.key ?? ""]).toBeDefined();
-      const generated = await readFile(
-        path.join(dataDir, "optimizedImages.generated.ts"),
-        "utf8",
-      );
-      expect(generated).toContain(JSON.stringify(photo?.url));
-      expect(generated).toContain(JSON.stringify(result.uploaded[1]?.url));
+      expect(result.catalog[0]?.src).toBe(photo?.url);
 
       const duplicate = await uploadStandalonePhotos(
         [{ bytes, filename: "other.webp", name: "გიურზა" }],

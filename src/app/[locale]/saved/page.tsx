@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { SavedPage } from "@/components/SavedPage";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import { NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
@@ -20,7 +20,7 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const t = await getTranslations({ locale, namespace: "saved" });
 
   return {
@@ -45,7 +45,7 @@ export default async function SavedSpeciesPage({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   return (

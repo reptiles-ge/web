@@ -1,18 +1,14 @@
 import {
-  emptyManifest,
-  loadManifest,
   type ManifestEntry,
   optimizeAndStore,
   resolveImageConfig,
-  saveManifest,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression";
-import { LocalStorageAdapter } from "@reptiles-ge/img-compression/storage";
-import fs from "node:fs";
-import path from "node:path";
 
-import type { OptimizedImageEntry } from "@/data/optimizedImages";
+import type { OptimizedImageEntry } from "@/lib/optimizedImageSources";
 
+import { serverEnv } from "@/lib/env";
+import { putImageManifest } from "@/lib/optimizedImagesApi";
 import {
   OPTIMIZED_PREFIX,
   PHOTO_ADDITIONAL_WIDTHS,
@@ -20,9 +16,6 @@ import {
   PHOTO_FORMATS,
   PHOTO_MAX_WIDTH,
 } from "@/lib/photoDerivatives";
-
-const MANIFEST_KEY = "image-manifest.json";
-const GENERATED_REL = "src/data/optimizedImages.generated.ts";
 
 const SPECIES_IMAGE_CONFIG = resolveImageConfig({
   additionalWidths: [...PHOTO_ADDITIONAL_WIDTHS],
@@ -42,131 +35,24 @@ export type OptimizeCatalogUpdate = {
   src: string;
 };
 
-export async function applyOptimizeCatalog(
-  repoRoot: string,
-  updates: OptimizeCatalogUpdate[],
-) {
+export async function applyOptimizeCatalog(updates: OptimizeCatalogUpdate[]) {
   if (updates.length === 0) return;
-
-  const manifestStorage = new LocalStorageAdapter({
-    root: path.join(repoRoot, "src/data"),
-  });
-  const manifest = await loadManifest(manifestStorage, MANIFEST_KEY);
-  const entries = { ...manifest.entries };
-  for (const update of updates) {
-    entries[update.key] = update.entry;
+  const token = serverEnv().API_WRITE_TOKEN;
+  if (!token) {
+    throw new Error("API_WRITE_TOKEN must be in .env.local");
   }
-  await saveManifest(manifestStorage, MANIFEST_KEY, {
-    ...emptyManifest(),
-    entries,
-  });
-  ensureTrailingNewline(path.join(repoRoot, "src/data", MANIFEST_KEY));
-
-  const assets = updates.filter(
-    (
-      update,
-    ): update is OptimizeCatalogUpdate & { asset: OptimizedImageEntry } =>
-      update.asset !== null,
+  await putImageManifest(
+    token,
+    updates.map((update) => ({
+      asset: update.asset,
+      entry: { ...update.entry, derivatives: [...update.entry.derivatives] },
+      key: update.key,
+      src: update.src,
+    })),
   );
-  if (assets.length === 0) return;
-  upsertGeneratedFile(path.join(repoRoot, GENERATED_REL), assets);
 }
 
-export function buildGeneratedImages(input: {
-  entries: Record<string, ManifestEntry>;
-  prefix: string;
-  previous: Map<string, string>;
-  sources: Map<string, string>;
-  storage: StorageAdapter;
-}): { images: Record<string, OptimizedImageEntry>; skippedNoGain: number } {
-  const images: Record<string, OptimizedImageEntry> = {};
-  let skippedNoGain = 0;
-
-  for (const [key, entry] of Object.entries(input.entries).sort(([a], [b]) =>
-    a.localeCompare(b),
-  )) {
-    const src =
-      input.sources.get(key) ??
-      input.previous.get(key) ??
-      (key.startsWith("external/") ? input.storage.urlFor(key) : null);
-    if (!src) continue;
-    const asset = compactAsset(key, entry, input.storage, input.prefix);
-    if (!asset) {
-      skippedNoGain += 1;
-      continue;
-    }
-    images[src] = asset;
-  }
-
-  return { images, skippedNoGain };
-}
-
-export function ensureTrailingNewline(file: string) {
-  const text = fs.readFileSync(file, "utf8");
-  if (!text.endsWith("\n")) fs.writeFileSync(file, `${text}\n`);
-}
-
-export function formatGeneratedImages(
-  images: Record<string, OptimizedImageEntry>,
-): string {
-  const entries = Object.entries(images)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([src, asset]) => {
-      const widths = `[${asset.widths.join(", ")}]`;
-      const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
-      return `  ${JSON.stringify(src)}: {
-    "path": ${JSON.stringify(asset.path)},
-    "width": ${asset.width},
-    "height": ${asset.height},
-    "widths": ${widths},
-    "formats": ${formats}
-  }`;
-    });
-  return `{\n${entries.join(",\n")}\n}`;
-}
-
-export async function optimizeUploadedOriginal(input: {
-  key: string;
-  source: Buffer;
-  src: string;
-  storage: StorageAdapter;
-}): Promise<null | OptimizeCatalogUpdate> {
-  const result = await optimizeAndStore({
-    config: SPECIES_IMAGE_CONFIG,
-    key: input.key,
-    source: input.source,
-    storage: input.storage,
-    storeOriginal: false,
-  });
-  if (!result.entry) return null;
-
-  const entry = { ...result.entry, originalKey: input.key };
-  const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
-  const asset = compactAsset(input.key, entry, input.storage, prefix);
-  return { asset, entry, key: input.key, src: input.src };
-}
-
-export function readGeneratedImages(
-  raw: string,
-): Record<string, OptimizedImageEntry> {
-  const marker =
-    "export const optimizedImages: Record<string, OptimizedImageEntry> = ";
-  const start = raw.indexOf(marker);
-  if (start < 0) {
-    throw new Error(
-      "optimizedImages.generated.ts is not in the expected format",
-    );
-  }
-  const objectPart = raw.slice(start + marker.length).trimEnd();
-  if (!objectPart.endsWith(";")) {
-    throw new Error(
-      "optimizedImages.generated.ts is not in the expected format",
-    );
-  }
-  return parseGeneratedImages(objectPart.slice(0, -1));
-}
-
-function compactAsset(
+export function compactOptimizedAsset(
   key: string,
   entry: ManifestEntry,
   storage: StorageAdapter,
@@ -231,49 +117,23 @@ function compactAsset(
   };
 }
 
-function parseGeneratedImages(
-  objectLiteral: string,
-): Record<string, OptimizedImageEntry> {
-  const jsonReady = objectLiteral
-    .replace(/,\s*([}\]])/g, "$1")
-    .replace(/\b(path|width|height|widths|formats)\s*:/g, '"$1":');
-  try {
-    const parsed = JSON.parse(jsonReady) as unknown;
-    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-      throw new Error(
-        "optimizedImages.generated.ts is not in the expected format",
-      );
-    }
-    return parsed as Record<string, OptimizedImageEntry>;
-  } catch {
-    throw new Error(
-      "optimizedImages.generated.ts is not in the expected format",
-    );
-  }
-}
+export async function optimizeUploadedOriginal(input: {
+  key: string;
+  source: Buffer;
+  src: string;
+  storage: StorageAdapter;
+}): Promise<null | OptimizeCatalogUpdate> {
+  const result = await optimizeAndStore({
+    config: SPECIES_IMAGE_CONFIG,
+    key: input.key,
+    source: input.source,
+    storage: input.storage,
+    storeOriginal: false,
+  });
+  if (!result.entry) return null;
 
-function upsertGeneratedFile(
-  filePath: string,
-  updates: Array<{ asset: OptimizedImageEntry; src: string }>,
-) {
-  const raw = fs.readFileSync(filePath, "utf8");
-  const images = readGeneratedImages(raw);
-  for (const update of updates) {
-    images[update.src] = update.asset;
-  }
-  const sorted = Object.fromEntries(
-    Object.entries(images).sort(([a], [b]) => a.localeCompare(b)),
-  );
-  const prefixMatch = raw.match(/export const optimizedBaseUrl = ("[^"]+");/);
-  const prefix = prefixMatch
-    ? (JSON.parse(prefixMatch[1]) as string)
-    : "https://cdn.reptiles.ge/optimized/";
-  const next = `// Generated by scripts/optimize-images.ts — do not edit by hand.
-import type { OptimizedImageEntry } from "./optimizedImages";
-
-export const optimizedBaseUrl = ${JSON.stringify(prefix)};
-
-export const optimizedImages: Record<string, OptimizedImageEntry> = ${formatGeneratedImages(sorted)};
-`;
-  fs.writeFileSync(filePath, next);
+  const entry = { ...result.entry, originalKey: input.key };
+  const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
+  const asset = compactOptimizedAsset(input.key, entry, input.storage, prefix);
+  return { asset, entry, key: input.key, src: input.src };
 }

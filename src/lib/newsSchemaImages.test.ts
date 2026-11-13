@@ -2,13 +2,14 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { SchemaCrop } from "@/data/schemaImages";
 
-import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
+import { type NewsArticle } from "@/data/news";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { routing } from "@/i18n/routing";
 import { newsOgImageUrl } from "@/lib/news";
 import { newsHeroImage, newsSchemaImages } from "@/lib/newsSchemaImages";
 import { newsImageRights } from "@/lib/newsVisual";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,

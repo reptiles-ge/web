@@ -228,7 +228,7 @@ function parseBlobChanges(log: string): BlobChange[] {
       continue;
     }
     if (!current || !line.startsWith(":")) continue;
-    const [meta, file] = line.split("\t");
+    const [meta = "", file] = line.split("\t");
     const [, , oldSha, newSha] = meta.split(" ");
     if (!file || !oldSha || !newSha) continue;
     changes.push({ date: current, file, newSha, oldSha });
@@ -253,7 +253,7 @@ function readBlobNamespaceHashes(
       .toString("utf8")
       .split(" ");
     const start = headerEnd + 1;
-    if (type !== "blob") {
+    if (!sha || type !== "blob") {
       offset = start;
       continue;
     }

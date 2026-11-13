@@ -13,6 +13,7 @@ import proxy from "@/proxy";
 
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 import { compilePathname as compile } from "../../tests/support/compilePathname";
+import { defined } from "../../tests/support/defined";
 
 const LOCALES = ["ka", "en", "ru", "tr"] as const satisfies AppLocale[];
 const INDEX = getLocaleSwitchIndex(speciesCatalogFixture("ka"));
@@ -21,7 +22,7 @@ function internalTargets(locale: AppLocale) {
   const targets = new Set<string>();
   for (const item of speciesCatalogFixture(locale)) {
     for (const match of JSON.stringify(item).matchAll(/\]\((\/[^)\s"]*)\)/g)) {
-      targets.add(match[1]);
+      targets.add(defined(match[1]));
     }
   }
   return [...targets];

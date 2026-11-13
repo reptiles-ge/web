@@ -14,7 +14,6 @@ import {
 } from "react";
 
 import type { DangerLevel } from "@/data/speciesTypes";
-import type { AppLocale } from "@/i18n/routing";
 import type { ChromeVariant } from "@/lib/chromeStyles";
 
 import { useSavedItems } from "@/components/useSavedCards";
@@ -206,7 +205,7 @@ function SavedMenuList({
 }) {
   const t = useTranslations("nav");
   const tDanger = useTranslations("danger");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const items = useSavedItems(locale, entries);
   const lastSavedId = getLastSavedId();
 

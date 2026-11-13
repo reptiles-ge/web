@@ -53,6 +53,12 @@ export async function checkAdminSave(
 function detailText(detail: unknown) {
   if (!detail || typeof detail !== "object") return String(detail);
   const { message, path } = detail as { message?: unknown; path?: unknown };
-  const where = Array.isArray(path) ? path.join(".") : path;
-  return where ? `${String(where)}: ${String(message)}` : String(message);
+  const where = Array.isArray(path)
+    ? path.join(".")
+    : path == null
+      ? undefined
+      : typeof path === "string"
+        ? path
+        : JSON.stringify(path);
+  return where ? `${where}: ${String(message)}` : String(message);
 }

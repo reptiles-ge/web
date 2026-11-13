@@ -31,30 +31,30 @@ Do not add code comments. Do not invent UI copy in one locale only.
 
 ## Read first
 
-| Task                          | Start here                                                                                    |
-| ----------------------------- | --------------------------------------------------------------------------------------------- |
-| Species content (D1)          | `.agents/skills/api/SKILL.md`, then `src/lib/speciesProfileApi.ts` / `speciesCatalogApi.ts`   |
-| AI edits to a species page    | `.agents/skills/species-drafts/SKILL.md` — `pnpm species:draft` pull → edit → push as a draft |
-| Writing style (all prose)     | `src/prompts/writing-style.md` — binding house style; AI prompts load it                      |
-| Group (snake/lizard/…)        | `src/data/speciesAtlas.ts`                                                                    |
-| Public URL / slug             | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`                                  |
-| Localized pathnames           | `src/i18n/pathnames.ts`                                                                       |
-| Group hubs                    | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                     |
-| Cluster guides                | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                             |
-| Guide articles (bat, wasp, …) | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`               |
-| Species page factory          | `src/lib/createSpeciesRoute.tsx`                                                              |
-| Regions + map IDs             | `src/data/regions.ts` — **never infer** `speciesIds`                                          |
-| Checklist status              | D1 `species.checklist_status_id`; source note in `src/data/herpetofauna-checklist.ts`         |
-| Quiz registry                 | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                  |
-| Contributors                  | `src/lib/authorsApi.ts` (`/v1/contributors`, `/v1/authors`), `src/lib/creditAuthors.ts`       |
-| News                          | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`          |
-| 301 map                       | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                       |
-| UI strings                    | `messages/ka.json` + `messages/en.json` (same keys)                                           |
-| Maintenance mode              | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                            |
-| Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                         |
-| Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                    |
-| API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`               |
-| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                  |
+| Task                          | Start here                                                                                        |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- |
+| Species content (D1)          | `.agents/skills/api/SKILL.md`, then `src/lib/speciesProfileApi.ts` / `speciesCatalogApi.ts`       |
+| AI edits to a species page    | `.agents/skills/species-drafts/SKILL.md` — `pnpm species:draft` pull → edit → push as a draft     |
+| Writing style (all prose)     | `src/prompts/writing-style.md` — binding house style; AI prompts load it                          |
+| Group (snake/lizard/…)        | `src/data/speciesAtlas.ts`                                                                        |
+| Public URL / slug             | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`                                      |
+| Localized pathnames           | `src/i18n/pathnames.ts`                                                                           |
+| Group hubs                    | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                         |
+| Cluster guides                | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                                 |
+| Guide articles (bat, wasp, …) | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`                   |
+| Species page factory          | `src/lib/createSpeciesRoute.tsx`                                                                  |
+| Regions + map IDs             | `src/data/regions.ts` — **never infer** `speciesIds`                                              |
+| Checklist status              | D1 `species.checklist_status_id`; source note in `src/data/herpetofauna-checklist.ts`             |
+| Quiz registry                 | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                                      |
+| Contributors                  | `src/lib/authorsApi.ts` (`/v1/contributors`, `/v1/authors`), `src/lib/creditAuthors.ts`           |
+| News                          | `src/lib/newsApi.ts` (D1 through the API), `src/data/news.ts` (helpers), `scripts/news-import.ts` |
+| 301 map                       | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                           |
+| UI strings                    | `messages/ka.json` + `messages/en.json` (same keys)                                               |
+| Maintenance mode              | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                                |
+| Releases, versions, tags      | `docs/RELEASING.md` (playbook), `.github/release.yml`                                             |
+| Pinned / patched deps         | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                                        |
+| API Worker (Hono, D1)         | `.agents/skills/api/SKILL.md` (binding rules), `src/api/`, `wrangler.api.jsonc`                   |
+| Admin app (admin.reptiles.ge) | `src/admin/`, `vite.admin.config.ts`, `wrangler.admin.jsonc`                                      |
 
 ## Architecture
 
@@ -65,7 +65,7 @@ species content            D1 (reptiles-db) → reptiles-api (api.reptiles.ge) �
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table, from the API)
 src/data/speciesAtlasMeta.generated.ts gitignored (group + habitats per species, from the API)
 src/app/api/search/[locale] search index JSON, built from the API catalog (static per deploy)
-src/content/news/{slug}/  ka.mdx + en.mdx (+ ru/tr) → compile → src/data/news.generated.ts (gitignored)
+news content             D1 (reptiles-db) → reptiles-api → src/lib/newsApi.ts; MDX is only the import format
 src/content/guides/{id}.ts long-form guide articles (all locales) → src/data/guideArticles.ts
 src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
@@ -98,7 +98,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 There is no species MDX. Species content lives in D1 and is served by `reptiles-api`; the site renders it on the server. Read `.agents/skills/api/SKILL.md` before changing anything about it.
 
-1. AI changes to a species page go only through `pnpm species:draft` (`.agents/skills/species-drafts/SKILL.md`): pull the record, edit it locally, push it as a draft for the owner to merge. Edit through the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts for approval, reviewed and merged on the **Drafts** page of `admin.reptiles.ge` (or the local admin); cover, crop, reorder, remove and coordinates write through the API. New gallery photos are added in the admin app (`admin.reptiles.ge`, **Add photos** on a species page; see "Admin app"). Field records and the interactive range map are part of the species record and change through drafts as well. AI analysis and workflow, and new species creation answer 503 until the admin phase moves them to the API.
+1. AI changes to a species page go only through `pnpm species:draft` (`.agents/skills/species-drafts/SKILL.md`): pull the record, edit it locally, push it as a draft for the owner to merge. Edit through the local admin (`/admin` with `pnpm dev`). Text edits become drafts for approval, reviewed and merged on the **Drafts** page of `admin.reptiles.ge` (or the local admin); cover, crop, reorder, remove and coordinates write through the API. New gallery photos are added in the admin app (`admin.reptiles.ge`, **Add photos** on a species page; see "Admin app"). Field records and the interactive range map are part of the species record and change through drafts as well. There is no species creation in either admin: the local-admin form and `/api/admin/species-create` were removed in November 2026, and a new species is created in D1 by the owner.
 2. The record rules are enforced by `src/api/schemas/speciesRecord.ts`: KA owns taxonomy, `danger`, images and `sources`; `en` / `ru` / `tr` translate the text and may re-credit KA photos by `src`; `faq`, `facts`, `stats` and `identification.traits` counts and `identification.colors` match KA.
 3. Lookalikes live in D1 (`species_lookalikes`, part of the species record). Every catalog view returns them both ways (`lookalikes`), and the site reads them from there for the lookalike and related cards, the quiz and `llms`. So do the taxonomic order and class (`order`, `class`; migration `0021`), the checklist status (`checklistStatus`), the search feature flag (`featured`), publication (`status`) and the former slugs (`species_slugs`, served as `slugAliases` in the card view). There is no species list in code.
 4. `pnpm slugs:compile` (part of `compile`) builds the gitignored slug table and the group/habitat table from the API card catalog, so a slug change or a new species reaches `src/proxy.ts`, links and grouping on the next deploy. Former slugs come from the catalog `slugAliases`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
@@ -187,6 +187,7 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 - The page cache is warmed at two moments. After every push to `main`, `.github/workflows/warm-cache.yml` waits for the new build and requests every sitemap URL as HTML and as `?_rsc` (`scripts/warm-cache.mjs`). After an admin cache clear, the API warms in the background (`waitUntil`, `src/api/lib/siteWarm.ts`) so the clear answers at once: one species, one news article, one contributor, an author write or a draft merge (one or a batch) warms only those pages' locale URLs (the paths the site's `/api/revalidate` returns; an author without a contributor page warms nothing), and every wider clear (**Clear species cache**, a page group, the news or authors section) dispatches the same workflow with `warm_only`, which skips IndexNow and the OG images (secret `WARM_DISPATCH_TOKEN` and var `WARM_DISPATCH_REPOSITORY` on `reptiles-api`: a GitHub fine-grained token with Actions write on that repository; without them the dispatch is skipped with a logged error). Nothing is warmed when the clear or its API purge fails. The workflow runs one at a time: a push cancels a running warm, and a dispatch waits for a running push warm, so it never warms the build being replaced. A cache MISS answers `no-store, must-revalidate` from `@vinext/cloudflare` while the page is being admitted; `src/lib/responseCacheControl.ts` rewrites it on HTML pages and RSC payloads to the HIT value `private, max-age=0, must-revalidate`, so both send the same `Cache-Control` and keep the per-request nonce.
 - Public reads are for registered API clients: `X-Api-Key` checked by `requireApiKey`, switched by `API_KEY_MODE` (`off` / `log` / `enforce`). The site sends `SITE_API_KEY` from the server only. Admin, auth, docs and views need no key; ratings accept only `SITE_API_KEY`.
 - `reptiles.ge/docs` and `reptiles.ge/v1/docs/openapi.json` show the API's Scalar reference without a redirect: `src/worker.ts` hands those two paths to `reptiles-api` through the `API` service binding (`src/lib/apiDocsProxy.ts`) before vinext runs, so the site CSP, nonce and cache headers never touch them. The API's own headers pass through. Every other `/v1/*` path stays on the site, and `/v1/docs` 301s to `/docs` in `src/proxy.ts`; Try it works only on `api.reptiles.ge/v1/docs` (CORS refuses `X-Api-Key` cross-origin). Agents find the API through `/.well-known/api-catalog` (RFC 9727 linkset, `src/lib/apiCatalog.ts`), the `Link` header on `/developers` (`service-desc`, `service-doc`, `api-catalog`) and the llms.txt secondary resources; the paths live in `src/lib/apiDocsPaths.ts`.
+- The image catalog lives in D1 too: `optimized_images` (migration `0016`, the AVIF/WebP sizes the site renders), `image_manifest` (`0029`, the optimizer's per-key record: source hash, config fingerprint, every derivative) and `schema_image_crops` (`0029`, the 16:9 / 4:3 / 1:1 JPEG crops for `ImageObject`). There is no committed `image-manifest.json`, `optimizedImages.generated.ts` or `schemaImages.json` any more. `pnpm images:compile` (first step of `compile`; `news:import` checks heroes against it) reads `GET /v1/images` and `GET /v1/images/schema-crops` into the gitignored `src/data/optimizedImages.api.generated.ts`, the only source for `src/data/optimizedImages.ts` and `src/data/schemaImages.ts`. `pnpm images:optimize` and `pnpm images:schema --upload` read and write the catalog through `/v1/admin/images/manifest` and `/v1/admin/images/schema-crops` (write token, `API_WRITE_TOKEN` in `.env.local`); every write purges the `images` API cache tag, and the site serves the new sizes on its next deploy. Tests read the frozen snapshot `tests/stubs/optimizedImagesApiGenerated.ts` (vitest alias), never the live catalog. One-time move of the old committed files: `pnpm images:import --ref <commit>` (`scripts/import-image-catalog.ts`).
 - Every species page and list loads its content from `api.reptiles.ge` on the server (`src/lib/speciesProfileApi.ts`, `speciesCatalogApi.ts`, `speciesFieldRecordsApi.ts`), with no client loaders.
 - D1 is the source of truth for species (`0002_species.sql`, `0005_species_field_records.sql`). Species MDX was deleted in S5.
 - Photo authors live in D1 too (`0006_authors.sql`): every photographer is an `authors` row, `is_contributor` marks the ones with a contributor page, and photos link to them through `author_aliases`. The site reads contributors from `/v1/contributors` in one request per render (`getContributors(locale)`, which `getContributorDirectory(locale)` and the home page also use, and `getContributor(slug, locale)` on a contributor page, in `src/lib/authorsApi.ts`). Load them only where a credit or contributor is shown: news cards go through `loadNewsVisuals` (`src/lib/newsVisualLoader.ts`), which asks for the catalog and contributors only when an article has no image of its own and links a photo credit to a contributor page by its `authorId` (`creditContributor` in `src/lib/contributorCredits.ts`). There is no contributor list in code; add or edit one through the admin API.
@@ -222,16 +223,16 @@ The API is a second Worker, `reptiles-api` (Hono on D1 `reptiles-db`), in `src/a
 
 ## News
 
-- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly. The article page (`/news/{slug}`), the index (`/news`) and the archive (`/news/page/{n}`) already read D1 through `src/lib/newsApi.ts` (`getNewsArticle`, `getNewsListArticles`), and so do the sitemap, the Atom feeds, the llms files and the search index (`getNewsSummaries`). A new article needs its D1 rows to get a page, a place in the list and those entries; see `docs/NEWS-D1-MIGRATION.md`.
-- New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first. Then `pnpm news:import <slug> --publish` (first with `--dry-run`) puts it in D1, which the article page, index and archive read. Only the owner runs the import against production.
+- There is no news MDX in the repository and no compiled news table. News lives in D1 and is served by `reptiles-api`; every page reads D1 through `src/lib/newsApi.ts`: the article (`getNewsArticle`), the index and archive (`getNewsListArticles`, `getNewsListArticlesPage`), the hub, species, region and series blocks (`getNewsListArticlesForHub` / `ForRegion` / `ForSpecies` / `InSeries`), the sitemap, the Atom feeds, the llms files and the search index (`getNewsSummaries`); scripts take every published article with `getNewsArticles`. `src/data/news.ts` holds only pure helpers. Tests read the frozen snapshot `tests/fixtures/newsArticlesSnapshot.ts` through `tests/fixtures/newsSeed.ts` (the former getters) and the SQLite seed behind the MSW API; they never read production data. A new article needs its D1 rows to get a page, a place in the list and those entries; see `docs/NEWS-D1-MIGRATION.md`.
+- New article: write `{ka,en,ru,tr}.mdx` in the gitignored inbox `.news/<slug>/` (or any folder, `--dir <folder>`), then `pnpm news:import <slug> --publish` (first with `--dry-run`) checks it and puts it in D1 as a new version. The import runs the same checks the compile step used to: slug rule, AVIF/WebP ladder for every photo (`pnpm images:optimize:news` first), page talk, hero size, and the API validates the record (`src/api/schemas/newsRecord.ts`, `newsRules.ts`). The MDX is not committed; delete the inbox folder once the article is in D1. The order of articles with the same `publishedAt` is their D1 `position` (newest import last). Only the owner runs the import against production.
 - KA frontmatter owns the shared data: `slug`, `status`, `publishedAt`, `updatedAt`, `related{Hub,Region,Species}Ids`, `sources`, `image`, `gallery` (src, `alt`, credit, size, `plate`, `fromAtlas`). Every locale has `title`, `dek`, `lead`, `metaTitle`, `metaDescription`. `en`/`ru`/`tr` translate the text and give only `{ src, alt }` for `image` / `gallery` (matched by `src`). Do not copy the photo list.
-- Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the compile.
-- `src/data/newsContent.test.ts` checks that every locale has the same figures in the same order and the same section count, and that every linked species, region, hub and contributor exists.
+- Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the import.
+- `src/lib/newsRules.ts` (checked by the API on every write) requires that every locale has the same figures in the same order and the same section count, and that every linked species, region, hub and contributor exists.
 - Public URLs: `/news`, `/news/{slug}` (KA unprefixed; `/en/news/…`). Do not add `/ka/news` as a live URL — `/ka/…` 301s via `src/proxy.ts`.
-- No category or tag archive URLs. Drafts stay out of `getPublishedNewsArticles()`, sitemap, and `generateStaticParams`.
+- No category or tag archive URLs. Drafts stay out of the public API, sitemap, and `generateStaticParams`.
 - Reuse `localeAlternates` / `JsonLd` / sitemap `pageEntry`. Do not invent a parallel blog.
 - Do not invent counts, quotes, or species totals beyond the cited source.
-- Hero (`image` in KA frontmatter) must be landscape and at least 1200 px wide at the served size (`src/lib/newsHeroImage.ts`); `pnpm news:compile` fails for articles from 2026-10-21 on and warns for older ones. Urgent news without a fitting photo: `heroImageException: <reason>` (KA only, at most 3 open, remove it once the hero is replaced).
+- Hero (`image` in KA frontmatter) must be landscape and at least 1200 px wide at the served size (`src/lib/newsHeroImage.ts`); `pnpm news:import` fails for articles from 2026-10-21 on and warns for older ones. Urgent news without a fitting photo: `heroImageException: <reason>` (KA only, at most 3 open, remove it once the hero is replaced).
 
 ## SEO
 
@@ -274,8 +275,8 @@ pnpm doctor:changed       # only issues introduced vs the base branch
 pnpm doctor:check         # fails unless the React Doctor score is exactly 100
 pnpm content:compile      # content dates and release version
 pnpm slugs:compile        # slug table from the API card catalog
-pnpm images:compile       # AVIF/WebP sizes of API-uploaded photos from GET /v1/images
-pnpm news:compile         # news MDX → src/data/news.generated.ts
+pnpm images:compile       # image catalog (AVIF/WebP sizes, schema crops) from GET /v1/images and /v1/images/schema-crops
+pnpm news:import <slug> [--dir <folder>] [--dry-run] [--publish]   # news MDX from the .news/ inbox → D1
 pnpm species:draft pull <id> / push <id> --summary "…" [--dry-run]   # AI species edits as drafts
 pnpm species:draft scan [<id> …]   # live records: source names, source framing, page talk, unresolved links
 pnpm i18n:check           # locale key parity + ICU argument check (KA is the source)

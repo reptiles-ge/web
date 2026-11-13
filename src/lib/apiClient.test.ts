@@ -20,7 +20,6 @@ describe("createApiClient", () => {
       query: { group: "turtle" },
     });
     expect(response.status).toBe(200);
-    if (response.status !== 200) return;
     const body = await response.json();
     expect(body.locale).toBe("en");
     expect(body.data.every((item) => item.group === "turtle")).toBe(true);
@@ -80,7 +79,7 @@ describe("createApiClient", () => {
     });
     expect(fetch).toHaveBeenCalledOnce();
     expect(info).toHaveBeenCalledOnce();
-    expect(info.mock.calls[0][0]).toMatch(
+    expect(info.mock.calls[0]?.[0]).toMatch(
       /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/admin\/ratings → 204 \(\d+ ms\)$/,
     );
     expect(JSON.stringify(info.mock.calls)).not.toContain("secret");

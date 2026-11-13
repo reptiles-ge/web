@@ -64,7 +64,9 @@ export async function getPublishedNews(
 ) {
   const [record] = await readNewsRecords(db, slug);
   if (!record || record.article.status !== "published") return null;
-  const textLocale = record.article.copy[locale] ? locale : "ka";
+  const copy: NewsArticle["copy"][AppLocale] | undefined =
+    record.article.copy[locale];
+  const textLocale = copy ? locale : "ka";
   return {
     data: newsDetail(record.article, textLocale),
     locale: textLocale,
@@ -98,7 +100,7 @@ function localeLinksSpecies(
 ) {
   return newsBodyLinks({
     ...article,
-    copy: { [locale]: article.copy[locale] } as NewsArticle["copy"],
+    copy: { [locale]: article.copy[locale] },
   }).species.has(speciesId);
 }
 
@@ -184,7 +186,9 @@ async function publishedNewsSummaries(
   if (filters.author && !author) return [];
   return records
     .filter(({ article }) => {
-      if (article.status !== "published" || !article.copy[locale]) return false;
+      const copy: NewsArticle["copy"][AppLocale] | undefined =
+        article.copy[locale];
+      if (article.status !== "published" || !copy) return false;
       if (filters.region && !article.relatedRegionIds.includes(filters.region))
         return false;
       if (filters.series && article.series !== filters.series) return false;

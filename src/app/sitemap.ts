@@ -41,8 +41,6 @@ import {
   localePath,
   quizAlternates,
   quizPageUrl,
-  speciesAlternates,
-  speciesPageUrl,
 } from "@/lib/site";
 import {
   creditAuthorPageImageUrls,
@@ -55,6 +53,11 @@ import {
   getSpeciesCatalog,
 } from "@/lib/speciesCatalogApi";
 import { regionHref } from "@/lib/speciesRoutes";
+import {
+  getSpeciesSlugMaps,
+  liveSpeciesAlternates,
+  liveSpeciesPageUrl,
+} from "@/lib/speciesSlugRuntime";
 import {
   authorModifiedDate,
   pageModifiedDate,
@@ -77,16 +80,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
-  const [catalogs, creditPhotos, contributors, news] = await Promise.all([
-    Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
-    getCreditPhotoCatalog(),
-    getContributors(routing.defaultLocale),
-    getNewsSummaries(),
-  ]);
+  const [catalogs, creditPhotos, contributors, news, slugMaps] =
+    await Promise.all([
+      Promise.all(routing.locales.map((locale) => getSpeciesCatalog(locale))),
+      getCreditPhotoCatalog(),
+      getContributors(routing.defaultLocale),
+      getNewsSummaries(),
+      getSpeciesSlugMaps(),
+    ]);
   const photosById = new Map(creditPhotos.map((item) => [item.id, item]));
-  const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
+  const pending: Array<Promise<SitemapEntry>> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
-    pending.push(entry);
+    pending.push(Promise.resolve(entry));
   const archivePageCounts = newsPageCounts(news);
 
   routing.locales.forEach((locale, index) => {
@@ -182,14 +187,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const item of cards) {
-      const { languages } = speciesAlternates(locale, item.id);
+      const { languages } = liveSpeciesAlternates(slugMaps, locale, item.id);
       const photos = photosById.get(item.id);
       const images = photos ? speciesPageImageUrls(photos) : [];
       add({
         alternates: { languages },
         datePublished: item.publishedAt,
         lastModified: toLastModified(item.updatedAt),
-        url: speciesPageUrl(locale, item.id),
+        url: liveSpeciesPageUrl(slugMaps, locale, item.id),
         ...(images.length > 0 ? { images } : {}),
       });
     }
@@ -241,12 +246,13 @@ async function pageEntry(
   datePublished?: string,
 ): Promise<SitemapEntry> {
   const { languages } = localeAlternates(locale, href);
+  const path = typeof href === "string" ? href : (href?.pathname ?? "/");
   return {
     alternates: { languages },
-    datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
+    datePublished: datePublished ?? sitemapPathDatePublished(path),
     lastModified: toLastModified(
       lastModified === undefined
-        ? await pageModifiedDate(String(href), locale, cards, creditPhotos)
+        ? await pageModifiedDate(path, locale, cards, creditPhotos)
         : lastModified,
     ),
     url: absoluteUrl(localePath(locale, href)),

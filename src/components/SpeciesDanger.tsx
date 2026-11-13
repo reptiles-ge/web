@@ -78,6 +78,14 @@ function DangerShell({
 
 function levelTone(level?: DangerLevel) {
   switch (level) {
+    case "Harmless":
+    case undefined:
+      return {
+        chip: "bg-primary/15 text-primary",
+        dot: "bg-primary",
+        value: "text-primary",
+        valueHero: "text-[#8fceae]",
+      };
     case "High":
       return {
         chip: "bg-destructive/15 text-destructive",
@@ -91,13 +99,6 @@ function levelTone(level?: DangerLevel) {
         dot: "bg-gold",
         value: "text-gold",
         valueHero: "text-[#e0c078]",
-      };
-    default:
-      return {
-        chip: "bg-primary/15 text-primary",
-        dot: "bg-primary",
-        value: "text-primary",
-        valueHero: "text-[#8fceae]",
       };
   }
 }

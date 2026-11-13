@@ -52,7 +52,7 @@ export function ContactCopyButton({
     <button
       aria-label={statusLabel || srLabel}
       className="inline-flex size-[50px] shrink-0 cursor-pointer items-center justify-center gap-[9px] rounded-full border border-border bg-(--nw-card) text-[15px] font-medium text-(--nw-ink) transition-colors hover:border-(--nw-sep) md:h-[52px] md:w-auto md:px-5"
-      onClick={onCopy}
+      onClick={() => void onCopy()}
       type="button"
     >
       {status === "copied" ? (

@@ -10,14 +10,6 @@ export type NewsLinkKind =
 
 type InlineMark = { attrs: NewsLinkAttrs; type: "newsLink" } | { type: "sci" };
 
-export function newsDocFigures(doc: JSONContent) {
-  return (doc.content ?? []).flatMap((section) =>
-    (section.content ?? []).flatMap((block) =>
-      block.type === "figure" ? [String(block.attrs?.src ?? "")] : [],
-    ),
-  );
-}
-
 export function newsDocToSections(doc: JSONContent): NewsSection[] {
   return (doc.content ?? []).map((section) => {
     const [heading, ...blocks] = section.content ?? [];
@@ -73,9 +65,12 @@ function linkAttrs(part: Exclude<NewsMark, string | { type: "sci" }>) {
       return { kind: part.type, target: part.slug };
     case "external":
       return { kind: part.type, target: part.href };
+    case "hub":
+      return { kind: part.type, target: part.id };
     case "news-index":
       return { kind: part.type, target: "" };
-    default:
+    case "region":
+    case "species":
       return { kind: part.type, target: part.id };
   }
 }
@@ -137,7 +132,8 @@ function toMark(mark: InlineMark | undefined, text: string): NewsMark {
       return { id: target as GroupHubId, label: text, type: kind };
     case "news-index":
       return { label: text, type: kind };
-    default:
+    case "region":
+    case "species":
       return { id: target, label: text, type: kind };
   }
 }

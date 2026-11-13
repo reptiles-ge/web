@@ -276,7 +276,7 @@ export async function readSpeciesCatalog(
           compact({ name: entry.name, url: entry.url ?? undefined }),
         ),
         updatedAt: ka.updatedAt ?? "",
-      }) as Species,
+      }),
     );
 
     for (const locale of ["en", "ru", "tr"] as const) {
@@ -299,7 +299,7 @@ export async function readSpeciesCatalog(
         imageCredit: heroOverlay ? credit(heroOverlay) : undefined,
         mobileImageCredit: mobileOverlay ? credit(mobileOverlay) : undefined,
         updatedAt: translation.updatedAt ?? undefined,
-      }) as SpeciesTranslation;
+      });
     }
   }
 

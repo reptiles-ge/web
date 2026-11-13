@@ -8,23 +8,22 @@ import {
 } from "@/data/speciesAtlasMeta";
 import { localePath } from "@/lib/site";
 import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHref, type SpeciesRouteSource } from "@/lib/speciesRoutes";
 
 const SHARE_ORIGIN = "https://reptiles.ge";
 
 const REAR_FANGED_SHARE_IDS = new Set(["telescopus-fallax"]);
 
+export type SpeciesShareParts = {
+  displayUrl: string;
+  heading: string;
+  text: string;
+  url: string;
+};
+
 export type SpeciesShareStatusKind = "harmless" | "rearFanged" | "venomous";
 
-export function speciesShareMessage({
-  commonName,
-  danger,
-  group,
-  id,
-  labels,
-  locale,
-  scientificName,
-}: {
+type SpeciesShareInput = {
   commonName: string;
   danger?: DangerLevel;
   group: AnimalGroup;
@@ -32,15 +31,34 @@ export function speciesShareMessage({
   labels: Record<"details" | SpeciesShareStatusKind, string>;
   locale: AppLocale;
   scientificName: string;
-}) {
+  slug?: string;
+};
+
+export function speciesShareParts({
+  commonName,
+  danger,
+  group,
+  id,
+  labels,
+  locale,
+  scientificName,
+  slug,
+}: SpeciesShareInput): SpeciesShareParts {
   const kind = speciesShareStatusKind(id, group, danger);
-  return speciesShareText({
-    commonName,
-    detailsLabel: labels.details,
-    scientificName,
-    status: kind ? labels[kind] : null,
-    url: speciesShareUrl(locale, id),
-  });
+  const status = kind ? labels[kind] : null;
+  const url = speciesShareUrl(locale, { group, id, slug });
+  return {
+    displayUrl: url.replace(/^https?:\/\//, ""),
+    heading: speciesShareHeading({ commonName, scientificName, status }),
+    text: speciesShareText({
+      commonName,
+      detailsLabel: labels.details,
+      scientificName,
+      status,
+      url,
+    }),
+    url,
+  };
 }
 
 export function speciesShareStatusKind(
@@ -66,19 +84,23 @@ export function speciesShareText({
   status?: null | string;
   url: string;
 }) {
-  const names = `${speciesNameWithScientific(commonName, scientificName)}`;
-  const heading = status ? `${names} - ${status}` : names;
+  const heading = speciesShareHeading({ commonName, scientificName, status });
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
 }
 
-export function speciesShareVenomous(
-  group: AnimalGroup,
-  danger?: DangerLevel,
-): boolean | null {
-  if (!groupHasVenomConcept(group) || !danger) return null;
-  return isVenomousDanger(danger);
+function speciesShareHeading({
+  commonName,
+  scientificName,
+  status,
+}: {
+  commonName: string;
+  scientificName: string;
+  status?: null | string;
+}) {
+  const names = speciesNameWithScientific(commonName, scientificName);
+  return status ? `${names} - ${status}` : names;
 }
 
-function speciesShareUrl(locale: AppLocale, id: string) {
-  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
+function speciesShareUrl(locale: AppLocale, species: SpeciesRouteSource) {
+  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(species, locale))}`;
 }

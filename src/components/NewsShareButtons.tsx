@@ -46,7 +46,7 @@ export function NewsShareButtons({
       <button
         aria-label={copied ? copiedLabel : copyLabel}
         className={buttonClass}
-        onClick={onCopy}
+        onClick={() => void onCopy()}
         title={copied ? copiedLabel : copyLabel}
         type="button"
       >

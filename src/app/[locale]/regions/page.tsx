@@ -17,7 +17,7 @@ import {
   regions,
 } from "@/data/regions";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import { homeChildBreadcrumbLd, webPageIds } from "@/lib/pageStructuredData";
 import {
@@ -35,7 +35,7 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const t = await getTranslations({ locale, namespace: "regions" });
   const title = t("metaTitle");
 
@@ -56,7 +56,7 @@ export default async function RegionsPage({ params }: LocalePageProps) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "regions" });

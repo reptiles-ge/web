@@ -9,12 +9,14 @@ import { MARKDOWN_CONTENT_TYPE } from "@/lib/markdownNegotiation";
 import { SITEMAP_CACHE_CONTROL } from "@/lib/responseCacheControl";
 import worker from "@/worker";
 
+import { defined } from "../tests/support/defined";
+
 vi.mock("vinext/server/fetch-handler", () => ({
   default: { fetch: vi.fn() },
 }));
 
 const VINEXT_DEFAULT = "private, max-age=0, must-revalidate";
-const baseFetch = vi.mocked((handler as { fetch: typeof worker.fetch }).fetch);
+const baseFetch = vi.mocked(handler.fetch);
 
 function appResponse(contentType = "application/xml") {
   return new Response("body", {
@@ -23,7 +25,7 @@ function appResponse(contentType = "application/xml") {
 }
 
 function forwarded() {
-  return baseFetch.mock.calls[0][0];
+  return defined(baseFetch.mock.calls[0])[0];
 }
 
 describe("Worker fetch", () => {

@@ -3,6 +3,7 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   getNewsArticleLocales,
   getNewsCopy,
+  hasNewsCopy,
   type NewsArticle,
   newsSourceName,
   newsSourceOrgName,
@@ -122,7 +123,11 @@ export function newsOgImageUrl(
   return SITE_OG_IMAGE_URL;
 }
 export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
-  return newsCopyReadMinutes(getNewsCopy(article, locale) ?? article.copy.ka);
+  return newsCopyReadMinutes(
+    hasNewsCopy(article, locale)
+      ? getNewsCopy(article, locale)
+      : article.copy.ka,
+  );
 }
 
 export function newsSourceBadges(

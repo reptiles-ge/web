@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import {
   buildLlmsFullText,
@@ -11,11 +10,13 @@ import {
 import { llmsLinkHeader } from "@/lib/llmsPaths";
 import { AI_CITATION_USER_AGENTS, buildRobotsTxt } from "@/lib/robotsTxt";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   catalogSpeciesFixture,
   speciesCatalogFixture,
   speciesFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const LLMS = createLlmsSpecies(
   {
@@ -206,10 +207,10 @@ describe("buildLlmsFullText", () => {
         `- English title: ${article.copy.en.title}\n`,
       );
       expect(guides, article.id).toContain(
-        `- Q: ${article.copy.ka.faq[0].question}`,
+        `- Q: ${defined(article.copy.ka.faq[0]).question}`,
       );
       expect(guides, article.id).not.toContain(
-        `- Q: ${article.copy.en.faq[0].question}`,
+        `- Q: ${defined(article.copy.en.faq[0]).question}`,
       );
     }
     for (const line of guides.split("\n")) {

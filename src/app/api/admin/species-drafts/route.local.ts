@@ -19,9 +19,7 @@ export async function POST(request: Request) {
   const id = readBodyString(body, "id");
   const decision = readBodyString(body, "decision");
   const draftId = Number(
-    body && typeof body === "object" && "draftId" in body
-      ? (body as { draftId: unknown }).draftId
-      : NaN,
+    body && typeof body === "object" && "draftId" in body ? body.draftId : NaN,
   );
   if (!id || !isSpeciesId(id)) {
     return Response.json({ error: "Invalid species id" }, { status: 400 });

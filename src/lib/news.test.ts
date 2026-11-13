@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
@@ -19,9 +18,11 @@ import {
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 describe("news urls", () => {
   it("builds the article and index hrefs", () => {
@@ -91,7 +92,7 @@ describe("newsArticleAlternates", () => {
 
   it("leaves out languages the article is not written in", () => {
     const alternates = newsArticleAlternates("ka", {
-      copy: { ka: article.copy.ka } as typeof article.copy,
+      copy: { ka: article.copy.ka },
       slug: article.slug,
     });
     expect(Object.keys(alternates.languages)).toEqual(["x-default", "ka"]);

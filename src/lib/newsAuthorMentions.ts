@@ -10,35 +10,31 @@ export function newsMentionsCreditAuthor(
       ...newsSourceNames(source),
       source.url,
     ]),
-    ...Object.values(article.copy).flatMap((copy) =>
-      copy
-        ? [
-            copy.dek,
-            copy.lead,
-            copy.metaDescription,
-            copy.metaTitle,
-            copy.title,
-            ...copy.sections.flatMap((section) => [
-              section.heading,
-              ...section.blocks.flatMap((block) =>
-                block.type === "p"
-                  ? block.parts.map((part) =>
-                      typeof part === "string"
-                        ? part
-                        : part.type === "sci"
-                          ? part.name
-                          : part.type === "credit-author"
-                            ? `${part.slug} ${part.label}`
-                            : "label" in part
-                              ? part.label
-                              : "",
-                    )
-                  : [],
-              ),
-            ]),
-          ]
-        : [],
-    ),
+    ...Object.values(article.copy).flatMap((copy) => [
+      copy.dek,
+      copy.lead,
+      copy.metaDescription,
+      copy.metaTitle,
+      copy.title,
+      ...copy.sections.flatMap((section) => [
+        section.heading,
+        ...section.blocks.flatMap((block) =>
+          block.type === "p"
+            ? block.parts.map((part) =>
+                typeof part === "string"
+                  ? part
+                  : part.type === "sci"
+                    ? part.name
+                    : part.type === "credit-author"
+                      ? `${part.slug} ${part.label}`
+                      : "label" in part
+                        ? part.label
+                        : "",
+              )
+            : [],
+        ),
+      ]),
+    ]),
   ]
     .join("\n")
     .toLocaleLowerCase();

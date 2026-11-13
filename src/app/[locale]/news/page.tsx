@@ -8,7 +8,7 @@ import type { NewsTopicFacets } from "@/lib/newsBrowserQuery";
 
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { newsIndexDateFields, newsIndexUrl, newsOgImageUrl } from "@/lib/news";
 import { newsIndexHref } from "@/lib/newsHrefs";
 import { getNewsListPage, newsListingJsonLd } from "@/lib/newsPages";
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const t = await getTranslations({ locale, namespace: "news" });
   return buildPageMetadata({
     description: t("metaDescription"),
@@ -61,7 +61,7 @@ export default async function NewsIndexRoute({ params }: Props) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const [t, tShared, newsPage] = await Promise.all([

@@ -13,6 +13,7 @@ import {
   speciesCatalogFixture,
   speciesGroupFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const MESSAGES = { en, ka, ru, tr } as const;
 
@@ -83,7 +84,7 @@ describe("hub FAQ checklist candidates", () => {
         hubCandidateSpecies(speciesGroupFixture(GROUP_HUBS[hubId].group))
           .length > 0;
       for (const locale of routing.locales) {
-        const answer = faq1A(locale, hubId);
+        const answer = defined(faq1A(locale, hubId));
         expect(answer.includes("{candidates}"), `${locale} ${hubId}`).toBe(
           hasCandidates,
         );

@@ -1,6 +1,8 @@
 import { render } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { defined } from "../../tests/support/defined";
+
 const GTM_SRC = "https://www.googletagmanager.com/gtm.js?id=GTM-TEST";
 
 let idleCallbacks: { callback: () => void; timeout?: number }[] = [];
@@ -72,20 +74,21 @@ describe("GoogleTagManager", () => {
     window.dispatchEvent(new Event("scroll"));
 
     expect(idleCallbacks).toHaveLength(1);
-    expect(idleCallbacks[0].timeout).toBe(2000);
+    expect(defined(idleCallbacks[0]).timeout).toBe(2000);
     expect(gtmScripts()).toHaveLength(0);
 
     runIdleCallbacks();
 
-    const [script] = gtmScripts();
-    expect(script).toBeDefined();
+    const script = defined(gtmScripts()[0]);
     expect(script.async).toBe(true);
     expect(window.dataLayer.map((entry) => entry.event)).toEqual([
       "page_context",
       "gtm.js",
       "search",
     ]);
-    expect(window.dataLayer[1]["gtm.start"]).toEqual(expect.any(Number));
+    expect(defined(window.dataLayer[1])["gtm.start"]).toEqual(
+      expect.any(Number),
+    );
   });
 
   it("injects after the fallback delay when nobody interacts", async () => {

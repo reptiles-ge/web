@@ -29,7 +29,9 @@ function draft(overrides: Partial<QuizDraft> = {}): QuizDraft {
   };
 }
 
-function question(overrides: Partial<SnakeQuizQuestion> = {}) {
+function question(
+  overrides: Partial<SnakeQuizQuestion> = {},
+): SnakeQuizQuestion {
   return {
     correctId: "a",
     difficulty: "easy",
@@ -38,7 +40,7 @@ function question(overrides: Partial<SnakeQuizQuestion> = {}) {
     optionIds: ids,
     speciesId: "a",
     ...overrides,
-  } as SnakeQuizQuestion;
+  };
 }
 
 const idle = {

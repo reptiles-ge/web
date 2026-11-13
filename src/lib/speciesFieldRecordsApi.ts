@@ -2,7 +2,7 @@ import { cache } from "react";
 
 import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
@@ -33,7 +33,7 @@ export const getSpeciesFieldRecords = cache(
       id,
       speciesFetchOptions(["species", `species:${id}`]),
     );
-    if (!response.ok) {
+    if (!responseOk(response)) {
       const status: number = response.status;
       if (status === 404) return [];
       throw new Error(`Species API answered ${status} for ${id} field records`);

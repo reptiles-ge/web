@@ -3,12 +3,13 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
-import { getPublishedNewsArticles } from "../src/data/news";
 import {
   sitemapPathDatePublished,
   sitemapQuizDatePublished,
   sitemapRegionDatePublished,
 } from "../src/data/pageLastModified";
+import { hasNewsCopy } from "../src/data/news";
+import type { NewsArticle } from "../src/data/newsTypes";
 import { regions } from "../src/data/regions";
 import type { AnimalGroup } from "../src/data/speciesAtlas";
 import { type AppLocale, routing } from "../src/i18n/routing";
@@ -18,6 +19,7 @@ import { creditAuthorUrl } from "../src/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "../src/lib/groupHubs";
 import { buildRobotsTxt } from "../src/lib/robotsTxt";
 import { newsArticleUrl } from "../src/lib/news";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { liveQuizzes } from "../src/lib/quizzes";
 import { localePath, quizPageUrl, speciesPageUrl } from "../src/lib/site";
 import { regionHref } from "../src/lib/speciesRoutes";
@@ -589,7 +591,7 @@ async function buildInventory(graph: SeoGraph): Promise<InventoryItem[]> {
   const byUrl = new Map(speciesItems.map((item) => [item.url, item]));
   for (const item of await hubInventory()) byUrl.set(item.url, item);
   for (const item of await guideInventory()) byUrl.set(item.url, item);
-  for (const item of newsInventory()) byUrl.set(item.url, item);
+  for (const item of await newsInventory()) byUrl.set(item.url, item);
   for (const item of await authorInventory()) byUrl.set(item.url, item);
   for (const item of await regionInventory()) byUrl.set(item.url, item);
   for (const item of await quizInventory()) byUrl.set(item.url, item);
@@ -722,11 +724,12 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
   }
 
   for (const [title, items] of titleBuckets) {
-    if (items.length <= 1 || !title) continue;
+    const [first] = items;
+    if (items.length <= 1 || !title || !first) continue;
     issues.push(
       technicalIssue(
         "duplicate-title",
-        items[0].url,
+        first.url,
         `Duplicate title across ${items.length} inventory pages: ${title}`,
         "MEDIUM",
         items.map((item) => item.url),
@@ -735,11 +738,12 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
   }
 
   for (const [description, items] of descriptionBuckets) {
-    if (items.length <= 1 || !description) continue;
+    const [first] = items;
+    if (items.length <= 1 || !description || !first) continue;
     issues.push(
       technicalIssue(
         "duplicate-description",
-        items[0].url,
+        first.url,
         `Duplicate description across ${items.length} inventory pages.`,
         "LOW",
         items.map((item) => item.url),
@@ -789,6 +793,7 @@ function cannibalizationOpportunities(
     );
     if (totalImpressions < 20) continue;
     const top = group.sort((a, b) => b.impressions - a.impressions)[0];
+    if (!top) continue;
     const page = inventoryByUrl.get(normalizeUrl(top.page));
     opportunities.push({
       autoFixable: false,
@@ -1343,31 +1348,34 @@ async function guideInventory(): Promise<InventoryItem[]> {
   );
 }
 
-function newsInventory(): InventoryItem[] {
+async function newsInventory(): Promise<InventoryItem[]> {
+  const articles = await getNewsArticles();
   return routing.locales.flatMap((locale) =>
-    getPublishedNewsArticles(locale).map((article) => {
-      const copy = article.copy[locale] ?? article.copy.ka;
-      return {
-        alternates: {},
-        canonicalUrl: "",
-        description: copy.dek,
-        group: null,
-        h1: copy.title,
-        id: article.slug,
-        inSitemap: true,
-        indexable: true,
-        internalLinksIn: null,
-        internalLinksOut: null,
-        datePublished: article.publishedAt,
-        lastModified: article.updatedAt ?? article.publishedAt,
-        locale,
-        pageType: "news",
-        path: new URL(newsArticleUrl(locale, article.slug)).pathname,
-        schemaTypes: ["NewsArticle", "BreadcrumbList"],
-        title: copy.metaTitle ?? copy.title,
-        url: normalizeUrl(newsArticleUrl(locale, article.slug)),
-      } satisfies InventoryItem;
-    }),
+    articles
+      .filter((article) => hasNewsCopy(article, locale))
+      .map((article) => {
+        const copy = article.copy[locale] ?? article.copy.ka;
+        return {
+          alternates: {},
+          canonicalUrl: "",
+          description: copy.dek,
+          group: null,
+          h1: copy.title,
+          id: article.slug,
+          inSitemap: true,
+          indexable: true,
+          internalLinksIn: null,
+          internalLinksOut: null,
+          datePublished: article.publishedAt,
+          lastModified: article.updatedAt ?? article.publishedAt,
+          locale,
+          pageType: "news",
+          path: new URL(newsArticleUrl(locale, article.slug)).pathname,
+          schemaTypes: ["NewsArticle", "BreadcrumbList"],
+          title: copy.metaTitle ?? copy.title,
+          url: normalizeUrl(newsArticleUrl(locale, article.slug)),
+        } satisfies InventoryItem;
+      }),
   );
 }
 
@@ -1807,13 +1815,14 @@ function parseArgs(argv: string[]): Args {
   const flags: Record<string, string | true> = {};
   for (let index = 0; index < rest.length; index += 1) {
     const arg = rest[index];
-    if (!arg.startsWith("--")) continue;
+    if (!arg?.startsWith("--")) continue;
     const trimmed = arg.slice(2);
+    const next = rest[index + 1];
     if (trimmed.includes("=")) {
-      const [key, ...parts] = trimmed.split("=");
+      const [key = "", ...parts] = trimmed.split("=");
       flags[key] = parts.join("=");
-    } else if (rest[index + 1] && !rest[index + 1].startsWith("--")) {
-      flags[trimmed] = rest[index + 1];
+    } else if (next && !next.startsWith("--")) {
+      flags[trimmed] = next;
       index += 1;
     } else {
       flags[trimmed] = true;
@@ -1850,8 +1859,8 @@ async function selfcheck() {
     },
   ];
   const [aggregate] = aggregateGscRows(rows);
-  assert(aggregate.impressions === 30, "aggregates impressions");
-  assert(aggregate.clicks === 3, "aggregates clicks");
+  assert(aggregate?.impressions === 30, "aggregates impressions");
+  assert(aggregate?.clicks === 3, "aggregates clicks");
   assert(localeFromPath("/en/snakes/foo") === "en", "detects prefixed locale");
   assert(localeFromPath("/gvelebi/foo") === "ka", "detects default locale");
   console.log("reptiles-seo selfcheck passed");
@@ -1890,7 +1899,7 @@ function percentile(values: number[], p: number) {
     sorted.length - 1,
     Math.max(0, Math.floor((sorted.length - 1) * p)),
   );
-  return sorted[index];
+  return sorted[index] ?? 0;
 }
 
 function hash(value: string) {
@@ -1996,6 +2005,7 @@ const INSPECTION_QUOTA: Record<InspectionFamily, Record<AppLocale, number>> = {
 function inspectionFamilies(
   speciesIds: readonly string[],
   authorIds: readonly string[],
+  news: readonly NewsArticle[],
 ) {
   const families = new Map<string, InspectionFamily>();
   const add = (url: string, family: InspectionFamily) =>
@@ -2017,8 +2027,9 @@ function inspectionFamilies(
         "region",
       );
     for (const id of speciesIds) add(speciesPageUrl(locale, id), "species");
-    for (const article of getPublishedNewsArticles(locale))
-      add(newsArticleUrl(locale, article.slug), "news");
+    for (const article of news)
+      if (hasNewsCopy(article, locale))
+        add(newsArticleUrl(locale, article.slug), "news");
     for (const id of authorIds) add(creditAuthorUrl(locale, id), "author");
     for (const quiz of liveQuizzes()) add(quizPageUrl(locale, quiz.id), "quiz");
   }
@@ -2030,11 +2041,12 @@ async function urlInspectionSample() {
   if (!response.ok) throw new Error(`sitemap.xml returned ${response.status}`);
   const xml = await response.text();
   const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
-    normalizeUrl(match[1]),
+    normalizeUrl(match[1] ?? ""),
   );
   const families = inspectionFamilies(
     (await getSpeciesCatalog(routing.defaultLocale)).map((item) => item.id),
     (await getContributors(routing.defaultLocale)).map((author) => author.id),
+    await getNewsArticles(),
   );
   const buckets = new Map<string, string[]>();
   for (const url of urls) {
@@ -2054,7 +2066,7 @@ async function urlInspectionSample() {
     const sorted = [...list].sort();
     for (let index = 0; index < quota; index += 1) {
       const pick = sorted[Math.floor((index * sorted.length) / quota)];
-      sample.push({ family, locale, url: pick });
+      if (pick !== undefined) sample.push({ family, locale, url: pick });
     }
   }
   return sample;

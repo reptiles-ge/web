@@ -111,7 +111,7 @@ describe("POST /v1/ratings", () => {
       RequestInit,
     ];
     expect(url).toBe("https://api.telegram.org/botbot/sendMessage");
-    const text = (JSON.parse(String(init.body)) as { text: string }).text;
+    const text = (JSON.parse(init.body as string) as { text: string }).text;
     expect(text).toContain("★★★☆☆ 3/5");
     expect(text).toContain("https://reptiles.ge/xvlikebi");
     expect(text).toContain("💬 ფოტო აკლია");

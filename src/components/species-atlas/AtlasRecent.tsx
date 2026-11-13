@@ -2,8 +2,6 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
@@ -46,7 +44,7 @@ export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
 }
 
 function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const date = formatContentDate(species.updatedAt, locale);
   const group = speciesGroup(species);
   const image =

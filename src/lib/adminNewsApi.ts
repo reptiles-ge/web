@@ -5,7 +5,7 @@ import { serverEnv } from "@/lib/env";
 
 type ApiErrorBody = {
   error?: {
-    details?: Array<{ message: string; path: string }> | unknown;
+    details?: unknown;
     message?: string;
   };
 };

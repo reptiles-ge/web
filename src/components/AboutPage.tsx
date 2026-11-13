@@ -159,7 +159,7 @@ export async function AboutEditorial({ locale }: { locale: AppLocale }) {
   );
 }
 
-export async function AboutPage({ locale }: { locale: AppLocale }) {
+export function AboutPage({ locale }: { locale: AppLocale }) {
   return (
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <AboutHero locale={locale} />
@@ -472,7 +472,7 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
           {COLLAGE_DESKTOP.map((column) => (
             <div
               className={`flex flex-col gap-3 ${column.offset}`}
-              key={column.tiles[0].id}
+              key={column.tiles.map((tile) => tile.id).join("-")}
             >
               {column.tiles.map((tile) => (
                 <CollageTile

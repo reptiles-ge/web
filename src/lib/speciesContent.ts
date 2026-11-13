@@ -52,16 +52,6 @@ export function getSpeciesCoverSrc(
   return null;
 }
 
-export function getSpeciesGalleryPreview(species: Species, count = 3) {
-  const { desktopHeroSrc, gallery, mobileHeroSrc } =
-    getSpeciesHeroSources(species);
-  const isHero = (item: GalleryImage) =>
-    isHeroSource(item.src, desktopHeroSrc, mobileHeroSrc);
-  return [...gallery.filter((item) => !isHero(item)), ...gallery.filter(isHero)]
-    .slice(0, count)
-    .map((item) => item.src);
-}
-
 export function speciesCardImage(species: {
   gallery?: readonly GalleryImage[];
   image?: string;
@@ -119,15 +109,12 @@ export function getSpeciesHeroSources(species: Species) {
       : (primary?.src ?? null);
 
   const mobileSlideSrc = mobileHeroSrc ?? primary?.src ?? null;
-  const mobileHeroIndex = mobileHeroSrc
-    ? gallery.findIndex((item) => item.src === mobileHeroSrc)
-    : -1;
+  const mobileHero = mobileHeroSrc
+    ? gallery.find((item) => item.src === mobileHeroSrc)
+    : undefined;
   const mobileGallery =
-    mobileHeroIndex > 0
-      ? [
-          gallery[mobileHeroIndex],
-          ...gallery.filter((_, index) => index !== mobileHeroIndex),
-        ]
+    mobileHero && mobileHero !== gallery[0]
+      ? [mobileHero, ...gallery.filter((item) => item !== mobileHero)]
       : gallery;
 
   return {

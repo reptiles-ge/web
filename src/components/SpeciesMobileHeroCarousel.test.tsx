@@ -6,6 +6,8 @@ import {
   SpeciesMobileHeroCarousel,
 } from "@/components/SpeciesMobileHeroCarousel";
 
+import { defined } from "../../tests/support/defined";
+
 function progressBars(container: HTMLElement) {
   return container.querySelectorAll("div[aria-hidden='true'] > span");
 }
@@ -34,9 +36,9 @@ describe("SpeciesMobileHeroCarousel", () => {
     );
     const bars = progressBars(container);
     expect(bars).toHaveLength(4);
-    expect(bars[0].className).toContain("bg-white");
-    expect(bars[0].className).not.toContain("bg-white/36");
-    expect(bars[1].className).toContain("bg-white/36");
+    expect(defined(bars[0]).className).toContain("bg-white");
+    expect(defined(bars[0]).className).not.toContain("bg-white/36");
+    expect(defined(bars[1]).className).toContain("bg-white/36");
   });
 
   it("moves the active segment with the scroll position", () => {
@@ -52,8 +54,8 @@ describe("SpeciesMobileHeroCarousel", () => {
     scroller.scrollLeft = 780;
     fireEvent.scroll(scroller);
     const bars = progressBars(container);
-    expect(bars[2].className).not.toContain("bg-white/36");
-    expect(bars[0].className).toContain("bg-white/36");
+    expect(defined(bars[2]).className).not.toContain("bg-white/36");
+    expect(defined(bars[0]).className).toContain("bg-white/36");
   });
 
   it("hides the progress bar for a single photo", () => {
@@ -82,20 +84,30 @@ describe("SpeciesMobileHeroCarousel", () => {
         />,
       );
       const before = slideImages(container);
-      expect(before[0].getAttribute("src")).toContain("cdn.reptiles.ge");
-      expect(before[1].getAttribute("src")).toMatch(/^data:image\/gif/);
-      expect(before[2].getAttribute("src")).toMatch(/^data:image\/gif/);
+      expect(defined(before[0]).getAttribute("src")).toContain(
+        "cdn.reptiles.ge",
+      );
+      expect(defined(before[1]).getAttribute("src")).toMatch(
+        /^data:image\/gif/,
+      );
+      expect(defined(before[2]).getAttribute("src")).toMatch(
+        /^data:image\/gif/,
+      );
       expect(
-        container
-          .querySelectorAll("[role='region'] picture")[1]
-          .querySelectorAll("source"),
+        defined(
+          container.querySelectorAll("[role='region'] picture")[1],
+        ).querySelectorAll("source"),
       ).toHaveLength(1);
 
       fireEvent.pointerDown(getByRole("region"), { button: 0 });
 
       const after = slideImages(container);
-      expect(after[1].getAttribute("src")).toContain("cdn.reptiles.ge");
-      expect(after[2].getAttribute("src")).toContain("cdn.reptiles.ge");
+      expect(defined(after[1]).getAttribute("src")).toContain(
+        "cdn.reptiles.ge",
+      );
+      expect(defined(after[2]).getAttribute("src")).toContain(
+        "cdn.reptiles.ge",
+      );
     });
 
     it("keeps the remaining photos unloaded after the page load and idle time", () => {
@@ -118,7 +130,7 @@ describe("SpeciesMobileHeroCarousel", () => {
       });
 
       expect(idle).not.toHaveBeenCalled();
-      expect(slideImages(container)[1].getAttribute("src")).toMatch(
+      expect(defined(slideImages(container)[1]).getAttribute("src")).toMatch(
         /^data:image\/gif/,
       );
       vi.unstubAllGlobals();
@@ -139,7 +151,7 @@ describe("SpeciesMobileHeroCarousel", () => {
 
       interact(getByRole("region"));
 
-      expect(slideImages(container)[1].getAttribute("src")).toContain(
+      expect(defined(slideImages(container)[1]).getAttribute("src")).toContain(
         "cdn.reptiles.ge",
       );
     });

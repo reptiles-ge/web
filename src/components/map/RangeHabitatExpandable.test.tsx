@@ -56,25 +56,4 @@ describe("RangeHabitatExpandable", () => {
       "true",
     );
   });
-
-  it("collapses the editable text in editor mode too", () => {
-    const { container } = render(
-      <RangeHabitatExpandable
-        body={BODY}
-        editorField="habitat"
-        readLess="Read less"
-        readMore="Read more"
-        speciesId="meles-canescens"
-      />,
-    );
-    const text = container.querySelector("p");
-
-    expect(text).toHaveAttribute("data-content-field", "habitat");
-    expect(text).toHaveAttribute("data-content-id", "meles-canescens");
-    expect(text).toHaveClass("line-clamp-3");
-
-    fireEvent.click(screen.getByRole("button", { name: "Read more" }));
-
-    expect(text).not.toHaveClass("line-clamp-3");
-  });
 });

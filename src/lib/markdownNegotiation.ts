@@ -73,10 +73,6 @@ export function htmlRequest(request: Request): Request {
   return new Request(request, { headers, method: "GET" });
 }
 
-export function htmlToMarkdown(html: string, url: string): string {
-  return markdownPage(html, url).markdown;
-}
-
 export function markdownAlternatePath(pathname: string): string {
   const page = pathname.replace(/\/+$/, "");
   return page ? `${page}${MARKDOWN_SUFFIX}` : MARKDOWN_INDEX;

@@ -15,19 +15,19 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 ## When to use what
 
-| Goal                                           | Run                      |
-| ---------------------------------------------- | ------------------------ |
-| Content dates and release version              | `pnpm content:compile`   |
-| Refresh the slug table from the API            | `pnpm slugs:compile`     |
-| Refresh Georgia map paths                      | `pnpm map:compile`       |
-| Refresh Wikidata / GBIF / iNaturalist IDs      | `pnpm taxon:ids`         |
-| Spot broken CDN image URLs                     | `pnpm images:check`      |
-| Are species OG images live?                    | `pnpm images:check-og`   |
-| Upload missing OG images (species + guides)    | `pnpm images:og-missing` |
-| AVIF/WebP + OG optimize on Bunny               | `pnpm images:optimize …` |
-| Regenerate only `optimizedImages.generated.ts` | `pnpm images:emit`       |
-| Unused files under `public/images`             | `pnpm images:unused`     |
-| Unused photos on BunnyCDN                      | `pnpm images:cdn-unused` |
+| Goal                                         | Run                      |
+| -------------------------------------------- | ------------------------ |
+| Content dates and release version            | `pnpm content:compile`   |
+| Refresh the slug table from the API          | `pnpm slugs:compile`     |
+| Refresh Georgia map paths                    | `pnpm map:compile`       |
+| Refresh Wikidata / GBIF / iNaturalist IDs    | `pnpm taxon:ids`         |
+| Spot broken CDN image URLs                   | `pnpm images:check`      |
+| Are species OG images live?                  | `pnpm images:check-og`   |
+| Upload missing OG images (species + guides)  | `pnpm images:og-missing` |
+| AVIF/WebP + OG optimize on Bunny             | `pnpm images:optimize …` |
+| Move the old committed image catalog into D1 | `pnpm images:import`     |
+| Unused files under `public/images`           | `pnpm images:unused`     |
+| Unused photos on BunnyCDN                    | `pnpm images:cdn-unused` |
 
 `pnpm dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
 
@@ -81,23 +81,19 @@ Flags: `--json`, `--concurrency N`, `--timeout Ms`.
 
 ### `optimize-images.ts` → `pnpm images:optimize`
 
-Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
-
-- `src/data/image-manifest.json`
-- `src/data/optimizedImages.generated.ts`
+Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and writes the result to the API (`PUT /v1/admin/images/manifest`, needs `API_WRITE_TOKEN` in `.env.local`). The site picks the new sizes up on its next deploy (`pnpm images:compile` runs in the build).
 
 **Pick one scope:**
 
-| pnpm                                      | Meaning                                              |
-| ----------------------------------------- | ---------------------------------------------------- |
-| `images:optimize -- --all`                | Every catalog image                                  |
-| `images:optimize -- --species id1,id2`    | Specific species                                     |
-| `images:optimize -- --images path1,path2` | Specific registered site images                      |
-| `images:optimize -- --region tbilisi`     | One region hero                                      |
-| `images:optimize:news`                    | News article photos                                  |
-| `images:optimize:site`                    | Site / home / region images                          |
-| `images:optimize:dry`                     | Dry-run (no storage writes)                          |
-| `images:emit`                             | Regenerate TS from the manifest only (`--emit-only`) |
+| pnpm                                      | Meaning                         |
+| ----------------------------------------- | ------------------------------- |
+| `images:optimize -- --all`                | Every catalog image             |
+| `images:optimize -- --species id1,id2`    | Specific species                |
+| `images:optimize -- --images path1,path2` | Specific registered site images |
+| `images:optimize -- --region tbilisi`     | One region hero                 |
+| `images:optimize:news`                    | News article photos             |
+| `images:optimize:site`                    | Site / home / region images     |
+| `images:optimize:dry`                     | Dry-run (no storage writes)     |
 
 Other flags: `--force`, `--limit N`, `--concurrency N`.
 

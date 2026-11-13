@@ -115,8 +115,7 @@ export async function reorderSpeciesPhotos(
     param: { id },
   });
   await checkAdminSave(response, "Gallery order save failed");
-  return ((await response.json()) as { data: { version: number } }).data
-    .version;
+  return (await response.json()).data.version;
 }
 
 export async function saveSpeciesPhotoCredit(
@@ -143,7 +142,7 @@ export async function saveSpeciesTexts(
     param: { id },
   });
   await checkAdminSave(response, "Species texts save failed");
-  return ((await response.json()) as { data: SpeciesTextsSaved }).data;
+  return (await response.json()).data;
 }
 
 export async function setSpeciesCover(

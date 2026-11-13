@@ -7,9 +7,14 @@ import {
   NEWS_META_DESCRIPTION_MIN,
   NEWS_META_TITLE_MAX,
   NEWS_SHORTER_TRANSLATIONS,
+  NEWS_UNLISTED_REGION_LINKS,
   newsArticleIssues,
+  newsArticleLocales,
+  newsBodyLinks,
   newsReferenceIssues,
 } from "@/lib/newsRules";
+
+import { getAllNewsArticles } from "../../tests/fixtures/newsSeed";
 
 const copy = (heading: string): NewsArticle["copy"]["ka"] => ({
   dek: "dek",
@@ -155,5 +160,34 @@ describe("newsReferenceIssues", () => {
       "Unknown region kakheti",
       "Unknown hub snakes",
     ]);
+  });
+});
+
+describe("exception lists against the snapshot", () => {
+  const articles = getAllNewsArticles();
+
+  it("keeps only shorter-translation exceptions that are still shorter", () => {
+    for (const slug of NEWS_SHORTER_TRANSLATIONS) {
+      const article = articles.find((item) => item.slug === slug);
+      expect(article, slug).toBeDefined();
+      if (!article) continue;
+      const counts = newsArticleLocales(article).map(
+        (locale) => article.copy[locale].sections.length,
+      );
+      expect(new Set(counts).size, slug).toBeGreaterThan(1);
+    }
+  });
+
+  it("keeps only region exceptions the article still links and leaves out", () => {
+    for (const [slug, ids] of Object.entries(NEWS_UNLISTED_REGION_LINKS)) {
+      const article = articles.find((item) => item.slug === slug);
+      expect(article, slug).toBeDefined();
+      if (!article) continue;
+      const links = newsBodyLinks(article);
+      for (const id of ids) {
+        expect(links.region.has(id), `${slug} ${id}`).toBe(true);
+        expect(article.relatedRegionIds, `${slug} ${id}`).not.toContain(id);
+      }
+    }
   });
 });

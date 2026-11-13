@@ -58,9 +58,11 @@ const DYNAMIC_PATHNAMES: readonly DynamicPathname[] = PATHNAME_KEYS.filter(
 export function findUnresolvedInternalLinks(
   text: string,
 ): UnresolvedInternalLink[] {
-  return [...text.matchAll(INTERNAL_LINK_TARGET)]
-    .filter((match) => !resolveInternalLinkTarget(match[1]))
-    .map((match) => ({ label: "unresolved link", match: match[1] }));
+  return [...text.matchAll(INTERNAL_LINK_TARGET)].flatMap(([, target]) =>
+    target !== undefined && !resolveInternalLinkTarget(target)
+      ? [{ label: "unresolved link", match: target }]
+      : [],
+  );
 }
 
 export function resolveInternalLinkTarget(

@@ -29,10 +29,10 @@ const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: "security",
   },
-  async headers() {
+  headers() {
     const security = securityHeaders(isDevelopment);
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
-    return [
+    return Promise.resolve([
       {
         headers: security,
         source: SITE_HEADERS_SOURCE,
@@ -96,7 +96,7 @@ const nextConfig: NextConfig = {
         ],
         source: "/admin/:path*",
       },
-    ];
+    ]);
   },
   htmlLimitedBots: BLOCKING_METADATA_USER_AGENTS,
   images: {

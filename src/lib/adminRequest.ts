@@ -34,12 +34,6 @@ export function isLocalAdminOriginRequest(request: Request) {
   );
 }
 
-export async function readAdminJsonText<T>(request: Request): Promise<T> {
-  const text = await request.text();
-  if (text.length > 1000) throw new Error("Invalid request");
-  return JSON.parse(text) as T;
-}
-
 export function readBodyString(body: unknown, key: string) {
   if (!body || typeof body !== "object" || !(key in body)) return "";
   const value = (body as Record<string, unknown>)[key];

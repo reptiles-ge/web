@@ -10,7 +10,7 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
 import { JsonLd } from "@/components/JsonLd";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { dangerousAnimalRows } from "@/lib/dangerousAnimals";
 import {
   breadcrumbListLd,
@@ -35,7 +35,7 @@ export default async function DangerousAnimalsRoute({
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const [t, catalog] = await Promise.all([
@@ -95,7 +95,7 @@ export async function generateMetadata({
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   return speciesOgPageMetadata({
-    locale: localeParam as AppLocale,
+    locale: localeParam,
     namespace: "dangerousAnimals",
     ogSpeciesId: OG_SPECIES,
     pagePath: PATH,

@@ -7,7 +7,6 @@ import {
   galleryThumbSizes,
   MOBILE_HERO_SIZES,
   REGION_HERO_SIZES,
-  RELATED_CARD_SIZES,
 } from "@/lib/imageSizes";
 import { SPECIES_HERO_SIZES } from "@/lib/speciesContent";
 
@@ -26,11 +25,6 @@ describe("image sizes", () => {
 
   it("uses full content width for a single gallery photo", () => {
     expect(galleryThumbSizes(1)).toBe(galleryFeaturedSizes());
-  });
-
-  it("sizes related cards to the padded grid, not 100vw", () => {
-    expect(RELATED_CARD_SIZES).toContain("calc(100vw - 3rem)");
-    expect(RELATED_CARD_SIZES).not.toContain("100vw,");
   });
 
   it("caps mobile heroes near 2x on phones with 2.5x screens and up", () => {

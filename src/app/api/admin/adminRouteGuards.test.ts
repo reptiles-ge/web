@@ -2,9 +2,11 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { afterEach, describe, expect, it, type Mock, vi } from "vitest";
 
+import { defined } from "../../../../tests/support/defined";
+
 const ADMIN_API_DIR = path.join(process.cwd(), "src/app/api/admin");
 const GUARD_MODULES = new Set(["@/lib/adminAccess", "@/lib/adminRequest"]);
-const HANDLER = /export async function (GET|POST|PUT|PATCH|DELETE)\b/g;
+const HANDLER = /export (?:async )?function (GET|POST|PUT|PATCH|DELETE)\b/g;
 const IMPORT = /^import (?!type\b)[^;]*?from "(@\/[^"]+)";/gm;
 
 const routes = readdirSync(ADMIN_API_DIR, { recursive: true })
@@ -15,9 +17,9 @@ const routes = readdirSync(ADMIN_API_DIR, { recursive: true })
     const source = readFileSync(path.join(ADMIN_API_DIR, file), "utf8");
     return {
       file,
-      handlers: [...source.matchAll(HANDLER)].map((match) => match[1]),
+      handlers: [...source.matchAll(HANDLER)].map((match) => defined(match[1])),
       modules: [...source.matchAll(IMPORT)]
-        .map((match) => match[1])
+        .map((match) => defined(match[1]))
         .filter((name) => !GUARD_MODULES.has(name)),
     };
   });
@@ -62,7 +64,7 @@ async function loadWithMockedDependencies(file: string, modules: string[]) {
   }
   const handlers = (await import(path.join(ADMIN_API_DIR, file))) as Record<
     string,
-    (request: Request) => Promise<Response>
+    (request: Request) => Promise<Response> | Response
   >;
   return { handlers, mocks };
 }
@@ -82,7 +84,7 @@ describe("admin API route guards", () => {
         file,
         modules,
       );
-      const response = await handlers[method](
+      const response = await defined(handlers[method])(
         new Request(url, {
           ...(method === "GET"
             ? {}

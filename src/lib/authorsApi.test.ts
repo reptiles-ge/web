@@ -24,7 +24,10 @@ describe("getContributors", () => {
     expect(contributors.every((author) => author.isContributor)).toBe(true);
     expect(
       contributors.find(({ id }) => id === "sandro-khakhva"),
-    ).toMatchObject({ bio: expect.any(String), name: "Sandro Khakhva" });
+    ).toMatchObject({
+      bio: expect.any(String) as string,
+      name: "Sandro Khakhva",
+    });
   });
 
   it("fails loudly when the API errors", async () => {
@@ -51,7 +54,7 @@ describe("getContributor", () => {
     expect(author).toMatchObject({
       id: "zauri-khachidze",
       name: "Zauri Khachidze",
-      speciesCount: expect.any(Number),
+      speciesCount: expect.any(Number) as number,
     });
   });
 

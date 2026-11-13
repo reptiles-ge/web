@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import {
   getNewsImageSrc,
   getNewsVisual,
@@ -8,6 +7,7 @@ import {
   newsCategoryHub,
 } from "@/lib/newsVisual";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,
@@ -50,7 +50,7 @@ describe("getNewsImageSrc", () => {
         {
           ...bare,
           image: { alt: { ka: "a" }, src: "/own.jpg" },
-        } as never,
+        },
         speciesCatalogFixture("ka"),
       ),
     ).toBe("/own.jpg");
@@ -65,7 +65,7 @@ describe("getNewsImageSrc", () => {
       {
         ...bare,
         relatedSpeciesIds: ["macrovipera-lebetina"],
-      } as never,
+      },
       speciesCatalogFixture("ka"),
     );
     expect(src).toBeTruthy();
@@ -76,7 +76,7 @@ describe("getNewsImageSrc", () => {
       {
         ...bare,
         relatedRegionIds: ["kakheti"],
-      } as never,
+      },
       speciesCatalogFixture("ka"),
     );
     expect(src).toBeTruthy();
@@ -97,7 +97,7 @@ describe("getNewsVisual", () => {
 
   it("uses the article image when present", () => {
     const visual = getNewsVisual(
-      { ...bare, image: { alt: { ka: "ალტ" }, src: "/own.jpg" } } as never,
+      { ...bare, image: { alt: { ka: "ალტ" }, src: "/own.jpg" } },
       "ka",
       speciesCatalogFixture("ka"),
       contributorDirectoryFixture("ka"),
@@ -107,7 +107,7 @@ describe("getNewsVisual", () => {
 
   it("builds an atlas visual from a related species", () => {
     const visual = getNewsVisual(
-      { ...bare, relatedSpeciesIds: ["macrovipera-lebetina"] } as never,
+      { ...bare, relatedSpeciesIds: ["macrovipera-lebetina"] },
       "en",
       speciesCatalogFixture("en"),
       contributorDirectoryFixture("en"),
@@ -118,7 +118,7 @@ describe("getNewsVisual", () => {
 
   it("builds an atlas visual from a related region", () => {
     const visual = getNewsVisual(
-      { ...bare, relatedRegionIds: ["kakheti"] } as never,
+      { ...bare, relatedRegionIds: ["kakheti"] },
       "en",
       speciesCatalogFixture("en"),
       contributorDirectoryFixture("en"),
@@ -136,8 +136,6 @@ describe("newsCategoryHub", () => {
         relatedHubIds: ["snakes", "lizards"],
       } as never),
     ).toBe("snakes");
-    expect(
-      newsCategoryHub({ ...bare, relatedHubIds: [] } as never),
-    ).toBeUndefined();
+    expect(newsCategoryHub({ ...bare, relatedHubIds: [] })).toBeUndefined();
   });
 });

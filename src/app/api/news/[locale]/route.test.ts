@@ -3,9 +3,8 @@ import { describe, expect, it, vi } from "vitest";
 
 import type { NewsBrowserResult } from "@/lib/newsBrowserQuery";
 
-import { getPublishedNewsArticles } from "@/data/news";
-
 import en from "../../../../../messages/en.json";
+import { getPublishedNewsArticles } from "../../../../../tests/fixtures/newsSeed";
 import { GET } from "./route";
 
 vi.mock("next-intl/server", () => ({

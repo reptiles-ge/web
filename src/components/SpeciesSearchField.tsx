@@ -190,7 +190,7 @@ export function SpeciesSearchTrigger({
           autoComplete="off"
           className={cn(searchInputClass, classes.input)}
           onBlur={(event) => {
-            onBlur(event.relatedTarget as Node | null);
+            onBlur(event.relatedTarget);
           }}
           onChange={(event) => onChange(event.target.value)}
           onFocus={onFocus}

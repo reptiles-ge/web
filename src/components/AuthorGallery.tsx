@@ -13,7 +13,6 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getCreditAuthorGroupStats } from "@/lib/creditAuthors";
 import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";
@@ -42,14 +41,14 @@ export async function AuthorGallery({
     const localized = byId.get(photo.speciesId);
     if (!localized) return [];
     const entry = optimizedEntry(photo.src);
-    const href = speciesHref(photo.speciesId, locale);
+    const href = speciesHref(localized, locale);
     return [
       {
         alt: photo.credit?.location?.trim()
           ? `${speciesNameWithScientific(localized.commonName, localized.scientificName)} — ${photo.credit.location.trim()}`
           : `${speciesNameWithScientific(localized.commonName, localized.scientificName)}`,
         credit: photo.credit,
-        group: ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(photo.speciesId).group],
+        group: ANIMAL_GROUP_TO_HUB[localized.group],
         height: entry?.height,
         href,
         name: localized.commonName,

@@ -2,8 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import {
   checkNewsHero,
-  checkNewsHeroes,
-  NEWS_HERO_MAX_EXCEPTIONS,
   NEWS_HERO_RULE_SINCE,
   newsHeroProblem,
   newsHeroSize,
@@ -98,42 +96,5 @@ describe("checkNewsHero", () => {
       checkNewsHero({ ...older, exception: reason, image: wide }, optimized)
         .error,
     ).toMatch(/remove it/);
-  });
-});
-
-describe("checkNewsHeroes", () => {
-  it("collects errors and warnings", () => {
-    expect(
-      checkNewsHeroes(
-        [
-          { ...fresh, image: narrow },
-          { ...older, image: narrow },
-          { ...fresh, image: wide, slug: "ok" },
-        ],
-        optimized,
-      ),
-    ).toEqual({
-      errors: [expect.stringMatching(/^fresh:/)],
-      warnings: [expect.stringMatching(/^older:/)],
-    });
-  });
-
-  it("caps open exceptions", () => {
-    const inputs = Array.from(
-      { length: NEWS_HERO_MAX_EXCEPTIONS + 1 },
-      (_, index) => ({
-        ...fresh,
-        exception: reason,
-        image: narrow,
-        slug: `a${index}`,
-      }),
-    );
-    expect(
-      checkNewsHeroes(inputs.slice(0, NEWS_HERO_MAX_EXCEPTIONS), optimized)
-        .errors,
-    ).toEqual([]);
-    expect(checkNewsHeroes(inputs, optimized).errors).toEqual([
-      expect.stringMatching(/^4 articles use heroImageException \(a0, a1/),
-    ]);
   });
 });

@@ -2,10 +2,9 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { DatabaseSync, type SQLInputValue } from "node:sqlite";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
-
 import type { ApiDatabase } from "../db/database";
 
+import { NEWS_ARTICLES } from "../../../tests/fixtures/newsArticlesSnapshot";
 import { RELINK_MEDIA_AUTHORS } from "../db/authors";
 import { buildNewsImport } from "../db/newsRows";
 
@@ -47,13 +46,16 @@ export function createTestDatabase() {
 
 function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
   const statement = (query: string, values: SQLInputValue[] = []) => ({
-    all: async <T>() => ({
-      results: sqlite.prepare(query).all(...values) as T[],
-    }),
+    all: <T>() =>
+      Promise.resolve({
+        results: sqlite.prepare(query).all(...values) as T[],
+      }),
     bind: (...next: unknown[]) => statement(query, next as SQLInputValue[]),
-    first: async <T>() =>
-      (sqlite.prepare(query).get(...values) ?? null) as null | T,
-    run: async () => sqlite.prepare(query).run(...values),
+    first: <T>() =>
+      Promise.resolve(
+        (sqlite.prepare(query).get(...values) ?? null) as null | T,
+      ),
+    run: () => Promise.resolve(sqlite.prepare(query).run(...values)),
   });
   let queue: Promise<unknown> = Promise.resolve();
   const transaction = async (
@@ -74,7 +76,7 @@ function toApiDatabase(sqlite: DatabaseSync): ApiDatabase {
     batch: (statements) => {
       const run = queue.then(() => transaction(statements));
       queue = run.catch(() => undefined);
-      return run as ReturnType<ApiDatabase["batch"]>;
+      return run;
     },
     prepare: (query) => statement(query),
   };

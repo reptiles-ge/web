@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import imageManifest from "@/data/image-manifest.json";
-import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
+import {
+  allOptimizedImageEntries,
+  optimizedEntry,
+  optimizedImgSrc,
+} from "@/data/optimizedImages";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
@@ -16,12 +19,12 @@ import {
   getCreditAuthorCards,
   getCreditAuthorFieldSummary,
   getCreditAuthorGroupStats,
-  getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getCreditAuthorTopSpecies,
   HOME_CONTRIBUTOR_LIMIT,
 } from "@/lib/creditAuthors";
+import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
 import {
@@ -29,8 +32,10 @@ import {
   contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const authors = contributorsFixture("ka");
+const firstAuthor = defined(authors[0]);
 const resolvePublishedCreditAuthor = (id: string) =>
   authors.find((author) => author.id === id);
 
@@ -38,7 +43,7 @@ describe("static params and urls", () => {
   it("has one param per contributor and locale", () => {
     const params = creditAuthorStaticParams(authors);
     expect(params).toHaveLength(authors.length * routing.locales.length);
-    expect(params).toContainEqual({ locale: "en", slug: authors[0].id });
+    expect(params).toContainEqual({ locale: "en", slug: firstAuthor.id });
   });
 
   it("builds absolute URLs", () => {
@@ -48,7 +53,7 @@ describe("static params and urls", () => {
 
   it("has alternates for every locale", () => {
     for (const alternates of [
-      creditAuthorAlternates("en", authors[0].id),
+      creditAuthorAlternates("en", firstAuthor.id),
       creditAuthorIndexAlternates("en"),
     ]) {
       for (const locale of routing.locales) {
@@ -110,6 +115,7 @@ describe("getCreditAuthorPhotos", () => {
 describe("getCreditAuthorSpeciesIds", () => {
   it("returns each species once, in first-seen order", () => {
     const photo = (speciesId: string, src: string) => ({
+      group: "snake" as const,
       speciesId,
       src,
       updatedAt: "2026-01-01",
@@ -125,23 +131,6 @@ describe("getCreditAuthorSpeciesIds", () => {
   });
 });
 
-describe("getCreditAuthorHubIds", () => {
-  it("returns hubs once each, snakes first", () => {
-    expect(
-      getCreditAuthorHubIds([
-        "falco-peregrinus",
-        "testudo-graeca",
-        "natrix-natrix",
-        "macrovipera-lebetina",
-      ]),
-    ).toEqual(["snakes", "turtles", "birds"]);
-  });
-
-  it("returns nothing for no species", () => {
-    expect(getCreditAuthorHubIds([])).toEqual([]);
-  });
-});
-
 describe("getCreditAuthorCards", () => {
   const cards = getCreditAuthorCards(authors, speciesCatalogFixture("ka"));
 
@@ -153,8 +142,8 @@ describe("getCreditAuthorCards", () => {
 
   it("sorts by photo count, then slug", () => {
     for (let index = 1; index < cards.length; index += 1) {
-      const previous = cards[index - 1];
-      const current = cards[index];
+      const previous = defined(cards[index - 1]);
+      const current = defined(cards[index]);
       if (previous.photoCount === current.photoCount) {
         expect(previous.author.id <= current.author.id).toBe(true);
       } else {
@@ -193,18 +182,20 @@ describe("getCreditAuthorGroupStats", () => {
         );
       }
       expect(stats.map((stat) => stat.hub).sort()).toEqual(
-        getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)).sort(),
+        [
+          ...new Set(photos.map((photo) => ANIMAL_GROUP_TO_HUB[photo.group])),
+        ].sort(),
       );
     }
   });
 
   it("orders groups by photo count", () => {
     const stats = getCreditAuthorGroupStats(
-      getCreditAuthorPhotos(authors[0], speciesCatalogFixture("ka")),
+      getCreditAuthorPhotos(firstAuthor, speciesCatalogFixture("ka")),
     );
     for (let index = 1; index < stats.length; index += 1) {
-      expect(stats[index - 1].photos).toBeGreaterThanOrEqual(
-        stats[index].photos,
+      expect(defined(stats[index - 1]).photos).toBeGreaterThanOrEqual(
+        defined(stats[index]).photos,
       );
     }
   });
@@ -247,6 +238,7 @@ describe("getCreditAuthorTopSpecies", () => {
 describe("getCreditAuthorFieldSummary", () => {
   const photo = (location?: string, date?: string) => ({
     credit: { date, location, photographer: "x" },
+    group: "snake" as const,
     speciesId: "macrovipera-lebetina",
     src: `${location}-${date}`,
     updatedAt: "2026-01-01",
@@ -276,9 +268,11 @@ describe("getCreditAuthorFieldSummary", () => {
 
 describe("portrait URLs outside the picture element", () => {
   const uploaded = new Set(
-    Object.values(imageManifest.entries).flatMap((entry) =>
-      entry.derivatives.map(
-        (derivative) => `https://cdn.reptiles.ge/${derivative.key}`,
+    Object.values(allOptimizedImageEntries()).flatMap((entry) =>
+      entry.formats.flatMap((format) =>
+        entry.widths.map(
+          (width) => `${entry.baseUrl}${entry.path}-${width}.${format}`,
+        ),
       ),
     ),
   );
@@ -312,7 +306,9 @@ describe("portrait URLs outside the picture element", () => {
 
   it("resolves sitemap and search thumbnails to uploaded variants", () => {
     for (const author of authors) {
-      const [sitemapUrl] = creditAuthorPageImageUrls(author.portraitSrc, []);
+      const sitemapUrl = defined(
+        creditAuthorPageImageUrls(author.portraitSrc, [])[0],
+      );
       const searchThumb = optimizedImgSrc(author.portraitSrc, 400);
       for (const url of [sitemapUrl, searchThumb]) {
         expect(

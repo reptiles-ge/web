@@ -4,8 +4,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarGroupsPanel } from "@/components/NavbarGroupsPanel";
 import {
@@ -37,7 +35,7 @@ const OTHER_GROUP_IDS = [
 
 export function Navbar({ images, stats }: NavbarData) {
   const t = useTranslations("nav");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const pathname = usePathname();
   const darkHero = hasDarkHeroTop(pathname);
   const [scrolled, setScrolled] = useState(!darkHero);

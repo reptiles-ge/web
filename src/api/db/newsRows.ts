@@ -1,4 +1,5 @@
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+import type { AppLocale } from "@/i18n/routing";
 
 import { locales } from "@/i18n/locales";
 
@@ -54,7 +55,8 @@ export function newsRecordRows({ article, position }: NewsRecord) {
     article.series ?? null,
   ]);
   for (const locale of locales) {
-    const copy = article.copy[locale];
+    const copy: NewsArticle["copy"][AppLocale] | undefined =
+      article.copy[locale];
     if (!copy) continue;
     add("news_texts", [
       id,

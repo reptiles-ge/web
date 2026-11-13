@@ -31,7 +31,7 @@ describe("HomeChildPageHead", () => {
     expect(nav).toHaveTextContent("Home/About");
     const ld = JSON.parse(
       container.querySelector('script[type="application/ld+json"]')!
-        .textContent!,
+        .textContent,
     ) as Array<{ "@type": string; itemListElement?: Array<{ name: string }> }>;
     expect(ld[0]).toMatchObject({ "@type": "AboutPage" });
     expect(ld[1]?.itemListElement?.map((item) => item.name)).toEqual([

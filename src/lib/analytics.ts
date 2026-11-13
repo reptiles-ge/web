@@ -1,4 +1,3 @@
-import { type AnimalGroup } from "@/data/speciesAtlasMeta";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { type AppLocale, routing } from "@/i18n/routing";
 
@@ -70,7 +69,7 @@ export function currentPageContext(): {
   const entries = window.dataLayer ?? [];
   for (let index = entries.length - 1; index >= 0; index--) {
     const entry = entries[index];
-    if (entry.event === "page_context") {
+    if (entry?.event === "page_context") {
       return {
         entity_id:
           typeof entry.entity_id === "string" ? entry.entity_id : undefined,
@@ -86,7 +85,7 @@ export function currentPageContext(): {
 
 export function pushPageContext(params: {
   entity_id?: string;
-  group?: AnimalGroup | string;
+  group?: string;
   language: AppLocale;
   page_type: PageType;
 }) {
@@ -113,7 +112,7 @@ export function trackEvent(
 }
 
 export function trackSpeciesClick(params: {
-  group?: AnimalGroup | string;
+  group?: string;
   position?: number;
   source: SpeciesClickSource;
   species_id: string;

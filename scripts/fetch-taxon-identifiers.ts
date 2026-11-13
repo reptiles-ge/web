@@ -123,11 +123,13 @@ async function lookupINaturalist(
     const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(url);
     const exact = results.filter((entry) => entry.name === name);
     const active = exact.filter((entry) => entry.is_active);
-    if (active.length === 1) return { value: active[0].id };
+    const [single] = active;
+    const [firstExact] = exact;
+    if (single && active.length === 1) return { value: single.id };
     if (active.length > 1) {
       notes.push(`${active.length} active iNaturalist taxa named ${name}`);
-    } else if (exact.length > 0) {
-      notes.push(`iNaturalist taxon ${exact[0].id} (${name}) is inactive`);
+    } else if (firstExact) {
+      notes.push(`iNaturalist taxon ${firstExact.id} (${name}) is inactive`);
     } else {
       notes.push(`no exact iNaturalist taxon named ${name}`);
     }
@@ -207,7 +209,11 @@ async function resolveWikidata(
     };
   }
 
-  const [[qid, claims]] = [...items.entries()];
+  const [entry] = [...items.entries()];
+  if (!entry) {
+    return { note: `no item with P225 "${name}"` };
+  }
+  const [qid, claims] = entry;
   if ([...claims.gbif].some((key) => !gbifKeys.has(key))) {
     return {
       note: `${qid} P846 ${[...claims.gbif].join("/")} does not match GBIF ${[...gbifKeys].join("/") || "none"}`,

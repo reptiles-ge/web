@@ -77,7 +77,7 @@ function checked(value: unknown): SqlValue {
     if (!Number.isFinite(value)) throw new Error(`Bad number ${value}`);
     return value;
   }
-  if (typeof value !== "string") throw new Error(`Bad value ${String(value)}`);
+  if (typeof value !== "string") throw new Error(`Bad value ${shown(value)}`);
   return value;
 }
 
@@ -105,4 +105,11 @@ function literal(value: SqlValue) {
   if (value === null) return "NULL";
   if (typeof value === "number") return String(value);
   return `'${value.replaceAll("'", "''")}'`;
+}
+
+function shown(value: unknown) {
+  if (typeof value === "boolean" || typeof value === "bigint") {
+    return String(value);
+  }
+  return typeof value === "symbol" ? value.toString() : JSON.stringify(value);
 }

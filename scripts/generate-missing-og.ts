@@ -8,7 +8,7 @@ import {
 } from "@reptiles-ge/img-compression";
 import type { StorageAdapter } from "@reptiles-ge/img-compression/storage";
 import { getGuideArticles } from "../src/data/guideArticles";
-import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
+import { OPTIMIZED_BASE_URL as optimizedBaseUrl } from "../src/lib/optimizedImageSources";
 import { optimizedEntry } from "../src/data/optimizedImages";
 import { absoluteImageUrl, CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
 import {

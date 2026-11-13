@@ -9,9 +9,8 @@ export type SpeciesHref = LocaleSpeciesHref;
 
 export { regionHref } from "@/lib/regionHref";
 
-export { getSpeciesPublicSlug, resolveSpeciesId } from "@/lib/speciesSlugTable";
-
-type SpeciesRouteSource = string | { group?: AnimalGroup; id: string };
+export type SpeciesRouteSource =
+  string | { group?: AnimalGroup; id: string; slug?: string };
 
 export function speciesHref(
   species: SpeciesRouteSource,
@@ -19,6 +18,11 @@ export function speciesHref(
 ): SpeciesHref {
   const id = typeof species === "string" ? species : species.id;
   const group = typeof species === "string" ? undefined : species.group;
+  const slug = typeof species === "string" ? undefined : species.slug;
   const hub = group ? ANIMAL_GROUP_TO_HUB[group] : getSpeciesHubId(id);
-  return speciesHrefForHub(hub, getSpeciesPublicSlug(id, locale));
+  const publicSlug =
+    locale === "ka" && slug && slug !== id
+      ? slug
+      : getSpeciesPublicSlug(id, locale);
+  return speciesHrefForHub(hub, publicSlug);
 }

@@ -107,11 +107,12 @@ function parseMarkdown(markdown: string) {
 
     const heading = line.match(/^(#{1,3})\s+(.+?)(?:\s+\{#([a-z0-9-]+)\})?$/);
     if (heading) {
+      const [, hashes = "", text = "", id] = heading;
       blocks.push({
-        id: heading[3],
-        key: sourceKey("heading", index + 1, heading[2]),
-        level: heading[1].length,
-        text: heading[2],
+        id,
+        key: sourceKey("heading", index + 1, text),
+        level: hashes.length,
+        text,
         type: "heading",
       });
       index += 1;

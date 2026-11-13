@@ -109,10 +109,12 @@ async function GroupHubQuizCard({
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: quiz.namespace as "snakeQuiz" }),
   ]);
-  const options = [0, 1, 2, 3].map(
-    (step) => pool[Math.floor((step * pool.length) / 4)],
-  );
+  const options = [0, 1, 2, 3].flatMap((step) => {
+    const option = pool[Math.floor((step * pool.length) / 4)];
+    return option ? [option] : [];
+  });
   const answer = options[1];
+  if (!answer) return null;
 
   return (
     <div className="-mx-2 mt-7 rounded-[32px] bg-ink px-[22px] pt-[26px] pb-[22px] text-white lg:mx-0 lg:mt-[72px] lg:flex lg:items-center lg:gap-14 lg:rounded-[40px] lg:py-11 lg:pr-12 lg:pl-14">
@@ -184,5 +186,5 @@ async function GroupHubQuizCard({
 }
 
 function riskRank(risk: HubCatalogItem["risk"]) {
-  return risk ? RISK_RANK[risk] : 3;
+  return risk ? (RISK_RANK[risk] ?? 3) : 3;
 }

@@ -181,6 +181,7 @@ export function speciesHrefForHub(
       return { params: { slug }, pathname: "/spiders/[slug]" };
     case "turtles":
       return { params: { slug }, pathname: "/turtles/[slug]" };
+    case undefined:
     default:
       return { params: { slug }, pathname: "/amphibians/[slug]" };
   }

@@ -1,17 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  getAllNewsArticles,
   getNewsArticleLocales,
   getNewsCopy,
-  getPublishedNewsArticleBySlug,
-  getPublishedNewsArticles,
-  getPublishedNewsForCreditAuthor,
-  getPublishedNewsForHub,
-  getPublishedNewsForRegion,
-  getPublishedNewsForSpecies,
+  hasNewsCopy,
   newsArticlePhotos,
-  newsLinkedSpeciesIds,
   newsLocalizedDek,
   newsLocalizedTitle,
   newsPhotoBySrc,
@@ -20,18 +13,28 @@ import {
   newsRelatedSpecies,
   newsSearchKeywords,
   newsSourceName,
-  newsSourceOrg,
   newsSourceOrgName,
 } from "@/data/news";
 import { routing } from "@/i18n/routing";
 
 import {
+  getAllNewsArticles,
+  getPublishedNewsArticleBySlug,
+  getPublishedNewsArticles,
+  getPublishedNewsForCreditAuthor,
+  getPublishedNewsForHub,
+  getPublishedNewsForRegion,
+  getPublishedNewsForSpecies,
+  newsLinkedSpeciesIds,
+} from "../../tests/fixtures/newsSeed";
+import {
   contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const published = getPublishedNewsArticles();
-const article = published[0];
+const article = defined(published[0]);
 
 describe("news registry", () => {
   it("has unique slugs", () => {
@@ -48,7 +51,8 @@ describe("news registry", () => {
   it("sorts published articles newest first", () => {
     for (let index = 1; index < published.length; index += 1) {
       expect(
-        published[index - 1].publishedAt >= published[index].publishedAt,
+        defined(published[index - 1]).publishedAt >=
+          defined(published[index]).publishedAt,
       ).toBe(true);
     }
   });
@@ -105,7 +109,7 @@ describe("relations", () => {
   it("finds articles by hub, region and species", () => {
     const withSpecies = published.find((item) => item.relatedSpeciesIds.length);
     if (withSpecies) {
-      const id = withSpecies.relatedSpeciesIds[0];
+      const id = defined(withSpecies.relatedSpeciesIds[0]);
       expect(getPublishedNewsForSpecies(id).map((item) => item.slug)).toContain(
         withSpecies.slug,
       );
@@ -113,7 +117,7 @@ describe("relations", () => {
     const withHub = published.find((item) => item.relatedHubIds.length);
     if (withHub) {
       expect(
-        getPublishedNewsForHub(withHub.relatedHubIds[0]).map(
+        getPublishedNewsForHub(defined(withHub.relatedHubIds[0])).map(
           (item) => item.slug,
         ),
       ).toContain(withHub.slug);
@@ -121,7 +125,7 @@ describe("relations", () => {
     const withRegion = published.find((item) => item.relatedRegionIds.length);
     if (withRegion) {
       expect(
-        getPublishedNewsForRegion(withRegion.relatedRegionIds[0]).map(
+        getPublishedNewsForRegion(defined(withRegion.relatedRegionIds[0])).map(
           (item) => item.slug,
         ),
       ).toContain(withRegion.slug);
@@ -184,19 +188,6 @@ describe("search and source helpers", () => {
     expect(keywords).toContain(article.copy.ka.title);
     expect(keywords.every(Boolean)).toBe(true);
   });
-
-  it("takes the organisation before the dash in the first source", () => {
-    expect(
-      newsSourceOrg(
-        {
-          ...article,
-          sources: [{ name: "IUCN — Red List", url: "u" }],
-        },
-        "en",
-      ),
-    ).toBe("IUCN");
-    expect(newsSourceOrg({ ...article, sources: [] }, "en")).toBe("");
-  });
 });
 
 describe("news source names", () => {
@@ -222,16 +213,10 @@ describe("news source names", () => {
     expect(newsSourceOrgName("Borjomi-Kharagauli")).toBe("Borjomi-Kharagauli");
   });
 
-  it("uses the reader's language for the first source organisation", () => {
-    expect(newsSourceOrg({ ...article, sources: [localized] }, "tr")).toBe(
-      "Bakanlık",
-    );
-  });
-
   it("keeps Georgian script out of non-Georgian source names", () => {
     for (const item of published) {
       for (const locale of routing.locales) {
-        if (locale === "ka" || !item.copy[locale]) continue;
+        if (locale === "ka" || !hasNewsCopy(item, locale)) continue;
         for (const source of item.sources) {
           expect(newsSourceName(source, locale), item.slug).not.toMatch(
             /[\u10A0-\u10FF\u1C90-\u1CBF\u2D00-\u2D2F]/,

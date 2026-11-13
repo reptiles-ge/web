@@ -1011,6 +1011,45 @@ export const optimizedImageListResponse = component(
   "Photos uploaded through the API that have resized AVIF and WebP copies, ordered by `src`.",
 );
 
+const schemaImageCrop = component(
+  "SchemaImageCrop",
+  z.strictObject({
+    height: doc(z.int().min(1), "Height of the crop in pixels.", [675]),
+    ratio: doc(z.enum(["16x9", "4x3", "1x1"]), "Aspect ratio of the crop.", [
+      "16x9",
+    ]),
+    url: doc(
+      z.string(),
+      "Absolute URL of the JPEG crop on `https://cdn.reptiles.ge/schema/{ratio}/`.",
+      ["https://cdn.reptiles.ge/schema/16x9/macrovipera-lebetina-laura-1.jpg"],
+    ),
+    width: doc(z.int().min(1), "Width of the crop in pixels.", [1200]),
+  }),
+  "One structured-data crop of a photo.",
+);
+
+const schemaImageCrops = component(
+  "SchemaImageCrops",
+  z.strictObject({
+    crops: doc(
+      z.array(schemaImageCrop),
+      "The 16:9, 4:3 and 1:1 crops, in that order.",
+    ),
+    src: doc(
+      z.string(),
+      "Absolute URL of the original photo, as it appears in `image` or a news article's `image.src`.",
+      ["https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg"],
+    ),
+  }),
+  "Structured-data crops of one photo.",
+);
+
+export const schemaImageCropListResponse = component(
+  "SchemaImageCropListResponse",
+  z.strictObject({ data: z.array(schemaImageCrops), total }),
+  "Photos that have 1200 px wide 16:9, 4:3 and 1:1 JPEG crops for structured data (`ImageObject`), ordered by `src`.",
+);
+
 export const errorResponse = component(
   "Error",
   z.strictObject({

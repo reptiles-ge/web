@@ -20,8 +20,6 @@ import { SectionNav } from "@/components/SectionNav";
 import { guideArticleSectionAnchor } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 import { type AppLocale } from "@/i18n/routing";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
@@ -62,7 +60,6 @@ export async function GuideArticlePage({
   ]);
   const copy = article.copy[locale];
   const parentLabel = tParent("breadcrumbCurrent");
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const sections = copy.sections.map((section, index) => ({
     anchor: guideArticleSectionAnchor(section.heading, locale),
     index,
@@ -120,25 +117,11 @@ export async function GuideArticlePage({
             </>
           ) : null}
         </p>
-        <h1
-          className="mt-5 font-display text-display-lead font-semibold text-foreground"
-          {...contentEditorAttributes(
-            "guide",
-            editable ? article.id : undefined,
-            "title",
-          )}
-        >
+        <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
           {copy.title}
         </h1>
         {copy.intro ? (
-          <p
-            className="mt-6 max-w-3xl text-[17px] leading-[1.75] text-muted-foreground sm:text-[19px]"
-            {...contentEditorAttributes(
-              "guide",
-              editable ? article.id : undefined,
-              "intro",
-            )}
-          >
+          <p className="mt-6 max-w-3xl text-[17px] leading-[1.75] text-muted-foreground sm:text-[19px]">
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
@@ -201,11 +184,6 @@ export async function GuideArticlePage({
             headingId={`${article.id}-contents`}
             items={sections.map(({ anchor, index, section }) => ({
               anchor,
-              editorAttributes: contentEditorAttributes(
-                "guide",
-                editable ? article.id : undefined,
-                `sections.${index}.heading`,
-              ),
               label: section.heading,
             }))}
             label={t("contents")}
@@ -217,7 +195,6 @@ export async function GuideArticlePage({
             <GuideArticleSectionView
               anchor={anchor}
               article={article}
-              editable={editable}
               index={index}
               key={anchor}
               locale={locale}
@@ -236,14 +213,7 @@ export async function GuideArticlePage({
           >
             {t("summary")}
           </h2>
-          <p
-            className="mt-4 border-l-4 border-primary pl-5 text-[17px] leading-[1.75] text-foreground"
-            {...contentEditorAttributes(
-              "guide",
-              editable ? article.id : undefined,
-              "summary",
-            )}
-          >
+          <p className="mt-4 border-l-4 border-primary pl-5 text-[17px] leading-[1.75] text-foreground">
             <PhoneLinkedText>{copy.summary}</PhoneLinkedText>
           </p>
         </aside>
@@ -253,11 +223,7 @@ export async function GuideArticlePage({
             <h2 className="font-display text-display-card font-semibold text-foreground">
               {t("faq")}
             </h2>
-            <GuideFaqItems
-              editable={editable}
-              id={article.id}
-              items={copy.faq}
-            />
+            <GuideFaqItems id={article.id} items={copy.faq} />
           </section>
         ) : null}
 
@@ -406,14 +372,12 @@ function GuideArticleSectionNav({
 function GuideArticleSectionView({
   anchor,
   article,
-  editable,
   index,
   locale,
   section,
 }: {
   anchor: string;
   article: GuideArticle;
-  editable: boolean;
   index: number;
   locale: AppLocale;
   section: GuideArticleSection;
@@ -425,25 +389,13 @@ function GuideArticleSectionView({
     <section aria-labelledby={anchor}>
       <h2
         className="scroll-mt-40 font-display text-display-card font-semibold text-foreground"
-        {...contentEditorAttributes(
-          "guide",
-          editable ? article.id : undefined,
-          `sections.${index}.heading`,
-        )}
         id={anchor}
       >
         {section.heading}
       </h2>
       <div className="mt-5 space-y-4 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
         {section.paragraphs.map((paragraph, paragraphIndex) => (
-          <p
-            {...contentEditorAttributes(
-              "guide",
-              editable ? article.id : undefined,
-              `sections.${index}.paragraphs.${paragraphIndex}`,
-            )}
-            key={paragraph}
-          >
+          <p key={paragraph}>
             <PhoneLinkedText>{paragraph}</PhoneLinkedText>
           </p>
         ))}
@@ -456,14 +408,7 @@ function GuideArticleSectionView({
             }
           >
             {section.list.items.map((item, itemIndex) => (
-              <li
-                {...contentEditorAttributes(
-                  "guide",
-                  editable ? article.id : undefined,
-                  `sections.${index}.list.items.${itemIndex}`,
-                )}
-                key={item}
-              >
+              <li key={item}>
                 <PhoneLinkedText>{item}</PhoneLinkedText>
               </li>
             ))}

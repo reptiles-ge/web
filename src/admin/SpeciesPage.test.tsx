@@ -103,7 +103,7 @@ describe("SpeciesPage", () => {
     vi.mocked(fetchAdminSpecies).mockResolvedValue(
       toPage(LIST.slice(1), 146, { limit: 50, page: 3 }),
     );
-    await userEvent.click(screen.getByTitle("3"));
+    await userEvent.click(within(screen.getByTitle("3")).getByRole("button"));
     expect(
       await screen.findByText("101–101 of 146 species"),
     ).toBeInTheDocument();

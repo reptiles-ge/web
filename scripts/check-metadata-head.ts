@@ -55,7 +55,9 @@ async function sitemapUrls(): Promise<string[]> {
   const xml = await response.text();
   const urls = new Set<string>();
   for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-    const url = new URL(match[1].trim().replaceAll("&amp;", "&"));
+    const [, loc] = match;
+    if (!loc) continue;
+    const url = new URL(loc.trim().replaceAll("&amp;", "&"));
     urls.add(`${ORIGIN}${url.pathname}${url.search}`);
   }
   return [...urls];

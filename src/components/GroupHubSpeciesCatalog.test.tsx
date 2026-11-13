@@ -6,6 +6,7 @@ import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
 import { type HubCatalogItem, matchesHubCatalog } from "@/lib/groupHubLayout";
 
 import ka from "../../messages/ka.json";
+import { defined } from "../../tests/support/defined";
 
 function item(
   id: string,
@@ -76,8 +77,8 @@ describe("GroupHubSpeciesCatalog", () => {
     renderCatalog();
     const items = screen.getAllByRole("listitem");
     expect(items).toHaveLength(21);
-    expect(items[8].className).toContain("max-lg:hidden");
-    expect(items[16].className).toContain("lg:hidden");
+    expect(defined(items[8]).className).toContain("max-lg:hidden");
+    expect(defined(items[16]).className).toContain("lg:hidden");
     fireEvent.click(screen.getByRole("button", { expanded: false }));
     expect(
       screen
@@ -98,7 +99,7 @@ describe("GroupHubSpeciesCatalog", () => {
       target: { value: "ანკარა 1" },
     });
     const names = screen.getAllByRole("listitem").map((li) => li.textContent);
-    expect(names.every((name) => name?.includes("ანკარა 1"))).toBe(true);
+    expect(names.every((name) => name.includes("ანკარა 1"))).toBe(true);
     expect(screen.queryByRole("button", { expanded: false })).toBeNull();
     fireEvent.change(screen.getByRole("searchbox"), {
       target: { value: "zzz" },

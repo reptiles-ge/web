@@ -1,4 +1,4 @@
-import { hasLocale } from "next-intl";
+import { type AbstractIntlMessages, hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 
 import { routing } from "./routing";
@@ -11,6 +11,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default,
+    messages: (
+      (await import(`../../messages/${locale}.json`)) as {
+        default: AbstractIntlMessages;
+      }
+    ).default,
   };
 });

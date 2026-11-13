@@ -20,7 +20,6 @@ export function AdminCdnUpload() {
   const [uploaded, setUploaded] = useState<UploadedPhoto[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
   const [message, setMessage] = useState("");
-  const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
 
   useEffect(() => {
     return () => previewUrls.forEach((url) => URL.revokeObjectURL(url));
@@ -45,7 +44,6 @@ export function AdminCdnUpload() {
     setBusy(true);
     setErrors([]);
     setMessage("");
-    setPullRequestUrl(null);
     try {
       const body = new FormData();
       for (const { file, name } of files) {
@@ -57,10 +55,9 @@ export function AdminCdnUpload() {
         method: "POST",
       });
       const result = (await response.json()) as {
+        catalogError?: string;
         error?: string;
         errors?: Array<{ filename: string; message: string }>;
-        pullRequestError?: string;
-        pullRequestUrl?: string;
         uploaded?: UploadedPhoto[];
       };
       if (!response.ok)
@@ -71,11 +68,10 @@ export function AdminCdnUpload() {
         ...(result.errors ?? []).map(
           (item) => `${item.filename}: ${item.message}`,
         ),
-        ...(result.pullRequestError
-          ? [`კატალოგის PR ვერ გაიხსნა: ${result.pullRequestError}`]
+        ...(result.catalogError
+          ? [`კატალოგი ვერ განახლდა: ${result.catalogError}`]
           : []),
       ]);
-      setPullRequestUrl(result.pullRequestUrl ?? null);
       if (added.length > 0) setMessage(`${added.length} ფოტო აიტვირთა CDN-ზე`);
       setFiles([]);
       setPreviewUrls([]);
@@ -190,16 +186,6 @@ export function AdminCdnUpload() {
         <p className="text-[13px] text-primary" role="status">
           {message}
         </p>
-      ) : null}
-      {pullRequestUrl ? (
-        <a
-          className="text-[13px] break-all text-primary underline"
-          href={pullRequestUrl}
-          rel="noreferrer"
-          target="_blank"
-        >
-          კატალოგის PR: {pullRequestUrl}
-        </a>
       ) : null}
 
       {uploaded.length > 0 ? (

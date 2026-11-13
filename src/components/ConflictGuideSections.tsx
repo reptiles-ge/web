@@ -175,7 +175,7 @@ async function ConflictContact({
           {photo ? (
             <Link
               className="group relative block h-full min-h-[260px] overflow-hidden bg-ink"
-              href={speciesHref(photo.id, locale)}
+              href={speciesHref(photo, locale)}
             >
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
                 <CoverImage

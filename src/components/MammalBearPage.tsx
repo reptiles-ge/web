@@ -5,7 +5,7 @@ import { BEAR_ENCOUNTER_CONFIG } from "@/components/safetyGuideConfig";
 import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 import { toSpeciesCards } from "@/data/speciesCard";
 
-export async function MammalBearPage({
+export function MammalBearPage({
   guideId,
   heroSrc,
   locale,

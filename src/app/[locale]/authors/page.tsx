@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { AuthorIndexPage } from "@/components/AuthorIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { getContributors } from "@/lib/authorsApi";
 import {
   creditAuthorIndexAlternates,
@@ -38,7 +38,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   setRequestLocale(locale);
 
   const [t, tShared, creditPhotos, contributors] = await Promise.all([
@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const t = await getTranslations({ locale, namespace: "author" });
   const title = t("index.metaTitle");
   const url = creditAuthorIndexUrl(locale);

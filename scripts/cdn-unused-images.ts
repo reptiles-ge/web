@@ -2,11 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
-import type { Manifest } from "@reptiles-ge/img-compression";
-import {
-  optimizedBaseUrl,
-  optimizedImages,
-} from "../src/data/optimizedImages.generated";
+import { uploadedOptimizedImages as optimizedImages } from "../src/data/optimizedImages.api.generated";
+import { OPTIMIZED_BASE_URL as optimizedBaseUrl } from "../src/lib/optimizedImageSources";
+import { getImageManifest } from "../src/lib/optimizedImagesApi";
 import {
   georgiaRegionPaths,
   type RegionPathId,
@@ -32,10 +30,7 @@ const SKIP_DIR_NAMES = new Set([
   "playwright-report",
   "test-results",
 ]);
-const SKIP_FILE_NAMES = new Set([
-  "image-manifest.json",
-  "optimizedImages.generated.ts",
-]);
+const SKIP_FILE_NAMES = new Set(["optimizedImages.api.generated.ts"]);
 const SCAN_EXTS = new Set([
   ".css",
   ".js",
@@ -104,7 +99,7 @@ function markUsed(used: Set<string>, url: string) {
   }
 }
 
-function collectUsedKeys(): Set<string> {
+async function collectUsedKeys(): Promise<Set<string>> {
   const used = new Set<string>();
 
   for (const rel of SCAN_ROOTS) {
@@ -125,12 +120,10 @@ function collectUsedKeys(): Set<string> {
   markUsed(used, SITE_OG_IMAGE_URL);
   markUsed(used, FALLBACK_OG_IMAGE_URL);
   markUsed(used, `${CDN_BASE}/logo.webp`);
-  used.add("image-manifest.json");
 
-  const manifest = JSON.parse(
-    fs.readFileSync(path.join(ROOT, "src/data/image-manifest.json"), "utf8"),
-  ) as Manifest;
-  for (const [key, entry] of Object.entries(manifest.entries)) {
+  const token = process.env.API_WRITE_TOKEN;
+  if (!token) throw new Error("API_WRITE_TOKEN must be in .env.local");
+  for (const { entry, key } of await getImageManifest(token)) {
     if (!key.startsWith("external/")) continue;
     used.add(entry.originalKey);
     for (const derivative of entry.derivatives) used.add(derivative.key);
@@ -176,7 +169,7 @@ async function main() {
   const { accessKey, storage, storageZone } = createBunnyStorageContext();
 
   console.log("Scanning repo for CDN image references…");
-  const used = collectUsedKeys();
+  const used = await collectUsedKeys();
   console.log(`Used CDN keys (incl. optimized/og derivatives): ${used.size}`);
 
   console.log("Listing BunnyCDN storage…");

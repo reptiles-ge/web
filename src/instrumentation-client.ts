@@ -13,7 +13,8 @@ function loadSentry() {
   sentryPromise ??= import("@/lib/sentryClient").then((module) => {
     module.init({
       dsn: SENTRY_DSN,
-      tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1,
+      enabled: process.env.NODE_ENV === "production",
+      tracesSampleRate: 0.1,
     });
     captureRouterTransitionStart = module.captureRouterTransitionStart;
     window.removeEventListener("error", onEarlyError);

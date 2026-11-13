@@ -3,7 +3,6 @@ import type { ReactElement } from "react";
 import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
@@ -12,10 +11,12 @@ import en from "../../../../../messages/en.json";
 import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
+import { getPublishedNewsArticles } from "../../../../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,
 } from "../../../../../tests/fixtures/speciesCatalog";
+import { defined } from "../../../../../tests/support/defined";
 
 const contributors = contributorDirectoryFixture();
 import NewsArticleRoute, {
@@ -37,14 +38,14 @@ vi.mock("next-intl/server", () => ({
   setRequestLocale: () => undefined,
 }));
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 async function articleJsonLd(locale: string) {
   const page = (await NewsArticleRoute({
     params: Promise.resolve({ locale, slug: article.slug }),
   })) as ReactElement<{ children: ReactElement<{ data: unknown[] }>[] }>;
   const [jsonLd] = page.props.children;
-  return jsonLd.props.data[0] as Record<string, unknown>;
+  return defined(jsonLd).props.data[0] as Record<string, unknown>;
 }
 
 describe("news article JSON-LD", () => {
