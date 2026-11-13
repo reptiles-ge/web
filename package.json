@@ -73,7 +73,6 @@
     "images:optimize:dry": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --dry-run",
     "images:optimize:news": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --news",
     "images:optimize:site": "pnpm run slugs:compile && tsx scripts/optimize-images.ts --site",
-    "images:warm": "pnpm run images:og-missing && pnpm run images:schema --check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
