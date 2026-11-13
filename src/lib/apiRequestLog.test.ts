@@ -2,6 +2,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { loggedFetch } from "@/lib/apiRequestLog";
 
+import { defined } from "../../tests/support/defined";
+
 const URL_WITH_PARAMS =
   "https://api.reptiles.ge/v1/species?group=snake&tag=a&tag=b";
 
@@ -21,7 +23,8 @@ function captureGroup() {
         ]),
       ),
     end,
-    title: () => String(group.mock.calls[0][0]).replace(/\(\d+ ms\)/, "(N ms)"),
+    title: () =>
+      String(group.mock.calls[0]?.[0]).replace(/\(\d+ ms\)/, "(N ms)"),
   };
 }
 
@@ -135,7 +138,7 @@ describe("loggedFetch", () => {
       "https://api.reptiles.ge/v1/x?a=1",
     );
     expect(group).not.toHaveBeenCalled();
-    const [title, ...rest] = info.mock.calls[0];
+    const [title, ...rest] = defined(info.mock.calls[0]);
     expect(String(title)).toMatch(
       /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/x\?a=1 → 200 \(\d+ ms\)$/,
     );

@@ -83,7 +83,7 @@ describe("createOrFindPullRequest", () => {
       "https://github.com/o/r/pull/1",
     );
     expect(run).toHaveBeenCalledTimes(1);
-    expect(run.mock.calls[0][2]).toBe("/tmp/wt");
+    expect(run.mock.calls[0]?.[2]).toBe("/tmp/wt");
   });
 
   it("falls back to the existing pull request", async () => {
@@ -94,7 +94,7 @@ describe("createOrFindPullRequest", () => {
     await expect(createOrFindPullRequest(run, input)).resolves.toBe(
       "https://github.com/o/r/pull/2",
     );
-    expect(run.mock.calls[1][1]).toEqual(
+    expect(run.mock.calls[1]?.[1]).toEqual(
       expect.arrayContaining(["pr", "view", "feature/x"]),
     );
   });

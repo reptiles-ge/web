@@ -15,6 +15,7 @@ import { type CatalogCard, getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 
 import { catalogSpeciesFixture } from "../../tests/fixtures/speciesCatalog";
 import { server } from "../../tests/msw/server";
+import { defined } from "../../tests/support/defined";
 
 const catalog = catalogSpeciesFixture();
 
@@ -137,9 +138,9 @@ describe("getRecentlyUpdatedSpecies", () => {
     const recent = await getRecentlyUpdatedSpecies("en", 5);
     expect(recent).toHaveLength(5);
     for (let index = 1; index < recent.length; index += 1) {
-      expect(Date.parse(recent[index - 1].updatedAt)).toBeGreaterThanOrEqual(
-        Date.parse(recent[index].updatedAt),
-      );
+      expect(
+        Date.parse(defined(recent[index - 1]).updatedAt),
+      ).toBeGreaterThanOrEqual(Date.parse(defined(recent[index]).updatedAt));
     }
   });
 

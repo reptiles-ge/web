@@ -54,7 +54,7 @@ export function getPhotoUseCreditExample(photos: PhotoUsePhoto[]) {
   );
   if (!photo) return undefined;
   return {
-    licenseUrl: photoLicenses[photo.src].license as string,
+    licenseUrl: photoLicenses[photo.src]?.license as string,
     photo,
     sourceUrl: photo.credit?.url as string,
   };
@@ -145,7 +145,7 @@ export function photoLicenseLabel(url: string) {
     return path[1] === "zero" ? `CC0 ${path[2]}` : "Public Domain Mark";
   }
   const [, kind, version, port] = path;
-  return ["CC", kind.toUpperCase(), version, port?.toUpperCase()]
+  return ["CC", kind?.toUpperCase(), version, port?.toUpperCase()]
     .filter(Boolean)
     .join(" ");
 }

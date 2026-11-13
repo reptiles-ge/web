@@ -49,6 +49,7 @@ export function ContactTopicPicker({
   const name = useId();
   const [selectedId, setSelectedId] = useState<ContactTopic["id"] | null>(null);
   const current = topics.find((topic) => topic.id === selectedId) ?? topics[0];
+  if (!current) return null;
   const mailHref = `mailto:${email}?subject=${encodeURIComponent(current.subject)}`;
 
   return (

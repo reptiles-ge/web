@@ -9,6 +9,8 @@ import {
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
 
+import { defined } from "../../tests/support/defined";
+
 function readSource(file: string) {
   return fs.readFileSync(path.join(process.cwd(), file), "utf8");
 }
@@ -17,7 +19,7 @@ const fallbackSource = readSource("src/components/ErrorFallback.tsx");
 const fallbackNamespace =
   /useTranslations\("([^"]+)"\)/.exec(fallbackSource)?.[1] ?? "";
 const fallbackKeys = [...fallbackSource.matchAll(/\bt\("([^"]+)"\)/g)].map(
-  (match) => match[1],
+  (match) => defined(match[1]),
 );
 
 describe("locale layout client messages", () => {

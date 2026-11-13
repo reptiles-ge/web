@@ -16,6 +16,7 @@ import {
   contributorDirectoryFixture,
   speciesCatalogFixture,
 } from "../../../../../tests/fixtures/speciesCatalog";
+import { defined } from "../../../../../tests/support/defined";
 
 const contributors = contributorDirectoryFixture();
 import NewsArticleRoute, {
@@ -37,14 +38,14 @@ vi.mock("next-intl/server", () => ({
   setRequestLocale: () => undefined,
 }));
 
-const article = getPublishedNewsArticles()[0];
+const article = defined(getPublishedNewsArticles()[0]);
 
 async function articleJsonLd(locale: string) {
   const page = (await NewsArticleRoute({
     params: Promise.resolve({ locale, slug: article.slug }),
   })) as ReactElement<{ children: ReactElement<{ data: unknown[] }>[] }>;
   const [jsonLd] = page.props.children;
-  return jsonLd.props.data[0] as Record<string, unknown>;
+  return defined(jsonLd).props.data[0] as Record<string, unknown>;
 }
 
 describe("news article JSON-LD", () => {

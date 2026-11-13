@@ -97,9 +97,9 @@ function collectPhotos(catalog: readonly SpeciesPhotoFields[]) {
 function lookupFor(sourceUrl: string): Lookup {
   const url = new URL(sourceUrl);
   if (url.hostname === "commons.wikimedia.org") {
-    const match = url.pathname.match(/^\/wiki\/(File:.+)$/);
-    if (match) {
-      return { kind: "commons", title: decodeURIComponent(match[1]) };
+    const [, title] = url.pathname.match(/^\/wiki\/(File:.+)$/) ?? [];
+    if (title) {
+      return { kind: "commons", title: decodeURIComponent(title) };
     }
     return { kind: "unsupported", reason: "Commons URL is not a file page" };
   }
@@ -107,9 +107,9 @@ function lookupFor(sourceUrl: string): Lookup {
     url.hostname === "www.inaturalist.org" ||
     url.hostname === "inaturalist.org"
   ) {
-    const observation = url.pathname.match(/^\/observations\/(\d+)$/);
+    const [, observation] = url.pathname.match(/^\/observations\/(\d+)$/) ?? [];
     if (observation) {
-      return { id: observation[1], kind: "inaturalist-observation" };
+      return { id: observation, kind: "inaturalist-observation" };
     }
     return {
       kind: "unsupported",

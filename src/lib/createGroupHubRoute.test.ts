@@ -21,6 +21,7 @@ import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
 import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const messages = { en, ka, ru, tr };
 
@@ -183,7 +184,7 @@ describe("group hub metadata", () => {
 });
 
 describe("branded page titles", () => {
-  const author = contributorsFixture()[0];
+  const author = defined(contributorsFixture()[0]);
   const pages: Array<
     [string, (locale: Locale) => Metadata | Promise<Metadata>]
   > = [

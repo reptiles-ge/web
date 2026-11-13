@@ -32,6 +32,7 @@ import {
   contributorDirectoryFixture,
   localizedFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const contributors = contributorDirectoryFixture();
 
@@ -192,7 +193,7 @@ describe("givesFirstAidSteps", () => {
       },
     ];
     expect(schemaFaqEntries(entries)).toEqual([entries[0]]);
-    expect(faqPageJsonLd([entries[1]])).toBeNull();
+    expect(faqPageJsonLd([defined(entries[1])])).toBeNull();
   });
 });
 

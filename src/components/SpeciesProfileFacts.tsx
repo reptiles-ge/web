@@ -204,7 +204,7 @@ function SpeciesProfileStatValue({
 
 function tileSpan(tiles: FactTile[], index: number) {
   const tile = tiles[index];
-  if (tile.wide) return "col-span-2";
+  if (tile?.wide) return "col-span-2";
   if (index < tiles.length - 1) return "";
 
   const singles = tiles.filter((item) => !item.wide).length;

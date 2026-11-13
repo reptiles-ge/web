@@ -24,7 +24,7 @@ export function latestReleaseTag(tags: string[]): null | string {
 
 function compareParts(a: number[], b: number[]): number {
   for (let index = 0; index < a.length; index += 1) {
-    const difference = a[index] - b[index];
+    const difference = (a[index] ?? 0) - (b[index] ?? 0);
     if (difference !== 0) return difference;
   }
 

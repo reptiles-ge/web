@@ -10,6 +10,8 @@ import {
   vi,
 } from "vitest";
 
+import { defined } from "../../tests/support/defined";
+
 const SRC = "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg";
 const CROP =
   "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg";
@@ -129,22 +131,22 @@ describe("CoverImage", () => {
     );
     const strip = container.firstElementChild;
     expect(observers).toHaveLength(1);
-    expect(observers[0].targets).toEqual([strip]);
+    expect(defined(observers[0]).targets).toEqual([strip]);
     expect(container.querySelector("img")?.getAttribute("src")).toMatch(
       /^data:image\/gif/,
     );
 
-    intersect(observers[0], false);
+    intersect(defined(observers[0]), false);
     expect(container.querySelector("img")?.getAttribute("src")).toMatch(
       /^data:image\/gif/,
     );
 
-    intersect(observers[0], true);
+    intersect(defined(observers[0]), true);
     expect(container.querySelector("img")?.getAttribute("src")).toContain(
       "cdn.reptiles.ge/optimized/",
     );
     expect(container.querySelectorAll("picture source")).toHaveLength(2);
-    expect(observers[0].disconnect).toHaveBeenCalled();
+    expect(defined(observers[0]).disconnect).toHaveBeenCalled();
   });
 
   it("loads every deferred image after the first scroll, touch or key press", async () => {

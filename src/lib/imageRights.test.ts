@@ -156,7 +156,7 @@ describe("photoRights", () => {
 
   it("overrides the iNaturalist CC record of a contributor photo", () => {
     const src = "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg";
-    expect(photoLicenses[src].license).toBe(
+    expect(photoLicenses[src]?.license).toBe(
       "https://creativecommons.org/licenses/by-nc/4.0/",
     );
     for (const photographer of ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"]) {
@@ -219,7 +219,7 @@ describe("photoRights", () => {
 
   it("sends all-rights-reserved iNaturalist photos to the photo use page", () => {
     const src = Object.keys(photoLicenses).find(
-      (key) => photoLicenses[key].license === null,
+      (key) => photoLicenses[key]?.license === null,
     ) as string;
     const rights = photoRights(
       src,
@@ -265,7 +265,7 @@ describe("photoRights", () => {
   it("leaves out the fallback notice on an uncredited open-licensed photo", () => {
     const src = "https://cdn.reptiles.ge/falco-tinnunculus-paul-1.jpg";
     const rights = photoRights(src, undefined, "en", contributors);
-    expect(rights.license).toBe(photoLicenses[src].license);
+    expect(rights.license).toBe(photoLicenses[src]?.license);
     expect(rights).not.toHaveProperty("copyrightNotice");
   });
 
@@ -293,7 +293,7 @@ describe("photoRights", () => {
 describe("photoRightsCategory", () => {
   it("sorts a photo into exactly one rights category", () => {
     const allRightsReserved = Object.keys(photoLicenses).find(
-      (key) => photoLicenses[key].license === null,
+      (key) => photoLicenses[key]?.license === null,
     ) as string;
     expect(
       photoRightsCategory(

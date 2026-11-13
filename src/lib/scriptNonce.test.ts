@@ -9,6 +9,8 @@ import {
 } from "@/lib/scriptNonce";
 import { securityHeaders } from "@/lib/securityHeaders";
 
+import { defined } from "../../tests/support/defined";
+
 type Handler = { element(element: RewriterElement): void };
 
 const NONCE = "TESTNONCE";
@@ -151,9 +153,11 @@ describe("addScriptNonce", () => {
   it("uses the global HTMLRewriter and a fresh nonce per response", () => {
     vi.stubGlobal("HTMLRewriter", FakeRewriter);
     const nonceOf = (response: Response) =>
-      response.headers
-        .get("Content-Security-Policy")!
-        .match(/'nonce-([^']+)'/)![1];
+      defined(
+        response.headers
+          .get("Content-Security-Policy")
+          ?.match(/'nonce-([^']+)'/)?.[1],
+      );
 
     const first = nonceOf(addScriptNonce(request, htmlResponse()));
     const second = nonceOf(addScriptNonce(request, htmlResponse()));

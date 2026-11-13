@@ -50,7 +50,7 @@ describe("splitSpeciesInlineLinks", () => {
       "[x](https://example.com) and [y](A_B)",
     );
     expect(parts).toHaveLength(1);
-    expect(parts[0].type).toBe("text");
+    expect(parts[0]?.type).toBe("text");
   });
 });
 

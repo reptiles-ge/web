@@ -2,6 +2,7 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { defined } from "../../tests/support/defined";
 import { walkFiles } from "../../tests/support/walkFiles";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
@@ -44,7 +45,7 @@ function localImports(file: string) {
     ...source.matchAll(STATIC_IMPORT),
     ...source.matchAll(DYNAMIC_IMPORT),
   ]
-    .map((match) => resolveImport(file, match[1]))
+    .map((match) => resolveImport(file, defined(match[1])))
     .filter((resolved): resolved is string => resolved !== null);
   importsCache.set(file, imports);
   return imports;

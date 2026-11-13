@@ -208,8 +208,8 @@ describe("shareRepeatedNodes", () => {
       { "@type": "ImageObject", creator: person },
       { "@type": "ImageGallery", associatedMedia: [{ creator: person }] },
     ]);
-    expect(first.creator).toEqual(person);
-    expect(second.associatedMedia).toEqual([
+    expect(first?.creator).toEqual(person);
+    expect(second?.associatedMedia).toEqual([
       { creator: { "@id": "https://x/#person" } },
     ]);
   });

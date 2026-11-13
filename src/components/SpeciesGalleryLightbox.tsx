@@ -532,7 +532,7 @@ function GalleryPhotoViewer({
   slides: GallerySlide[];
   speciesId?: string;
 }) {
-  const activeSlide = active === null ? null : slides[active];
+  const activeSlide = active === null ? null : (slides[active] ?? null);
   const many = slides.length > 1;
   const scrollerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
