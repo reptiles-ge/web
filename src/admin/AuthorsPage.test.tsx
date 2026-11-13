@@ -103,7 +103,7 @@ describe("AuthorsPage", () => {
     vi.mocked(fetchAdminAuthors).mockResolvedValue(
       pageOf([CREDIT_ONLY], 120, 2),
     );
-    await userEvent.click(screen.getByTitle("2"));
+    await userEvent.click(within(screen.getByTitle("2")).getByRole("button"));
     expect(await screen.findByText("51–51 of 120 authors")).toBeInTheDocument();
     expect(fetchAdminAuthors).toHaveBeenLastCalledWith({ limit: 50, page: 2 });
   });
