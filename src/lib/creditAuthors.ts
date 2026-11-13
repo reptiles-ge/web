@@ -1,6 +1,7 @@
 import type { AuthorProfile, ContributorProfile } from "@/data/authors";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
-import type { PhotoCredit, SpeciesPhotoFields } from "@/data/speciesTypes";
+import type { CatalogPhotoSpecies } from "@/data/speciesCatalogTypes";
+import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -10,7 +11,6 @@ import {
   creditAuthorIndexHref,
 } from "@/data/authors";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { isCoverCrop } from "@/lib/coverCrop";
@@ -20,6 +20,7 @@ import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type CreditAuthorPhoto = {
   credit?: PhotoCredit;
+  group: AnimalGroup;
   speciesId: string;
   src: string;
   updatedAt: string;
@@ -55,8 +56,9 @@ export type CreditAuthorGroupStat = {
 };
 
 export type CreditPhotoSource = Pick<
-  SpeciesPhotoFields,
+  CatalogPhotoSpecies,
   | "gallery"
+  | "group"
   | "id"
   | "image"
   | "imageCredit"
@@ -209,7 +211,7 @@ export function getCreditAuthorGroupStats(
 ): CreditAuthorGroupStat[] {
   const byHub = new Map<GroupHubId, CreditAuthorGroupStat>();
   for (const photo of photos) {
-    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(photo.speciesId).group];
+    const hub = ANIMAL_GROUP_TO_HUB[photo.group];
     const stat = byHub.get(hub) ?? { hub, photos: 0, species: [] };
     stat.photos += 1;
     const species = stat.species.find((item) => item.id === photo.speciesId);
@@ -224,17 +226,16 @@ export function getCreditAuthorGroupStats(
   );
 }
 
-export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
+export function getCreditAuthorHubIds(
+  photos: readonly Pick<CreditAuthorPhoto, "group">[],
+): GroupHubId[] {
   const hubs: GroupHubId[] = [];
   const seen = new Set<GroupHubId>();
-  const ranked = [...speciesIds].sort((a, b) => {
-    return (
-      GROUP_RANK[getSpeciesAtlasMeta(a).group] -
-      GROUP_RANK[getSpeciesAtlasMeta(b).group]
-    );
-  });
-  for (const id of ranked) {
-    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(id).group];
+  const ranked = [...photos].sort(
+    (a, b) => GROUP_RANK[a.group] - GROUP_RANK[b.group],
+  );
+  for (const photo of ranked) {
+    const hub = ANIMAL_GROUP_TO_HUB[photo.group];
     if (seen.has(hub)) continue;
     seen.add(hub);
     hubs.push(hub);
@@ -249,31 +250,16 @@ export function getCreditAuthorPhotos(
   const bySrc = new Map<string, CreditAuthorPhoto>();
 
   for (const species of catalog) {
+    addPhoto(bySrc, author.id, species, species.image, species.imageCredit);
     addPhoto(
       bySrc,
       author.id,
-      species.id,
-      species.updatedAt,
-      species.image,
-      species.imageCredit,
-    );
-    addPhoto(
-      bySrc,
-      author.id,
-      species.id,
-      species.updatedAt,
+      species,
       species.mobileImage,
       species.mobileImageCredit,
     );
     for (const item of species.gallery) {
-      addPhoto(
-        bySrc,
-        author.id,
-        species.id,
-        species.updatedAt,
-        item.src,
-        item.credit,
-      );
+      addPhoto(bySrc, author.id, species, item.src, item.credit);
     }
   }
 
@@ -308,19 +294,24 @@ export function getCreditAuthorTopSpecies(
 function addPhoto(
   bySrc: Map<string, CreditAuthorPhoto>,
   authorId: string,
-  speciesId: string,
-  updatedAt: string,
+  species: Pick<CreditPhotoSource, "group" | "id" | "updatedAt">,
   src: string | undefined,
   credit: PhotoCredit | undefined,
 ) {
   if (!src || bySrc.has(src) || isCoverCrop(src)) return;
   if (credit?.authorId !== authorId) return;
-  bySrc.set(src, { credit, speciesId, src, updatedAt });
+  bySrc.set(src, {
+    credit,
+    group: species.group,
+    speciesId: species.id,
+    src,
+    updatedAt: species.updatedAt,
+  });
 }
 
 function compareAuthorPhotos(a: CreditAuthorPhoto, b: CreditAuthorPhoto) {
-  const groupA = GROUP_RANK[getSpeciesAtlasMeta(a.speciesId).group];
-  const groupB = GROUP_RANK[getSpeciesAtlasMeta(b.speciesId).group];
+  const groupA = GROUP_RANK[a.group];
+  const groupB = GROUP_RANK[b.group];
   if (groupA !== groupB) return groupA - groupB;
   if (a.speciesId !== b.speciesId)
     return a.speciesId.localeCompare(b.speciesId);

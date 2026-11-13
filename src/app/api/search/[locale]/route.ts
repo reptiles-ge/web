@@ -10,6 +10,7 @@ import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
 import { staticLocaleJsonRoute } from "@/lib/staticLocaleJson";
 
 export const dynamic = "force-static";
+export const revalidate = 3600;
 
 const route = staticLocaleJsonRoute(async (locale) => {
   const [lists, authorLists, news] = await Promise.all([
