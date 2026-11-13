@@ -19,12 +19,12 @@ const CACHE_TAG_HEADER = "Cache-Tag";
 
 const API_CACHE_TAG_PREFIX = "api:";
 
-export function apiCacheTag(tag: string) {
-  return `${API_CACHE_TAG_PREFIX}${tag}`;
-}
-
 export function cacheTags(c: Context<ApiEnv>, ...tags: string[]) {
   c.set("cacheTags", [...(c.get("cacheTags") ?? []), ...tags]);
+}
+
+function apiCacheTag(tag: string) {
+  return `${API_CACHE_TAG_PREFIX}${tag}`;
 }
 
 const VARY = ["origin", LOCALE_HEADER.toLowerCase()];
