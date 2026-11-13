@@ -11,7 +11,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RegionProfile } from "@/components/RegionProfile";
-import { getPublishedNewsForRegion } from "@/data/news";
 import {
   getLocalizedRegionContent,
   getRegionContent,
@@ -36,6 +35,7 @@ import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { getNewsListArticlesForRegion } from "@/lib/newsApi";
 import {
   breadcrumbListLd,
   localePageUrl,
@@ -253,7 +253,7 @@ export default async function RegionPage({ params }: PageProps) {
         </OptimizedImageScope>
       </ClientMessagesProvider>
       <NewsRelatedBlock
-        articles={getPublishedNewsForRegion(region.id, locale)}
+        articles={await getNewsListArticlesForRegion(locale, region.id)}
         locale={locale}
       />
     </>
