@@ -12,7 +12,7 @@ Status as of 2026-10-22. This file picks up where the work stopped. Binding API 
 | 2b-c     | AI text edits become drafts: selection editor + AI page texts, review/approve UI                              | ✅ done (#1489) |
 | **2b-b** | Adding a photo (upload + iNaturalist)                                                                         | ⏳ next         |
 | **2b-e** | Field records into D1                                                                                         | ⏳              |
-| **2b-d** | AI analysis / workflow / super-analysis → drafts                                                              | ⏳              |
+| **2b-d** | AI analysis / workflow / super-analysis → drafts                                                              | ❌ dropped      |
 | **2b-f** | New species creation                                                                                          | ⏳              |
 | 3        | Rest of the site reads species from the API                                                                   | ⏳              |
 | 4        | Slugs and 301s in `proxy.ts` from D1/KV                                                                       | ⏳              |
@@ -80,25 +80,9 @@ Recommended order: **2b-b → 2b-e → 2b-d → 2b-f**, then phase 3.
 
 ---
 
-## 2b-d — AI analysis, workflow, super-analysis
+## 2b-d — AI analysis, workflow, super-analysis (dropped)
 
-**Today** (all in `src/lib/speciesPageAnalysis.ts`, `speciesSuperAnalysis*.ts`)
-
-- `/api/admin/species-analysis` (modes `analysis|links|lookalikes|records`) and `/api/admin/species-workflow` run an AI CLI with **workspace-write in a git worktree**. They commit and open a PR.
-  - lookalikes mode edits `LOOKALIKES` in `src/lib/speciesLookalikes.ts`.
-  - records mode also edits range maps (`src/data/speciesRangeMaps/{id}.ts`), `mapRegions.ts` and components.
-- `/api/admin/species-super-analysis` runs background jobs with stages analysis → lookalikes → links → texts. The AI returns structured JSON (`superAnalysisResultSchema`). The app applies edits with `applyAnalysisEdits`, validates them heavily (`validateSuperAnalysisResult`: coverage, evidence, numbers, scientific names, links, colors, conservation codes), re-serializes the frontmatter, commits per stage and opens a draft PR.
-- The texts step of the workflow already uses `mdxSpeciesTextSource` on the worktree.
-
-**Target**
-
-- **Super-analysis first.** It already produces structured edits. Apply them to a `structuredClone` of the API record instead of MDX: the edit list is `field` + `before` + `after` per locale, `sources` appends, and lookalike pairs into `record.lookalikes`. Keep `validateSuperAnalysisResult`. Create one draft per stage, or one per run. Replace the "Snapshot changed during AI execution" check with the draft `baseVersion` (approval answers 409 if stale).
-- **analysis / links / lookalikes modes:** stop giving the AI a writable worktree. Hand it the record as JSON, ask for structured edits (reuse the super-analysis schema), and create a draft.
-- **records mode** touches non-species files (range maps, `mapRegions.ts`). Keep it on the PR flow until range maps move (decide in phase 3), or split it: field records go to a draft once 2b-e exists, map files go to a PR.
-- Workflow `texts` mode → `processSpeciesTexts` (draft), the same as the standalone button.
-- Remove worktree/PR plumbing that becomes unused: `repairSpeciesFrontmatter`, `assertSpeciesContentMatchesBase`, `selectSpeciesAnalysisFiles`, `processWorkflowTexts`, parts of `contentEditorPullRequest.ts`.
-
----
+**Removed in November 2026.** The local-admin selection editor, the species page pipeline launcher and the `/api/admin/species-analysis`, `species-workflow`, `species-super-analysis`, `species-texts` and `content-edit` routes are gone, with their libs, prompts, messages and tests. Nothing was rebuilt on the API. AI edits to a species page go through `pnpm species:draft` (`.agents/skills/species-drafts/SKILL.md`) and land as drafts for the owner to merge. The old code is in Git history; anything of the kind would start from the API record with results as drafts.
 
 ## 2b-f — New species creation
 
@@ -161,4 +145,4 @@ Image derivatives catalog to D1 and the Service Binding from the site to the API
 
 ## Phase 5 — delete MDX (done, S5a #1521 and S5b)
 
-Species MDX, `compile-species`, the generated species files, the MDX admin helpers, the MDX-based AI analysis and the `db:import:*` scripts are gone. Tests use the committed seed `tests/fixtures/speciesSeed.sql`. The MDX-only local admin flows (adding photos and field records, AI analysis and workflow, species creation) answer 503 until 2b-b, 2b-d and 2b-f rebuild them on the API. See `docs/SPECIES-API-HANDOFF.md` for the full list.
+Species MDX, `compile-species`, the generated species files, the MDX admin helpers, the MDX-based AI analysis and the `db:import:*` scripts are gone. Tests use the committed seed `tests/fixtures/speciesSeed.sql`. The MDX-only local admin flows (adding field records, species creation) answer 503 until 2b-e and 2b-f rebuild them on the API; adding photos moved to the admin app (2b-b) and the AI analysis and workflow were dropped (2b-d). See `docs/SPECIES-API-HANDOFF.md` for the full list.
