@@ -4,7 +4,7 @@ export type SpeciesShareTarget = {
   label: string;
 };
 
-export type SpeciesShareTargetId =
+type SpeciesShareTargetId =
   "facebook" | "messenger" | "telegram" | "viber" | "whatsapp" | "x";
 
 export function speciesShareTargets({

@@ -33,19 +33,6 @@ type SpeciesShareInput = {
   scientificName: string;
 };
 
-export function speciesShareHeading({
-  commonName,
-  scientificName,
-  status,
-}: {
-  commonName: string;
-  scientificName: string;
-  status?: null | string;
-}) {
-  const names = speciesNameWithScientific(commonName, scientificName);
-  return status ? `${names} - ${status}` : names;
-}
-
 export function speciesShareMessage(input: SpeciesShareInput) {
   return speciesShareParts(input).text;
 }
@@ -109,6 +96,19 @@ export function speciesShareVenomous(
 ): boolean | null {
   if (!groupHasVenomConcept(group) || !danger) return null;
   return isVenomousDanger(danger);
+}
+
+function speciesShareHeading({
+  commonName,
+  scientificName,
+  status,
+}: {
+  commonName: string;
+  scientificName: string;
+  status?: null | string;
+}) {
+  const names = speciesNameWithScientific(commonName, scientificName);
+  return status ? `${names} - ${status}` : names;
 }
 
 function speciesShareUrl(locale: AppLocale, id: string) {
