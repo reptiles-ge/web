@@ -579,6 +579,26 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+@keyframes share-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes share-sheet-in {
+  from {
+    opacity: 0.96;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes share-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
 @media print {
   @page {
     size: A4;

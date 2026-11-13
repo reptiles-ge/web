@@ -35,7 +35,7 @@ import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
-import { speciesShareMessage } from "@/lib/speciesShareText";
+import { speciesShareParts } from "@/lib/speciesShareText";
 
 type SpeciesProfileProps = {
   locale: AppLocale;
@@ -167,7 +167,7 @@ export async function SpeciesProfile({
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const emergency = usesDangerScale(group) && isVenomousDanger(species.danger);
-  const shareText = speciesShareMessage({
+  const share = speciesShareParts({
     commonName: species.commonName,
     danger: species.danger,
     group,
@@ -236,7 +236,7 @@ export async function SpeciesProfile({
           mobileGallery={mobileGallery}
           mobileHeroSrc={mobileSlideSrc}
           mobileImageAlt={mobileImageAlt}
-          shareText={shareText}
+          share={share}
           species={species}
         />
         <SpeciesProfileBody

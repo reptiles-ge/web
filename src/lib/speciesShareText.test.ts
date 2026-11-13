@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   speciesShareMessage,
+  speciesShareParts,
   speciesShareStatusKind,
   speciesShareText,
   speciesShareVenomous,
@@ -168,5 +169,26 @@ describe("speciesShareText", () => {
         "🔗 დეტალები: https://reptiles.ge/prinvelebi/chveulebrivi-kakacha",
       ].join("\n"),
     );
+  });
+});
+
+describe("speciesShareParts", () => {
+  it("returns the heading, the message, the url and the url without protocol", () => {
+    const parts = speciesShareParts({
+      commonName: "გიურზა",
+      danger: "High",
+      group: "snake",
+      id: "macrovipera-lebetina",
+      labels: SHARE_LABELS,
+      locale: "ka",
+      scientificName: "Macrovipera lebetinus",
+    });
+
+    expect(parts.heading).toBe(
+      "გიურზა (Macrovipera lebetinus) - Venomous species.",
+    );
+    expect(parts.url).toMatch(/^https:\/\/reptiles\.ge\//);
+    expect(parts.displayUrl).toBe(parts.url.replace("https://", ""));
+    expect(parts.text).toBe(`${parts.heading}\n\n🔗 Details: ${parts.url}`);
   });
 });

@@ -14,17 +14,16 @@ const SHARE_ORIGIN = "https://reptiles.ge";
 
 const REAR_FANGED_SHARE_IDS = new Set(["telescopus-fallax"]);
 
+export type SpeciesShareParts = {
+  displayUrl: string;
+  heading: string;
+  text: string;
+  url: string;
+};
+
 export type SpeciesShareStatusKind = "harmless" | "rearFanged" | "venomous";
 
-export function speciesShareMessage({
-  commonName,
-  danger,
-  group,
-  id,
-  labels,
-  locale,
-  scientificName,
-}: {
+type SpeciesShareInput = {
   commonName: string;
   danger?: DangerLevel;
   group: AnimalGroup;
@@ -32,15 +31,49 @@ export function speciesShareMessage({
   labels: Record<"details" | SpeciesShareStatusKind, string>;
   locale: AppLocale;
   scientificName: string;
+};
+
+export function speciesShareHeading({
+  commonName,
+  scientificName,
+  status,
+}: {
+  commonName: string;
+  scientificName: string;
+  status?: null | string;
 }) {
+  const names = speciesNameWithScientific(commonName, scientificName);
+  return status ? `${names} - ${status}` : names;
+}
+
+export function speciesShareMessage(input: SpeciesShareInput) {
+  return speciesShareParts(input).text;
+}
+
+export function speciesShareParts({
+  commonName,
+  danger,
+  group,
+  id,
+  labels,
+  locale,
+  scientificName,
+}: SpeciesShareInput): SpeciesShareParts {
   const kind = speciesShareStatusKind(id, group, danger);
-  return speciesShareText({
-    commonName,
-    detailsLabel: labels.details,
-    scientificName,
-    status: kind ? labels[kind] : null,
-    url: speciesShareUrl(locale, id),
-  });
+  const status = kind ? labels[kind] : null;
+  const url = speciesShareUrl(locale, id);
+  return {
+    displayUrl: url.replace(/^https?:\/\//, ""),
+    heading: speciesShareHeading({ commonName, scientificName, status }),
+    text: speciesShareText({
+      commonName,
+      detailsLabel: labels.details,
+      scientificName,
+      status,
+      url,
+    }),
+    url,
+  };
 }
 
 export function speciesShareStatusKind(
@@ -66,8 +99,7 @@ export function speciesShareText({
   status?: null | string;
   url: string;
 }) {
-  const names = `${speciesNameWithScientific(commonName, scientificName)}`;
-  const heading = status ? `${names} - ${status}` : names;
+  const heading = speciesShareHeading({ commonName, scientificName, status });
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
 }
 
