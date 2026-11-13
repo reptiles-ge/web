@@ -3,13 +3,10 @@
 import { ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 
-import type { contentEditorAttributes } from "@/lib/contentEditorAttributes";
-
 import { cn } from "@/lib/cn";
 
 type GuideArticleContentsItem = {
   anchor: string;
-  editorAttributes: ReturnType<typeof contentEditorAttributes>;
   label: string;
 };
 
@@ -76,7 +73,6 @@ export function GuideArticleContents({
           <li key={item.anchor}>
             <a
               className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
-              {...item.editorAttributes}
               href={`#${item.anchor}`}
             >
               {item.label}

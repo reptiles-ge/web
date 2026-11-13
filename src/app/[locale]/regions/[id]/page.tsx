@@ -33,7 +33,6 @@ import {
   pickLocalized,
 } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { REGION_HERO_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
@@ -246,7 +245,6 @@ export default async function RegionPage({ params }: PageProps) {
               />
             }
             content={localizedContent}
-            editable={locale === "ka" && isLocalAdminEnabled()}
             region={region}
             species={species}
             summary={summary}

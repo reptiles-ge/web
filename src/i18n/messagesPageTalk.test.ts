@@ -10,7 +10,6 @@ import { findPageReferences } from "@/lib/pageTalkProse";
 const ALLOWED = new Set([
   "errorPage.title",
   "mammalIndex.guideP3",
-  "pageAnalysis.linksProcessing",
   "profile.contents",
   "profile.sourcesProfileTitle",
 ]);

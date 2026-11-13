@@ -179,7 +179,7 @@ All user-facing copy must ship in **all four locales** in the same change. Never
 
 Species content lives in D1 and is served by the `reptiles-api` Worker ([`.agents/skills/api/SKILL.md`](.agents/skills/api/SKILL.md)). There are no species files to edit.
 
-1. Edit a profile in the local admin (`/admin` with `pnpm dev`). Text edits and AI page texts become drafts to approve; cover, crop, reorder, remove and photo coordinates write through the API. The API validates the whole record: KA owns taxonomy, `danger`, images and `sources`; the other locales translate the text and may re-credit KA photos by `src`.
+1. Edit a profile in the local admin (`/admin` with `pnpm dev`). Text edits become drafts to approve; cover, crop, reorder, remove and photo coordinates write through the API. The API validates the whole record: KA owns taxonomy, `danger`, images and `sources`; the other locales translate the text and may re-credit KA photos by `src`.
 2. New gallery photos are added in the admin app (**Add photos** on a species page). Adding field records, AI analysis, and new species creation are not available until they move to the API (they answer 503).
 3. Lookalikes are part of the species record in D1, and the site reads them from the API. Group and habitats come from the API at build time (`pnpm slugs:compile`). Order, class, checklist status, the search feature flag and former slugs are part of the record too.
 4. A slug change or a new species reaches the 301s in `src/proxy.ts` on the next deploy (`pnpm slugs:compile` runs in `compile`).
@@ -345,7 +345,6 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 | [docs/RELEASING.md](docs/RELEASING.md)                                         | Versions, tags, labels, and release notes                 |
 | [scripts/README.md](scripts/README.md)                                         | Every compile, image, and maintenance script              |
 | [.agents/skills/guide-article/SKILL.md](.agents/skills/guide-article/SKILL.md) | How to add a guide article                                |
-| [docs/SPECIES-SUPER-ANALYSIS.md](docs/SPECIES-SUPER-ANALYSIS.md)               | The local species text analysis workflow                  |
 
 ## License
 

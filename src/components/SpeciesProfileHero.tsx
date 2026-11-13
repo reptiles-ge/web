@@ -22,10 +22,8 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
-import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getContributorDirectory } from "@/lib/authorsApi";
 import { cn } from "@/lib/cn";
-import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { MOBILE_HERO_SIZES } from "@/lib/imageSizes";
 import { speciesOgImageUrl } from "@/lib/site";
@@ -87,7 +85,6 @@ export async function SpeciesProfileHero({
   const riskChip = getSpeciesRiskChip(species, group);
   const dangerLabel = tCard("dangerLevel");
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";
-  const editable = locale === "ka" && isLocalAdminEnabled();
   const parent = getSpeciesParentHub(species);
   const mobileSlides: MobileHeroSlide[] = mobileGallery.map((photo, index) => {
     const displaySrc = index === 0 ? (mobileHeroSrc ?? photo.src) : photo.src;
@@ -169,13 +166,7 @@ export async function SpeciesProfileHero({
           <h1
             className={cn(
               "text-balance-tight mt-2 font-display font-bold tracking-[-0.015em] text-white lg:mt-3.5",
-              editable && "pointer-events-auto",
               titleSizeClass(species.commonName),
-            )}
-            {...contentEditorAttributes(
-              "species",
-              editable ? species.id : undefined,
-              "commonName",
             )}
           >
             {species.commonName}

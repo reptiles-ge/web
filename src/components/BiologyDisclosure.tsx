@@ -12,22 +12,18 @@ export function BiologyDisclosure({
   body,
   className,
   defaultOpen,
-  editorField,
   id,
   readLess,
   readMore,
-  speciesId,
   title,
 }: {
   anchorLabel: string;
   body: string;
   className?: string;
   defaultOpen: boolean;
-  editorField?: string;
   id: string;
   readLess: string;
   readMore: string;
-  speciesId?: string;
   title: string;
 }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -78,12 +74,9 @@ export function BiologyDisclosure({
           <BiologyExpandable
             body={body}
             clampFromDesktop
-            collapseEditable
-            editorField={editorField}
             needsExpand
             readLess={readLess}
             readMore={readMore}
-            speciesId={speciesId}
           />
         </div>
       </div>

@@ -12,7 +12,6 @@ import { cn } from "@/lib/cn";
 import { useFaqAccordion } from "@/lib/faqAccordion";
 
 type SpeciesFaqItemsProps = {
-  editable: boolean;
   entityId: string;
   items: SpeciesFaq[];
   moreLabel: string;
@@ -21,7 +20,6 @@ type SpeciesFaqItemsProps = {
 };
 
 export function SpeciesFaqItems({
-  editable,
   entityId,
   items,
   moreLabel,
@@ -54,14 +52,7 @@ export function SpeciesFaqItems({
               isOpen={isOpen}
               onToggle={() => accordion.toggle(index)}
             >
-              <span
-                className="font-display text-[15.5px] leading-snug font-semibold text-foreground lg:text-[17px]"
-                data-content-field={
-                  editable ? `faq.${index}.question` : undefined
-                }
-                data-content-id={editable ? entityId : undefined}
-                data-content-kind={editable ? "species" : undefined}
-              >
+              <span className="font-display text-[15.5px] leading-snug font-semibold text-foreground lg:text-[17px]">
                 {item.question}
               </span>
               <span
@@ -77,14 +68,7 @@ export function SpeciesFaqItems({
               </span>
             </FaqQuestion>
             <FaqAnswerPanel ids={ids} isOpen={isOpen}>
-              <p
-                className="px-5 pb-5 text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[16px] lg:leading-[1.7]"
-                data-content-field={
-                  editable ? `faq.${index}.answer` : undefined
-                }
-                data-content-id={editable ? entityId : undefined}
-                data-content-kind={editable ? "species" : undefined}
-              >
+              <p className="px-5 pb-5 text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[16px] lg:leading-[1.7]">
                 <PhoneLinkedText>{item.answer}</PhoneLinkedText>
               </p>
             </FaqAnswerPanel>
