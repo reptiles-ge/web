@@ -88,7 +88,7 @@ function linkPhonesInNode(node: ReactNode): ReactNode {
 
 function renderPhoneLinkedString(text: string): ReactNode {
   const parts = splitInternalRouteLinks(text);
-  if (parts.length > 1 || parts[0].type !== "text") {
+  if (parts.length > 1 || parts[0]?.type !== "text") {
     return parts.map((part) => {
       if (part.type === "route") {
         return (
@@ -143,7 +143,7 @@ function renderPhoneLinkedString(text: string): ReactNode {
 
 function renderPhoneOnlyLinks(text: string): ReactNode {
   const parts = splitPhoneLinks(text);
-  if (parts.length === 1 && parts[0].type === "text") return text;
+  if (parts.length === 1 && parts[0]?.type === "text") return text;
 
   let cursor = 0;
   return parts.map((part) => {
@@ -167,7 +167,7 @@ function renderPhoneOnlyLinks(text: string): ReactNode {
 
 function renderSpeciesAndPhoneLinks(text: string): ReactNode {
   const parts = splitSpeciesInlineLinks(text);
-  if (parts.length > 1 || parts[0].type !== "text") {
+  if (parts.length > 1 || parts[0]?.type !== "text") {
     return parts.map((part) => {
       if (part.type === "species") {
         return (
@@ -205,14 +205,14 @@ function splitInternalRouteLinks(text: string): RouteLinkPart[] {
         value: text.slice(lastIndex, match.index),
       });
     }
-    const href = match[2];
+    const [, label = "", href = ""] = match;
     if (href.startsWith("/")) {
-      parts.push(internalRoutePart(href, match[1], match.index));
+      parts.push(internalRoutePart(href, label, match.index));
     } else {
       parts.push({
         href,
         key: `e:${match.index}:${href}`,
-        label: match[1],
+        label,
         type: "external",
       });
     }

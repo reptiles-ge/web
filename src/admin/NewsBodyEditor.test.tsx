@@ -120,7 +120,7 @@ describe("NewsBodyEditor", () => {
     select("viper");
     await user.click(screen.getByText("Sci. name").closest("button")!);
     await waitFor(() =>
-      expect(parts().type === "p" && parts()).toMatchObject({
+      expect(parts()?.type === "p" && parts()).toMatchObject({
         parts: ["Read the ", { name: "viper", type: "sci" }, " story"],
       }),
     );

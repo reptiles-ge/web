@@ -61,7 +61,7 @@ describe("news MDX body", () => {
 
   it("joins wrapped lines into one paragraph", () => {
     const parsed = parseNewsBody("## H\n\nOne\ntwo\n");
-    expect(parsed.sections[0].blocks).toEqual([
+    expect(parsed.sections[0]?.blocks).toEqual([
       { parts: ["One\ntwo"], type: "p" },
     ]);
   });

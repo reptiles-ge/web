@@ -722,11 +722,12 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
   }
 
   for (const [title, items] of titleBuckets) {
-    if (items.length <= 1 || !title) continue;
+    const [first] = items;
+    if (items.length <= 1 || !title || !first) continue;
     issues.push(
       technicalIssue(
         "duplicate-title",
-        items[0].url,
+        first.url,
         `Duplicate title across ${items.length} inventory pages: ${title}`,
         "MEDIUM",
         items.map((item) => item.url),
@@ -735,11 +736,12 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
   }
 
   for (const [description, items] of descriptionBuckets) {
-    if (items.length <= 1 || !description) continue;
+    const [first] = items;
+    if (items.length <= 1 || !description || !first) continue;
     issues.push(
       technicalIssue(
         "duplicate-description",
-        items[0].url,
+        first.url,
         `Duplicate description across ${items.length} inventory pages.`,
         "LOW",
         items.map((item) => item.url),
@@ -789,6 +791,7 @@ function cannibalizationOpportunities(
     );
     if (totalImpressions < 20) continue;
     const top = group.sort((a, b) => b.impressions - a.impressions)[0];
+    if (!top) continue;
     const page = inventoryByUrl.get(normalizeUrl(top.page));
     opportunities.push({
       autoFixable: false,
@@ -1807,13 +1810,14 @@ function parseArgs(argv: string[]): Args {
   const flags: Record<string, string | true> = {};
   for (let index = 0; index < rest.length; index += 1) {
     const arg = rest[index];
-    if (!arg.startsWith("--")) continue;
+    if (!arg?.startsWith("--")) continue;
     const trimmed = arg.slice(2);
+    const next = rest[index + 1];
     if (trimmed.includes("=")) {
-      const [key, ...parts] = trimmed.split("=");
+      const [key = "", ...parts] = trimmed.split("=");
       flags[key] = parts.join("=");
-    } else if (rest[index + 1] && !rest[index + 1].startsWith("--")) {
-      flags[trimmed] = rest[index + 1];
+    } else if (next && !next.startsWith("--")) {
+      flags[trimmed] = next;
       index += 1;
     } else {
       flags[trimmed] = true;
@@ -1850,8 +1854,8 @@ async function selfcheck() {
     },
   ];
   const [aggregate] = aggregateGscRows(rows);
-  assert(aggregate.impressions === 30, "aggregates impressions");
-  assert(aggregate.clicks === 3, "aggregates clicks");
+  assert(aggregate?.impressions === 30, "aggregates impressions");
+  assert(aggregate?.clicks === 3, "aggregates clicks");
   assert(localeFromPath("/en/snakes/foo") === "en", "detects prefixed locale");
   assert(localeFromPath("/gvelebi/foo") === "ka", "detects default locale");
   console.log("reptiles-seo selfcheck passed");
@@ -1890,7 +1894,7 @@ function percentile(values: number[], p: number) {
     sorted.length - 1,
     Math.max(0, Math.floor((sorted.length - 1) * p)),
   );
-  return sorted[index];
+  return sorted[index] ?? 0;
 }
 
 function hash(value: string) {
@@ -2030,7 +2034,7 @@ async function urlInspectionSample() {
   if (!response.ok) throw new Error(`sitemap.xml returned ${response.status}`);
   const xml = await response.text();
   const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
-    normalizeUrl(match[1]),
+    normalizeUrl(match[1] ?? ""),
   );
   const families = inspectionFamilies(
     (await getSpeciesCatalog(routing.defaultLocale)).map((item) => item.id),
@@ -2054,7 +2058,7 @@ async function urlInspectionSample() {
     const sorted = [...list].sort();
     for (let index = 0; index < quota; index += 1) {
       const pick = sorted[Math.floor((index * sorted.length) / quota)];
-      sample.push({ family, locale, url: pick });
+      if (pick !== undefined) sample.push({ family, locale, url: pick });
     }
   }
   return sample;

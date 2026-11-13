@@ -103,15 +103,21 @@ export async function resolveEditorTarget(
         await fs.readFile(path.join(cwd, "messages/ka.json"), "utf8"),
       ) as unknown;
       const matches = messageMatches(ka, input.renderedText);
-      if (matches.length !== 1)
+      const [match] = matches;
+      if (matches.length !== 1 || !match)
         throw new Error("Message text is missing or ambiguous");
-      field = matches[0].join(".");
+      field = match.join(".");
     }
     files = locales.map((locale) => `messages/${locale}.json`);
   }
   const originals = await Promise.all(
     files.map((file) => fs.readFile(path.join(cwd, file), "utf8")),
   );
+  const originalAt = (position: number) => {
+    const raw = originals[position];
+    if (raw === undefined) throw new Error("Missing content file");
+    return raw;
+  };
   const segments = field.split(".");
   const read = (raw: string, locale: (typeof locales)[number]) => {
     if (input.kind === "guide")
@@ -131,10 +137,10 @@ export async function resolveEditorTarget(
       );
     return readContentLiteral(raw, "message", input.id, segments);
   };
-  const source = read(originals[0], "ka");
+  const source = read(originalAt(0), "ka");
   for (const [index, locale] of locales.entries()) {
     const value = read(
-      originals[input.kind === "guide" || input.kind === "region" ? 0 : index],
+      originalAt(input.kind === "guide" || input.kind === "region" ? 0 : index),
       locale,
     );
     if (!value.trim()) throw new Error(`Missing ${locale} content`);
@@ -147,24 +153,24 @@ export async function resolveEditorTarget(
     updated(result: EditorResult) {
       const values = finalizeEditorValues(result, (locale) =>
         read(
-          originals[
+          originalAt(
             input.kind === "guide" || input.kind === "region"
               ? 0
-              : locales.indexOf(locale)
-          ],
+              : locales.indexOf(locale),
+          ),
           locale,
         ),
       );
       if (input.kind === "news")
         return locales.map((locale, index) =>
-          read(originals[index], locale) === values[locale]
-            ? originals[index]
+          read(originalAt(index), locale) === values[locale]
+            ? originalAt(index)
             : newsFrontmatterField.test(field)
-              ? replaceSpeciesField(originals[index], field, values[locale])
-              : replaceNewsBodyField(originals[index], field, values[locale]),
+              ? replaceSpeciesField(originalAt(index), field, values[locale])
+              : replaceNewsBodyField(originalAt(index), field, values[locale]),
         );
       if (input.kind === "guide") {
-        let raw = originals[0];
+        let raw = originalAt(0);
         for (const locale of locales)
           raw = replaceContentLiteral(
             raw,
@@ -176,7 +182,7 @@ export async function resolveEditorTarget(
         return [raw];
       }
       if (input.kind === "region") {
-        let raw = originals[0];
+        let raw = originalAt(0);
         for (const locale of locales)
           raw = replaceContentLiteral(
             raw,
@@ -191,7 +197,7 @@ export async function resolveEditorTarget(
       }
       return locales.map((locale, index) =>
         replaceContentLiteral(
-          originals[index],
+          originalAt(index),
           "message",
           input.id,
           segments,

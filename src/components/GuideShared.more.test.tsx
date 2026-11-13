@@ -11,6 +11,8 @@ import {
   GuideTwoColumnSurface,
 } from "@/components/GuideShared";
 
+import { defined } from "../../tests/support/defined";
+
 const steps = [
   { body: "Stay calm.", id: 1, title: "Calm" },
   { body: "Call 112 now.", id: 12, title: "Call" },
@@ -21,10 +23,13 @@ describe("GuideNumberedSteps", () => {
     render(<GuideNumberedSteps items={steps} />);
     const items = screen.getAllByRole("listitem");
     expect(items).toHaveLength(2);
-    expect(within(items[0]).getByText("01")).toBeInTheDocument();
-    expect(within(items[1]).getByText("12")).toBeInTheDocument();
+    expect(within(defined(items[0])).getByText("01")).toBeInTheDocument();
+    expect(within(defined(items[1])).getByText("12")).toBeInTheDocument();
     expect(
-      within(items[0]).getByRole("heading", { level: 3, name: "Calm" }),
+      within(defined(items[0])).getByRole("heading", {
+        level: 3,
+        name: "Calm",
+      }),
     ).toBeInTheDocument();
   });
 
@@ -56,8 +61,8 @@ describe("GuideDoDontSection", () => {
       screen.getByRole("heading", { level: 2, name: "Avoid" }),
     ).toBeInTheDocument();
     const lists = screen.getAllByRole("list");
-    expect(within(lists[0]).getAllByRole("listitem")).toHaveLength(2);
-    expect(within(lists[1]).getAllByRole("listitem")).toHaveLength(1);
+    expect(within(defined(lists[0])).getAllByRole("listitem")).toHaveLength(2);
+    expect(within(defined(lists[1])).getAllByRole("listitem")).toHaveLength(1);
   });
 
   it("numbers only the do steps", () => {

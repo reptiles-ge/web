@@ -119,15 +119,12 @@ export function getSpeciesHeroSources(species: Species) {
       : (primary?.src ?? null);
 
   const mobileSlideSrc = mobileHeroSrc ?? primary?.src ?? null;
-  const mobileHeroIndex = mobileHeroSrc
-    ? gallery.findIndex((item) => item.src === mobileHeroSrc)
-    : -1;
+  const mobileHero = mobileHeroSrc
+    ? gallery.find((item) => item.src === mobileHeroSrc)
+    : undefined;
   const mobileGallery =
-    mobileHeroIndex > 0
-      ? [
-          gallery[mobileHeroIndex],
-          ...gallery.filter((_, index) => index !== mobileHeroIndex),
-        ]
+    mobileHero && mobileHero !== gallery[0]
+      ? [mobileHero, ...gallery.filter((item) => item !== mobileHero)]
       : gallery;
 
   return {

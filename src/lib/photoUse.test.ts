@@ -156,7 +156,7 @@ describe("photo use data", () => {
         .license,
     ).toBe(example.licenseUrl);
     expect(example.sourceUrl).toBe(example.photo.credit?.url);
-    expect(photoLicenses[example.photo.src].license).toBe(example.licenseUrl);
+    expect(photoLicenses[example.photo.src]?.license).toBe(example.licenseUrl);
     expect(example.licenseUrl).toMatch(/^https:\/\/creativecommons\.org\//);
     expect(getPhotoUseCreditExample([])).toBeUndefined();
   });

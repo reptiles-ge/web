@@ -70,7 +70,7 @@ export function currentPageContext(): {
   const entries = window.dataLayer ?? [];
   for (let index = entries.length - 1; index >= 0; index--) {
     const entry = entries[index];
-    if (entry.event === "page_context") {
+    if (entry?.event === "page_context") {
       return {
         entity_id:
           typeof entry.entity_id === "string" ? entry.entity_id : undefined,

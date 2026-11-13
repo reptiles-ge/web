@@ -83,7 +83,8 @@ export function photoRights(
   const license = record?.license ?? undefined;
   const publicDomain = Boolean(license?.startsWith(PUBLIC_DOMAIN_PREFIX));
   return {
-    acquireLicensePage: license ? record.sourceUrl : photoUsePageUrl(locale),
+    acquireLicensePage:
+      license && record ? record.sourceUrl : photoUsePageUrl(locale),
     ...(creator && !publicDomain
       ? {
           copyrightHolder: creator,

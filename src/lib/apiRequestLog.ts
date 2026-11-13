@@ -62,7 +62,9 @@ function paramsOf(source: URL | URLSearchParams) {
   const entries: Record<string, string | string[]> = {};
   for (const key of new Set(params.keys())) {
     const values = params.getAll(key);
-    entries[key] = values.length === 1 ? values[0] : values;
+    const [single] = values;
+    entries[key] =
+      values.length === 1 && single !== undefined ? single : values;
   }
   return Object.keys(entries).length > 0 ? entries : undefined;
 }

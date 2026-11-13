@@ -18,10 +18,11 @@ export function splitSpeciesInlineLinks(text: string): SpeciesInlinePart[] {
         value: text.slice(lastIndex, match.index),
       });
     }
+    const [, label = "", id = ""] = match;
     parts.push({
-      id: match[2],
-      key: `s:${match.index}:${match[2]}`,
-      label: match[1],
+      id,
+      key: `s:${match.index}:${id}`,
+      label,
       type: "species",
     });
     lastIndex = match.index + match[0].length;

@@ -13,8 +13,7 @@ type GeorgiaMapStaticProps = {
   showKeys?: boolean;
 };
 
-const [, , VIEWBOX_WIDTH, VIEWBOX_HEIGHT] =
-  GEORGIA_MAP_VIEWBOX.split(" ").map(Number);
+const [VIEWBOX_WIDTH, VIEWBOX_HEIGHT] = viewBoxSize(GEORGIA_MAP_VIEWBOX);
 
 export function GeorgiaMapStatic({
   className,
@@ -78,4 +77,12 @@ export function GeorgiaMapStatic({
       })}
     </div>
   );
+}
+
+function viewBoxSize(viewBox: string): [number, number] {
+  const [, , width, height] = viewBox.split(" ").map(Number);
+  if (width === undefined || height === undefined) {
+    throw new Error(`Invalid viewBox: ${viewBox}`);
+  }
+  return [width, height];
 }

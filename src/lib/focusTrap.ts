@@ -9,10 +9,9 @@ export function cycleTab(
 ) {
   if (event.key !== "Tab") return;
   const items = roots.flatMap((root) => focusableIn(root));
-  if (items.length === 0) return;
-
   const first = items[0];
-  const last = items[items.length - 1];
+  const last = items.at(-1);
+  if (!first || !last) return;
   const active = document.activeElement;
   if (
     event.shiftKey &&

@@ -368,7 +368,7 @@ function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
   const ownStems = new Set(epithets.map(epithetStem));
   const binomial = new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g");
   const named = Array.from(sourceName.matchAll(binomial), (match) =>
-    epithetStem(match[1]),
+    epithetStem(match[1] ?? ""),
   );
   return named.length > 0 && !named.some((stem) => ownStems.has(stem));
 }
@@ -581,13 +581,13 @@ function speciesTaxonJsonLd(
 function withoutSupersededIucnAssessments(urls: string[]) {
   const latest = new Map<string, number>();
   for (const url of urls) {
-    const match = IUCN_ASSESSMENT_URL.exec(url);
-    if (!match) continue;
-    latest.set(match[1], Math.max(latest.get(match[1]) ?? 0, Number(match[2])));
+    const [, species, assessment] = IUCN_ASSESSMENT_URL.exec(url) ?? [];
+    if (species === undefined || assessment === undefined) continue;
+    latest.set(species, Math.max(latest.get(species) ?? 0, Number(assessment)));
   }
   return urls.filter((url) => {
-    const match = IUCN_ASSESSMENT_URL.exec(url);
-    return !match || Number(match[2]) === latest.get(match[1]);
+    const [, species, assessment] = IUCN_ASSESSMENT_URL.exec(url) ?? [];
+    return species === undefined || Number(assessment) === latest.get(species);
   });
 }
 

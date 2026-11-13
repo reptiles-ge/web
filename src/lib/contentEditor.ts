@@ -74,11 +74,10 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   let matchIndex = -1;
   let matchIndent = 0;
   for (let index = 1; index < closing; index++) {
-    const line = lines[index];
+    const line = lines[index] ?? "";
     if (!line.trim()) continue;
     const indent = line.length - line.trimStart().length;
-    while (stack.length && stack[stack.length - 1].indent >= indent)
-      stack.pop();
+    while ((stack.at(-1)?.indent ?? -1) >= indent) stack.pop();
     const parent = stack.at(-1)?.path ?? "";
     const item = line.trimStart().startsWith("- ");
     let content = line.trimStart();
@@ -93,7 +92,8 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
     }
     const key = /^([A-Za-z][A-Za-z0-9]*):(?:\s*(.*))?$/.exec(content);
     if (key) {
-      current = current ? `${current}.${key[1]}` : key[1];
+      const name = key[1] ?? "";
+      current = current ? `${current}.${name}` : name;
       if (!item) stack.push({ indent, path: current });
     } else if (!item) continue;
     if (current === field) {
@@ -103,7 +103,7 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
     }
   }
   if (matchIndex < 0) throw new Error("Content field format is unavailable");
-  const line = lines[matchIndex];
+  const line = lines[matchIndex] ?? "";
   const marker = line.trimStart().startsWith("- ") ? "- " : "";
   const key = field.split(".").at(-1);
   const prefix = /^\d+$/.test(key ?? "") ? marker : `${marker}${key}:`;
@@ -116,12 +116,12 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
       editorFields.some((candidate) => candidate === field))
   ) {
     let end = matchIndex + 1;
-    while (
-      end < closing &&
-      (!lines[end].trim() ||
-        lines[end].length - lines[end].trimStart().length > matchIndent)
-    )
+    while (end < closing) {
+      const next = lines[end] ?? "";
+      if (next.trim() && next.length - next.trimStart().length <= matchIndent)
+        break;
       end++;
+    }
     const block = value
       .split("\n")
       .map((part) => (part ? `${" ".repeat(matchIndent + 2)}${part}` : ""));
@@ -199,16 +199,17 @@ export function verifyEditorSelection(
   let { end, start } = input;
   const wordCharacter = /[\p{L}\p{N}]/u;
   if (
-    wordCharacter.test(rendered[start - 1] ?? "") &&
-    wordCharacter.test(rendered[start])
+    wordCharacter.test(rendered.charAt(start - 1)) &&
+    wordCharacter.test(rendered.charAt(start))
   ) {
-    while (start > 0 && wordCharacter.test(rendered[start - 1])) start--;
+    while (start > 0 && wordCharacter.test(rendered.charAt(start - 1))) start--;
   }
   if (
-    wordCharacter.test(rendered[end - 1]) &&
-    wordCharacter.test(rendered[end] ?? "")
+    wordCharacter.test(rendered.charAt(end - 1)) &&
+    wordCharacter.test(rendered.charAt(end))
   ) {
-    while (end < rendered.length && wordCharacter.test(rendered[end])) end++;
+    while (end < rendered.length && wordCharacter.test(rendered.charAt(end)))
+      end++;
   }
   const sourceStart = sourceOffset(source, start, "start");
   const sourceEnd = sourceOffset(source, end, "end");
@@ -227,6 +228,7 @@ function sourceOffset(source: string, offset: number, edge: "end" | "start") {
   let sourceCursor = 0;
   let renderedCursor = 0;
   for (const match of source.matchAll(inlineLink)) {
+    const label = match[1] ?? "";
     const gap = match.index - sourceCursor;
     if (
       offset < renderedCursor + gap ||
@@ -234,14 +236,14 @@ function sourceOffset(source: string, offset: number, edge: "end" | "start") {
     )
       return sourceCursor + offset - renderedCursor;
     renderedCursor += gap;
-    if (offset < renderedCursor + match[1].length)
+    if (offset < renderedCursor + label.length)
       return (
         match.index +
         (offset === renderedCursor && edge === "start"
           ? 0
           : 1 + offset - renderedCursor)
       );
-    renderedCursor += match[1].length;
+    renderedCursor += label.length;
     sourceCursor = match.index + match[0].length;
     if (offset === renderedCursor) return sourceCursor;
   }

@@ -14,6 +14,8 @@ import { readContentLiteral } from "@/lib/contentEditorLiterals";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import { readNewsBodyField } from "@/lib/newsMdx";
 
+import { defined } from "../../tests/support/defined";
+
 const id = "test-species";
 const files = {
   ka: `---
@@ -257,7 +259,7 @@ describe("selection content editor", () => {
         expect(updated[0]).not.toBe(target.originals[0]);
         for (const locale of ["ka", "en", "ru", "tr"] as const) {
           expect(
-            readContentLiteral(updated[0], example.kind, example.id, [
+            readContentLiteral(defined(updated[0]), example.kind, example.id, [
               locale,
               "title",
             ]),
@@ -319,8 +321,8 @@ describe("selection content editor", () => {
       ).entries()) {
         expect(
           field === "title"
-            ? readSpeciesField(updated[index], field)
-            : readNewsBodyField(updated[index], field),
+            ? readSpeciesField(defined(updated[index]), field)
+            : readNewsBodyField(defined(updated[index]), field),
         ).toBe(result[locale]);
       }
     }
@@ -357,7 +359,10 @@ describe("selection content editor", () => {
       const root = field === "description" ? "regionMap" : "regionContent";
       for (const locale of ["ka", "en", "ru", "tr"] as const) {
         expect(
-          readContentLiteral(updated[0], root, "abkhazia", [field, locale]),
+          readContentLiteral(defined(updated[0]), root, "abkhazia", [
+            field,
+            locale,
+          ]),
         ).toBe(result[locale]);
       }
     }

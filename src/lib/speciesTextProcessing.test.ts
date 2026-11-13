@@ -7,6 +7,8 @@ import {
   type SpeciesTextSource,
 } from "@/lib/speciesTextProcessing";
 
+import { defined } from "../../tests/support/defined";
+
 vi.mock("@/lib/contentEditorAgent", () => ({ transformWithAgent: vi.fn() }));
 
 const four = (text: string) => ({ en: text, ka: text, ru: text, tr: text });
@@ -124,7 +126,7 @@ describe("page-aware species text rewrite", () => {
       "overview",
       "description",
     ]);
-    expect(calls[1].otherFields?.habitat).toBe(
+    expect(calls[1]?.otherFields?.habitat).toBe(
       "It lives in dry rocky places to 1500 m. It hides under stones.",
     );
     expect(notes).toEqual([]);
@@ -154,7 +156,7 @@ describe("page-aware species text rewrite", () => {
       return four(input.selected);
     });
     await rewriteSpeciesTexts(source);
-    expect(calls[0].speciesNames).toEqual([
+    expect(calls[0]?.speciesNames).toEqual([
       {
         en: "Spotted Whip Snake",
         ka: "ნაირფერი მცურავი",
@@ -162,9 +164,9 @@ describe("page-aware species text rewrite", () => {
         tr: "Benekli kamçı yılanı",
       },
     ]);
-    expect(buildEditorPrompt({ ...calls[0], styleGuide: "" })).toContain(
-      "SPECIES_NAMES:",
-    );
+    expect(
+      buildEditorPrompt({ ...defined(calls[0]), styleGuide: "" }),
+    ).toContain("SPECIES_NAMES:");
     expect(
       buildEditorPrompt({ after: "", before: "", selected: "Text." }),
     ).not.toContain("SPECIES_NAMES");

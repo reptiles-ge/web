@@ -34,7 +34,7 @@ describe("contributor index metadata", () => {
         width: number;
       }[];
       expect(images).toHaveLength(1);
-      expect(images[0].url).toBe(
+      expect(images[0]?.url).toBe(
         "https://cdn.reptiles.ge/og/images/contributors.jpg",
       );
       expect(images[0]).toMatchObject({ height: 630, width: 1200 });

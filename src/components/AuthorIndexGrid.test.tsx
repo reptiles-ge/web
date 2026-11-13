@@ -4,6 +4,8 @@ import { describe, expect, it } from "vitest";
 import { AuthorGalleryGrid } from "@/components/AuthorGalleryGrid";
 import { AuthorIndexGrid } from "@/components/AuthorIndexGrid";
 
+import { defined } from "../../tests/support/defined";
+
 describe("AuthorIndexGrid", () => {
   it("filters cards by role and updates the count line", () => {
     render(
@@ -105,7 +107,7 @@ describe("AuthorGalleryGrid", () => {
       />,
     );
     expect(shown()).toHaveLength(9);
-    expect(shown()[0].className).toContain("col-span-2");
+    expect(defined(shown()[0]).className).toContain("col-span-2");
     fireEvent.click(screen.getByRole("button", { name: /See all 12/ }));
     expect(shown()).toHaveLength(12);
     expect(screen.queryByRole("button", { expanded: false })).toBeNull();
@@ -126,7 +128,7 @@ describe("AuthorGalleryGrid", () => {
       "photo 10",
       "photo 11",
     ]);
-    expect(shown()[0].className).toContain("col-span-2");
+    expect(defined(shown()[0]).className).toContain("col-span-2");
     expect(screen.queryByRole("button", { expanded: false })).toBeNull();
   });
 });

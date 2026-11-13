@@ -42,6 +42,7 @@ function jpegSize(bytes: Buffer) {
   while (offset + 9 < bytes.length) {
     if (bytes[offset] !== 0xff) return null;
     const marker = bytes[offset + 1];
+    if (marker === undefined) return null;
     const length = bytes.readUInt16BE(offset + 2);
     const isFrame =
       marker >= 0xc0 &&

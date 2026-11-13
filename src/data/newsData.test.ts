@@ -29,9 +29,10 @@ import {
   contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const published = getPublishedNewsArticles();
-const article = published[0];
+const article = defined(published[0]);
 
 describe("news registry", () => {
   it("has unique slugs", () => {
@@ -48,7 +49,8 @@ describe("news registry", () => {
   it("sorts published articles newest first", () => {
     for (let index = 1; index < published.length; index += 1) {
       expect(
-        published[index - 1].publishedAt >= published[index].publishedAt,
+        defined(published[index - 1]).publishedAt >=
+          defined(published[index]).publishedAt,
       ).toBe(true);
     }
   });
@@ -105,7 +107,7 @@ describe("relations", () => {
   it("finds articles by hub, region and species", () => {
     const withSpecies = published.find((item) => item.relatedSpeciesIds.length);
     if (withSpecies) {
-      const id = withSpecies.relatedSpeciesIds[0];
+      const id = defined(withSpecies.relatedSpeciesIds[0]);
       expect(getPublishedNewsForSpecies(id).map((item) => item.slug)).toContain(
         withSpecies.slug,
       );
@@ -113,7 +115,7 @@ describe("relations", () => {
     const withHub = published.find((item) => item.relatedHubIds.length);
     if (withHub) {
       expect(
-        getPublishedNewsForHub(withHub.relatedHubIds[0]).map(
+        getPublishedNewsForHub(defined(withHub.relatedHubIds[0])).map(
           (item) => item.slug,
         ),
       ).toContain(withHub.slug);
@@ -121,7 +123,7 @@ describe("relations", () => {
     const withRegion = published.find((item) => item.relatedRegionIds.length);
     if (withRegion) {
       expect(
-        getPublishedNewsForRegion(withRegion.relatedRegionIds[0]).map(
+        getPublishedNewsForRegion(defined(withRegion.relatedRegionIds[0])).map(
           (item) => item.slug,
         ),
       ).toContain(withRegion.slug);

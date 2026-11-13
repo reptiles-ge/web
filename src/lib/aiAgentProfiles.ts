@@ -59,7 +59,9 @@ export function claudeProfileSettings(
 export function escalateEffort(effort: ClaudeEffort, attempt: number) {
   const start = CLAUDE_EFFORTS.indexOf(effort);
   const ceiling = Math.max(start, CLAUDE_EFFORTS.indexOf(ESCALATION_CEILING));
-  return CLAUDE_EFFORTS[Math.min(start + Math.max(attempt, 0), ceiling)];
+  return (
+    CLAUDE_EFFORTS[Math.min(start + Math.max(attempt, 0), ceiling)] ?? effort
+  );
 }
 
 export const CODEX_SETTINGS: AiProfileSettings = {

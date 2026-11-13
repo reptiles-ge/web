@@ -29,8 +29,10 @@ import {
   contributorsFixture,
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
+import { defined } from "../../tests/support/defined";
 
 const authors = contributorsFixture("ka");
+const firstAuthor = defined(authors[0]);
 const resolvePublishedCreditAuthor = (id: string) =>
   authors.find((author) => author.id === id);
 
@@ -38,7 +40,7 @@ describe("static params and urls", () => {
   it("has one param per contributor and locale", () => {
     const params = creditAuthorStaticParams(authors);
     expect(params).toHaveLength(authors.length * routing.locales.length);
-    expect(params).toContainEqual({ locale: "en", slug: authors[0].id });
+    expect(params).toContainEqual({ locale: "en", slug: firstAuthor.id });
   });
 
   it("builds absolute URLs", () => {
@@ -48,7 +50,7 @@ describe("static params and urls", () => {
 
   it("has alternates for every locale", () => {
     for (const alternates of [
-      creditAuthorAlternates("en", authors[0].id),
+      creditAuthorAlternates("en", firstAuthor.id),
       creditAuthorIndexAlternates("en"),
     ]) {
       for (const locale of routing.locales) {
@@ -153,8 +155,8 @@ describe("getCreditAuthorCards", () => {
 
   it("sorts by photo count, then slug", () => {
     for (let index = 1; index < cards.length; index += 1) {
-      const previous = cards[index - 1];
-      const current = cards[index];
+      const previous = defined(cards[index - 1]);
+      const current = defined(cards[index]);
       if (previous.photoCount === current.photoCount) {
         expect(previous.author.id <= current.author.id).toBe(true);
       } else {
@@ -200,11 +202,11 @@ describe("getCreditAuthorGroupStats", () => {
 
   it("orders groups by photo count", () => {
     const stats = getCreditAuthorGroupStats(
-      getCreditAuthorPhotos(authors[0], speciesCatalogFixture("ka")),
+      getCreditAuthorPhotos(firstAuthor, speciesCatalogFixture("ka")),
     );
     for (let index = 1; index < stats.length; index += 1) {
-      expect(stats[index - 1].photos).toBeGreaterThanOrEqual(
-        stats[index].photos,
+      expect(defined(stats[index - 1]).photos).toBeGreaterThanOrEqual(
+        defined(stats[index]).photos,
       );
     }
   });
@@ -312,7 +314,9 @@ describe("portrait URLs outside the picture element", () => {
 
   it("resolves sitemap and search thumbnails to uploaded variants", () => {
     for (const author of authors) {
-      const [sitemapUrl] = creditAuthorPageImageUrls(author.portraitSrc, []);
+      const sitemapUrl = defined(
+        creditAuthorPageImageUrls(author.portraitSrc, [])[0],
+      );
       const searchThumb = optimizedImgSrc(author.portraitSrc, 400);
       for (const url of [sitemapUrl, searchThumb]) {
         expect(

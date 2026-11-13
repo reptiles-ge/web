@@ -409,7 +409,10 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
                 aria-label={`${labels[mode]}: ${copy.moveUp}`}
                 className="rounded p-1 hover:bg-secondary disabled:opacity-30"
                 disabled={index === 0}
-                onClick={() => move(mode, selected[index - 1])}
+                onClick={() => {
+                  const target = selected[index - 1];
+                  if (target) move(mode, target);
+                }}
                 type="button"
               >
                 <ChevronUp aria-hidden className="size-4" />
@@ -418,7 +421,10 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
                 aria-label={`${labels[mode]}: ${copy.moveDown}`}
                 className="rounded p-1 hover:bg-secondary disabled:opacity-30"
                 disabled={index === selected.length - 1}
-                onClick={() => move(mode, selected[index + 1])}
+                onClick={() => {
+                  const target = selected[index + 1];
+                  if (target) move(mode, target);
+                }}
                 type="button"
               >
                 <ChevronDown aria-hidden className="size-4" />

@@ -112,17 +112,21 @@ export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
     ]),
   ) as Record<string, EditorResult>;
   const speciesNames = await source.speciesNames(
-    linkedSpeciesIds(fields.map((field) => originals[field].ka)).filter(
-      (other) => other !== source.id,
-    ),
+    linkedSpeciesIds(
+      fields.map((field) => originalOf(originals, field).ka),
+    ).filter((other) => other !== source.id),
   );
   const results = new Map<string, EditorResult>();
   const rewrite = async (
     field: string,
     styleRepair?: { issues: string; previous: string },
   ) => {
-    const selection = { after: "", before: "", selected: originals[field].ka };
-    const { en, ru, tr } = originals[field];
+    const selection = {
+      after: "",
+      before: "",
+      selected: originalOf(originals, field).ka,
+    };
+    const { en, ru, tr } = originalOf(originals, field);
     return validateEditorResult(
       await transformWithAgent({
         ...selection,
@@ -135,7 +139,7 @@ export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
             .filter((other) => other !== field)
             .map((other) => [
               other,
-              (results.get(other) ?? originals[other]).ka,
+              (results.get(other) ?? originalOf(originals, other)).ka,
             ]),
         ),
         riskLevel: RISK_LEVELS.find((level) => level === source.danger),
@@ -148,7 +152,12 @@ export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
   const styleIssues = (field: string, result: EditorResult) =>
     TEXT_LOCALES.flatMap((locale) => [
       ...lintFieldStyle(result[locale], field, locale, commonName),
-      ...lintHedgeLoss(originals[field][locale], result[locale], field, locale),
+      ...lintHedgeLoss(
+        originalOf(originals, field)[locale],
+        result[locale],
+        field,
+        locale,
+      ),
     ]);
   const ordered = TEXT_PHASES.map((phase) => fields.filter(phase));
   for (const phase of ordered)
@@ -185,7 +194,7 @@ export async function rewriteSpeciesTexts(source: SpeciesTextSource) {
     updates: kept.map((field) => ({
       field,
       result: results.get(field)!,
-      source: originals[field].ka,
+      source: originalOf(originals, field).ka,
     })),
   };
 }
@@ -230,17 +239,19 @@ function numberLosses(
     for (const locale of TEXT_LOCALES) {
       const text = (field: string) =>
         rejected.has(field)
-          ? originals[field][locale]
+          ? originalOf(originals, field)[locale]
           : results.get(field)![locale];
       const page = new Set(
         fields.flatMap((field) => analysisNumbers(text(field))),
       );
       const original = new Set(
-        fields.flatMap((field) => analysisNumbers(originals[field][locale])),
+        fields.flatMap((field) =>
+          analysisNumbers(originalOf(originals, field)[locale]),
+        ),
       );
       for (const field of fields) {
         if (rejected.has(field)) continue;
-        const before = analysisNumbers(originals[field][locale]);
+        const before = analysisNumbers(originalOf(originals, field)[locale]);
         const beforeSet = new Set(before);
         const after = analysisNumbers(text(field));
         if (
@@ -254,6 +265,12 @@ function numberLosses(
     }
   }
   return rejected;
+}
+
+function originalOf(originals: Record<string, EditorResult>, field: string) {
+  const original = originals[field];
+  if (!original) throw new Error(`Unknown page text field: ${field}`);
+  return original;
 }
 
 function recordSpeciesTextSource(

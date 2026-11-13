@@ -60,21 +60,21 @@ export function parseNewsBody(body: string, offset = 0) {
       flush();
       continue;
     }
-    const heading = paragraph ? null : headingLine.exec(line);
-    if (heading) {
-      sections.push({ blocks: [], heading: heading[1] });
+    const heading = paragraph ? undefined : headingLine.exec(line)?.[1];
+    if (heading !== undefined) {
+      sections.push({ blocks: [], heading });
       spans.set(`sections.${sections.length - 1}.heading`, {
         end: start + line.length,
         start: start + 3,
-        value: heading[1],
+        value: heading,
       });
       continue;
     }
-    const figure = paragraph ? null : figureLine.exec(line);
-    if (figure) {
+    const figure = paragraph ? undefined : figureLine.exec(line)?.[1];
+    if (figure !== undefined) {
       const section = sections.at(-1);
       if (!section) throw new Error("News figure before the first heading");
-      section.blocks.push({ src: figure[1], type: "figure" });
+      section.blocks.push({ src: figure, type: "figure" });
       continue;
     }
     if (line.startsWith("#") || line.startsWith("<Figure"))
@@ -169,7 +169,7 @@ function parseNewsInline(
     let value = "";
     const start = index;
     while (index < raw.length && !raw.startsWith(stop, index)) {
-      const char = raw[index];
+      const char = raw.charAt(index);
       if (char === "\\") {
         if (index + 1 >= raw.length) fail("Dangling escape");
         value += raw[index + 1];
@@ -186,7 +186,7 @@ function parseNewsInline(
   };
 
   while (index < raw.length) {
-    const char = raw[index];
+    const char = raw.charAt(index);
     if (char === "\\") {
       if (!text) textStart = index;
       if (index + 1 >= raw.length) fail("Dangling escape");

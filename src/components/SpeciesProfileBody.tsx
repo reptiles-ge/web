@@ -608,16 +608,14 @@ async function SpeciesProfileBiology({
           if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
             return [block];
           }
+          const [first = "", second = "", ...rest] = behaviorParagraphs;
           return [
             {
               ...block,
-              body: [
-                behaviorParagraphs[0],
-                ...behaviorParagraphs.slice(2),
-              ].join("\n\n"),
+              body: [first, ...rest].join("\n\n"),
             },
             {
-              body: behaviorParagraphs[1],
+              body: second,
               id: "reproduction",
               title: t("reproduction"),
             },

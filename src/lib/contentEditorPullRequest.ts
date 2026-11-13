@@ -39,7 +39,8 @@ export async function createEditorPullRequest(
 }
 
 async function createPullRequest(edits: Edit[], operationId: string) {
-  const input = edits[0];
+  const [input] = edits;
+  if (!input) throw new Error("No edits to publish");
   const { base, repository } = await pullRequestTarget();
   const branch = `feature/content-editor-${input.id}-${randomUUID().slice(0, 8)}`;
   const temporary = await fs.mkdtemp(
@@ -66,8 +67,11 @@ async function createPullRequest(edits: Edit[], operationId: string) {
         throw new Error(`Content changed for ${edit.field}; reload and retry`);
       const updated = target.updated(edit.result);
       for (const [index, file] of target.files.entries()) {
+        const content = updated[index];
+        if (content === undefined)
+          throw new Error(`Missing content for ${file}`);
         allowedFiles.add(file);
-        await fs.writeFile(path.join(worktree, file), updated[index]);
+        await fs.writeFile(path.join(worktree, file), content);
       }
     }
     const files = [...allowedFiles];
@@ -157,7 +161,9 @@ async function createPullRequest(edits: Edit[], operationId: string) {
 }
 
 async function enqueue(edits: Edit[], operationId: string) {
-  const { id, kind } = edits[0];
+  const [first] = edits;
+  if (!first) throw new Error("No edits to publish");
+  const { id, kind } = first;
   const key = `${kind}:${id}`;
   const previous = queues.get(key) ?? Promise.resolve();
   const current = previous

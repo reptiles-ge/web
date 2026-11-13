@@ -15,6 +15,8 @@ import {
 } from "@/components/OptimizedImagesProvider";
 import { optimizedImageEntries } from "@/data/optimizedImages";
 
+import { defined } from "../../tests/support/defined";
+
 const preload = vi.hoisted(() => vi.fn());
 
 vi.mock("react-dom", async (importOriginal) => ({
@@ -139,7 +141,7 @@ describe("cover image preloads", () => {
     );
     expect(preload).toHaveBeenCalledTimes(2);
     expect(preload.mock.calls[1]).toEqual(preload.mock.calls[0]);
-    expect(preload.mock.calls[0][1]).toMatchObject({
+    expect(defined(preload.mock.calls[0])[1]).toMatchObject({
       as: "image",
       imageSizes: "100vw",
       media: "(min-width: 640px)",

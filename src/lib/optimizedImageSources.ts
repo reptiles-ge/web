@@ -34,6 +34,7 @@ export function entryImgSize(
 ): null | { height: number; width: number } {
   if (!entry?.width || !entry.height) return null;
   const width = entryImgWidth(entry, minWidth);
+  if (width === undefined) return null;
   return {
     height: Math.round((entry.height * width) / entry.width),
     width,
