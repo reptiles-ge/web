@@ -5,7 +5,6 @@ import type { ApiEnv } from "../env";
 
 import { listDrafts, readDraft } from "../db/speciesDrafts";
 import { readSpeciesRecord } from "../db/speciesWrite";
-import { defer } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError, type ApiErrorCode } from "../lib/errors";
 import {
@@ -68,8 +67,7 @@ export const adminDrafts = new Hono<ApiEnv>()
         ),
       ];
       const revalidated =
-        species.length === 0 ||
-        (await revalidateMergedSpecies(c.env, species, defer(c)));
+        species.length === 0 || (await revalidateMergedSpecies(c.env, species));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { results, revalidated } }, 200);
     },
@@ -90,11 +88,7 @@ export const adminDrafts = new Hono<ApiEnv>()
         draft,
         c.var.user!.name,
       ).then(async (version) => ({
-        revalidated: await revalidateSpeciesPage(
-          c.env,
-          draft.speciesId,
-          defer(c),
-        ),
+        revalidated: await revalidateSpeciesPage(c.env, draft.speciesId),
         speciesId: draft.speciesId,
         status: "approved" as const,
         version,
