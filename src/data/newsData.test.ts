@@ -5,7 +5,6 @@ import {
   getNewsCopy,
   hasNewsCopy,
   newsArticlePhotos,
-  newsLinkedSpeciesIds,
   newsLocalizedDek,
   newsLocalizedTitle,
   newsPhotoBySrc,
@@ -14,7 +13,6 @@ import {
   newsRelatedSpecies,
   newsSearchKeywords,
   newsSourceName,
-  newsSourceOrg,
   newsSourceOrgName,
 } from "@/data/news";
 import { routing } from "@/i18n/routing";
@@ -27,6 +25,7 @@ import {
   getPublishedNewsForHub,
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
+  newsLinkedSpeciesIds,
 } from "../../tests/fixtures/newsSeed";
 import {
   contributorsFixture,
@@ -189,19 +188,6 @@ describe("search and source helpers", () => {
     expect(keywords).toContain(article.copy.ka.title);
     expect(keywords.every(Boolean)).toBe(true);
   });
-
-  it("takes the organisation before the dash in the first source", () => {
-    expect(
-      newsSourceOrg(
-        {
-          ...article,
-          sources: [{ name: "IUCN — Red List", url: "u" }],
-        },
-        "en",
-      ),
-    ).toBe("IUCN");
-    expect(newsSourceOrg({ ...article, sources: [] }, "en")).toBe("");
-  });
 });
 
 describe("news source names", () => {
@@ -225,12 +211,6 @@ describe("news source names", () => {
     expect(newsSourceOrgName("PubMed - Title")).toBe("PubMed");
     expect(newsSourceOrgName("IUCN — Red List")).toBe("IUCN");
     expect(newsSourceOrgName("Borjomi-Kharagauli")).toBe("Borjomi-Kharagauli");
-  });
-
-  it("uses the reader's language for the first source organisation", () => {
-    expect(newsSourceOrg({ ...article, sources: [localized] }, "tr")).toBe(
-      "Bakanlık",
-    );
   });
 
   it("keeps Georgian script out of non-Georgian source names", () => {

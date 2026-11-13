@@ -1,11 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  speciesShareMessage,
   speciesShareParts,
   speciesShareStatusKind,
   speciesShareText,
-  speciesShareVenomous,
 } from "@/lib/speciesShareText";
 
 const SHARE_LABELS = {
@@ -15,9 +13,9 @@ const SHARE_LABELS = {
   venomous: "Venomous species.",
 };
 
-describe("speciesShareMessage", () => {
+describe("speciesShareParts text", () => {
   it("adds the venom status and the localized profile link", () => {
-    const message = speciesShareMessage({
+    const message = speciesShareParts({
       commonName: "Levant viper",
       danger: "High",
       group: "snake",
@@ -25,7 +23,7 @@ describe("speciesShareMessage", () => {
       labels: SHARE_LABELS,
       locale: "en",
       scientificName: "Macrovipera lebetinus",
-    });
+    }).text;
 
     expect(message).toContain(
       "Levant viper (Macrovipera lebetinus) - Venomous species.",
@@ -34,7 +32,7 @@ describe("speciesShareMessage", () => {
   });
 
   it("leaves the status out for groups without a venom concept", () => {
-    const message = speciesShareMessage({
+    const message = speciesShareParts({
       commonName: "Sparrowhawk",
       danger: "Harmless",
       group: "bird",
@@ -42,7 +40,7 @@ describe("speciesShareMessage", () => {
       labels: SHARE_LABELS,
       locale: "en",
       scientificName: "Accipiter nisus",
-    });
+    }).text;
 
     expect(message.startsWith("Sparrowhawk (Accipiter nisus)\n")).toBe(true);
   });
@@ -78,23 +76,6 @@ describe("speciesShareStatusKind", () => {
       speciesShareStatusKind("accipiter-nisus", "bird", "Harmless"),
     ).toBeNull();
     expect(speciesShareStatusKind("natrix-tessellata", "snake")).toBeNull();
-  });
-});
-
-describe("speciesShareVenomous", () => {
-  it("marks High and Moderate snakes as venomous", () => {
-    expect(speciesShareVenomous("snake", "High")).toBe(true);
-    expect(speciesShareVenomous("snake", "Moderate")).toBe(true);
-  });
-
-  it("marks Harmless herpetofauna as non-venomous", () => {
-    expect(speciesShareVenomous("snake", "Harmless")).toBe(false);
-    expect(speciesShareVenomous("lizard", "Harmless")).toBe(false);
-  });
-
-  it("does not invent venom status for birds or missing danger", () => {
-    expect(speciesShareVenomous("bird", "Harmless")).toBeNull();
-    expect(speciesShareVenomous("snake")).toBeNull();
   });
 });
 

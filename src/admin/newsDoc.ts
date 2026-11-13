@@ -10,14 +10,6 @@ export type NewsLinkKind =
 
 type InlineMark = { attrs: NewsLinkAttrs; type: "newsLink" } | { type: "sci" };
 
-export function newsDocFigures(doc: JSONContent) {
-  return (doc.content ?? []).flatMap((section) =>
-    (section.content ?? []).flatMap((block) =>
-      block.type === "figure" ? [String(block.attrs?.src ?? "")] : [],
-    ),
-  );
-}
-
 export function newsDocToSections(doc: JSONContent): NewsSection[] {
   return (doc.content ?? []).map((section) => {
     const [heading, ...blocks] = section.content ?? [];

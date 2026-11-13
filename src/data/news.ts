@@ -39,22 +39,6 @@ export function newsArticlePhotos(article: NewsArticle) {
   return photos;
 }
 
-export function newsLinkedSpeciesIds(article: NewsArticle, locale: AppLocale) {
-  const ids = new Set<string>();
-  if (!hasNewsCopy(article, locale)) return ids;
-  for (const section of getNewsCopy(article, locale).sections) {
-    for (const block of section.blocks) {
-      if (block.type !== "p") continue;
-      for (const part of block.parts) {
-        if (typeof part !== "string" && part.type === "species") {
-          ids.add(part.id);
-        }
-      }
-    }
-  }
-  return ids;
-}
-
 export function newsLocalizedDek(
   article: Pick<NewsSummary, "copy">,
   locale: AppLocale,
@@ -113,12 +97,6 @@ export function newsSearchKeywords(
 
 export function newsSourceName(source: NewsSource, locale: AppLocale) {
   return typeof source.name === "string" ? source.name : source.name[locale];
-}
-
-export function newsSourceOrg(article: NewsArticle, locale: AppLocale) {
-  const source = article.sources[0];
-  if (!source) return "";
-  return newsSourceOrgName(newsSourceName(source, locale));
 }
 
 export function newsSourceOrgName(name: string) {

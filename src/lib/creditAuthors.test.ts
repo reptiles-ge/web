@@ -19,12 +19,12 @@ import {
   getCreditAuthorCards,
   getCreditAuthorFieldSummary,
   getCreditAuthorGroupStats,
-  getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getCreditAuthorTopSpecies,
   HOME_CONTRIBUTOR_LIMIT,
 } from "@/lib/creditAuthors";
+import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
 import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
 import {
@@ -131,23 +131,6 @@ describe("getCreditAuthorSpeciesIds", () => {
   });
 });
 
-describe("getCreditAuthorHubIds", () => {
-  it("returns hubs once each, snakes first", () => {
-    expect(
-      getCreditAuthorHubIds([
-        { group: "bird" },
-        { group: "turtle" },
-        { group: "snake" },
-        { group: "snake" },
-      ]),
-    ).toEqual(["snakes", "turtles", "birds"]);
-  });
-
-  it("returns nothing for no species", () => {
-    expect(getCreditAuthorHubIds([])).toEqual([]);
-  });
-});
-
 describe("getCreditAuthorCards", () => {
   const cards = getCreditAuthorCards(authors, speciesCatalogFixture("ka"));
 
@@ -199,7 +182,9 @@ describe("getCreditAuthorGroupStats", () => {
         );
       }
       expect(stats.map((stat) => stat.hub).sort()).toEqual(
-        getCreditAuthorHubIds(photos).sort(),
+        [
+          ...new Set(photos.map((photo) => ANIMAL_GROUP_TO_HUB[photo.group])),
+        ].sort(),
       );
     }
   });

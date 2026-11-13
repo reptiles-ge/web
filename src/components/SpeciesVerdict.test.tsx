@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
-import { speciesShareMessage } from "@/lib/speciesShareText";
+import { speciesShareParts } from "@/lib/speciesShareText";
 
 import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
@@ -67,7 +67,7 @@ describe("SpeciesVerdict", () => {
           name: messages[locale].home.safetyStrip.call,
         }),
       ).toHaveAttribute("href", "tel:112");
-      const share = speciesShareMessage({
+      const share = speciesShareParts({
         commonName: species.commonName,
         danger: species.danger,
         group: getSpeciesAtlasMeta(species.id).group,
@@ -80,7 +80,7 @@ describe("SpeciesVerdict", () => {
         },
         locale,
         scientificName: species.scientificName,
-      });
+      }).text;
       expect(share).toContain(copy.copyShareVenomous);
       expect(share).not.toContain(copy.copyShareHarmless);
     },

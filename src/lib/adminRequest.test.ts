@@ -3,7 +3,6 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   adminErrorResponse,
   isLocalAdminOriginRequest,
-  readAdminJsonText,
   readBodyString,
   readLocalAdminFormData,
   readLocalAdminJsonBody,
@@ -82,25 +81,6 @@ describe("isLocalAdminOriginRequest", () => {
   it("rejects everything on Vercel", () => {
     vi.stubEnv("VERCEL", "1");
     expect(isLocalAdminOriginRequest(jsonRequest("{}"))).toBe(false);
-  });
-});
-
-describe("readAdminJsonText", () => {
-  it("parses a small JSON body", async () => {
-    await expect(readAdminJsonText(jsonRequest('{"id":"a"}'))).resolves.toEqual(
-      { id: "a" },
-    );
-  });
-
-  it("rejects a body over 1000 characters", async () => {
-    const body = JSON.stringify({ id: "a".repeat(1000) });
-    await expect(readAdminJsonText(jsonRequest(body))).rejects.toThrow(
-      "Invalid request",
-    );
-  });
-
-  it("rejects invalid JSON", async () => {
-    await expect(readAdminJsonText(jsonRequest("{"))).rejects.toThrow();
   });
 });
 

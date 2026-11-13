@@ -19,9 +19,6 @@ export const LOOKALIKE_SIZES =
 export const QUIZ_TEASER_SIZES =
   "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((100vw - 5rem) * 0.52), 690px";
 
-export const RELATED_CARD_SIZES =
-  "(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) calc((100vw - 3rem - 1.25rem) / 2), calc((min(1400px, 100vw - 5rem) - 2.5rem) / 3)";
-
 export function galleryFeaturedSizes() {
   return "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) min(1400px, calc(100vw - 5rem)), 1400px";
 }

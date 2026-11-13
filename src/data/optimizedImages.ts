@@ -15,7 +15,6 @@ export type {
   ResolvedImageEntries,
   ResolvedImageEntry,
 } from "@/lib/optimizedImageSources";
-export { srcSetPreloadUrl } from "@/lib/optimizedImageSources";
 
 const optimizedImages: Record<string, OptimizedImageEntry> =
   uploadedOptimizedImages;

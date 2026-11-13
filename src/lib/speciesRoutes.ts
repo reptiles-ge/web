@@ -9,8 +9,6 @@ export type SpeciesHref = LocaleSpeciesHref;
 
 export { regionHref } from "@/lib/regionHref";
 
-export { getSpeciesPublicSlug, resolveSpeciesId } from "@/lib/speciesSlugTable";
-
 export type SpeciesRouteSource =
   string | { group?: AnimalGroup; id: string; slug?: string };
 

@@ -2,7 +2,6 @@ import type { OptimizedImageEntry } from "@/lib/optimizedImageSources";
 
 const NEWS_HERO_MIN_WIDTH = 1200;
 export const NEWS_HERO_RULE_SINCE = "2026-10-21";
-export const NEWS_HERO_MAX_EXCEPTIONS = 3;
 
 export type NewsHeroImage = { height?: number; src: string; width?: number };
 
@@ -37,25 +36,6 @@ export function checkNewsHero(
   return {
     error: `${input.slug}: ${problem}. Use a landscape hero at least ${NEWS_HERO_MIN_WIDTH} px wide, or add heroImageException with the reason`,
   };
-}
-
-export function checkNewsHeroes(
-  inputs: readonly NewsHeroInput[],
-  optimized: OptimizedLookup,
-) {
-  const errors: string[] = [];
-  const warnings: string[] = [];
-  for (const input of inputs) {
-    const result = checkNewsHero(input, optimized);
-    if (result.error) errors.push(result.error);
-    if (result.warning) warnings.push(result.warning);
-  }
-  const excepted = inputs.filter((input) => input.exception);
-  if (excepted.length > NEWS_HERO_MAX_EXCEPTIONS)
-    errors.push(
-      `${excepted.length} articles use heroImageException (${excepted.map((input) => input.slug).join(", ")}); at most ${NEWS_HERO_MAX_EXCEPTIONS} at a time, so replace a hero first`,
-    );
-  return { errors, warnings };
 }
 
 export function newsHeroProblem(

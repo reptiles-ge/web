@@ -3,7 +3,7 @@ import type { NewsArticle } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
-import { hasNewsCopy, newsLinkedSpeciesIds } from "@/data/news";
+import { getNewsCopy, hasNewsCopy } from "@/data/news";
 import { newsMentionsCreditAuthor } from "@/lib/newsAuthorMentions";
 
 import { NEWS_ARTICLES } from "./newsArticlesSnapshot";
@@ -85,4 +85,20 @@ export function getPublishedNewsForSpecies(
       article.relatedSpeciesIds.includes(speciesId) ||
       newsLinkedSpeciesIds(article, locale ?? "ka").has(speciesId),
   );
+}
+
+export function newsLinkedSpeciesIds(article: NewsArticle, locale: AppLocale) {
+  const ids = new Set<string>();
+  if (!hasNewsCopy(article, locale)) return ids;
+  for (const section of getNewsCopy(article, locale).sections) {
+    for (const block of section.blocks) {
+      if (block.type !== "p") continue;
+      for (const part of block.parts) {
+        if (typeof part !== "string" && part.type === "species") {
+          ids.add(part.id);
+        }
+      }
+    }
+  }
+  return ids;
 }

@@ -52,16 +52,6 @@ export function getSpeciesCoverSrc(
   return null;
 }
 
-export function getSpeciesGalleryPreview(species: Species, count = 3) {
-  const { desktopHeroSrc, gallery, mobileHeroSrc } =
-    getSpeciesHeroSources(species);
-  const isHero = (item: GalleryImage) =>
-    isHeroSource(item.src, desktopHeroSrc, mobileHeroSrc);
-  return [...gallery.filter((item) => !isHero(item)), ...gallery.filter(isHero)]
-    .slice(0, count)
-    .map((item) => item.src);
-}
-
 export function speciesCardImage(species: {
   gallery?: readonly GalleryImage[];
   image?: string;

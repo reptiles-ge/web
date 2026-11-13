@@ -8,12 +8,13 @@ import { SkipLink } from "@/components/SkipLink";
 import { SpeciesMobileLede } from "@/components/SpeciesMobileLede";
 import { ViewCount } from "@/components/ViewCount";
 import { HALYOMORPHA_RANGE_COPY } from "@/data/speciesRangeMaps/base";
-import { htmlToMarkdown } from "@/lib/markdownNegotiation";
+
+import { pageMarkdown } from "../../tests/support/pageMarkdown";
 
 const LEDE = "The Levantine viper is Georgia's largest venomous viper.";
 
 function markdown(body: string) {
-  return htmlToMarkdown(
+  return pageMarkdown(
     page(body),
     "https://reptiles.ge/en/snakes/macrovipera-lebetina",
   );
@@ -30,7 +31,7 @@ function textOf(html: string) {
 }
 
 describe("Markdown text layer", () => {
-  it("keeps a profile free of UI noise, run-on labels and a repeated lede", () => {
+  it("keeps a profile free of UI noise, run-on labels and a repeated lede", async () => {
     const html = renderToStaticMarkup(
       <>
         <SkipLink label="Skip to content" />
@@ -54,7 +55,7 @@ describe("Markdown text layer", () => {
         </main>
       </>,
     );
-    const md = markdown(html);
+    const md = await markdown(html);
 
     expect(textOf(html).split(LEDE)).toHaveLength(2);
     expect(md.split(LEDE)).toHaveLength(2);
@@ -65,8 +66,8 @@ describe("Markdown text layer", () => {
     expect(md).not.toMatch(/\p{L}\d+$/mu);
   });
 
-  it("keeps a guide contents heading without a glued count", () => {
-    const md = markdown(
+  it("keeps a guide contents heading without a glued count", async () => {
+    const md = await markdown(
       renderToStaticMarkup(
         <main>
           <h1>Snakebite in Georgia</h1>

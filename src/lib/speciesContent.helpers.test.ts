@@ -6,7 +6,6 @@ import {
   filterDisplayStats,
   getSpeciesActivityStat,
   getSpeciesCoverSrc,
-  getSpeciesGalleryPreview,
   getSpeciesHabitatStat,
   getSpeciesHeroSources,
   getSpeciesIdentificationPhoto,
@@ -268,19 +267,6 @@ describe("cover and hero sources", () => {
       "/a.jpg",
       "/b.jpg",
     ]);
-  });
-
-  it("previews non-hero photos first and limits the count", () => {
-    const item = species({
-      gallery: [{ src: "/a.jpg" }, { src: "/b.jpg" }, { src: "/c.jpg" }],
-      image: "/a.jpg",
-    });
-    expect(getSpeciesGalleryPreview(item)).toEqual([
-      "/b.jpg",
-      "/c.jpg",
-      "/a.jpg",
-    ]);
-    expect(getSpeciesGalleryPreview(item, 1)).toEqual(["/b.jpg"]);
   });
 
   it("picks the first gallery photo that is not the hero for identification", () => {
