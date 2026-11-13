@@ -2,8 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { NewsArticle } from "@/data/newsTypes";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
-
+import { NEWS_ARTICLES } from "../../../tests/fixtures/newsArticlesSnapshot";
 import { newsArticleSchema } from "./newsRecord";
 
 const withFigures = NEWS_ARTICLES.find(

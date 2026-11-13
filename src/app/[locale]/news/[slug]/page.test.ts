@@ -3,7 +3,6 @@ import type { ReactElement } from "react";
 import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
@@ -12,6 +11,7 @@ import en from "../../../../../messages/en.json";
 import ka from "../../../../../messages/ka.json";
 import ru from "../../../../../messages/ru.json";
 import tr from "../../../../../messages/tr.json";
+import { getPublishedNewsArticles } from "../../../../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,

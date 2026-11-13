@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
@@ -19,6 +18,7 @@ import {
 import { newsArticleHref, newsIndexHref } from "@/lib/newsHrefs";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
 import { defined } from "../../tests/support/defined";
 

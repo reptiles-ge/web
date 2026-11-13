@@ -1,7 +1,6 @@
 import { Window } from "happy-dom";
 import { describe, expect, it, vi } from "vitest";
 
-import { getAllNewsArticles, getPublishedNewsArticles } from "@/data/news";
 import { routing } from "@/i18n/routing";
 import {
   newsArticleModifiedDateTime,
@@ -18,6 +17,10 @@ import {
   newsFeedUrl,
 } from "@/lib/newsFeed";
 
+import {
+  getAllNewsArticles,
+  getPublishedNewsArticles,
+} from "../../tests/fixtures/newsSeed";
 import { defined } from "../../tests/support/defined";
 
 vi.mock("@/i18n/navigation", () => ({

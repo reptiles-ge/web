@@ -4,10 +4,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { NewsArticle } from "@/data/newsTypes";
 
-import { NEWS_ARTICLES } from "@/data/news.generated";
-
 import type { ApiBindings } from "../env";
 
+import { NEWS_ARTICLES } from "../../../tests/fixtures/newsArticlesSnapshot";
 import { app } from "../app";
 import { readNewsRecords } from "../db/news";
 import {

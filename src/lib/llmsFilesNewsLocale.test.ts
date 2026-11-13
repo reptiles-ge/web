@@ -1,13 +1,15 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import {
   buildLlmsFullText,
   buildLlmsIndexText,
   createLlmsSpecies,
 } from "@/lib/llmsFiles";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import { speciesCatalogFixture } from "../../tests/fixtures/speciesCatalog";
+
+const slug = "batumi-19300-raptors-2026";
 
 const LLMS = createLlmsSpecies(
   {
@@ -16,22 +18,12 @@ const LLMS = createLlmsSpecies(
     ru: speciesCatalogFixture("ru"),
     tr: speciesCatalogFixture("tr"),
   },
-  getPublishedNewsArticles(),
+  getPublishedNewsArticles().map((article) => {
+    if (article.slug !== slug) return article;
+    const { ru: _ru, tr: _tr, ...copy } = article.copy;
+    return { ...article, copy };
+  }),
 );
-
-const { slug } = vi.hoisted(() => ({ slug: "batumi-19300-raptors-2026" }));
-
-vi.mock("@/data/news.generated", async (importOriginal) => {
-  const original =
-    await importOriginal<typeof import("@/data/news.generated")>();
-  return {
-    NEWS_ARTICLES: original.NEWS_ARTICLES.map((article) => {
-      if (article.slug !== slug) return article;
-      const { ru: _ru, tr: _tr, ...copy } = article.copy;
-      return { ...article, copy };
-    }),
-  };
-});
 
 describe("llms files with a news article missing a locale", () => {
   it.each(["ru", "tr"] as const)(

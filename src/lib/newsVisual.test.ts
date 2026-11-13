@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 
-import { getPublishedNewsArticles } from "@/data/news";
 import {
   getNewsImageSrc,
   getNewsVisual,
@@ -8,6 +7,7 @@ import {
   newsCategoryHub,
 } from "@/lib/newsVisual";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   contributorDirectoryFixture,
   speciesCatalogFixture,

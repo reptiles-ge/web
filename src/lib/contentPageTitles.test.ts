@@ -15,7 +15,6 @@ import { generateMetadata as regionMetadata } from "@/app/[locale]/regions/[id]/
 import { generateMetadata as riskToHumansMetadata } from "@/app/[locale]/risk-to-humans/page";
 import { generateMetadata as venomousSnakesMetadata } from "@/app/[locale]/venomous-snakes/page";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
-import { getPublishedNewsArticles } from "@/data/news";
 import { regions } from "@/data/regions";
 import {
   getSpeciesAtlasMeta,
@@ -31,6 +30,7 @@ import en from "../../messages/en.json";
 import ka from "../../messages/ka.json";
 import ru from "../../messages/ru.json";
 import tr from "../../messages/tr.json";
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import { contributorsFixture } from "../../tests/fixtures/speciesCatalog";
 
 const messages = { en, ka, ru, tr };

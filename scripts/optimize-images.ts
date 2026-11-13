@@ -18,7 +18,8 @@ import {
   georgiaRegionPaths,
   type RegionPathId,
 } from "../src/data/georgia-paths";
-import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
+import { newsArticlePhotos } from "../src/data/news";
+import type { NewsArticle } from "../src/data/newsTypes";
 import { getRegionHeroImage } from "../src/data/regionImages";
 import { images as siteImages } from "../src/data/speciesMedia";
 import type { CatalogPhotoSpecies } from "../src/data/speciesCatalogTypes";
@@ -30,7 +31,7 @@ import {
   type ImageManifestWrite,
   putImageManifest,
 } from "../src/lib/optimizedImagesApi";
-import { getNewsArticle, getNewsSummaries } from "../src/lib/newsApi";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
@@ -195,17 +196,9 @@ function toStorageKey(src: string): string | null {
   return null;
 }
 
-async function loadNewsPhotoSources(): Promise<string[]> {
+function newsPhotoSources(articles: readonly NewsArticle[]): string[] {
   const sources = new Set<string>();
-  for (const article of getAllNewsArticles()) {
-    for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
-  }
-  const summaries = await getNewsSummaries();
-  const articles = await Promise.all(
-    summaries.map((summary) => getNewsArticle(summary.slug)),
-  );
   for (const article of articles) {
-    if (!article) continue;
     for (const photo of newsArticlePhotos(article)) sources.add(photo.src);
   }
   return [...sources];
@@ -326,7 +319,7 @@ function collectCoverKeys(
   species: CatalogPhotoSpecies[],
   ids: string[],
   all: boolean,
-  news: boolean,
+  news: readonly NewsArticle[] | null,
 ): Set<string> {
   const wanted = new Set(ids);
   const keys = new Set<string>();
@@ -339,9 +332,7 @@ function collectCoverKeys(
 
   if (all) add(siteImages.hero);
 
-  if (all || news) {
-    for (const article of getAllNewsArticles()) add(article.image?.src);
-  }
+  for (const article of news ?? []) add(article.image?.src);
 
   for (const item of species) {
     if (!all && !wanted.has(item.id)) continue;
@@ -502,11 +493,12 @@ async function run() {
   const token = writeToken();
   const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 
-  const [species, contributors, newsPhotos] = await Promise.all([
+  const [species, contributors, newsArticles] = await Promise.all([
     getSpeciesCatalog("ka", "photos"),
     getContributors("ka"),
-    loadNewsPhotoSources(),
+    getNewsArticles(),
   ]);
+  const newsPhotos = newsPhotoSources(newsArticles);
   const portraits = contributors.map((author) => author.portraitSrc);
   const byKey = collectSources(species, portraits, newsPhotos);
 
@@ -526,7 +518,7 @@ async function run() {
     species,
     options.speciesIds,
     options.all,
-    options.news,
+    options.all || options.news ? newsArticles : null,
   );
   const targets =
     options.limit === undefined

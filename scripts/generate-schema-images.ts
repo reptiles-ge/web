@@ -10,7 +10,6 @@ import {
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
 
-import { getPublishedNewsArticles } from "../src/data/news";
 import {
   SCHEMA_IMAGE_MIN_WIDTH,
   SCHEMA_RATIOS,
@@ -26,6 +25,7 @@ import {
 } from "../src/lib/newsSchemaImages";
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
+import { getNewsArticles } from "../src/lib/newsApi";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -152,12 +152,12 @@ function createStorage(upload: boolean): StorageAdapter {
   return new LocalStorageAdapter({ baseUrl: "/", root });
 }
 
-function selectHeroes(
+async function selectHeroes(
   options: CliOptions,
   manifest: Manifest,
   catalog: Parameters<typeof newsHeroImage>[1],
 ) {
-  const articles = getPublishedNewsArticles();
+  const articles = await getNewsArticles();
   const known = new Set(articles.map((article) => article.slug));
   const unknown = options.slugs.filter((slug) => !known.has(slug));
   if (unknown.length > 0) {
@@ -188,7 +188,7 @@ async function main() {
   const catalog = (await getSpeciesCatalog("ka")).filter(
     (item): item is typeof item & { image: string } => Boolean(item.image),
   );
-  const heroes = selectHeroes(options, manifest, catalog);
+  const heroes = await selectHeroes(options, manifest, catalog);
 
   if (heroes.length === 0) {
     console.log(

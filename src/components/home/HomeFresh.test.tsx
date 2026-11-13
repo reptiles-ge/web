@@ -5,11 +5,11 @@ import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { HomeFresh } from "@/components/home/HomeFresh";
-import { getPublishedNewsArticles } from "@/data/news";
 import { getNewsListArticles, HOME_NEWS_LIMIT } from "@/lib/newsApi";
 
 import en from "../../../messages/en.json";
 import { toNewsListArticle } from "../../../tests/fixtures/manyNews";
+import { getPublishedNewsArticles } from "../../../tests/fixtures/newsSeed";
 
 vi.mock("next-intl/server", () => ({
   getTranslations: async ({ namespace }: { namespace: "home.fresh" }) =>

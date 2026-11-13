@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { getAllNewsArticles, newsArticlePhotos } from "@/data/news";
+import { newsArticlePhotos } from "@/data/news";
+import { NEWS_ARTICLES } from "@/data/news.generated";
 import { newsSlugs } from "@/data/newsPublish";
 import { isOptimizedImageSrc } from "@/data/optimizedImages";
 import { regions } from "@/data/regions";
@@ -22,7 +23,7 @@ import {
   speciesCatalogFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-const articles = getAllNewsArticles();
+const articles = NEWS_ARTICLES;
 
 describe("news MDX content", () => {
   it("has one folder per registered slug", () => {

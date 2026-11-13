@@ -1,13 +1,14 @@
 import { describe, expect, it } from "vitest";
 
+import { NEWS_SERIES, newsSeriesIds, newsSeriesName } from "@/data/newsSeries";
+import { routing } from "@/i18n/routing";
+import { newsKaFrontmatterSchema } from "@/lib/newsFrontmatter";
+
 import {
   getPublishedNewsArticleBySlug,
   getPublishedNewsArticles,
   getPublishedNewsArticlesInSeries,
-} from "@/data/news";
-import { NEWS_SERIES, newsSeriesIds, newsSeriesName } from "@/data/newsSeries";
-import { routing } from "@/i18n/routing";
-import { newsKaFrontmatterSchema } from "@/lib/newsFrontmatter";
+} from "../../tests/fixtures/newsSeed";
 
 const frontmatter = {
   dek: "Dek",

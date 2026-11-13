@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMetaTable";
 import {
   buildLlmsFullText,
@@ -11,6 +10,7 @@ import {
 import { llmsLinkHeader } from "@/lib/llmsPaths";
 import { AI_CITATION_USER_AGENTS, buildRobotsTxt } from "@/lib/robotsTxt";
 
+import { getPublishedNewsArticles } from "../../tests/fixtures/newsSeed";
 import {
   catalogSpeciesFixture,
   speciesCatalogFixture,
