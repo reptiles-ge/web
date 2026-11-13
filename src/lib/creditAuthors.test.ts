@@ -115,6 +115,7 @@ describe("getCreditAuthorPhotos", () => {
 describe("getCreditAuthorSpeciesIds", () => {
   it("returns each species once, in first-seen order", () => {
     const photo = (speciesId: string, src: string) => ({
+      group: "snake" as const,
       speciesId,
       src,
       updatedAt: "2026-01-01",
@@ -134,10 +135,10 @@ describe("getCreditAuthorHubIds", () => {
   it("returns hubs once each, snakes first", () => {
     expect(
       getCreditAuthorHubIds([
-        "falco-peregrinus",
-        "testudo-graeca",
-        "natrix-natrix",
-        "macrovipera-lebetina",
+        { group: "bird" },
+        { group: "turtle" },
+        { group: "snake" },
+        { group: "snake" },
       ]),
     ).toEqual(["snakes", "turtles", "birds"]);
   });
@@ -198,7 +199,7 @@ describe("getCreditAuthorGroupStats", () => {
         );
       }
       expect(stats.map((stat) => stat.hub).sort()).toEqual(
-        getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)).sort(),
+        getCreditAuthorHubIds(photos).sort(),
       );
     }
   });
@@ -252,6 +253,7 @@ describe("getCreditAuthorTopSpecies", () => {
 describe("getCreditAuthorFieldSummary", () => {
   const photo = (location?: string, date?: string) => ({
     credit: { date, location, photographer: "x" },
+    group: "snake" as const,
     speciesId: "macrovipera-lebetina",
     src: `${location}-${date}`,
     updatedAt: "2026-01-01",
