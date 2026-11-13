@@ -73,7 +73,7 @@ describe("ClusterFaqSection", () => {
   it("keeps every answer in the document so crawlers can read it", () => {
     render(<ClusterFaqSection intro={intro} items={items} />);
     for (const item of items) {
-      expect(screen.getByText(item.answer as string)).toBeInTheDocument();
+      expect(screen.getByText(item.answer)).toBeInTheDocument();
     }
   });
 

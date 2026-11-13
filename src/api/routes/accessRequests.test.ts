@@ -47,8 +47,8 @@ function post(body: unknown, headers: Record<string, string> = {}) {
 }
 
 function telegramText() {
-  const [, init] = vi.mocked(fetch).mock.calls[0]!;
-  return (JSON.parse(String(init?.body)) as { text: string }).text;
+  const [, init] = vi.mocked(fetch).mock.calls[0];
+  return (JSON.parse(init?.body as string) as { text: string }).text;
 }
 
 beforeEach(() => {

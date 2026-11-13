@@ -18,7 +18,6 @@ describe("news editor document", () => {
     for (const article of NEWS_ARTICLES) {
       for (const locale of locales) {
         const copy = article.copy[locale];
-        if (!copy) continue;
         expect(newsDocToSections(newsSectionsToDoc(copy.sections))).toEqual(
           copy.sections,
         );

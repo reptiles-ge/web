@@ -135,7 +135,8 @@ describe("loggedFetch", () => {
       "https://api.reptiles.ge/v1/x?a=1",
     );
     expect(group).not.toHaveBeenCalled();
-    const [title, ...rest] = info.mock.calls[0];
+    const call: unknown[] = info.mock.calls[0];
+    const [title, ...rest] = call;
     expect(String(title)).toMatch(
       /^\[api-request\] GET https:\/\/api\.reptiles\.ge\/v1\/x\?a=1 → 200 \(\d+ ms\)$/,
     );

@@ -684,7 +684,9 @@ function parameters(
   location: "header" | "path" | "query",
   entry: Operation,
 ) {
-  const required = new Set((toSchema(schema).required as string[]) ?? []);
+  const required = new Set(
+    (toSchema(schema).required as string[] | undefined) ?? [],
+  );
   return Object.entries(schema.shape).map(([name, field]) => ({
     ...(entry.parameterDocs?.[name] ?? PARAMETER_DOCS[name]),
     in: location,

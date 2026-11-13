@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, type Mock, vi } from "vitest";
 
 const ADMIN_API_DIR = path.join(process.cwd(), "src/app/api/admin");
 const GUARD_MODULES = new Set(["@/lib/adminAccess", "@/lib/adminRequest"]);
-const HANDLER = /export async function (GET|POST|PUT|PATCH|DELETE)\b/g;
+const HANDLER = /export (?:async )?function (GET|POST|PUT|PATCH|DELETE)\b/g;
 const IMPORT = /^import (?!type\b)[^;]*?from "(@\/[^"]+)";/gm;
 
 const routes = readdirSync(ADMIN_API_DIR, { recursive: true })
@@ -62,7 +62,7 @@ async function loadWithMockedDependencies(file: string, modules: string[]) {
   }
   const handlers = (await import(path.join(ADMIN_API_DIR, file))) as Record<
     string,
-    (request: Request) => Promise<Response>
+    (request: Request) => Promise<Response> | Response
   >;
   return { handlers, mocks };
 }

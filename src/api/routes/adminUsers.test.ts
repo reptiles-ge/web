@@ -47,7 +47,7 @@ describe("POST /v1/admin/users", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({
       email: "nika@reptiles.ge",
-      id: expect.stringMatching(/^[0-9a-f-]{36}$/),
+      id: expect.stringMatching(/^[0-9a-f-]{36}$/) as string,
       name: "Nika",
       role: "admin",
     });

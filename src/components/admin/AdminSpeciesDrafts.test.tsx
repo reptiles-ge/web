@@ -50,8 +50,8 @@ describe("AdminSpeciesDrafts", () => {
     expect(screen.getByText("ახალი")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "დადასტურება" }));
     await waitFor(() => expect(refresh).toHaveBeenCalled());
-    const [, init] = vi.mocked(fetch).mock.calls[0]!;
-    expect(JSON.parse(String(init?.body))).toEqual({
+    const [, init] = vi.mocked(fetch).mock.calls[0];
+    expect(JSON.parse(init?.body as string)).toEqual({
       decision: "approve",
       draftId: 7,
       id: "testudo-graeca",

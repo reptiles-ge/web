@@ -107,16 +107,17 @@ export async function runPhotoUploads({
   const uploaded: UploadedJob[] = [];
   const compress = limiter(parallel ? compressionSlots() : 1);
   let expired = false;
+  const sessionExpired = () => expired;
 
   async function run({ credit, file, uid }: UploadJob) {
-    if (expired) return;
+    if (sessionExpired()) return;
     try {
       const photo = await compress(() => {
-        if (expired) return null;
+        if (sessionExpired()) return null;
         onStatus(uid, "compressing");
         return encodePhotoFile(file);
       });
-      if (!photo || expired) return;
+      if (!photo || sessionExpired()) return;
       onStatus(uid, "uploading");
       const result = await retryWhenRateLimited(
         () => uploadSpeciesPhoto(id, credit, photo),
@@ -126,7 +127,7 @@ export async function runPhotoUploads({
       uploaded.push({ src: result.photo.src, uid });
     } catch (error) {
       if (error instanceof SessionExpiredError) {
-        if (!expired) onSessionExpired();
+        if (!sessionExpired()) onSessionExpired();
         expired = true;
         return;
       }

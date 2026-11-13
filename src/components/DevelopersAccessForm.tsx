@@ -6,8 +6,6 @@ import { ArrowRight, BookOpen, Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import {
   API_ACCESS_DATA,
   API_ACCESS_PROJECT_TYPES,
@@ -37,7 +35,7 @@ export function DevelopersAccessForm({
   email: string;
 }) {
   const t = useTranslations("developers.form");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const id = useId();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
@@ -133,7 +131,7 @@ export function DevelopersAccessForm({
     <form
       className="grid grid-cols-1 gap-x-4 gap-y-[18px] md:grid-cols-2"
       noValidate
-      onSubmit={onSubmit}
+      onSubmit={(event) => void onSubmit(event)}
     >
       <TextField
         error={errors.name ? t("errorRequired") : null}

@@ -82,10 +82,12 @@ describe("Super Analysis progress panel", () => {
       pullRequestUrl: "https://github.com/example/reptiles/pull/1",
       status: "completed",
     };
-    const fetcher = vi.fn(async (_url, options) => {
-      if (options?.method === "POST") started = true;
-      return Response.json(started ? done : null);
-    });
+    const fetcher = vi.fn(
+      async (_url: RequestInfo | URL, options?: RequestInit) => {
+        if (options?.method === "POST") started = true;
+        return Response.json(started ? done : null);
+      },
+    );
     vi.stubGlobal("fetch", fetcher);
     render(<SpeciesSuperAnalysis {...props} />);
     await waitFor(() => expect(props.onBusyChange).toHaveBeenCalledWith(false));
@@ -130,8 +132,9 @@ describe("Super Analysis progress panel", () => {
       resumable: true,
       status: "failed",
     };
-    const fetcher = vi.fn(async (_url, options) =>
-      Response.json(options?.method === "POST" ? job : failed),
+    const fetcher = vi.fn(
+      async (_url: RequestInfo | URL, options?: RequestInit) =>
+        Response.json(options?.method === "POST" ? job : failed),
     );
     vi.stubGlobal("fetch", fetcher);
     render(<SpeciesSuperAnalysis {...props} />);

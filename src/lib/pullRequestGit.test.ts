@@ -6,6 +6,8 @@ import {
   isPullRequestUrl,
 } from "@/lib/pullRequestGit";
 
+type RunCommand = Parameters<typeof cleanupPullRequestWorktree>[0];
+
 const input = {
   base: "main",
   body: "body.md",
@@ -36,7 +38,7 @@ describe("isPullRequestUrl", () => {
 
 describe("cleanupPullRequestWorktree", () => {
   it("removes the worktree and the local branch", async () => {
-    const run = vi.fn().mockResolvedValue("");
+    const run = vi.fn<RunCommand>().mockResolvedValue("");
     await cleanupPullRequestWorktree(run, {
       branch: "feature/x",
       deleteRemoteBranch: false,
@@ -49,7 +51,7 @@ describe("cleanupPullRequestWorktree", () => {
   });
 
   it("also deletes the remote branch when asked", async () => {
-    const run = vi.fn().mockResolvedValue("");
+    const run = vi.fn<RunCommand>().mockResolvedValue("");
     await cleanupPullRequestWorktree(run, {
       branch: "feature/x",
       deleteRemoteBranch: true,

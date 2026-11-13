@@ -104,9 +104,6 @@ function TurtleChooserCard({
   const t = useTranslations("turtleIdentify");
   const switchIndex = useLocaleSwitchIndex();
   const meta = TURTLE_META[item.id as TurtleId];
-  if (!meta) {
-    return null;
-  }
   const alt = t(`alt.${item.id}` as Parameters<typeof t>[0], {
     name: item.commonName,
     scientific: item.scientificName,

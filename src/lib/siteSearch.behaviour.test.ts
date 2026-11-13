@@ -13,7 +13,7 @@ import {
 function doc(overrides: Partial<SearchDocument>): SearchDocument {
   const id = overrides.id ?? "x";
   return {
-    href: "/" as never,
+    href: "/",
     icon: "species" as never,
     id,
     key: `${overrides.kind ?? "page"}:${id}`,

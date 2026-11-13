@@ -4,7 +4,7 @@ import { ChevronUp, Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useSelectLocale } from "@/components/LanguageSwitcher";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { localeShortLabel } from "@/lib/localeSwitch";
 
@@ -28,7 +28,7 @@ export function BackToTop({ label, text }: { label: string; text: string }) {
 }
 
 export function FooterLanguageSwitch() {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("language");
   const selectLocale = useSelectLocale();
 

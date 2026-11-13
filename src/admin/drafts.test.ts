@@ -75,7 +75,7 @@ describe("drafts client", () => {
     const posted: string[] = [];
     server.use(
       http.post(`${BASE}/:id/:action`, ({ params }) => {
-        posted.push(`${params.id}/${params.action}`);
+        posted.push(`${String(params.id)}/${String(params.action)}`);
         return HttpResponse.json({
           data: {
             revalidated: true,

@@ -131,7 +131,7 @@ export function SpeciesShareDialog({
                 "h-11 shrink-0 cursor-pointer rounded-full px-5 text-[14px] font-semibold text-white transition-[translate,filter,background-color] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                 copied ? "bg-[#2f6b4f]" : "bg-ink",
               )}
-              onClick={onCopy}
+              onClick={() => void onCopy()}
               type="button"
             >
               {copied ? t("shareCopied") : t("shareCopy")}

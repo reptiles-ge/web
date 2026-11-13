@@ -26,15 +26,15 @@ describe("admin flows that edited species MDX", () => {
     ["species-super-analysis", startSuperAnalysis],
     ["species-workflow", runWorkflow],
   ])("%s answers 503 with an explanation", async (_, handler) => {
-    const response = await handler(post("http://localhost"));
+    const response = handler(post("http://localhost"));
     expect(response.status).toBe(503);
     const { error } = (await response.json()) as { error: string };
     expect(error).toContain("MDX");
-    expect((await handler(post("http://evil.test"))).status).toBe(404);
+    expect(handler(post("http://evil.test")).status).toBe(404);
   });
 
   it("reports no super-analysis job to a local admin page", async () => {
-    const response = await superAnalysisStatus(
+    const response = superAnalysisStatus(
       new Request("http://localhost/api/admin/species-super-analysis?id=a", {
         headers: { referer: "http://localhost/gvelebi/giurza" },
       }),
@@ -42,19 +42,15 @@ describe("admin flows that edited species MDX", () => {
     expect(response.status).toBe(200);
     expect(await response.json()).toBeNull();
     expect(
-      (
-        await superAnalysisStatus(
-          new Request("http://localhost/api/admin/species-super-analysis", {
-            headers: { origin: "http://evil.test" },
-          }),
-        )
+      superAnalysisStatus(
+        new Request("http://localhost/api/admin/species-super-analysis", {
+          headers: { origin: "http://evil.test" },
+        }),
       ).status,
     ).toBe(404);
     expect(
-      (
-        await superAnalysisStatus(
-          new Request("http://localhost/api/admin/species-super-analysis"),
-        )
+      superAnalysisStatus(
+        new Request("http://localhost/api/admin/species-super-analysis"),
       ).status,
     ).toBe(404);
   });

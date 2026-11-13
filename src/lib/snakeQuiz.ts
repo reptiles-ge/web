@@ -66,7 +66,7 @@ export function toSnakeQuizSpecies(
   catalog: readonly CatalogQuizSpecies[],
 ): SnakeQuizSpecies {
   const explanation = stripSpeciesInlineLinks(
-    species.identification?.summary?.trim() ||
+    species.identification?.summary.trim() ||
       species.facts[0]?.trim() ||
       species.description.trim(),
   );

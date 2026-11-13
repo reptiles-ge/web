@@ -4,7 +4,6 @@ import { ArrowRight, Check, Lightbulb, X } from "lucide-react";
 import { useLocale } from "next-intl";
 import { type KeyboardEvent, type RefObject, useState } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
 import type {
   QuizDifficulty,
   SnakeQuizQuestion,
@@ -59,7 +58,7 @@ export function QuizRound({
   total,
 }: QuizRoundProps) {
   const t = useQuizCopy();
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const switchIndex = useLocaleSwitchIndex();
   const [focused, setFocused] = useState<{ index: number; option: number }>();
   const selectedIndex = selectedId

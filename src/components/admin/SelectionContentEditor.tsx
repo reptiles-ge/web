@@ -127,7 +127,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
           140,
           Math.min(window.innerWidth - 140, rect.left + rect.width / 2),
         ),
-        renderedText: fieldElement.textContent ?? "",
+        renderedText: fieldElement.textContent,
         start,
         top: above
           ? Math.max(90, Math.min(window.innerHeight - 8, rect.top - 8))

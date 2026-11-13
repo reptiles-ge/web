@@ -404,11 +404,11 @@ describe("GET /v1/admin/species", () => {
     expect(listed.some(({ status }) => status !== "published")).toBe(true);
     const { body } = first;
     expect(body.data.find(({ id }) => id === ID)).toMatchObject({
-      commonName: { en: expect.any(String), ka: "გიურზა" },
+      commonName: { en: expect.any(String) as string, ka: "გიურზა" },
       group: "snake",
       lastEditedAt: null,
       pendingDrafts: 0,
-      photoCount: expect.any(Number),
+      photoCount: expect.any(Number) as number,
       version: 1,
     });
   });
@@ -595,7 +595,7 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({ id: ID });
-    const [request] = siteFetch.mock.calls[0]!;
+    const [request] = siteFetch.mock.calls[0];
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
     expect(await request.json()).toEqual({
@@ -623,7 +623,7 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     try {
       expect((await revalidate(ID)).response.status).toBe(200);
       expect(order).toEqual(["purge", "site"]);
-      const [url, init] = purge.mock.calls[0]!;
+      const [url, init] = purge.mock.calls[0];
       expect(url).toBe(
         "https://api.cloudflare.com/client/v4/zones/zone-1/purge_cache",
       );

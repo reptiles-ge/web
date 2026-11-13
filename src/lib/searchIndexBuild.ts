@@ -1186,9 +1186,7 @@ export function buildSearchIndex(
       id: article.id,
       key: `news:${article.id}`,
       kind: "page" as const,
-      scoreTitles: Object.values(article.copy).flatMap((copy) =>
-        copy ? [copy.title] : [],
-      ),
+      scoreTitles: Object.values(article.copy).map((copy) => copy.title),
       searchText: blob(newsSearchKeywords(article)),
       subtitle: dek,
       title,

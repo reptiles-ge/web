@@ -756,8 +756,7 @@ function localizedPath(locale: AppLocale, path: string) {
 function localizedSpeciesUrl(locale: AppLocale, id: string) {
   const href = speciesHref(id, locale);
   const mapped = pathnames[href.pathname];
-  const template =
-    typeof mapped === "string" ? mapped : mapped[locale] || mapped.en;
+  const template = typeof mapped === "string" ? mapped : mapped[locale];
   return absoluteUrl(
     withLocalePrefix(locale, template.replace("[slug]", href.params.slug)),
   );

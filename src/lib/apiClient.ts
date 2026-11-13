@@ -34,6 +34,10 @@ export function createApiClient({
   });
 }
 
+export function responseOk(response: { ok: boolean }): boolean {
+  return response.ok;
+}
+
 function siteApiKeyHeader(): Record<string, string> {
   if (typeof window !== "undefined") return {};
   const key = serverEnv().SITE_API_KEY;

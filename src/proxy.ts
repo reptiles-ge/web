@@ -415,7 +415,7 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
     new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
-    const locale = prefixedKaHub[1] as PrefixedLocale;
+    const locale = prefixedKaHub[1];
     const id = resolveSpeciesIdInHub(
       KA_PREFIX_TO_HUB[prefixedKaHub[2]],
       prefixedKaHub[3],
@@ -430,7 +430,7 @@ function redirectPath(pathname: string): [string, 301 | 302] | null {
     new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
-    const locale = prefixedHub[1] as PrefixedLocale;
+    const locale = prefixedHub[1];
     const id = resolveSpeciesIdInHub(
       prefixedHub[2] as GroupHubId,
       prefixedHub[3],

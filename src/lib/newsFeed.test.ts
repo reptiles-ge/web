@@ -148,7 +148,7 @@ describe("buildNewsFeedXml", () => {
         { ...article, slug: "draft-story", status: "draft" },
         {
           ...article,
-          copy: withoutEnglish as typeof article.copy,
+          copy: withoutEnglish,
           slug: "ka-only",
         },
       ],

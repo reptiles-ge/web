@@ -28,7 +28,7 @@ type LocaleOptionsProps = {
 };
 
 export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("language");
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -146,7 +146,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
 }
 
 export function useSelectLocale() {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const router = useRouter();
 
   return useCallback(

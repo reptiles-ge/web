@@ -62,7 +62,7 @@ export function SpeciesScientificNameCopy({
           "size-11 text-white/55 group-hover/sci:text-white/80 hover:bg-white/10 hover:text-white focus-visible:text-white focus-visible:outline-white/50",
         copied && !className && "text-white",
       )}
-      onClick={onCopy}
+      onClick={() => void onCopy()}
       title={label}
       type="button"
     >

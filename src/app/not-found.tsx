@@ -11,7 +11,6 @@ import { NotFoundShell } from "@/components/NotFoundShell";
 import { SkipLink } from "@/components/SkipLink";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
-  type ClientMessages,
   NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
 } from "@/i18n/clientMessages";
@@ -28,7 +27,7 @@ export function generateMetadata(): Promise<Metadata> {
 export default async function RootNotFound() {
   const locale = routing.defaultLocale;
   const messages = pickClientMessages(
-    (await getMessages({ locale })) as ClientMessages,
+    await getMessages({ locale }),
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
   const [t, stats] = await Promise.all([

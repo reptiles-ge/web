@@ -5,7 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 
 import type { DangerLevel } from "@/data/species";
 import type { SpeciesCard } from "@/data/speciesCard";
-import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterPathCard } from "@/components/ClusterPathCard";
 import {
@@ -27,7 +26,7 @@ type RiskLevelListProps = {
 export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
   const t = useTranslations("riskToHumans");
   const tDanger = useTranslations("danger");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
 
   return (
     <>

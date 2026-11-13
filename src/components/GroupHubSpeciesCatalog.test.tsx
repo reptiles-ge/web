@@ -98,7 +98,7 @@ describe("GroupHubSpeciesCatalog", () => {
       target: { value: "ანკარა 1" },
     });
     const names = screen.getAllByRole("listitem").map((li) => li.textContent);
-    expect(names.every((name) => name?.includes("ანკარა 1"))).toBe(true);
+    expect(names.every((name) => name.includes("ანკარა 1"))).toBe(true);
     expect(screen.queryByRole("button", { expanded: false })).toBeNull();
     fireEvent.change(screen.getByRole("searchbox"), {
       target: { value: "zzz" },

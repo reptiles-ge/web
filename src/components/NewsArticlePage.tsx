@@ -93,7 +93,6 @@ export async function NewsArticlePage({
   locale,
 }: NewsArticlePageProps) {
   const copy = getNewsCopy(article, locale);
-  if (!copy) return null;
   const editable = locale === "ka" && isLocalAdminEnabled();
   const [t, facts, atlasLinks, [visual]] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),

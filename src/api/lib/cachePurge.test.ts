@@ -1,4 +1,12 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  type MockInstance,
+  vi,
+} from "vitest";
 
 import type { ApiBindings } from "../env";
 
@@ -14,7 +22,7 @@ let env: ApiBindings;
 let purge: ReturnType<
   typeof vi.fn<(url: string, init: RequestInit) => Promise<Response>>
 >;
-let log: ReturnType<typeof vi.spyOn>;
+let log: MockInstance<typeof console.error>;
 
 function purgedTags() {
   return purge.mock.calls.map(
@@ -47,7 +55,7 @@ describe("purgeApiCache", () => {
     const tags = Array.from({ length: 150 }, (_, index) => `news:n${index}`);
     expect(await purgeApiCache(env, [...tags, "news:n0"])).toBe("purged");
     expect(purgedTags().map((batch) => batch.length)).toEqual([100, 50]);
-    expect(purgedTags()[0]![0]).toBe("api:news:n0");
+    expect(purgedTags()[0][0]).toBe("api:news:n0");
   });
 
   it("does nothing for no tags and reports a missing setup", async () => {

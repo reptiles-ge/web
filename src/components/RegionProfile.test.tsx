@@ -73,12 +73,12 @@ describe("RegionProfile outline", () => {
     );
     const headings = [...container.querySelectorAll("h1, h2, h3, h4")]
       .filter((node) => !node.querySelector("button[aria-expanded]"))
-      .map((node) => node.textContent ?? "");
+      .map((node) => node.textContent);
     for (const item of species) {
       expect(headings, item.id).not.toContain(item.commonName);
     }
     expect(headings.length).toBeLessThan(15);
-    expect(screen.getAllByText(species[0]!.commonName).length).toBeGreaterThan(
+    expect(screen.getAllByText(species[0].commonName).length).toBeGreaterThan(
       0,
     );
   });
@@ -146,7 +146,7 @@ describe("RegionProfile FAQ", () => {
 
 describe("RegionSpeciesCard", () => {
   it("renders the name as text, not a heading, with location or risk", () => {
-    const item = venomous[0]!;
+    const item = venomous[0];
     const { container, rerender } = renderWithMessages(
       <RegionSpeciesCard species={item} />,
     );

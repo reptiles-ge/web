@@ -23,7 +23,9 @@ export const reptilesApi = http.all(
       API_WRITE_TOKEN: REPTILES_API_TEST_TOKEN,
       DB: createNewsTestDatabase().db,
       REVALIDATE_TOKEN: "test-revalidate-token",
-      SITE: { fetch: async () => new Response(null, { status: 204 }) },
+      SITE: {
+        fetch: () => Promise.resolve(new Response(null, { status: 204 })),
+      },
       SITE_API_KEY: REPTILES_API_TEST_SITE_KEY,
     };
     return app.request(request, undefined, env);

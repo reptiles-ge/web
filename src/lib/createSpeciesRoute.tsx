@@ -131,7 +131,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       };
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
     const id = resolveSpeciesIdInHub(hubId, slug);
     const loaded = id ? await loadSpeciesPage(id, locale) : null;
@@ -215,7 +215,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       notFound();
     }
 
-    const locale = localeParam as AppLocale;
+    const locale = localeParam;
     setRequestLocale(locale);
 
     const id = resolveSpeciesIdInHub(hubId, slug);

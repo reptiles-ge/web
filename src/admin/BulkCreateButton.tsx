@@ -243,7 +243,7 @@ export function BulkCreateButton({
           form={form}
           id={formId}
           layout="vertical"
-          onFinish={upload}
+          onFinish={(values) => void upload(values)}
         >
           <Space orientation="vertical" size={16} style={{ width: "100%" }}>
             {items.map((item, index) => (

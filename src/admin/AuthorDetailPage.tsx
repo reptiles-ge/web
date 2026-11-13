@@ -284,9 +284,10 @@ function tagList(values: string[]) {
 }
 
 function textRows(author: AdminAuthorRecord): TextRow[] {
-  return Object.entries(author.texts).flatMap(([locale, text]) =>
-    text ? [{ ...text, locale }] : [],
-  );
+  return Object.entries(author.texts).map(([locale, text]) => ({
+    ...text,
+    locale,
+  }));
 }
 
 function useAdminDetail(id: string, onSessionExpired: () => void) {

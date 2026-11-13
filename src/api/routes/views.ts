@@ -15,7 +15,7 @@ export const views = new Hono<ApiEnv>().post(
   requireSiteOrigin,
   rateLimitViews,
   validate("json", viewBody),
-  async (c) => {
+  (c) => {
     const userAgent = c.req.header("User-Agent");
     if (!isBotUserAgent(userAgent)) {
       const body = c.req.valid("json");

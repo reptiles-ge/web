@@ -84,9 +84,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getNewsSummaries(),
   ]);
   const photosById = new Map(creditPhotos.map((item) => [item.id, item]));
-  const pending: Array<Promise<SitemapEntry> | SitemapEntry> = [];
+  const pending: Array<Promise<SitemapEntry>> = [];
   const add = (entry: Promise<SitemapEntry> | SitemapEntry) =>
-    pending.push(entry);
+    pending.push(Promise.resolve(entry));
   const archivePageCounts = newsPageCounts(news);
 
   routing.locales.forEach((locale, index) => {
@@ -241,12 +241,13 @@ async function pageEntry(
   datePublished?: string,
 ): Promise<SitemapEntry> {
   const { languages } = localeAlternates(locale, href);
+  const path = typeof href === "string" ? href : (href?.pathname ?? "/");
   return {
     alternates: { languages },
-    datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
+    datePublished: datePublished ?? sitemapPathDatePublished(path),
     lastModified: toLastModified(
       lastModified === undefined
-        ? await pageModifiedDate(String(href), locale, cards, creditPhotos)
+        ? await pageModifiedDate(path, locale, cards, creditPhotos)
         : lastModified,
     ),
     url: absoluteUrl(localePath(locale, href)),

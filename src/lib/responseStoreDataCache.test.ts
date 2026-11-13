@@ -17,7 +17,7 @@ function memoryStore() {
     store: {
       fetch: vi.fn(),
       getTagExpiration: vi.fn(),
-      purge: vi.fn(),
+      purge: vi.fn<(options: { tags: string[] }) => Promise<void>>(),
       put: vi.fn(async (...args: Put) => {
         puts.push(args);
       }),
@@ -41,7 +41,7 @@ describe("NonReplayingResponseStoreCache", () => {
       cache.set("key", value as never, { revalidate: 3600, tags: ["species"] }),
     );
     expect(puts).toHaveLength(1);
-    const [, response, options] = puts[0]!;
+    const [, response, options] = puts[0];
     expect(options.revalidator).toBeUndefined();
     expect(options.expiryBehavior).toBe("miss");
     expect(response.headers.get("Cache-Tag")).toBeTruthy();
@@ -54,9 +54,9 @@ describe("NonReplayingResponseStoreCache", () => {
     await runWithResponseStoreInvocation('{"page":"/"}', true, () =>
       cache.set("key", value as never, { revalidate: 3600, tags: ["species"] }),
     );
-    expect(puts[0]![2].revalidator).toEqual({
+    expect(puts[0][2].revalidator).toEqual({
       args: ["key", '{"page":"/"}'],
-      id: expect.any(String),
+      id: expect.any(String) as string,
     });
   });
 
@@ -78,7 +78,7 @@ describe("NonReplayingResponseStoreCache", () => {
       ),
     );
     expect(store.purge).toHaveBeenCalledTimes(1);
-    expect(store.purge.mock.calls[0]![0].tags).toHaveLength(3);
+    expect(store.purge.mock.calls[0][0].tags).toHaveLength(3);
   });
 
   it("starts a new purge for tags revalidated after the last one was sent", async () => {

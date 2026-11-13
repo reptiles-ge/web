@@ -2,12 +2,10 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { LocalizedLink } from "@/components/LocalizedLink";
 
 export function NotFoundHeading() {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("notFound");
 
   return (

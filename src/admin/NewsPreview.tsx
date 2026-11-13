@@ -29,7 +29,7 @@ export function NewsPreview({
         {copy.dek}
       </Typography.Paragraph>
       {article.image ? (
-        <PreviewFigure locale={locale} photo={article.image as NewsPhoto} />
+        <PreviewFigure locale={locale} photo={article.image} />
       ) : null}
       <Typography.Paragraph strong style={{ fontSize: 17 }}>
         {copy.lead}
@@ -66,7 +66,7 @@ export function NewsPreview({
             <Typography.Link href={source.url} rel="noreferrer" target="_blank">
               {typeof source.name === "string"
                 ? source.name
-                : (source.name[locale] ?? source.name.ka)}
+                : source.name[locale]}
             </Typography.Link>
           </li>
         ))}

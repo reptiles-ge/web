@@ -65,7 +65,7 @@ describe("POST /api/admin/inaturalist-photo", () => {
     const photo = result.get("photo");
     expect(photo).toBeInstanceOf(File);
     expect((photo as File).name).toBe("inaturalist-294797151-530655415.jpg");
-    expect(JSON.parse(String(result.get("metadata")))).toEqual({
+    expect(JSON.parse(result.get("metadata") as string)).toEqual({
       date: "2025-07-02",
       georgiaField: true,
       lat: 41.26394,
@@ -84,7 +84,7 @@ describe("POST /api/admin/inaturalist-photo", () => {
 
     const response = await POST(request(OBSERVATION_URL));
     const result = await response.formData();
-    expect(JSON.parse(String(result.get("metadata")))).toMatchObject({
+    expect(JSON.parse(result.get("metadata") as string)).toMatchObject({
       georgiaField: false,
       lat: "",
       lng: "",
@@ -96,7 +96,7 @@ describe("POST /api/admin/inaturalist-photo", () => {
 
     const response = await POST(request(OBSERVATION_URL));
     const result = await response.formData();
-    expect(JSON.parse(String(result.get("metadata")))).toMatchObject({
+    expect(JSON.parse(result.get("metadata") as string)).toMatchObject({
       georgiaField: false,
       location: "Georgia",
     });

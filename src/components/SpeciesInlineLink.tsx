@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 
 import { useLocale } from "next-intl";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesHubId } from "@/lib/speciesHubs";
 
 import { useOptionalLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
@@ -28,7 +27,7 @@ export function SpeciesInlineLink({
   id: string;
   source?: SpeciesClickSource;
 }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const switchIndex = useOptionalLocaleSwitchIndex();
   if (!switchIndex) return children;
   const speciesId = switchIndex.hubById[id] ? id : switchIndex.idBySlug[id];

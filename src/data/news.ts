@@ -54,7 +54,7 @@ export function getPublishedNewsArticles(locale?: AppLocale) {
   const articles: NewsArticle[] = [];
   for (const article of NEWS_ARTICLES) {
     if (article.status !== "published") continue;
-    if (locale && !article.copy[locale]) continue;
+    if (locale && !hasNewsCopy(article, locale)) continue;
     articles.push(article);
   }
 
@@ -110,6 +110,13 @@ export function getPublishedNewsForSpecies(
   );
 }
 
+export function hasNewsCopy(
+  article: Pick<NewsSummary, "copy">,
+  locale: AppLocale,
+) {
+  return article.copy[locale] !== undefined;
+}
+
 export function newsArticlePhotos(article: NewsArticle) {
   const photos: NewsPhoto[] = [];
   if (article.image) photos.push(article.image);
@@ -119,7 +126,8 @@ export function newsArticlePhotos(article: NewsArticle) {
 
 export function newsLinkedSpeciesIds(article: NewsArticle, locale: AppLocale) {
   const ids = new Set<string>();
-  for (const section of getNewsCopy(article, locale)?.sections ?? []) {
+  if (!hasNewsCopy(article, locale)) return ids;
+  for (const section of getNewsCopy(article, locale).sections) {
     for (const block of section.blocks) {
       if (block.type !== "p") continue;
       for (const part of block.parts) {
@@ -180,9 +188,9 @@ export function newsSearchKeywords(
   return [
     article.slug,
     ...Object.values(article.copy).flatMap((copy) => [
-      copy?.title,
-      copy?.dek,
-      copy?.metaTitle,
+      copy.title,
+      copy.dek,
+      copy.metaTitle,
     ]),
     ...article.sources.flatMap(newsSourceNames),
   ].filter((item): item is string => Boolean(item));

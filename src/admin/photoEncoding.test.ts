@@ -8,13 +8,14 @@ import {
 
 function codecs(): PhotoCodecs {
   const bytes = (label: string) => async (image: ImageData) =>
-    new TextEncoder().encode(`${label}:${image.width}x${image.height}`)
-      .buffer as ArrayBuffer;
+    new TextEncoder().encode(`${label}:${image.width}x${image.height}`).buffer;
   return {
     avif: vi.fn(bytes("avif")),
     jpeg: vi.fn(bytes("jpeg")),
     png: vi.fn(bytes("png")),
-    resize: vi.fn(async (_image, width, height) => imageData(width, height)),
+    resize: vi.fn(async (_image: ImageData, width: number, height: number) =>
+      imageData(width, height),
+    ),
     webp: vi.fn(bytes("webp")),
   };
 }
@@ -44,8 +45,8 @@ describe("encodePhoto", () => {
       "1000.avif",
       "1000.webp",
     ]);
-    expect(await photo.derivatives[0]!.text()).toBe("avif:320x240");
-    expect(photo.derivatives[1]!.type).toBe("image/webp");
+    expect(await photo.derivatives[0].text()).toBe("avif:320x240");
+    expect(photo.derivatives[1].type).toBe("image/webp");
     expect(used.resize).toHaveBeenCalledTimes(4);
     expect(used.png).not.toHaveBeenCalled();
     expect({ height: photo.height, width: photo.width }).toStrictEqual({

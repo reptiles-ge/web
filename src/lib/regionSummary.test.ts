@@ -29,7 +29,7 @@ vi.mock("next-intl/server", () => ({
   }) =>
     createTranslator({
       locale,
-      messages: MESSAGES[locale] as typeof en,
+      messages: MESSAGES[locale],
       namespace: namespace as "regions.summary",
     }),
 }));
@@ -87,7 +87,7 @@ describe("region summary copy", () => {
       expect(text).toContain(String(region.speciesIds.length));
       const t = createTranslator({
         locale,
-        messages: MESSAGES[locale] as typeof en,
+        messages: MESSAGES[locale],
         namespace: "regions.summary",
       });
       const facts = regionSummaryFacts(region, catalog);

@@ -5,8 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useId, useState } from "react";
 import { Drawer } from "vaul";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import {
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
@@ -44,7 +42,7 @@ export function AtlasFilterSheet({
   total,
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const titleId = useId();
   const [draft, setDraft] = useState<AtlasFilters>(filters);
   const [syncedOpen, setSyncedOpen] = useState(open);

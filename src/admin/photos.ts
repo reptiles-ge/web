@@ -103,7 +103,7 @@ export async function uploadSpeciesPhoto(
 ): Promise<UploadedPhoto> {
   const text = Object.fromEntries(
     Object.entries(credit).flatMap(([key, value]) =>
-      value?.trim() ? [[key, value.trim()]] : [],
+      typeof value === "string" && value.trim() ? [[key, value.trim()]] : [],
     ),
   );
   const response = await api.v1.admin.species[":id"].photos.$post({
@@ -128,5 +128,5 @@ export async function uploadSpeciesPhoto(
     );
   }
   checkAdminResponse(response, "Photo upload failed");
-  return ((await response.json()) as { data: UploadedPhoto }).data;
+  return (await response.json()).data;
 }

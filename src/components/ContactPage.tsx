@@ -60,7 +60,7 @@ const eyebrowClass =
 const darkButtonClass =
   "inline-flex items-center justify-center gap-2.5 rounded-full bg-(--nw-strong) font-semibold text-(--nw-on-strong) transition-opacity hover:opacity-90";
 
-export async function ContactPage({ locale }: { locale: AppLocale }) {
+export function ContactPage({ locale }: { locale: AppLocale }) {
   return (
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <ContactHero locale={locale} />

@@ -10,7 +10,7 @@ import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { QuizLanding } from "@/components/QuizLanding";
 import { QuizPlayer } from "@/components/QuizPlayer";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const quiz = resolveQuizBySlug(locale, slug);
   if (!quiz) return {};
 
@@ -106,7 +106,7 @@ export default async function QuizSlugRoute({ params }: Props) {
     notFound();
   }
 
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const quiz = resolveQuizBySlug(locale, slug);
   if (!quiz) {
     notFound();

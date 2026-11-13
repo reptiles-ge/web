@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Region, RegionTooltipSpecies } from "@/data/mapRegions";
-import type { AppLocale } from "@/i18n/routing";
 
 import { localizeRegionText } from "@/data/mapRegions";
 
@@ -20,7 +19,7 @@ export function RegionTooltip({
   region,
   species,
 }: RegionTooltipProps) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   const t = useTranslations("map");
 
   return (

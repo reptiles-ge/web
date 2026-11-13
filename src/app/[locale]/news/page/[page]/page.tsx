@@ -122,7 +122,7 @@ async function archiveCopy(
 async function resolveArchivePage(params: Props["params"]) {
   const { locale: localeParam, page: pageParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return null;
-  const locale = localeParam as AppLocale;
+  const locale = localeParam;
   const page = parseNewsArchivePage(pageParam);
   const newsPage = page ? await getNewsListPage(locale, page) : null;
   return newsPage ? { locale, newsPage } : null;

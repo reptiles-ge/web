@@ -1,7 +1,9 @@
 import { rmSync } from "node:fs";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const execFileSync = vi.hoisted(() => vi.fn());
+const execFileSync = vi.hoisted(() =>
+  vi.fn<(command: string, args: string[], options?: unknown) => string>(),
+);
 
 vi.mock("node:child_process", () => ({ execFileSync }));
 vi.mock("@/lib/imageOptimize", () => ({ applyOptimizeCatalog: vi.fn() }));
@@ -40,7 +42,7 @@ describe("standalone photo PRs", () => {
         return "https://github.com/reptiles-ge/web.git\n";
       }
       if (args[0] === "worktree" && args[1] === "remove") {
-        rmSync(args.at(-1) as string, { force: true, recursive: true });
+        rmSync(args.at(-1)!, { force: true, recursive: true });
       }
       return "";
     });

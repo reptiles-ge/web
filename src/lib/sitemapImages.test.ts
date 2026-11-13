@@ -98,7 +98,7 @@ describe("speciesPageImageUrls", () => {
           { src: "https://cdn.reptiles.ge/kept.jpg" },
         ],
         image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Other.jpg",
-      } as Species),
+      }),
     ).toEqual(["https://cdn.reptiles.ge/kept.jpg"]);
   });
 
@@ -108,7 +108,7 @@ describe("speciesPageImageUrls", () => {
         ...base,
         gallery: [{ src: "/images/species-placeholder.jpg" }],
         image: "/images/species-placeholder.png",
-      } as Species),
+      }),
     ).toEqual([]);
   });
 
@@ -120,7 +120,7 @@ describe("speciesPageImageUrls", () => {
       ...base,
       gallery,
       image: "",
-    } as Species);
+    });
 
     expect(urls).toHaveLength(12);
     expect(urls.at(-1)).toBe("https://cdn.reptiles.ge/photo-12.jpg");

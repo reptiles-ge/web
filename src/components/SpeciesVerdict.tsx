@@ -117,21 +117,19 @@ export async function SpeciesVerdict({
           ) : null}
           {links.length > 0 ? (
             <ul className="mt-2.5 flex flex-wrap items-center gap-x-5 border-t border-border lg:mt-auto lg:gap-x-6">
-              {links.map((card) =>
-                card.kind === "page" ? (
-                  <li key={card.key}>
-                    <Link
-                      className="inline-flex min-h-12 items-center gap-1.5 text-[14px] font-medium text-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                      href={card.href}
-                    >
-                      <span className="border-b border-foreground/30 pb-0.5">
-                        {tHubs(`cluster.${card.key}.title`)}
-                      </span>
-                      <ArrowRight aria-hidden="true" className="size-4" />
-                    </Link>
-                  </li>
-                ) : null,
-              )}
+              {links.map((card) => (
+                <li key={card.key}>
+                  <Link
+                    className="inline-flex min-h-12 items-center gap-1.5 text-[14px] font-medium text-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    href={card.href}
+                  >
+                    <span className="border-b border-foreground/30 pb-0.5">
+                      {tHubs(`cluster.${card.key}.title`)}
+                    </span>
+                    <ArrowRight aria-hidden="true" className="size-4" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           ) : null}
         </div>

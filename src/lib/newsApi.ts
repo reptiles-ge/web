@@ -10,7 +10,7 @@ import type {
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { type AppLocale, routing } from "@/i18n/routing";
-import { createApiClient } from "@/lib/apiClient";
+import { createApiClient, responseOk } from "@/lib/apiClient";
 import { MAX_PAGE_SIZE, type PageParams } from "@/lib/pagination";
 import { speciesFetchOptions } from "@/lib/speciesApiFetch";
 
@@ -21,7 +21,7 @@ const getNewsDetail = cache(async (slug: string, locale: AppLocale) => {
     { header: { "x-locale": locale }, param: { slug } },
     speciesFetchOptions(["news", `news:${slug}`]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     const status: number = response.status;
     if (status === 404) return null;
     throw new Error(`News API answered ${status} for ${slug}`);
@@ -93,7 +93,7 @@ export const getNewsSummaries = cache(async (): Promise<NewsSummary[]> => {
         sources: base.sources.map((source, index) =>
           localizedSource(
             source.url,
-            items.map(([locale, item]) => [locale, item.sources[index]!.name]),
+            items.map(([locale, item]) => [locale, item.sources[index].name]),
           ),
         ),
         status: "published",
@@ -177,7 +177,7 @@ export const getNewsArticle = cache(
       sources: base.sources.map((source, index) =>
         localizedSource(
           source.url,
-          details.map(([locale, data]) => [locale, data.sources[index]!.name]),
+          details.map(([locale, data]) => [locale, data.sources[index].name]),
         ),
       ),
       status: "published",
@@ -218,7 +218,7 @@ async function fetchNewsPage(
     },
     speciesFetchOptions(["news"]),
   );
-  if (!response.ok) {
+  if (!responseOk(response)) {
     throw new Error(`News API answered ${response.status}`);
   }
   return response.json();
@@ -229,7 +229,7 @@ function localizedSource(
   names: Array<readonly [AppLocale, string]>,
 ): NewsSource {
   const values = new Set(names.map(([, name]) => name));
-  if (values.size === 1) return { name: names[0]![1], url };
+  if (values.size === 1) return { name: names[0][1], url };
   return {
     name: Object.fromEntries(names) as Record<AppLocale, string>,
     url,

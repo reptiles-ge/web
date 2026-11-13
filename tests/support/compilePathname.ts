@@ -1,5 +1,3 @@
-import type { AppLocale } from "@/i18n/routing";
-
 import { pathnames } from "@/i18n/pathnames";
 
 export type TestHref =
@@ -11,7 +9,7 @@ export type TestHref =
       query?: Record<string, string>;
     };
 
-export function compilePathname(href: TestHref, locale: AppLocale | string) {
+export function compilePathname(href: TestHref, locale: string) {
   const {
     hash,
     params = {},

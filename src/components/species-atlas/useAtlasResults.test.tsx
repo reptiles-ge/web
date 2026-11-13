@@ -78,7 +78,7 @@ describe("useAtlasPage", () => {
     expect(result.current).toMatchObject({ loading: true, page: initial });
     await flush();
     expect(fetchMock).toHaveBeenCalledWith("/api/atlas/en?group=snake", {
-      signal: expect.any(AbortSignal),
+      signal: expect.any(AbortSignal) as AbortSignal,
     });
     expect(result.current).toMatchObject({ loading: false, page: next });
     rerender({ query: defaultAtlasQuery });
@@ -126,7 +126,7 @@ describe("useAtlasCounts", () => {
     await flush();
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/atlas/ka?group=snake&counts=1",
-      { signal: expect.any(AbortSignal) },
+      { signal: expect.any(AbortSignal) as AbortSignal },
     );
     expect(result.current).toEqual(counts);
   });

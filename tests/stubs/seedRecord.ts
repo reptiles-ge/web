@@ -19,15 +19,18 @@ export function lazySeedRecord<T>(
 ): Record<string, T> {
   let cache: Record<string, T> | undefined;
   const target = () => (cache ??= load());
-  return new Proxy({} as Record<string, T>, {
-    get: (_, key) => Reflect.get(target(), key),
-    getOwnPropertyDescriptor: (_, key) => {
-      const descriptor = Reflect.getOwnPropertyDescriptor(target(), key);
-      return descriptor && { ...descriptor, configurable: true };
+  return new Proxy(
+    {},
+    {
+      get: (_, key): unknown => Reflect.get(target(), key),
+      getOwnPropertyDescriptor: (_, key) => {
+        const descriptor = Reflect.getOwnPropertyDescriptor(target(), key);
+        return descriptor && { ...descriptor, configurable: true };
+      },
+      has: (_, key) => Reflect.has(target(), key),
+      ownKeys: () => Reflect.ownKeys(target()),
     },
-    has: (_, key) => Reflect.has(target(), key),
-    ownKeys: () => Reflect.ownKeys(target()),
-  });
+  );
 }
 
 export function seedSpecies() {

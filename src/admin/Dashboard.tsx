@@ -131,7 +131,7 @@ export function Dashboard({
             >
               {user.email}
             </Typography.Text>
-            <Button loading={pending} onClick={logout}>
+            <Button loading={pending} onClick={() => void logout()}>
               Sign out
             </Button>
           </Space>

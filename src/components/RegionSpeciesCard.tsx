@@ -3,7 +3,6 @@
 import { useLocale } from "next-intl";
 
 import type { RegionSpeciesCardItem } from "@/data/regions";
-import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
@@ -19,7 +18,7 @@ export function RegionSpeciesCard({
   showDanger?: boolean;
   species: RegionSpeciesCardItem;
 }) {
-  const locale = useLocale() as AppLocale;
+  const locale = useLocale();
   return (
     <Link
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"

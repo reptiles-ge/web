@@ -46,7 +46,7 @@ function collectImageObjects(value: unknown, found: ImageObject[] = []) {
     for (const item of value) collectImageObjects(item, found);
   } else if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
-    if (record["@type"] === "ImageObject") found.push(record as ImageObject);
+    if (record["@type"] === "ImageObject") found.push(record);
     for (const child of Object.values(record)) {
       collectImageObjects(child, found);
     }
@@ -63,7 +63,7 @@ function collectNamedNodes(
   } else if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
     if (typeof record["@id"] === "string" && record["@type"]) {
-      found.set(record["@id"], record as ImageObject["creator"]);
+      found.set(record["@id"], record);
     }
     for (const child of Object.values(record)) collectNamedNodes(child, found);
   }

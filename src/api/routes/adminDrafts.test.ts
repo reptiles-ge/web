@@ -282,7 +282,7 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
       sqlite.prepare("SELECT status, decided_by FROM species_drafts").all(),
     ).toEqual([{ decided_by: "Admin", status: "approved" }]);
     expect(siteFetch).toHaveBeenCalledOnce();
-    expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
+    expect(await siteFetch.mock.calls[0][0].json()).toEqual({
       tags: ["species", `species:${ID}`],
     });
   });
@@ -504,7 +504,7 @@ describe("POST /v1/admin/drafts/merge", () => {
         {
           code: "version_conflict",
           draftId: second,
-          message: expect.any(String),
+          message: expect.any(String) as string,
           status: "failed",
         },
         {
@@ -527,7 +527,7 @@ describe("POST /v1/admin/drafts/merge", () => {
       { decided_by: null, status: "pending" },
     ]);
     expect(siteFetch).toHaveBeenCalledOnce();
-    expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
+    expect(await siteFetch.mock.calls[0][0].json()).toEqual({
       tags: ["species", `species:${ID}`],
     });
   });
@@ -535,7 +535,7 @@ describe("POST /v1/admin/drafts/merge", () => {
   it("does not clear the cache when nothing was merged", async () => {
     const { body } = await mergeMany([9999]);
     expect(body.data.revalidated).toBe(true);
-    expect(body.data.results[0]!.status).toBe("failed");
+    expect(body.data.results[0].status).toBe("failed");
     expect(siteFetch).not.toHaveBeenCalled();
   });
 

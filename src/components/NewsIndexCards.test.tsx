@@ -88,8 +88,8 @@ describe("NewsIndexCards", () => {
     expect(times).toHaveLength(1);
     expect(times[0]).toHaveAttribute("dateTime", "2026-09-01");
     expect(times[0]).toHaveTextContent(/^1 September 2026$/);
-    expect(container.textContent?.split(ENTRY.title)).toHaveLength(2);
-    expect(container.textContent?.split("1 September 2026")).toHaveLength(2);
+    expect(container.textContent.split(ENTRY.title)).toHaveLength(2);
+    expect(container.textContent.split("1 September 2026")).toHaveLength(2);
     expect(screen.getAllByText("3 min read")).toHaveLength(1);
     expect(screen.getAllByRole("link")).toHaveLength(1);
   });

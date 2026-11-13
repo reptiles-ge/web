@@ -136,7 +136,7 @@ function authorSocials(
   t: Awaited<ReturnType<typeof getTranslations>>,
 ): AuthorSocial[] {
   const socials: AuthorSocial[] = [];
-  if (author.links?.facebook) {
+  if (author.links.facebook) {
     socials.push({
       href: author.links.facebook,
       Icon: FacebookGlyph,
@@ -144,7 +144,7 @@ function authorSocials(
       label: t("facebook"),
     });
   }
-  if (author.links?.instagram) {
+  if (author.links.instagram) {
     socials.push({
       href: author.links.instagram,
       Icon: InstagramGlyph,
@@ -152,7 +152,7 @@ function authorSocials(
       label: t("instagram"),
     });
   }
-  if (author.links?.inaturalist) {
+  if (author.links.inaturalist) {
     socials.push({
       href: author.links.inaturalist,
       Icon: ExternalLink,
@@ -160,7 +160,7 @@ function authorSocials(
       label: "iNaturalist",
     });
   }
-  if (author.links?.researchGate) {
+  if (author.links.researchGate) {
     socials.push({
       href: author.links.researchGate,
       Icon: ExternalLink,

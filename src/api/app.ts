@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { type Context, Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import { cors } from "hono/cors";
 import { etag } from "hono/etag";
@@ -66,7 +66,7 @@ export const app = new Hono<ApiEnv>()
       allowMethods: ["GET", "POST", "OPTIONS"],
       credentials: true,
       maxAge: CORS_MAX_AGE,
-      origin: (origin, c) =>
+      origin: (origin, c: Context<ApiEnv>) =>
         allowedOrigins(c.env).includes(origin) ? origin : "*",
     }),
   )
