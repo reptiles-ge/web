@@ -17,6 +17,7 @@ import {
 } from "../src/data/schemaImages";
 import {
   getAdminSchemaImageCrops,
+  getSchemaImageCrops,
   putSchemaImageCrops,
 } from "../src/lib/optimizedImagesApi";
 import {
@@ -119,7 +120,10 @@ function writeToken(): string {
   return token;
 }
 
-async function readManifest(token: string): Promise<Manifest> {
+async function readManifest(token: null | string): Promise<Manifest> {
+  if (token === null) {
+    return { entries: (await getSchemaImageCrops()) ?? {} };
+  }
   const rows = await getAdminSchemaImageCrops(token);
   return {
     entries: Object.fromEntries(rows.map((row) => [row.src, row.crops])),
@@ -183,7 +187,7 @@ async function selectHeroes(
 async function main() {
   loadEnv();
   const options = parseArguments(process.argv.slice(2));
-  const token = writeToken();
+  const token = options.upload ? writeToken() : null;
   const manifest = await readManifest(token);
   const catalog = (await getSpeciesCatalog("ka")).filter(
     (item): item is typeof item & { image: string } => Boolean(item.image),
@@ -244,7 +248,7 @@ async function main() {
         width: result.width,
       });
     }
-    if (options.upload) {
+    if (token !== null) {
       await putSchemaImageCrops(token, [{ crops, src: hero.src }]);
     }
   }
