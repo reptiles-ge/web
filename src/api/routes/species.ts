@@ -6,10 +6,9 @@ import { readFieldRecords } from "../db/fieldRecords";
 import { readRangeMap } from "../db/rangeMaps";
 import {
   findPublishedSpeciesId,
-  getSpeciesDetail,
+  getPublishedSpeciesPage,
   listPublishedSpecies,
 } from "../db/species";
-import { readViewTotal } from "../db/views";
 import { cacheTags, edgeCache, PUBLIC_CACHE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import { requirePublishedSpeciesId } from "../lib/publishedSpecies";
@@ -40,14 +39,9 @@ export const species = new Hono<ApiEnv>()
     async (c) => {
       const { slug } = c.req.valid("param");
       const { "x-locale": locale } = c.req.valid("header");
-      const id = await findPublishedSpeciesId(c.env.DB, slug, locale);
-      const [data, views] = id
-        ? await Promise.all([
-            getSpeciesDetail(c.env.DB, id, locale),
-            readViewTotal(c.env.DB, "species", id),
-          ])
-        : [null, 0];
-      if (!data) throw new ApiError(404, "not_found", "Species not found");
+      const found = await getPublishedSpeciesPage(c.env.DB, slug, locale);
+      if (!found) throw new ApiError(404, "not_found", "Species not found");
+      const { data, id, views } = found;
       cacheTags(c, `species:${id}`);
       c.header("Cache-Control", PUBLIC_CACHE);
       c.header("Content-Language", locale);
