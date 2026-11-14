@@ -12,7 +12,7 @@ type FieldRecordsOptions = Parameters<
   >["v1"]["species"][":slug"]["field-records"]["$get"]
 >[1];
 
-export function fetchSpeciesFieldRecords(
+function fetchSpeciesFieldRecords(
   api: ReturnType<typeof createApiClient>,
   id: string,
   options: FieldRecordsOptions,

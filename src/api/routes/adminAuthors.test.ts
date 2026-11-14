@@ -197,9 +197,7 @@ describe("PUT /v1/admin/authors/:id", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({
-      tags: ["authors", "author:charles-j-sharp", "species", "news"],
-    });
+    expect(request.body).toBeNull();
   });
 
   it("refuses an alias that belongs to another author", async () => {
@@ -294,11 +292,9 @@ function listAuthorsWith(query: string) {
   return listAuthors(undefined, query);
 }
 
-async function sentTags() {
+async function sentBody() {
   const [request] = siteFetch.mock.calls[0]!;
-  expect(request.url).toBe("https://reptiles.ge/api/revalidate");
-  expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-  return ((await request.json()) as { tags: string[] }).tags;
+  return Promise.resolve(request.body);
 }
 
 describe("GET /v1/admin/authors", () => {
@@ -447,14 +443,14 @@ describe("POST /v1/admin/authors/:id/revalidate and /revalidate", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body.data).toEqual({ id: "sandro-khakhva" });
-    expect(await sentTags()).toEqual(["author:sandro-khakhva"]);
+    expect(await sentBody()).toBeNull();
   });
 
   it("revalidates every page that shows authors", async () => {
     const { body, response } = await adminAction("/revalidate");
     expect(response.status).toBe(200);
     expect(body.data).toEqual({ tags: ["authors"] });
-    expect(await sentTags()).toEqual(["authors"]);
+    expect(await sentBody()).toBeNull();
   });
 
   it("answers 404 for an unknown author and 502 when the site fails", async () => {
@@ -619,12 +615,7 @@ describe("POST /v1/admin/authors/:id/texts", () => {
     expect(authorDates(ID).published_at).toBe("2026-09-16T13:17:00.000Z");
     expect(linkedMedia(ID)).toBeGreaterThan(0);
     expect(siteFetch).toHaveBeenCalledTimes(1);
-    expect(await sentTags()).toEqual([
-      "authors",
-      `author:${ID}`,
-      "species",
-      "news",
-    ]);
+    expect(await sentBody()).toBeNull();
   });
 
   it("refuses invalid texts and unknown authors", async () => {

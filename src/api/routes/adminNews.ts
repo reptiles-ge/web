@@ -22,12 +22,7 @@ import { NO_STORE } from "../lib/cache";
 import { REGION_IDS } from "../lib/catalogFilter";
 import { ApiError } from "../lib/errors";
 import { newsCopyIssues } from "../lib/newsCopy";
-import {
-  ensureSiteRevalidated,
-  revalidateNewsArticle,
-  revalidateNewsPages,
-  revalidateNewsSection,
-} from "../lib/revalidateSite";
+import { clearCaches, ensureSiteRevalidated } from "../lib/revalidateSite";
 import { stableJson } from "../lib/stableJson";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
@@ -61,7 +56,7 @@ export const adminNews = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateNewsSection(c.env));
+      await ensureSiteRevalidated(clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["news"] } }, 200);
     },
@@ -77,7 +72,7 @@ export const adminNews = new Hono<ApiEnv>()
       if (!(await readNewsState(c.env.DB, slug))) {
         throw new ApiError(404, "not_found", "Article not found");
       }
-      await ensureSiteRevalidated(revalidateNewsArticle(c.env, slug));
+      await ensureSiteRevalidated(clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id: slug } }, 200);
     },
@@ -202,7 +197,7 @@ export const adminNews = new Hono<ApiEnv>()
         }
         throw error;
       }
-      inBackground(c, revalidateNewsPages(c.env, slug));
+      inBackground(c, clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id: slug, status, version } }, 200);
     },

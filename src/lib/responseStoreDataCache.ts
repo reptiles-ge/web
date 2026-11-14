@@ -1,3 +1,5 @@
+import type { WorkersResponseStore } from "@cloudflare/workers-response-store";
+
 import {
   runWithResponseStoreInvocation,
   WorkersResponseStoreCacheHandler,
@@ -9,6 +11,12 @@ export class NonReplayingResponseStoreCache extends WorkersResponseStoreCacheHan
   private pendingPurge: null | Promise<void> = null;
 
   private readonly pendingTags = new Set<string>();
+
+  async purgeEverything() {
+    const store = Reflect.get(this, "store") as WorkersResponseStore;
+    const result = await store.purge({ purgeEverything: true });
+    return result.edgePurgeAccepted;
+  }
 
   override revalidateTag(tags: Tags) {
     for (const tag of Array.isArray(tags) ? tags : [tags]) {
@@ -30,4 +38,8 @@ export class NonReplayingResponseStoreCache extends WorkersResponseStoreCacheHan
 
 export default function createResponseStoreDataCache() {
   return new NonReplayingResponseStoreCache();
+}
+
+export async function purgeSiteCache() {
+  return new NonReplayingResponseStoreCache().purgeEverything();
 }

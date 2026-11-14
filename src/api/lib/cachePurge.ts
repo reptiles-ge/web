@@ -6,9 +6,7 @@ export type CachePurgeResult = "failed" | "purged";
 
 export async function purgeApiCache(
   env: ApiBindings,
-  tags: string[],
 ): Promise<CachePurgeResult> {
-  if (tags.length === 0) return "purged";
   try {
     await bumpCacheGeneration(env.DB);
     return "purged";

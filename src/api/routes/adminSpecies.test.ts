@@ -597,9 +597,7 @@ describe("POST /v1/admin/species/:id/revalidate", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({
-      tags: ["species", `species:${ID}`],
-    });
+    expect(request.body).toBeNull();
   });
 
   it("moves the API cache to a new generation before revalidating the site", async () => {

@@ -6,6 +6,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import createResponseStoreDataCache, {
   NonReplayingResponseStoreCache,
+  purgeSiteCache,
 } from "./responseStoreDataCache";
 
 type Put = [Request, Response, Record<string, unknown>];
@@ -17,7 +18,12 @@ function memoryStore() {
     store: {
       fetch: vi.fn(),
       getTagExpiration: vi.fn(),
-      purge: vi.fn<(options: { tags: string[] }) => Promise<void>>(),
+      purge: vi.fn<
+        (options: { purgeEverything?: boolean; tags?: string[] }) => Promise<{
+          backingStoreUpdated: boolean;
+          edgePurgeAccepted: boolean;
+        }>
+      >(async () => ({ backingStoreUpdated: true, edgePurgeAccepted: true })),
       put: vi.fn(async (...args: Put) => {
         puts.push(args);
       }),
@@ -81,6 +87,20 @@ describe("NonReplayingResponseStoreCache", () => {
     expect(store.purge.mock.calls[0]![0].tags).toHaveLength(3);
   });
 
+  it("purges every entry at once and reports whether the edge accepted it", async () => {
+    const { store } = memoryStore();
+    const cache = new NonReplayingResponseStoreCache(store as never);
+    expect(await cache.purgeEverything()).toBe(true);
+    expect(store.purge).toHaveBeenCalledExactlyOnceWith({
+      purgeEverything: true,
+    });
+    store.purge.mockResolvedValueOnce({
+      backingStoreUpdated: true,
+      edgePurgeAccepted: false,
+    });
+    expect(await cache.purgeEverything()).toBe(false);
+  });
+
   it("starts a new purge for tags revalidated after the last one was sent", async () => {
     const { store } = memoryStore();
     const cache = new NonReplayingResponseStoreCache(store as never);
@@ -89,7 +109,10 @@ describe("NonReplayingResponseStoreCache", () => {
     expect(store.purge).toHaveBeenCalledTimes(2);
   });
 
-  it("is what the adapter factory builds", () => {
+  it("is what the adapter factory and the site purge build", async () => {
+    await expect(purgeSiteCache()).rejects.toThrow(
+      "Workers Response Store adapter must run through its generated Cloudflare worker entry",
+    );
     expect(() => createResponseStoreDataCache()).toThrow(
       "Workers Response Store adapter must run through its generated Cloudflare worker entry",
     );

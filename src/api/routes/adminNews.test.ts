@@ -189,9 +189,7 @@ describe("POST /v1/admin/news/:slug/status", () => {
     expect(served.response.status).toBe(200);
     expect(served.body.data.title).toBe(article.copy.ka.title);
     const [request] = siteFetch.mock.calls[0]!;
-    expect(await request.json()).toEqual({
-      tags: ["news", `news:${article.id}`],
-    });
+    expect(request.body).toBeNull();
     expect(
       sqlite
         .prepare("SELECT version, source FROM news_revisions ORDER BY version")
@@ -385,7 +383,7 @@ describe("POST /v1/admin/news/:slug/revalidate", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({ tags: [`news:${article.id}`] });
+    expect(request.body).toBeNull();
   });
 
   it("answers 404 for an unknown article and 502 when the site fails", async () => {
@@ -456,7 +454,7 @@ describe("POST /v1/admin/news/revalidate", () => {
     expect(body.data).toEqual({ tags: ["news"] });
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
-    expect(await request.json()).toEqual({ tags: ["news"] });
+    expect(request.body).toBeNull();
   });
 
   it("answers 502 when the site fails", async () => {

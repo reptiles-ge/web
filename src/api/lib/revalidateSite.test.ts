@@ -2,16 +2,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { ApiBindings } from "../env";
 
+import { readCacheGeneration } from "../db/cacheGeneration";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
-import {
-  revalidateAuthorPages,
-  revalidateContributorPage,
-  revalidateMergedSpecies,
-  revalidateNewsArticle,
-  revalidatePageGroup,
-  revalidateSpeciesPage,
-  revalidateSpeciesSite,
-} from "./revalidateSite";
+import { clearCaches, ensureSiteRevalidated } from "./revalidateSite";
 
 let env: ApiBindings;
 let siteFetch: ReturnType<
@@ -32,39 +25,18 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-async function sentPayloads() {
-  return Promise.all(
-    siteFetch.mock.calls.map(
-      async ([request]) => (await request.json()) as unknown,
-    ),
-  );
-}
-
-describe("site cache clear", () => {
-  it("clears one species, one news article and one contributor by tag", async () => {
-    expect(await revalidateSpeciesPage(env, "macrovipera-lebetina")).toBe(true);
-    expect(await revalidateNewsArticle(env, "a")).toBe(true);
-    expect(await revalidateContributorPage(env, "sandro")).toBe(true);
-    expect(await revalidateAuthorPages(env, "sandro")).toBe(true);
-    expect(await sentPayloads()).toEqual([
-      { tags: ["species", "species:macrovipera-lebetina"] },
-      { tags: ["news:a"] },
-      { tags: ["author:sandro"] },
-      { tags: ["authors", "author:sandro", "species", "news"] },
-    ]);
+describe("clearCaches", () => {
+  it("empties the API cache, then asks the site to empty its whole cache", async () => {
+    expect(await clearCaches(env)).toBe(true);
+    expect(await readCacheGeneration(env.DB)).toBe(1);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
+    expect(request.method).toBe("POST");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
   });
 
-  it("sends species batches 20 tags at a time", async () => {
-    const ids = Array.from({ length: 25 }, (_, index) => `s${index}`);
-    expect(await revalidateMergedSpecies(env, ids)).toBe(true);
-    const payloads = (await sentPayloads()) as Array<{ tags: string[] }>;
-    expect(payloads.map(({ tags }) => tags.length)).toEqual([20, 6]);
-  });
-
-  it("fails when the API purge fails", async () => {
+  it("fails when the API purge fails, and still clears the site", async () => {
     env = {
       ...env,
       DB: {
@@ -74,31 +46,28 @@ describe("site cache clear", () => {
         },
       },
     };
-    expect(await revalidateSpeciesPage(env, "macrovipera-lebetina")).toBe(
-      false,
-    );
-    expect(await revalidateSpeciesSite(env, ["a"])).toBe(false);
-    expect(await revalidateMergedSpecies(env, ["a"])).toBe(false);
+    expect(await clearCaches(env)).toBe(false);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
   });
 
-  it("fails when the site refuses the clear or is not configured", async () => {
-    siteFetch.mockResolvedValue(new Response(null, { status: 500 }));
-    expect(await revalidateSpeciesPage(env, "macrovipera-lebetina")).toBe(
-      false,
-    );
-    expect(await revalidatePageGroup(env, "site")).toBe(false);
+  it("fails when the site refuses the clear, is down or is not configured", async () => {
+    siteFetch.mockResolvedValue(new Response(null, { status: 503 }));
+    expect(await clearCaches(env)).toBe(false);
     siteFetch.mockRejectedValue(new Error("down"));
-    expect(await revalidateSpeciesSite(env, ["a"])).toBe(false);
-    expect(
-      await revalidatePageGroup(
-        { ...env, REVALIDATE_TOKEN: undefined },
-        "site",
-      ),
-    ).toBe(false);
+    expect(await clearCaches(env)).toBe(false);
+    expect(await clearCaches({ ...env, REVALIDATE_TOKEN: undefined })).toBe(
+      false,
+    );
   });
+});
 
-  it("clears a page group by id", async () => {
-    expect(await revalidatePageGroup(env, "site")).toBe(true);
-    expect(await sentPayloads()).toEqual([{ groups: ["site"] }]);
+describe("ensureSiteRevalidated", () => {
+  it("turns a failed clear into a 502", async () => {
+    await expect(
+      ensureSiteRevalidated(Promise.resolve(false)),
+    ).rejects.toMatchObject({ code: "site_unavailable", status: 502 });
+    await expect(
+      ensureSiteRevalidated(Promise.resolve(true)),
+    ).resolves.toBeUndefined();
   });
 });

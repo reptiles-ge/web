@@ -1,34 +1,7 @@
-import { revalidatePath, revalidateTag } from "next/cache";
-import { z } from "zod";
-
 import { serverEnv } from "@/lib/env";
-import { findSitePageGroup, SITE_PAGE_GROUP_IDS } from "@/lib/sitePageGroups";
-import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
-
-const EXPIRE_NOW = { expire: 0 };
+import { purgeSiteCache } from "@/lib/responseStoreDataCache";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
-
-const body = z
-  .strictObject({
-    groups: z
-      .array(z.enum(SITE_PAGE_GROUP_IDS as [string, ...string[]]))
-      .min(1)
-      .max(SITE_PAGE_GROUP_IDS.length)
-      .optional(),
-    tags: z
-      .array(
-        z
-          .string()
-          .regex(
-            /^(?:authors|news|species|(?:author|news|species):[a-z0-9]+(?:-[a-z0-9]+)*)$/,
-          ),
-      )
-      .min(1)
-      .max(20)
-      .optional(),
-  })
-  .refine((value) => value.groups || value.tags);
 
 export async function POST(request: Request) {
   const token = serverEnv().REVALIDATE_TOKEN;
@@ -41,20 +14,15 @@ export async function POST(request: Request) {
       { headers: noindex, status: 401 },
     );
   }
-  const parsed = body.safeParse(await request.json().catch(() => null));
-  if (!parsed.success) {
+  const purged = await purgeSiteCache().catch((error: unknown) => {
+    console.error("Site cache purge failed", error);
+    return false;
+  });
+  if (!purged) {
     return Response.json(
-      { error: "Invalid tags or groups" },
-      { headers: noindex, status: 400 },
+      { error: "The site cache could not be purged" },
+      { headers: noindex, status: 503 },
     );
-  }
-  const { groups = [], tags = [] } = parsed.data;
-  if (tags.length > 0) await refreshSpeciesApiCache(tags);
-  for (const tag of tags) revalidateTag(tag, EXPIRE_NOW);
-  for (const id of groups) {
-    for (const route of findSitePageGroup(id)?.routes ?? []) {
-      revalidatePath(route.path, route.type);
-    }
   }
   return Response.json({ revalidated: true }, { headers: noindex });
 }

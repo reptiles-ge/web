@@ -61,14 +61,6 @@ function revise(id: string, hoursAgo: number) {
     .run(id, id, new Date(Date.now() - hoursAgo * 3600_000).toISOString());
 }
 
-async function sentTags() {
-  return Promise.all(
-    siteFetch.mock.calls.map(
-      async ([request]) => ((await request.json()) as { tags: string[] }).tags,
-    ),
-  );
-}
-
 async function signedIn() {
   return { ...(await adminSessionHeaders(sqlite)), Origin: ADMIN_ORIGIN };
 }
@@ -89,28 +81,21 @@ describe("POST /v1/admin/site/revalidate", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await sentTags()).toEqual([
-      ["species", "species:macrovipera-lebetina", "species:vipera-kaznakovi"],
-    ]);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
   });
 
-  it("revalidates the species tag alone when nothing was edited", async () => {
+  it("clears everything even when nothing was edited", async () => {
     const { body } = await revalidate(await signedIn());
     expect(body.data.species).toEqual([]);
-    expect(await sentTags()).toEqual([["species"]]);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
   });
 
-  it("splits the tags into requests the site accepts", async () => {
+  it("sends one request however many species were edited", async () => {
     const ids = publishedIds(45);
     for (const id of ids) revise(id, 1);
     const { response } = await revalidate(await signedIn());
     expect(response.status).toBe(200);
-    const sent = await sentTags();
-    expect(sent.map((tags) => tags.length)).toEqual([20, 20, 6]);
-    expect(sent.flat()).toEqual([
-      "species",
-      ...ids.map((id) => `species:${id}`),
-    ]);
+    expect(siteFetch).toHaveBeenCalledTimes(1);
   });
 
   it("answers 502 and stops when the site cannot be revalidated", async () => {
@@ -225,7 +210,7 @@ describe("POST /v1/admin/site/pages/:id/revalidate", () => {
     );
   }
 
-  it("asks the site to revalidate that group", async () => {
+  it("asks the site to clear its whole cache", async () => {
     const { body, response } = await clearGroup("about");
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("no-store");
@@ -233,7 +218,7 @@ describe("POST /v1/admin/site/pages/:id/revalidate", () => {
     const [request] = siteFetch.mock.calls[0]!;
     expect(request.url).toBe("https://reptiles.ge/api/revalidate");
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
-    expect(await request.json()).toEqual({ groups: ["about"] });
+    expect(siteFetch).toHaveBeenCalledTimes(1);
   });
 
   it("answers 404 for an unknown group and 502 when the site fails", async () => {
