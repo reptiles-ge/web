@@ -85,3 +85,42 @@ describe("profile related species", () => {
     }
   });
 });
+
+describe("profile related index cache", () => {
+  it("reuses the index for a fresh catalog with the same content", () => {
+    const first = speciesCatalogFixture("ka");
+    const second = structuredClone(first);
+    for (const item of first) {
+      expect(
+        getProfileRelatedSpecies(item.id, second).map((peer) => peer.id),
+        item.id,
+      ).toStrictEqual(
+        getProfileRelatedSpecies(item.id, first).map((peer) => peer.id),
+      );
+    }
+    expect(getProfileRelatedSpecies(first[0]!.id, second)[0]).toBe(
+      second.find(
+        (item) =>
+          item.id === getProfileRelatedSpecies(first[0]!.id, first)[0]?.id,
+      ),
+    );
+  });
+
+  it("rebuilds the index when a lookalike changes", () => {
+    const base = speciesCatalogFixture("ka");
+    const target = base.find(
+      (item) =>
+        item.id !== "macrovipera-lebetina" &&
+        getProfileRelatedSpecies(item.id, base).length > 0,
+    )!;
+    const peer = getProfileRelatedSpecies(target.id, base)[0]!;
+    const changed = structuredClone(base).map((item) =>
+      item.id === target.id
+        ? { ...item, lookalikes: [...item.lookalikes, peer.id] }
+        : item,
+    );
+    expect(
+      getProfileRelatedSpecies(target.id, changed).map((item) => item.id),
+    ).not.toContain(peer.id);
+  });
+});
