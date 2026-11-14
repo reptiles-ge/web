@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { NavigationSkeleton } from "@/components/NavigationSkeleton";
 import {
@@ -20,17 +20,8 @@ function renderSkeleton() {
   );
 }
 
-let scrollTo: ReturnType<typeof vi.fn>;
-
-beforeEach(() => {
-  vi.useFakeTimers();
-  scrollTo = vi.fn();
-  window.scrollTo = scrollTo as unknown as typeof window.scrollTo;
-});
-
 afterEach(() => {
   act(() => endPendingNavigation());
-  vi.useRealTimers();
   vi.restoreAllMocks();
 });
 
@@ -41,46 +32,29 @@ describe("NavigationSkeleton", () => {
     expect(screen.queryByRole("status")).toBeNull();
   });
 
-  it("shows the species skeleton after a short delay and hides the old page", () => {
+  it("covers the screen with the species skeleton at once without scrolling", () => {
+    const scrollTo = vi.spyOn(window, "scrollTo").mockImplementation(() => {});
     renderSkeleton();
     act(() => beginPendingNavigation("/en/snakes/vipera-dinniki"));
-    expect(screen.queryByRole("status")).toBeNull();
 
-    act(() => {
-      vi.advanceTimersByTime(150);
-    });
-    expect(screen.getByRole("status")).toHaveTextContent(en.nav.loadingPage);
-    expect(screen.getByText("Current page").parentElement).toHaveClass(
-      "hidden",
+    const status = screen.getByRole("status");
+    expect(status).toHaveTextContent(en.nav.loadingPage);
+    expect(status.parentElement).toHaveClass("fixed", "inset-0");
+    expect(screen.getByText("Current page").parentElement).toHaveAttribute(
+      "inert",
     );
-    expect(scrollTo).toHaveBeenCalledWith(0, 0);
+    expect(scrollTo).not.toHaveBeenCalled();
 
     act(() => endPendingNavigation());
     expect(screen.queryByRole("status")).toBeNull();
-    expect(screen.getByText("Current page").parentElement).toHaveClass(
-      "contents",
+    expect(screen.getByText("Current page").parentElement).not.toHaveAttribute(
+      "inert",
     );
-  });
-
-  it("skips navigations that finish before the delay", () => {
-    renderSkeleton();
-    act(() => beginPendingNavigation("/en/snakes/vipera-dinniki"));
-    act(() => {
-      vi.advanceTimersByTime(100);
-    });
-    act(() => endPendingNavigation());
-    act(() => {
-      vi.advanceTimersByTime(200);
-    });
-    expect(screen.queryByRole("status")).toBeNull();
   });
 
   it("does nothing for pages that are not species profiles", () => {
     renderSkeleton();
     act(() => beginPendingNavigation("/en/snakes/species"));
-    act(() => {
-      vi.advanceTimersByTime(500);
-    });
     expect(screen.queryByRole("status")).toBeNull();
   });
 });
