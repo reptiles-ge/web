@@ -583,7 +583,6 @@ function NewsContinueCard({
         dark ? "bg-(--nw-panel) text-white" : "bg-(--nw-card) text-(--nw-ink)"
       } ${focusClass}`}
       href={newsArticleHref(article.slug)}
-      prefetch={false}
     >
       <span className="news-ill relative aspect-square overflow-hidden rounded-[16px] md:aspect-4/3 md:rounded-[20px]">
         {visual ? (

@@ -253,7 +253,6 @@ export async function Footer({
                     className="flex min-h-11 items-center text-[14.5px] text-white/86"
                     href={link.href}
                     locale={locale}
-                    prefetch={false}
                   >
                     {link.label}
                   </LocalizedLink>
@@ -361,7 +360,6 @@ function FooterColumn({
               className={linkClassName}
               href={link.href}
               locale={locale}
-              prefetch={false}
             >
               {link.label}
             </LocalizedLink>
@@ -411,7 +409,6 @@ function InlineLinks({
             )}
             href={link.href}
             locale={locale}
-            prefetch={false}
           >
             {link.label}
           </LocalizedLink>

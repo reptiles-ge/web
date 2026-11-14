@@ -5,6 +5,11 @@ import { useProgress } from "@bprogress/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
+import {
+  beginPendingNavigation,
+  endPendingNavigation,
+} from "@/lib/pendingNavigation";
+
 const PROGRESS_OPTIONS = { showSpinner: false };
 const STALLED_NAVIGATION_MS = 10_000;
 
@@ -33,6 +38,7 @@ function NavigationProgressTriggers() {
 
   useEffect(() => {
     currentDocument.current = documentKey(window.location);
+    endPendingNavigation();
     if (timer.current) {
       window.clearTimeout(timer.current);
       timer.current = null;
@@ -44,7 +50,10 @@ function NavigationProgressTriggers() {
       currentDocument.current = nextDocument;
       start();
       if (timer.current) window.clearTimeout(timer.current);
-      timer.current = window.setTimeout(() => stop(), STALLED_NAVIGATION_MS);
+      timer.current = window.setTimeout(() => {
+        stop();
+        endPendingNavigation();
+      }, STALLED_NAVIGATION_MS);
     }
 
     function onClick(event: MouseEvent) {
@@ -83,9 +92,13 @@ function NavigationProgressTriggers() {
       }
 
       begin(nextDocument);
+      if (url.pathname !== window.location.pathname) {
+        beginPendingNavigation(url.pathname);
+      }
     }
 
     function onPopState() {
+      endPendingNavigation();
       const nextDocument = documentKey(window.location);
       if (nextDocument === currentDocument.current) return;
       begin(nextDocument);

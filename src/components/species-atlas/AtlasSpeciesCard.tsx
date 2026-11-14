@@ -62,7 +62,6 @@ export function AtlasSpeciesCard({
           species_id: species.id,
         })
       }
-      prefetch={false}
     >
       <span className="relative block aspect-4/5 overflow-hidden bg-[#151c18]">
         {item.image ? (
@@ -167,7 +166,6 @@ export function AtlasSpeciesRow({
           species_id: species.id,
         })
       }
-      prefetch={false}
     >
       <span className="relative block size-14 overflow-hidden rounded-[14px] bg-[#151c18]">
         {item.image ? (
