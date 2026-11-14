@@ -12,7 +12,9 @@ import { pageOffset, type PageParams, toPage } from "@/lib/pagination";
 import type { ApiDatabase } from "./database";
 
 import { readAuthor } from "./authors";
-import { readNewsRecords } from "./news";
+import { readNewsArticleIds, readNewsRecords } from "./news";
+
+const MAX_SCOPED_ARTICLES = 90;
 
 export type NewsDetailView = NewsSummaryView & {
   gallery: NewsPhotoView[];
@@ -180,7 +182,7 @@ async function publishedNewsSummaries(
   filters: Omit<NewsFilters, "hub" | "q">,
 ) {
   const [records, author] = await Promise.all([
-    readNewsRecords(db),
+    readScopedNewsRecords(db, filters),
     filters.author ? readAuthor(db, filters.author) : null,
   ]);
   if (filters.author && !author) return [];
@@ -206,4 +208,16 @@ async function publishedNewsSummaries(
         a.position - b.position,
     )
     .map(({ article }) => newsSummary(article, locale));
+}
+
+async function readScopedNewsRecords(
+  db: ApiDatabase,
+  { region, species }: Pick<NewsFilters, "region" | "species">,
+) {
+  if (!region && !species) return readNewsRecords(db);
+  const ids = await readNewsArticleIds(db, { region, species });
+  return readNewsRecords(
+    db,
+    ids.length > MAX_SCOPED_ARTICLES ? undefined : ids,
+  );
 }

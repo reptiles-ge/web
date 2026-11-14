@@ -75,6 +75,21 @@ describe("news in D1", () => {
     );
   });
 
+  it("reads a list of articles in catalog order", async () => {
+    const [first, second, third] = records;
+    expect(
+      await readNewsRecords(database.db, [
+        third!.article.id,
+        first!.article.id,
+        "missing-article",
+      ]),
+    ).toStrictEqual([first, third]);
+    expect(
+      await readNewsRecords(database.db, [second!.article.id]),
+    ).toStrictEqual([second]);
+    expect(await readNewsRecords(database.db, [])).toStrictEqual([]);
+  });
+
   it("links photo credits to authors through their aliases", () => {
     const linked = database.sqlite
       .prepare(
