@@ -158,7 +158,6 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 {species.length > 0 ? (
                   <SpeciesGuideList
                     locale={locale}
-                    prefetch={false}
                     source="guide"
                     species={species}
                   />

@@ -258,7 +258,6 @@ function HubSpeciesCard({
           species_id: item.id,
         })
       }
-      prefetch={false}
     >
       <span className="relative block aspect-4/3 overflow-hidden rounded-[20px] bg-ink lg:rounded-[24px]">
         <ClientCoverImage

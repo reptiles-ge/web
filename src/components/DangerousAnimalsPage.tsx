@@ -135,7 +135,6 @@ export async function DangerousAnimalsPage({
                       <Link
                         className="font-display text-[16px] font-semibold text-foreground transition-colors hover:text-primary"
                         href={speciesHref(row, locale)}
-                        prefetch={false}
                       >
                         {row.commonName}
                       </Link>
@@ -160,7 +159,6 @@ export async function DangerousAnimalsPage({
                       <Link
                         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                         href={row.guide?.href ?? speciesHref(row, locale)}
-                        prefetch={false}
                       >
                         {row.guide
                           ? t(`links.${row.guide.key}`)

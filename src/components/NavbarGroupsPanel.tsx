@@ -4,12 +4,12 @@ import type { ComponentProps } from "react";
 
 import { ArrowRight, House, ScanSearch, ShieldAlert } from "lucide-react";
 
-import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { type NavGroup, NavPicture } from "@/components/NavbarMenu";
+import { NoPrefetchLink } from "@/components/NoPrefetchLink";
 import { cn } from "@/lib/cn";
 
 type QuickLink = {
-  href: ComponentProps<typeof IntentPrefetchLink>["href"];
+  href: ComponentProps<typeof NoPrefetchLink>["href"];
   icon: keyof typeof QUICK_LINK_ICONS;
   label: string;
 };
@@ -88,7 +88,7 @@ export function NavbarGroupsPanel({
           <ul className="grid grid-cols-3 gap-2.5">
             {reptileGroups.map((group) => (
               <li key={group.id}>
-                <IntentPrefetchLink
+                <NoPrefetchLink
                   className="group/card relative flex h-[184px] flex-col justify-end overflow-hidden rounded-[22px] bg-ink p-4 text-white xl:h-[208px]"
                   href={group.href}
                   onClick={onClose}
@@ -108,7 +108,7 @@ export function NavbarGroupsPanel({
                   <span className="relative mt-1 font-display text-[15px] font-semibold">
                     {group.label}
                   </span>
-                </IntentPrefetchLink>
+                </NoPrefetchLink>
               </li>
             ))}
           </ul>
@@ -120,7 +120,7 @@ export function NavbarGroupsPanel({
           <ul className="grid grid-cols-2 gap-1">
             {otherGroups.map((group) => (
               <li key={group.id}>
-                <IntentPrefetchLink
+                <NoPrefetchLink
                   className="flex items-center gap-3 rounded-2xl p-2 transition-colors hover:bg-background"
                   href={group.href}
                   onClick={onClose}
@@ -138,7 +138,7 @@ export function NavbarGroupsPanel({
                       {group.countLabel}
                     </span>
                   </span>
-                </IntentPrefetchLink>
+                </NoPrefetchLink>
               </li>
             ))}
           </ul>
@@ -156,7 +156,7 @@ export function NavbarGroupsPanel({
             const Icon = QUICK_LINK_ICONS[link.icon];
             const venomous = link.icon === "venomous";
             return (
-              <IntentPrefetchLink
+              <NoPrefetchLink
                 className="flex min-h-12 items-center gap-3 rounded-[14px] px-3 text-[14px] font-medium text-foreground transition-colors hover:bg-card"
                 href={link.href}
                 key={link.icon}
@@ -177,11 +177,11 @@ export function NavbarGroupsPanel({
                   />
                 </span>
                 {link.label}
-              </IntentPrefetchLink>
+              </NoPrefetchLink>
             );
           })}
           <div className="flex-1" />
-          <IntentPrefetchLink
+          <NoPrefetchLink
             className="mt-2.5 flex h-12 items-center justify-between rounded-full bg-primary pr-2 pl-[18px] text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
             href="/species"
             onClick={onClose}
@@ -190,7 +190,7 @@ export function NavbarGroupsPanel({
             <span className="flex size-8 items-center justify-center rounded-full bg-white/16">
               <ArrowRight aria-hidden="true" className="size-[15px]" />
             </span>
-          </IntentPrefetchLink>
+          </NoPrefetchLink>
         </aside>
       </div>
     </div>

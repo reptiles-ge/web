@@ -16,14 +16,12 @@ import { loadNewsVisuals } from "@/lib/newsVisualLoader";
 type NewsArticleCardProps = {
   article: NewsArticle | NewsListArticle;
   locale: AppLocale;
-  prefetch?: boolean;
   variant?: "featured" | "grid";
 };
 
 export async function NewsArticleCard({
   article,
   locale,
-  prefetch,
   variant = "grid",
 }: NewsArticleCardProps) {
   const [t, tNav, [visual]] = await Promise.all([
@@ -73,7 +71,6 @@ export async function NewsArticleCard({
         <Link
           className="group grid gap-8 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16"
           href={newsArticleHref(article.slug)}
-          prefetch={prefetch}
         >
           {visual ? (
             <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-ink sm:aspect-5/3 lg:aspect-4/3">
@@ -109,7 +106,6 @@ export async function NewsArticleCard({
       <Link
         className="group flex h-full flex-col focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
         href={newsArticleHref(article.slug)}
-        prefetch={prefetch}
       >
         {visual ? (
           <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-ink">

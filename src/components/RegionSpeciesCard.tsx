@@ -29,7 +29,6 @@ export function RegionSpeciesCard({
           species_id: species.id,
         })
       }
-      prefetch={false}
     >
       <ClientCoverImage
         alt={speciesImageAlt(

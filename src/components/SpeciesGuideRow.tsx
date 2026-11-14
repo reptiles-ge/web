@@ -20,12 +20,10 @@ import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 
 export function SpeciesGuideList({
   locale,
-  prefetch,
   source = "hub",
   species,
 }: {
   locale: AppLocale;
-  prefetch?: boolean;
   source?: SpeciesClickSource;
   species: SpeciesCard[];
 }) {
@@ -36,7 +34,6 @@ export function SpeciesGuideList({
           <SpeciesGuideRow
             index={index}
             locale={locale}
-            prefetch={prefetch}
             source={source}
             species={item}
           />
@@ -49,13 +46,11 @@ export function SpeciesGuideList({
 function SpeciesGuideRow({
   index,
   locale,
-  prefetch,
   source = "hub",
   species,
 }: {
   index: number;
   locale: AppLocale;
-  prefetch?: boolean;
   source?: SpeciesClickSource;
   species: SpeciesCard;
 }) {
@@ -106,7 +101,6 @@ function SpeciesGuideRow({
           species_id: species.id,
         })
       }
-      prefetch={prefetch}
     >
       <div className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
         <ClientCoverImage
