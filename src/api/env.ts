@@ -13,6 +13,7 @@ export type ApiBindings = {
   BUNNY_STORAGE_ACCESS_KEY?: string;
   BUNNY_STORAGE_REGION?: string;
   BUNNY_STORAGE_ZONE?: string;
+  CACHE_GENERATION_TTL_MS?: string;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;

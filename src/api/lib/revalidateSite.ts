@@ -1,14 +1,16 @@
 import type { ApiBindings } from "../env";
 
+import { generationTtlMs } from "./cache";
 import { purgeApiCache } from "./cachePurge";
 import { ApiError } from "./errors";
 
 const SITE_ORIGIN = "https://reptiles.ge";
 
-export function clearCaches(env: ApiBindings) {
-  return purgeApiCache(env).then((purged) =>
-    clearSiteCache(env).then((cleared) => cleared && purged === "purged"),
-  );
+export async function clearCaches(env: ApiBindings) {
+  const purged = await purgeApiCache(env);
+  if (purged === "purged") await settle(generationTtlMs(env));
+  const cleared = await clearSiteCache(env);
+  return cleared && purged === "purged";
 }
 
 export async function ensureSiteRevalidated(pending: Promise<boolean>) {
@@ -41,4 +43,10 @@ async function clearSiteCache(env: ApiBindings) {
     console.error("Site revalidation failed", error);
     return false;
   }
+}
+
+function settle(ms: number) {
+  return ms > 0
+    ? new Promise<void>((resolve) => setTimeout(resolve, ms))
+    : Promise.resolve();
 }

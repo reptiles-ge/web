@@ -36,6 +36,20 @@ describe("clearCaches", () => {
     expect(request.headers.get("Authorization")).toBe("Bearer site-secret");
   });
 
+  it("waits CACHE_GENERATION_TTL_MS before clearing the site", async () => {
+    vi.useFakeTimers();
+    try {
+      const pending = clearCaches({ ...env, CACHE_GENERATION_TTL_MS: "5000" });
+      await vi.advanceTimersByTimeAsync(4999);
+      expect(siteFetch).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(1);
+      expect(await pending).toBe(true);
+      expect(siteFetch).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it("fails when the API purge fails, and still clears the site", async () => {
     env = {
       ...env,
