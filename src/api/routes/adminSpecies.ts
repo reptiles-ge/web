@@ -27,10 +27,7 @@ import {
   photoCredits,
   storePhoto,
 } from "../lib/photoUpload";
-import {
-  ensureSiteRevalidated,
-  revalidateSpeciesPage,
-} from "../lib/revalidateSite";
+import { clearCaches, ensureSiteRevalidated } from "../lib/revalidateSite";
 import {
   approveSpeciesDraft,
   pendingSpeciesDraft,
@@ -127,7 +124,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       if ((await readSpeciesVersion(c.env.DB, id)) === null) {
         throw new ApiError(404, "not_found", "Species not found");
       }
-      await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id));
+      await ensureSiteRevalidated(clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },

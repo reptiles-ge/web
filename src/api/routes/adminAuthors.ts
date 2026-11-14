@@ -16,12 +16,7 @@ import {
 import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
-import {
-  ensureSiteRevalidated,
-  revalidateAuthorPages,
-  revalidateAuthorsSection,
-  revalidateContributorPage,
-} from "../lib/revalidateSite";
+import { clearCaches, ensureSiteRevalidated } from "../lib/revalidateSite";
 import { validate } from "../lib/validate";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { requireAdmin } from "../middleware/requireAdmin";
@@ -57,7 +52,7 @@ export const adminAuthors = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateAuthorsSection(c.env));
+      await ensureSiteRevalidated(clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["authors"] } }, 200);
     },
@@ -73,7 +68,7 @@ export const adminAuthors = new Hono<ApiEnv>()
       if ((await readAuthorContributor(c.env.DB, id)) === null) {
         throw new ApiError(404, "not_found", "Author not found");
       }
-      await ensureSiteRevalidated(revalidateContributorPage(c.env, id));
+      await ensureSiteRevalidated(clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -123,7 +118,7 @@ export const adminAuthors = new Hono<ApiEnv>()
       }
       const record = checked.data as AuthorRecord;
       await writeAuthorTexts(c.env.DB, record);
-      inBackground(c, revalidateAuthorPages(c.env, record.id));
+      inBackground(c, clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -158,7 +153,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
-      inBackground(c, revalidateAuthorPages(c.env, id));
+      inBackground(c, clearCaches(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
