@@ -9,8 +9,9 @@ import type {
   SpeciesTranslation,
 } from "@/data/speciesTypes";
 
-import type { ApiDatabase } from "./database";
-import type { TranslationLocale } from "./speciesRows";
+import type { ApiDatabase, ApiStatement } from "./database";
+
+import { TRANSLATION_LOCALES, type TranslationLocale } from "./speciesRows";
 
 export type SpeciesCatalogData = {
   atlasMeta: Record<string, SpeciesCatalogMeta>;
@@ -97,42 +98,285 @@ type TextRow = {
 const CREDIT_SELECT =
   "photo_confidence_id, author_id, credit_person, credit_location, credit_date, credit_lat, credit_lng, credit_url, credit_photo_confidence_id";
 
+export type SpeciesCatalogParts = {
+  facts: boolean;
+  faq: boolean;
+  identification: boolean;
+  longTexts: boolean;
+  sources: boolean;
+};
+
+export type SpeciesCatalogScope = {
+  locales?: readonly TranslationLocale[];
+  match?: SpeciesMatch;
+  parts?: SpeciesCatalogParts;
+  published?: boolean;
+};
+
 export type SpeciesMatch = { sql: string; value: string };
 
-export function buildSpeciesCatalog(results: unknown[][]): SpeciesCatalogData {
-  const [
-    species,
-    texts,
-    items,
-    faq,
-    stats,
+type CatalogRows = {
+  colors: Array<{ color: string; species_id: string }>;
+  faq: Array<{
+    answer: string;
+    locale: string;
+    question: string;
+    species_id: string;
+  }>;
+  habitats: Array<{ habitat_id: HabitatTag; species_id: string }>;
+  items: Array<{
+    kind: string;
+    locale: string;
+    species_id: string;
+    text: string;
+  }>;
+  lookalikes: Array<{ lookalike_id: string; species_id: string }>;
+  media: MediaRow[];
+  overlays: OverlayRow[];
+  slugs: Array<{ slug: string; species_id: string }>;
+  sources: Array<{ name: string; species_id: string; url: null | string }>;
+  species: SpeciesRow[];
+  stats: Array<{
+    label: string;
+    locale: string;
+    species_id: string;
+    value: string;
+  }>;
+  texts: TextRow[];
+};
+
+type Clause = { sql: string; values: unknown[] };
+
+const ALL_PARTS: SpeciesCatalogParts = {
+  facts: true,
+  faq: true,
+  identification: true,
+  longTexts: true,
+  sources: true,
+};
+
+const BASE_TEXT_COLUMNS =
+  "species_id, locale, common_name, description, location, updated_at";
+
+const LONG_TEXT_COLUMNS = {
+  skipped:
+    "'' AS overview, '' AS habitat, '' AS diet, '' AS behavior, '' AS conservation, NULL AS interaction",
+  wanted: "overview, habitat, diet, behavior, conservation, interaction",
+};
+
+const IDENTIFICATION_TEXT_COLUMNS = {
+  skipped: "NULL AS identification_summary, NULL AS identification_coloration",
+  wanted: "identification_summary, identification_coloration",
+};
+
+export async function readSpeciesCatalog(
+  db: ApiDatabase,
+  speciesId?: string,
+): Promise<SpeciesCatalogData> {
+  const query = speciesCatalogQuery(
+    db,
+    speciesId ? { match: { sql: "= ?", value: speciesId } } : {},
+  );
+  return query.build(
+    (await db.batch(query.statements)).map((result) => result.results),
+  );
+}
+
+export function speciesCatalogQuery(
+  db: ApiDatabase,
+  {
+    locales = TRANSLATION_LOCALES,
+    match,
+    parts = ALL_PARTS,
+    published = false,
+  }: SpeciesCatalogScope,
+) {
+  const speciesClauses = (column: string): Clause[] => [
+    ...(match
+      ? [{ sql: `${column} ${match.sql}`, values: [match.value] }]
+      : []),
+    ...(published
+      ? [
+          {
+            sql:
+              column === "id"
+                ? "status = 'published'"
+                : `${column} IN (SELECT id FROM species WHERE status = 'published')`,
+            values: [],
+          },
+        ]
+      : []),
+  ];
+  const allLocales = TRANSLATION_LOCALES.every((code) =>
+    locales.includes(code),
+  );
+  const localeClause = (codes: readonly string[]): Clause[] =>
+    allLocales
+      ? []
+      : [
+          {
+            sql: `locale IN (${codes.map(() => "?").join(", ")})`,
+            values: [...codes],
+          },
+        ];
+  const textLocales = ["ka", ...locales];
+  const listKinds = [
+    ...(parts.facts ? ["fact"] : []),
+    ...(parts.identification ? ["identification_trait"] : []),
+  ];
+  const textColumns = [
+    BASE_TEXT_COLUMNS,
+    LONG_TEXT_COLUMNS[parts.longTexts ? "wanted" : "skipped"],
+    IDENTIFICATION_TEXT_COLUMNS[parts.identification ? "wanted" : "skipped"],
+  ].join(", ");
+  const statement = (sql: string, clauses: Clause[], order = "") => {
+    const where = clauses.length
+      ? ` WHERE ${clauses.map((clause) => clause.sql).join(" AND ")}`
+      : "";
+    const values = clauses.flatMap((clause) => clause.values);
+    const prepared = db.prepare(`${sql}${where}${order}`);
+    return values.length ? prepared.bind(...values) : prepared;
+  };
+  const queries: Partial<Record<keyof CatalogRows, ApiStatement>> = {
+    species: statement(
+      "SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at, taxon_order, taxon_class, checklist_status_id, featured FROM species",
+      speciesClauses("id"),
+      " ORDER BY catalog_position",
+    ),
+    texts: statement(`SELECT ${textColumns} FROM species_texts`, [
+      ...speciesClauses("species_id"),
+      ...localeClause(textLocales),
+    ]),
+    ...(listKinds.length
+      ? {
+          items: statement(
+            "SELECT species_id, locale, kind, text FROM species_list_items",
+            [
+              ...speciesClauses("species_id"),
+              ...localeClause(textLocales),
+              ...(listKinds.length === 2
+                ? []
+                : [
+                    {
+                      sql: `kind IN (${listKinds.map(() => "?").join(", ")})`,
+                      values: listKinds,
+                    },
+                  ]),
+            ],
+            " ORDER BY species_id, locale, kind, position",
+          ),
+        }
+      : {}),
+    ...(parts.faq
+      ? {
+          faq: statement(
+            "SELECT species_id, locale, question, answer FROM species_faq",
+            [...speciesClauses("species_id"), ...localeClause(textLocales)],
+            " ORDER BY species_id, locale, position",
+          ),
+        }
+      : {}),
+    stats: statement(
+      "SELECT species_id, locale, label, value FROM species_stats",
+      [...speciesClauses("species_id"), ...localeClause(textLocales)],
+      " ORDER BY species_id, locale, position",
+    ),
+    ...(parts.identification
+      ? {
+          colors: statement(
+            "SELECT species_id, color FROM species_identification_colors",
+            speciesClauses("species_id"),
+            " ORDER BY species_id, position",
+          ),
+        }
+      : {}),
+    ...(parts.sources
+      ? {
+          sources: statement(
+            "SELECT species_id, name, url FROM species_sources",
+            speciesClauses("species_id"),
+            " ORDER BY species_id, position",
+          ),
+        }
+      : {}),
+    habitats: statement(
+      "SELECT species_id, habitat_id FROM species_habitats",
+      speciesClauses("species_id"),
+      " ORDER BY species_id, position",
+    ),
+    media: statement(
+      `SELECT id, species_id, role, position, src, ${CREDIT_SELECT} FROM species_media`,
+      speciesClauses("species_id"),
+      " ORDER BY species_id, role, position",
+    ),
+    ...(locales.length
+      ? {
+          overlays: statement(
+            `SELECT media_id, locale, position, ${CREDIT_SELECT} FROM species_media_overlays`,
+            [
+              ...mediaClauses(speciesClauses("species_id")),
+              ...localeClause(locales),
+            ],
+            " ORDER BY locale, position",
+          ),
+        }
+      : {}),
+    lookalikes: statement(
+      "SELECT species_id, lookalike_id FROM species_lookalikes",
+      speciesClauses("species_id"),
+      " ORDER BY species_id, position",
+    ),
+    slugs: statement(
+      "SELECT slug, species_id FROM species_slugs",
+      speciesClauses("species_id"),
+      " ORDER BY slug",
+    ),
+  };
+  const keys = Object.keys(queries) as Array<keyof CatalogRows>;
+  return {
+    build: (results: unknown[][]) => {
+      const rows = Object.fromEntries(
+        keys.map((key, index) => [key, results[index]]),
+      ) as Partial<CatalogRows>;
+      return buildSpeciesCatalog(
+        {
+          colors: rows.colors ?? [],
+          faq: rows.faq ?? [],
+          habitats: rows.habitats ?? [],
+          items: rows.items ?? [],
+          lookalikes: rows.lookalikes ?? [],
+          media: rows.media ?? [],
+          overlays: rows.overlays ?? [],
+          slugs: rows.slugs ?? [],
+          sources: rows.sources ?? [],
+          species: rows.species ?? [],
+          stats: rows.stats ?? [],
+          texts: rows.texts ?? [],
+        },
+        locales,
+      );
+    },
+    statements: keys.map((key) => queries[key]!),
+  };
+}
+
+function buildSpeciesCatalog(
+  {
     colors,
-    sources,
+    faq,
     habitats,
+    items,
+    lookalikes,
     media,
     overlays,
-    lookalikes,
     slugs,
-  ] = results as [
-    SpeciesRow[],
-    TextRow[],
-    Array<{ kind: string; locale: string; species_id: string; text: string }>,
-    Array<{
-      answer: string;
-      locale: string;
-      question: string;
-      species_id: string;
-    }>,
-    Array<{ label: string; locale: string; species_id: string; value: string }>,
-    Array<{ color: string; species_id: string }>,
-    Array<{ name: string; species_id: string; url: null | string }>,
-    Array<{ habitat_id: HabitatTag; species_id: string }>,
-    MediaRow[],
-    OverlayRow[],
-    Array<{ lookalike_id: string; species_id: string }>,
-    Array<{ slug: string; species_id: string }>,
-  ];
-
+    sources,
+    species,
+    stats,
+    texts,
+  }: CatalogRows,
+  locales: readonly TranslationLocale[],
+): SpeciesCatalogData {
   const textsBy = group(texts, (row) => `${row.species_id}:${row.locale}`);
   const itemsBy = group(
     items,
@@ -236,7 +480,7 @@ export function buildSpeciesCatalog(results: unknown[][]): SpeciesCatalogData {
       }),
     );
 
-    for (const locale of ["en", "ru", "tr"] as const) {
+    for (const locale of locales) {
       const translation = text(locale);
       const own = overlaysBy.get(`${row.id}:${locale}`) ?? [];
       const overlayFor = (entry: MediaRow | undefined) =>
@@ -261,67 +505,6 @@ export function buildSpeciesCatalog(results: unknown[][]): SpeciesCatalogData {
   }
 
   return catalog;
-}
-
-export async function readSpeciesCatalog(
-  db: ApiDatabase,
-  speciesId?: string,
-): Promise<SpeciesCatalogData> {
-  const statements = speciesCatalogStatements(
-    db,
-    speciesId ? { sql: "= ?", value: speciesId } : undefined,
-  );
-  return buildSpeciesCatalog(
-    (await db.batch(statements)).map((result) => result.results),
-  );
-}
-
-export function speciesCatalogStatements(
-  db: ApiDatabase,
-  match?: SpeciesMatch,
-) {
-  const where = (column: string) =>
-    match ? ` WHERE ${column} ${match.sql}` : "";
-  const statement = (query: string) =>
-    match ? db.prepare(query).bind(match.value) : db.prepare(query);
-  return [
-    statement(
-      `SELECT id, scientific_name, genus, family, group_id, danger_id, status, slug_ka, published_at, taxon_order, taxon_class, checklist_status_id, featured FROM species${where("id")} ORDER BY catalog_position`,
-    ),
-    statement(
-      `SELECT species_id, locale, common_name, overview, description, habitat, diet, behavior, conservation, location, interaction, identification_summary, identification_coloration, updated_at FROM species_texts${where("species_id")}`,
-    ),
-    statement(
-      `SELECT species_id, locale, kind, text FROM species_list_items${where("species_id")} ORDER BY species_id, locale, kind, position`,
-    ),
-    statement(
-      `SELECT species_id, locale, question, answer FROM species_faq${where("species_id")} ORDER BY species_id, locale, position`,
-    ),
-    statement(
-      `SELECT species_id, locale, label, value FROM species_stats${where("species_id")} ORDER BY species_id, locale, position`,
-    ),
-    statement(
-      `SELECT species_id, color FROM species_identification_colors${where("species_id")} ORDER BY species_id, position`,
-    ),
-    statement(
-      `SELECT species_id, name, url FROM species_sources${where("species_id")} ORDER BY species_id, position`,
-    ),
-    statement(
-      `SELECT species_id, habitat_id FROM species_habitats${where("species_id")} ORDER BY species_id, position`,
-    ),
-    statement(
-      `SELECT id, species_id, role, position, src, ${CREDIT_SELECT} FROM species_media${where("species_id")} ORDER BY species_id, role, position`,
-    ),
-    statement(
-      `SELECT media_id, locale, position, ${CREDIT_SELECT} FROM species_media_overlays${match ? ` WHERE media_id IN (SELECT id FROM species_media WHERE species_id ${match.sql})` : ""} ORDER BY locale, position`,
-    ),
-    statement(
-      `SELECT species_id, lookalike_id FROM species_lookalikes${where("species_id")} ORDER BY species_id, position`,
-    ),
-    statement(
-      `SELECT slug, species_id FROM species_slugs${where("species_id")} ORDER BY slug`,
-    ),
-  ];
 }
 
 function compact<T extends Record<string, unknown>>(value: T) {
@@ -412,4 +595,14 @@ function localizedText(
     }),
     updatedAt: row.updated_at,
   };
+}
+
+function mediaClauses(clauses: Clause[]): Clause[] {
+  if (!clauses.length) return [];
+  return [
+    {
+      sql: `media_id IN (SELECT id FROM species_media WHERE ${clauses.map((clause) => clause.sql).join(" AND ")})`,
+      values: clauses.flatMap((clause) => clause.values),
+    },
+  ];
 }
