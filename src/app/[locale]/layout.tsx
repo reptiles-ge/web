@@ -18,6 +18,7 @@ import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
+import { NavigationSkeleton } from "@/components/NavigationSkeleton";
 import { PageViewBeacon } from "@/components/PageViewBeacon";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SiteRating } from "@/components/SiteRating";
@@ -84,7 +85,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <PageViewBeacon apiOrigin={apiOrigin()} />
           <Navbar {...navbarData} />
           <main id="main" tabIndex={-1}>
-            {children}
+            <NavigationSkeleton>{children}</NavigationSkeleton>
           </main>
           <FooterGate>
             <Footer locale={locale} {...footerData} />
