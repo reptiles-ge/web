@@ -282,9 +282,7 @@ describe("POST /v1/admin/drafts/:draftId/merge", () => {
       sqlite.prepare("SELECT status, decided_by FROM species_drafts").all(),
     ).toEqual([{ decided_by: "Admin", status: "approved" }]);
     expect(siteFetch).toHaveBeenCalledOnce();
-    expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
-      tags: ["species", `species:${ID}`],
-    });
+    expect(siteFetch.mock.calls[0]![0].body).toBeNull();
   });
 
   it("merges a draft saved before classification fields with the live values", async () => {
@@ -527,9 +525,7 @@ describe("POST /v1/admin/drafts/merge", () => {
       { decided_by: null, status: "pending" },
     ]);
     expect(siteFetch).toHaveBeenCalledOnce();
-    expect(await siteFetch.mock.calls[0]![0].json()).toEqual({
-      tags: ["species", `species:${ID}`],
-    });
+    expect(siteFetch.mock.calls[0]![0].body).toBeNull();
   });
 
   it("does not clear the cache when nothing was merged", async () => {

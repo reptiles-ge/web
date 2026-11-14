@@ -1,25 +1,16 @@
-import { revalidatePath, revalidateTag } from "next/cache";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
+import { purgeSiteCache } from "@/lib/responseStoreDataCache";
 
 import { POST } from "./route";
 
-vi.mock("next/cache", () => ({
-  revalidatePath: vi.fn(),
-  revalidateTag: vi.fn(),
-}));
-vi.mock("@/lib/speciesApiRefresh", () => ({
-  refreshSpeciesApiCache: vi.fn(),
+vi.mock("@/lib/responseStoreDataCache", () => ({
+  purgeSiteCache: vi.fn(async () => true),
 }));
 
-function request(body: unknown, token?: string) {
+function request(token?: string) {
   return new Request("https://reptiles.ge/api/revalidate", {
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
     method: "POST",
   });
 }
@@ -30,119 +21,35 @@ afterEach(() => {
 });
 
 describe("POST /api/revalidate", () => {
-  it("revalidates species tags with the shared token", async () => {
+  it("purges the whole site cache with the shared token", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    const response = await POST(
-      request({ tags: ["species", "species:macrovipera-lebetina"] }, "secret"),
-    );
+    const response = await POST(request("secret"));
     expect(response.status).toBe(200);
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
-    expect(revalidateTag).toHaveBeenCalledWith("species", { expire: 0 });
-    expect(revalidateTag).toHaveBeenCalledWith("species:macrovipera-lebetina", {
-      expire: 0,
-    });
-    expect(refreshSpeciesApiCache).toHaveBeenCalledWith([
-      "species",
-      "species:macrovipera-lebetina",
-    ]);
     expect(await response.json()).toEqual({ revalidated: true });
-    expect(
-      vi.mocked(refreshSpeciesApiCache).mock.invocationCallOrder[0],
-    ).toBeLessThan(vi.mocked(revalidateTag).mock.invocationCallOrder[0]!);
+    expect(purgeSiteCache).toHaveBeenCalledTimes(1);
   });
 
   it("rejects a missing or wrong token, and a missing secret", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    expect((await POST(request({ tags: ["species"] }))).status).toBe(401);
-    expect((await POST(request({ tags: ["species"] }, "nope"))).status).toBe(
-      401,
-    );
+    expect((await POST(request())).status).toBe(401);
+    expect((await POST(request("nope"))).status).toBe(401);
     vi.stubEnv("REVALIDATE_TOKEN", "");
-    expect((await POST(request({ tags: ["species"] }, ""))).status).toBe(401);
-    expect(revalidateTag).not.toHaveBeenCalled();
-    expect(refreshSpeciesApiCache).not.toHaveBeenCalled();
+    expect((await POST(request(""))).status).toBe(401);
+    expect(purgeSiteCache).not.toHaveBeenCalled();
   });
 
-  it("revalidates news tags", async () => {
+  it("answers 503 when Cloudflare refuses the purge or the store fails", async () => {
     vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    const response = await POST(
-      request({ tags: ["news", "news:lagodekhi-iucn-mwvane-sia"] }, "secret"),
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.mocked(purgeSiteCache).mockResolvedValueOnce(false);
+    expect((await POST(request("secret"))).status).toBe(503);
+    vi.mocked(purgeSiteCache).mockRejectedValueOnce(new Error("down"));
+    expect((await POST(request("secret"))).status).toBe(503);
+    expect(log).toHaveBeenCalledWith(
+      "Site cache purge failed",
+      expect.any(Error),
     );
-    expect(response.status).toBe(200);
-    expect(revalidateTag).toHaveBeenCalledWith("news", { expire: 0 });
-    expect(revalidateTag).toHaveBeenCalledWith(
-      "news:lagodekhi-iucn-mwvane-sia",
-      { expire: 0 },
-    );
-    expect(await response.json()).toEqual({ revalidated: true });
-  });
-
-  it("revalidates author tags", async () => {
-    vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    const tags = ["authors", "author:sandro-khakhva", "species", "news"];
-    const response = await POST(request({ tags }, "secret"));
-    expect(response.status).toBe(200);
-    for (const tag of tags) {
-      expect(revalidateTag).toHaveBeenCalledWith(tag, { expire: 0 });
-    }
-    expect(refreshSpeciesApiCache).toHaveBeenCalledWith(tags);
-    expect(await response.json()).toEqual({ revalidated: true });
-  });
-
-  it("only accepts species, news and author tags", async () => {
-    vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    for (const tags of [
-      [],
-      ["author"],
-      ["authors:sandro-khakhva"],
-      ["author:Bad Id"],
-      ["contributors"],
-      ["species:Bad Id"],
-      ["news:Bad Slug"],
-      "species",
-    ]) {
-      expect((await POST(request({ tags }, "secret"))).status).toBe(400);
-    }
-    expect((await POST(request(null, "secret"))).status).toBe(400);
-    expect(revalidateTag).not.toHaveBeenCalled();
-  });
-
-  it("revalidates the routes of page groups by path", async () => {
-    vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    const response = await POST(
-      request({ groups: ["about", "legal", "snakes"] }, "secret"),
-    );
-    expect(response.status).toBe(200);
-    expect(vi.mocked(revalidatePath).mock.calls).toEqual([
-      ["/[locale]/about", "page"],
-      ["/[locale]/privacy", "page"],
-      ["/[locale]/terms-and-conditions", "page"],
-      ["/[locale]/photo-use", "page"],
-      ["/[locale]/snakes", "layout"],
-    ]);
-    expect(revalidateTag).not.toHaveBeenCalled();
-    expect(refreshSpeciesApiCache).not.toHaveBeenCalled();
-  });
-
-  it("revalidates the whole site from the root layout", async () => {
-    vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    const response = await POST(request({ groups: ["site"] }, "secret"));
-    expect(response.status).toBe(200);
-    expect(await response.json()).toEqual({ revalidated: true });
-    expect(revalidatePath).toHaveBeenCalledExactlyOnceWith("/", "layout");
-  });
-
-  it("refuses unknown groups, free paths and an empty body", async () => {
-    vi.stubEnv("REVALIDATE_TOKEN", "secret");
-    for (const value of [
-      { groups: ["nope"] },
-      { groups: ["/[locale]/about"] },
-      { groups: [] },
-      {},
-      { paths: ["/"] },
-    ]) {
-      expect((await POST(request(value, "secret"))).status).toBe(400);
-    }
-    expect(revalidatePath).not.toHaveBeenCalled();
+    log.mockRestore();
   });
 });

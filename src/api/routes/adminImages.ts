@@ -23,7 +23,7 @@ export const adminImages = new Hono<ApiEnv>()
   .put("/manifest", validate("json", imageManifestBody), async (c) => {
     const { images } = c.req.valid("json");
     await writeImageManifest(c.env.DB, images, new Date().toISOString());
-    const purge = await purgeApiCache(c.env, ["images"]);
+    const purge = await purgeApiCache(c.env);
     c.header("Cache-Control", NO_STORE);
     return c.json({ data: { purge, written: images.length } }, 200);
   })
@@ -35,7 +35,7 @@ export const adminImages = new Hono<ApiEnv>()
   .put("/schema-crops", validate("json", schemaImageCropsBody), async (c) => {
     const { images } = c.req.valid("json");
     await writeSchemaImageCrops(c.env.DB, images, new Date().toISOString());
-    const purge = await purgeApiCache(c.env, ["images"]);
+    const purge = await purgeApiCache(c.env);
     c.header("Cache-Control", NO_STORE);
     return c.json({ data: { purge, written: images.length } }, 200);
   });

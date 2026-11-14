@@ -9,7 +9,6 @@ const config: KnipConfig = {
   ],
   ignoreBinaries: ["pbcopy"],
   ignoreDependencies: [
-    "@cloudflare/workers-response-store",
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
     "eslint-plugin-react-hooks",
