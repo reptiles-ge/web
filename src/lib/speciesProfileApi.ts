@@ -19,11 +19,22 @@ type SpeciesProfile = {
 };
 
 export const getSpeciesProfile = cache(
-  async (id: string, locale: AppLocale): Promise<null | SpeciesProfile> => {
-    const slug =
+  async (id: string, locale: AppLocale): Promise<null | SpeciesProfile> =>
+    getSpeciesProfileBySlug(
       locale === "ka"
         ? liveSpeciesPublicSlug(await getSpeciesSlugMaps(), id, locale)
-        : id;
+        : id,
+      locale,
+      id,
+    ),
+);
+
+export const getSpeciesProfileBySlug = cache(
+  async (
+    slug: string,
+    locale: AppLocale,
+    id: string,
+  ): Promise<null | SpeciesProfile> => {
     const response = await createApiClient().v1.species[":slug"].$get(
       {
         header: { "x-locale": locale },
