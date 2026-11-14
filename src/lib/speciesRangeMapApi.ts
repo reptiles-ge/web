@@ -9,12 +9,18 @@ import {
   liveSpeciesPublicSlug,
 } from "@/lib/speciesSlugRuntime";
 
-export const getSpeciesRangeMap = cache(
-  async (id: string, locale: AppLocale) => {
-    const slug =
-      locale === "ka"
-        ? liveSpeciesPublicSlug(await getSpeciesSlugMaps(), id, locale)
-        : id;
+export const getSpeciesRangeMap = cache(async (id: string, locale: AppLocale) =>
+  getSpeciesRangeMapBySlug(
+    locale === "ka"
+      ? liveSpeciesPublicSlug(await getSpeciesSlugMaps(), id, locale)
+      : id,
+    locale,
+    id,
+  ),
+);
+
+export const getSpeciesRangeMapBySlug = cache(
+  async (slug: string, locale: AppLocale, id: string) => {
     const response = await createApiClient().v1.species[":slug"][
       "range-map"
     ].$get(
