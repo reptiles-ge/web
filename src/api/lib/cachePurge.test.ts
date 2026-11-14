@@ -69,7 +69,7 @@ describe("purgeApiCache", () => {
 describe("cache clears", () => {
   it("purges the API cache for every clear that depends on API data", async () => {
     await revalidateNewsArticle(env, "kori-news");
-    await revalidateAuthorPages(env, { id: "sandro", isContributor: true });
+    await revalidateAuthorPages(env, "sandro");
     await revalidatePageGroup(env, "regions");
     await revalidatePageGroup(env, "site");
     expect(await readCacheGeneration(env.DB)).toBe(4);

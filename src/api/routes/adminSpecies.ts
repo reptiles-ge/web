@@ -17,7 +17,6 @@ import { reservePhotoUploadKey } from "../db/photoUploadKeys";
 import { listAdminSpecies } from "../db/species";
 import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
-import { defer } from "../lib/background";
 import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
 import { ApiError, type ApiErrorCode } from "../lib/errors";
@@ -128,7 +127,7 @@ export const adminSpecies = new Hono<ApiEnv>()
       if ((await readSpeciesVersion(c.env.DB, id)) === null) {
         throw new ApiError(404, "not_found", "Species not found");
       }
-      await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id, defer(c)));
+      await ensureSiteRevalidated(revalidateSpeciesPage(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },

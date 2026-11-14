@@ -92,7 +92,7 @@ If the log is empty, there is nothing to release. Stop and say so.
 gh run list --repo reptiles-ge/web --branch main --limit 5
 ```
 
-The `Lint` run for the head commit of `main` must be green and `Warm cache` must be finished (it waits for the production deploy). Then confirm the site answers:
+The `Lint` run for the head commit of `main` must be green and the production deploy must be finished. Then confirm the site answers:
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" https://reptiles.ge/
