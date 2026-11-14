@@ -14,9 +14,8 @@ import { creditPersonNames, creditPersonNamesStatement } from "./authors";
 import { readPage } from "./paging";
 import { containsPattern } from "./search";
 import {
-  buildSpeciesCatalog,
   type SpeciesCatalogData,
-  speciesCatalogStatements,
+  speciesCatalogQuery,
   type SpeciesMatch,
 } from "./speciesCatalog";
 import { viewTotalStatement } from "./views";
@@ -83,20 +82,20 @@ export async function getPublishedSpeciesPage(
     sql: `= (SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "slug_ka" : "id"} = ?)`,
     value: slug,
   };
-  const catalogStatements = speciesCatalogStatements(db, match);
+  const catalogQuery = speciesCatalogQuery(db, { match });
   const results = (
     await db.batch([
-      ...catalogStatements,
+      ...catalogQuery.statements,
       lookalikesStatement(db, match, locale),
       viewTotalStatement(db, "species", match),
       ...(locale === "ka" ? [] : [creditPersonNamesStatement(db, locale)]),
     ])
   ).map((result) => result.results);
-  const catalog = buildSpeciesCatalog(
-    results.slice(0, catalogStatements.length),
+  const catalog = catalogQuery.build(
+    results.slice(0, catalogQuery.statements.length),
   );
   const [lookalikeRows, viewRows, nameRows] = results.slice(
-    catalogStatements.length,
+    catalogQuery.statements.length,
   ) as [
     LookalikeRow[],
     Array<{ views: number }>,

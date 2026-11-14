@@ -404,18 +404,6 @@ export async function readAuthor(db: ApiDatabase, id: string) {
   return (await readStoredAuthor(db, id))?.record ?? null;
 }
 
-export async function readCreditPersonNames(
-  db: ApiDatabase,
-  locale: AppLocale,
-): Promise<CreditPersonNames> {
-  if (locale === "ka") return () => undefined;
-  const { results } = await creditPersonNamesStatement(db, locale).all<{
-    alias: string;
-    name: string;
-  }>();
-  return creditPersonNames(results);
-}
-
 export function relinkSpeciesAuthors(db: ApiDatabase, speciesId: string) {
   return [
     db.prepare(RELINK_SPECIES_MEDIA).bind(speciesId),
