@@ -13,6 +13,7 @@ import {
   getPublishedNewsForHub,
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
+  newsLinkedSpeciesIds,
 } from "../../../tests/fixtures/newsSeed";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createNewsTestDatabase } from "../testing/sqliteDatabase";
@@ -103,6 +104,68 @@ describe("GET /v1/news", () => {
     expect(series.body.data[0]?.series?.name).toBe(
       "Batumi Raptor Count, autumn 2026",
     );
+  });
+
+  it("finds every species and region article like the site, body links included", async () => {
+    for (const locale of ["ka", "en"] as const) {
+      const articles = getPublishedNewsArticles(locale);
+      const species = new Set(
+        articles.flatMap((article) => [
+          ...article.relatedSpeciesIds,
+          ...newsLinkedSpeciesIds(article, locale),
+        ]),
+      );
+      const regions = new Set(
+        articles.flatMap((article) => article.relatedRegionIds),
+      );
+      for (const id of species) {
+        expect(
+          slugs((await list(`?species=${id}&limit=100`, locale)).body),
+        ).toEqual(
+          getPublishedNewsForSpecies(id, locale).map((item) => item.slug),
+        );
+      }
+      for (const id of regions) {
+        expect(
+          slugs((await list(`?region=${id}&limit=100`, locale)).body),
+        ).toEqual(
+          getPublishedNewsForRegion(id, locale).map((item) => item.slug),
+        );
+      }
+      expect((await list("?species=no-such-species", locale)).body.total).toBe(
+        0,
+      );
+    }
+  });
+
+  it("finds an article that links a species only in one locale's body", async () => {
+    const linked = createNewsTestDatabase();
+    const [article] = getPublishedNewsArticles("en");
+    const row = linked.sqlite
+      .prepare(
+        "SELECT rowid, blocks FROM news_sections WHERE article_id = ? AND locale = 'en' AND blocks LIKE '%\"type\":\"p\"%' LIMIT 1",
+      )
+      .get(article!.slug) as { blocks: string; rowid: number };
+    const blocks = JSON.parse(row.blocks) as Array<{
+      parts?: unknown[];
+      type: string;
+    }>;
+    blocks
+      .find((block) => block.type === "p")!
+      .parts!.push({ id: "body-only-species", label: "x", type: "species" });
+    linked.sqlite
+      .prepare("UPDATE news_sections SET blocks = ? WHERE rowid = ?")
+      .run(JSON.stringify(blocks), row.rowid);
+    const request = (locale: string) =>
+      requestJson<ListBody>(
+        "/v1/news?species=body-only-species",
+        { DB: linked.db },
+        {
+          headers: { "X-Locale": locale },
+        },
+      );
+    expect(slugs((await request("en")).body)).toEqual([article!.slug]);
+    expect(slugs((await request("ka")).body)).toEqual([]);
   });
 
   it("filters by an author's id and aliases like the site", async () => {
