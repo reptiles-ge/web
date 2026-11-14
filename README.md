@@ -164,7 +164,7 @@ If TypeScript reports a missing `*.generated.ts` module, run `pnpm compile`.
 
 - `src/proxy.ts` handles redirects and slug lookups. It imports only lightweight tables (`speciesSlugTable.ts`, `guideArticlePaths.ts`), never the full catalog.
 - Server components pass the locale explicitly to next-intl, for example `getTranslations({ locale, namespace: "site" })`. An implicit locale falls back to `headers()` and makes the page uncacheable on vinext. ESLint enforces this, and `src/proxyCacheability.test.ts` guards it.
-- On every push to `main`, the [Warm cache workflow](.github/workflows/warm-cache.yml) waits for the deploy and then requests every sitemap URL.
+- Nothing warms the cache after a deploy or an admin clear; each page is cached on its first request.
 
 ### Maintenance mode
 

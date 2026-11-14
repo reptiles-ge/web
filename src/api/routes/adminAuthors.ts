@@ -13,7 +13,7 @@ import {
   writeAuthor,
   writeAuthorTexts,
 } from "../db/authors";
-import { defer, inBackground } from "../lib/background";
+import { inBackground } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import {
@@ -57,7 +57,7 @@ export const adminAuthors = new Hono<ApiEnv>()
     rateLimitAdmin,
     requireAdminSession,
     async (c) => {
-      await ensureSiteRevalidated(revalidateAuthorsSection(c.env, defer(c)));
+      await ensureSiteRevalidated(revalidateAuthorsSection(c.env));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { tags: ["authors"] } }, 200);
     },
@@ -70,13 +70,10 @@ export const adminAuthors = new Hono<ApiEnv>()
     validate("param", authorParam),
     async (c) => {
       const { id } = c.req.valid("param");
-      const isContributor = await readAuthorContributor(c.env.DB, id);
-      if (isContributor === null) {
+      if ((await readAuthorContributor(c.env.DB, id)) === null) {
         throw new ApiError(404, "not_found", "Author not found");
       }
-      await ensureSiteRevalidated(
-        revalidateContributorPage(c.env, { id, isContributor }, defer(c)),
-      );
+      await ensureSiteRevalidated(revalidateContributorPage(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -126,7 +123,7 @@ export const adminAuthors = new Hono<ApiEnv>()
       }
       const record = checked.data as AuthorRecord;
       await writeAuthorTexts(c.env.DB, record);
-      inBackground(c, revalidateAuthorPages(c.env, record, defer(c)));
+      inBackground(c, revalidateAuthorPages(c.env, record.id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -161,7 +158,7 @@ export const adminAuthors = new Hono<ApiEnv>()
         );
       }
       await writeAuthor(c.env.DB, author);
-      inBackground(c, revalidateAuthorPages(c.env, author, defer(c)));
+      inBackground(c, revalidateAuthorPages(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },

@@ -1,17 +1,9 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { z } from "zod";
 
-import type { SpeciesSlugMaps } from "@/lib/speciesSlugRules";
-
-import { creditAuthorHref } from "@/data/authors";
-import { getPathname } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
 import { serverEnv } from "@/lib/env";
-import { newsArticleHref } from "@/lib/newsHrefs";
 import { findSitePageGroup, SITE_PAGE_GROUP_IDS } from "@/lib/sitePageGroups";
 import { refreshSpeciesApiCache } from "@/lib/speciesApiRefresh";
-import { speciesHref } from "@/lib/speciesRoutes";
-import { liveSpeciesPath } from "@/lib/speciesSlugRuntime";
 
 const EXPIRE_NOW = { expire: 0 };
 
@@ -57,18 +49,14 @@ export async function POST(request: Request) {
     );
   }
   const { groups = [], tags = [] } = parsed.data;
-  const slugMaps =
-    tags.length > 0 ? await refreshSpeciesApiCache(tags) : undefined;
+  if (tags.length > 0) await refreshSpeciesApiCache(tags);
   for (const tag of tags) revalidateTag(tag, EXPIRE_NOW);
   for (const id of groups) {
     for (const route of findSitePageGroup(id)?.routes ?? []) {
       revalidatePath(route.path, route.type);
     }
   }
-  return Response.json(
-    { warm: warmPaths(tags, slugMaps) },
-    { headers: noindex },
-  );
+  return Response.json({ revalidated: true }, { headers: noindex });
 }
 
 async function sameSecret(header: null | string, token: string) {
@@ -81,20 +69,4 @@ async function sameSecret(header: null | string, token: string) {
   const a = new Uint8Array(left!);
   const b = new Uint8Array(right!);
   return a.every((byte, index) => byte === b[index]);
-}
-
-function warmPaths(tags: string[], slugMaps: SpeciesSlugMaps | undefined) {
-  return tags.flatMap((tag) => {
-    const [kind, id] = tag.split(":");
-    if (!id) return [];
-    return routing.locales.map((locale) => {
-      if (kind === "species") {
-        return slugMaps
-          ? liveSpeciesPath(slugMaps, id, locale)
-          : getPathname({ href: speciesHref(id, locale), locale });
-      }
-      const href = kind === "news" ? newsArticleHref(id) : creditAuthorHref(id);
-      return getPathname({ href, locale });
-    });
-  });
 }
