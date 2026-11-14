@@ -78,14 +78,16 @@ export function revalidateSpeciesSite(env: ApiBindings, ids: string[]) {
   return clearSpecies(env, ids);
 }
 
-async function clearCaches(
+function clearCaches(
   env: ApiBindings,
   apiTags: string[],
   payload: SitePayload,
 ) {
-  const purged = await purgeApiCache(env, apiTags);
-  const revalidated = await revalidateSite(env, payload);
-  return revalidated && purged !== "failed";
+  return purgeApiCache(env, apiTags).then((purged) =>
+    revalidateSite(env, payload).then(
+      (revalidated) => revalidated && purged !== "failed",
+    ),
+  );
 }
 
 async function clearSpecies(env: ApiBindings, ids: string[]) {
