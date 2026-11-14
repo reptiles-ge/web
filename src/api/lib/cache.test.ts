@@ -34,6 +34,8 @@ vi.stubGlobal("caches", {
 });
 
 let app: (typeof import("../app"))["app"];
+let forgetCacheGeneration: (typeof import("./cache"))["forgetCacheGeneration"];
+let purgeFromApp: (typeof import("./cachePurge"))["purgeApiCache"];
 let env: ApiBindings;
 let sqlite: ReturnType<typeof createSpeciesTestDatabase>["sqlite"];
 
@@ -55,9 +57,13 @@ async function overview(headers: Record<string, string> = {}) {
 beforeAll(async () => {
   vi.resetModules();
   ({ app } = await import("../app"));
+  ({ forgetCacheGeneration } = await import("./cache"));
+  ({ purgeApiCache: purgeFromApp } = await import("./cachePurge"));
 });
 
 beforeEach(() => {
+  vi.useRealTimers();
+  forgetCacheGeneration();
   stores.clear();
   const database = createSpeciesTestDatabase();
   sqlite = database.sqlite;
@@ -115,6 +121,48 @@ describe("edgeCache", () => {
       .run();
     expect(await purgeApiCache(env)).toBe("purged");
     expect(await overview()).toBe("changed");
+  });
+
+  it("remembers the generation in memory for CACHE_GENERATION_TTL_MS", async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    env.CACHE_GENERATION_TTL_MS = "5000";
+    const first = await overview();
+    sqlite
+      .prepare(
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
+      )
+      .run();
+    sqlite
+      .prepare(
+        "INSERT INTO api_cache_generation (id, generation) VALUES (1, 1) ON CONFLICT (id) DO UPDATE SET generation = generation + 1",
+      )
+      .run();
+    const prepare = vi.spyOn(env.DB, "prepare");
+    expect(await overview()).toBe(first);
+    expect(prepare).not.toHaveBeenCalled();
+    vi.advanceTimersByTime(5001);
+    expect(await overview()).toBe("changed");
+  });
+
+  it("reads the new generation at once after a purge in the same isolate", async () => {
+    env.CACHE_GENERATION_TTL_MS = "5000";
+    await overview();
+    sqlite
+      .prepare(
+        "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
+      )
+      .run();
+    expect(await purgeFromApp(env)).toBe("purged");
+    expect(await overview()).toBe("changed");
+  });
+
+  it("reads D1 on every request without a generation TTL", async () => {
+    await overview();
+    const prepare = vi.spyOn(env.DB, "prepare");
+    await overview();
+    expect(prepare).toHaveBeenCalledWith(
+      "SELECT generation FROM api_cache_generation WHERE id = 1",
+    );
   });
 
   it("keeps caching when the generation cannot be read", async () => {
