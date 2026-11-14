@@ -227,6 +227,9 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
     expect(appliers.sort()).toEqual(["db:migrate", "db:migrate:remote"]);
     expect(scripts["db:migrate"]).toContain("--local");
     expect(scripts["db:migrate:remote"]).toContain("--remote");
+    expect(scripts["db:migrate:remote"]).toMatch(
+      /&& wrangler d1 execute reptiles-db --remote .*PRAGMA optimize/,
+    );
     const automated = [".github/workflows", "scripts"]
       .flatMap((dir) => walkFiles(path.join(ROOT, dir)))
       .filter((file) => /migrations apply/.test(readFileSync(file, "utf8")))

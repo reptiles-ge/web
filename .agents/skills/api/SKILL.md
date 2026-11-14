@@ -103,7 +103,7 @@ wrangler.api.jsonc    Worker config: main src/api/index.ts, D1 binding DB.
 - Add-only. NEVER edit, rename, or delete a migration that has been applied anywhere. Fix forward with a new one.
 - Migrations run **only** when a person runs a script on purpose. NEVER apply them from `dev`, `dev:api`, `build`, `deploy:api`, a `pre*`/`post*` hook, `scripts/`, CI, or app code. The guard test fails if anything other than `db:migrate` and `db:migrate:remote` applies migrations.
 - Local: `pnpm db:migrations:list`, then `pnpm db:migrate`.
-- Production: `pnpm db:migrate:remote`, only when the owner asks, by hand, after the change is merged.
+- Production: `pnpm db:migrate:remote`, only when the owner asks, by hand, after the change is merged. It runs `PRAGMA optimize` after the migrations, so a new index gets its `sqlite_stat1` statistics and the query planner can choose it (Cloudflare recommends it after every schema change). If the optimize step fails, the migrations are already applied; run `wrangler d1 execute reptiles-db --remote --config wrangler.api.jsonc --command "PRAGMA optimize"` again.
 - Tests run every migration on an in-memory Node SQLite (`testing/sqliteDatabase.ts`). That never touches the local or remote D1, and a broken migration fails CI.
 
 ## Auth and security
