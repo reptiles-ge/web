@@ -10,20 +10,23 @@ type IntentHandlers = Pick<
   "onFocus" | "onMouseEnter" | "onTouchStart" | "prefetch"
 >;
 
+export function HoverPrefetchLink(props: ComponentProps<typeof Link>) {
+  return <Link {...props} {...useIntentPrefetch(props, "hover")} />;
+}
+
 export function IntentPrefetchLink(props: ComponentProps<typeof Link>) {
-  return <Link {...props} {...useIntentPrefetch(props)} />;
+  return <Link {...props} {...useIntentPrefetch(props, "intent")} />;
 }
 
 export function IntentPrefetchNextLink(props: ComponentProps<typeof NextLink>) {
-  return <NextLink {...props} {...useIntentPrefetch(props)} />;
+  return <NextLink {...props} {...useIntentPrefetch(props, "intent")} />;
 }
 
-function useIntentPrefetch({
-  onFocus,
-  onMouseEnter,
-  onTouchStart,
-  prefetch,
-}: IntentHandlers): IntentHandlers {
+function useIntentPrefetch(
+  { onFocus, onMouseEnter, onTouchStart, prefetch }: IntentHandlers,
+  mode: "hover" | "intent",
+): IntentHandlers {
+  const onTouch = mode === "intent";
   const [intent, setIntent] = useState(false);
 
   return {
@@ -35,10 +38,12 @@ function useIntentPrefetch({
       setIntent(true);
       onMouseEnter?.(event);
     },
-    onTouchStart: (event) => {
-      setIntent(true);
-      onTouchStart?.(event);
-    },
-    prefetch: prefetch ?? (intent ? null : false),
+    onTouchStart: onTouch
+      ? (event) => {
+          setIntent(true);
+          onTouchStart?.(event);
+        }
+      : onTouchStart,
+    prefetch: prefetch ?? (intent ? (mode === "hover" ? true : null) : false),
   };
 }

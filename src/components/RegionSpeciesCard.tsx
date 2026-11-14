@@ -5,9 +5,9 @@ import { useLocale } from "next-intl";
 import type { RegionSpeciesCardItem } from "@/data/regions";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
+import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
@@ -20,7 +20,7 @@ export function RegionSpeciesCard({
 }) {
   const locale = useLocale();
   return (
-    <Link
+    <HoverPrefetchLink
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
       href={useSpeciesHref(species.id, locale)}
       onClick={() =>
@@ -29,7 +29,6 @@ export function RegionSpeciesCard({
           species_id: species.id,
         })
       }
-      prefetch={false}
     >
       <ClientCoverImage
         alt={speciesImageAlt(
@@ -57,6 +56,6 @@ export function RegionSpeciesCard({
           <p className="mt-2 text-[12px] text-white/50">{species.location}</p>
         )}
       </div>
-    </Link>
+    </HoverPrefetchLink>
   );
 }

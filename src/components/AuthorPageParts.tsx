@@ -9,6 +9,7 @@ import type { CreditAuthorGroupStat } from "@/lib/creditAuthors";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { CoverImage } from "@/components/CoverImage";
+import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { getCreditAuthorTopSpecies } from "@/lib/creditAuthors";
@@ -313,10 +314,9 @@ export async function AuthorSpeciesGroups({
                   if (!localized) return null;
                   return (
                     <li className="border-t border-border/70" key={item.id}>
-                      <Link
+                      <HoverPrefetchLink
                         className="group flex min-h-[52px] items-center gap-3 py-2"
                         href={speciesHref(item, locale)}
-                        prefetch={false}
                       >
                         <span className="min-w-0 flex-1">
                           <span className="block text-[15px] leading-[1.3] font-medium text-foreground transition-colors group-hover:text-primary">
@@ -329,7 +329,7 @@ export async function AuthorSpeciesGroups({
                         <span className="inline-flex h-6 min-w-7 shrink-0 items-center justify-center rounded-full bg-surface px-2 text-[12px] font-semibold text-primary tabular-nums">
                           {item.photos}
                         </span>
-                      </Link>
+                      </HoverPrefetchLink>
                     </li>
                   );
                 })}

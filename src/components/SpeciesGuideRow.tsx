@@ -7,10 +7,10 @@ import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
+import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { speciesGroup } from "@/data/speciesAtlasMetaTable";
-import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
@@ -20,12 +20,10 @@ import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 
 export function SpeciesGuideList({
   locale,
-  prefetch,
   source = "hub",
   species,
 }: {
   locale: AppLocale;
-  prefetch?: boolean;
   source?: SpeciesClickSource;
   species: SpeciesCard[];
 }) {
@@ -36,7 +34,6 @@ export function SpeciesGuideList({
           <SpeciesGuideRow
             index={index}
             locale={locale}
-            prefetch={prefetch}
             source={source}
             species={item}
           />
@@ -49,13 +46,11 @@ export function SpeciesGuideList({
 function SpeciesGuideRow({
   index,
   locale,
-  prefetch,
   source = "hub",
   species,
 }: {
   index: number;
   locale: AppLocale;
-  prefetch?: boolean;
   source?: SpeciesClickSource;
   species: SpeciesCard;
 }) {
@@ -96,7 +91,7 @@ function SpeciesGuideRow({
       : tShared("openProfile");
 
   return (
-    <Link
+    <HoverPrefetchLink
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
       href={speciesHrefFromIndex(switchIndex, species.id, locale)}
       onClick={() =>
@@ -106,7 +101,6 @@ function SpeciesGuideRow({
           species_id: species.id,
         })
       }
-      prefetch={prefetch}
     >
       <div className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
         <ClientCoverImage
@@ -132,7 +126,7 @@ function SpeciesGuideRow({
         turtleStatus={turtleStatus}
         turtleType={turtleType}
       />
-    </Link>
+    </HoverPrefetchLink>
   );
 }
 
