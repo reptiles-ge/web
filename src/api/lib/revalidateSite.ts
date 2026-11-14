@@ -5,10 +5,10 @@ import { ApiError } from "./errors";
 
 const SITE_ORIGIN = "https://reptiles.ge";
 
-export async function clearCaches(env: ApiBindings) {
-  const purged = await purgeApiCache(env);
-  const cleared = await clearSiteCache(env);
-  return cleared && purged === "purged";
+export function clearCaches(env: ApiBindings) {
+  return purgeApiCache(env).then((purged) =>
+    clearSiteCache(env).then((cleared) => cleared && purged === "purged"),
+  );
 }
 
 export async function ensureSiteRevalidated(pending: Promise<boolean>) {
