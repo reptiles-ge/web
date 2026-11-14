@@ -214,6 +214,21 @@ export async function readAuthorContributor(db: ApiDatabase, id: string) {
 const ADMIN_AUTHOR_FROM =
   "FROM authors a LEFT JOIN author_texts k ON k.author_id = a.id AND k.locale = 'ka' LEFT JOIN author_texts e ON e.author_id = a.id AND e.locale = 'en' WHERE (?1 IS NULL OR a.is_contributor = ?1) AND (?2 IS NULL OR a.kind_id = ?2) AND (?3 IS NULL OR a.role_id = ?3) AND (?4 IS NULL OR a.id LIKE ?4 ESCAPE '\\' OR k.name LIKE ?4 ESCAPE '\\' OR e.name LIKE ?4 ESCAPE '\\')";
 
+export function creditPersonNames(
+  rows: Array<{ alias: string; name: string }>,
+): CreditPersonNames {
+  const names = new Map(rows.map((row) => [row.alias, row.name]));
+  return (photographer) => names.get(photographer);
+}
+
+export function creditPersonNamesStatement(db: ApiDatabase, locale: AppLocale) {
+  return db
+    .prepare(
+      "SELECT a.alias AS alias, t.name AS name FROM author_aliases a JOIN author_texts t ON t.author_id = a.author_id AND t.locale = ?",
+    )
+    .bind(locale);
+}
+
 export async function listAdminAuthors(
   db: ApiDatabase,
   filters: AdminAuthorFilters,
@@ -394,14 +409,11 @@ export async function readCreditPersonNames(
   locale: AppLocale,
 ): Promise<CreditPersonNames> {
   if (locale === "ka") return () => undefined;
-  const { results } = await db
-    .prepare(
-      "SELECT a.alias AS alias, t.name AS name FROM author_aliases a JOIN author_texts t ON t.author_id = a.author_id AND t.locale = ?",
-    )
-    .bind(locale)
-    .all<{ alias: string; name: string }>();
-  const names = new Map(results.map((row) => [row.alias, row.name]));
-  return (photographer) => names.get(photographer);
+  const { results } = await creditPersonNamesStatement(db, locale).all<{
+    alias: string;
+    name: string;
+  }>();
+  return creditPersonNames(results);
 }
 
 export function relinkSpeciesAuthors(db: ApiDatabase, speciesId: string) {
