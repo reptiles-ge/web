@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 
 import { cn } from "@/lib/cn";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 const PULSE = "animate-pulse motion-reduce:animate-none";
 const DARK = "bg-white/12";
@@ -14,7 +15,15 @@ const LEDE = [276, 325, 263, 264, 227];
 const DESCRIPTION = [498, 481, 459];
 const VERDICT_TITLE = { desktop: [368], mobile: [243, 56] };
 const VERDICT_BODY = { desktop: [325, 362, 336], mobile: [302, 277, 240, 198] };
-const NAV_ITEMS = [105, 103, 110, 103, 100, 111, 96];
+const NAV_ITEMS = [
+  { id: SPECIES_SECTION_IDS.overview, width: 105 },
+  { id: SPECIES_SECTION_IDS.identification, width: 103 },
+  { id: SPECIES_SECTION_IDS.range, width: 110 },
+  { id: SPECIES_SECTION_IDS.biology, width: 103 },
+  { id: SPECIES_SECTION_IDS.gallery, width: 100 },
+  { id: SPECIES_SECTION_IDS.faq, width: 111 },
+  { id: SPECIES_SECTION_IDS.sources, width: 96 },
+];
 const OVERVIEW_TITLE = { desktop: [516, 24], mobile: [105, 244] };
 const OVERVIEW_BODY = {
   desktop: [591, 551, 654, 667, 628, 629, 672, 653, 416],
@@ -240,10 +249,10 @@ function SkeletonSectionNav() {
     <div className="border-y border-border bg-surface/95 lg:bg-background/92">
       <div className="mx-auto flex h-[60px] max-w-[1440px] items-center lg:h-[68px] lg:px-[60px]">
         <div className="flex min-w-0 flex-1 items-center gap-1.5 overflow-hidden px-6 lg:px-0">
-          {NAV_ITEMS.map((width, index) => (
+          {NAV_ITEMS.map(({ id, width }) => (
             <span
               className="flex h-10 shrink-0 items-center justify-center"
-              key={index}
+              key={id}
               style={{ width }}
             >
               <Bar className={cn("h-3 w-[70%] rounded-full", LIGHT)} />
