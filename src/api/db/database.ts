@@ -12,7 +12,7 @@ export type ApiQueryMeta = {
   total_attempts?: number;
 };
 
-type ApiStatement = {
+export type ApiStatement = {
   all: <T>() => Promise<{ meta?: ApiQueryMeta; results: T[] }>;
   bind: (...values: unknown[]) => ApiStatement;
   first: <T>() => Promise<null | T>;

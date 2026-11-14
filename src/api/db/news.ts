@@ -135,13 +135,31 @@ export async function listAdminNews(
   return toPage(data, total, page);
 }
 
+export async function readNewsArticleIds(
+  db: ApiDatabase,
+  { region, species }: { region?: string; species?: string },
+): Promise<string[]> {
+  const { results } = await db
+    .prepare(
+      "SELECT id FROM news_articles WHERE status = 'published' AND (?1 IS NULL OR id IN (SELECT article_id FROM news_species WHERE species_id = ?1 UNION SELECT article_id FROM news_sections WHERE instr(blocks, ?1) > 0)) AND (?2 IS NULL OR id IN (SELECT article_id FROM news_regions WHERE region_id = ?2)) ORDER BY position",
+    )
+    .bind(species ?? null, region ?? null)
+    .all<{ id: string }>();
+  return results.map((row) => row.id);
+}
+
 export async function readNewsRecords(
   db: ApiDatabase,
-  articleId?: string,
+  scope?: string | string[],
 ): Promise<NewsRecord[]> {
-  const where = (column: string) => (articleId ? ` WHERE ${column} = ?` : "");
+  const ids = scope === undefined ? [] : [scope].flat();
+  if (scope !== undefined && ids.length === 0) return [];
+  const match =
+    ids.length === 1 ? " = ?" : ` IN (${ids.map(() => "?").join(", ")})`;
+  const where = (column: string) =>
+    ids.length ? ` WHERE ${column}${match}` : "";
   const statement = (query: string) =>
-    articleId ? db.prepare(query).bind(articleId) : db.prepare(query);
+    ids.length ? db.prepare(query).bind(...ids) : db.prepare(query);
   const [
     articles,
     texts,
@@ -167,7 +185,7 @@ export async function readNewsRecords(
         `SELECT id, article_id, role, src, width, height, plate, from_atlas, author_id, credit_person, credit_location, credit_date, credit_lat, credit_lng, credit_url, credit_photo_confidence_id FROM news_media${where("article_id")} ORDER BY article_id, role, position`,
       ),
       statement(
-        `SELECT media_id, locale, alt FROM news_media_alts${articleId ? " WHERE media_id IN (SELECT id FROM news_media WHERE article_id = ?)" : ""} ORDER BY media_id, (SELECT position FROM locales WHERE code = locale)`,
+        `SELECT media_id, locale, alt FROM news_media_alts${ids.length ? ` WHERE media_id IN (SELECT id FROM news_media WHERE article_id${match})` : ""} ORDER BY media_id, (SELECT position FROM locales WHERE code = locale)`,
       ),
       statement(
         `SELECT article_id, url, name, name_ka, name_en, name_ru, name_tr FROM news_sources${where("article_id")} ORDER BY article_id, position`,

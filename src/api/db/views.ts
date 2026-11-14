@@ -149,12 +149,10 @@ export async function readViewTotal(
   kind: ContentViewKind,
   id: string,
 ) {
-  const row = await db
-    .prepare(
-      "SELECT COALESCE(SUM(views), 0) AS views FROM content_views WHERE kind = ? AND target_id = ?",
-    )
-    .bind(kind, id)
-    .first<{ views: number }>();
+  const row = await viewTotalStatement(db, kind, {
+    sql: "= ?",
+    value: id,
+  }).first<{ views: number }>();
   return row?.views ?? 0;
 }
 
@@ -172,4 +170,16 @@ export async function recordView(db: ApiDatabase, view: ContentView) {
     )
     .bind(view.kind, view.id, view.day)
     .run();
+}
+
+export function viewTotalStatement(
+  db: ApiDatabase,
+  kind: ContentViewKind,
+  target: { sql: string; value: string },
+) {
+  return db
+    .prepare(
+      `SELECT COALESCE(SUM(views), 0) AS views FROM content_views WHERE kind = ? AND target_id ${target.sql}`,
+    )
+    .bind(kind, target.value);
 }

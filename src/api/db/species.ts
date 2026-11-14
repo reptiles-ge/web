@@ -2,15 +2,23 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { applySpeciesTranslation } from "@/i18n/speciesTranslation";
+import {
+  applySpeciesTranslation,
+  type CreditPersonNames,
+} from "@/i18n/speciesTranslation";
 import { type PageParams, toPage } from "@/lib/pagination";
 
 import type { ApiDatabase } from "./database";
 
-import { readCreditPersonNames } from "./authors";
+import { creditPersonNames, creditPersonNamesStatement } from "./authors";
 import { readPage } from "./paging";
 import { containsPattern } from "./search";
-import { readSpeciesCatalog } from "./speciesCatalog";
+import {
+  type SpeciesCatalogData,
+  speciesCatalogQuery,
+  type SpeciesMatch,
+} from "./speciesCatalog";
+import { viewTotalStatement } from "./views";
 
 export type AdminSpeciesFilters = {
   group?: AnimalGroup;
@@ -65,33 +73,48 @@ export async function findPublishedSpeciesId(
   return row?.id ?? null;
 }
 
-export async function getSpeciesDetail(
+export async function getPublishedSpeciesPage(
   db: ApiDatabase,
-  id: string,
+  slug: string,
   locale: AppLocale,
 ) {
-  const [catalog, lookalikes, personNames] = await Promise.all([
-    readSpeciesCatalog(db, id),
-    listLookalikes(db, id, locale),
-    readCreditPersonNames(db, locale),
-  ]);
-  const base = catalog.species[0];
-  const meta = catalog.atlasMeta[id];
-  if (!base || !meta) return null;
-  const translation =
-    locale === "ka" ? undefined : catalog.translations[locale][id];
-  return {
-    ...(translation
-      ? applySpeciesTranslation(base, translation, locale, personNames)
-      : base),
-    checklistStatus: meta.checklistStatus,
-    class: meta.class,
-    group: meta.group,
-    habitats: meta.habitats,
-    lookalikes,
-    order: meta.order,
-    slug: publicSlug(id, catalog.kaSlugById[id] ?? null, locale),
+  const match = {
+    sql: `= (SELECT id FROM species WHERE status = 'published' AND ${locale === "ka" ? "slug_ka" : "id"} = ?)`,
+    value: slug,
   };
+  const catalogQuery = speciesCatalogQuery(db, { match });
+  const results = (
+    await db.batch([
+      ...catalogQuery.statements,
+      lookalikesStatement(db, match, locale),
+      viewTotalStatement(db, "species", match),
+      ...(locale === "ka" ? [] : [creditPersonNamesStatement(db, locale)]),
+    ])
+  ).map((result) => result.results);
+  const catalog = catalogQuery.build(
+    results.slice(0, catalogQuery.statements.length),
+  );
+  const [lookalikeRows, viewRows, nameRows] = results.slice(
+    catalogQuery.statements.length,
+  ) as [
+    LookalikeRow[],
+    Array<{ views: number }>,
+    Array<{ alias: string; name: string }> | undefined,
+  ];
+  const [id] = catalog.catalogIds;
+  if (!id) return null;
+  const data = speciesDetail(
+    catalog,
+    id,
+    lookalikeRows.map((row) => ({
+      commonName: row.common_name,
+      id: row.id,
+      slug: publicSlug(row.id, row.slug_ka, locale),
+    })),
+    nameRows ? creditPersonNames(nameRows) : () => undefined,
+    locale,
+  );
+  return data ? { data, id, views: viewRows[0]?.views ?? 0 } : null;
 }
 
 export async function listAdminSpecies(
@@ -160,20 +183,44 @@ export async function readSpeciesIdsRevisedSince(
   return [...new Set(results.map(({ species_id }) => species_id))].sort();
 }
 
-async function listLookalikes(db: ApiDatabase, id: string, locale: AppLocale) {
-  const { results } = await db
+function lookalikesStatement(
+  db: ApiDatabase,
+  match: SpeciesMatch,
+  locale: AppLocale,
+) {
+  return db
     .prepare(
-      "SELECT s.id, s.slug_ka, t.common_name FROM (SELECT lookalike_id AS peer, 0 AS direction, position FROM species_lookalikes WHERE species_id = ? UNION ALL SELECT species_id AS peer, 1 AS direction, 0 AS position FROM species_lookalikes WHERE lookalike_id = ?) AS l JOIN species s ON s.id = l.peer AND s.status = 'published' JOIN species_texts t ON t.species_id = s.id AND t.locale = ? GROUP BY s.id, s.slug_ka, t.common_name ORDER BY MIN(l.direction), MIN(CASE WHEN l.direction = 0 THEN l.position END), s.id",
+      `SELECT s.id, s.slug_ka, t.common_name FROM (SELECT lookalike_id AS peer, 0 AS direction, position FROM species_lookalikes WHERE species_id ${match.sql} UNION ALL SELECT species_id AS peer, 1 AS direction, 0 AS position FROM species_lookalikes WHERE lookalike_id ${match.sql}) AS l JOIN species s ON s.id = l.peer AND s.status = 'published' JOIN species_texts t ON t.species_id = s.id AND t.locale = ? GROUP BY s.id, s.slug_ka, t.common_name ORDER BY MIN(l.direction), MIN(CASE WHEN l.direction = 0 THEN l.position END), s.id`,
     )
-    .bind(id, id, locale)
-    .all<LookalikeRow>();
-  return results.map((row) => ({
-    commonName: row.common_name,
-    id: row.id,
-    slug: publicSlug(row.id, row.slug_ka, locale),
-  }));
+    .bind(match.value, match.value, locale);
 }
 
 function publicSlug(id: string, slugKa: null | string, locale: AppLocale) {
   return locale === "ka" ? (slugKa ?? id) : id;
+}
+
+function speciesDetail(
+  catalog: SpeciesCatalogData,
+  id: string,
+  lookalikes: Array<{ commonName: string; id: string; slug: string }>,
+  personNames: CreditPersonNames,
+  locale: AppLocale,
+) {
+  const base = catalog.species[0];
+  const meta = catalog.atlasMeta[id];
+  if (!base || !meta) return null;
+  const translation =
+    locale === "ka" ? undefined : catalog.translations[locale][id];
+  return {
+    ...(translation
+      ? applySpeciesTranslation(base, translation, locale, personNames)
+      : base),
+    checklistStatus: meta.checklistStatus,
+    class: meta.class,
+    group: meta.group,
+    habitats: meta.habitats,
+    lookalikes,
+    order: meta.order,
+    slug: publicSlug(id, catalog.kaSlugById[id] ?? null, locale),
+  };
 }

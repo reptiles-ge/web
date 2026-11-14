@@ -17,6 +17,7 @@ import {
 } from "./species";
 import { SpeciesAudioPanel } from "./SpeciesAudioPanel";
 import { type PendingOrder, SpeciesPhotosTab } from "./SpeciesPhotosTab";
+import { speciesPublicUrl } from "./speciesPublicUrl";
 import { SpeciesStatusControl } from "./SpeciesStatusControl";
 import { SpeciesTextsEditor } from "./SpeciesTextsEditor";
 import { useAdminData } from "./useAdminList";
@@ -221,6 +222,19 @@ function SpeciesHeader({
             status={record.status}
             version={currentVersion}
           />
+          {record.status === "published" ? (
+            <Button
+              href={speciesPublicUrl({
+                group: record.group,
+                id,
+                slugKa: record.slugKa,
+              })}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              View on site
+            </Button>
+          ) : null}
           <Button onClick={onReload}>Reload</Button>
           <ClearCacheButton
             description="This species' profile pages, and the hubs, lists and cards that show it, render fresh on reptiles.ge on their next visit, in every language."

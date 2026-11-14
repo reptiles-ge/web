@@ -209,6 +209,52 @@ describe("GET /v1/species/:slug", () => {
     expect(unseen.body.views).toBe(0);
   });
 
+  it("reads a profile from D1 in one round trip", async () => {
+    const { db } = createSpeciesTestDatabase();
+    const calls: string[] = [];
+    let inBatch = false;
+    const count = (call: string) => {
+      if (!inBatch) calls.push(call);
+    };
+    const counted = {
+      batch: async (statements: Parameters<typeof db.batch>[0]) => {
+        count("batch");
+        inBatch = true;
+        try {
+          return await db.batch(statements);
+        } finally {
+          inBatch = false;
+        }
+      },
+      prepare: (query: string) => {
+        const statement = db.prepare(query);
+        const track = (target: typeof statement): typeof statement => ({
+          ...target,
+          all: () => (count("all"), target.all()),
+          bind: (...values) => track(target.bind(...values)),
+          first: () => (count("first"), target.first()),
+          run: () => (count("run"), target.run()),
+        });
+        return track(statement);
+      },
+    };
+    for (const [slug, locale] of [
+      ["giurza", "ka"],
+      ["macrovipera-lebetina", "en"],
+      ["dolichophis-caspius", "en"],
+    ] as const) {
+      calls.length = 0;
+      await requestJson(
+        `/v1/species/${slug}`,
+        { DB: counted },
+        {
+          headers: { "X-Locale": locale },
+        },
+      );
+      expect(calls, `${slug} ${locale}`).toStrictEqual(["batch"]);
+    }
+  });
+
   it("rejects a malformed slug or locale", async () => {
     for (const [url, headers] of [
       ["/v1/species/bad_slug!", {}],

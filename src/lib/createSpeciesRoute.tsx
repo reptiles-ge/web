@@ -58,6 +58,7 @@ import {
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
 import { speciesNameWithScientific } from "@/lib/speciesDisplayName";
+import { getSpeciesFieldRecords } from "@/lib/speciesFieldRecordsApi";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -66,6 +67,7 @@ import {
   speciesTitleIntentKeys,
 } from "@/lib/speciesMeta";
 import { getSpeciesProfile } from "@/lib/speciesProfileApi";
+import { getSpeciesRangeMap } from "@/lib/speciesRangeMapApi";
 import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
@@ -233,6 +235,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       permanentRedirect(liveSpeciesPath(slugMaps, id, locale));
     }
 
+    preloadSpeciesPage(id, locale);
     const loaded = await loadSpeciesPage(id, locale);
     if (!loaded) {
       notFound();
@@ -352,6 +355,18 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
     raw: { ...base.species, group: base.group },
     views: localized.views,
   };
+}
+
+function preloadSpeciesPage(id: string, locale: AppLocale) {
+  for (const pending of [
+    getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
+    getNewsListArticlesForSpecies(locale, id),
+    getSpeciesFieldRecords(id),
+    getSpeciesRangeMap(id, locale),
+  ]) {
+    pending.catch(() => undefined);
+  }
 }
 
 function sourceCreativeWork(source: SpeciesSource) {
