@@ -66,8 +66,14 @@ import {
   speciesPageMetaTitle,
   speciesTitleIntentKeys,
 } from "@/lib/speciesMeta";
-import { getSpeciesProfile } from "@/lib/speciesProfileApi";
-import { getSpeciesRangeMap } from "@/lib/speciesRangeMapApi";
+import {
+  getSpeciesProfile,
+  getSpeciesProfileBySlug,
+} from "@/lib/speciesProfileApi";
+import {
+  getSpeciesRangeMap,
+  getSpeciesRangeMapBySlug,
+} from "@/lib/speciesRangeMapApi";
 import {
   getLookalikeSpecies,
   getProfileRelatedSpecies,
@@ -80,6 +86,10 @@ import {
   liveSpeciesPublicSlug,
   resolveLiveSpeciesIdInHub,
 } from "@/lib/speciesSlugRuntime";
+import {
+  getSpeciesPublicSlug,
+  resolveSpeciesIdInHub,
+} from "@/lib/speciesSlugTable";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
 import { speciesStaticParams } from "@/lib/speciesStaticParams";
 import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
@@ -137,6 +147,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     }
 
     const locale = localeParam;
+    prefetchSpeciesPage(hubId, slug, locale);
     const t = await getTranslations({ locale, namespace: "speciesMeta" });
     const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     const loaded = id ? await loadSpeciesPage(id, locale) : null;
@@ -223,6 +234,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const locale = localeParam;
     setRequestLocale(locale);
+    prefetchSpeciesPage(hubId, slug, locale);
 
     const id = await resolveLiveSpeciesIdInHub(hubId, slug);
     if (!id) {
@@ -312,6 +324,25 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
   };
 }
 
+export function prefetchSpeciesPage(
+  hubId: GroupHubId,
+  slug: string,
+  locale: AppLocale,
+) {
+  const id = resolveSpeciesIdInHub(hubId, slug);
+  if (!id) return;
+  const localSlug = getSpeciesPublicSlug(id, locale);
+  settle([
+    getSpeciesProfileBySlug(getSpeciesPublicSlug(id, "ka"), "ka", id),
+    getSpeciesProfileBySlug(localSlug, locale, id),
+    getSpeciesRangeMapBySlug(localSlug, locale, id),
+    getSpeciesCatalog(locale),
+    getContributorDirectory(locale),
+    getNewsListArticlesForSpecies(locale, id),
+    getSpeciesFieldRecords(id),
+  ]);
+}
+
 function epithetStem(epithet: string) {
   return epithet.replace(/-+$/, "").replace(/(?:us|um|is|a|e)$/, "");
 }
@@ -358,15 +389,17 @@ async function loadSpeciesPage(id: string, locale: AppLocale) {
 }
 
 function preloadSpeciesPage(id: string, locale: AppLocale) {
-  for (const pending of [
+  settle([
     getSpeciesCatalog(locale),
     getContributorDirectory(locale),
     getNewsListArticlesForSpecies(locale, id),
     getSpeciesFieldRecords(id),
     getSpeciesRangeMap(id, locale),
-  ]) {
-    pending.catch(() => undefined);
-  }
+  ]);
+}
+
+function settle(pending: ReadonlyArray<Promise<unknown>>) {
+  for (const promise of pending) promise.catch(() => undefined);
 }
 
 function sourceCreativeWork(source: SpeciesSource) {
