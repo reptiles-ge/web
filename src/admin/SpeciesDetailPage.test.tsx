@@ -54,6 +54,7 @@ const RECORD = {
       scientificName: "Macrovipera lebetinus",
     },
     group: "snake",
+    slugKa: "giurza",
     status: "published",
     translations: { en: { commonName: "Levantine viper" } },
   },
@@ -237,6 +238,25 @@ describe("SpeciesDetailPage", () => {
     expect(
       await screen.findByText("Cache cleared for macrovipera-lebetina."),
     ).toBeInTheDocument();
+  });
+
+  it("links a published species to its Georgian page in a new tab", async () => {
+    show();
+    const link = await screen.findByRole("link", { name: "View on site" });
+    expect(link).toHaveAttribute("href", "https://reptiles.ge/gvelebi/giurza");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  });
+
+  it("has no site link while the species is not published", async () => {
+    const draft = structuredClone(RECORD);
+    draft.record.status = "draft";
+    vi.mocked(fetchAdminSpeciesRecord).mockResolvedValue(draft);
+    show();
+    await screen.findByRole("heading", { name: "გიურზა" });
+    expect(
+      screen.queryByRole("link", { name: "View on site" }),
+    ).not.toBeInTheDocument();
   });
 
   it("shows 404 for an unknown species", async () => {
