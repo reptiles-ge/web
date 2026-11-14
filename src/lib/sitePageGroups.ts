@@ -118,8 +118,6 @@ export const SITE_PAGE_GROUPS: SitePageGroup[] = [
   },
 ];
 
-export const SITE_PAGE_GROUP_IDS = SITE_PAGE_GROUPS.map(({ id }) => id);
-
 export function findSitePageGroup(id: string) {
   return SITE_PAGE_GROUPS.find((group) => group.id === id);
 }

@@ -113,7 +113,7 @@ describe("edgeCache", () => {
         "UPDATE species_texts SET overview = 'changed' WHERE species_id = 'cheiracanthium-punctorium' AND locale = 'en'",
       )
       .run();
-    expect(await purgeApiCache(env, ["catalog"])).toBe("purged");
+    expect(await purgeApiCache(env)).toBe("purged");
     expect(await overview()).toBe("changed");
   });
 
