@@ -1,5 +1,3 @@
-import type { SpeciesSlugMaps } from "@/lib/speciesSlugRules";
-
 import { routing } from "@/i18n/routing";
 import { createApiClient, responseOk } from "@/lib/apiClient";
 import { serverEnv } from "@/lib/env";
@@ -24,11 +22,9 @@ const NEWS_TAG_PREFIX = "news:";
 
 const SPECIES_TAG_PREFIX = "species:";
 
-export async function refreshSpeciesApiCache(
-  tags: string[],
-): Promise<SpeciesSlugMaps | undefined> {
+export async function refreshSpeciesApiCache(tags: string[]) {
   const token = serverEnv().REVALIDATE_TOKEN;
-  if (!token) return undefined;
+  if (!token) return;
   const api = createApiClient();
   const options = {
     headers: { "X-Cache-Bypass": token },
@@ -135,5 +131,4 @@ export async function refreshSpeciesApiCache(
       ),
     Promise.resolve(),
   );
-  return slugMaps;
 }

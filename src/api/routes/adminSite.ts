@@ -5,7 +5,6 @@ import { findSitePageGroup, SITE_PAGE_GROUPS } from "@/lib/sitePageGroups";
 import type { ApiEnv } from "../env";
 
 import { readSpeciesIdsRevisedSince } from "../db/species";
-import { defer } from "../lib/background";
 import { NO_STORE } from "../lib/cache";
 import { ApiError } from "../lib/errors";
 import {
@@ -41,7 +40,7 @@ export const adminSite = new Hono<ApiEnv>()
       if (!findSitePageGroup(id)) {
         throw new ApiError(404, "not_found", "Page group not found");
       }
-      await ensureSiteRevalidated(revalidatePageGroup(c.env, id, defer(c)));
+      await ensureSiteRevalidated(revalidatePageGroup(c.env, id));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { id } }, 200);
     },
@@ -54,9 +53,7 @@ export const adminSite = new Hono<ApiEnv>()
     async (c) => {
       const since = new Date(Date.now() - REVISED_WINDOW_MS).toISOString();
       const species = await readSpeciesIdsRevisedSince(c.env.DB, since);
-      await ensureSiteRevalidated(
-        revalidateSpeciesSite(c.env, species, defer(c)),
-      );
+      await ensureSiteRevalidated(revalidateSpeciesSite(c.env, species));
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { species } }, 200);
     },

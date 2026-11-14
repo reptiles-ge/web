@@ -24,7 +24,6 @@ const REQUEST_TIMEOUT_MS = 60_000;
 const USER_AGENTS: Record<string, string> = {
   bingbot:
     "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
-  "cache-warmer": "reptiles-cache-warmer",
   chrome:
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
   empty: "",

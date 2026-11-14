@@ -76,8 +76,7 @@ describe("refreshSpeciesApiCache", () => {
           }
         : { data: [] },
     );
-    const maps = await refreshSpeciesApiCache(["species:new-bird"]);
-    expect(maps?.kaSlugById["new-bird"]).toBe("akhali-chiti");
+    await refreshSpeciesApiCache(["species:new-bird"]);
     expect(
       seen.map(({ bypass, locale, url }) =>
         [bypass, locale, new URL(url).pathname].join(" "),
@@ -94,8 +93,7 @@ describe("refreshSpeciesApiCache", () => {
         HttpResponse.json({ error: { code: "unavailable" } }, { status: 503 }),
       ),
     );
-    const maps = await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
-    expect(maps).toBeUndefined();
+    await refreshSpeciesApiCache(["species:macrovipera-lebetina"]);
     expect(error).not.toHaveBeenCalled();
     expect(seen.map(({ url }) => new URL(url).pathname)[0]).toBe(
       "/v1/species/macrovipera-lebetina",
