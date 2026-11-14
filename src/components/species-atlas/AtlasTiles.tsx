@@ -84,10 +84,7 @@ export function AtlasTiles({
         {venomousTile("max-lg:hidden")}
 
         <button
-          className={cn(
-            TILE_CLASS_NAME,
-            "bg-surface text-foreground lg:col-span-2",
-          )}
+          className={cn(TILE_CLASS_NAME, "bg-surface text-foreground")}
           onClick={onPickRegion}
           type="button"
         >
