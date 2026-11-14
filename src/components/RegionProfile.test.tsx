@@ -18,8 +18,8 @@ import {
   localizedFixture,
 } from "../../tests/fixtures/speciesCatalog";
 
-const { LinkStub } = vi.hoisted(() => ({
-  LinkStub: ({
+vi.mock("@/i18n/navigation", () => ({
+  Link: ({
     children,
     className,
     href,
@@ -32,12 +32,6 @@ const { LinkStub } = vi.hoisted(() => ({
       {children}
     </a>
   ),
-}));
-
-vi.mock("@/i18n/navigation", () => ({ Link: LinkStub }));
-
-vi.mock("@/components/IntentPrefetchLink", () => ({
-  HoverPrefetchLink: LinkStub,
 }));
 
 vi.mock("@/components/LocaleSwitchProvider", () => ({

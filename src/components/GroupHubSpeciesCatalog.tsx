@@ -7,7 +7,6 @@ import { type ComponentProps, useId, useState } from "react";
 import type { DangerLevel } from "@/data/speciesTypes";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -248,7 +247,7 @@ function HubSpeciesCard({
   riskLabel?: string;
 }) {
   return (
-    <HoverPrefetchLink
+    <Link
       className="group block rounded-[20px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[24px]"
       href={item.href}
       onClick={() =>
@@ -285,6 +284,6 @@ function HubSpeciesCard({
       <span className="mx-1 mt-0.5 block text-[12px] text-muted-foreground italic lg:mx-1.5 lg:mt-[3px] lg:text-[13px]">
         {item.scientificName}
       </span>
-    </HoverPrefetchLink>
+    </Link>
   );
 }

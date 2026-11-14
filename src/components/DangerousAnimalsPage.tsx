@@ -7,7 +7,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
-import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { Link } from "@/i18n/navigation";
@@ -133,12 +132,12 @@ export async function DangerousAnimalsPage({
                     key={row.id}
                   >
                     <th className="py-4 pr-4 font-normal" scope="row">
-                      <HoverPrefetchLink
+                      <Link
                         className="font-display text-[16px] font-semibold text-foreground transition-colors hover:text-primary"
                         href={speciesHref(row, locale)}
                       >
                         {row.commonName}
-                      </HoverPrefetchLink>
+                      </Link>
                       <span className="mt-1 block text-[13px] text-muted-foreground italic">
                         {row.scientificName}
                       </span>
@@ -157,14 +156,14 @@ export async function DangerousAnimalsPage({
                       {row.location}
                     </td>
                     <td className="py-4 pr-4 text-[14px]">
-                      <HoverPrefetchLink
+                      <Link
                         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                         href={row.guide?.href ?? speciesHref(row, locale)}
                       >
                         {row.guide
                           ? t(`links.${row.guide.key}`)
                           : t("tableProfile")}
-                      </HoverPrefetchLink>
+                      </Link>
                     </td>
                   </tr>
                 ))}

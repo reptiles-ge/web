@@ -85,7 +85,6 @@ export function NewsListCardView({
       <Link
         className={`group grid grid-cols-[104px_minmax(0,1fr)] items-start gap-3.5 border-t border-(--nw-line) py-3.5 active:opacity-70 md:flex md:h-full md:flex-col md:items-stretch md:gap-0 md:overflow-hidden md:rounded-[28px] md:border-0 md:bg-(--nw-card) md:py-0 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-hover) md:active:opacity-100 md:motion-safe:transition-[translate,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:-translate-y-1 ${focusClass}`}
         href={newsArticleHref(entry.slug)}
-        prefetch={false}
       >
         <NewsCover
           className="size-[104px] rounded-[18px] md:aspect-16/10 md:size-auto md:w-full md:rounded-none"

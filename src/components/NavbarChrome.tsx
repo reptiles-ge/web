@@ -6,9 +6,9 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 import type { NavLink } from "@/components/NavbarMenu";
 
-import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
+import { NoPrefetchLink } from "@/components/NoPrefetchLink";
 import { SavedHeaderButton } from "@/components/SavedHeaderButton";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -98,13 +98,13 @@ export function NavbarChrome({
         aria-label={navLabel}
         className="relative z-10 hidden items-center gap-0.5 lg:flex"
       >
-        <IntentPrefetchLink
+        <NoPrefetchLink
           aria-current={isActive("/species") ? "page" : undefined}
           className={navItemClass(solid, isActive("/species"))}
           href="/species"
         >
           {speciesLabel}
-        </IntentPrefetchLink>
+        </NoPrefetchLink>
         <button
           aria-controls={groupsOpen ? groupsId : undefined}
           aria-expanded={groupsOpen}
@@ -126,14 +126,14 @@ export function NavbarChrome({
           />
         </button>
         {links.map((link) => (
-          <IntentPrefetchLink
+          <NoPrefetchLink
             aria-current={isActive(link.href) ? "page" : undefined}
             className={navItemClass(solid, isActive(link.href))}
             href={link.href}
             key={link.href}
           >
             {link.label}
-          </IntentPrefetchLink>
+          </NoPrefetchLink>
         ))}
       </nav>
       <div className="flex-1" />

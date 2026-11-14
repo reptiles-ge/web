@@ -7,7 +7,6 @@ import type { SpeciesIndexRow } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import {
   useLocaleSwitchIndex,
   useSpeciesHref,
@@ -15,6 +14,7 @@ import {
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { speciesGroup } from "@/data/speciesAtlasMetaTable";
+import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
@@ -230,11 +230,7 @@ export function SpeciesIndexTable({
                       key={item.id}
                     >
                       <td className="py-3 pr-4">
-                        <HoverPrefetchLink
-                          className="block"
-                          href={href}
-                          onClick={onClick}
-                        >
+                        <Link className="block" href={href} onClick={onClick}>
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
                             <ClientCoverImage
                               alt={speciesImageAlt(
@@ -247,10 +243,10 @@ export function SpeciesIndexTable({
                               src={speciesCardImage(item)}
                             />
                           </span>
-                        </HoverPrefetchLink>
+                        </Link>
                       </td>
                       <td className="py-3 pr-4">
-                        <HoverPrefetchLink
+                        <Link
                           className="group block"
                           href={href}
                           onClick={onClick}
@@ -261,7 +257,7 @@ export function SpeciesIndexTable({
                           <span className="mt-0.5 block text-[13px] text-muted-foreground italic">
                             {item.scientificName}
                           </span>
-                        </HoverPrefetchLink>
+                        </Link>
                       </td>
                       <td className="py-3 pr-4 text-[13px]">
                         {isVenomousDanger(item.danger)
@@ -326,7 +322,7 @@ function IndexCard({
   const activity = species.activity ?? dash;
 
   return (
-    <HoverPrefetchLink
+    <Link
       className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
       href={href}
       onClick={() =>
@@ -368,6 +364,6 @@ function IndexCard({
           {activity !== dash ? ` · ${activity}` : ""}
         </span>
       </span>
-    </HoverPrefetchLink>
+    </Link>
   );
 }

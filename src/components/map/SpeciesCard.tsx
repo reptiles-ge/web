@@ -6,8 +6,8 @@ import { useLocale, useTranslations } from "next-intl";
 import type { SpeciesListItem } from "@/data/speciesListItem";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
+import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesImageAlt } from "@/lib/speciesMeta";
@@ -29,7 +29,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
   const riskLabel = riskChip ? tDanger(riskChip.level) : null;
 
   return (
-    <HoverPrefetchLink
+    <Link
       className="group flex gap-3.5 rounded-2xl border border-border/80 bg-background/70 p-3 transition-[border-color,background-color,box-shadow] duration-300 hover:border-primary/35 hover:bg-background hover:shadow-[0_12px_28px_-20px_rgba(47,107,79,0.45)]"
       href={useSpeciesHref(species.id, locale)}
       onClick={() =>
@@ -79,7 +79,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
         ) : null}
         <span className="sr-only">{tMap("viewSpecies")}</span>
       </div>
-    </HoverPrefetchLink>
+    </Link>
   );
 }
 

@@ -4,8 +4,8 @@ import { ChevronRight } from "lucide-react";
 
 import type { GroupHubId } from "@/lib/groupHubs";
 
-import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { NoPrefetchLink } from "@/components/NoPrefetchLink";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/cn";
@@ -91,7 +91,7 @@ export function NavbarMenu({
         <ul className="mt-3.5">
           {primaryLinks.map((link) => (
             <li key={link.href}>
-              <IntentPrefetchLink
+              <NoPrefetchLink
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className="flex min-h-[60px] items-center gap-3 border-b border-border/70 px-1"
                 href={link.href}
@@ -110,7 +110,7 @@ export function NavbarMenu({
                   className="size-4 text-muted-foreground/70"
                   strokeWidth={1.75}
                 />
-              </IntentPrefetchLink>
+              </NoPrefetchLink>
             </li>
           ))}
         </ul>
@@ -126,7 +126,7 @@ export function NavbarMenu({
         <ul className="mt-2.5 grid grid-cols-3 gap-2 md:grid-cols-5">
           {groups.map((group) => (
             <li key={group.id}>
-              <IntentPrefetchLink
+              <NoPrefetchLink
                 className="relative flex h-[88px] flex-col justify-end overflow-hidden rounded-[18px] bg-ink p-2.5 text-white"
                 href={group.href}
                 onClick={onCloseMenu}
@@ -146,7 +146,7 @@ export function NavbarMenu({
                 <span className="relative mt-0.5 text-[11.5px] text-white/75 tabular-nums">
                   {group.count}
                 </span>
-              </IntentPrefetchLink>
+              </NoPrefetchLink>
             </li>
           ))}
         </ul>
@@ -159,13 +159,13 @@ export function NavbarMenu({
         <ul className="mt-[18px] flex flex-wrap gap-x-[18px] gap-y-1 text-[13.5px] text-muted-foreground">
           {footerLinks.map((link) => (
             <li key={link.href}>
-              <IntentPrefetchLink
+              <NoPrefetchLink
                 className="tap-target inline-flex min-h-9 items-center transition-colors hover:text-foreground"
                 href={link.href}
                 onClick={onCloseMenu}
               >
                 {link.label}
-              </IntentPrefetchLink>
+              </NoPrefetchLink>
             </li>
           ))}
         </ul>

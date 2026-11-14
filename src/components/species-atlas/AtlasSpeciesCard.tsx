@@ -9,11 +9,11 @@ import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { HoverPrefetchLink } from "@/components/IntentPrefetchLink";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { speciesGroup, speciesHabitats } from "@/data/speciesAtlasMetaTable";
+import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { ANIMAL_GROUP_TO_HUB, GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
@@ -50,7 +50,7 @@ export function AtlasSpeciesCard({
   const ids = useLabelIds();
 
   return (
-    <HoverPrefetchLink
+    <Link
       aria-labelledby={labelledBy(ids, Boolean(item.risk))}
       className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-card shadow-[0_1px_2px_rgba(14,20,17,0.04),0_8px_22px_rgba(14,20,17,0.05)] transition-[translate,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[26px] lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_32px_rgba(14,20,17,0.05)] lg:hover:translate-y-[-3px] lg:hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_24px_52px_rgba(14,20,17,0.12)]"
       href={item.href}
@@ -139,7 +139,7 @@ export function AtlasSpeciesCard({
           </span>
         </span>
       </span>
-    </HoverPrefetchLink>
+    </Link>
   );
 }
 
@@ -154,7 +154,7 @@ export function AtlasSpeciesRow({
   const ids = useLabelIds();
 
   return (
-    <HoverPrefetchLink
+    <Link
       aria-labelledby={labelledBy(ids, Boolean(item.risk))}
       className="grid min-h-[72px] grid-cols-[56px_minmax(0,1.6fr)_minmax(0,0.8fr)_minmax(0,1fr)_120px_minmax(0,1.2fr)_24px] items-center gap-4 rounded-2xl border-t border-secondary px-4 py-2 transition-colors hover:bg-background/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       href={item.href}
@@ -230,7 +230,7 @@ export function AtlasSpeciesRow({
         {item.where}
       </span>
       <ChevronRight aria-hidden="true" className="size-4 text-border" />
-    </HoverPrefetchLink>
+    </Link>
   );
 }
 
