@@ -15,6 +15,7 @@
   "vars": {
     "ALLOWED_ORIGINS": "https://reptiles.ge,https://admin.reptiles.ge",
     "API_KEY_MODE": "enforce",
+    "CACHE_GENERATION_TTL_MS": "5000",
   },
   "ratelimits": [
     {

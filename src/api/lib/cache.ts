@@ -3,7 +3,7 @@ import type { Context } from "hono";
 import { timingSafeEqual } from "hono/utils/buffer";
 
 import type { ApiDatabase } from "../db/database";
-import type { ApiEnv } from "../env";
+import type { ApiBindings, ApiEnv } from "../env";
 
 import { readCacheGeneration } from "../db/cacheGeneration";
 import { factory } from "../factory";
@@ -31,6 +31,17 @@ const VARY = ["origin", LOCALE_HEADER.toLowerCase()];
 
 const UNCACHEABLE = /(?:^|,\s*)(?:private|no-(?:store|cache))(?:\s*(?:=|,|$))/i;
 
+let rememberedGeneration: null | { expires: number; generation: number } = null;
+
+export function forgetCacheGeneration() {
+  rememberedGeneration = null;
+}
+
+export function generationTtlMs(env: ApiBindings) {
+  const ttl = Number(env.CACHE_GENERATION_TTL_MS ?? 0);
+  return Number.isFinite(ttl) && ttl > 0 ? ttl : 0;
+}
+
 export const edgeCache = (cacheName: string, baseTags: string[]) =>
   factory.createMiddleware(async (c, next) => {
     if (
@@ -44,7 +55,7 @@ export const edgeCache = (cacheName: string, baseTags: string[]) =>
     const [store, refresh, generation] = await Promise.all([
       caches.open(cacheName),
       canBypass(c.req.header(CACHE_BYPASS_HEADER), c.env.REVALIDATE_TOKEN),
-      currentGeneration(c.env.DB),
+      currentGeneration(c.env.DB, generationTtlMs(c.env)),
     ]);
     const key = cacheKey(c.req.raw, generation);
     if (!refresh) {
@@ -81,9 +92,15 @@ async function canBypass(header: string | undefined, token?: string) {
   return Boolean(header && token && (await timingSafeEqual(header, token)));
 }
 
-async function currentGeneration(db: ApiDatabase) {
+async function currentGeneration(db: ApiDatabase, ttlMs: number) {
+  const now = Date.now();
+  if (ttlMs > 0 && rememberedGeneration && rememberedGeneration.expires > now) {
+    return rememberedGeneration.generation;
+  }
   try {
-    return await readCacheGeneration(db);
+    const generation = await readCacheGeneration(db);
+    if (ttlMs > 0) rememberedGeneration = { expires: now + ttlMs, generation };
+    return generation;
   } catch (error) {
     console.error("API cache generation could not be read", error);
     return 0;
