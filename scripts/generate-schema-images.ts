@@ -27,6 +27,11 @@ import {
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 import { getNewsArticles } from "../src/lib/newsApi";
+import {
+  NEWS_INBOX_DIR,
+  readNewsInbox,
+  withNewsInbox,
+} from "../src/lib/newsMdxArticle";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -161,7 +166,9 @@ async function selectHeroes(
   manifest: Manifest,
   catalog: Parameters<typeof newsHeroImage>[1],
 ) {
-  const articles = await getNewsArticles();
+  const inbox = readNewsInbox(path.join(process.cwd(), NEWS_INBOX_DIR));
+  for (const error of inbox.errors) console.warn(error);
+  const articles = withNewsInbox(await getNewsArticles(), inbox.articles);
   const known = new Set(articles.map((article) => article.slug));
   const unknown = options.slugs.filter((slug) => !known.has(slug));
   if (unknown.length > 0) {

@@ -1,6 +1,13 @@
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { newsArticleFromMdx } from "@/lib/newsMdxArticle";
+import {
+  newsArticleFromMdx,
+  readNewsInbox,
+  withNewsInbox,
+} from "@/lib/newsMdxArticle";
 
 const KA = `---
 slug: test-news
@@ -123,5 +130,51 @@ describe("newsArticleFromMdx", () => {
       expect.stringContaining("src/content/news/test-news/ru.mdx:"),
     ]);
     expect(Object.keys(result.article!.copy)).toEqual(["ka", "en"]);
+  });
+});
+
+describe("readNewsInbox", () => {
+  const inboxWith = (folders: Record<string, Record<string, string>>) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "news-inbox-"));
+    for (const [slug, files] of Object.entries(folders)) {
+      fs.mkdirSync(path.join(root, slug));
+      for (const [name, raw] of Object.entries(files))
+        fs.writeFileSync(path.join(root, slug, name), raw);
+    }
+    return root;
+  };
+
+  it("reads every article folder and reports the broken ones", () => {
+    const root = inboxWith({
+      "broken-news": { "en.mdx": EN },
+      "test-news": { "en.mdx": EN, "ka.mdx": KA },
+    });
+    fs.writeFileSync(path.join(root, "notes.txt"), "not an article");
+    const inbox = readNewsInbox(root);
+    expect(inbox.articles.map((article) => article.slug)).toEqual([
+      "test-news",
+    ]);
+    expect(inbox.errors).toEqual(["broken-news: missing ka.mdx"]);
+  });
+
+  it("returns nothing when the inbox does not exist", () => {
+    expect(readNewsInbox(path.join(os.tmpdir(), "no-such-news-inbox"))).toEqual(
+      { articles: [], errors: [] },
+    );
+  });
+
+  it("puts inbox articles beside the published ones, and the inbox copy wins", () => {
+    const { article } = newsArticleFromMdx("test-news", { ka: file(KA) });
+    const published = { ...article!, slug: "old-news" };
+    const stale = { ...article!, status: "published" as const };
+    expect(
+      withNewsInbox([published, stale], [article!]).map((item) => [
+        item.slug,
+        item.status,
+      ]),
+    ).toEqual([
+      ["old-news", "draft"],
+      ["test-news", "draft"],
+    ]);
   });
 });

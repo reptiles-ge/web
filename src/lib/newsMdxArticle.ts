@@ -20,6 +20,8 @@ export type NewsMdxResult = {
   heroImageException?: string;
 };
 
+export const NEWS_INBOX_DIR = ".news";
+
 const translationLocales = ["en", "ru", "tr"] as const;
 
 export function newsArticleFromMdx(
@@ -114,6 +116,26 @@ export function newsArticleFromMdx(
   };
 }
 
+export function readNewsInbox(contentRoot: string) {
+  const articles: NewsArticle[] = [];
+  const errors: string[] = [];
+  if (!fs.existsSync(contentRoot)) return { articles, errors };
+  const slugs = fs
+    .readdirSync(contentRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
+  for (const slug of slugs) {
+    const result = newsArticleFromMdx(
+      slug,
+      readNewsMdxFiles(contentRoot, slug),
+    );
+    if (result.article) articles.push(result.article);
+    errors.push(...result.errors);
+  }
+  return { articles, errors };
+}
+
 export function readNewsMdxFiles(contentRoot: string, slug: string) {
   const files: Partial<Record<AppLocale, NewsMdxFile>> = {};
   for (const locale of locales) {
@@ -122,4 +144,15 @@ export function readNewsMdxFiles(contentRoot: string, slug: string) {
       files[locale] = { path: file, raw: fs.readFileSync(file, "utf8") };
   }
   return files;
+}
+
+export function withNewsInbox(
+  published: readonly NewsArticle[],
+  inbox: readonly NewsArticle[],
+): NewsArticle[] {
+  const inboxSlugs = new Set(inbox.map((article) => article.slug));
+  return [
+    ...published.filter((article) => !inboxSlugs.has(article.slug)),
+    ...inbox,
+  ];
 }
