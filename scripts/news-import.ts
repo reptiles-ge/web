@@ -7,6 +7,7 @@ import { createAdminNews, publishAdminNews } from "../src/lib/adminNewsApi";
 import { apiOrigin } from "../src/lib/apiClient";
 import { checkNewsHero } from "../src/lib/newsHeroImage";
 import {
+  NEWS_INBOX_DIR,
   newsArticleFromMdx,
   readNewsMdxFiles,
 } from "../src/lib/newsMdxArticle";
@@ -17,7 +18,6 @@ import { loadEnv } from "./scriptUtils";
 
 const USAGE =
   "Usage: pnpm news:import <slug> [--dir <folder>] [--dry-run] [--publish] [--actor <name>]";
-const DEFAULT_DIR = ".news";
 
 const args = process.argv.slice(2);
 const slug = args.find((arg) => !arg.startsWith("--"));
@@ -29,7 +29,7 @@ const actor =
   process.env.USER ??
   "news-import";
 const dirIndex = args.indexOf("--dir");
-const dir = (dirIndex >= 0 ? args[dirIndex + 1] : undefined) ?? DEFAULT_DIR;
+const dir = (dirIndex >= 0 ? args[dirIndex + 1] : undefined) ?? NEWS_INBOX_DIR;
 
 if (
   !slug ||
