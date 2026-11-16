@@ -32,6 +32,11 @@ import {
   putImageManifest,
 } from "../src/lib/optimizedImagesApi";
 import { getNewsArticles } from "../src/lib/newsApi";
+import {
+  NEWS_INBOX_DIR,
+  readNewsInbox,
+  withNewsInbox,
+} from "../src/lib/newsMdxArticle";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
@@ -493,11 +498,14 @@ async function run() {
   const token = writeToken();
   const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 
-  const [species, contributors, newsArticles] = await Promise.all([
+  const [species, contributors, publishedNews] = await Promise.all([
     getSpeciesCatalog("ka", "photos"),
     getContributors("ka"),
     getNewsArticles(),
   ]);
+  const inbox = readNewsInbox(path.join(process.cwd(), NEWS_INBOX_DIR));
+  for (const error of inbox.errors) console.warn(error);
+  const newsArticles = withNewsInbox(publishedNews, inbox.articles);
   const newsPhotos = newsPhotoSources(newsArticles);
   const portraits = contributors.map((author) => author.portraitSrc);
   const byKey = collectSources(species, portraits, newsPhotos);
