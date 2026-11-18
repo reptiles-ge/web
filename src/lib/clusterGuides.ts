@@ -819,6 +819,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       kind: "page",
     },
     { href: "/spiders/obobis-nakbeni", key: "spiderBite", kind: "page" },
+    { href: "/spiders/oboba-sakhlshi", key: "spiderInHouse", kind: "page" },
   ],
   turtles: [
     { href: "/turtles/saxeoebebi", key: "turtleIndex", kind: "page" },

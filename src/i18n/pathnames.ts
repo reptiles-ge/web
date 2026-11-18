@@ -161,6 +161,10 @@ export const pathnames = {
   "/species": "/species",
   "/spiders": kaLatin("/obobebi", "/spiders"),
   "/spiders/[slug]": kaLatin("/obobebi/[slug]", "/spiders/[slug]"),
+  "/spiders/oboba-sakhlshi": kaLatin(
+    "/obobebi/oboba-sakhlshi",
+    "/spiders/spider-in-house",
+  ),
   "/spiders/obobis-nakbeni": kaLatin(
     "/obobebi/obobis-nakbeni",
     "/spiders/bite",

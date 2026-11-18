@@ -318,7 +318,8 @@
         "bedBugsAtHome": "Evde tahtakurusu",
         "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
         "mouseInHouse": "Evde fare",
-        "hedgehogInWinter": "Kışın bulunan kirpi"
+        "hedgehogInWinter": "Kışın bulunan kirpi",
+        "spiderInHouse": "Evde örümcek"
       }
     }
   },
@@ -411,7 +412,8 @@
     "backToTopLabel": "Başa dönün",
     "photoUse": "Fotoğraf kullanımı",
     "developers": "Geliştiriciler için",
-    "status": "Hizmet durumu"
+    "status": "Hizmet durumu",
+    "spiderInHouse": "Evde örümcek"
   },
   "legal": {
     "privacy": {
@@ -1973,6 +1975,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Giysi güvesi",
         "body": "Hasarı tanıyın, kumaşları temizleyin ve dolabı koruyun",
+        "cta": "Rehberi oku"
+      },
+      "spiderInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde örümcek",
+        "body": "Evde hangi örümcekler yaşar, karakurttan ne zaman uzak durulmalı ve örümcek ona dokunmadan nasıl çıkarılır.",
         "cta": "Rehberi oku"
       }
     },
