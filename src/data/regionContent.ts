@@ -6,12 +6,16 @@ import {
   type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
-  regions,
 } from "@/data/mapRegions";
+import {
+  type RegionHabitatKind,
+  regionHabitatKind,
+} from "@/lib/regionHabitatKind";
 
 export type LocalizedRegionContent = {
   biome: null | string;
   faq: { answer: string; question: string }[];
+  habitatKinds: (null | RegionHabitatKind)[];
   habitats: string[];
   overview: null | string;
   related: RegionRelatedLink[];
@@ -26,10 +30,6 @@ export type RegionContent = {
   relatedIds: RegionPathId[];
   titleName?: LocalizedText;
   titleNameIn?: LocalizedText;
-};
-
-export type RegionDirectoryEntry = RegionRelatedLink & {
-  overview: null | string;
 };
 
 export type RegionRelatedLink = {
@@ -879,6 +879,9 @@ export function getLocalizedRegionContent(
   return {
     biome: localizeRegionTextIfPresent(content.biome, locale),
     faq: localizeRegionFaq(content.faq, locale),
+    habitatKinds: content.habitats.map((habitat) =>
+      regionHabitatKind(habitat.en),
+    ),
     habitats: content.habitats.map((habitat) =>
       localizeRegionText(habitat, locale),
     ),
@@ -889,19 +892,6 @@ export function getLocalizedRegionContent(
 
 export function getRegionContent(id: RegionPathId): RegionContent {
   return regionContent[id];
-}
-
-export function getRegionDirectory(locale: AppLocale): RegionDirectoryEntry[] {
-  return regions.map((region) => ({
-    biome: localizeRegionTextIfPresent(regionContent[region.id].biome, locale),
-    id: region.id,
-    name: localizeRegionText(region.name, locale),
-    overview: localizeRegionTextIfPresent(
-      regionContent[region.id].overview,
-      locale,
-    ),
-    speciesCount: region.speciesIds.length,
-  }));
 }
 
 export function localizeRegionFaq(

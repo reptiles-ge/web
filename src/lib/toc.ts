@@ -51,7 +51,7 @@ export function speciesProfileSectionIds({
 export const REGION_SECTION_IDS = {
   faq: "faq",
   habitats: "habitats",
-  range: "range",
+  news: "news",
   related: "related",
   species: "species",
   summary: "summary",

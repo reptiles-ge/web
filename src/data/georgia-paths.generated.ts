@@ -46,3 +46,18 @@ export const georgiaRegionLabelPoints: Record<
   "tbilisi": [697.2,365.9],
   "imereti": [441.8,297],
 };
+
+export const georgiaRegionViewBoxes: Record<RegionPathId, string> = {
+  "abkhazia": "22.0 -0.3 340.8 263.6",
+  "samegrelo-zemo-svaneti": "240.0 69.0 255.2 252.0",
+  "shida-kartli": "498.3 186.1 182.1 192.9",
+  "racha": "349.2 125.6 244.5 143.3",
+  "mtskheta-mtianeti": "598.9 159.2 182.6 227.9",
+  "kakheti": "705.8 189.7 270.8 319.6",
+  "samtskhe-javakheti": "367.4 312.9 235.2 179.7",
+  "adjara": "241.8 320.3 167.6 110.4",
+  "kvemo-kartli": "527.0 324.6 261.0 158.9",
+  "guria": "269.7 275.1 146.9 86.9",
+  "tbilisi": "678.0 347.9 51.6 38.0",
+  "imereti": "329.3 201.2 246.3 165.3",
+};

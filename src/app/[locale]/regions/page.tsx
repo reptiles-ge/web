@@ -6,13 +6,10 @@ import { notFound } from "next/navigation";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
-import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RegionsIndex } from "@/components/RegionsIndex";
-import { getRegionDirectory } from "@/data/regionContent";
-import { REGIONS_INDEX_HERO_IMAGE } from "@/data/regionImages";
 import {
   getCatalogRegionStats,
-  getRegionTooltipPreviews,
+  getRegionAtlasEntries,
   localizeRegionText,
   regions,
 } from "@/data/regions";
@@ -59,7 +56,11 @@ export default async function RegionsPage({ params }: LocalePageProps) {
   const locale = localeParam;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "regions" });
+  const [t, stats, atlasRegions] = await Promise.all([
+    getTranslations({ locale, namespace: "regions" }),
+    getCatalogRegionStats(locale),
+    getRegionAtlasEntries(locale),
+  ]);
   const url = absoluteUrl(localePath(locale, "/regions"));
 
   const jsonLd = {
@@ -94,14 +95,8 @@ export default async function RegionsPage({ params }: LocalePageProps) {
           }),
         ]}
       />
-      <ClientMessagesProvider locale={locale} namespaces={["map", "regions"]}>
-        <OptimizedImageScope srcs={[REGIONS_INDEX_HERO_IMAGE]}>
-          <RegionsIndex
-            directory={getRegionDirectory(locale)}
-            stats={await getCatalogRegionStats(locale)}
-            tooltipSpeciesByRegion={await getRegionTooltipPreviews(locale)}
-          />
-        </OptimizedImageScope>
+      <ClientMessagesProvider locale={locale} namespaces={["regions"]}>
+        <RegionsIndex regions={atlasRegions} stats={stats} />
       </ClientMessagesProvider>
     </>
   );

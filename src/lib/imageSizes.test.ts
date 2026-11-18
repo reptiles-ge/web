@@ -6,7 +6,6 @@ import {
   galleryFeaturedSizes,
   galleryThumbSizes,
   MOBILE_HERO_SIZES,
-  REGION_HERO_SIZES,
 } from "@/lib/imageSizes";
 import { SPECIES_HERO_SIZES } from "@/lib/speciesContent";
 
@@ -31,9 +30,6 @@ describe("image sizes", () => {
     expect(MOBILE_HERO_SIZES).toBe("(min-resolution: 2.5dppx) 67vw, 100vw");
     expect(SPECIES_HERO_SIZES).toBe(
       "(max-width: 1023px) and (min-resolution: 2.5dppx) 67vw, (max-width: 1023px) 100vw, 62vw",
-    );
-    expect(REGION_HERO_SIZES).toContain(
-      "(max-aspect-ratio: 1/1) and (min-resolution: 2.5dppx) 63vh, (max-aspect-ratio: 1/1) 94vh",
     );
   });
 });

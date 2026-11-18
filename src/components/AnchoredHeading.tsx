@@ -1,6 +1,5 @@
-import type { ReactNode } from "react";
-
 import { Link as LinkIcon } from "lucide-react";
+import { isValidElement, type ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 import { slugify } from "@/lib/slugify";
@@ -56,6 +55,9 @@ function textFromChildren(children: ReactNode): string {
   }
   if (Array.isArray(children)) {
     return children.map(textFromChildren).join("");
+  }
+  if (isValidElement<{ children?: ReactNode }>(children)) {
+    return textFromChildren(children.props.children);
   }
   return "";
 }

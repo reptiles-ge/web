@@ -5,11 +5,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
-import { ContentAttribution } from "@/components/ContentAttribution";
-import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
-import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { OptimizedImageScope } from "@/components/OptimizedImageScope";
+import { RegionAttribution } from "@/components/region-profile/RegionAttribution";
+import { RegionNews } from "@/components/region-profile/RegionNews";
 import { RegionProfile } from "@/components/RegionProfile";
 import {
   getLocalizedRegionContent,
@@ -33,7 +32,7 @@ import {
 } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
-import { REGION_HERO_SIZES } from "@/lib/imageSizes";
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getNewsListArticlesForRegion } from "@/lib/newsApi";
 import {
@@ -217,13 +216,10 @@ export default async function RegionPage({ params }: PageProps) {
 
   const localizedContent = getLocalizedRegionContent(region.id, locale);
   const faqJsonLd = faqPageJsonLd(localizedContent.faq);
+  const news = await getNewsListArticlesForRegion(locale, region.id);
 
   return (
     <>
-      <CoverImagePreload
-        sizes={REGION_HERO_SIZES}
-        src={getRegionHeroImage(region.id)}
-      />
       <JsonLd
         data={
           faqJsonLd
@@ -231,20 +227,19 @@ export default async function RegionPage({ params }: PageProps) {
             : [jsonLd, breadcrumbJsonLd]
         }
       />
-      <ClientMessagesProvider
-        locale={locale}
-        namespaces={["card", "danger", "groupHubShared", "map", "regions"]}
-      >
-        <OptimizedImageScope srcs={[getRegionHeroImage(region.id)]}>
+      <ClientMessagesProvider locale={locale} namespaces={["regions"]}>
+        <OptimizedImageScope srcs={Object.values(GROUP_HUB_ILLUSTRATIONS)}>
           <RegionProfile
             attribution={
-              <ContentAttribution
+              <RegionAttribution
                 locale={locale}
                 publishedAt={dates.datePublished}
                 updatedAt={dates.dateModified}
               />
             }
             content={localizedContent}
+            news={<RegionNews articles={news} locale={locale} />}
+            newsCount={news.length}
             region={region}
             species={species}
             summary={summary}
@@ -252,10 +247,6 @@ export default async function RegionPage({ params }: PageProps) {
           />
         </OptimizedImageScope>
       </ClientMessagesProvider>
-      <NewsRelatedBlock
-        articles={await getNewsListArticlesForRegion(locale, region.id)}
-        locale={locale}
-      />
     </>
   );
 }

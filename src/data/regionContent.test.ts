@@ -4,7 +4,6 @@ import { regions } from "@/data/mapRegions";
 import {
   getLocalizedRegionContent,
   getRegionContent,
-  getRegionDirectory,
   localizeRegionFaq,
   regionRelatedLinks,
 } from "@/data/regionContent";
@@ -20,6 +19,7 @@ describe("getLocalizedRegionContent", () => {
     expect(content.biome).toBe(source.biome.ru);
     expect(content.overview).toBe(source.overview.ru);
     expect(content.habitats).toEqual(source.habitats.map((item) => item.ru));
+    expect(content.habitatKinds).toEqual(["open", "mountain", "open"]);
     expect(content.faq).toEqual(
       source.faq.map((item) => ({
         answer: item.answer.ru,
@@ -60,19 +60,6 @@ describe("region content guards", () => {
     expect(
       regionRelatedLinks(["tbilisi", "atlantis"], "en").map((item) => item.id),
     ).toEqual(["tbilisi"]);
-  });
-});
-
-describe("getRegionDirectory", () => {
-  it("lists every region in the requested locale", () => {
-    const directory = getRegionDirectory("tr");
-
-    expect(directory.map((item) => item.id)).toEqual(
-      regions.map((region) => region.id),
-    );
-    for (const item of directory) {
-      expect(item.overview).toBe(getRegionContent(item.id).overview.tr);
-    }
   });
 });
 

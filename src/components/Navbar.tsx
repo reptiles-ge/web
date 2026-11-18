@@ -245,7 +245,6 @@ function hasDarkHeroTop(pathname: string) {
   }
   if (pathname.startsWith("/species/")) return true;
   if (pathname.startsWith("/quiz/")) return true;
-  if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
 }
 
