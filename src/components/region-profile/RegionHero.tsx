@@ -54,28 +54,13 @@ export function RegionHero({
   return (
     <section className="pt-[92px] lg:pt-[116px]">
       <div className={wrapClass}>
-        <nav
-          aria-label={tNav("breadcrumbAria")}
-          className="flex flex-wrap items-center gap-1.5 text-[12.5px] text-(--nw-muted) lg:gap-2 lg:text-[13px]"
-        >
-          <Link className={focusClass} href="/">
-            {t("breadcrumbHome")}
-          </Link>
-          <span aria-hidden="true" className="text-(--nw-sep)">
-            /
-          </span>
-          <Link className={focusClass} href="/regions">
-            {tNav("regions")}
-          </Link>
-          <span aria-hidden="true" className="text-(--nw-sep)">
-            /
-          </span>
-          <span aria-current="page" className="font-medium text-(--nw-ink)">
-            {name}
-          </span>
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
+          <Link href="/">{t("breadcrumbHome")}</Link>
+          <Link href="/regions">{tNav("regions")}</Link>
+          <span aria-current="page">{name}</span>
         </nav>
 
-        <div className="mt-[22px] lg:mt-7 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_640px]">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_1fr] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_640px]">
           <div className="lg:pt-3">
             <div className="flex flex-wrap items-center gap-2 lg:gap-2.5">
               <span className="inline-flex h-[26px] items-center rounded-full bg-(--nw-surface) px-[11px] text-[12px] font-semibold text-(--nw-accent) lg:h-7 lg:px-3 lg:text-[12.5px]">
