@@ -10,11 +10,11 @@ import type { RegionAtlasEntry } from "@/data/regions";
 import { RegionsCompare } from "@/components/regions-index/RegionsCompare";
 import { RegionsDirectory } from "@/components/regions-index/RegionsDirectory";
 import { RegionsGuide } from "@/components/regions-index/RegionsGuide";
+import { RegionShapeDefs } from "@/components/regions-index/RegionShapes";
 import { RegionsMapCard } from "@/components/regions-index/RegionsMapCard";
 import {
   eyebrowClass,
   focusClass,
-  RegionShapeDefs,
   type RegionsIndexRegion,
   wrapClass,
 } from "@/components/regions-index/shared";
