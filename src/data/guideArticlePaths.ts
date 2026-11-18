@@ -17,6 +17,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/snakes/giurzas-nakbeni",
   "/snakes/gveli-ezoshi",
   "/snakes/gvelis-nakbeni",
+  "/spiders/oboba-sakhlshi",
 ] as const;
 
 export type GuideArticlePath = (typeof GUIDE_ARTICLE_PATHS)[number];

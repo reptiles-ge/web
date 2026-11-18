@@ -5,8 +5,10 @@ import {
   ArrowUpRight,
   BookOpen,
   Check,
+  FileText,
   FlaskConical,
   Mountain,
+  Search,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
@@ -19,12 +21,14 @@ import {
 } from "@/components/DevelopersAccessForm";
 import { codeClass, JsonKey, JsonString } from "@/components/DevelopersCode";
 import { DevelopersCodeSample } from "@/components/DevelopersCodeSample";
+import { DevelopersMcpSetup } from "@/components/DevelopersMcpSetup";
 import { Logo } from "@/components/Logo";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { API_ORIGIN } from "@/lib/apiClient";
+import { MCP_SERVER_PATH } from "@/lib/apiDocsPaths";
 import { cn } from "@/lib/cn";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, speciesPageUrl } from "@/lib/site";
 import { getSpeciesProfile } from "@/lib/speciesProfileApi";
 import { getSpeciesPublicSlug } from "@/lib/speciesSlugTable";
 
@@ -50,6 +54,15 @@ const USES: ReadonlyArray<{
 
 const TERMS = ["credit", "languages", "verified", "safety"] as const;
 
+const MCP_TOOLS = [
+  "search_species",
+  "get_species",
+  "search_news",
+  "get_news",
+] as const;
+
+const MCP_FACTS = ["noKey", "readOnly", "languages", "limit"] as const;
+
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-4 md:px-10 lg:px-[60px]";
 const eyebrowClass =
@@ -73,6 +86,7 @@ export async function DevelopersPage({ locale }: { locale: AppLocale }) {
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <DevelopersHero locale={locale} />
       <DevelopersEndpoints locale={locale} />
+      <DevelopersMcp locale={locale} />
       <DevelopersUses locale={locale} />
       <DevelopersTerms locale={locale} />
       <section
@@ -255,6 +269,13 @@ async function DevelopersHero({ locale }: { locale: AppLocale }) {
               {t("requestAccess")}
             </a>
           </div>
+          <a
+            className="mt-4 inline-flex items-center gap-2 text-[14px] font-semibold text-[#7fc29b] hover:underline md:mt-5 md:text-[15px]"
+            href="#mcp"
+          >
+            {t("mcpLink")}
+            <ArrowRight aria-hidden="true" className="size-[15px]" />
+          </a>
           <dl
             aria-label={t("statsLabel")}
             className="mt-6 grid max-w-[560px] grid-cols-4 gap-2 md:mt-12 md:gap-5"
@@ -288,6 +309,177 @@ async function DevelopersHero({ locale }: { locale: AppLocale }) {
             />
           </ClientMessagesProvider>
         </div>
+      </div>
+    </section>
+  );
+}
+
+async function DevelopersMcp({ locale }: { locale: AppLocale }) {
+  const [t, profile] = await Promise.all([
+    getTranslations({ locale, namespace: "developers" }),
+    getSpeciesProfile(SAMPLE_SPECIES_ID, locale),
+  ]);
+  const speciesName = profile?.species.commonName;
+  const speciesUrl = profile
+    ? speciesPageUrl(locale, {
+        group: profile.group,
+        id: SAMPLE_SPECIES_ID,
+        slug: getSpeciesPublicSlug(SAMPLE_SPECIES_ID, locale),
+      })
+    : null;
+  const bold = (chunks: ReactNode) => (
+    <b className="font-semibold text-white">{chunks}</b>
+  );
+
+  return (
+    <section
+      aria-labelledby="mcp-title"
+      className={`${wrapClass} scroll-mt-20 pt-11 md:pt-[104px]`}
+      id="mcp"
+    >
+      <div className="px-1 md:px-0 lg:grid lg:grid-cols-[minmax(0,500px)_minmax(0,1fr)] lg:items-start lg:gap-16">
+        <div>
+          <div className="flex items-center gap-2 md:gap-2.5">
+            <p className={eyebrowClass}>{t("mcp.eyebrow")}</p>
+            <span className="inline-flex h-[22px] items-center rounded-full bg-(--nw-accent) px-[9px] text-[11.5px] font-semibold text-white md:h-6 md:px-2.5 md:text-[12px]">
+              {t("mcp.new")}
+            </span>
+          </div>
+          <h2 className={h2Class} id="mcp-title">
+            {t("mcp.title")}
+          </h2>
+          <p className="mt-2.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-4 md:text-[16px] md:leading-[1.7]">
+            {t("mcp.body")}
+          </p>
+          <ClientMessagesProvider
+            locale={locale}
+            namespaces={["developers.mcp"]}
+          >
+            <DevelopersMcpSetup serverUrl={`${API_ORIGIN}${MCP_SERVER_PATH}`} />
+          </ClientMessagesProvider>
+          <ul className="mt-5 grid list-none grid-cols-2 gap-x-3 gap-y-2.5 p-0 md:mt-7 md:gap-x-5">
+            {MCP_FACTS.map((key) => (
+              <li
+                className="flex items-center gap-2 text-[13.5px] md:gap-2.5 md:text-[14.5px]"
+                key={key}
+              >
+                <span className="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-(--nw-surface) text-(--nw-accent) md:size-6">
+                  <Check
+                    aria-hidden="true"
+                    className="size-[11px] md:size-3"
+                    strokeWidth={2.6}
+                  />
+                </span>
+                {t(`mcp.facts.${key}`)}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {speciesName && speciesUrl ? (
+          <figure
+            aria-label={t("mcp.chat.label")}
+            className="m-0 mt-7 overflow-hidden rounded-[26px] bg-[#0e1411] text-white lg:mt-0 lg:rounded-[32px] lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_30px_70px_rgba(14,20,17,0.18)]"
+          >
+            <div className="flex items-center gap-2 border-b border-white/8 px-4 py-3 md:gap-2.5 md:px-[22px] md:py-4">
+              <Logo alt="" size={28} />
+              <span className="text-[13px] font-semibold md:text-[14px]">
+                {t("mcp.chat.assistant")}
+              </span>
+              <span className="flex-auto" />
+              <span className="inline-flex h-6 items-center gap-1.5 rounded-full bg-[rgba(127,194,155,0.14)] px-2.5 text-[11px] font-semibold whitespace-nowrap text-[#7fc29b] md:h-7 md:text-[12px]">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-[#7fc29b]"
+                />
+                {t("mcp.chat.connected")}
+              </span>
+            </div>
+            <div className="flex flex-col gap-3.5 px-4 pt-[18px] pb-5 md:gap-[18px] md:px-7 md:pt-7 md:pb-[30px]">
+              <p className="m-0 max-w-[86%] self-end rounded-[20px_20px_6px_20px] bg-white/10 px-[15px] py-3 text-[14.5px] leading-normal md:max-w-[78%] md:rounded-[22px_22px_6px_22px] md:px-[18px] md:py-3.5 md:text-[15.5px] md:leading-[1.55]">
+                {t("mcp.chat.question", { name: speciesName })}
+              </p>
+              <div className="flex flex-col items-start gap-2">
+                <McpToolCall
+                  args="giurza"
+                  icon={<Search aria-hidden="true" className="size-3.5" />}
+                  name="search_species"
+                />
+                <McpToolCall
+                  args="macrovipera-lebetina"
+                  icon={<FileText aria-hidden="true" className="size-3.5" />}
+                  name="get_species"
+                />
+              </div>
+              <div className="text-[14.5px] leading-[1.6] text-white/88 md:text-[15.5px] md:leading-[1.65]">
+                <p className="m-0">
+                  {t.rich("mcp.chat.answerRisk", {
+                    b: bold,
+                    name: speciesName,
+                  })}
+                </p>
+                <p className="mt-2.5 mb-0 md:mt-3">
+                  {t.rich("mcp.chat.answerBite", { b: bold })}
+                </p>
+              </div>
+              <a
+                className="flex items-center gap-3 rounded-2xl bg-white/6 px-3 py-2.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] transition-colors hover:bg-white/10 md:gap-3.5 md:rounded-[18px] md:px-3.5 md:py-3"
+                href={speciesUrl}
+              >
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-[11px] bg-white md:size-11 md:rounded-xl">
+                  <Logo alt="" size={28} />
+                </span>
+                <span className="min-w-0 flex-auto">
+                  <span className="block text-[13.5px] font-semibold md:text-[14.5px]">
+                    {speciesName}
+                    <span className="hidden md:inline">
+                      {" "}
+                      · {profile.species.scientificName}
+                    </span>
+                  </span>
+                  <span className="mt-0.5 block truncate font-mono text-[11.5px] text-white/60 md:text-[12.5px]">
+                    {speciesUrl.replace(/^https:\/\//, "")}
+                  </span>
+                </span>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-[15px] shrink-0 text-white/60"
+                />
+              </a>
+              <figcaption className="text-[12px] leading-normal text-white/50 md:text-[12.5px]">
+                {t("mcp.chat.note")}
+              </figcaption>
+            </div>
+          </figure>
+        ) : null}
+      </div>
+      <div className="mt-11 px-1 md:mt-[72px] md:px-0 lg:grid lg:grid-cols-[minmax(0,500px)_minmax(0,1fr)] lg:items-start lg:gap-16">
+        <div>
+          <p className={eyebrowClass}>{t("mcp.toolsEyebrow")}</p>
+          <h3 className="mt-2 text-[22px] leading-[1.2] font-semibold md:mt-3 md:text-[30px] md:leading-[1.15]">
+            {t("mcp.toolsTitle")}
+          </h3>
+          <p className="mt-3.5 hidden text-[15.5px] leading-[1.65] text-(--nw-muted) md:block">
+            {t("mcp.toolsBody")}
+          </p>
+        </div>
+        <ul className="mt-3.5 list-none border-b border-(--nw-line) p-0 md:mt-8 lg:mt-0">
+          {MCP_TOOLS.map((tool) => (
+            <li
+              className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2.5 border-t border-(--nw-line) py-3.5 lg:grid-cols-[52px_minmax(0,1fr)] lg:items-start lg:gap-x-3.5 lg:py-[18px]"
+              key={tool}
+            >
+              <span className="inline-flex h-[22px] w-fit items-center rounded-md bg-(--nw-surface) px-2 font-mono text-[11px] font-bold text-(--nw-accent) lg:mt-0.5">
+                tool
+              </span>
+              <span className="font-mono text-[13.5px] font-semibold break-all text-(--nw-ink) lg:text-[15px]">
+                {tool}
+              </span>
+              <span className="col-span-2 mt-1.5 text-[13.5px] leading-[1.55] text-(--nw-muted) lg:col-span-1 lg:col-start-2 lg:text-[14.5px]">
+                {t(`mcp.tools.${tool}`)}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -430,5 +622,23 @@ function JsonResponse({
       <JsonString>&quot;{locale}&quot;</JsonString>
       {"\n}"}
     </pre>
+  );
+}
+
+function McpToolCall({
+  args,
+  icon,
+  name,
+}: {
+  args: string;
+  icon: ReactNode;
+  name: string;
+}) {
+  return (
+    <span className="inline-flex h-8 max-w-full items-center gap-2 rounded-full px-3 font-mono text-[12px] text-white/72 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)] md:h-[34px] md:px-3.5 md:text-[13px]">
+      <span className="text-[#7fc29b]">{icon}</span>
+      <span className="text-white">{name}</span>
+      <span className="truncate">&quot;{args}&quot;</span>
+    </span>
   );
 }

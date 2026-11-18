@@ -63,6 +63,7 @@ export type GuideArticleMessageKey =
   | "mouseInHouse"
   | "scorpionInHouse"
   | "scorpionSting"
+  | "spiderInHouse"
   | "stinkBugInHouse"
   | "tickBite"
   | "waspNest"

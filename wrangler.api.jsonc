@@ -63,6 +63,11 @@
       "namespace_id": "1238",
       "simple": { "limit": 20, "period": 60 },
     },
+    {
+      "name": "MCP_LIMITER",
+      "namespace_id": "1239",
+      "simple": { "limit": 60, "period": 60 },
+    },
   ],
   "services": [
     {

@@ -3,8 +3,7 @@ import type { ApiBindings } from "../env";
 import { generationTtlMs } from "./cache";
 import { purgeApiCache } from "./cachePurge";
 import { ApiError } from "./errors";
-
-const SITE_ORIGIN = "https://reptiles.ge";
+import { SITE_ORIGIN } from "./origins";
 
 export async function clearCaches(env: ApiBindings) {
   const purged = await purgeApiCache(env);
