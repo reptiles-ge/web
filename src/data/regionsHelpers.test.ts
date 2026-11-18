@@ -1,8 +1,10 @@
 import { beforeAll, describe, expect, it } from "vitest";
 
+import { REGION_ATLAS_GROUPS } from "@/data/regionAtlasGroups";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getCatalogRegionStats,
+  getRegionAtlasEntries,
   getRegionSpecies,
   getRegionTooltipPreviews,
   isRegionCardVenomous,
@@ -39,6 +41,60 @@ describe("getCatalogRegionStats", () => {
     const unique = new Set(regions.flatMap((region) => region.speciesIds));
     expect(stats.speciesCount).toBe(unique.size);
     expect(stats.venomousCount).toBeLessThanOrEqual(stats.speciesCount);
+  });
+});
+
+describe("getRegionAtlasEntries", () => {
+  it.each(routing.locales)(
+    "describes every region in map order (%s)",
+    async (locale) => {
+      const entries = await getRegionAtlasEntries(locale);
+
+      expect(entries.map((entry) => entry.id)).toEqual(
+        regions.map((region) => region.id),
+      );
+      for (const [index, entry] of entries.entries()) {
+        const region = defined(regions[index]);
+        expect(entry.name).toBe(region.name[locale] ?? region.name.en);
+        expect(entry.biome).toBe(getRegionContent(region.id).biome[locale]);
+        expect(entry.description).toBe(
+          region.description[locale] ?? region.description.en,
+        );
+      }
+    },
+  );
+
+  it("splits each region's species into the five compared groups", async () => {
+    const entries = await getRegionAtlasEntries("ka");
+
+    for (const [index, entry] of entries.entries()) {
+      const species = getRegionSpecies(defined(regions[index]), catalog);
+      expect(entry.groupCounts).toHaveLength(REGION_ATLAS_GROUPS.length);
+      expect(entry.speciesCount, entry.id).toBe(species.length);
+      expect(
+        entry.groupCounts.reduce((sum, count) => sum + count, 0),
+        entry.id,
+      ).toBe(entry.speciesCount);
+      expect(entry.venomousCount, entry.id).toBe(
+        species.filter(
+          (item) => item.danger === "High" || item.danger === "Moderate",
+        ).length,
+      );
+    }
+  });
+
+  it("counts snakes, lizards with turtles, amphibians and birds apart", async () => {
+    const kakheti = defined(
+      (await getRegionAtlasEntries("ka")).find(
+        (entry) => entry.id === "kakheti",
+      ),
+    );
+    const [snakes, lizardsTurtles, amphibians, birds, other] =
+      kakheti.groupCounts;
+
+    for (const count of [snakes, lizardsTurtles, amphibians, birds, other]) {
+      expect(count).toBeGreaterThan(0);
+    }
   });
 });
 

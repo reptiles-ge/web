@@ -4,7 +4,6 @@ import { regions } from "@/data/mapRegions";
 import {
   getLocalizedRegionContent,
   getRegionContent,
-  getRegionDirectory,
   localizeRegionFaq,
   regionRelatedLinks,
 } from "@/data/regionContent";
@@ -60,19 +59,6 @@ describe("region content guards", () => {
     expect(
       regionRelatedLinks(["tbilisi", "atlantis"], "en").map((item) => item.id),
     ).toEqual(["tbilisi"]);
-  });
-});
-
-describe("getRegionDirectory", () => {
-  it("lists every region in the requested locale", () => {
-    const directory = getRegionDirectory("tr");
-
-    expect(directory.map((item) => item.id)).toEqual(
-      regions.map((region) => region.id),
-    );
-    for (const item of directory) {
-      expect(item.overview).toBe(getRegionContent(item.id).overview.tr);
-    }
   });
 });
 
