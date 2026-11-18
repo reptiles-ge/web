@@ -6,7 +6,6 @@ import {
   type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
-  regions,
 } from "@/data/mapRegions";
 
 export type LocalizedRegionContent = {
@@ -26,10 +25,6 @@ export type RegionContent = {
   relatedIds: RegionPathId[];
   titleName?: LocalizedText;
   titleNameIn?: LocalizedText;
-};
-
-export type RegionDirectoryEntry = RegionRelatedLink & {
-  overview: null | string;
 };
 
 export type RegionRelatedLink = {
@@ -889,19 +884,6 @@ export function getLocalizedRegionContent(
 
 export function getRegionContent(id: RegionPathId): RegionContent {
   return regionContent[id];
-}
-
-export function getRegionDirectory(locale: AppLocale): RegionDirectoryEntry[] {
-  return regions.map((region) => ({
-    biome: localizeRegionTextIfPresent(regionContent[region.id].biome, locale),
-    id: region.id,
-    name: localizeRegionText(region.name, locale),
-    overview: localizeRegionTextIfPresent(
-      regionContent[region.id].overview,
-      locale,
-    ),
-    speciesCount: region.speciesIds.length,
-  }));
 }
 
 export function localizeRegionFaq(

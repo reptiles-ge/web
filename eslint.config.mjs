@@ -80,6 +80,7 @@ const eslintConfig = defineConfig([
             "media-placeholder",
             "news-ill",
             "editorial-page",
+            "regions-atlas",
             "no-scrollbar",
             "glass-card",
             "species-carousel-track",

@@ -563,6 +563,60 @@ input[type="search"]::-webkit-search-results-decoration {
     0 1px 2px rgba(0, 0, 0, 0.3), 0 24px 52px rgba(0, 0, 0, 0.42);
 }
 
+.regions-atlas {
+  --rg-ramp-0: #e4ece0;
+  --rg-ramp-1: #c3d5bb;
+  --rg-ramp-2: #9db592;
+  --rg-ramp-3: #5f8f6f;
+  --rg-ramp-4: #2f6b4f;
+  --rg-group-0: #1a211c;
+  --rg-group-1: #2f6b4f;
+  --rg-group-2: #6fad88;
+  --rg-group-3: #b5c9ad;
+  --rg-group-4: #dfe5dc;
+  --rg-stroke: #ffffff;
+  --rg-thumb: #9db592;
+  --rg-tile-active: #dfe8da;
+  --rg-venom: #9c3a2e;
+  --rg-venom-bg: #f8ebe7;
+  --rg-alert: #b84336;
+  --rg-card-shadow:
+    0 1px 2px rgba(14, 20, 17, 0.04), 0 16px 40px rgba(14, 20, 17, 0.06);
+  --rg-card-shadow-sm:
+    0 1px 2px rgba(14, 20, 17, 0.04), 0 12px 30px rgba(14, 20, 17, 0.06);
+  --rg-card-shadow-hover:
+    0 1px 2px rgba(14, 20, 17, 0.04), 0 22px 48px rgba(14, 20, 17, 0.1);
+  --rg-ring-shadow: 0 0 0 2px #2f6b4f, 0 12px 32px rgba(14, 20, 17, 0.08);
+  --rg-pill-shadow: 0 1px 2px rgba(14, 20, 17, 0.05);
+}
+
+.dark .regions-atlas {
+  --rg-ramp-0: #24332a;
+  --rg-ramp-1: #30493a;
+  --rg-ramp-2: #3d5c48;
+  --rg-ramp-3: #56876a;
+  --rg-ramp-4: #6fad88;
+  --rg-group-0: #e8eee6;
+  --rg-group-1: #8fc7a4;
+  --rg-group-2: #5f9273;
+  --rg-group-3: #3d5c48;
+  --rg-group-4: #2a342e;
+  --rg-stroke: #161c18;
+  --rg-thumb: #3d5c48;
+  --rg-tile-active: #24332a;
+  --rg-venom: #f0a094;
+  --rg-venom-bg: #2a1b18;
+  --rg-alert: #b84336;
+  --rg-card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 40px rgba(0, 0, 0, 0.28);
+  --rg-card-shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 30px rgba(0, 0, 0, 0.28);
+  --rg-card-shadow-hover:
+    0 1px 2px rgba(0, 0, 0, 0.3), 0 22px 48px rgba(0, 0, 0, 0.42);
+  --rg-ring-shadow: 0 0 0 2px #6fad88, 0 12px 32px rgba(0, 0, 0, 0.3);
+  --rg-pill-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 .news-ill {
   background: linear-gradient(160deg, #22302a 0%, #0e1411 100%);
 }

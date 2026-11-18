@@ -20,6 +20,7 @@ const REGION_PATH_IDS = [
 ] as const;
 
 const LABEL_GRID = 60;
+const VIEW_BOX_PADDING = 0.08;
 
 type RegionPathId = (typeof REGION_PATH_IDS)[number];
 
@@ -80,6 +81,25 @@ function labelPoint(d: string): [number, number] {
   }
 
   return [Math.round(best[0] * 10) / 10, Math.round(best[1] * 10) / 10];
+}
+
+function regionViewBox(d: string): string {
+  const ring = pathVertices(d);
+  const xs = ring.map((point) => point[0]);
+  const ys = ring.map((point) => point[1]);
+  const minX = Math.min(...xs);
+  const minY = Math.min(...ys);
+  const width = Math.max(...xs) - minX;
+  const height = Math.max(...ys) - minY;
+  const padding = Math.max(width, height) * VIEW_BOX_PADDING;
+  return [
+    minX - padding,
+    minY - padding,
+    width + padding * 2,
+    height + padding * 2,
+  ]
+    .map((value) => value.toFixed(1))
+    .join(" ");
 }
 
 function distanceToRing(x: number, y: number, ring: [number, number][]) {
@@ -152,6 +172,10 @@ function main() {
     (id) => `  "${id}": ${JSON.stringify(labelPoint(paths[id]))},`,
   ).join("\n");
 
+  const viewBoxEntries = REGION_PATH_IDS.map(
+    (id) => `  "${id}": ${JSON.stringify(regionViewBox(paths[id]))},`,
+  ).join("\n");
+
   const contents = `export type RegionPathId =
 ${idUnion};
 
@@ -166,6 +190,10 @@ export const georgiaRegionLabelPoints: Record<
   [number, number]
 > = {
 ${labelEntries}
+};
+
+export const georgiaRegionViewBoxes: Record<RegionPathId, string> = {
+${viewBoxEntries}
 };
 `;
 

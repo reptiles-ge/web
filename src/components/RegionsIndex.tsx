@@ -1,276 +1,164 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 
-import type { RegionTooltipSpecies } from "@/data/mapRegions";
-import type { RegionDirectoryEntry } from "@/data/regionContent";
+import type { RegionPathId } from "@/data/georgia-paths";
+import type { RegionAtlasEntry } from "@/data/regions";
 
-import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { REGIONS_INDEX_HERO_IMAGE } from "@/data/regionImages";
+import { RegionsCompare } from "@/components/regions-index/RegionsCompare";
+import { RegionsDirectory } from "@/components/regions-index/RegionsDirectory";
+import { RegionsGuide } from "@/components/regions-index/RegionsGuide";
+import { RegionsMapCard } from "@/components/regions-index/RegionsMapCard";
+import {
+  eyebrowClass,
+  focusClass,
+  RegionShapeDefs,
+  type RegionsIndexRegion,
+  wrapClass,
+} from "@/components/regions-index/shared";
 import { Link } from "@/i18n/navigation";
-import { regionHref } from "@/lib/regionHref";
+import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+
+type RegionsIndexStats = {
+  regionCount: number;
+  speciesCount: number;
+  venomousCount: number;
+};
 
 export function RegionsIndex({
-  directory,
+  regions,
   stats,
-  tooltipSpeciesByRegion,
 }: {
-  directory: RegionDirectoryEntry[];
-  stats: {
-    regionCount: number;
-    speciesCount: number;
-    venomousCount: number;
-  };
-  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+  regions: RegionAtlasEntry[];
+  stats: RegionsIndexStats;
 }) {
-  const t = useTranslations("regions");
-  const tNav = useTranslations("nav");
+  const numbered: RegionsIndexRegion[] = regions.map((region, index) => ({
+    ...region,
+    number: String(index + 1).padStart(2, "0"),
+  }));
+  const [selectedId, setSelectedId] = useState(() => richestRegionId(regions));
+  if (!selectedId) return null;
+
+  const select = (id: RegionPathId) => {
+    trackEvent("map_region_select", {
+      action: "panel",
+      map_context: "region_page",
+      region_id: id,
+    });
+    setSelectedId(id);
+  };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div>
-        <section
-          className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
-          style={{
-            paddingTop: "7rem",
-          }}
-        >
-          <ClientCoverImage
-            alt={t("heroImageAlt")}
-            aria-hidden
-            className="object-cover object-[58%_45%]"
-            priority
-            sizes="(max-aspect-ratio: 1/1) 88vh, 100vw"
-            src={REGIONS_INDEX_HERO_IMAGE}
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
-
-          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <InkHeroBreadcrumb
-                crumbs={[
-                  {
-                    href: { hash: "atlas", pathname: "/" },
-                    label: t("back"),
-                    withBack: true,
-                  },
-                  { label: t("title") },
-                ]}
-                label={tNav("breadcrumbAria")}
-              />
-              <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
-                {t("eyebrow")}
-              </p>
-              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-hero font-semibold text-white sm:mt-4">
-                {t("title")}
-              </h1>
-              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
-                {t("subtitle")}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8">
-                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-                  {t("statRegions", { count: stats.regionCount })}
-                </span>
-                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-                  {t("statSpecies", { count: stats.speciesCount })}
-                </span>
-                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-                  {t("statVenomous", { count: stats.venomousCount })}
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
-          <div
-            aria-hidden="true"
-            className="map-explorer-texture pointer-events-none absolute inset-0"
-          />
-          <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t("mapEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-display-title font-semibold text-foreground">
-                {t("mapTitle")}
-              </h2>
-              <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-                {t("mapSubtitle")}
-              </p>
-            </div>
-            <div className="mt-12 lg:mt-16">
-              <GeorgiaMap
-                mapContext="region_page"
-                selectionMode="navigate"
-                tooltipSpeciesByRegion={tooltipSpeciesByRegion}
-              />
-            </div>
-            <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground">
-              {t("mapHint")}
-            </p>
-          </div>
-        </section>
-
-        <section className="border-t border-border bg-surface py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t("clusterEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-                {t("clusterTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("clusterBody")}
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href="/snakes/gavrtseleba"
-                >
-                  {t("clusterSnakes")}
-                  <ArrowUpRight className="size-3.5 opacity-50" />
-                </Link>
-                <Link
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href="/lizards/saxeoebebi"
-                >
-                  {t("clusterLizards")}
-                  <ArrowUpRight className="size-3.5 opacity-50" />
-                </Link>
-                <Link
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href="/turtles/saxeoebebi"
-                >
-                  {t("clusterTurtles")}
-                  <ArrowUpRight className="size-3.5 opacity-50" />
-                </Link>
-                <Link
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href="/amphibians/saxeoebebi"
-                >
-                  {t("clusterAmphibians")}
-                  <ArrowUpRight className="size-3.5 opacity-50" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-border bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t("directoryEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-                {t("directoryTitle")}
-              </h2>
-            </div>
-
-            <ul className="mt-14 divide-y divide-border/80 border-y border-border/80">
-              {directory.map((region) => (
-                <li key={region.id}>
-                  <div>
-                    <RegionDirectoryRow region={region} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="border-t border-border bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t("seo.eyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold text-foreground">
-                {t("seo.title")}
-              </h2>
-              <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
-                <p>{t("seo.p1")}</p>
-                <p>{t("seo.p2")}</p>
-                <p>{t("dataGapBody")}</p>
-              </div>
-              <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
-                <li>
-                  <Link
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                    href="/species"
-                  >
-                    {t("seo.links.species")}
-                    <ArrowUpRight className="size-3.5 opacity-50" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                    href="/venomous-snakes"
-                  >
-                    {t("seo.links.venomous")}
-                    <ArrowUpRight className="size-3.5 opacity-50" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                    href="/snakes/gavrtseleba"
-                  >
-                    {t("seo.links.range")}
-                    <ArrowUpRight className="size-3.5 opacity-50" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                    href="/"
-                  >
-                    {t("seo.links.home")}
-                    <ArrowUpRight className="size-3.5 opacity-50" />
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
+    <div className="editorial-page regions-atlas min-h-screen overflow-x-clip bg-background text-(--nw-ink) antialiased">
+      <RegionShapeDefs ids={regions.map((region) => region.id)} />
+      <RegionsHero stats={stats} />
+      <RegionsMapCard
+        onSelect={select}
+        regions={numbered}
+        selectedId={selectedId}
+      />
+      <RegionsDirectory regions={numbered} selectedId={selectedId} />
+      <RegionsCompare
+        onSelect={select}
+        regions={numbered}
+        selectedId={selectedId}
+      />
+      <RegionsGuide />
     </div>
   );
 }
 
-function RegionDirectoryRow({ region }: { region: RegionDirectoryEntry }) {
+function RegionsHero({ stats }: { stats: RegionsIndexStats }) {
   const t = useTranslations("regions");
-  const { biome, name, overview } = region;
+  const tNav = useTranslations("nav");
+  const items = [
+    {
+      count: stats.regionCount,
+      label: t("stats.regions", { count: stats.regionCount }),
+      venomous: false,
+    },
+    {
+      count: stats.speciesCount,
+      label: t("stats.species", { count: stats.speciesCount }),
+      venomous: false,
+    },
+    {
+      count: stats.venomousCount,
+      label: t("stats.venomous", { count: stats.venomousCount }),
+      venomous: true,
+    },
+  ];
 
   return (
-    <Link
-      className="group flex items-start justify-between gap-6 py-8 transition-colors sm:py-9"
-      href={regionHref(region.id)}
-    >
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
-            {name}
-          </h3>
-          <span className="text-[12px] tracking-wide text-muted-foreground">
-            {t("speciesCount", { count: region.speciesCount })}
-          </span>
+    <section className="pt-[92px] lg:pt-[116px] lg:pb-9">
+      <div className={wrapClass}>
+        <nav aria-label={tNav("breadcrumbAria")}>
+          <Link
+            className={cn(
+              "inline-flex h-11 items-center gap-1 rounded-full bg-(--nw-card) pr-3.5 pl-2 text-[13.5px] font-medium text-(--nw-ink) lg:h-9 lg:pr-[15px] lg:pl-[9px]",
+              focusClass,
+            )}
+            href={{ hash: "atlas", pathname: "/" }}
+          >
+            <ChevronLeft
+              aria-hidden="true"
+              className="size-4"
+              strokeWidth={1.75}
+            />
+            {t("back")}
+          </Link>
+        </nav>
+        <div className="mt-[22px] lg:mt-[30px] lg:flex lg:items-end lg:justify-between lg:gap-16">
+          <div className="min-w-0 lg:max-w-[760px] lg:flex-1">
+            <div className="flex items-center gap-2.5">
+              <span className="size-1.5 rounded-full bg-(--nw-accent)" />
+              <p className={eyebrowClass}>{t("eyebrow")}</p>
+            </div>
+            <h1 className="mt-3 text-[38px] leading-[1.06] font-bold tracking-[-0.02em] text-(--nw-ink) lg:mt-[18px] lg:text-[72px] lg:leading-[1.02]">
+              {t("title")}
+            </h1>
+            <p className="mt-3 text-[16.5px] leading-[1.6] text-(--nw-soft) lg:mt-5 lg:max-w-[640px] lg:text-[19px]">
+              <span className="lg:hidden">{t("subtitleShort")}</span>
+              <span className="hidden lg:inline">{t("subtitle")}</span>
+            </p>
+          </div>
+          <dl className="mt-5 grid grid-cols-3 rounded-[26px] bg-(--nw-card) px-1 py-4 shadow-(--rg-card-shadow-sm) lg:mt-0 lg:w-[500px] lg:shrink-0 lg:rounded-[32px] lg:px-2 lg:py-[26px] lg:shadow-(--rg-card-shadow)">
+            {items.map((item, index) => (
+              <div
+                className={cn(
+                  "px-3.5 lg:px-[26px]",
+                  index > 0 && "border-l border-(--nw-line)",
+                  item.venomous && "text-(--rg-venom)",
+                )}
+                key={item.label}
+              >
+                <dt
+                  className={cn(
+                    "text-[11.5px] lg:text-[11px] lg:font-medium lg:tracking-[0.18em]",
+                    !item.venomous && "text-(--nw-muted)",
+                  )}
+                >
+                  {item.label}
+                </dt>
+                <dd className="mt-1.5 text-[26px] leading-none font-semibold tabular-nums lg:mt-2.5 lg:text-[42px] lg:tracking-[-0.02em]">
+                  {item.count}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <p className="mt-2 text-[11px] font-medium tracking-[0.2em] text-primary/80 uppercase">
-          {biome}
-        </p>
-        <p className="mt-3 line-clamp-2 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-          {overview}
-        </p>
       </div>
-      <ArrowUpRight className="mt-2 size-4 shrink-0 text-muted-foreground/40 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
-    </Link>
+    </section>
   );
+}
+
+function richestRegionId(regions: RegionAtlasEntry[]) {
+  let richest = regions[0];
+  for (const region of regions) {
+    if (richest && region.speciesCount > richest.speciesCount) richest = region;
+  }
+  return richest?.id;
 }
