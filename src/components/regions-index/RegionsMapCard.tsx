@@ -51,13 +51,12 @@ export function RegionsMapCard({
 }: {
   onSelect: (id: RegionPathId) => void;
   regions: RegionsIndexRegion[];
-  selectedId: RegionPathId;
+  selectedId: null | RegionPathId;
 }) {
   const t = useTranslations("regions");
   const [hoveredId, setHoveredId] = useState<null | RegionPathId>(null);
   const activeId = hoveredId ?? selectedId;
   const active = regions.find((region) => region.id === activeId);
-  if (!active) return null;
 
   const counts = regions.map((region) => region.speciesCount);
   const min = Math.min(...counts);
@@ -99,16 +98,18 @@ export function RegionsMapCard({
                       {...hoverProps(region.id)}
                     />
                   ))}
-                  <use
-                    className="pointer-events-none fill-none stroke-(--nw-strong) stroke-[3.2] drop-shadow-[0_6px_8px_rgba(14,20,17,0.22)] [stroke-linejoin:round] lg:stroke-[2.6] lg:drop-shadow-[0_10px_14px_rgba(14,20,17,0.22)]"
-                    href={`#${regionShapeId(active.id)}`}
-                  />
+                  {active ? (
+                    <use
+                      className="pointer-events-none fill-none stroke-(--nw-strong) stroke-[3.2] drop-shadow-[0_6px_8px_rgba(14,20,17,0.22)] [stroke-linejoin:round] lg:stroke-[2.6] lg:drop-shadow-[0_10px_14px_rgba(14,20,17,0.22)]"
+                      href={`#${regionShapeId(active.id)}`}
+                    />
+                  ) : null}
                 </svg>
                 {regions.map((region) => {
                   const [x, y] =
                     LABEL_POINT_OVERRIDES[region.id] ??
                     georgiaRegionLabelPoints[region.id];
-                  const isActive = region.id === active.id;
+                  const isActive = region.id === active?.id;
                   const species = t("speciesCount", {
                     count: region.speciesCount,
                   });
@@ -207,56 +208,7 @@ export function RegionsMapCard({
             aria-live="polite"
             className="mx-3 mt-4 rounded-[28px] bg-(--nw-card) px-5 pt-[22px] pb-5 shadow-(--rg-card-shadow-sm) lg:m-0 lg:flex lg:min-w-0 lg:flex-col lg:justify-center lg:rounded-none lg:border-l lg:border-(--nw-line-soft) lg:bg-transparent lg:p-0 lg:pl-9 lg:shadow-none"
           >
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-(--nw-strong) px-1.5 text-[11.5px] font-bold text-(--nw-on-strong) tabular-nums lg:h-[30px] lg:min-w-[30px] lg:text-[12px]">
-                {active.number}
-              </span>
-              {active.biome ? (
-                <span className={eyebrowClass}>{active.biome}</span>
-              ) : null}
-            </div>
-            <h2 className="mt-3 text-[26px] leading-[1.15] font-bold tracking-[-0.012em] text-(--nw-ink) lg:mt-3.5 lg:text-[32px] lg:leading-[1.12] lg:tracking-[-0.015em]">
-              {active.name}
-            </h2>
-            <p className="mt-2 text-[14.5px] leading-[1.6] text-(--nw-muted) lg:mt-2.5">
-              {active.description}
-            </p>
-            <dl className="mt-4 grid grid-cols-2 border-y border-(--nw-line-soft) py-3.5 lg:mt-[22px] lg:py-[18px]">
-              <div>
-                <dt className="text-[11.5px] text-(--nw-muted) lg:text-[12px]">
-                  {t("stats.species", { count: active.speciesCount })}
-                </dt>
-                <dd className="mt-[5px] text-[28px] leading-none font-semibold tabular-nums lg:mt-1.5 lg:text-[34px]">
-                  {active.speciesCount}
-                </dd>
-              </div>
-              <div className="border-l border-(--nw-line-soft) pl-4 lg:pl-5">
-                <dt className="text-[11.5px] text-(--rg-venom) lg:text-[12px]">
-                  {t("stats.venomous", { count: active.venomousCount })}
-                </dt>
-                <dd className="mt-[5px] text-[28px] leading-none font-semibold text-(--rg-venom) tabular-nums lg:mt-1.5 lg:text-[34px]">
-                  {active.venomousCount}
-                </dd>
-              </div>
-            </dl>
-            <Link
-              className={cn(
-                "mt-[18px] flex min-h-[54px] items-center justify-between gap-2.5 rounded-full bg-(--nw-accent) pr-[7px] pl-5 text-[14.5px] font-medium text-(--nw-on-strong) lg:mt-6 lg:gap-3 lg:pr-2 lg:pl-[22px] lg:text-[15px]",
-                focusClass,
-              )}
-              href={regionHref(active.id)}
-            >
-              <span className="min-w-0 truncate">
-                {t("viewSpecies", { count: active.speciesCount })}
-              </span>
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/16">
-                <ArrowRight
-                  aria-hidden="true"
-                  className="size-4"
-                  strokeWidth={1.75}
-                />
-              </span>
-            </Link>
+            {active ? <RegionPanel region={active} /> : <EmptyPanel />}
           </aside>
         </div>
       </div>
@@ -264,6 +216,83 @@ export function RegionsMapCard({
   );
 }
 
+function EmptyPanel() {
+  const t = useTranslations("regions");
+
+  return (
+    <>
+      <span className="flex size-10 items-center justify-center rounded-full bg-(--nw-line-soft) text-(--nw-muted) lg:size-11">
+        <Pointer aria-hidden="true" className="size-5" strokeWidth={1.75} />
+      </span>
+      <h2 className="mt-3 text-[22px] leading-[1.2] font-bold tracking-[-0.012em] text-(--nw-ink) lg:mt-4 lg:text-[26px]">
+        {t("emptyPanel.title")}
+      </h2>
+      <p className="mt-2 text-[14.5px] leading-[1.6] text-(--nw-muted) lg:mt-2.5">
+        {t("emptyPanel.body")}
+      </p>
+    </>
+  );
+}
+
 function rampStep(value: number, min: number, max: number) {
   return max === min ? 2 : Math.round(((value - min) / (max - min)) * 4);
+}
+
+function RegionPanel({ region: active }: { region: RegionsIndexRegion }) {
+  const t = useTranslations("regions");
+
+  return (
+    <>
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-(--nw-strong) px-1.5 text-[11.5px] font-bold text-(--nw-on-strong) tabular-nums lg:h-[30px] lg:min-w-[30px] lg:text-[12px]">
+          {active.number}
+        </span>
+        {active.biome ? (
+          <span className={eyebrowClass}>{active.biome}</span>
+        ) : null}
+      </div>
+      <h2 className="mt-3 text-[26px] leading-[1.15] font-bold tracking-[-0.012em] text-(--nw-ink) lg:mt-3.5 lg:text-[32px] lg:leading-[1.12] lg:tracking-[-0.015em]">
+        {active.name}
+      </h2>
+      <p className="mt-2 text-[14.5px] leading-[1.6] text-(--nw-muted) lg:mt-2.5">
+        {active.description}
+      </p>
+      <dl className="mt-4 grid grid-cols-2 border-y border-(--nw-line-soft) py-3.5 lg:mt-[22px] lg:py-[18px]">
+        <div>
+          <dt className="text-[11.5px] text-(--nw-muted) lg:text-[12px]">
+            {t("stats.species", { count: active.speciesCount })}
+          </dt>
+          <dd className="mt-[5px] text-[28px] leading-none font-semibold tabular-nums lg:mt-1.5 lg:text-[34px]">
+            {active.speciesCount}
+          </dd>
+        </div>
+        <div className="border-l border-(--nw-line-soft) pl-4 lg:pl-5">
+          <dt className="text-[11.5px] text-(--rg-venom) lg:text-[12px]">
+            {t("stats.venomous", { count: active.venomousCount })}
+          </dt>
+          <dd className="mt-[5px] text-[28px] leading-none font-semibold text-(--rg-venom) tabular-nums lg:mt-1.5 lg:text-[34px]">
+            {active.venomousCount}
+          </dd>
+        </div>
+      </dl>
+      <Link
+        className={cn(
+          "mt-[18px] flex min-h-[54px] items-center justify-between gap-2.5 rounded-full bg-(--nw-accent) pr-[7px] pl-5 text-[14.5px] font-medium text-(--nw-on-strong) lg:mt-6 lg:gap-3 lg:pr-2 lg:pl-[22px] lg:text-[15px]",
+          focusClass,
+        )}
+        href={regionHref(active.id)}
+      >
+        <span className="min-w-0 truncate">
+          {t("viewSpecies", { count: active.speciesCount })}
+        </span>
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/16">
+          <ArrowRight
+            aria-hidden="true"
+            className="size-4"
+            strokeWidth={1.75}
+          />
+        </span>
+      </Link>
+    </>
+  );
 }

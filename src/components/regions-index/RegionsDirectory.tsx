@@ -28,7 +28,7 @@ export function RegionsDirectory({
   selectedId,
 }: {
   regions: RegionsIndexRegion[];
-  selectedId: RegionPathId;
+  selectedId: null | RegionPathId;
 }) {
   const t = useTranslations("regions");
   const locale = useLocale();

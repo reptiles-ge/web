@@ -86,13 +86,27 @@ describe("RegionsIndex", () => {
     expect(totals?.textContent).toBe("Regions12Species105Venomous10");
   });
 
-  it("opens on the region with the most species", () => {
+  it("opens with no region selected", () => {
     renderIndex();
     const panel = selectedPanel();
 
     expect(
-      panel.getByRole("heading", { level: 2, name: "Kakheti" }),
+      panel.getByRole("heading", { level: 2, name: "Choose a region" }),
     ).toBeInTheDocument();
+    expect(panel.queryByRole("link")).not.toBeInTheDocument();
+    expect(
+      screen.queryAllByRole("button", { name: /species/, pressed: true }),
+    ).toEqual([]);
+  });
+
+  it("shows the selected region's biome, number and species link", () => {
+    renderIndex();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: "Kakheti — 9 species" }),
+    );
+
+    const panel = selectedPanel();
     expect(panel.getByText("Alazani · semi-desert")).toBeInTheDocument();
     expect(panel.getByText("02")).toBeInTheDocument();
     expect(panel.getByRole("link", { name: "View 9 species" })).toHaveAttribute(
@@ -138,7 +152,10 @@ describe("RegionsIndex", () => {
       screen.getByRole("button", { name: "Imereti — 1 species" }),
     );
     expect(
-      selectedPanel().getByRole("heading", { level: 2, name: "Kakheti" }),
+      selectedPanel().getByRole("heading", {
+        level: 2,
+        name: "Choose a region",
+      }),
     ).toBeInTheDocument();
     expect(trackEvent).not.toHaveBeenCalled();
   });
@@ -152,7 +169,10 @@ describe("RegionsIndex", () => {
     );
 
     expect(
-      selectedPanel().getByRole("heading", { level: 2, name: "Kakheti" }),
+      selectedPanel().getByRole("heading", {
+        level: 2,
+        name: "Choose a region",
+      }),
     ).toBeInTheDocument();
   });
 

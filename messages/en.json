@@ -749,6 +749,10 @@
     "mapNoteShort": "Tap a region on the map. Counts are records confirmed in the atlas, not the complete fauna.",
     "legendTitle": "Number of species",
     "legendTitleShort": "Species",
+    "emptyPanel": {
+      "title": "Choose a region",
+      "body": "Tap a region on the map or in the comparison to see how many species and venomous snakes live there."
+    },
     "selectedRegion": "Selected region",
     "regionLabel": "{name} — {species}",
     "viewSpecies": "View {count} species",

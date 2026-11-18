@@ -749,6 +749,10 @@
     "mapNoteShort": "Haritada bir bölgeye dokunun. Sayılar atlasta doğrulanmış kayıtlardır, tam fauna değildir.",
     "legendTitle": "Tür sayısı",
     "legendTitleShort": "Türler",
+    "emptyPanel": {
+      "title": "Bir bölge seçin",
+      "body": "Haritada veya karşılaştırmada bir bölgeye dokunun; orada kaç tür ve zehirli yılan yaşadığı burada görünür."
+    },
     "selectedRegion": "Seçili bölge",
     "regionLabel": "{name} — {species}",
     "viewSpecies": "{count} türü görün",

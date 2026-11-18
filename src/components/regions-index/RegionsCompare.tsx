@@ -23,7 +23,7 @@ export function RegionsCompare({
 }: {
   onSelect: (id: RegionPathId) => void;
   regions: RegionsIndexRegion[];
-  selectedId: RegionPathId;
+  selectedId: null | RegionPathId;
 }) {
   const t = useTranslations("regions");
   const rows = regions.toSorted((a, b) => b.speciesCount - a.speciesCount);

@@ -39,8 +39,8 @@ export function RegionsIndex({
     ...region,
     number: String(index + 1).padStart(2, "0"),
   }));
-  const [selectedId, setSelectedId] = useState(() => richestRegionId(regions));
-  if (!selectedId) return null;
+  const [selectedId, setSelectedId] = useState<null | RegionPathId>(null);
+  if (regions.length === 0) return null;
 
   const select = (id: RegionPathId) => {
     trackEvent("map_region_select", {
@@ -153,12 +153,4 @@ function RegionsHero({ stats }: { stats: RegionsIndexStats }) {
       </div>
     </section>
   );
-}
-
-function richestRegionId(regions: RegionAtlasEntry[]) {
-  let richest = regions[0];
-  for (const region of regions) {
-    if (richest && region.speciesCount > richest.speciesCount) richest = region;
-  }
-  return richest?.id;
 }
