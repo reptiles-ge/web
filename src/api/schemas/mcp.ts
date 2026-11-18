@@ -47,83 +47,75 @@ const query = z
     "Words to find in the common name (any of the four languages), scientific name, genus, family or distribution text.",
   );
 
-export const searchSpeciesArgs = z
-  .object({
-    danger: z
-      .enum(["harmless", "venomous"])
-      .optional()
-      .describe(
-        "Only harmless or only venomous species, in groups where venom applies.",
-      ),
-    group: z.enum(ANIMAL_GROUPS).optional().describe("Only this animal group."),
-    habitat: z.enum(HABITATS).optional().describe("Only this habitat."),
-    limit: z
-      .number()
-      .int()
-      .min(1)
-      .max(MAX_SPECIES_RESULTS)
-      .default(DEFAULT_RESULTS)
-      .describe("How many species to return."),
-    locale,
-    offset: z
-      .number()
-      .int()
-      .min(0)
-      .default(0)
-      .describe("Skip this many results (use nextOffset from the last call)."),
-    query,
-    region: z
-      .enum(REGION_IDS as [string, ...string[]])
-      .optional()
-      .describe(
-        "Only species recorded in this region of Georgia. A species is listed only where a source names the region.",
-      ),
-  })
-  .strict();
-
-export const getSpeciesArgs = z
-  .object({
-    id: speciesIdText.describe(
-      "Species id from search_species (for example macrovipera-lebetina). A Georgian slug (giurza), a former slug or the scientific name in slug form (vipera-ammodytes) works too.",
+export const searchSpeciesArgs = z.strictObject({
+  danger: z
+    .enum(["harmless", "venomous"])
+    .optional()
+    .describe(
+      "Only harmless or only venomous species, in groups where venom applies.",
     ),
-    locale,
-  })
-  .strict();
+  group: z.enum(ANIMAL_GROUPS).optional().describe("Only this animal group."),
+  habitat: z.enum(HABITATS).optional().describe("Only this habitat."),
+  limit: z
+    .number()
+    .int()
+    .min(1)
+    .max(MAX_SPECIES_RESULTS)
+    .default(DEFAULT_RESULTS)
+    .describe("How many species to return."),
+  locale,
+  offset: z
+    .number()
+    .int()
+    .min(0)
+    .default(0)
+    .describe("Skip this many results (use nextOffset from the last call)."),
+  query,
+  region: z
+    .enum(REGION_IDS as [string, ...string[]])
+    .optional()
+    .describe(
+      "Only species recorded in this region of Georgia. A species is listed only where a source names the region.",
+    ),
+});
 
-export const searchNewsArgs = z
-  .object({
-    hub: z
-      .enum(Object.keys(GROUP_HUBS) as [GroupHubId, ...GroupHubId[]])
-      .optional()
-      .describe("Only articles about this animal group."),
-    limit: z
-      .number()
-      .int()
-      .min(1)
-      .max(MAX_NEWS_RESULTS)
-      .default(DEFAULT_RESULTS)
-      .describe("How many articles to return."),
-    locale,
-    page: z.number().int().min(1).default(1).describe("Page number, from 1."),
-    query: z
-      .string()
-      .trim()
-      .min(1)
-      .max(100)
-      .optional()
-      .describe("Words to find in the title, summary or lead."),
-    region: speciesIdText
-      .optional()
-      .describe("Only articles about this region id (for example kakheti)."),
-    species: speciesIdText
-      .optional()
-      .describe("Only articles about this species id."),
-  })
-  .strict();
+export const getSpeciesArgs = z.strictObject({
+  id: speciesIdText.describe(
+    "Species id from search_species (for example macrovipera-lebetina). A Georgian slug (giurza), a former slug or the scientific name in slug form (vipera-ammodytes) works too.",
+  ),
+  locale,
+});
 
-export const getNewsArgs = z
-  .object({
-    locale,
-    slug: speciesIdText.describe("Article slug from search_news."),
-  })
-  .strict();
+export const searchNewsArgs = z.strictObject({
+  hub: z
+    .enum(Object.keys(GROUP_HUBS) as [GroupHubId, ...GroupHubId[]])
+    .optional()
+    .describe("Only articles about this animal group."),
+  limit: z
+    .number()
+    .int()
+    .min(1)
+    .max(MAX_NEWS_RESULTS)
+    .default(DEFAULT_RESULTS)
+    .describe("How many articles to return."),
+  locale,
+  page: z.number().int().min(1).default(1).describe("Page number, from 1."),
+  query: z
+    .string()
+    .trim()
+    .min(1)
+    .max(100)
+    .optional()
+    .describe("Words to find in the title, summary or lead."),
+  region: speciesIdText
+    .optional()
+    .describe("Only articles about this region id (for example kakheti)."),
+  species: speciesIdText
+    .optional()
+    .describe("Only articles about this species id."),
+});
+
+export const getNewsArgs = z.strictObject({
+  locale,
+  slug: speciesIdText.describe("Article slug from search_news."),
+});
