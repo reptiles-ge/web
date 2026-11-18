@@ -152,6 +152,14 @@ export const images = {
     "https://cdn.reptiles.ge/zamenis-hohenackeri-lennart-1.jpg",
   snakesInYardNatrix: "https://cdn.reptiles.ge/natrix-natrix-louis-1.jpg",
   snakesInYardShelterFood: "/images/guides/snakes-in-yard-shelter-food.jpg",
+  spiderInHouseFalseWidow:
+    "https://cdn.reptiles.ge/steatoda-paykulliana-christian-1.jpg",
+  spiderInHouseHero:
+    "https://cdn.reptiles.ge/pholcus-phalangioides-zauri-2.jpg",
+  spiderInHouseKarakurt:
+    "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-zakro-1.jpg",
+  spiderInHouseTarantula:
+    "https://cdn.reptiles.ge/lycosa-singoriensis-ka-1.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:

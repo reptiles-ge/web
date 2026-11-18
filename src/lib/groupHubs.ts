@@ -215,6 +215,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "obobis-nakbeni",
     "venomous",
     "bite",
+    "oboba-sakhlshi",
+    "spider-in-house",
   ],
   turtles: [
     "saxeoebebi",
