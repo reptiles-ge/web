@@ -32,7 +32,38 @@ type ClusterFaqSectionProps = {
   surface?: "background" | "surface";
 };
 
-export function ClusterFaqList({
+export function ClusterFaqSection({
+  intro,
+  items,
+  surface = "surface",
+}: ClusterFaqSectionProps) {
+  return (
+    <section
+      className={cn(
+        "border-t border-border py-24 lg:py-32",
+        surface === "surface" ? "bg-surface" : "bg-background",
+      )}
+    >
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+          <div>
+            <ClusterSectionIntro
+              body={intro.body}
+              bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={intro.eyebrow}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={intro.title}
+              titleClassName={CLUSTER_FAQ_TITLE}
+            />
+          </div>
+          <ClusterFaqList items={items} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ClusterFaqList({
   items,
   onOpen,
 }: {
@@ -70,36 +101,5 @@ export function ClusterFaqList({
         );
       })}
     </div>
-  );
-}
-
-export function ClusterFaqSection({
-  intro,
-  items,
-  surface = "surface",
-}: ClusterFaqSectionProps) {
-  return (
-    <section
-      className={cn(
-        "border-t border-border py-24 lg:py-32",
-        surface === "surface" ? "bg-surface" : "bg-background",
-      )}
-    >
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <div>
-            <ClusterSectionIntro
-              body={intro.body}
-              bodyClassName={CLUSTER_FAQ_BODY}
-              eyebrow={intro.eyebrow}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={intro.title}
-              titleClassName={CLUSTER_FAQ_TITLE}
-            />
-          </div>
-          <ClusterFaqList items={items} />
-        </div>
-      </div>
-    </section>
   );
 }

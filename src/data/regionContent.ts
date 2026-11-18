@@ -7,10 +7,15 @@ import {
   localizeRegionText,
   localizeRegionTextIfPresent,
 } from "@/data/mapRegions";
+import {
+  type RegionHabitatKind,
+  regionHabitatKind,
+} from "@/lib/regionHabitatKind";
 
 export type LocalizedRegionContent = {
   biome: null | string;
   faq: { answer: string; question: string }[];
+  habitatKinds: (null | RegionHabitatKind)[];
   habitats: string[];
   overview: null | string;
   related: RegionRelatedLink[];
@@ -874,6 +879,9 @@ export function getLocalizedRegionContent(
   return {
     biome: localizeRegionTextIfPresent(content.biome, locale),
     faq: localizeRegionFaq(content.faq, locale),
+    habitatKinds: content.habitats.map((habitat) =>
+      regionHabitatKind(habitat.en),
+    ),
     habitats: content.habitats.map((habitat) =>
       localizeRegionText(habitat, locale),
     ),

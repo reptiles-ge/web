@@ -1,595 +1,150 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode } from "react";
 
 import type { RegionPathId } from "@/data/georgia-paths";
-import type {
-  LocalizedRegionContent,
-  RegionRelatedLink,
-} from "@/data/regionContent";
+import type { LocalizedRegionContent } from "@/data/regionContent";
 import type { RegionSpeciesCardItem } from "@/data/regions";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { ClientCoverImage } from "@/components/ClientCoverImage";
-import { ClusterFaqList } from "@/components/ClusterFaqSection";
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
+import { RegionHero } from "@/components/region-profile/RegionHero";
 import {
-  type LocalizedText,
-  localizeRegionText,
-  type Region,
-} from "@/data/mapRegions";
-import { REGION_IDS } from "@/data/regionIds";
-import { getRegionHeroImage } from "@/data/regionImages";
-import { type AnimalGroup } from "@/data/speciesAtlasMeta";
-import { speciesGroup } from "@/data/speciesAtlasMetaTable";
-import { Link } from "@/i18n/navigation";
-import { trackEvent } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { REGION_HERO_SIZES } from "@/lib/imageSizes";
-import { regionHref } from "@/lib/regionHref";
+  RegionFaq,
+  RegionHabitats,
+  RegionRelated,
+  RegionSummary,
+} from "@/components/region-profile/RegionInfoSections";
+import {
+  RegionSectionNav,
+  type RegionSectionNavItem,
+} from "@/components/region-profile/RegionSectionNav";
+import { RegionSpeciesList } from "@/components/region-profile/RegionSpeciesList";
+import { RegionVenomous } from "@/components/region-profile/RegionVenomous";
+import { RegionShapeDefs } from "@/components/regions-index/RegionShapes";
+import { georgiaRegionPaths } from "@/data/georgia-paths";
+import { localizeRegionText, type Region } from "@/data/mapRegions";
+import { groupRegionSpecies } from "@/lib/regionSpeciesGroups";
 import { REGION_SECTION_IDS } from "@/lib/toc";
-
-type RegionFaqItem = LocalizedRegionContent["faq"][number];
 
 type RegionProfileProps = {
   attribution?: ReactNode;
   content: LocalizedRegionContent;
+  news?: ReactNode;
+  newsCount?: number;
   region: Region;
   species: RegionSpeciesCardItem[];
   summary: string[];
   venomous: RegionSpeciesCardItem[];
 };
 
-type RegionSpeciesFilter = "all" | AnimalGroup;
-
-const REGION_SPECIES_GROUPS = [
-  { group: "snake", navKey: "snakes" },
-  { group: "lizard", navKey: "lizards" },
-  { group: "turtle", navKey: "turtles" },
-  { group: "amphibian", navKey: "amphibians" },
-  { group: "bird", navKey: "birds" },
-  { group: "mammal", navKey: "mammals" },
-  { group: "scorpion", navKey: "scorpions" },
-  { group: "spider", navKey: "spiders" },
-  { group: "insect", navKey: "insects" },
-  { group: "fish", navKey: "fish" },
-] as const satisfies readonly { group: AnimalGroup; navKey: string }[];
+const MAP_REGION_IDS = Object.keys(georgiaRegionPaths) as RegionPathId[];
 
 export function RegionProfile({
   attribution,
   content,
+  news,
+  newsCount = 0,
   region,
   species,
   summary,
   venomous,
 }: RegionProfileProps) {
   const locale = useLocale();
+  const t = useTranslations("regions");
+  const tNav = useTranslations("nav");
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const { biome, faq, overview, related } = content;
+  const { biome, faq, habitats, overview, related } = content;
+  const groups = groupRegionSpecies(species, locale);
+
+  const stats = [
+    {
+      count: species.length,
+      label: t("stats.species", { count: species.length }),
+    },
+    {
+      count: venomous.length,
+      label: t("stats.venomous", { count: venomous.length }),
+      venomous: true,
+    },
+    {
+      count: groups.length,
+      label: t("stats.groups", { count: groups.length }),
+    },
+    {
+      count: habitats.length,
+      label: t("stats.habitats", { count: habitats.length }),
+    },
+  ];
+
+  const sections: (false | RegionSectionNavItem)[] = [
+    venomous.length > 0 && {
+      count: venomous.length,
+      id: REGION_SECTION_IDS.venomous,
+      label: t("venomousTab"),
+      venomous: true,
+    },
+    {
+      count: species.length,
+      id: REGION_SECTION_IDS.species,
+      label: t("speciesEyebrow"),
+    },
+    { id: REGION_SECTION_IDS.habitats, label: t("habitatsTitle") },
+    faq.length > 0 && {
+      count: faq.length,
+      id: REGION_SECTION_IDS.faq,
+      label: t("faqEyebrow"),
+      phoneCount: false,
+    },
+    newsCount > 0 && {
+      count: newsCount,
+      desktopOnly: true,
+      id: REGION_SECTION_IDS.news,
+      label: tNav("news"),
+    },
+    related.length > 0 && {
+      id: REGION_SECTION_IDS.related,
+      label: t("relatedTitle"),
+      phoneLabel: t("relatedEyebrow"),
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div>
-        <RegionProfileHero
-          biome={biome}
-          name={name}
-          nameIn={nameIn}
-          overview={overview}
-          regionId={region.id}
-          speciesCount={species.length}
-          venomousCount={venomous.length}
-        />
-        <RegionProfileRange name={name} regionId={region.id} />
-        <RegionProfileSummary name={name} paragraphs={summary} />
-        <RegionProfileHabitats
-          description={region.description}
-          habitats={content.habitats}
-          regionId={region.id}
-        />
-        <RegionProfileSpecies name={name} nameIn={nameIn} species={species} />
-        {venomous.length > 0 ? (
-          <RegionProfileVenomous
-            name={name}
-            nameIn={nameIn}
-            species={venomous}
-          />
-        ) : null}
-        {faq.length > 0 ? (
-          <RegionFaqSection
-            items={faq}
-            name={name}
-            nameIn={nameIn}
-            regionId={region.id}
-          />
-        ) : null}
-        {attribution}
-        {related.length > 0 ? <RegionProfileRelated related={related} /> : null}
-      </div>
+    <div className="editorial-page regions-atlas min-h-screen overflow-x-clip bg-background text-(--nw-ink) antialiased">
+      <RegionShapeDefs ids={MAP_REGION_IDS} />
+      <RegionHero
+        biome={biome}
+        name={name}
+        overview={overview}
+        regionId={region.id}
+        stats={stats}
+        subtitle={t("regionTitle", { name, nameIn })}
+        venomousCount={venomous.length}
+      />
+      <RegionSectionNav
+        items={sections.filter((item) => item !== false)}
+        label={t("sectionsLabel")}
+      />
+      {venomous.length > 0 ? (
+        <RegionVenomous name={name} nameIn={nameIn} species={venomous} />
+      ) : null}
+      <RegionSpeciesList
+        groups={groups}
+        name={name}
+        nameIn={nameIn}
+        total={species.length}
+      />
+      <RegionHabitats
+        description={localizeRegionText(region.description, locale)}
+        habitats={habitats}
+        kinds={content.habitatKinds}
+      />
+      <RegionSummary name={name} paragraphs={summary} />
+      {faq.length > 0 ? (
+        <RegionFaq attribution={attribution} items={faq} regionId={region.id} />
+      ) : null}
+      {news}
+      {related.length > 0 ? <RegionRelated related={related} /> : null}
     </div>
-  );
-}
-
-function RegionFaqSection({
-  items,
-  name,
-  nameIn,
-  regionId,
-}: {
-  items: RegionFaqItem[];
-  name: string;
-  nameIn: string;
-  regionId: string;
-}) {
-  const t = useTranslations("regions");
-
-  return (
-    <section className="bg-surface py-24 lg:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("faqEyebrow")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-display-title"
-              id={REGION_SECTION_IDS.faq}
-            >
-              {t("faqTitle")}
-            </AnchoredHeading>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              {t("faqIntro", { name, nameIn })}
-            </p>
-          </div>
-          <ClusterFaqList
-            items={items}
-            onOpen={(index) =>
-              trackEvent("faq_open", {
-                entity_id: regionId,
-                faq_index: index,
-                page_type: "region",
-              })
-            }
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileHabitats({
-  description,
-  habitats,
-  regionId,
-}: {
-  description: LocalizedText;
-  habitats: string[];
-  regionId: string;
-}) {
-  const locale = useLocale();
-  const t = useTranslations("regions");
-
-  return (
-    <section className="bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("habitatsEyebrow")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-display-title font-semibold"
-              id={REGION_SECTION_IDS.habitats}
-            >
-              {t("habitatsTitle")}
-            </AnchoredHeading>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {localizeRegionText(description, locale)}
-            </p>
-          </div>
-          <ul className="space-y-0 divide-y divide-border border-y border-border">
-            {habitats.map((habitat, index) => (
-              <li
-                className="flex items-baseline justify-between gap-6 py-5"
-                key={habitat}
-              >
-                <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
-                  {habitat}
-                </span>
-                <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileHero({
-  biome,
-  name,
-  nameIn,
-  overview,
-  regionId,
-  speciesCount,
-  venomousCount,
-}: {
-  biome: null | string;
-  name: string;
-  nameIn: string;
-  overview: null | string;
-  regionId: RegionPathId;
-  speciesCount: number;
-  venomousCount: number;
-}) {
-  const t = useTranslations("regions");
-  const tNav = useTranslations("nav");
-  const heroSrc = getRegionHeroImage(regionId);
-
-  return (
-    <section
-      className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
-      style={{
-        paddingTop: "7rem",
-      }}
-    >
-      <ClientCoverImage
-        alt={t("regionHeroAlt", { name })}
-        className="object-cover object-center"
-        priority
-        sizes={REGION_HERO_SIZES}
-        src={heroSrc}
-      />
-      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-black/92" />
-      <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
-
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
-          <Link
-            className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
-            href="/"
-          >
-            <ArrowLeft className="size-3.5" />
-            {t("breadcrumbHome")}
-          </Link>
-          <span aria-hidden>/</span>
-          <Link
-            className="font-medium transition-colors hover:text-white"
-            href="/regions"
-          >
-            {t("allRegions")}
-          </Link>
-          <span aria-hidden>/</span>
-          <span className="text-white/70">{name}</span>
-        </nav>
-        <p className="text-[11px] font-medium tracking-[0.18em] text-white/65 uppercase">
-          {t("regionEyebrow")}
-        </p>
-        <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
-          {t("regionTitle", { name, nameIn })}
-        </h1>
-        {overview ? (
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/85 sm:mt-5 sm:text-[16px]">
-            {overview}
-          </p>
-        ) : null}
-        <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7">
-          {biome ? (
-            <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-              {biome}
-            </span>
-          ) : null}
-          <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-            {t("speciesCount", { count: speciesCount })}
-          </span>
-          {venomousCount > 0 ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-destructive/30 bg-destructive/15 px-3.5 py-2 text-[12px] text-[#f0a399] backdrop-blur-md">
-              <Shield className="size-3.5" />
-              {t("venomousCount", { count: venomousCount })}
-            </span>
-          ) : null}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileRange({
-  name,
-  regionId,
-}: {
-  name: string;
-  regionId: RegionPathId;
-}) {
-  const t = useTranslations("regions");
-
-  return (
-    <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
-      <div
-        aria-hidden="true"
-        className="map-explorer-texture pointer-events-none absolute inset-0"
-      />
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("rangeEyebrow")}
-          </p>
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-display-title font-semibold"
-            id={REGION_SECTION_IDS.range}
-            slugSource={t("rangeTitle", { name })}
-          >
-            {t("rangeTitle", { name })}
-          </AnchoredHeading>
-        </div>
-        <div className="mt-12 lg:mt-14">
-          <GeorgiaMap highlightedIds={[regionId]} interactive={false} />
-        </div>
-        <p className="mt-8 text-center text-[15px] text-muted-foreground">
-          <Link
-            className="font-medium text-foreground underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current"
-            href="/snakes/gavrtseleba"
-          >
-            {t("snakeRangeLink", { count: REGION_IDS.size })}
-          </Link>
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileRelated({ related }: { related: RegionRelatedLink[] }) {
-  const t = useTranslations("regions");
-
-  return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("relatedEyebrow")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-4 font-display text-display-title font-semibold"
-          id={REGION_SECTION_IDS.related}
-        >
-          {t("relatedTitle")}
-        </AnchoredHeading>
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {related.map((item) => {
-            return (
-              <li key={item.id}>
-                <Link
-                  className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
-                  href={regionHref(item.id)}
-                >
-                  <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
-                    <h3 className="font-display text-[22px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
-                      {item.name}
-                    </h3>
-                    <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
-                  </div>
-                  <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-                    {item.biome}
-                  </p>
-                  <p className="mt-3 text-[13px] text-muted-foreground">
-                    {t("speciesCount", {
-                      count: item.speciesCount,
-                    })}
-                  </p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileSpecies({
-  name,
-  nameIn,
-  species,
-}: {
-  name: string;
-  nameIn: string;
-  species: RegionSpeciesCardItem[];
-}) {
-  const t = useTranslations("regions");
-  const tNav = useTranslations("nav");
-  const tSearch = useTranslations("search");
-  const [filter, setFilter] = useState<RegionSpeciesFilter>("all");
-  const groupOptions = useMemo(() => {
-    const counts = new Map<AnimalGroup, number>();
-    for (const item of species) {
-      const group = speciesGroup(item);
-      counts.set(group, (counts.get(group) ?? 0) + 1);
-    }
-    return REGION_SPECIES_GROUPS.flatMap((option) => {
-      const count = counts.get(option.group) ?? 0;
-      return count > 0 ? [{ ...option, count }] : [];
-    });
-  }, [species]);
-  const filteredSpecies = useMemo(
-    () =>
-      filter === "all"
-        ? species
-        : species.filter((item) => speciesGroup(item) === filter),
-    [filter, species],
-  );
-
-  function updateFilter(next: RegionSpeciesFilter, count: number) {
-    if (next === filter) return;
-    setFilter(next);
-    trackEvent("region_species_filter", {
-      group_filter: next,
-      page_type: "region",
-      result_count: count,
-    });
-  }
-
-  return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("speciesEyebrow")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-4 font-display text-display-title font-semibold"
-              id={REGION_SECTION_IDS.species}
-              slugSource={t("speciesTitle", { name, nameIn })}
-            >
-              {t("speciesTitle", { name, nameIn })}
-            </AnchoredHeading>
-          </div>
-          <p className="hidden text-[13px] text-muted-foreground sm:block">
-            {t("speciesCount", { count: filteredSpecies.length })}
-          </p>
-        </div>
-        {groupOptions.length > 1 ? (
-          <div
-            aria-label={t("speciesFilterLabel")}
-            className="mt-8 flex flex-wrap gap-2"
-            role="group"
-          >
-            <button
-              aria-pressed={filter === "all"}
-              className={cn(
-                "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
-                filter === "all"
-                  ? "border-ink bg-ink text-ink-foreground"
-                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
-              )}
-              onClick={() => updateFilter("all", species.length)}
-              type="button"
-            >
-              {tSearch("all")} <span className="ml-2">{species.length}</span>
-            </button>
-            {groupOptions.map((option) => (
-              <button
-                aria-pressed={filter === option.group}
-                className={cn(
-                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
-                  filter === option.group
-                    ? "border-ink bg-ink text-ink-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
-                )}
-                key={option.group}
-                onClick={() => updateFilter(option.group, option.count)}
-                type="button"
-              >
-                {tNav(option.navKey)}{" "}
-                <span className="ml-2">{option.count}</span>
-              </button>
-            ))}
-          </div>
-        ) : null}
-        {species.length > 0 ? (
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredSpecies.map((item) => (
-              <div key={item.id}>
-                <RegionSpeciesCard species={item} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="mt-10 text-[14px] text-muted-foreground">
-            {t("empty")}
-          </p>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileSummary({
-  name,
-  paragraphs,
-}: {
-  name: string;
-  paragraphs: string[];
-}) {
-  const t = useTranslations("regions");
-
-  return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("summary.eyebrow")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-display-title font-semibold"
-              id={REGION_SECTION_IDS.summary}
-              slugSource={t("summary.title", { name })}
-            >
-              {t("summary.title", { name })}
-            </AnchoredHeading>
-          </div>
-          <div className="space-y-5 text-[16px] leading-relaxed text-foreground/85">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph}>
-                <PhoneLinkedText>{paragraph}</PhoneLinkedText>
-              </p>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function RegionProfileVenomous({
-  name,
-  nameIn,
-  species,
-}: {
-  name: string;
-  nameIn: string;
-  species: RegionSpeciesCardItem[];
-}) {
-  const t = useTranslations("regions");
-
-  return (
-    <section className="bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("venomousEyebrow")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title font-semibold"
-          id={REGION_SECTION_IDS.venomous}
-          slugSource={t("venomousTitle", { name, nameIn })}
-        >
-          {t("venomousTitle", { name, nameIn })}
-        </AnchoredHeading>
-        <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-          {t("venomousBody")}
-        </p>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {species.map((item) => (
-            <div key={item.id}>
-              <RegionSpeciesCard showDanger species={item} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
