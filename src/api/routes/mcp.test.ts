@@ -209,6 +209,34 @@ describe("POST /v1/mcp", () => {
     expect(english.commonName).not.toBe(byId.commonName);
   });
 
+  it("resolves a former slug or a scientific name to the current profile", async () => {
+    for (const id of [
+      "tsxvirrkosani-gvelgesla",
+      "vipera-ammodytes",
+      "VIPERA-AMMODYTES",
+    ]) {
+      const profile = await toolData<Record<string, unknown>>("get_species", {
+        id,
+        locale: "en",
+      });
+      expect(profile, id).toMatchObject({
+        id: "vipera-transcaucasiana",
+        url: "https://reptiles.ge/en/snakes/vipera-transcaucasiana",
+      });
+    }
+    const lebetinus = await toolData<Record<string, unknown>>("get_species", {
+      id: "macrovipera-lebetinus",
+    });
+    expect(lebetinus.id).toBe("macrovipera-lebetina");
+    const former = await toolData<Record<string, unknown>>("get_species", {
+      id: "kavkasiuri-jvarula",
+    });
+    expect(former).toMatchObject({
+      id: "pelodytes-caucasicus",
+      slug: "kavkasiuri-jvriana",
+    });
+  });
+
   it("reports an unknown species as a tool error", async () => {
     const body = await callTool("get_species", { id: "no-such-species" });
     expect(body.result!.isError).toBe(true);

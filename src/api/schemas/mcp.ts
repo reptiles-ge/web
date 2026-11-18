@@ -84,7 +84,7 @@ export const searchSpeciesArgs = z
 export const getSpeciesArgs = z
   .object({
     id: speciesIdText.describe(
-      "Species id from search_species (for example macrovipera-lebetina). The Georgian slug (giurza) works too.",
+      "Species id from search_species (for example macrovipera-lebetina). A Georgian slug (giurza), a former slug or the scientific name in slug form (vipera-ammodytes) works too.",
     ),
     locale,
   })
