@@ -4420,6 +4420,7 @@
     "docs": "Dokümantasyon",
     "newTab": "(yeni sekmede açılır)",
     "requestAccess": "Erişim iste",
+    "mcpLink": "Yapay zekâ asistanları için: MCP sunucusu",
     "statsLabel": "Rakamlarla API",
     "stats": {
       "species": "{count, plural, other {tür}}",
@@ -4440,6 +4441,53 @@
       "detail": "Tek bir türün profili: adlar, risk, metinler, kaynak gösterilmiş fotoğraflar, kaynaklar.",
       "records": "Türün Gürcistan'daki tarihli saha kayıtları.",
       "news": "Atlas haberleri — türe, bölgeye ve seriye göre filtreyle."
+    },
+    "mcp": {
+      "eyebrow": "MCP",
+      "new": "Yeni",
+      "title": "Reptiles.ge, yapay zekâ asistanınızda",
+      "body": "Claude, ChatGPT ve diğer asistanlar atlası doğrudan okuyabilir: bir türü bulur, profilini açar ve yanıtında Reptiles.ge sayfasını kaynak gösterir. API anahtarı gerekmez.",
+      "urlLabel": "Sunucu adresi",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı",
+      "copyFailed": "Kopyalanamadı",
+      "copySr": "Sunucu adresini kopyala",
+      "howTo": "Nasıl eklenir",
+      "clients": "Asistan",
+      "claude": {
+        "step1": "Settings → Connectors'ı açın.",
+        "step2": "Add custom connector'a tıklayın.",
+        "step3": "Adresi yapıştırıp kaydedin."
+      },
+      "chatgpt": {
+        "step1": "Developer mode'u açın: Settings → Apps & Connectors → Advanced settings.",
+        "step2": "Create'e tıklayın ve adresi yapıştırın.",
+        "step3": "Kimlik doğrulamada No authentication'ı seçin."
+      },
+      "facts": {
+        "noKey": "Anahtarsız",
+        "readOnly": "Yalnızca okuma",
+        "languages": "Dört dil: ka, en, ru, tr",
+        "limit": "Dakikada 60 istek"
+      },
+      "chat": {
+        "label": "Örnek: Reptiles.ge verileriyle yanıt veren bir yapay zekâ asistanı",
+        "assistant": "Yapay zekâ asistanı",
+        "connected": "Reptiles.ge bağlı",
+        "question": "Yarın yürüyüşe çıkıyoruz. {name} ne kadar tehlikeli, ısırırsa ne yapmalıyız?",
+        "answerRisk": "Reptiles.ge'ye göre {name} <b>yüksek riskli</b> zehirli bir yılandır. Yaklaşmayın ve dokunmayın.",
+        "answerBite": "Isırılırsanız <b>hemen 112'yi arayın</b>. Bu bilgiler eğitim amaçlıdır ve doktorun yerini tutmaz.",
+        "note": "Bir örnek. Yanıtı asistan yazar; Reptiles.ge yalnızca veriyi sağlar."
+      },
+      "toolsEyebrow": "araçlar",
+      "toolsTitle": "Dört araç, tek kaynak",
+      "toolsBody": "Asistan sitede gördüğünüz yayımlanmış profillerin aynısını okur ve her yanıtla birlikte sayfa bağlantısını alır.",
+      "tools": {
+        "search_species": "Herhangi bir dilde adla ya da grup, bölge, yaşam alanı veya tehlikeye göre tür arama.",
+        "get_species": "Tam profil: tanımlama, Gürcistan'daki yayılış, insanlar için tehlike, benzer türler, kaynaklar.",
+        "search_news": "Haberler: arazi bulguları, araştırmalar, atlas güncellemeleri.",
+        "get_news": "Bölümleri ve kaynaklarıyla tek bir makale."
+      }
     },
     "uses": {
       "eyebrow": "kullanım",

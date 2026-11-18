@@ -4420,6 +4420,7 @@
     "docs": "Documentation",
     "newTab": "(opens in a new tab)",
     "requestAccess": "Request access",
+    "mcpLink": "For AI assistants: the MCP server",
     "statsLabel": "The API in numbers",
     "stats": {
       "species": "{count, plural, other {species}}",
@@ -4440,6 +4441,53 @@
       "detail": "One species profile: names, risk, texts, credited photos, sources.",
       "records": "Dated field records of the species in Georgia.",
       "news": "Atlas news — filter by species, region and series."
+    },
+    "mcp": {
+      "eyebrow": "MCP",
+      "new": "New",
+      "title": "Reptiles.ge, in your AI assistant",
+      "body": "Claude, ChatGPT and other assistants can read the atlas directly: find a species, open its profile and cite the Reptiles.ge page in their answer. No API key needed.",
+      "urlLabel": "Server address",
+      "copy": "Copy",
+      "copied": "Copied",
+      "copyFailed": "Could not copy",
+      "copySr": "Copy the server address",
+      "howTo": "How to add it",
+      "clients": "Assistant",
+      "claude": {
+        "step1": "Open Settings → Connectors.",
+        "step2": "Click Add custom connector.",
+        "step3": "Paste the address and save."
+      },
+      "chatgpt": {
+        "step1": "Turn on Developer mode: Settings → Apps & Connectors → Advanced settings.",
+        "step2": "Click Create and paste the address.",
+        "step3": "Under authentication, choose No authentication."
+      },
+      "facts": {
+        "noKey": "No key",
+        "readOnly": "Read-only",
+        "languages": "Four languages: ka, en, ru, tr",
+        "limit": "60 requests a minute"
+      },
+      "chat": {
+        "label": "Example: an AI assistant answering with Reptiles.ge data",
+        "assistant": "AI assistant",
+        "connected": "Reptiles.ge connected",
+        "question": "We're going hiking tomorrow. How dangerous is the {name}, and what do we do if it bites?",
+        "answerRisk": "On Reptiles.ge, the {name} is a <b>high-risk</b> venomous snake. Keep your distance and do not touch it.",
+        "answerBite": "If someone is bitten, <b>call 112 straight away</b>. This information is educational and does not replace a doctor.",
+        "note": "An example. The assistant writes the answer; Reptiles.ge only supplies the data."
+      },
+      "toolsEyebrow": "tools",
+      "toolsTitle": "Four tools, one source",
+      "toolsBody": "The assistant reads the same published profiles you see on the site, and gets the page link with every answer.",
+      "tools": {
+        "search_species": "Find species by name in any language, or by group, region, habitat or danger.",
+        "get_species": "The full profile: identification, range in Georgia, danger to people, lookalikes, sources.",
+        "search_news": "News: field finds, research, atlas updates.",
+        "get_news": "One article with its sections and sources."
+      }
     },
     "uses": {
       "eyebrow": "use cases",
