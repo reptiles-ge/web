@@ -10,12 +10,12 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { regionHref } from "@/lib/regionHref";
 
+import { RegionThumb } from "./RegionShapes";
 import {
   eyebrowClass,
   focusClass,
   h2Class,
   type RegionsIndexRegion,
-  RegionThumb,
   wrapClass,
 } from "./shared";
 
