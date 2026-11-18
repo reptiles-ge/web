@@ -23,10 +23,10 @@ import type { RegionHabitatKind } from "@/lib/regionHabitatKind";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { FaqAnswerPanel, FaqQuestion } from "@/components/FaqAccordionParts";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { RegionThumb } from "@/components/regions-index/RegionShapes";
 import {
   eyebrowClass,
   focusClass,
-  RegionThumb,
   wrapClass,
 } from "@/components/regions-index/shared";
 import { REGION_IDS } from "@/data/regionIds";

@@ -20,7 +20,7 @@ import {
 } from "@/components/region-profile/RegionSectionNav";
 import { RegionSpeciesList } from "@/components/region-profile/RegionSpeciesList";
 import { RegionVenomous } from "@/components/region-profile/RegionVenomous";
-import { RegionShapeDefs } from "@/components/regions-index/shared";
+import { RegionShapeDefs } from "@/components/regions-index/RegionShapes";
 import { georgiaRegionPaths } from "@/data/georgia-paths";
 import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { groupRegionSpecies } from "@/lib/regionSpeciesGroups";
