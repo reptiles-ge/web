@@ -19,6 +19,7 @@ describe("getLocalizedRegionContent", () => {
     expect(content.biome).toBe(source.biome.ru);
     expect(content.overview).toBe(source.overview.ru);
     expect(content.habitats).toEqual(source.habitats.map((item) => item.ru));
+    expect(content.habitatKinds).toEqual(["open", "mountain", "open"]);
     expect(content.faq).toEqual(
       source.faq.map((item) => ({
         answer: item.answer.ru,

@@ -94,6 +94,19 @@ describe("NewsIndexCards", () => {
     expect(screen.getAllByRole("link")).toHaveLength(1);
   });
 
+  it("lets a side card drop its scroller width", () => {
+    const { container, rerender } = withIntl(<NewsSideCard entry={ENTRY} />);
+    expect(container.querySelector("article")?.className).toContain(
+      "w-[290px]",
+    );
+    rerender(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <NewsSideCard className="min-w-0" entry={ENTRY} />
+      </NextIntlClientProvider>,
+    );
+    expect(container.querySelector("article")?.className).toBe("min-w-0");
+  });
+
   it("renders illustrated list and side cards without topic or source", () => {
     const { container } = withIntl(
       <>

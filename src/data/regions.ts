@@ -48,6 +48,7 @@ export type RegionSpeciesCardItem = {
   danger?: DangerLevel;
   id: string;
   image: string;
+  introduced?: boolean;
   location: string;
   mobileImage?: string;
   scientificName: string;
@@ -137,16 +138,17 @@ export function isRegionCardVenomous(item: RegionSpeciesCardItem) {
 }
 
 export function toRegionSpeciesCard(
-  species: Pick<
-    SpeciesSummary,
-    | "commonName"
-    | "danger"
-    | "id"
-    | "image"
-    | "location"
-    | "mobileImage"
-    | "scientificName"
-  >,
+  species: Partial<Pick<CatalogCard, "checklistStatus">> &
+    Pick<
+      SpeciesSummary,
+      | "commonName"
+      | "danger"
+      | "id"
+      | "image"
+      | "location"
+      | "mobileImage"
+      | "scientificName"
+    >,
 ): RegionSpeciesCardItem {
   return {
     commonName: species.commonName,
@@ -155,6 +157,7 @@ export function toRegionSpeciesCard(
     location: species.location,
     scientificName: species.scientificName,
     ...(species.danger ? { danger: species.danger } : {}),
+    ...(species.checklistStatus === "introduced" ? { introduced: true } : {}),
     ...(species.mobileImage ? { mobileImage: species.mobileImage } : {}),
   };
 }

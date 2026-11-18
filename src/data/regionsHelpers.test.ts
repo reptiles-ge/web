@@ -162,6 +162,17 @@ describe("species cards", () => {
     });
     expect(card).not.toHaveProperty("danger");
     expect(card).not.toHaveProperty("mobileImage");
+    expect(card).not.toHaveProperty("introduced");
+  });
+
+  it("marks only a species the checklist calls introduced", () => {
+    expect(
+      toRegionSpeciesCard({ ...grassSnake, checklistStatus: "introduced" })
+        .introduced,
+    ).toBe(true);
+    expect(
+      toRegionSpeciesCard({ ...grassSnake, checklistStatus: "confirmed" }),
+    ).not.toHaveProperty("introduced");
   });
 });
 

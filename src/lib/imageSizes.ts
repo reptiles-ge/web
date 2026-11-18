@@ -10,9 +10,6 @@ export const IDENTIFICATION_PHOTO_SIZES =
 
 export const MOBILE_HERO_SIZES = "(min-resolution: 2.5dppx) 67vw, 100vw";
 
-export const REGION_HERO_SIZES =
-  "(max-aspect-ratio: 1/1) and (min-resolution: 2.5dppx) 63vh, (max-aspect-ratio: 1/1) 94vh, (max-width: 1023px) and (min-resolution: 2.5dppx) 67vw, 100vw";
-
 export const LOOKALIKE_SIZES =
   "(max-width: 639px) calc((100vw - 3rem - 2rem - 0.75rem) / 2), 280px";
 
