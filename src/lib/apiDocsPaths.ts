@@ -1,5 +1,6 @@
 export const API_DOCS_PATH = "/docs";
 export const OPENAPI_SPEC_PATH = "/v1/docs/openapi.json";
+export const MCP_SERVER_PATH = "/v1/mcp";
 export const API_CATALOG_PATH = "/.well-known/api-catalog";
 export const OPENAPI_CONTENT_TYPE = "application/vnd.oai.openapi+json";
 export const API_CATALOG_LINK = `<${API_CATALOG_PATH}>; rel="api-catalog"`;

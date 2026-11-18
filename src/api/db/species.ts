@@ -73,6 +73,19 @@ export async function findPublishedSpeciesId(
   return row?.id ?? null;
 }
 
+export async function findPublishedSpeciesSlugs(
+  db: ApiDatabase,
+  idOrKaSlug: string,
+) {
+  const row = await db
+    .prepare(
+      "SELECT id, slug_ka FROM species WHERE status = 'published' AND (id = ?1 OR slug_ka = ?1) ORDER BY id = ?1 DESC LIMIT 1",
+    )
+    .bind(idOrKaSlug)
+    .first<{ id: string; slug_ka: null | string }>();
+  return row ? { id: row.id, kaSlug: row.slug_ka ?? row.id } : null;
+}
+
 export async function getPublishedSpeciesPage(
   db: ApiDatabase,
   slug: string,

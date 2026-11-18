@@ -1,6 +1,8 @@
 import type { ApiBindings } from "../env";
 
-const DEFAULT_ORIGINS = ["https://reptiles.ge"];
+export const SITE_ORIGIN = "https://reptiles.ge";
+
+const DEFAULT_ORIGINS = [SITE_ORIGIN];
 
 export function allowedOrigins(env: ApiBindings | undefined) {
   const configured = env?.ALLOWED_ORIGINS?.split(",")

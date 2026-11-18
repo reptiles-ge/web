@@ -16,6 +16,7 @@ export type ApiBindings = {
   CACHE_GENERATION_TTL_MS?: string;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
+  MCP_LIMITER?: RateLimiter;
   RATING_GLOBAL_LIMITER?: RateLimiter;
   RATING_VISITOR_LIMITER?: RateLimiter;
   REVALIDATE_TOKEN?: string;

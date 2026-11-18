@@ -121,7 +121,7 @@ describe("buildLlmsIndexText", () => {
     expect(body).toContain("/mtserebi/aziuri-farosana");
   });
 
-  it("lists the API reference and the OpenAPI spec", () => {
+  it("lists the API reference, the OpenAPI spec and the MCP server", () => {
     for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
       const body = buildLlmsIndexText(LLMS, locale);
       expect(body, locale).toContain("(https://reptiles.ge/docs)");
@@ -131,6 +131,7 @@ describe("buildLlmsIndexText", () => {
       expect(body, locale).toContain(
         "https://reptiles.ge/.well-known/api-catalog",
       );
+      expect(body, locale).toContain("(https://api.reptiles.ge/v1/mcp)");
     }
   });
 
