@@ -9,6 +9,7 @@ export type ApiErrorCode =
   | "forbidden"
   | "internal_error"
   | "invalid_request"
+  | "method_not_allowed"
   | "not_found"
   | "payload_too_large"
   | "rate_limited"

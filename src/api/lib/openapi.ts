@@ -199,6 +199,10 @@ Successful responses send \`Cache-Control: ${PUBLIC_CACHE}\` and are cached at t
 
 Errors use one JSON shape, \`{ "error": { "code", "message", "details"? } }\`. \`code\` is stable; \`message\` is for people. \`400 invalid_request\` lists every invalid input in \`details\`; an unknown species or path answers \`404 not_found\`. A missing, revoked or expired key answers \`401 unauthorized\`, checked before any other input. More than 120 requests in a minute for one key answer \`429 rate_limited\`; wait a minute and retry.
 
+## MCP server
+
+AI assistants can read the atlas through a read-only [Model Context Protocol](https://modelcontextprotocol.io) server at \`https://api.reptiles.ge/v1/mcp\` (Streamable HTTP, stateless, JSON answers). Add that URL as a remote MCP server or connector. It needs no API key and allows 60 requests per minute from one IP address. Its tools are \`search_species\`, \`get_species\`, \`search_news\` and \`get_news\`; each takes a \`locale\` (\`ka\`, \`en\`, \`ru\` or \`tr\`) and returns the Reptiles.ge page \`url\` to cite.
+
 ## About the content
 
 This is a scientific atlas. Each profile lists its sources in \`sources\`. The \`danger\` level is an educational risk label, not medical advice; in an emergency in Georgia call **112**.
@@ -512,6 +516,7 @@ export const UNDOCUMENTED_PATH_PREFIXES = [
   "/v1/admin/",
   "/v1/auth/",
   "/v1/health",
+  "/v1/mcp",
   "/v1/ratings",
   "/v1/site/",
   "/v1/views",

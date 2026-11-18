@@ -33,6 +33,7 @@ import { contributors } from "./routes/contributors";
 import { docs } from "./routes/docs";
 import { health } from "./routes/health";
 import { images } from "./routes/images";
+import { mcp } from "./routes/mcp";
 import { news } from "./routes/news";
 import { ratings } from "./routes/ratings";
 import { siteSpecies } from "./routes/siteSpecies";
@@ -63,7 +64,7 @@ export const app = new Hono<ApiEnv>()
   .use(noindex)
   .use(
     cors({
-      allowHeaders: ["Content-Type", LOCALE_HEADER],
+      allowHeaders: ["Content-Type", LOCALE_HEADER, "Mcp-Protocol-Version"],
       allowMethods: ["GET", "POST", "OPTIONS"],
       credentials: true,
       maxAge: CORS_MAX_AGE,
@@ -83,6 +84,7 @@ export const app = new Hono<ApiEnv>()
   .route("/v1/contributors", contributors)
   .route("/v1/news", news)
   .route("/v1/images", images)
+  .route("/v1/mcp", mcp)
   .route("/v1/ratings", ratings)
   .route("/v1/access-requests", accessRequests)
   .route("/v1/views", views)

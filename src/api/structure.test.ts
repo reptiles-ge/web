@@ -9,6 +9,8 @@ const API_DIR = path.join(ROOT, "src/api");
 const MIGRATIONS_DIR = path.join(ROOT, "migrations/api");
 const UNVERSIONED_MOUNTS = ["/health"];
 const SKILL_PATH = ".agents/skills/api/SKILL.md";
+const READ_ONLY_POST_ROUTES = new Set(["routes/mcp.ts"]);
+const READ_ONLY_LIBS = new Set(["lib/mcp.ts", "lib/mcpTools.ts"]);
 
 const TOP_LEVEL = new Set([
   "app.test.ts",
@@ -181,8 +183,28 @@ describe("api structure (see .agents/skills/api/SKILL.md)", () => {
       const guarded =
         file.source.includes("requireToken") ||
         (file.source.includes("requireSiteOrigin") &&
+          /rateLimit\w+/.test(file.source)) ||
+        (READ_ONLY_POST_ROUTES.has(file.rel) &&
           /rateLimit\w+/.test(file.source));
       expect(guarded, `${file.rel} has an unguarded write route`).toBe(true);
+    }
+  });
+
+  it("keeps the read-only POST routes free of writes", () => {
+    const readOnly = sourceFiles.filter(
+      (file) =>
+        READ_ONLY_POST_ROUTES.has(file.rel) || READ_ONLY_LIBS.has(file.rel),
+    );
+    expect(readOnly.map((file) => file.rel).sort()).toEqual(
+      [...READ_ONLY_POST_ROUTES, ...READ_ONLY_LIBS].sort(),
+    );
+    for (const file of readOnly) {
+      expect(file.source, `${file.rel} has a write route`).not.toMatch(
+        /\.(put|patch|delete)\(/,
+      );
+      expect(file.source, `${file.rel} imports a write module`).not.toMatch(
+        /\/(\w*Write|\w*Drafts|\w*Rows|revalidateSite|cachePurge|photoUpload|speciesPhotos|contentViews)"|\b(insert|update|delete|save|purge|clear)[A-Z]\w*\(/,
+      );
     }
   });
 

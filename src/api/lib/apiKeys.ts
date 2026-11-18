@@ -14,6 +14,7 @@ const KEYLESS_PATHS = [
   "/v1/auth",
   "/v1/docs",
   "/v1/health",
+  "/v1/mcp",
   "/v1/views",
 ];
 
