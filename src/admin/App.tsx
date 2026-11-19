@@ -1,16 +1,10 @@
-import {
-  App as AntApp,
-  Button,
-  ConfigProvider,
-  Layout,
-  Result,
-  Spin,
-} from "antd";
+import { App as AntApp, Button, Layout, Result, Spin } from "antd";
 import { useEffect, useState } from "react";
 
 import { Dashboard } from "./Dashboard";
 import { LoginPage } from "./LoginPage";
 import { type AdminUser, fetchCurrentUser } from "./session";
+import { ThemeModeProvider } from "./themeMode";
 
 type SessionState =
   | { status: "error" }
@@ -20,11 +14,11 @@ type SessionState =
 
 export function App() {
   return (
-    <ConfigProvider theme={{ token: { colorPrimary: "#2f6b4f" } }}>
+    <ThemeModeProvider>
       <AntApp>
         <AdminRoot />
       </AntApp>
-    </ConfigProvider>
+    </ThemeModeProvider>
   );
 }
 

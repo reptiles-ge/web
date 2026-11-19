@@ -9,6 +9,7 @@ import {
   Popconfirm,
   Table,
   Tag,
+  theme,
   Typography,
 } from "antd";
 import { useState } from "react";
@@ -32,10 +33,6 @@ import { diffWords } from "./textDiff";
 import { useAdminData } from "./useAdminList";
 
 const LIST_PATH = "/drafts";
-
-const REMOVED = { background: "#fff1f0", textDecoration: "line-through" };
-
-const ADDED = { background: "#f6ffed" };
 
 export function DraftDetailPage({
   id,
@@ -105,6 +102,7 @@ function ChangeText({
   change: DraftChange;
   side: "after" | "before";
 }) {
+  const { token } = theme.useToken();
   const text = change[side];
   if (!text) return <Typography.Text type="secondary">—</Typography.Text>;
   if (!change.before || !change.after) {
@@ -119,7 +117,17 @@ function ChangeText({
           part.kind === "same" ? (
             <span key={index}>{part.text}</span>
           ) : (
-            <span key={index} style={part.kind === "added" ? ADDED : REMOVED}>
+            <span
+              key={index}
+              style={
+                part.kind === "added"
+                  ? { background: token.colorSuccessBg }
+                  : {
+                      background: token.colorErrorBg,
+                      textDecoration: "line-through",
+                    }
+              }
+            >
               {part.text}
             </span>
           ),

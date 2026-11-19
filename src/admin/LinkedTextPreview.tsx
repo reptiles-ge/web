@@ -1,4 +1,4 @@
-import { Typography } from "antd";
+import { theme, Typography } from "antd";
 
 import { publicEnv } from "@/lib/env";
 
@@ -7,11 +7,12 @@ const LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
 type Piece = { label: string; target?: string };
 
 export function LinkedTextPreview({ text }: { text: string }) {
+  const { token } = theme.useToken();
   const site = publicEnv().NEXT_PUBLIC_SITE_URL ?? "https://reptiles.ge";
   return (
     <div
       style={{
-        border: "1px dashed #d9d9d9",
+        border: `1px dashed ${token.colorBorder}`,
         borderRadius: 6,
         fontSize: 13,
         padding: "6px 10px",
