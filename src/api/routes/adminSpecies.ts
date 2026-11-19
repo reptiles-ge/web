@@ -7,6 +7,7 @@ import {
   downloadINaturalistPhoto,
   type INaturalistDownloadResult,
 } from "@/lib/inaturalistPhoto";
+import { xenoCantoAudioKey } from "@/lib/xenoCanto";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
@@ -28,6 +29,7 @@ import {
   storePhoto,
 } from "../lib/photoUpload";
 import { clearCaches, ensureSiteRevalidated } from "../lib/revalidateSite";
+import { checkMp3, setSpeciesAudio } from "../lib/speciesAudio";
 import {
   approveSpeciesDraft,
   pendingSpeciesDraft,
@@ -49,6 +51,7 @@ import {
 } from "../lib/speciesPhotos";
 import { applySpeciesTexts } from "../lib/speciesTexts";
 import { validate } from "../lib/validate";
+import { searchXenoCanto } from "../lib/xenoCanto";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { rateLimitUpload } from "../middleware/rateLimitUpload";
 import { requireAdmin } from "../middleware/requireAdmin";
@@ -64,6 +67,10 @@ import {
   photoUploadForm,
 } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
+import {
+  speciesAudioForm,
+  xenoCantoSearchQuery,
+} from "../schemas/speciesAudio";
 import {
   draftCreateBody,
   draftDecisionBody,
@@ -243,6 +250,58 @@ export const adminSpecies = new Hono<ApiEnv>()
         "Cache-Control": NO_STORE,
         "Content-Type": result.type,
       });
+    },
+  )
+  .get(
+    "/:id/sounds/xeno-canto",
+    requireAdmin,
+    rateLimitAdmin,
+    validate("param", speciesIdParam),
+    validate("query", xenoCantoSearchQuery),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const found = await readSpeciesRecord(c.env.DB, id);
+      if (!found) throw new ApiError(404, "not_found", "Species not found");
+      const result = await searchXenoCanto(
+        c.env,
+        found.record.base.scientificName,
+        c.req.valid("query").page,
+      );
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: result }, 200);
+    },
+  )
+  .post(
+    "/:id/audio",
+    requireSiteOrigin,
+    rateLimitUpload,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("form", speciesAudioForm),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, file, xenoCantoId, ...credit } =
+        c.req.valid("form");
+      const current = await readCurrent(c, id, expectedVersion);
+      const bytes = await checkMp3(file);
+      const storage = bunnyStorage(c.env);
+      const key = xenoCantoAudioKey(id, xenoCantoId);
+      await storage.put(key, bytes, "audio/mpeg");
+      const { result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Set species sound",
+        (record) =>
+          setSpeciesAudio(record, {
+            ...credit,
+            src: storage.urlFor(key),
+            url: `https://xeno-canto.org/${xenoCantoId}`,
+          }),
+        [],
+        current,
+      );
+      return c.json({ data: { ...result, version } }, 201);
     },
   )
   .post(

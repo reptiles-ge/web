@@ -179,7 +179,15 @@ export function SpeciesDetailPage({
                     label: `Locations (${fieldRecords.length})`,
                   },
                   {
-                    children: <SpeciesAudioPanel audio={record.base.audio} />,
+                    children: (
+                      <SpeciesAudioPanel
+                        audio={record.base.audio}
+                        id={id}
+                        onAdded={changed}
+                        onSessionExpired={onSessionExpired}
+                        version={currentVersion}
+                      />
+                    ),
                     key: "audio",
                     label: record.base.audio ? "Audio" : "Audio (none)",
                   },
