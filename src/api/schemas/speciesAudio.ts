@@ -2,10 +2,6 @@ import { z } from "zod";
 
 const text = (max: number) => z.string().trim().max(max).optional();
 
-export const xenoCantoSearchQuery = z.strictObject({
-  page: z.coerce.number().int().min(1).max(1000).default(1),
-});
-
 export const speciesAudioForm = z.strictObject({
   date: z
     .string()

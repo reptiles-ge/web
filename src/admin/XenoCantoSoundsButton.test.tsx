@@ -4,13 +4,13 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { XenoCantoRecording } from "@/lib/xenoCanto";
 
-import { SessionExpiredError } from "./adminResponse";
 import { encodeMp3 } from "./audioEncode";
 import {
   downloadRecording,
+  readXenoCantoKey,
   searchXenoCantoSounds,
-  SoundSearchUnavailableError,
   uploadSpeciesSound,
+  XenoCantoKeyError,
 } from "./sounds";
 import { formatBytes, XenoCantoSoundsButton } from "./XenoCantoSoundsButton";
 
@@ -68,6 +68,7 @@ function setup(currentUrl?: string) {
       id="picus-viridis"
       onAdded={onAdded}
       onSessionExpired={onSessionExpired}
+      scientificName="Picus viridis"
       version={7}
     />,
   );
@@ -81,6 +82,7 @@ beforeEach(() => {
   vi.mocked(encodeMp3).mockReset();
   URL.createObjectURL = vi.fn(() => "blob:sound");
   URL.revokeObjectURL = vi.fn();
+  localStorage.setItem("reptiles-admin:xeno-canto-key", "saved-key");
 });
 
 describe("XenoCantoSoundsButton", () => {
@@ -200,25 +202,59 @@ describe("XenoCantoSoundsButton", () => {
     await userEvent.click(screen.getByRole("button", { name: "Load more" }));
     expect(await screen.findByText("XC3")).toBeTruthy();
     expect(screen.getAllByText("XC1")).toHaveLength(1);
-    expect(searchXenoCantoSounds).toHaveBeenLastCalledWith("picus-viridis", 2);
+    expect(searchXenoCantoSounds).toHaveBeenLastCalledWith(
+      "Picus viridis",
+      2,
+      "saved-key",
+    );
   });
 
-  it("explains a missing key and signs out on an expired session", async () => {
+  it("asks for the key once, keeps it in the browser and searches with it", async () => {
+    localStorage.removeItem("reptiles-admin:xeno-canto-key");
+    vi.mocked(searchXenoCantoSounds).mockResolvedValue({
+      page: 1,
+      pages: 1,
+      recordings: [recording("1")],
+      total: 1,
+    });
+    setup();
+    await openDialog();
+    expect(searchXenoCantoSounds).not.toHaveBeenCalled();
+    await userEvent.type(
+      screen.getByLabelText("xeno-canto API key"),
+      " new-key ",
+    );
+    await userEvent.click(
+      screen.getByRole("button", { name: "Save and search" }),
+    );
+    expect(await screen.findByText("XC1")).toBeTruthy();
+    expect(searchXenoCantoSounds).toHaveBeenCalledWith(
+      "Picus viridis",
+      1,
+      "new-key",
+    );
+    expect(readXenoCantoKey()).toBe("new-key");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Change xeno-canto key" }),
+    );
+    expect(readXenoCantoKey()).toBeNull();
+    expect(screen.getByLabelText("xeno-canto API key")).toBeTruthy();
+  });
+
+  it("forgets a refused key and asks again", async () => {
     vi.mocked(searchXenoCantoSounds).mockRejectedValueOnce(
-      new SoundSearchUnavailableError(),
+      new XenoCantoKeyError(),
     );
     setup();
     await openDialog();
-    expect(await screen.findByText(/XENO_CANTO_API_KEY/)).toBeTruthy();
-  });
-
-  it("calls onSessionExpired when the session is gone", async () => {
-    vi.mocked(searchXenoCantoSounds).mockRejectedValueOnce(
-      new SessionExpiredError(),
+    expect(await screen.findByText(/refused this API key/)).toBeTruthy();
+    expect(searchXenoCantoSounds).toHaveBeenCalledWith(
+      "Picus viridis",
+      1,
+      "saved-key",
     );
-    const { onSessionExpired } = setup();
-    await openDialog();
-    await waitFor(() => expect(onSessionExpired).toHaveBeenCalled());
+    expect(readXenoCantoKey()).toBeNull();
+    expect(screen.getByLabelText("xeno-canto API key")).toBeTruthy();
   });
 });
 

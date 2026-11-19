@@ -22,7 +22,6 @@ type Upstream = ReturnType<
 let env: ApiBindings;
 let session: Record<string, string>;
 let upstream: Upstream;
-let xenoCanto: (url: URL) => Response;
 
 async function record() {
   const { body } = await requestJson<{
@@ -31,54 +30,6 @@ async function record() {
     headers: { Authorization: `Bearer ${TOKEN}` },
   });
   return body.data;
-}
-
-function recording(id: string, cnt: string, q: string) {
-  return {
-    cnt,
-    date: "2020-04-00",
-    en: "Levant Viper",
-    file: `https://xeno-canto.org/${id}/download`,
-    "file-name": `XC${id} - Levant Viper.mp3`,
-    gen: "Macrovipera",
-    id,
-    lat: "41.7",
-    length: "1:05",
-    lic: "//creativecommons.org/licenses/by-nc-sa/4.0/",
-    loc: "Vashlovani",
-    lon: "46.3",
-    q,
-    rec: "Ana Recordist",
-    sono: { small: `//xeno-canto.org/sounds/${id}-small.png` },
-    sp: "lebetinus",
-    type: "call",
-  };
-}
-
-function search(page?: number) {
-  return requestJson<
-    ErrorBody & {
-      data: {
-        page: number;
-        query: string;
-        recordings: Array<{
-          country: string;
-          date?: string;
-          durationSeconds: number;
-          fileUrl: string;
-          format: string;
-          id: string;
-          licence: string;
-          sonogram?: string;
-        }>;
-        total: number;
-      };
-    }
-  >(
-    `/v1/admin/species/${ID}/sounds/xeno-canto${page ? `?page=${page}` : ""}`,
-    env,
-    { headers: { ...session, Origin: ADMIN_ORIGIN } },
-  );
 }
 
 function upload(
@@ -102,22 +53,8 @@ function upload(
 
 beforeEach(async () => {
   const database = createSpeciesTestDatabase();
-  xenoCanto = () =>
-    Response.json({
-      numPages: 1,
-      numRecordings: "2",
-      page: 1,
-      recordings: [
-        recording("111", "Armenia", "A"),
-        recording("222", "Georgia", "B"),
-      ],
-    });
   upstream = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(
-    async (url) => {
-      const parsed = new URL(url);
-      if (parsed.hostname === "xeno-canto.org") return xenoCanto(parsed);
-      return new Response(null, { status: 201 });
-    },
+    async () => new Response(null, { status: 201 }),
   );
   vi.stubGlobal("fetch", upstream);
   env = {
@@ -126,7 +63,6 @@ beforeEach(async () => {
     BUNNY_STORAGE_ACCESS_KEY: "bunny-key",
     BUNNY_STORAGE_ZONE: "reptiles",
     DB: database.db,
-    XENO_CANTO_API_KEY: "xc-key",
   };
   session = await adminSessionHeaders(database.sqlite);
 });
@@ -134,75 +70,6 @@ beforeEach(async () => {
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
-});
-
-describe("GET /v1/admin/species/:id/sounds/xeno-canto", () => {
-  it("searches by the scientific name with the secret key, Georgia first", async () => {
-    const { body, response } = await search();
-    expect(response.status).toBe(200);
-    expect(response.headers.get("Cache-Control")).toContain("no-store");
-    const url = new URL(upstream.mock.calls[0]![0]);
-    expect(url.searchParams.get("query")).toBe('sp:"macrovipera lebetinus"');
-    expect(url.searchParams.get("key")).toBe("xc-key");
-    expect(body.data.total).toBe(2);
-    expect(body.data.recordings.map((item) => item.id)).toStrictEqual([
-      "222",
-      "111",
-    ]);
-    expect(body.data.recordings[0]).toMatchObject({
-      country: "Georgia",
-      date: "2020-04",
-      durationSeconds: 65,
-      fileUrl: "https://xeno-canto.org/222/download",
-      format: "mp3",
-      licence: "CC BY-NC-SA 4.0",
-      sonogram: "https://xeno-canto.org/sounds/222-small.png",
-    });
-    expect(JSON.stringify(body)).not.toContain("xc-key");
-  });
-
-  it("falls back to genus and epithet tags when the name finds nothing", async () => {
-    xenoCanto = (url) =>
-      url.searchParams.get("query")?.startsWith("gen:")
-        ? Response.json({
-            numPages: 1,
-            numRecordings: 1,
-            page: 2,
-            recordings: [recording("333", "Iran", "A")],
-          })
-        : Response.json({
-            numPages: 0,
-            numRecordings: 0,
-            page: 2,
-            recordings: [],
-          });
-    const { body } = await search(2);
-    expect(body.data.query).toBe('gen:"macrovipera" sp:"lebetinus"');
-    expect(body.data.recordings.map((item) => item.id)).toStrictEqual(["333"]);
-    expect(new URL(upstream.mock.calls[1]![0]).searchParams.get("page")).toBe(
-      "2",
-    );
-  });
-
-  it("answers 503 without a key and 502 when xeno-canto fails", async () => {
-    env.XENO_CANTO_API_KEY = undefined;
-    expect((await search()).response.status).toBe(503);
-    env.XENO_CANTO_API_KEY = "xc-key";
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    xenoCanto = () =>
-      Response.json({ error: "client_error", message: "bad" }, { status: 400 });
-    const { body, response } = await search();
-    expect(response.status).toBe(502);
-    expect(body.error.code).toBe("upstream_failed");
-  });
-
-  it("needs an admin", async () => {
-    const response = await requestJson(
-      `/v1/admin/species/${ID}/sounds/xeno-canto`,
-      env,
-    );
-    expect(response.response.status).toBe(401);
-  });
 });
 
 describe("POST /v1/admin/species/:id/audio", () => {

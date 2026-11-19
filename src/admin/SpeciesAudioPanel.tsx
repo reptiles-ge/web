@@ -15,12 +15,14 @@ export function SpeciesAudioPanel({
   id,
   onAdded,
   onSessionExpired,
+  scientificName,
   version,
 }: {
   audio?: Audio;
   id: string;
   onAdded: (version: number, notice: string) => void;
   onSessionExpired: () => void;
+  scientificName: string;
   version: number;
 }) {
   const find = (
@@ -29,6 +31,7 @@ export function SpeciesAudioPanel({
       id={id}
       onAdded={onAdded}
       onSessionExpired={onSessionExpired}
+      scientificName={scientificName}
       version={version}
     />
   );

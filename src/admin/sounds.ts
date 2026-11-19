@@ -1,20 +1,27 @@
 import {
+  parseXenoCantoPage,
+  sortXenoCantoRecordings,
+  XENO_CANTO_API,
+  XENO_CANTO_PER_PAGE,
   xenoCantoLocation,
   type XenoCantoPage,
+  xenoCantoQueries,
   type XenoCantoRecording,
 } from "@/lib/xenoCanto";
 
-import { checkAdminResponse, checkAdminSave } from "./adminResponse";
+import { checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
 
 export const MAX_SOUND_BYTES = 20 * 1024 * 1024;
 
-export class SoundSearchUnavailableError extends Error {
+const KEY_STORAGE = "reptiles-admin:xeno-canto-key";
+
+const TIMEOUT_MS = 20_000;
+
+export class XenoCantoKeyError extends Error {
   constructor() {
-    super(
-      "xeno-canto search is not set up. Add the XENO_CANTO_API_KEY secret to the API.",
-    );
-    this.name = "SoundSearchUnavailableError";
+    super("xeno-canto refused this API key. Enter your key again.");
+    this.name = "XenoCantoKeyError";
   }
 }
 
@@ -30,21 +37,44 @@ export async function downloadRecording(
   return response.blob();
 }
 
-export async function searchXenoCantoSounds(
-  id: string,
-  page: number,
-): Promise<XenoCantoPage> {
-  const response = await api.v1.admin.species[":id"].sounds["xeno-canto"].$get({
-    param: { id },
-    query: { page: String(page) },
-  });
-  const status: number = response.status;
-  if (status === 503) throw new SoundSearchUnavailableError();
-  if (status === 502) {
-    throw new Error("xeno-canto did not answer. Try again in a minute.");
+export function forgetXenoCantoKey() {
+  try {
+    localStorage.removeItem(KEY_STORAGE);
+  } catch {
+    return;
   }
-  checkAdminResponse(response, "Sound search failed");
-  return (await response.json()).data;
+}
+
+export function readXenoCantoKey() {
+  try {
+    return localStorage.getItem(KEY_STORAGE)?.trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveXenoCantoKey(key: string) {
+  try {
+    localStorage.setItem(KEY_STORAGE, key.trim());
+  } catch {
+    return;
+  }
+}
+
+export async function searchXenoCantoSounds(
+  scientificName: string,
+  page: number,
+  key: string,
+): Promise<XenoCantoPage> {
+  let result: null | XenoCantoPage = null;
+  for (const query of xenoCantoQueries(scientificName)) {
+    result = await fetchXenoCantoPage(query, page, key);
+    if (result.total > 0) break;
+  }
+  return {
+    ...result!,
+    recordings: sortXenoCantoRecordings(result!.recordings),
+  };
 }
 
 export async function uploadSpeciesSound(
@@ -74,4 +104,39 @@ export async function uploadSpeciesSound(
   await checkAdminSave(response, "Sound upload failed");
   return ((await response.json()) as { data: { version: number } }).data
     .version;
+}
+
+async function fetchXenoCantoPage(query: string, page: number, key: string) {
+  const url = new URL(XENO_CANTO_API);
+  url.searchParams.set("query", query);
+  url.searchParams.set("page", String(page));
+  url.searchParams.set("per_page", String(XENO_CANTO_PER_PAGE));
+  url.searchParams.set("key", key);
+  const response = await fetch(url, {
+    credentials: "omit",
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  }).catch(() => null);
+  if (!response) {
+    throw new Error("xeno-canto did not answer. Try again in a minute.");
+  }
+  const payload = (await response.json().catch(() => null)) as unknown;
+  if (
+    response.status === 401 ||
+    response.status === 403 ||
+    keyRefused(payload)
+  ) {
+    throw new XenoCantoKeyError();
+  }
+  const parsed = response.ok ? parseXenoCantoPage(payload) : null;
+  if (!parsed) {
+    throw new Error(`xeno-canto search failed: ${response.status}`);
+  }
+  return parsed;
+}
+
+function keyRefused(payload: unknown) {
+  if (!payload || typeof payload !== "object" || !("message" in payload)) {
+    return false;
+  }
+  return /\bkey\b/i.test(String(payload.message));
 }

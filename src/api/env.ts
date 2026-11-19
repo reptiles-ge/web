@@ -26,7 +26,6 @@ export type ApiBindings = {
   TELEGRAM_CHAT_ID?: string;
   UPLOAD_LIMITER?: RateLimiter;
   VIEW_LIMITER?: RateLimiter;
-  XENO_CANTO_API_KEY?: string;
 };
 
 export type ApiEnv = {

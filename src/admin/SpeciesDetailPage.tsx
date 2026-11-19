@@ -185,6 +185,7 @@ export function SpeciesDetailPage({
                         id={id}
                         onAdded={changed}
                         onSessionExpired={onSessionExpired}
+                        scientificName={record.base.scientificName}
                         version={currentVersion}
                       />
                     ),

@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   Empty,
+  Input,
   Modal,
   Popconfirm,
   Space,
@@ -18,9 +19,13 @@ import { SessionExpiredError } from "./adminResponse";
 import { encodeMp3, needsEncoding } from "./audioEncode";
 import {
   downloadRecording,
+  forgetXenoCantoKey,
   MAX_SOUND_BYTES,
+  readXenoCantoKey,
+  saveXenoCantoKey,
   searchXenoCantoSounds,
   uploadSpeciesSound,
+  XenoCantoKeyError,
 } from "./sounds";
 
 type CardState =
@@ -48,15 +53,19 @@ export function XenoCantoSoundsButton({
   id,
   onAdded,
   onSessionExpired,
+  scientificName,
   version,
 }: {
   currentUrl?: string;
   id: string;
   onAdded: (version: number, notice: string) => void;
   onSessionExpired: () => void;
+  scientificName: string;
   version: number;
 }) {
   const [open, setOpen] = useState(false);
+  const [apiKey, setApiKey] = useState<null | string>(null);
+  const [draftKey, setDraftKey] = useState("");
   const [search, setSearch] = useState<null | Search>(null);
   const [loading, setLoading] = useState(false);
   const [failure, setFailure] = useState<null | string>(null);
@@ -76,11 +85,12 @@ export function XenoCantoSoundsButton({
     [],
   );
 
-  async function load(page: number) {
+  async function load(page: number, key = apiKey) {
+    if (!key) return;
     setLoading(true);
     setFailure(null);
     try {
-      const result = await searchXenoCantoSounds(id, page);
+      const result = await searchXenoCantoSounds(scientificName, page, key);
       setSearch((previous) =>
         previous && page > 1
           ? {
@@ -96,7 +106,10 @@ export function XenoCantoSoundsButton({
           : result,
       );
     } catch (error) {
-      if (error instanceof SessionExpiredError) return onSessionExpired();
+      if (error instanceof XenoCantoKeyError) {
+        forgetXenoCantoKey();
+        setApiKey(null);
+      }
       setFailure(error instanceof Error ? error.message : String(error));
     } finally {
       setLoading(false);
@@ -105,7 +118,26 @@ export function XenoCantoSoundsButton({
 
   function show() {
     setOpen(true);
-    if (!search) void load(1);
+    const key = apiKey ?? readXenoCantoKey();
+    setApiKey(key);
+    if (key && !search) void load(1, key);
+  }
+
+  function saveKey() {
+    const key = draftKey.trim();
+    if (!key) return;
+    saveXenoCantoKey(key);
+    setApiKey(key);
+    setDraftKey("");
+    setSearch(null);
+    void load(1, key);
+  }
+
+  function changeKey() {
+    forgetXenoCantoKey();
+    setApiKey(null);
+    setSearch(null);
+    setFailure(null);
   }
 
   function remember(recordingId: string, blob: Blob) {
@@ -134,6 +166,42 @@ export function XenoCantoSoundsButton({
             uploads it to the CDN as an MP3 and makes it the species sound.
           </Typography.Text>
           {failure ? <Alert showIcon title={failure} type="error" /> : null}
+          {apiKey ? (
+            <Button onClick={changeKey} size="small" type="link">
+              Change xeno-canto key
+            </Button>
+          ) : (
+            <Space orientation="vertical" style={{ width: "100%" }}>
+              <Typography.Text>
+                Searching needs your xeno-canto API key. Copy it from{" "}
+                <Typography.Link
+                  href="https://xeno-canto.org/account"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  xeno-canto.org/account
+                </Typography.Link>
+                . It is kept only in this browser.
+              </Typography.Text>
+              <Space.Compact style={{ maxWidth: 520, width: "100%" }}>
+                <Input.Password
+                  aria-label="xeno-canto API key"
+                  autoComplete="off"
+                  onChange={(event) => setDraftKey(event.target.value)}
+                  onPressEnter={saveKey}
+                  placeholder="xeno-canto API key"
+                  value={draftKey}
+                />
+                <Button
+                  disabled={!draftKey.trim()}
+                  onClick={saveKey}
+                  type="primary"
+                >
+                  Save and search
+                </Button>
+              </Space.Compact>
+            </Space>
+          )}
           {search ? (
             <Typography.Text>
               {search.recordings.length} of {search.total} recordings

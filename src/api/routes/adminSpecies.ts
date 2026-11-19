@@ -51,7 +51,6 @@ import {
 } from "../lib/speciesPhotos";
 import { applySpeciesTexts } from "../lib/speciesTexts";
 import { validate } from "../lib/validate";
-import { searchXenoCanto } from "../lib/xenoCanto";
 import { rateLimitAdmin } from "../middleware/rateLimitAdmin";
 import { rateLimitUpload } from "../middleware/rateLimitUpload";
 import { requireAdmin } from "../middleware/requireAdmin";
@@ -67,10 +66,7 @@ import {
   photoUploadForm,
 } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
-import {
-  speciesAudioForm,
-  xenoCantoSearchQuery,
-} from "../schemas/speciesAudio";
+import { speciesAudioForm } from "../schemas/speciesAudio";
 import {
   draftCreateBody,
   draftDecisionBody,
@@ -250,24 +246,6 @@ export const adminSpecies = new Hono<ApiEnv>()
         "Cache-Control": NO_STORE,
         "Content-Type": result.type,
       });
-    },
-  )
-  .get(
-    "/:id/sounds/xeno-canto",
-    requireAdmin,
-    validate("param", speciesIdParam),
-    validate("query", xenoCantoSearchQuery),
-    async (c) => {
-      const { id } = c.req.valid("param");
-      const found = await readSpeciesRecord(c.env.DB, id);
-      if (!found) throw new ApiError(404, "not_found", "Species not found");
-      const result = await searchXenoCanto(
-        c.env,
-        found.record.base.scientificName,
-        c.req.valid("query").page,
-      );
-      c.header("Cache-Control", NO_STORE);
-      return c.json({ data: result }, 200);
     },
   )
   .post(
