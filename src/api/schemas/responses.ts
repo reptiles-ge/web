@@ -395,7 +395,7 @@ const rangeMap = component(
   z.strictObject({
     confirmedThreshold: doc(
       z.int().min(1),
-      "Records a region needs before it counts as a region where the species is recorded. Missing means the default of 5.",
+      "Records a region needs before it counts as a region where the species is recorded. Missing means the default of 1.",
       [1],
     ).optional(),
     copy: doc(
