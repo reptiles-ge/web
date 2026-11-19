@@ -7,12 +7,13 @@ import type { XenoCantoRecording } from "@/lib/xenoCanto";
 import { encodeMp3 } from "./audioEncode";
 import {
   downloadRecording,
+  formatBytes,
   readXenoCantoKey,
   searchXenoCantoSounds,
   uploadSpeciesSound,
   XenoCantoKeyError,
 } from "./sounds";
-import { formatBytes, XenoCantoSoundsButton } from "./XenoCantoSoundsButton";
+import { XenoCantoSoundsButton } from "./XenoCantoSoundsButton";
 
 vi.mock("./sounds", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./sounds")>()),
@@ -239,6 +240,28 @@ describe("XenoCantoSoundsButton", () => {
     );
     expect(readXenoCantoKey()).toBeNull();
     expect(screen.getByLabelText("xeno-canto API key")).toBeTruthy();
+  });
+
+  it("drops a search answer that arrives after the key was changed", async () => {
+    let finish: (
+      page: Awaited<ReturnType<typeof searchXenoCantoSounds>>,
+    ) => void = () => {};
+    vi.mocked(searchXenoCantoSounds).mockReturnValueOnce(
+      new Promise((resolve) => {
+        finish = resolve;
+      }),
+    );
+    setup();
+    await openDialog();
+    await userEvent.click(
+      screen.getByRole("button", { name: "Change xeno-canto key" }),
+    );
+    finish({ page: 1, pages: 1, recordings: [recording("9")], total: 1 });
+    await waitFor(() =>
+      expect(screen.getByLabelText("xeno-canto API key")).toBeTruthy(),
+    );
+    expect(screen.queryByText("XC9")).toBeNull();
+    expect(screen.queryByText(/of 1 recordings/)).toBeNull();
   });
 
   it("forgets a refused key and asks again", async () => {

@@ -4,7 +4,7 @@ import type { SpeciesRecord } from "../db/speciesRows";
 
 import { ApiError } from "./errors";
 
-export const MAX_AUDIO_BYTES = 20 * 1024 * 1024;
+const MAX_AUDIO_BYTES = 20 * 1024 * 1024;
 
 const MIN_AUDIO_BYTES = 1024;
 
@@ -23,7 +23,17 @@ export async function checkMp3(file: File) {
   return bytes;
 }
 
-export function isMp3(bytes: Uint8Array) {
+export function setSpeciesAudio(record: SpeciesRecord, audio: SpeciesAudio) {
+  const previous = record.base.audio;
+  record.base.audio = Object.fromEntries(
+    Object.entries(audio).filter(
+      ([, value]) => typeof value === "string" && value.trim(),
+    ),
+  ) as SpeciesAudio;
+  return { audio: record.base.audio, previous: previous?.src ?? null };
+}
+
+function isMp3(bytes: Uint8Array) {
   let offset = 0;
   if (bytes[0] === 0x49 && bytes[1] === 0x44 && bytes[2] === 0x33) {
     const size =
@@ -38,14 +48,4 @@ export function isMp3(bytes: Uint8Array) {
   if (first === undefined || second === undefined) return false;
   const layer = (second >> 1) & 0x03;
   return first === 0xff && (second & 0xe0) === 0xe0 && layer === 0x01;
-}
-
-export function setSpeciesAudio(record: SpeciesRecord, audio: SpeciesAudio) {
-  const previous = record.base.audio;
-  record.base.audio = Object.fromEntries(
-    Object.entries(audio).filter(
-      ([, value]) => typeof value === "string" && value.trim(),
-    ),
-  ) as SpeciesAudio;
-  return { audio: record.base.audio, previous: previous?.src ?? null };
 }

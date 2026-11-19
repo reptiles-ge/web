@@ -20,6 +20,7 @@ import { encodeMp3, needsEncoding } from "./audioEncode";
 import {
   downloadRecording,
   forgetXenoCantoKey,
+  formatBytes,
   MAX_SOUND_BYTES,
   readXenoCantoKey,
   saveXenoCantoKey,
@@ -43,11 +44,6 @@ type Search = {
   total: number;
 };
 
-export function formatBytes(bytes: number) {
-  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
-
 export function XenoCantoSoundsButton({
   currentUrl,
   id,
@@ -67,10 +63,12 @@ export function XenoCantoSoundsButton({
   const [apiKey, setApiKey] = useState<null | string>(null);
   const [draftKey, setDraftKey] = useState("");
   const [search, setSearch] = useState<null | Search>(null);
-  const [loading, setLoading] = useState(false);
+  const [loadingRequest, setLoadingRequest] = useState<null | number>(null);
+  const loading = loadingRequest !== null;
   const [failure, setFailure] = useState<null | string>(null);
   const [files, setFiles] = useState<Record<string, Loaded>>({});
   const filesRef = useRef(files);
+  const request = useRef(0);
 
   useEffect(() => {
     filesRef.current = files;
@@ -87,10 +85,13 @@ export function XenoCantoSoundsButton({
 
   async function load(page: number, key = apiKey) {
     if (!key) return;
-    setLoading(true);
+    request.current += 1;
+    const mine = request.current;
+    setLoadingRequest(mine);
     setFailure(null);
     try {
       const result = await searchXenoCantoSounds(scientificName, page, key);
+      if (mine !== request.current) return;
       setSearch((previous) =>
         previous && page > 1
           ? {
@@ -106,13 +107,14 @@ export function XenoCantoSoundsButton({
           : result,
       );
     } catch (error) {
+      if (mine !== request.current) return;
       if (error instanceof XenoCantoKeyError) {
         forgetXenoCantoKey();
         setApiKey(null);
       }
       setFailure(error instanceof Error ? error.message : String(error));
     } finally {
-      setLoading(false);
+      setLoadingRequest((current) => (current === mine ? null : current));
     }
   }
 
@@ -134,6 +136,8 @@ export function XenoCantoSoundsButton({
   }
 
   function changeKey() {
+    request.current += 1;
+    setLoadingRequest(null);
     forgetXenoCantoKey();
     setApiKey(null);
     setSearch(null);
@@ -276,6 +280,41 @@ export function XenoCantoSoundsButton({
   );
 }
 
+function AddSoundButton({
+  adding,
+  confirm,
+  current,
+  disabled,
+  onAdd,
+}: {
+  adding: boolean;
+  confirm: boolean;
+  current: boolean;
+  disabled: boolean;
+  onAdd: () => void;
+}) {
+  const button = (
+    <Button
+      disabled={disabled || current}
+      loading={adding}
+      onClick={confirm ? undefined : onAdd}
+      type="primary"
+    >
+      {current ? "Current sound" : "Add"}
+    </Button>
+  );
+  if (!confirm) return button;
+  return (
+    <Popconfirm
+      description="The species page will play this recording instead of the current one."
+      onConfirm={onAdd}
+      title="Replace the current sound?"
+    >
+      {button}
+    </Popconfirm>
+  );
+}
+
 function formatDuration(recording: XenoCantoRecording) {
   const seconds = recording.durationSeconds;
   if (seconds === null) return recording.length || "—";
@@ -321,18 +360,6 @@ function SoundCard({
   }
 
   const busy = state.status === "adding" || state.status === "loading";
-  const add = () => void run(() => onAdd(file), "adding");
-  const confirm = hasSound && !current;
-  const addButton = (
-    <Button
-      disabled={busy || current}
-      loading={state.status === "adding"}
-      onClick={confirm ? undefined : add}
-      type="primary"
-    >
-      {current ? "Current sound" : "Add"}
-    </Button>
-  );
 
   return (
     <Card
@@ -347,49 +374,10 @@ function SoundCard({
         ) : undefined
       }
       size="small"
-      title={
-        <Space size={4} wrap>
-          <Typography.Link
-            href={recording.pageUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            XC{recording.id}
-          </Typography.Link>
-          {recording.quality ? (
-            <Tag color={recording.quality === "A" ? "green" : undefined}>
-              {recording.quality}
-            </Tag>
-          ) : null}
-          {isGeorgian(recording) ? <Tag color="red">Georgia</Tag> : null}
-          {current ? <Tag color="blue">Current</Tag> : null}
-        </Space>
-      }
+      title={<SoundCardTitle current={current} recording={recording} />}
     >
       <Space orientation="vertical" size={4} style={{ width: "100%" }}>
-        {recording.type ? <Tag>{recording.type}</Tag> : null}
-        <Typography.Text>{recording.recordist || "—"}</Typography.Text>
-        <Typography.Text type="secondary">
-          {[recording.location, recording.country].filter(Boolean).join(", ") ||
-            "—"}
-        </Typography.Text>
-        <Space size={12} wrap>
-          <span>⏱ {formatDuration(recording)}</span>
-          <span>
-            {file ? formatBytes(file.blob.size) : "size after Listen"}
-          </span>
-          <span>{recording.format.toUpperCase() || "?"}</span>
-          {recording.date ? <span>{recording.date}</span> : null}
-        </Space>
-        {recording.licence || recording.licenceUrl ? (
-          <Typography.Link
-            href={recording.licenceUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {recording.licence || "Licence"}
-          </Typography.Link>
-        ) : null}
+        <SoundFacts file={file} recording={recording} />
         {file ? (
           <audio
             aria-label={`XC${recording.id}`}
@@ -419,18 +407,75 @@ function SoundCard({
         {state.status === "error" ? (
           <Alert showIcon title={state.text} type="error" />
         ) : null}
-        {confirm ? (
-          <Popconfirm
-            description="The species page will play this recording instead of the current one."
-            onConfirm={add}
-            title="Replace the current sound?"
-          >
-            {addButton}
-          </Popconfirm>
-        ) : (
-          addButton
-        )}
+        <AddSoundButton
+          adding={state.status === "adding"}
+          confirm={hasSound && !current}
+          current={current}
+          disabled={busy}
+          onAdd={() => void run(() => onAdd(file), "adding")}
+        />
       </Space>
     </Card>
+  );
+}
+
+function SoundCardTitle({
+  current,
+  recording,
+}: {
+  current: boolean;
+  recording: XenoCantoRecording;
+}) {
+  return (
+    <Space size={4} wrap>
+      <Typography.Link
+        href={recording.pageUrl}
+        rel="noreferrer"
+        target="_blank"
+      >
+        XC{recording.id}
+      </Typography.Link>
+      {recording.quality ? (
+        <Tag color={recording.quality === "A" ? "green" : undefined}>
+          {recording.quality}
+        </Tag>
+      ) : null}
+      {isGeorgian(recording) ? <Tag color="red">Georgia</Tag> : null}
+      {current ? <Tag color="blue">Current</Tag> : null}
+    </Space>
+  );
+}
+
+function SoundFacts({
+  file,
+  recording,
+}: {
+  file?: Loaded;
+  recording: XenoCantoRecording;
+}) {
+  const place =
+    [recording.location, recording.country].filter(Boolean).join(", ") || "—";
+  const licence = recording.licence || recording.licenceUrl;
+  return (
+    <>
+      {recording.type ? <Tag>{recording.type}</Tag> : null}
+      <Typography.Text>{recording.recordist || "—"}</Typography.Text>
+      <Typography.Text type="secondary">{place}</Typography.Text>
+      <Space size={12} wrap>
+        <span>⏱ {formatDuration(recording)}</span>
+        <span>{file ? formatBytes(file.blob.size) : "size after Listen"}</span>
+        <span>{recording.format.toUpperCase() || "?"}</span>
+        {recording.date ? <span>{recording.date}</span> : null}
+      </Space>
+      {licence ? (
+        <Typography.Link
+          href={recording.licenceUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {recording.licence || "Licence"}
+        </Typography.Link>
+      ) : null}
+    </>
   );
 }

@@ -259,8 +259,10 @@ export const adminSpecies = new Hono<ApiEnv>()
       const { id } = c.req.valid("param");
       const { expectedVersion, file, xenoCantoId, ...credit } =
         c.req.valid("form");
-      const current = await readCurrent(c, id, expectedVersion);
-      const bytes = await checkMp3(file);
+      const [current, bytes] = await Promise.all([
+        readCurrent(c, id, expectedVersion),
+        checkMp3(file),
+      ]);
       const storage = bunnyStorage(c.env);
       const key = xenoCantoAudioKey(id, xenoCantoId);
       await storage.put(key, bytes, "audio/mpeg");
