@@ -1,4 +1,4 @@
-import { Button, Card, Space, Tag, Typography } from "antd";
+import { Button, Card, Space, Tag, theme, Typography } from "antd";
 import { type ReactNode, useRef, useState } from "react";
 
 import type { PhotoCandidate } from "./photoCandidates";
@@ -20,6 +20,7 @@ export function SavedCandidates({
 }) {
   const dragging = useRef<null | string>(null);
   const [over, setOver] = useState<null | string>(null);
+  const { token } = theme.useToken();
   if (saved.length === 0) return null;
   return (
     <section aria-label="Saved photos">
@@ -95,7 +96,9 @@ export function SavedCandidates({
             style={{
               cursor: "grab",
               outline:
-                over === candidate.key ? "2px dashed #1677ff" : undefined,
+                over === candidate.key
+                  ? `2px dashed ${token.colorPrimary}`
+                  : undefined,
             }}
           >
             <Space orientation="vertical" size={2} style={{ width: "100%" }}>

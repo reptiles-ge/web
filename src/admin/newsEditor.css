@@ -1,7 +1,55 @@
+:root {
+  --news-bg: #fff;
+  --news-border: #d9d9d9;
+  --news-split: #f0f0f0;
+  --news-toolbar-bg: #fafafa;
+  --news-text: #1f1f1f;
+  --news-caption: #595959;
+  --news-faint: #8c8c8c;
+  --news-placeholder: #bfbfbf;
+  --news-muted-bg: #f5f5f5;
+  --news-selected: #91caff;
+  --news-external: #1677ff;
+  --news-species: #237804;
+  --news-species-bg: #f6ffed;
+  --news-region: #ad4e00;
+  --news-region-bg: #fff7e6;
+  --news-hub: #531dab;
+  --news-hub-bg: #f9f0ff;
+  --news-credit: #c41d7f;
+  --news-credit-bg: #fff0f6;
+  --news-index: #08979c;
+  --news-index-bg: #e6fffb;
+}
+
+:root[data-theme="dark"] {
+  --news-bg: #141414;
+  --news-border: #424242;
+  --news-split: #303030;
+  --news-toolbar-bg: #1f1f1f;
+  --news-text: rgba(255, 255, 255, 0.88);
+  --news-caption: rgba(255, 255, 255, 0.65);
+  --news-faint: rgba(255, 255, 255, 0.45);
+  --news-placeholder: rgba(255, 255, 255, 0.25);
+  --news-muted-bg: #262626;
+  --news-selected: #15417e;
+  --news-external: #3c89e8;
+  --news-species: #8fd460;
+  --news-species-bg: #1d2b10;
+  --news-region: #f3b765;
+  --news-region-bg: #2b1d11;
+  --news-hub: #ab7ae0;
+  --news-hub-bg: #1a1325;
+  --news-credit: #e0529c;
+  --news-credit-bg: #291321;
+  --news-index: #33bcb7;
+  --news-index-bg: #112123;
+}
+
 .news-editor {
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--news-border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--news-bg);
 }
 
 .news-editor__toolbar {
@@ -9,9 +57,9 @@
   top: 0;
   z-index: 2;
   padding: 8px 12px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--news-split);
   border-radius: 8px 8px 0 0;
-  background: #fafafa;
+  background: var(--news-toolbar-bg);
 }
 
 .news-editor__current {
@@ -31,13 +79,13 @@
   outline: none;
   font-size: 16px;
   line-height: 1.7;
-  color: #1f1f1f;
+  color: var(--news-text);
 }
 
 .news-editor__body .news-section + .news-section {
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px dashed #e5e5e5;
+  border-top: 1px dashed var(--news-split);
 }
 
 .news-editor__body .news-heading {
@@ -49,7 +97,7 @@
 
 .news-editor__body .news-heading:empty::before {
   content: "Section heading";
-  color: #bfbfbf;
+  color: var(--news-placeholder);
 }
 
 .news-editor__body p {
@@ -65,49 +113,49 @@
 }
 
 .news-editor__body .news-link--external {
-  color: #1677ff;
+  color: var(--news-external);
 }
 
 .news-editor__body .news-link--species {
-  color: #237804;
-  background: #f6ffed;
+  color: var(--news-species);
+  background: var(--news-species-bg);
 }
 
 .news-editor__body .news-link--region {
-  color: #ad4e00;
-  background: #fff7e6;
+  color: var(--news-region);
+  background: var(--news-region-bg);
 }
 
 .news-editor__body .news-link--hub {
-  color: #531dab;
-  background: #f9f0ff;
+  color: var(--news-hub);
+  background: var(--news-hub-bg);
 }
 
 .news-editor__body .news-link--credit-author {
-  color: #c41d7f;
-  background: #fff0f6;
+  color: var(--news-credit);
+  background: var(--news-credit-bg);
 }
 
 .news-editor__body .news-link--news-index {
-  color: #08979c;
-  background: #e6fffb;
+  color: var(--news-index);
+  background: var(--news-index-bg);
 }
 
 .news-editor__body .news-sci {
   font-style: italic;
-  background: #f5f5f5;
+  background: var(--news-muted-bg);
 }
 
 .news-figure {
   margin: 16px 0;
   border-radius: 8px;
   overflow: hidden;
-  background: #f5f5f5;
+  background: var(--news-muted-bg);
   user-select: none;
 }
 
 .news-figure--selected {
-  outline: 3px solid #91caff;
+  outline: 3px solid var(--news-selected);
 }
 
 .news-figure img {
@@ -124,16 +172,16 @@
   padding: 8px 12px;
   font-size: 13px;
   line-height: 1.4;
-  color: #595959;
+  color: var(--news-caption);
 }
 
 .news-figure__credit {
-  color: #8c8c8c;
+  color: var(--news-faint);
 }
 
 .news-figure__lock {
   margin-inline-start: auto;
-  color: #bfbfbf;
+  color: var(--news-placeholder);
 }
 
 .ProseMirror-gapcursor {
@@ -148,7 +196,7 @@
   position: absolute;
   top: -2px;
   width: 20px;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--news-text);
   animation: news-gapcursor 1.1s steps(2, start) infinite;
 }
 
@@ -181,5 +229,5 @@
 .news-preview figcaption {
   margin-top: 6px;
   font-size: 13px;
-  color: #8c8c8c;
+  color: var(--news-faint);
 }

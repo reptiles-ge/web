@@ -2,6 +2,7 @@ import { Alert, Button, Card, Form, Input, Layout } from "antd";
 import { useState } from "react";
 
 import { type AdminUser, signIn } from "./session";
+import { ThemeModeSwitch } from "./themeMode";
 
 type Credentials = { email: string; password: string };
 
@@ -36,6 +37,7 @@ export function LoginPage({
   return (
     <Layout style={{ alignItems: "center", minHeight: "100vh", padding: 24 }}>
       <Card
+        extra={<ThemeModeSwitch />}
         style={{ marginTop: "15vh", maxWidth: 360, width: "100%" }}
         title="Sign in"
       >
