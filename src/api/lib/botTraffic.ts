@@ -1,7 +1,7 @@
 import { isbot } from "isbot";
 
 const EXTRA_BOT_USER_AGENT =
-  /crawl|spider|preview|fetch|headless|lighthouse|page ?speed|gtmetrix|pingdom|uptime|monitor|scan|audit|validator|checker|curl|wget|python|httpclient|okhttp|axios|node-fetch|undici|go-http|java\/|puppeteer|playwright|selenium|phantomjs|google-|-google|googleother|chatgpt|openai|perplexity|claude|anthropic|facebookexternalhit|meta-external|whatsapp|telegrambot|discordbot|slack|skype|vkshare|ia_archiver|archive\.org/i;
+  /crawl|spider|preview|fetch|headless|lighthouse|page ?speed|gtmetrix|pingdom|uptime|monitor|scan|audit|validator|checker|curl|wget|python|httpclient|okhttp|axios|node-fetch|undici|go-http|java\/|puppeteer|playwright|selenium|phantomjs|google-|-google|googleother|chatgpt|openai|perplexity|claude|anthropic|facebookexternalhit|meta-external|telegrambot|discordbot|vkshare|ia_archiver|archive\.org/i;
 
 const DATACENTER_ASNS: ReadonlySet<number> = new Set([
   8075, 12876, 13238, 14061, 14618, 15169, 16276, 16509, 19527, 20473, 24940,
