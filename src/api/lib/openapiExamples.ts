@@ -131,6 +131,7 @@ const catalogFacets = {
 const catalogStats = {
   lastUpdated: "2026-10-22T15:29:08+04:00",
   photos: 1274,
+  records: 26266,
   venomous: 11,
 };
 

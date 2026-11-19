@@ -47,6 +47,7 @@ export type CatalogCounts = {
   groups: Record<AnimalGroup, number>;
   lastUpdated: null | string;
   photos: number;
+  records: number;
   total: number;
   venomous: number;
 };
@@ -54,7 +55,12 @@ export type CatalogCounts = {
 export type CatalogMatches = {
   data: CatalogCard[];
   facets: AtlasFacets;
-  stats: { lastUpdated: null | string; photos: number; venomous: number };
+  stats: {
+    lastUpdated: null | string;
+    photos: number;
+    records: number;
+    venomous: number;
+  };
   total: number;
 };
 

@@ -8,16 +8,20 @@ import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { summarizeAtlas } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { heroWallSpeciesIds } from "@/lib/heroWall";
-import { getSpeciesCatalog } from "@/lib/speciesCatalogApi";
+import {
+  getSpeciesCatalog,
+  getSpeciesCatalogCounts,
+} from "@/lib/speciesCatalogApi";
 
 const FOCUS_RING =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6fad88]";
 
 export async function Hero({ locale }: { locale: AppLocale }) {
-  const [t, format, catalog] = await Promise.all([
+  const [t, format, catalog, { records }] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getFormatter({ locale }),
     getSpeciesCatalog(locale),
+    getSpeciesCatalogCounts(locale),
   ]);
   const stats = summarizeAtlas(catalog);
   const names = new Map(catalog.map((item) => [item.id, item.commonName]));
@@ -39,6 +43,10 @@ export async function Hero({ locale }: { locale: AppLocale }) {
     {
       count: stats.photos,
       label: t("statLabelPhotos", { count: stats.photos }),
+    },
+    {
+      count: records,
+      label: t("statLabelLocations", { count: records }),
     },
   ];
 
@@ -71,10 +79,14 @@ export async function Hero({ locale }: { locale: AppLocale }) {
             ,{" "}
             <strong className="font-semibold text-white">
               {t("statRegions", { count: stats.regions })}
+            </strong>
+            ,{" "}
+            <strong className="font-semibold text-white">
+              {t("statPhotos", { count: stats.photos })}
             </strong>{" "}
             {t("statAnd")}{" "}
             <strong className="font-semibold text-white">
-              {t("statPhotos", { count: stats.photos })}
+              {t("statLocations", { count: records })}
             </strong>
             {" — "}
             {t("subtitle")}
@@ -107,16 +119,16 @@ export async function Hero({ locale }: { locale: AppLocale }) {
               <ArrowDown aria-hidden="true" className="size-[15px] lg:hidden" />
             </a>
           </div>
-          <ul className="mt-[38px] hidden items-center gap-[26px] border-t border-white/12 pt-5 lg:flex">
+          <ul className="mt-[38px] hidden flex-wrap items-center gap-x-[18px] gap-y-3 border-t border-white/12 pt-5 lg:flex">
             {statRow.map((stat, index) => (
-              <li className="flex items-center gap-[26px]" key={stat.label}>
+              <li className="flex items-center gap-[18px]" key={stat.label}>
                 {index > 0 ? (
                   <span
                     aria-hidden="true"
                     className="h-[18px] w-px bg-white/18"
                   />
                 ) : null}
-                <span className="flex items-baseline gap-2">
+                <span className="flex items-baseline gap-2 whitespace-nowrap">
                   <span className="text-[26px] font-semibold text-white tabular-nums">
                     {format.number(stat.count)}
                   </span>

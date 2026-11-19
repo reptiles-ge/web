@@ -13,6 +13,7 @@ import type { ApiDatabase } from "./database";
 
 import { hasCatalogPhoto, speciesRegionIds } from "../lib/catalogFilter";
 import { creditPersonNames, creditPersonNamesStatement } from "./authors";
+import { fieldRecordCountsStatement } from "./fieldRecords";
 import {
   type SpeciesCatalogData,
   type SpeciesCatalogParts,
@@ -84,14 +85,21 @@ export async function readLocalizedCatalog(
       db.prepare(
         "SELECT species_id, locale, common_name, location FROM species_texts WHERE locale != 'ka' AND species_id IN (SELECT id FROM species WHERE status = 'published')",
       ),
+      fieldRecordCountsStatement(db),
       ...(locale === "ka" ? [] : [creditPersonNamesStatement(db, locale)]),
     ])
   ).map((result) => result.results);
   const catalog = query.build(results.slice(0, query.statements.length));
-  const [searchRows, nameRows] = results.slice(query.statements.length) as [
+  const [searchRows, countRows, nameRows] = results.slice(
+    query.statements.length,
+  ) as [
     SearchRow[],
+    Array<{ records: number; species_id: string }>,
     Array<{ alias: string; name: string }> | undefined,
   ];
+  const recordCounts = new Map(
+    countRows.map((row) => [row.species_id, row.records]),
+  );
   const personNames = nameRows ? creditPersonNames(nameRows) : () => undefined;
   const searchTexts = catalogSearchTexts(catalog, searchRows);
   const published = new Set(catalog.catalogIds);
@@ -124,6 +132,7 @@ export async function readLocalizedCatalog(
         hasPhoto: hasCatalogPhoto(species),
         id: base.id,
         photoCount: species.gallery.length,
+        recordCount: recordCounts.get(base.id) ?? 0,
         regionIds: speciesRegionIds(base.id),
         searchText: searchTexts.get(base.id) ?? "",
         ...(species.danger ? { danger: species.danger } : {}),
