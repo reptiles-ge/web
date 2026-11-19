@@ -37,10 +37,6 @@ export async function Hero({ locale }: { locale: AppLocale }) {
       label: t("statLabelSpecies", { count: stats.total }),
     },
     {
-      count: stats.regions,
-      label: t("statLabelRegions", { count: stats.regions }),
-    },
-    {
       count: stats.photos,
       label: t("statLabelPhotos", { count: stats.photos }),
     },
@@ -75,10 +71,6 @@ export async function Hero({ locale }: { locale: AppLocale }) {
           <p className="mt-3 text-[15px] leading-[1.6] text-white/75 lg:hidden">
             <strong className="font-semibold text-white">
               {t("statSpecies", { count: stats.total })}
-            </strong>
-            ,{" "}
-            <strong className="font-semibold text-white">
-              {t("statRegions", { count: stats.regions })}
             </strong>
             ,{" "}
             <strong className="font-semibold text-white">
