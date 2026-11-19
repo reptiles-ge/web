@@ -21,9 +21,6 @@ import {
   recordView,
 } from "../db/views";
 
-const BOT_USER_AGENT =
-  /bot|crawl|spider|slurp|preview|fetch|headless|lighthouse|pagespeed|monitor|curl|wget|python|httpclient|okhttp|axios|node-fetch|undici|go-http|java\//i;
-
 export type ViewRequest = {
   acceptLanguage: string | undefined;
   country: null | string;
@@ -67,10 +64,6 @@ export async function countView(
   if (!(await isPublishedTarget(db, input.kind, input.id))) return;
   const { day, visitor } = await dailyVisitor(db, request);
   await recordView(db, { day, id: input.id, kind: input.kind, visitor });
-}
-
-export function isBotUserAgent(userAgent: string | undefined) {
-  return !userAgent || BOT_USER_AGENT.test(userAgent);
 }
 
 async function dailyVisitor(db: ApiDatabase, request: ViewRequest) {
