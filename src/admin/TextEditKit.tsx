@@ -9,6 +9,7 @@ import {
   Popconfirm,
   Segmented,
   Space,
+  theme,
   Typography,
 } from "antd";
 import { useState } from "react";
@@ -64,15 +65,16 @@ export function SaveBar({
   saving: boolean;
 }) {
   const [summary, setSummary] = useState("");
+  const { token } = theme.useToken();
   const dirty = dirtyLabels.length > 0;
   const fallback = `Edit ${dirtyLabels.join(", ")} texts`;
   return (
     <div
       style={{
-        background: "#fff",
-        borderTop: "1px solid #f0f0f0",
+        background: token.colorBgContainer,
+        borderTop: `1px solid ${token.colorSplit}`,
         bottom: 0,
-        boxShadow: dirty ? "0 -4px 12px rgba(0, 0, 0, 0.06)" : undefined,
+        boxShadow: dirty ? token.boxShadowSecondary : undefined,
         marginInline: -24,
         padding: "12px 24px",
         position: "sticky",
@@ -207,12 +209,13 @@ export function TextField({
 }
 
 function Reference({ text }: { text: string }) {
+  const { token } = theme.useToken();
   return (
     <Typography.Paragraph
       ellipsis={{ expandable: true, rows: 2, symbol: "more" }}
       style={{
-        background: "#fafafa",
-        borderInlineStart: "3px solid #d9d9d9",
+        background: token.colorFillQuaternary,
+        borderInlineStart: `3px solid ${token.colorBorder}`,
         fontSize: 12,
         margin: 0,
         padding: "4px 8px",

@@ -3,7 +3,8 @@ import { Hono } from "hono";
 import type { ApiEnv } from "../env";
 
 import { inBackground } from "../lib/background";
-import { countPageView, countView, isBotUserAgent } from "../lib/contentViews";
+import { isBotTraffic, requestAsn } from "../lib/botTraffic";
+import { countPageView, countView } from "../lib/contentViews";
 import { countryCode } from "../lib/country";
 import { validate } from "../lib/validate";
 import { rateLimitViews } from "../middleware/rateLimitViews";
@@ -17,7 +18,7 @@ export const views = new Hono<ApiEnv>().post(
   validate("json", viewBody),
   (c) => {
     const userAgent = c.req.header("User-Agent");
-    if (!isBotUserAgent(userAgent)) {
+    if (!isBotTraffic({ asn: requestAsn(c.req.raw), userAgent })) {
       const body = c.req.valid("json");
       const request = {
         acceptLanguage: c.req.header("Accept-Language"),

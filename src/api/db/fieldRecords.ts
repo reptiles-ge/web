@@ -15,6 +15,12 @@ type FieldRecordRow = {
   url: null | string;
 };
 
+export function fieldRecordCountsStatement(db: ApiDatabase) {
+  return db.prepare(
+    "SELECT species_id, COUNT(*) AS records FROM species_field_records GROUP BY species_id",
+  );
+}
+
 export function fieldRecordStatements(
   db: ApiDatabase,
   speciesId: string,

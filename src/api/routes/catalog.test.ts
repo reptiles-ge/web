@@ -28,7 +28,12 @@ type CatalogBody = {
   >;
   locale: string;
   nextCursor: null | string;
-  stats: { lastUpdated: null | string; photos: number; venomous: number };
+  stats: {
+    lastUpdated: null | string;
+    photos: number;
+    records: number;
+    venomous: number;
+  };
   total: number;
   view: string;
 };

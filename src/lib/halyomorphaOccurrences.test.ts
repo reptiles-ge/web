@@ -16,10 +16,10 @@ import {
 const fieldRecordsById = fieldRecordsFixture();
 
 describe("occurrenceStatusForCount", () => {
-  it("marks fewer than five records as recorded only", () => {
+  it("confirms a region from a single record", () => {
     expect(occurrenceStatusForCount(0)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(4)).toBe("recorded-only");
-    expect(occurrenceStatusForCount(5)).toBe("confirmed");
+    expect(occurrenceStatusForCount(1)).toBe("confirmed");
+    expect(occurrenceStatusForCount(4)).toBe("confirmed");
   });
 
   it("uses the threshold it is given", () => {
@@ -201,6 +201,7 @@ describe("occurrenceStatusForCount", () => {
 
     expect(summary.totalRecords).toBe(473);
     expect(confirmed).toEqual([
+      "abkhazia",
       "adjara",
       "imereti",
       "kakheti",
@@ -216,7 +217,7 @@ describe("occurrenceStatusForCount", () => {
       summary.recordsByRegion
         .filter((region) => region.status === "recorded-only")
         .map((region) => region.id),
-    ).toEqual(["abkhazia"]);
+    ).toEqual([]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)
@@ -247,11 +248,15 @@ describe("occurrenceStatusForCount", () => {
 
     expect(summary.totalRecords).toBe(90);
     expect(confirmed).toEqual([
+      "abkhazia",
       "adjara",
+      "guria",
+      "imereti",
       "kakheti",
       "kvemo-kartli",
       "mtskheta-mtianeti",
       "samtskhe-javakheti",
+      "shida-kartli",
       "tbilisi",
     ]);
     expect(
@@ -259,7 +264,7 @@ describe("occurrenceStatusForCount", () => {
         .filter((region) => region.status === "recorded-only")
         .map((region) => region.id)
         .sort(),
-    ).toEqual(["abkhazia", "guria", "imereti", "shida-kartli"]);
+    ).toEqual([]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)
@@ -290,22 +295,21 @@ describe("occurrenceStatusForCount", () => {
 
     expect(summary.totalRecords).toBe(31);
     expect(confirmed).toEqual([
+      "abkhazia",
+      "adjara",
+      "imereti",
       "kakheti",
+      "mtskheta-mtianeti",
       "samegrelo-zemo-svaneti",
       "samtskhe-javakheti",
+      "shida-kartli",
     ]);
     expect(
       summary.recordsByRegion
         .filter((region) => region.status === "recorded-only")
         .map((region) => region.id)
         .sort(),
-    ).toEqual([
-      "abkhazia",
-      "adjara",
-      "imereti",
-      "mtskheta-mtianeti",
-      "shida-kartli",
-    ]);
+    ).toEqual([]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)
@@ -378,9 +382,12 @@ describe("occurrenceStatusForCount", () => {
 
     expect(summary.totalRecords).toBe(95);
     expect(confirmed).toEqual([
+      "adjara",
+      "imereti",
       "kakheti",
       "kvemo-kartli",
       "mtskheta-mtianeti",
+      "samegrelo-zemo-svaneti",
       "samtskhe-javakheti",
       "shida-kartli",
       "tbilisi",
@@ -390,7 +397,7 @@ describe("occurrenceStatusForCount", () => {
         .filter((region) => region.status === "recorded-only")
         .map((region) => region.id)
         .sort(),
-    ).toEqual(["adjara", "imereti", "samegrelo-zemo-svaneti"]);
+    ).toEqual([]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)
@@ -398,7 +405,7 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual(confirmed);
   });
 
-  it("confirms Artvin lizard regions from five records", () => {
+  it("confirms Artvin lizard regions from one record each", () => {
     const species = speciesFixture("darevskia-derjugini");
     expect(species).toBeDefined();
     if (!species) return;
@@ -426,17 +433,20 @@ describe("occurrenceStatusForCount", () => {
       "guria",
       "imereti",
       "kakheti",
+      "kvemo-kartli",
       "mtskheta-mtianeti",
       "racha",
       "samegrelo-zemo-svaneti",
       "samtskhe-javakheti",
+      "shida-kartli",
+      "tbilisi",
     ]);
     expect(
       summary.recordsByRegion
         .filter((region) => region.status === "recorded-only")
         .map((region) => region.id)
         .sort(),
-    ).toEqual(["kvemo-kartli", "shida-kartli", "tbilisi"]);
+    ).toEqual([]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)
@@ -447,10 +457,13 @@ describe("occurrenceStatusForCount", () => {
       "guria",
       "imereti",
       "kakheti",
+      "kvemo-kartli",
       "mtskheta-mtianeti",
       "racha",
       "samegrelo-zemo-svaneti",
       "samtskhe-javakheti",
+      "shida-kartli",
+      "tbilisi",
     ]);
   });
 

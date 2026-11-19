@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { Button, Layout, Menu, Result, Space, Typography } from "antd";
+import { Button, Layout, Menu, Result, Space, theme, Typography } from "antd";
 import { useEffect, useState } from "react";
 
 import { ApiKeysPage } from "./ApiKeysPage";
@@ -17,6 +17,7 @@ import { followLink, navigate, usePathname } from "./router";
 import { type AdminUser, signOut } from "./session";
 import { SpeciesDetailPage } from "./SpeciesDetailPage";
 import { SpeciesPage } from "./SpeciesPage";
+import { ThemeModeSwitch } from "./themeMode";
 import { TrafficSourcesPage } from "./TrafficSourcesPage";
 import { ViewsPage } from "./ViewsPage";
 
@@ -73,6 +74,7 @@ export function Dashboard({
   user: AdminUser;
 }) {
   const [pending, setPending] = useState(false);
+  const { token } = theme.useToken();
   const pathname = usePathname();
   const [, detailPath, detailId] = DETAIL_PATH.exec(pathname) ?? [];
   const detail = DETAILS.find(({ path }) => path === detailPath);
@@ -121,7 +123,7 @@ export function Dashboard({
         <Layout.Header
           style={{
             alignItems: "center",
-            background: "#fff",
+            background: token.colorBgContainer,
             display: "flex",
             height: "auto",
             justifyContent: "flex-end",
@@ -131,6 +133,7 @@ export function Dashboard({
           }}
         >
           <Space wrap>
+            <ThemeModeSwitch />
             <Typography.Text>{user.name}</Typography.Text>
             <Typography.Text
               ellipsis={{ tooltip: user.email }}

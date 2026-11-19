@@ -128,6 +128,7 @@
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
     "hono": "4.13.16",
+    "isbot": "5.2.3",
     "leaflet": "^1.9.4",
     "lodash": "^4.18.1",
     "lucide-react": "^1.70.0",

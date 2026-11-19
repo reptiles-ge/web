@@ -395,7 +395,7 @@ const rangeMap = component(
   z.strictObject({
     confirmedThreshold: doc(
       z.int().min(1),
-      "Records a region needs before it counts as a region where the species is recorded. Missing means the default of 5.",
+      "Records a region needs before it counts as a region where the species is recorded. Missing means the default of 1.",
       [1],
     ).optional(),
     copy: doc(
@@ -484,6 +484,10 @@ const catalogStats = component(
       `Newest \`updatedAt\` among the matches. ${OFFSET_DATE_TIME}`,
     ),
     photos: doc(z.int().min(0), "Gallery photos of all matches."),
+    records: doc(
+      z.int().min(0),
+      "Field records (mapped locations from observations, literature and specimens) of all matches, including species whose points are hidden on the public field-records endpoint.",
+    ),
     venomous: doc(
       z.int().min(0),
       "Matches with a `High` or `Moderate` danger level.",

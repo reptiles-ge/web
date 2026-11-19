@@ -28,6 +28,7 @@ export type CatalogIndexEntry = {
   hasPhoto: boolean;
   id: string;
   photoCount: number;
+  recordCount: number;
   regionIds: string[];
   searchText: string;
   updatedAt?: string;
@@ -79,9 +80,11 @@ export function catalogFacets(
 export function catalogStats(entries: readonly CatalogIndexEntry[]) {
   let latest: CatalogIndexEntry | undefined;
   let photos = 0;
+  let records = 0;
   let venomous = 0;
   for (const entry of entries) {
     photos += entry.photoCount;
+    records += entry.recordCount;
     if (isVenomousDanger(entry.danger)) venomous += 1;
     if (
       entry.updatedAt &&
@@ -89,7 +92,12 @@ export function catalogStats(entries: readonly CatalogIndexEntry[]) {
     )
       latest = entry;
   }
-  return { lastUpdated: latest?.updatedAt ?? null, photos, venomous };
+  return {
+    lastUpdated: latest?.updatedAt ?? null,
+    photos,
+    records,
+    venomous,
+  };
 }
 
 export function filterCatalog<T extends CatalogIndexEntry>(

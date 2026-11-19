@@ -41,7 +41,7 @@ export type HalyomorphaOccurrenceSummary = {
   totalRecords: number;
 };
 
-export const DEFAULT_CONFIRMED_RECORD_THRESHOLD = 5;
+export const DEFAULT_CONFIRMED_RECORD_THRESHOLD = 1;
 
 const KM_PER_DEGREE_LAT = 111.32;
 const SHORE_SNAP_KM = 3;
