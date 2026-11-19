@@ -4,19 +4,48 @@ import { publicEnv } from "@/lib/env";
 
 import type { AdminSpeciesRecord } from "./species";
 
+import { XenoCantoSoundsButton } from "./XenoCantoSoundsButton";
+
 type Audio = NonNullable<AdminSpeciesRecord["record"]["base"]["audio"]>;
 
 const SITE = publicEnv().NEXT_PUBLIC_SITE_URL ?? "https://reptiles.ge";
 
-export function SpeciesAudioPanel({ audio }: { audio?: Audio }) {
+export function SpeciesAudioPanel({
+  audio,
+  id,
+  onAdded,
+  onSessionExpired,
+  scientificName,
+  version,
+}: {
+  audio?: Audio;
+  id: string;
+  onAdded: (version: number, notice: string) => void;
+  onSessionExpired: () => void;
+  scientificName: string;
+  version: number;
+}) {
+  const find = (
+    <XenoCantoSoundsButton
+      currentUrl={audio?.url}
+      id={id}
+      onAdded={onAdded}
+      onSessionExpired={onSessionExpired}
+      scientificName={scientificName}
+      version={version}
+    />
+  );
   if (!audio) {
     return (
-      <Empty description="This species has no sound yet. The profile shows no player." />
+      <Empty description="This species has no sound yet. The profile shows no player.">
+        {find}
+      </Empty>
     );
   }
   const src = audioUrl(audio.src);
   return (
     <Space orientation="vertical" style={{ width: "100%" }}>
+      {find}
       <audio
         aria-label="Species sound"
         controls

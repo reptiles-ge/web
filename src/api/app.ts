@@ -47,7 +47,7 @@ const MAX_ADMIN_BODY_BYTES = 1024 * 1024;
 
 const MAX_UPLOAD_BODY_BYTES = 64 * 1024 * 1024;
 
-const PHOTO_UPLOAD_PATH = /^\/v1\/admin\/species\/[^/]+\/photos$/;
+const PHOTO_UPLOAD_PATH = /^\/v1\/admin\/species\/[^/]+\/(audio|photos)$/;
 
 const bodyLimitDefault = limitBody(MAX_BODY_BYTES);
 

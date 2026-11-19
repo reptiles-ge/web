@@ -7,6 +7,7 @@ import {
   downloadINaturalistPhoto,
   type INaturalistDownloadResult,
 } from "@/lib/inaturalistPhoto";
+import { xenoCantoAudioKey } from "@/lib/xenoCanto";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiEnv } from "../env";
@@ -28,6 +29,7 @@ import {
   storePhoto,
 } from "../lib/photoUpload";
 import { clearCaches, ensureSiteRevalidated } from "../lib/revalidateSite";
+import { checkMp3, setSpeciesAudio } from "../lib/speciesAudio";
 import {
   approveSpeciesDraft,
   pendingSpeciesDraft,
@@ -64,6 +66,7 @@ import {
   photoUploadForm,
 } from "../schemas/photoUpload";
 import { adminSpeciesListQuery } from "../schemas/species";
+import { speciesAudioForm } from "../schemas/speciesAudio";
 import {
   draftCreateBody,
   draftDecisionBody,
@@ -243,6 +246,41 @@ export const adminSpecies = new Hono<ApiEnv>()
         "Cache-Control": NO_STORE,
         "Content-Type": result.type,
       });
+    },
+  )
+  .post(
+    "/:id/audio",
+    requireSiteOrigin,
+    rateLimitUpload,
+    requireAdminSession,
+    validate("param", speciesIdParam),
+    validate("form", speciesAudioForm),
+    async (c) => {
+      const { id } = c.req.valid("param");
+      const { expectedVersion, file, xenoCantoId, ...credit } =
+        c.req.valid("form");
+      const [current, bytes] = await Promise.all([
+        readCurrent(c, id, expectedVersion),
+        checkMp3(file),
+      ]);
+      const storage = bunnyStorage(c.env);
+      const key = xenoCantoAudioKey(id, xenoCantoId);
+      await storage.put(key, bytes, "audio/mpeg");
+      const { result, version } = await change(
+        c,
+        id,
+        c.var.user!.name,
+        "Set species sound",
+        (record) =>
+          setSpeciesAudio(record, {
+            ...credit,
+            src: storage.urlFor(key),
+            url: `https://xeno-canto.org/${xenoCantoId}`,
+          }),
+        [],
+        current,
+      );
+      return c.json({ data: { ...result, version } }, 201);
     },
   )
   .post(
