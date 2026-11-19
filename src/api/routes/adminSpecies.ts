@@ -255,7 +255,6 @@ export const adminSpecies = new Hono<ApiEnv>()
   .get(
     "/:id/sounds/xeno-canto",
     requireAdmin,
-    rateLimitAdmin,
     validate("param", speciesIdParam),
     validate("query", xenoCantoSearchQuery),
     async (c) => {
