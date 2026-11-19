@@ -198,6 +198,30 @@ describe("POST /v1/views", () => {
     expect(views()).toEqual([]);
   });
 
+  it("ignores a browser user agent from a cloud network", async () => {
+    const body = JSON.stringify({
+      id: "macrovipera-lebetina",
+      kind: "species",
+    });
+    const request = new Request("https://api.reptiles.ge/v1/views", {
+      body,
+      headers: {
+        "cf-connecting-ip": "66.249.66.1",
+        "Content-Length": String(body.length),
+        "Content-Type": "application/json",
+        Origin: SITE,
+        "User-Agent": BROWSER,
+      },
+      method: "POST",
+    });
+    Object.defineProperty(request, "cf", { value: { asn: 15169 } });
+    const response = await app.fetch(request, env, executionCtx);
+    await Promise.all(pending);
+
+    expect(response.status).toBe(202);
+    expect(views()).toEqual([]);
+  });
+
   it("no longer stores page views", async () => {
     await post({ locale: "ka", path: "/regions/kakheti" });
     await post({ locale: "en", path: "/snakes/macrovipera-lebetina" });
