@@ -145,6 +145,7 @@
     "vinext": "1.4.5"
   },
   "devDependencies": {
+    "@breezystack/lamejs": "1.2.7",
     "@cloudflare/vite-plugin": "^1.67.0",
     "@jsquash/avif": "2.1.1",
     "@jsquash/jpeg": "1.6.0",
