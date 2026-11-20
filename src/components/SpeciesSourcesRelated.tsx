@@ -144,7 +144,7 @@ export async function SpeciesSourcesRelated({
               </AnchoredHeading>
               <Link
                 className="tap-target shrink-0 text-[13px] font-medium text-primary"
-                href={giurza ? "/snakes/saxeoebebi" : "/species"}
+                href={giurza ? "/snakes" : "/species"}
               >
                 {giurza ? t("allSnakes") : t("allSpecies")}
                 <ArrowUpRight
