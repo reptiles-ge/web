@@ -18,13 +18,14 @@ export const views = new Hono<ApiEnv>().post(
   validate("json", viewBody),
   (c) => {
     const userAgent = c.req.header("User-Agent");
-    if (!isBotTraffic({ asn: requestAsn(c.req.raw), userAgent })) {
+    const now = new Date();
+    if (!isBotTraffic({ asn: requestAsn(c.req.raw), now, userAgent })) {
       const body = c.req.valid("json");
       const request = {
         acceptLanguage: c.req.header("Accept-Language"),
         country: countryCode(c.req.header("cf-ipcountry")),
         ip: c.req.header("cf-connecting-ip"),
-        now: new Date(),
+        now,
         userAgent,
       };
       inBackground(
