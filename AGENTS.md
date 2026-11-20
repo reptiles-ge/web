@@ -133,7 +133,6 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/`                                                    | `/en`                                                       | Home                                                |
 | `/species`                                             | `/en/species`                                               | Atlas                                               |
 | `/gvelebi`                                             | `/en/snakes`                                                | Hub                                                 |
-| `/gvelebi/saxeoebebi`                                  | `/en/snakes/species`                                        | Index                                               |
 | `/gvelebi/shxamiani-gvelebi`                           | `/en/venomous-snakes`                                       | Guide                                               |
 | `/gvelebi/shxamiani-gvelis-amocnoba`                   | `/en/snakes/identify-venomous`                              | Guide                                               |
 | `/gvelebi/gvelis-nakbeni`                              | `/en/snakes/bite`                                           | Guide (educational)                                 |

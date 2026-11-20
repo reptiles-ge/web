@@ -140,7 +140,6 @@ export type ClusterGuideId =
   | "mammal-index"
   | "mammal-jackal-yard"
   | "snake-identify"
-  | "snake-index"
   | "snake-largest"
   | "snake-range"
   | "spider-bite"
@@ -174,7 +173,6 @@ export type ClusterGuidePath =
   | "/scorpions"
   | "/snakes/didi-gvelebi"
   | "/snakes/gavrtseleba"
-  | "/snakes/saxeoebebi"
   | "/snakes/shxamiani-gvelis-amocnoba"
   | "/spiders"
   | "/spiders/obobis-nakbeni"
@@ -202,7 +200,6 @@ type ClusterMessageKey =
   | "mammalIndex"
   | "mammalJackalYard"
   | "snakeIdentify"
-  | "snakeIndex"
   | "snakeLargest"
   | "snakeRange"
   | "spiderBite"
@@ -464,18 +461,6 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/snakes/shxamiani-gvelis-amocnoba",
     primaryCta: "hash",
     schema: "article",
-  },
-  "snake-index": {
-    faqCount: 4,
-    heroImage: "/images/guides/snake-species-cover.png",
-    heroSpeciesId: "macrovipera-lebetina",
-    id: "snake-index",
-    matches: isSnakeSpecies,
-    messageKey: "snakeIndex",
-    parentHub: "snakes",
-    pathname: "/snakes/saxeoebebi",
-    primaryCta: "hash",
-    schema: "collection",
   },
   "snake-largest": {
     faqCount: 4,
@@ -791,7 +776,6 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       key: "dangerousAnimals",
       kind: "page",
     },
-    { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
     { id: "snake", key: "quiz", kind: "quiz" },
     {
@@ -831,18 +815,19 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
 };
 
-export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
-  amphibians: "/amphibians/saxeoebebi",
-  birds: "/birds/saxeoebebi",
-  fish: "/fish/saxeoebebi",
-  insects: "/insects/saxeoebebi",
-  lizards: "/lizards/saxeoebebi",
-  mammals: "/mammals/saxeoebebi",
-  scorpions: "/scorpions",
-  snakes: "/snakes/saxeoebebi",
-  spiders: "/spiders/saxeoebebi",
-  turtles: "/turtles/saxeoebebi",
-};
+export const HUB_INDEX_PATH: Record<GroupHubId, "/snakes" | ClusterGuidePath> =
+  {
+    amphibians: "/amphibians/saxeoebebi",
+    birds: "/birds/saxeoebebi",
+    fish: "/fish/saxeoebebi",
+    insects: "/insects/saxeoebebi",
+    lizards: "/lizards/saxeoebebi",
+    mammals: "/mammals/saxeoebebi",
+    scorpions: "/scorpions",
+    snakes: "/snakes",
+    spiders: "/spiders/saxeoebebi",
+    turtles: "/turtles/saxeoebebi",
+  };
 
 export type SpeciesSection<T extends SpeciesSummary = SpeciesSummary> = {
   items: T[];
@@ -981,7 +966,6 @@ export function splitHubSpecies<T extends SpeciesSummary>(
 const houseLizardIdSet = new Set<string>(HOUSE_LIZARD_IDS);
 const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
-const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
 export function dedupeGuideLinks(links: readonly HubClusterCard[]) {
   const seen = new Set<string>();
@@ -1026,10 +1010,7 @@ export function getSpeciesGuideLinks(
     if (isVenomousDanger(species.danger)) {
       links.push({ href: "/venomous-snakes", key: "venomous", kind: "page" });
     }
-    if (racerClusterIdSet.has(id)) {
-      links.push({ href: "/snakes", key: "snakesHub", kind: "page" });
-    }
-    links.push({ href: "/snakes/saxeoebebi", key: "index", kind: "page" });
+    links.push({ href: "/snakes", key: "snakesHub", kind: "page" });
     links.push({ id: "snake", key: "quiz", kind: "quiz" });
     if (isVenomousDanger(species.danger)) {
       links.push({

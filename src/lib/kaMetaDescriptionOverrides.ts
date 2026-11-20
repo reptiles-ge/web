@@ -110,8 +110,6 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "საყელოიანი ეირენისი (Eirenis collaris) პატარა უშხამო გველია სამხრეთ-აღმოსავლეთ საქართველოში; Colubridae-ს ოჯახს მიეკუთვნება.",
   "/gvelebi/saxeebiani-mtsuravi":
     "სახეებიანი მცურავი (Elaphe dione) უშხამო, ნახატიანი გველია საქართველოს მშრალ ჰაბიტატებში და Colubridae-ს ოჯახს მიეკუთვნება.",
-  "/gvelebi/saxeoebebi":
-    "საქართველოს გველების სახეობები ერთ ცხრილში: ქართული და სამეცნიერო სახელი, შხამიანობა, გავრცელება, ზომა და ჰაბიტატი.",
   "/gvelebi/shxamiani-gvelebi":
     "საქართველოში შხამიანი გველების გიდი — გიურზა (Macrovipera lebetinus), ექვსი გველგესლა და ხვლიკიჭამია: ამოცნობა, გავრცელება, რისკი და უსაფრთხოება.",
   "/gvelebi/shxamiani-gvelis-amocnoba":

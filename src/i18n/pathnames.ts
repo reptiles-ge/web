@@ -153,7 +153,6 @@ export const pathnames = {
     "/snakes-in-the-yard",
   ),
   "/snakes/gvelis-nakbeni": kaLatin("/gvelebi/gvelis-nakbeni", "/snakes/bite"),
-  "/snakes/saxeoebebi": kaLatin("/gvelebi/saxeoebebi", "/snakes/species"),
   "/snakes/shxamiani-gvelis-amocnoba": kaLatin(
     "/gvelebi/shxamiani-gvelis-amocnoba",
     "/snakes/identify-venomous",
