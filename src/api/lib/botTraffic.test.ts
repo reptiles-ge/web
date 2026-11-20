@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { isBotTraffic, isBotUserAgent, requestAsn } from "./botTraffic";
+import {
+  isBotTraffic,
+  isBotUserAgent,
+  isStaleDesktopChrome,
+  requestAsn,
+} from "./botTraffic";
+
+const NOW = new Date("2026-11-20T12:00:00Z");
 
 const CHROME =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36";
@@ -94,22 +101,76 @@ describe("isBotUserAgent", () => {
 
 describe("isBotTraffic", () => {
   it("lets a browser on a home or mobile network through", () => {
-    expect(isBotTraffic({ asn: 35805, userAgent: CHROME })).toBe(false);
-    expect(isBotTraffic({ asn: null, userAgent: IPHONE })).toBe(false);
+    expect(isBotTraffic({ asn: 35805, now: NOW, userAgent: CHROME })).toBe(
+      false,
+    );
+    expect(isBotTraffic({ asn: null, now: NOW, userAgent: IPHONE })).toBe(
+      false,
+    );
   });
 
   it("blocks a browser user agent from a cloud or crawler network", () => {
-    for (const asn of [15169, 16509, 8075, 24940, 14061, 32934, 396982]) {
-      expect(isBotTraffic({ asn, userAgent: CHROME })).toBe(true);
+    for (const asn of [
+      15169, 16509, 8075, 24940, 14061, 32934, 396982, 212238, 7203, 60781,
+    ]) {
+      expect(isBotTraffic({ asn, now: NOW, userAgent: CHROME })).toBe(true);
     }
   });
 
   it("keeps Cloudflare WARP visitors", () => {
-    expect(isBotTraffic({ asn: 13335, userAgent: CHROME })).toBe(false);
+    expect(isBotTraffic({ asn: 13335, now: NOW, userAgent: CHROME })).toBe(
+      false,
+    );
   });
 
   it("blocks a robot user agent on any network", () => {
-    expect(isBotTraffic({ asn: 35805, userAgent: "Googlebot/2.1" })).toBe(true);
+    expect(
+      isBotTraffic({ asn: 35805, now: NOW, userAgent: "Googlebot/2.1" }),
+    ).toBe(true);
+  });
+});
+
+describe("isStaleDesktopChrome", () => {
+  const MAC_125 =
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
+
+  it("flags desktop Chrome far behind the current release", () => {
+    expect(isStaleDesktopChrome(MAC_125, NOW)).toBe(true);
+    expect(
+      isStaleDesktopChrome(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        NOW,
+      ),
+    ).toBe(true);
+    expect(isBotTraffic({ asn: 35805, now: NOW, userAgent: MAC_125 })).toBe(
+      true,
+    );
+  });
+
+  it("keeps current and slightly older desktop Chrome, Edge and Yandex", () => {
+    for (const userAgent of [
+      CHROME,
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 YaBrowser/25.8.0.0 Safari/537.36",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0",
+    ]) {
+      expect(isStaleDesktopChrome(userAgent, NOW)).toBe(false);
+    }
+  });
+
+  it("leaves Windows 7, phones, Electron apps and Firefox alone", () => {
+    for (const userAgent of [
+      "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) discord/1.0.9180 Chrome/120.0.0.0 Electron/28.0.0 Safari/537.36",
+      FIREFOX,
+    ]) {
+      expect(isStaleDesktopChrome(userAgent, NOW)).toBe(false);
+    }
+  });
+
+  it("moves the line forward as Chrome releases", () => {
+    const later = new Date("2027-11-20T12:00:00Z");
+    expect(isStaleDesktopChrome(CHROME, later)).toBe(true);
   });
 });
 
