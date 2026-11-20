@@ -34,7 +34,7 @@ const anchors = {
 const messages = { en, ka, ru, tr };
 const cases = (Object.keys(anchors) as (keyof typeof anchors)[]).flatMap(
   (locale) =>
-    (["snakeIndex", "snakeIdentify"] as const).map(
+    (["snakeIdentify"] as const).map(
       (namespace) => [locale, namespace] as const,
     ),
 );

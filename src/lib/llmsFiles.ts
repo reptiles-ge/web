@@ -91,7 +91,7 @@ const GROUP_INDEX_PATH: Partial<Record<AnimalGroup, string>> = {
   insect: "/insects/saxeoebebi",
   lizard: "/lizards/saxeoebebi",
   mammal: "/mammals/saxeoebebi",
-  snake: "/snakes/saxeoebebi",
+  snake: "/snakes",
   spider: "/spiders/saxeoebebi",
   turtle: "/turtles/saxeoebebi",
 };

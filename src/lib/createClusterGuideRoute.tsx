@@ -22,7 +22,6 @@ import { MammalJackalYardPage } from "@/components/MammalJackalYardPage";
 import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
 import { SnakeLargestPage } from "@/components/SnakeLargestPage";
 import { SnakeRangePage } from "@/components/SnakeRangePage";
-import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
 import { SpiderBitePage } from "@/components/SpiderBitePage";
 import { SpiderVenomousPage } from "@/components/SpiderVenomousPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
@@ -73,7 +72,6 @@ const CLUSTER_PAGES: Record<
   "mammal-bear": MammalBearPage,
   "mammal-jackal-yard": MammalJackalYardPage,
   "snake-identify": SnakeIdentifyPage,
-  "snake-index": SnakeSpeciesIndexPage,
   "snake-largest": SnakeLargestPage,
   "snake-range": SnakeRangePage,
   "spider-bite": SpiderBitePage,

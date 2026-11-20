@@ -62,7 +62,10 @@ describe("trailing slash", () => {
     ["/ka//", "/", 301],
     ["/ka/gvelebi/", "/gvelebi", 301],
     ["/ka/snakes/", "/gvelebi", 301],
-    ["/snakes/saxeoebebi/", "/gvelebi/saxeoebebi", 301],
+    ["/snakes/saxeoebebi/", "/gvelebi", 301],
+    ["/gvelebi/saxeoebebi", "/gvelebi", 301],
+    ["/en/snakes/species", "/en/snakes", 301],
+    ["/ru/gvelebi/saxeoebebi", "/ru/snakes", 301],
     ["/gvelebi/", "/gvelebi", 308],
     ["/gvelebi//", "/gvelebi", 308],
     ["/en/", "/en", 308],
@@ -215,8 +218,11 @@ describe("configured redirects", () => {
   it.each(["en", "ru", "tr"])(
     "301s /%s/{hub}/saxeoebebi to the species index for every hub",
     (locale) => {
+      expect(location(`/${locale}/snakes/saxeoebebi`)).toEqual({
+        location: `https://reptiles.ge/${locale}/snakes`,
+        status: 301,
+      });
       for (const hub of [
-        "snakes",
         "lizards",
         "turtles",
         "amphibians",
