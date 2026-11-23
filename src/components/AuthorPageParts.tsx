@@ -34,6 +34,7 @@ const BAR_TONES = [
   "bg-muted-foreground/40",
   "bg-border",
 ];
+const SPECIES_PREVIEW = 10;
 const NEXT_CHIP =
   "inline-flex min-h-11 items-center rounded-full border border-transparent px-[18px] text-[14px] font-medium transition-colors";
 
@@ -307,32 +308,25 @@ export async function AuthorSpeciesGroups({
                   })}
                 </span>
               </div>
-              <ul>
-                {group.species.map((item) => {
-                  const localized = byId.get(item.id);
-                  if (!localized) return null;
-                  return (
-                    <li className="border-t border-border/70" key={item.id}>
-                      <Link
-                        className="group flex min-h-[52px] items-center gap-3 py-2"
-                        href={speciesHref(item, locale)}
-                      >
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-[15px] leading-[1.3] font-medium text-foreground transition-colors group-hover:text-primary">
-                            {localized.commonName}
-                          </span>
-                          <span className="mt-0.5 block text-[12.5px] text-muted-foreground italic">
-                            {localized.scientificName}
-                          </span>
-                        </span>
-                        <span className="inline-flex h-6 min-w-7 shrink-0 items-center justify-center rounded-full bg-surface px-2 text-[12px] font-semibold text-primary tabular-nums">
-                          {item.photos}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <AuthorSpeciesList
+                items={group.species.slice(0, SPECIES_PREVIEW)}
+                locale={locale}
+                names={byId}
+              />
+              {group.species.length > SPECIES_PREVIEW ? (
+                <details className="group/more">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center border-t border-border/70 py-2 text-[14px] font-medium text-primary transition-colors group-open/more:hidden hover:text-foreground [&::-webkit-details-marker]:hidden">
+                    {t("speciesShowMore", {
+                      count: group.species.length - SPECIES_PREVIEW,
+                    })}
+                  </summary>
+                  <AuthorSpeciesList
+                    items={group.species.slice(SPECIES_PREVIEW)}
+                    locale={locale}
+                    names={byId}
+                  />
+                </details>
+              ) : null}
             </div>
           ))}
         </div>
@@ -452,5 +446,44 @@ function AuthorRole({ label }: { label: string }) {
       <span aria-hidden="true" className="size-1.5 rounded-full bg-primary" />
       <span className={EYEBROW}>{label}</span>
     </p>
+  );
+}
+
+function AuthorSpeciesList({
+  items,
+  locale,
+  names,
+}: {
+  items: CreditAuthorGroupStat["species"];
+  locale: AppLocale;
+  names: Map<string, { commonName: string; scientificName: string }>;
+}) {
+  return (
+    <ul>
+      {items.map((item) => {
+        const localized = names.get(item.id);
+        if (!localized) return null;
+        return (
+          <li className="border-t border-border/70" key={item.id}>
+            <Link
+              className="group flex min-h-[52px] items-center gap-3 py-2"
+              href={speciesHref(item, locale)}
+            >
+              <span className="min-w-0 flex-1">
+                <span className="block text-[15px] leading-[1.3] font-medium text-foreground transition-colors group-hover:text-primary">
+                  {localized.commonName}
+                </span>
+                <span className="mt-0.5 block text-[12.5px] text-muted-foreground italic">
+                  {localized.scientificName}
+                </span>
+              </span>
+              <span className="inline-flex h-6 min-w-7 shrink-0 items-center justify-center rounded-full bg-surface px-2 text-[12px] font-semibold text-primary tabular-nums">
+                {item.photos}
+              </span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

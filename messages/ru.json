@@ -1176,6 +1176,7 @@
     "galleryFilterLabel": "Фильтр по группе",
     "galleryShowAll": "Смотреть все фото: {count}",
     "speciesTitle": "{species, plural, one {# вид} few {# вида} many {# видов} other {# вида}}, {groups, plural, one {# группа} few {# группы} many {# групп} other {# группы}}",
+    "speciesShowMore": "+ ещё {count}",
     "portfolio": "{photos, plural, one {# фото} few {# фото} many {# фото} other {# фото}} автора есть на {species, plural, one {# странице вида} few {# страницах видов} many {# страницах видов} other {# страницы вида}} в атласе: {list}.",
     "portfolioMore": "ещё {count}",
     "portfolioGroup": "Больше всего снимков в разделе «{hub}»: {photos}.",

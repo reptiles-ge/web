@@ -1176,6 +1176,7 @@
     "galleryFilterLabel": "Gruba göre filtrele",
     "galleryShowAll": "{count} fotoğrafın tümünü gör",
     "speciesTitle": "{species, plural, other {# tür}}, {groups, plural, other {# grup}}",
+    "speciesShowMore": "+ {count} tür daha",
     "portfolio": "Bu yazarın {photos} fotoğrafı atlasta {species} tür profilinde kullanılıyor: {list}.",
     "portfolioMore": "{count} tür daha",
     "portfolioGroup": "En büyük pay “{hub}” bölümünde: {photos}.",
