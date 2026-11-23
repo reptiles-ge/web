@@ -136,3 +136,91 @@ describe("POST /v1/admin/species/:id/status", () => {
     expect((await record()).record.status).toBe("published");
   });
 });
+
+describe("POST /v1/admin/species/status", () => {
+  async function bulk<T>(
+    body: Record<string, unknown>,
+    headers: Record<string, string> = { ...session, Origin: ADMIN_ORIGIN },
+  ) {
+    return requestJson<ErrorBody & { data: T }>(
+      "/v1/admin/species/status",
+      env,
+      {
+        body: JSON.stringify(body),
+        headers: { "Content-Type": "application/json", ...headers },
+        method: "POST",
+      },
+    );
+  }
+
+  function version(id: string) {
+    return (
+      sqlite.prepare("SELECT version FROM species WHERE id = ?").get(id) as {
+        version: number;
+      }
+    ).version;
+  }
+
+  it("changes each species on its own and reports the ones it skips", async () => {
+    const hidden = "vipera-kaznakovi";
+    const hiddenVersion = version(hidden);
+    const { body, response } = await bulk<{ results: unknown[] }>({
+      species: [
+        { expectedVersion: hiddenVersion, id: hidden },
+        {
+          expectedVersion: version("dolichophis-caspius"),
+          id: "dolichophis-caspius",
+        },
+        {
+          expectedVersion: version("vipera-dinniki") + 1,
+          id: "vipera-dinniki",
+        },
+        { expectedVersion: 1, id: "no-such-species" },
+      ],
+      status: "unpublished",
+    });
+    expect(response.status).toBe(200);
+    expect(body.data.results).toStrictEqual([
+      { id: hidden, status: "changed", version: hiddenVersion + 1 },
+      {
+        code: "invalid_request",
+        id: "dolichophis-caspius",
+        message: "The species is already unpublished",
+        status: "failed",
+      },
+      expect.objectContaining({
+        code: "version_conflict",
+        id: "vipera-dinniki",
+        status: "failed",
+      }),
+      expect.objectContaining({
+        code: "not_found",
+        id: "no-such-species",
+        status: "failed",
+      }),
+    ]);
+    expect(
+      sqlite.prepare("SELECT status FROM species WHERE id = ?").get(hidden),
+    ).toEqual({ status: "unpublished" });
+    expect(siteFetch).not.toHaveBeenCalled();
+  });
+
+  it("refuses duplicate ids, an empty list and requests without a session", async () => {
+    const item = { expectedVersion: version(ID), id: ID };
+    expect(
+      (await bulk({ species: [item, item], status: "draft" })).response.status,
+    ).toBe(400);
+    expect((await bulk({ species: [], status: "draft" })).response.status).toBe(
+      400,
+    );
+    expect(
+      (
+        await bulk(
+          { species: [item], status: "draft" },
+          { Authorization: `Bearer ${TOKEN}`, Origin: ADMIN_ORIGIN },
+        )
+      ).response.status,
+    ).toBe(401);
+    expect((await record()).record.status).toBe("published");
+  });
+});

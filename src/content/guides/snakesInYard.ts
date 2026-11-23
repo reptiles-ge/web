@@ -63,7 +63,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "Trying to catch, kill or move a snake raises the risk of a bite. You do not need to know the species to stay safe: distance is enough. If you want to identify it later, take a photo from a safe distance and compare it with the [snake species index](/snakes/saxeoebebi).",
+          "Trying to catch, kill or move a snake raises the risk of a bite. You do not need to know the species to stay safe: distance is enough. If you want to identify it later, take a photo from a safe distance and compare it with the [snakes of Georgia](/snakes).",
         ],
       },
       {
@@ -186,7 +186,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "გველის დაჭერის, მოკვლის ან გადაყვანის მცდელობა ნაკბენის რისკს ზრდის. უსაფრთხოებისთვის სახეობის ცოდნა არ გჭირდებათ: მანძილი საკმარისია. თუ მოგვიანებით ამოცნობა გინდათ, უსაფრთხო მანძილიდან გადაუღეთ და შეადარეთ [გველების სახეობებს](/snakes/saxeoebebi).",
+          "გველის დაჭერის, მოკვლის ან გადაყვანის მცდელობა ნაკბენის რისკს ზრდის. უსაფრთხოებისთვის სახეობის ცოდნა არ გჭირდებათ: მანძილი საკმარისია. თუ მოგვიანებით ამოცნობა გინდათ, უსაფრთხო მანძილიდან გადაუღეთ და შეადარეთ [საქართველოს გველებს](/snakes).",
         ],
       },
       {
@@ -309,7 +309,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "Попытка поймать, убить или переместить змею повышает риск укуса. Чтобы остаться в безопасности, знать вид не нужно: достаточно расстояния. Если хотите определить змею позже, сфотографируйте её с безопасного расстояния и сравните с [указателем видов змей](/snakes/saxeoebebi).",
+          "Попытка поймать, убить или переместить змею повышает риск укуса. Чтобы остаться в безопасности, знать вид не нужно: достаточно расстояния. Если хотите определить змею позже, сфотографируйте её с безопасного расстояния и сравните с [змеями Грузии](/snakes).",
         ],
       },
       {
@@ -432,7 +432,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           ordered: true,
         },
         paragraphs: [
-          "Yılanı yakalamaya, öldürmeye veya taşımaya çalışmak ısırılma riskini artırır. Güvende kalmak için türü bilmeniz gerekmez: mesafe yeterlidir. Sonradan tanımlamak isterseniz güvenli bir mesafeden fotoğrafını çekin ve [yılan türleri dizini](/snakes/saxeoebebi) ile karşılaştırın.",
+          "Yılanı yakalamaya, öldürmeye veya taşımaya çalışmak ısırılma riskini artırır. Güvende kalmak için türü bilmeniz gerekmez: mesafe yeterlidir. Sonradan tanımlamak isterseniz güvenli bir mesafeden fotoğrafını çekin ve [Gürcistan yılanları](/snakes) ile karşılaştırın.",
         ],
       },
       {

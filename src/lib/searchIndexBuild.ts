@@ -610,18 +610,6 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       tr: "Zehirli mi zararsız mı?",
     },
   },
-  "snake-index": {
-    icon: "atlas",
-    keywords: ["სახეობები", "index", "სია", "list", "კატალოგი"],
-    subtitle: {
-      en: "Full index — names, venom, range",
-      ka: "სრული ინდექსი — სახელი, რისკი, არეალი",
-    },
-    title: {
-      en: "Snake species of Georgia",
-      ka: "გველის სახეობები საქართველოში",
-    },
-  },
   "snake-largest": {
     icon: "guide",
     keywords: ["დიდი გველები", "largest", "გრძელი", "longest", "ზომა"],

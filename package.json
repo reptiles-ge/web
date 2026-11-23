@@ -167,6 +167,7 @@
     "@vitejs/plugin-react": "^6.2.1",
     "@vitejs/plugin-rsc": "^0.5.39",
     "@vitest/coverage-v8": "5.1.0",
+    "aws4fetch": "1.0.20",
     "axe-core": "^4.14.0",
     "eslint": "^10",
     "eslint-config-next": "16.4.5",

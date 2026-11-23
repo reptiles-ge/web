@@ -125,7 +125,6 @@ describe("empty collection guides", () => {
       expect(CLUSTER_GUIDES[guideId].messageKey, id).toBe(key);
       expect(CLUSTER_GUIDES[guideId].schema, id).toBe("collection");
     }
-    expect(isCatalogIndexGuide("snake-index")).toBe(false);
   });
 });
 
@@ -313,7 +312,7 @@ describe("getSpeciesGuideLinks", () => {
     expect(keys("macrovipera-lebetina")).toEqual(
       expect.arrayContaining([
         "venomous",
-        "index",
+        "snakesHub",
         "quiz",
         "identify",
         "bite",
@@ -326,7 +325,13 @@ describe("getSpeciesGuideLinks", () => {
   it("links a harmless snake to identify, yard and range, not bite", () => {
     const harmless = keys("natrix-natrix");
     expect(harmless).toEqual(
-      expect.arrayContaining(["index", "quiz", "identify", "yard", "range"]),
+      expect.arrayContaining([
+        "snakesHub",
+        "quiz",
+        "identify",
+        "yard",
+        "range",
+      ]),
     );
     expect(harmless).not.toContain("bite");
     expect(harmless).not.toContain("venomous");

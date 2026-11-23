@@ -125,7 +125,7 @@ function SnakeQuizIdentifyLinks() {
           </Link>
         ),
         species: (chunks) => (
-          <Link className={identifyLinkClassName} href="/snakes/saxeoebebi">
+          <Link className={identifyLinkClassName} href="/snakes">
             {chunks}
           </Link>
         ),

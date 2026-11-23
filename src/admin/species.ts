@@ -3,6 +3,8 @@ import type { InferRequestType, InferResponseType } from "hono/client";
 import type { CoverTarget } from "@/lib/adminCover";
 import type { Page } from "@/lib/pagination";
 
+import { adminBatches } from "@/lib/adminBatch";
+
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
 import { fetchAllPages, type PagedQuery, toQueryParams } from "./pagination";
@@ -29,6 +31,11 @@ export type AdminSpeciesRecord = InferResponseType<
   200
 >["data"];
 
+export type SpeciesStatusResult = InferResponseType<
+  typeof api.v1.admin.species.status.$post,
+  200
+>["data"]["results"][number];
+
 export type SpeciesTextsInput = InferRequestType<
   (typeof api.v1.admin.species)[":id"]["texts"]["$post"]
 >["json"];
@@ -37,6 +44,8 @@ type SpeciesTextsSaved = InferResponseType<
   (typeof api.v1.admin.species)[":id"]["texts"]["$post"],
   200
 >["data"];
+
+type SpeciesVersion = { expectedVersion: number; id: string };
 
 export const SPECIES_STATUS_COLORS: Record<AdminSpecies["status"], string> = {
   draft: "gold",
@@ -172,4 +181,31 @@ export async function setSpeciesStatus(
   await checkAdminSave(response, "Status change failed");
   return ((await response.json()) as { data: { version: number } }).data
     .version;
+}
+
+export function setSpeciesStatuses(
+  species: SpeciesVersion[],
+  status: AdminSpecies["status"],
+): Promise<SpeciesStatusResult[]> {
+  return postStatusBatches(adminBatches(species), status);
+}
+
+async function postStatusBatch(
+  species: SpeciesVersion[],
+  status: AdminSpecies["status"],
+) {
+  const response = await api.v1.admin.species.status.$post({
+    json: { species, status },
+  });
+  await checkAdminSave(response, "Status change failed");
+  return (await response.json()).data.results;
+}
+
+async function postStatusBatches(
+  [batch, ...rest]: SpeciesVersion[][],
+  status: AdminSpecies["status"],
+): Promise<SpeciesStatusResult[]> {
+  if (!batch) return [];
+  const results = await postStatusBatch(batch, status);
+  return [...results, ...(await postStatusBatches(rest, status))];
 }

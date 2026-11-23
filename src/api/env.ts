@@ -9,11 +9,8 @@ export type ApiBindings = {
   API_KEY_LIMITER?: RateLimiter;
   API_KEY_MODE?: string;
   API_WRITE_TOKEN?: string;
-  BUNNY_CDN_BASE_URL?: string;
-  BUNNY_STORAGE_ACCESS_KEY?: string;
-  BUNNY_STORAGE_REGION?: string;
-  BUNNY_STORAGE_ZONE?: string;
   CACHE_GENERATION_TTL_MS?: string;
+  CDN_BUCKET?: CdnBucket;
   DB: ApiDatabase;
   LOGIN_LIMITER?: RateLimiter;
   MCP_LIMITER?: RateLimiter;
@@ -31,6 +28,23 @@ export type ApiBindings = {
 export type ApiEnv = {
   Bindings: ApiBindings;
   Variables: { cacheTags?: string[]; user?: SessionUser };
+};
+
+export type CdnBucket = {
+  list: (options: {
+    cursor?: string;
+    delimiter?: string;
+    limit?: number;
+    prefix?: string;
+  }) => Promise<
+    | { cursor: string; objects: Array<{ key: string }>; truncated: true }
+    | { objects: Array<{ key: string }>; truncated: false }
+  >;
+  put: (
+    key: string,
+    value: Uint8Array<ArrayBuffer>,
+    options: { httpMetadata: { contentType: string } },
+  ) => Promise<unknown>;
 };
 
 export type RateLimiter = {

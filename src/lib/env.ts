@@ -36,13 +36,17 @@ const publicSchema = z.object({
 
 const serverSchema = z.object({
   API_WRITE_TOKEN: optionalString,
-  BUNNY_CDN_BASE_URL: z.preprocess(
+  R2_ACCESS_KEY_ID: optionalString,
+  R2_ACCOUNT_ID: z.preprocess(
     blankToUndefined,
-    z.string().trim().url().optional(),
+    z
+      .string()
+      .trim()
+      .regex(/^[0-9a-f]{32}$/, "Expected a 32-character Cloudflare account id")
+      .optional(),
   ),
-  BUNNY_STORAGE_ACCESS_KEY: optionalString,
-  BUNNY_STORAGE_REGION: optionalString,
-  BUNNY_STORAGE_ZONE: optionalString,
+  R2_BUCKET: optionalString,
+  R2_SECRET_ACCESS_KEY: optionalString,
   REVALIDATE_TOKEN: optionalString,
   SITE_API_KEY: optionalString,
   TELEGRAM_BOT_TOKEN: optionalString,
@@ -82,10 +86,10 @@ export function publicEnv(): PublicEnv {
 export function serverEnv(): ServerEnv {
   return parse(serverSchema, {
     API_WRITE_TOKEN: process.env.API_WRITE_TOKEN,
-    BUNNY_CDN_BASE_URL: process.env.BUNNY_CDN_BASE_URL,
-    BUNNY_STORAGE_ACCESS_KEY: process.env.BUNNY_STORAGE_ACCESS_KEY,
-    BUNNY_STORAGE_REGION: process.env.BUNNY_STORAGE_REGION,
-    BUNNY_STORAGE_ZONE: process.env.BUNNY_STORAGE_ZONE,
+    R2_ACCESS_KEY_ID: process.env.R2_ACCESS_KEY_ID,
+    R2_ACCOUNT_ID: process.env.R2_ACCOUNT_ID,
+    R2_BUCKET: process.env.R2_BUCKET,
+    R2_SECRET_ACCESS_KEY: process.env.R2_SECRET_ACCESS_KEY,
     REVALIDATE_TOKEN: process.env.REVALIDATE_TOKEN,
     SITE_API_KEY: process.env.SITE_API_KEY,
     TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,

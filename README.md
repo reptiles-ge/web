@@ -73,7 +73,7 @@ pnpm start:vinext
 | i18n          | `next-intl` v4. Locales are `ka` (default, no prefix), `en`, `ru`, and `tr`                                                           |
 | Styling       | Tailwind CSS 4, no CSS-in-JS                                                                                                          |
 | Content       | Species in Cloudflare D1, served by the `reptiles-api` Worker and rendered on the server; MDX for news; TypeScript modules for guides |
-| Images        | BunnyCDN at `https://cdn.reptiles.ge` (Next.js image optimization is off)                                                             |
+| Images        | Cloudflare R2 (`reptiles-cdn`) at `https://cdn.reptiles.ge` (Next.js image optimization is off)                                       |
 | Maps          | Leaflet, plus an SVG map of Georgia compiled to paths                                                                                 |
 | Search        | Fuse.js over per-locale indexes generated at build time                                                                               |
 | Monitoring    | Sentry, Cloudflare Workers observability logs                                                                                         |
@@ -200,7 +200,7 @@ Keys go in `messages/ka.json` and must also exist in `en.json`, `ru.json`, and `
 
 ### Images
 
-Photos are served from BunnyCDN. Keep the photographer credit on every image. Only mark a photo as Georgia-field-verified with a named photographer and a Georgian locality. See [`scripts/README.md`](scripts/README.md) for the image pipeline (`images:optimize`, `images:check`, `images:og-missing`, `images:og-guides`).
+Photos are served from Cloudflare R2 (`cdn.reptiles.ge`). Keep the photographer credit on every image. Only mark a photo as Georgia-field-verified with a named photographer and a Georgian locality. See [`scripts/README.md`](scripts/README.md) for the image pipeline (`images:optimize`, `images:check`, `images:og-missing`, `images:og-guides`).
 
 ### Local admin
 
@@ -295,15 +295,15 @@ git worktree remove ../reptiles-staging
 
 Put local values in `.env.local`. All `.env*` files are gitignored. `src/lib/env.ts` validates the variables with Zod, and `instrumentation.ts` checks them at startup. Read them through `publicEnv()` and `serverEnv()`, never through `process.env` directly.
 
-| Variable                   | Scope  | Needed for                | Purpose                                                   |
-| -------------------------- | ------ | ------------------------- | --------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`     | Public | Optional                  | Overrides the site origin (default `https://reptiles.ge`) |
-| `BUNNY_STORAGE_ZONE`       | Server | CDN scripts, admin upload | BunnyCDN storage zone                                     |
-| `BUNNY_STORAGE_ACCESS_KEY` | Server | CDN scripts, admin upload | BunnyCDN storage key                                      |
-| `BUNNY_STORAGE_REGION`     | Server | Optional                  | BunnyCDN storage region                                   |
-| `BUNNY_CDN_BASE_URL`       | Server | Optional                  | CDN base URL (default `https://cdn.reptiles.ge`)          |
-| `TELEGRAM_BOT_TOKEN`       | Server | Optional                  | Telegram notifications for ratings and admin workflows    |
-| `TELEGRAM_CHAT_ID`         | Server | Optional                  | Chat that receives those notifications                    |
+| Variable               | Scope  | Needed for               | Purpose                                                   |
+| ---------------------- | ------ | ------------------------ | --------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Public | Optional                 | Overrides the site origin (default `https://reptiles.ge`) |
+| `R2_ACCOUNT_ID`        | Server | CDN scripts, local admin | Cloudflare account id (32 hex characters)                 |
+| `R2_ACCESS_KEY_ID`     | Server | CDN scripts, local admin | R2 API token access key (Object Read & Write)             |
+| `R2_SECRET_ACCESS_KEY` | Server | CDN scripts, local admin | R2 API token secret                                       |
+| `R2_BUCKET`            | Server | Optional                 | R2 bucket (default `reptiles-cdn`)                        |
+| `TELEGRAM_BOT_TOKEN`   | Server | Optional                 | Telegram notifications for ratings and admin workflows    |
+| `TELEGRAM_CHAT_ID`     | Server | Optional                 | Chat that receives those notifications                    |
 
 Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudflare and `wrangler.jsonc`, not in `.env`.
 

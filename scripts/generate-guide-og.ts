@@ -6,14 +6,13 @@ import {
   resolveOgImageConfig,
 } from "@reptiles-ge/img-compression";
 import {
-  BunnyStorageAdapter,
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
 
 import { getGuideArticles } from "../src/data/guideArticles";
 import { optimizedImgSrc } from "../src/data/optimizedImages";
-import { CDN_BASE } from "../src/lib/site";
+import { createCdnStorage } from "./scriptUtils";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 
@@ -62,21 +61,7 @@ function createStorage(upload: boolean): StorageAdapter {
   if (!upload)
     return new LocalStorageAdapter({ baseUrl: "/", root: PUBLIC_ROOT });
 
-  const zone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-  if (!zone || !accessKey) {
-    throw new Error(
-      "--upload needs BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY. Put them in .env.local.",
-    );
-  }
-  return new BunnyStorageAdapter({
-    accessKey,
-    cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    storageZone: zone,
-    ...(process.env.BUNNY_STORAGE_REGION
-      ? { region: process.env.BUNNY_STORAGE_REGION }
-      : {}),
-  });
+  return createCdnStorage();
 }
 
 function selectArticles(options: CliOptions) {

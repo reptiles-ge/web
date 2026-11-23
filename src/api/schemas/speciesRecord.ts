@@ -5,8 +5,8 @@ import {
   isHerpetofaunaGroup,
 } from "@/data/herpetofauna-checklist";
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
+import { ADMIN_BATCH_SIZE } from "@/lib/adminBatch";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
-import { DRAFT_MERGE_BATCH_SIZE } from "@/lib/draftMergeBatch";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { sourcesAreValid } from "@/lib/speciesSources";
 
@@ -273,6 +273,23 @@ export const speciesStatusBody = z.strictObject({
   status: z.enum(SPECIES_STATUSES),
 });
 
+export const speciesBulkStatusBody = z.strictObject({
+  species: z
+    .array(
+      z.strictObject({
+        expectedVersion: z.int().min(1),
+        id: z.string().regex(SLUG).max(100),
+      }),
+    )
+    .min(1)
+    .max(ADMIN_BATCH_SIZE)
+    .refine(
+      (items) => new Set(items.map((item) => item.id)).size === items.length,
+      { message: "Species ids must be unique" },
+    ),
+  status: z.enum(SPECIES_STATUSES),
+});
+
 export const photoRemoveBody = z.strictObject({ actor, src: photoSrc });
 
 export const photoCoordinatesBody = z.strictObject({
@@ -304,7 +321,7 @@ export const draftMergeBody = z.strictObject({
   draftIds: z
     .array(z.int().min(1))
     .min(1)
-    .max(DRAFT_MERGE_BATCH_SIZE)
+    .max(ADMIN_BATCH_SIZE)
     .refine((ids) => new Set(ids).size === ids.length, {
       message: "Draft ids must be unique",
     }),

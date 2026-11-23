@@ -34,6 +34,8 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "ტბორის ბაყაყი (Pelophylax ridibundus) საქართველოში ფართოდ გავრცელებული წყლის ბაყაყია და ნამდვილი ბაყაყების ოჯახს (Ranidae) მიეკუთვნება.",
   "/amfibiebi/tritoni-salamandra":
     "საქართველოს ტრიტონები და კავკასიური სალამანდრა ერთ გიდში — გამოქვეყნებული Caudata-ს პროფილები, სახეობების ბმულები და წყაროებზე დაფუძნებული ჩანაწერები.",
+  "/dzuzumtsovrebi/aghmosavletevropuli-zgharbi":
+    "აღმოსავლეთევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   "/dzuzumtsovrebi/aghmosavletkavkasiuri-jixvi":
     "აღმოსავლეთკავკასიური ჯიხვი (Capra cylindricornis) — მსხვილი ველური თხა სპირალურად მოხრილი რქებით, წითელ ნუსხაში VU. სად ვნახოთ და განსხვავება ნიამორისგან.",
   "/dzuzumtsovrebi/chveulebrivi-tsavi":
@@ -48,8 +50,6 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "ენოტი (Procyon lotor) შავი ნიღბითა და რგოლებიანი კუდით ცნობადი ცხოველია, საქართველოში შემოტანილი და დამკვიდრებული. ფოტოები, ქცევა და გავრცელება.",
   "/dzuzumtsovrebi/evropuli-shveli":
     "შველი (Capreolus capreolus) — პატარა ირემი: ზაფხულში წითური, ზამთარში რუხი, თეთრი კუდის ფირფიტით. ფოტოები, განსხვავება კეთილშობილი ირმისგან და ქცევა.",
-  "/dzuzumtsovrebi/evropuli-zgharbi":
-    "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   "/dzuzumtsovrebi/fotsxveri":
     "ფოცხვერი (Lynx lynx) — კატა ყურის შავი ფუნჯებითა და მოკლე, შავწვერიანი კუდით; წითელ ნუსხაში CR. ფოტოები, სად ბინადრობს, რას ჭამს და საშიშია თუ არა.",
   "/dzuzumtsovrebi/gareuli-ghori":
@@ -110,8 +110,6 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "საყელოიანი ეირენისი (Eirenis collaris) პატარა უშხამო გველია სამხრეთ-აღმოსავლეთ საქართველოში; Colubridae-ს ოჯახს მიეკუთვნება.",
   "/gvelebi/saxeebiani-mtsuravi":
     "სახეებიანი მცურავი (Elaphe dione) უშხამო, ნახატიანი გველია საქართველოს მშრალ ჰაბიტატებში და Colubridae-ს ოჯახს მიეკუთვნება.",
-  "/gvelebi/saxeoebebi":
-    "საქართველოს გველების სახეობები ერთ ცხრილში: ქართული და სამეცნიერო სახელი, შხამიანობა, გავრცელება, ზომა და ჰაბიტატი.",
   "/gvelebi/shxamiani-gvelebi":
     "საქართველოში შხამიანი გველების გიდი — გიურზა (Macrovipera lebetinus), ექვსი გველგესლა და ხვლიკიჭამია: ამოცნობა, გავრცელება, რისკი და უსაფრთხოება.",
   "/gvelebi/shxamiani-gvelis-amocnoba":
