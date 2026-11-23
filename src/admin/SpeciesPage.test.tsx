@@ -10,6 +10,7 @@ import {
   clearSpeciesCache,
   fetchAdminSpecies,
   SessionExpiredError,
+  setSpeciesStatuses,
 } from "./species";
 import { SpeciesPage } from "./SpeciesPage";
 
@@ -17,6 +18,7 @@ vi.mock("./species", async (importOriginal) => ({
   ...(await importOriginal<typeof import("./species")>()),
   clearSpeciesCache: vi.fn(),
   fetchAdminSpecies: vi.fn(),
+  setSpeciesStatuses: vi.fn(),
 }));
 
 vi.mock("./site", () => ({ clearSiteCache: vi.fn() }));
@@ -70,7 +72,22 @@ beforeEach(() => {
   vi.mocked(fetchAdminSpecies).mockReset();
   vi.mocked(clearSpeciesCache).mockReset();
   vi.mocked(clearSiteCache).mockReset();
+  vi.mocked(setSpeciesStatuses).mockReset();
 });
+
+async function confirmStatus(count: number, status: string) {
+  const popup = (
+    await screen.findByText(`Set ${count} species to ${status}?`)
+  ).closest(".ant-popover") as HTMLElement;
+  await userEvent.click(
+    within(popup).getByRole("button", { name: "Set status" }),
+  );
+}
+
+async function selectRow(id: string) {
+  const row = (await screen.findByText(id)).closest("tr")!;
+  await userEvent.click(within(row).getByRole("checkbox"));
+}
 
 describe("SpeciesPage", () => {
   it("lists every species with its status and drafts", async () => {
@@ -180,6 +197,84 @@ describe("SpeciesPage", () => {
     );
     expect(await screen.findByText("გიურზა")).toBeInTheDocument();
     expect(fetchAdminSpecies).toHaveBeenCalledTimes(2);
+  });
+
+  it("sets the status of the selected species in one request", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    vi.mocked(setSpeciesStatuses).mockResolvedValue([
+      { id: "bubo-bubo", status: "changed", version: 2 },
+      {
+        code: "invalid_request",
+        id: "macrovipera-lebetina",
+        message: "The species is already published",
+        status: "failed",
+      },
+    ]);
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    const apply = await screen.findByRole("button", {
+      name: "Set status (0)",
+    });
+    expect(apply).toBeDisabled();
+    await selectRow("bubo-bubo");
+    await selectRow("macrovipera-lebetina");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Set status (2)" }),
+    );
+    await confirmStatus(2, "published");
+    await vi.waitFor(() =>
+      expect(setSpeciesStatuses).toHaveBeenCalledExactlyOnceWith(
+        [
+          { expectedVersion: 1, id: "bubo-bubo" },
+          { expectedVersion: 1, id: "macrovipera-lebetina" },
+        ],
+        "published",
+      ),
+    );
+    expect(
+      await screen.findByText(/Set 1 of 2 species to published/),
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText(
+        "Not changed: macrovipera-lebetina (The species is already published)",
+      ),
+    ).toBeInTheDocument();
+    await vi.waitFor(() => expect(fetchAdminSpecies).toHaveBeenCalledTimes(2));
+    expect(screen.getByText("Set status (0)")).toBeInTheDocument();
+  });
+
+  it("sends the chosen status and reports a refused request", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    vi.mocked(setSpeciesStatuses).mockRejectedValue(
+      new Error("Status change failed: 429"),
+    );
+    render(<SpeciesPage onSessionExpired={vi.fn()} />);
+    await selectRow("macrovipera-lebetina");
+    await userEvent.click(screen.getByLabelText("New status"));
+    await userEvent.click((await screen.findAllByTitle("unpublished")).at(-1)!);
+    await userEvent.click(
+      screen.getByRole("button", { name: "Set status (1)" }),
+    );
+    await confirmStatus(1, "unpublished");
+    expect(
+      await screen.findByText("Status change failed: 429"),
+    ).toBeInTheDocument();
+    expect(setSpeciesStatuses).toHaveBeenCalledExactlyOnceWith(
+      [{ expectedVersion: 1, id: "macrovipera-lebetina" }],
+      "unpublished",
+    );
+  });
+
+  it("returns to sign-in when the session expires during a status change", async () => {
+    vi.mocked(fetchAdminSpecies).mockResolvedValue(PAGE);
+    vi.mocked(setSpeciesStatuses).mockRejectedValue(new SessionExpiredError());
+    const onSessionExpired = vi.fn();
+    render(<SpeciesPage onSessionExpired={onSessionExpired} />);
+    await selectRow("bubo-bubo");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Set status (1)" }),
+    );
+    await confirmStatus(1, "published");
+    await vi.waitFor(() => expect(onSessionExpired).toHaveBeenCalledOnce());
   });
 
   it("links each species to its detail page", async () => {

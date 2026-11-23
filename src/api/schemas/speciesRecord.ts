@@ -6,7 +6,10 @@ import {
 } from "@/data/herpetofauna-checklist";
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
-import { DRAFT_MERGE_BATCH_SIZE } from "@/lib/draftMergeBatch";
+import {
+  DRAFT_MERGE_BATCH_SIZE,
+  SPECIES_STATUS_BATCH_SIZE,
+} from "@/lib/draftMergeBatch";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { sourcesAreValid } from "@/lib/speciesSources";
 
@@ -270,6 +273,23 @@ export const photoOrderBody = z.strictObject({
 
 export const speciesStatusBody = z.strictObject({
   expectedVersion: z.int().min(1),
+  status: z.enum(SPECIES_STATUSES),
+});
+
+export const speciesBulkStatusBody = z.strictObject({
+  species: z
+    .array(
+      z.strictObject({
+        expectedVersion: z.int().min(1),
+        id: z.string().regex(SLUG).max(100),
+      }),
+    )
+    .min(1)
+    .max(SPECIES_STATUS_BATCH_SIZE)
+    .refine(
+      (items) => new Set(items.map((item) => item.id)).size === items.length,
+      { message: "Species ids must be unique" },
+    ),
   status: z.enum(SPECIES_STATUSES),
 });
 

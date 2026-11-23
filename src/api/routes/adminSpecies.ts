@@ -75,6 +75,7 @@ import {
   photoCoverBody,
   photoOrderBody,
   photoRemoveBody,
+  speciesBulkStatusBody,
   speciesIdParam,
   speciesRecordSchema,
   speciesStatusBody,
@@ -114,6 +115,22 @@ export const adminSpecies = new Hono<ApiEnv>()
       const data = await readFieldRecords(c.env.DB, id);
       c.header("Cache-Control", NO_STORE);
       return c.json({ data, id, total: data.length }, 200);
+    },
+  )
+  .post(
+    "/status",
+    requireSiteOrigin,
+    rateLimitAdmin,
+    requireAdminSession,
+    validate("json", speciesBulkStatusBody),
+    async (c) => {
+      const { species, status } = c.req.valid("json");
+      const results: StatusResult[] = [];
+      for (const { expectedVersion, id } of species) {
+        results.push(await setStatus(c, id, expectedVersion, status));
+      }
+      c.header("Cache-Control", NO_STORE);
+      return c.json({ data: { results } }, 200);
     },
   )
   .post(
@@ -386,25 +403,7 @@ export const adminSpecies = new Hono<ApiEnv>()
     async (c) => {
       const { id } = c.req.valid("param");
       const { expectedVersion, status } = c.req.valid("json");
-      const current = await readCurrent(c, id, expectedVersion);
-      if (current.record.status === status) {
-        throw new ApiError(
-          400,
-          "invalid_request",
-          `The species is already ${status}`,
-        );
-      }
-      const { version } = await change(
-        c,
-        id,
-        c.var.user!.name,
-        `Set status ${status}`,
-        (record) => {
-          record.status = status;
-        },
-        [],
-        current,
-      );
+      const version = await changeStatus(c, id, expectedVersion, status);
       return c.json({ data: { status, version } }, 200);
     },
   )
@@ -551,6 +550,12 @@ export const adminSpecies = new Hono<ApiEnv>()
     },
   );
 
+type SpeciesStatus = SpeciesRecord["status"];
+
+type StatusResult =
+  | { code: ApiErrorCode; id: string; message: string; status: "failed" }
+  | { id: string; status: "changed"; version: number };
+
 async function change<T>(
   c: Context<ApiEnv>,
   id: string,
@@ -582,6 +587,34 @@ async function change<T>(
   );
   c.header("Cache-Control", NO_STORE);
   return { record, result, version };
+}
+
+async function changeStatus(
+  c: Context<ApiEnv>,
+  id: string,
+  expectedVersion: number,
+  status: SpeciesStatus,
+) {
+  const current = await readCurrent(c, id, expectedVersion);
+  if (current.record.status === status) {
+    throw new ApiError(
+      400,
+      "invalid_request",
+      `The species is already ${status}`,
+    );
+  }
+  const { version } = await change(
+    c,
+    id,
+    c.var.user!.name,
+    `Set status ${status}`,
+    (record) => {
+      record.status = status;
+    },
+    [],
+    current,
+  );
+  return version;
 }
 
 async function changeWithRetry<T>(
@@ -652,6 +685,21 @@ async function readForWrite(
   assertNoAddedSourceFraming(current.record, record);
   assertAiKeepsOwnerFields(source, current.record, record);
   return current;
+}
+
+async function setStatus(
+  c: Context<ApiEnv>,
+  id: string,
+  expectedVersion: number,
+  status: SpeciesStatus,
+): Promise<StatusResult> {
+  try {
+    const version = await changeStatus(c, id, expectedVersion, status);
+    return { id, status: "changed", version };
+  } catch (error) {
+    if (!(error instanceof ApiError)) throw error;
+    return { code: error.code, id, message: error.message, status: "failed" };
+  }
 }
 
 const INATURALIST_FAILURES: Record<

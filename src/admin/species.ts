@@ -3,6 +3,8 @@ import type { InferRequestType, InferResponseType } from "hono/client";
 import type { CoverTarget } from "@/lib/adminCover";
 import type { Page } from "@/lib/pagination";
 
+import { draftMergeBatches } from "@/lib/draftMergeBatch";
+
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
 import { fetchAllPages, type PagedQuery, toQueryParams } from "./pagination";
@@ -28,6 +30,11 @@ export type AdminSpeciesRecord = InferResponseType<
   (typeof api.v1.admin.species)[":id"]["$get"],
   200
 >["data"];
+
+export type SpeciesStatusResult = InferResponseType<
+  typeof api.v1.admin.species.status.$post,
+  200
+>["data"]["results"][number];
 
 export type SpeciesTextsInput = InferRequestType<
   (typeof api.v1.admin.species)[":id"]["texts"]["$post"]
@@ -172,4 +179,19 @@ export async function setSpeciesStatus(
   await checkAdminSave(response, "Status change failed");
   return ((await response.json()) as { data: { version: number } }).data
     .version;
+}
+
+export async function setSpeciesStatuses(
+  species: { expectedVersion: number; id: string }[],
+  status: AdminSpecies["status"],
+): Promise<SpeciesStatusResult[]> {
+  const results: SpeciesStatusResult[] = [];
+  for (const batch of draftMergeBatches(species)) {
+    const response = await api.v1.admin.species.status.$post({
+      json: { species: batch, status },
+    });
+    await checkAdminSave(response, "Status change failed");
+    results.push(...(await response.json()).data.results);
+  }
+  return results;
 }
