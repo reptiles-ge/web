@@ -1176,6 +1176,7 @@
     "galleryFilterLabel": "ფილტრი ჯგუფის მიხედვით",
     "galleryShowAll": "ყველა {count} ფოტოს ნახვა",
     "speciesTitle": "{species, plural, other {# სახეობა}}, {groups, plural, other {# ჯგუფი}}",
+    "speciesShowMore": "+ {count} ნახვა",
     "portfolio": "ამ ავტორის {photos} ფოტო ატლასში {species} სახეობის პროფილზეა გამოყენებული: {list}.",
     "portfolioMore": "{count} სხვა",
     "portfolioGroup": "ყველაზე მეტი, {photos} ფოტო, ჯგუფს „{hub}“ ეკუთვნის.",

@@ -1176,6 +1176,7 @@
     "galleryFilterLabel": "Filter by group",
     "galleryShowAll": "See all {count} photos",
     "speciesTitle": "{species, plural, one {# species} other {# species}}, {groups, plural, one {# group} other {# groups}}",
+    "speciesShowMore": "+ {count} more",
     "portfolio": "{photos, plural, one {One photo by this contributor appears} other {# photos by this contributor appear}} on {species, plural, one {# species profile} other {# species profiles}} in the atlas: {list}.",
     "portfolioMore": "{count, plural, one {# other} other {# others}}",
     "portfolioGroup": "The largest share is in the {hub} section: {photos, plural, one {# photo} other {# photos}}.",
