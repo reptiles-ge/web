@@ -125,10 +125,11 @@ export const adminSpecies = new Hono<ApiEnv>()
     validate("json", speciesBulkStatusBody),
     async (c) => {
       const { species, status } = c.req.valid("json");
-      const results: StatusResult[] = [];
-      for (const { expectedVersion, id } of species) {
-        results.push(await setStatus(c, id, expectedVersion, status));
-      }
+      const results = await Promise.all(
+        species.map(({ expectedVersion, id }) =>
+          setStatus(c, id, expectedVersion, status),
+        ),
+      );
       c.header("Cache-Control", NO_STORE);
       return c.json({ data: { results } }, 200);
     },

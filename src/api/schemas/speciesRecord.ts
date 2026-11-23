@@ -5,11 +5,8 @@ import {
   isHerpetofaunaGroup,
 } from "@/data/herpetofauna-checklist";
 import { groupHasVenomConcept } from "@/data/speciesAtlasMeta";
+import { ADMIN_BATCH_SIZE } from "@/lib/adminBatch";
 import { ANIMAL_GROUPS } from "@/lib/animalGroups";
-import {
-  DRAFT_MERGE_BATCH_SIZE,
-  SPECIES_STATUS_BATCH_SIZE,
-} from "@/lib/draftMergeBatch";
 import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { sourcesAreValid } from "@/lib/speciesSources";
 
@@ -285,7 +282,7 @@ export const speciesBulkStatusBody = z.strictObject({
       }),
     )
     .min(1)
-    .max(SPECIES_STATUS_BATCH_SIZE)
+    .max(ADMIN_BATCH_SIZE)
     .refine(
       (items) => new Set(items.map((item) => item.id)).size === items.length,
       { message: "Species ids must be unique" },
@@ -324,7 +321,7 @@ export const draftMergeBody = z.strictObject({
   draftIds: z
     .array(z.int().min(1))
     .min(1)
-    .max(DRAFT_MERGE_BATCH_SIZE)
+    .max(ADMIN_BATCH_SIZE)
     .refine((ids) => new Set(ids).size === ids.length, {
       message: "Draft ids must be unique",
     }),

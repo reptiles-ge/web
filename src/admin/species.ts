@@ -3,7 +3,7 @@ import type { InferRequestType, InferResponseType } from "hono/client";
 import type { CoverTarget } from "@/lib/adminCover";
 import type { Page } from "@/lib/pagination";
 
-import { draftMergeBatches } from "@/lib/draftMergeBatch";
+import { adminBatches } from "@/lib/adminBatch";
 
 import { checkAdminResponse, checkAdminSave } from "./adminResponse";
 import { api } from "./apiClient";
@@ -44,6 +44,8 @@ type SpeciesTextsSaved = InferResponseType<
   (typeof api.v1.admin.species)[":id"]["texts"]["$post"],
   200
 >["data"];
+
+type SpeciesVersion = { expectedVersion: number; id: string };
 
 export const SPECIES_STATUS_COLORS: Record<AdminSpecies["status"], string> = {
   draft: "gold",
@@ -181,17 +183,29 @@ export async function setSpeciesStatus(
     .version;
 }
 
-export async function setSpeciesStatuses(
-  species: { expectedVersion: number; id: string }[],
+export function setSpeciesStatuses(
+  species: SpeciesVersion[],
   status: AdminSpecies["status"],
 ): Promise<SpeciesStatusResult[]> {
-  const results: SpeciesStatusResult[] = [];
-  for (const batch of draftMergeBatches(species)) {
-    const response = await api.v1.admin.species.status.$post({
-      json: { species: batch, status },
-    });
-    await checkAdminSave(response, "Status change failed");
-    results.push(...(await response.json()).data.results);
-  }
-  return results;
+  return postStatusBatches(adminBatches(species), status);
+}
+
+async function postStatusBatch(
+  species: SpeciesVersion[],
+  status: AdminSpecies["status"],
+) {
+  const response = await api.v1.admin.species.status.$post({
+    json: { species, status },
+  });
+  await checkAdminSave(response, "Status change failed");
+  return (await response.json()).data.results;
+}
+
+async function postStatusBatches(
+  [batch, ...rest]: SpeciesVersion[][],
+  status: AdminSpecies["status"],
+): Promise<SpeciesStatusResult[]> {
+  if (!batch) return [];
+  const results = await postStatusBatch(batch, status);
+  return [...results, ...(await postStatusBatches(rest, status))];
 }

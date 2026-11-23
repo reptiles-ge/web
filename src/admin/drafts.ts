@@ -2,8 +2,8 @@ import type { InferResponseType } from "hono/client";
 
 import type { Page } from "@/lib/pagination";
 
+import { adminBatches } from "@/lib/adminBatch";
 import { responseOk } from "@/lib/apiClient";
-import { draftMergeBatches } from "@/lib/draftMergeBatch";
 
 import { checkAdminResponse, SessionExpiredError } from "./adminResponse";
 import { api } from "./apiClient";
@@ -74,7 +74,7 @@ export async function mergeDraft(id: number) {
 export async function mergeDrafts(ids: number[]) {
   const results: DraftMergeResult[] = [];
   let revalidated = true;
-  for (const draftIds of draftMergeBatches(ids)) {
+  for (const draftIds of adminBatches(ids)) {
     const response = await api.v1.admin.drafts.merge.$post({
       json: { draftIds },
     });
