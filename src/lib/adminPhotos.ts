@@ -1,5 +1,4 @@
 import {
-  BunnyStorageAdapter,
   INPUT_MIME_TYPES,
   slugifyFileName,
   type StorageAdapter,
@@ -24,6 +23,7 @@ import {
   optimizeUploadedOriginal,
 } from "@/lib/imageOptimize";
 import { PHOTO_ENCODING, PHOTO_MAX_UPLOAD_BYTES } from "@/lib/photoDerivatives";
+import { r2StorageFromEnv } from "@/lib/r2Storage";
 import { CDN_BASE } from "@/lib/site";
 import { transliterateKa } from "@/lib/slugify";
 
@@ -204,18 +204,7 @@ function cdnStorageKey(src: string) {
 }
 
 function createStorage() {
-  const env = serverEnv();
-  if (!env.BUNNY_STORAGE_ZONE || !env.BUNNY_STORAGE_ACCESS_KEY) {
-    throw new Error(
-      "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be in .env.local",
-    );
-  }
-  return new BunnyStorageAdapter({
-    accessKey: env.BUNNY_STORAGE_ACCESS_KEY,
-    cdnBaseUrl: env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    storageZone: env.BUNNY_STORAGE_ZONE,
-    ...(env.BUNNY_STORAGE_REGION ? { region: env.BUNNY_STORAGE_REGION } : {}),
-  });
+  return r2StorageFromEnv(serverEnv());
 }
 
 function cropRegion(

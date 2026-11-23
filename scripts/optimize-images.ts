@@ -38,7 +38,7 @@ import {
   withNewsInbox,
 } from "../src/lib/newsMdxArticle";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
-import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
+import { createCdnStorage, formatBytes, loadEnv } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -494,7 +494,7 @@ async function run() {
     additionalWidths: ADDITIONAL_WIDTHS,
   });
   const og = resolveOgImageConfig();
-  const storage: StorageAdapter = createBunnyStorageContext().storage;
+  const storage: StorageAdapter = createCdnStorage();
   const token = writeToken();
   const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 

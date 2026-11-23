@@ -83,6 +83,12 @@
       "migrations_dir": "migrations/api",
     },
   ],
+  "r2_buckets": [
+    {
+      "binding": "CDN_BUCKET",
+      "bucket_name": "reptiles-cdn",
+    },
+  ],
   "observability": {
     "logs": {
       "enabled": true,

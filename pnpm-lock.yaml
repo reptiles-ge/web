@@ -191,6 +191,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 5.1.0
         version: 5.1.0(vitest@5.1.0)
+      aws4fetch:
+        specifier: 1.0.20
+        version: 1.0.20
       axe-core:
         specifier: ^4.14.0
         version: 4.14.0
@@ -2760,7 +2763,7 @@ packages:
       react-dom: '>=18.0.0'
 
   '@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28}
+    resolution: {gitHosted: true, integrity: sha512-E4PZbo8Gt4NmGsj9fnJNMqh/pnMG4oTFfbwMuTTsfxWA91kjhOE/WjLHTxSPLkYPGzRb2rgjMFfWPZOBw5i8Vw==, tarball: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28}
     version: 0.1.0
     engines: {node: '>=20.11'}
     hasBin: true
@@ -4097,6 +4100,9 @@ packages:
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
+
+  aws4fetch@1.0.20:
+    resolution: {integrity: sha512-/djoAN709iY65ETD6LKCtyyEI04XIBP5xVvfmNxsEP0uJB5tyaGBztSryRr4HqMStr9R06PisQE7m9zDTXKu6g==}
 
   axe-core@4.14.0:
     resolution: {integrity: sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==}
@@ -10210,6 +10216,8 @@ snapshots:
   available-typed-arrays@1.0.7:
     dependencies:
       possible-typed-array-names: 1.1.0
+
+  aws4fetch@1.0.20: {}
 
   axe-core@4.14.0: {}
 

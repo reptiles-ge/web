@@ -1,9 +1,10 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 
 import type { SpeciesRecord } from "../db/speciesRows";
 import type { ApiBindings } from "../env";
 
 import { adminSessionHeaders } from "../testing/adminSession";
+import { type MemoryBucket, memoryBucket } from "../testing/memoryBucket";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -15,13 +16,9 @@ const MP3 = new Uint8Array(4096);
 MP3.set([0x49, 0x44, 0x33, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a]);
 MP3.set([0xff, 0xfb, 0x90, 0x64], 20);
 
-type Upstream = ReturnType<
-  typeof vi.fn<(url: string, init?: RequestInit) => Promise<Response>>
->;
-
 let env: ApiBindings;
 let session: Record<string, string>;
-let upstream: Upstream;
+let bucket: MemoryBucket;
 
 async function record() {
   const { body } = await requestJson<{
@@ -53,23 +50,14 @@ function upload(
 
 beforeEach(async () => {
   const database = createSpeciesTestDatabase();
-  upstream = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(
-    async () => new Response(null, { status: 201 }),
-  );
-  vi.stubGlobal("fetch", upstream);
+  bucket = memoryBucket();
   env = {
     ALLOWED_ORIGINS: ADMIN_ORIGIN,
     API_WRITE_TOKEN: TOKEN,
-    BUNNY_STORAGE_ACCESS_KEY: "bunny-key",
-    BUNNY_STORAGE_ZONE: "reptiles",
+    CDN_BUCKET: bucket,
     DB: database.db,
   };
   session = await adminSessionHeaders(database.sqlite);
-});
-
-afterEach(() => {
-  vi.unstubAllGlobals();
-  vi.restoreAllMocks();
 });
 
 describe("POST /v1/admin/species/:id/audio", () => {
@@ -83,13 +71,9 @@ describe("POST /v1/admin/species/:id/audio", () => {
       xenoCantoId: "222",
     });
     expect(response.status).toBe(201);
-    const put = upstream.mock.calls.find(([, init]) => init?.method === "PUT");
-    expect(put?.[0]).toBe(
-      `https://storage.bunnycdn.com/reptiles/audio/${ID}-xc222.mp3`,
-    );
-    expect((put?.[1]?.headers as Record<string, string>)["Content-Type"]).toBe(
-      "audio/mpeg",
-    );
+    expect(bucket.puts()).toStrictEqual([
+      { contentType: "audio/mpeg", key: `audio/${ID}-xc222.mp3` },
+    ]);
     const audio = {
       date: "2020-04",
       location: "Vashlovani, Georgia",
@@ -115,7 +99,7 @@ describe("POST /v1/admin/species/:id/audio", () => {
     );
     expect(response.status).toBe(400);
     expect(body.error.message).toContain("MP3");
-    expect(upstream).not.toHaveBeenCalled();
+    expect(bucket.puts()).toStrictEqual([]);
   });
 
   it("refuses an old version", async () => {
@@ -126,7 +110,7 @@ describe("POST /v1/admin/species/:id/audio", () => {
       xenoCantoId: "222",
     });
     expect(response.status).toBe(409);
-    expect(upstream).not.toHaveBeenCalled();
+    expect(bucket.puts()).toStrictEqual([]);
   });
 
   it("needs an admin session from the admin origin", async () => {

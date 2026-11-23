@@ -11,12 +11,7 @@ import { getGuideArticles } from "../src/data/guideArticles";
 import { OPTIMIZED_BASE_URL as optimizedBaseUrl } from "../src/lib/optimizedImageSources";
 import { optimizedEntry } from "../src/data/optimizedImages";
 import { absoluteImageUrl, CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
-import {
-  createBunnyStorageContext,
-  formatBytes,
-  loadEnv,
-  mapPool,
-} from "./scriptUtils";
+import { createCdnStorage, formatBytes, loadEnv, mapPool } from "./scriptUtils";
 import { getSpeciesCatalog } from "../src/lib/speciesCatalogApi";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -316,7 +311,7 @@ async function main() {
       (item): item is typeof item & { image: string } => Boolean(item.image),
     ),
   );
-  const storage = createBunnyStorageContext().storage;
+  const storage = createCdnStorage();
 
   const speciesCount = targets.filter((t) => t.kind === "species").length;
   const guideCount = targets.filter((t) => t.kind === "guide").length;

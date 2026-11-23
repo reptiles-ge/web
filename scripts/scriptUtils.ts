@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { BunnyStorageAdapter } from "@reptiles-ge/img-compression/storage";
-import { CDN_BASE } from "../src/lib/site";
+import { serverEnv } from "../src/lib/env";
+import { r2StorageFromEnv } from "../src/lib/r2Storage";
 
 export function loadEnv(root = process.cwd()) {
   for (const file of [".env.local", ".env"]) {
@@ -11,26 +11,8 @@ export function loadEnv(root = process.cwd()) {
   }
 }
 
-export function createBunnyStorageContext() {
-  const storageZone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-
-  if (!storageZone || !accessKey) {
-    throw new Error(
-      "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be set. Put them in .env.local or .env.",
-    );
-  }
-
-  const storage = new BunnyStorageAdapter({
-    accessKey,
-    cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    storageZone,
-    ...(process.env.BUNNY_STORAGE_REGION
-      ? { region: process.env.BUNNY_STORAGE_REGION }
-      : {}),
-  });
-
-  return { accessKey, storage, storageZone };
+export function createCdnStorage() {
+  return r2StorageFromEnv(serverEnv());
 }
 
 export function formatBytes(bytes: number) {
