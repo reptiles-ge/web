@@ -18,8 +18,8 @@ import { reservePhotoUploadKey } from "../db/photoUploadKeys";
 import { listAdminSpecies } from "../db/species";
 import { insertDraft, listPendingDrafts } from "../db/speciesDrafts";
 import { readSpeciesRecord, readSpeciesVersion } from "../db/speciesWrite";
-import { bunnyStorage } from "../lib/bunnyStorage";
 import { NO_STORE } from "../lib/cache";
+import { cdnStorage } from "../lib/cdnStorage";
 import { ApiError, type ApiErrorCode } from "../lib/errors";
 import {
   addGalleryPhoto,
@@ -205,7 +205,7 @@ export const adminSpecies = new Hono<ApiEnv>()
         c.req.valid("form");
       const current = await readSpeciesRecord(c.env.DB, id);
       if (!current) throw new ApiError(404, "not_found", "Species not found");
-      const storage = bunnyStorage(c.env);
+      const storage = cdnStorage(c.env);
       const credits = photoCredits({
         ...credit,
         georgiaField: georgiaField === "1",
@@ -281,7 +281,7 @@ export const adminSpecies = new Hono<ApiEnv>()
         readCurrent(c, id, expectedVersion),
         checkMp3(file),
       ]);
-      const storage = bunnyStorage(c.env);
+      const storage = cdnStorage(c.env);
       const key = xenoCantoAudioKey(id, xenoCantoId);
       await storage.put(key, bytes, "audio/mpeg");
       const { result, version } = await change(

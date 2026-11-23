@@ -25,7 +25,7 @@ import {
   type NewsHeroImage as CropSource,
 } from "../src/lib/newsSchemaImages";
 import { absoluteImageUrl, CDN_BASE } from "../src/lib/site";
-import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
+import { createCdnStorage, formatBytes, loadEnv } from "./scriptUtils";
 import { getNewsArticles } from "../src/lib/newsApi";
 import {
   NEWS_INBOX_DIR,
@@ -156,7 +156,7 @@ async function readSource(hero: CropSource) {
 }
 
 function createStorage(upload: boolean): StorageAdapter {
-  if (upload) return createBunnyStorageContext().storage;
+  if (upload) return createCdnStorage();
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "news-schema-"));
   return new LocalStorageAdapter({ baseUrl: "/", root });
 }

@@ -54,16 +54,16 @@ describe("publicEnv", () => {
 
 describe("serverEnv", () => {
   it("treats blank values as unset and trims the rest", () => {
-    vi.stubEnv("BUNNY_STORAGE_ZONE", " zone ");
-    vi.stubEnv("BUNNY_STORAGE_ACCESS_KEY", "   ");
+    vi.stubEnv("R2_BUCKET", " reptiles-cdn ");
+    vi.stubEnv("R2_SECRET_ACCESS_KEY", "   ");
     const env = serverEnv();
-    expect(env.BUNNY_STORAGE_ZONE).toBe("zone");
-    expect(env.BUNNY_STORAGE_ACCESS_KEY).toBeUndefined();
+    expect(env.R2_BUCKET).toBe("reptiles-cdn");
+    expect(env.R2_SECRET_ACCESS_KEY).toBeUndefined();
   });
 
-  it("rejects a CDN base URL that is not a URL", () => {
-    vi.stubEnv("BUNNY_CDN_BASE_URL", "cdn");
-    expect(() => serverEnv()).toThrow(/BUNNY_CDN_BASE_URL/);
+  it("rejects an R2 account id that is not 32 hex characters", () => {
+    vi.stubEnv("R2_ACCOUNT_ID", "account");
+    expect(() => serverEnv()).toThrow(/R2_ACCOUNT_ID/);
   });
 });
 
@@ -74,7 +74,7 @@ describe("validateEnv", () => {
 
   it("lists every problem in one error", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "not a url");
-    vi.stubEnv("BUNNY_CDN_BASE_URL", "cdn");
+    vi.stubEnv("R2_ACCOUNT_ID", "account");
     expect(() => validateEnv()).toThrow(/NEXT_PUBLIC_SITE_URL/);
   });
 });

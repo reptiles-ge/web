@@ -17,7 +17,7 @@ import { CDN_BASE } from "@/lib/site";
 
 import type { OptimizedImageRow } from "../db/optimizedImages";
 import type { SpeciesRecord } from "../db/speciesRows";
-import type { PhotoStorage } from "./bunnyStorage";
+import type { PhotoStorage } from "./cdnStorage";
 
 import { ApiError } from "./errors";
 import { probeImage } from "./imageProbe";

@@ -2,13 +2,13 @@
 
 Build and maintenance scripts for reptiles.ge. Prefer the pnpm scripts in `package.json`; call `tsx scripts/…` directly only when you need extra flags.
 
-BunnyCDN scripts need `.env` / `.env.local`:
+CDN scripts write to the R2 bucket `reptiles-cdn` (served at `https://cdn.reptiles.ge`) through its S3 API (`src/lib/r2Storage.ts`) and need `.env` / `.env.local`:
 
 ```bash
-BUNNY_STORAGE_ZONE=…
-BUNNY_STORAGE_ACCESS_KEY=…
-BUNNY_STORAGE_REGION=…   # optional
-BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
+R2_ACCOUNT_ID=…
+R2_ACCESS_KEY_ID=…       # R2 API token, Object Read & Write on reptiles-cdn
+R2_SECRET_ACCESS_KEY=…
+R2_BUCKET=reptiles-cdn   # optional
 ```
 
 ---
@@ -24,10 +24,10 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 | Spot broken CDN image URLs                   | `pnpm images:check`      |
 | Are species OG images live?                  | `pnpm images:check-og`   |
 | Upload missing OG images (species + guides)  | `pnpm images:og-missing` |
-| AVIF/WebP + OG optimize on Bunny             | `pnpm images:optimize …` |
+| AVIF/WebP + OG optimize on the CDN (R2)      | `pnpm images:optimize …` |
 | Move the old committed image catalog into D1 | `pnpm images:import`     |
 | Unused files under `public/images`           | `pnpm images:unused`     |
-| Unused photos on BunnyCDN                    | `pnpm images:cdn-unused` |
+| Unused photos on the CDN (R2)                | `pnpm images:cdn-unused` |
 
 `pnpm dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
 
@@ -77,7 +77,7 @@ Flags: `--json`, `--concurrency N`, `--timeout Ms`.
 
 ---
 
-## Images — optimize & OG (BunnyCDN)
+## Images — optimize & OG (R2)
 
 ### `optimize-images.ts` → `pnpm images:optimize`
 
@@ -99,7 +99,7 @@ Other flags: `--force`, `--limit N`, `--concurrency N`.
 
 ### `generate-missing-og.ts` → `pnpm images:og-missing`
 
-Generates and uploads OG images to Bunny for species and guide articles that are missing them. Dry-run: `--dry-run`. Specific ids: `--species id1,id2`, `--guide id1,id2`.
+Generates and uploads OG images to the CDN (R2) for species and guide articles that are missing them. Dry-run: `--dry-run`. Specific ids: `--species id1,id2`, `--guide id1,id2`.
 
 ---
 
@@ -110,7 +110,7 @@ Two different stores — do not mix them up:
 | Script                    | Compares                           | Delete                               |
 | ------------------------- | ---------------------------------- | ------------------------------------ |
 | `remove-unused-images.js` | `public/images` vs repo references | `--delete` or `images:unused:delete` |
-| `cdn-unused-images.ts`    | BunnyCDN storage vs repo CDN URLs  | Interactive **Y/N** at the end       |
+| `cdn-unused-images.ts`    | R2 storage vs repo CDN URLs        | Interactive **Y/N** at the end       |
 
 ### `remove-unused-images.js` → `pnpm images:unused`
 
@@ -119,10 +119,10 @@ Local `public/images`. Dry-run by default. Delete with `pnpm images:unused:delet
 ### `cdn-unused-images.ts` → `pnpm images:cdn-unused`
 
 1. Scans the repo for used `cdn.reptiles.ge` URLs (originals + `optimized/` + `og/` derivatives)
-2. Diffs against Bunny storage
+2. Diffs against R2 storage
 3. Always includes **root-folder JPEG originals** (`foo.jpg` at storage `/`, no path prefix) — those are temporary uploads and are always offered for delete, even if still referenced
 4. Writes `cdn-unused-images.txt` (gitignored)
-5. Asks: `N unused photos. Delete from BunnyCDN? [Y/N]`
+5. Asks: `N unused photos. Delete from the CDN (R2)? [Y/N]`
 
 **Y** deletes the listed image files from storage. **N** deletes nothing.
 

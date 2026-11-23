@@ -17,7 +17,7 @@ import {
   SITE_OG_IMAGE_URL,
   ogImageUrlFromSrc,
 } from "../src/lib/site";
-import { createBunnyStorageContext, loadEnv, walkFiles } from "./scriptUtils";
+import { createCdnStorage, loadEnv, walkFiles } from "./scriptUtils";
 
 const ROOT = process.cwd();
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
@@ -48,27 +48,10 @@ const WALK_OPTIONS = {
   skipFileNames: SKIP_FILE_NAMES,
 };
 
-const REGION_HOSTS: Record<string, string> = {
-  "": "storage.bunnycdn.com",
-  de: "storage.bunnycdn.com",
-  uk: "uk.storage.bunnycdn.com",
-  ny: "ny.storage.bunnycdn.com",
-  la: "la.storage.bunnycdn.com",
-  sg: "sg.storage.bunnycdn.com",
-  se: "se.storage.bunnycdn.com",
-  br: "br.storage.bunnycdn.com",
-  jh: "jh.storage.bunnycdn.com",
-  syd: "syd.storage.bunnycdn.com",
-};
-
 function keyFromCdnUrl(url: string): string | null {
-  const base = (process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE).replace(/\/+$/, "");
-  if (!url.startsWith(`${base}/`) && !url.startsWith(`${CDN_BASE}/`)) {
-    return null;
-  }
-  const prefix = url.startsWith(`${base}/`) ? base : CDN_BASE;
+  if (!url.startsWith(`${CDN_BASE}/`)) return null;
   const key = decodeURIComponent(
-    url.slice(prefix.length + 1).split("?")[0] ?? "",
+    url.slice(CDN_BASE.length + 1).split("?")[0] ?? "",
   );
   return key || null;
 }
@@ -132,47 +115,19 @@ async function collectUsedKeys(): Promise<Set<string>> {
   return used;
 }
 
-function storageOrigin() {
-  const region = (process.env.BUNNY_STORAGE_REGION ?? "").trim().toLowerCase();
-  const host = REGION_HOSTS[region];
-  if (!host) {
-    throw new Error(`Unknown BUNNY_STORAGE_REGION "${region}".`);
-  }
-  return `https://${host}`;
-}
-
 function isRootOriginalJpeg(key: string) {
   return !key.includes("/") && /\.jpe?g$/i.test(key);
 }
 
-async function deleteStorageKey(
-  key: string,
-  storageZone: string,
-  accessKey: string,
-) {
-  const encoded = key
-    .split("/")
-    .map((segment) => encodeURIComponent(segment))
-    .join("/");
-  const url = `${storageOrigin()}/${encodeURIComponent(storageZone)}/${encoded}`;
-  const response = await fetch(url, {
-    headers: { AccessKey: accessKey },
-    method: "DELETE",
-  });
-  if (!response.ok && response.status !== 404) {
-    throw new Error(`DELETE ${key} → HTTP ${response.status}`);
-  }
-}
-
 async function main() {
   loadEnv(ROOT);
-  const { accessKey, storage, storageZone } = createBunnyStorageContext();
+  const storage = createCdnStorage();
 
   console.log("Scanning repo for CDN image references…");
   const used = await collectUsedKeys();
   console.log(`Used CDN keys (incl. optimized/og derivatives): ${used.size}`);
 
-  console.log("Listing BunnyCDN storage…");
+  console.log("Listing CDN storage (R2)…");
   const listed = await storage.list("");
   const images = listed.filter((key) => IMAGE_EXT.test(key));
   const unused = images
@@ -180,7 +135,7 @@ async function main() {
     .sort();
   const rootOriginals = unused.filter(isRootOriginalJpeg).length;
 
-  console.log(`BunnyCDN image files: ${images.length}`);
+  console.log(`CDN image files: ${images.length}`);
   console.log(
     `Unused image files: ${unused.length}` +
       (rootOriginals > 0
@@ -205,7 +160,7 @@ async function main() {
   try {
     const answer = (
       await rl.question(
-        `\n${unused.length} ფოტოა წასაშლელი (unused + root JPEG originals). წავშალოთ BunnyCDN-დან? [Y/N] `,
+        `\n${unused.length} ფოტოა წასაშლელი (unused + root JPEG originals). წავშალოთ CDN-დან (R2)? [Y/N] `,
       )
     )
       .trim()
@@ -219,7 +174,7 @@ async function main() {
     console.log("Deleting…");
     let deleted = 0;
     for (const key of unused) {
-      await deleteStorageKey(key, storageZone, accessKey);
+      await storage.delete(key);
       deleted += 1;
       console.log(`  deleted ${key}`);
     }

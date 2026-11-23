@@ -16,6 +16,7 @@ import type { ApiBindings } from "../env";
 import { app } from "../app";
 import { adminSessionHeaders } from "../testing/adminSession";
 import { testImage, type TestImageFormat } from "../testing/images";
+import { type MemoryBucket, memoryBucket } from "../testing/memoryBucket";
 import { type ErrorBody, requestJson } from "../testing/request";
 import { createSpeciesTestDatabase } from "../testing/sqliteDatabase";
 
@@ -35,9 +36,7 @@ let session: Record<string, string>;
 let siteFetch: ReturnType<
   typeof vi.fn<(request: Request) => Promise<Response>>
 >;
-let storageFetch: ReturnType<
-  typeof vi.fn<(url: string, init: RequestInit) => Promise<Response>>
->;
+let bucket: MemoryBucket;
 let photo: Upload;
 
 function form(fields: Record<string, string>, files: Upload) {
@@ -55,12 +54,7 @@ async function image(format: TestImageFormat, width: number, height: number) {
 }
 
 function puts() {
-  return storageFetch.mock.calls
-    .filter(([, init]) => init.method === "PUT")
-    .map(([url, init]) => ({
-      contentType: (init.headers as Record<string, string>)["Content-Type"],
-      key: url.replace("https://storage.bunnycdn.com/reptiles/", ""),
-    }));
+  return bucket.puts();
 }
 
 async function record() {
@@ -115,21 +109,11 @@ beforeEach(async () => {
   siteFetch = vi.fn<(request: Request) => Promise<Response>>(
     async () => new Response(null, { status: 204 }),
   );
-  storageFetch = vi.fn<(url: string, init: RequestInit) => Promise<Response>>(
-    async (url, init) =>
-      init.method === "GET"
-        ? Response.json([
-            { IsDirectory: false, ObjectName: `${ID}-ana-1.jpg` },
-            { IsDirectory: true, ObjectName: "optimized" },
-          ])
-        : new Response(null, { status: 201 }),
-  );
-  vi.stubGlobal("fetch", storageFetch);
+  bucket = memoryBucket([`${ID}-ana-1.jpg`, `optimized/${ID}-ana-2-320.avif`]);
   env = {
     ALLOWED_ORIGINS: `https://reptiles.ge,${ADMIN_ORIGIN}`,
     API_WRITE_TOKEN: TOKEN,
-    BUNNY_STORAGE_ACCESS_KEY: "bunny-key",
-    BUNNY_STORAGE_ZONE: "reptiles",
+    CDN_BUCKET: bucket,
     DB: database.db,
     REVALIDATE_TOKEN: "site",
     SITE: { fetch: siteFetch },
@@ -190,11 +174,6 @@ describe("POST /v1/admin/species/:id/photos", () => {
         ]),
       ),
     );
-    for (const [, init] of storageFetch.mock.calls) {
-      expect((init.headers as Record<string, string>).AccessKey).toBe(
-        "bunny-key",
-      );
-    }
     const after = await record();
     expect(after.record.base.gallery).toHaveLength(
       before.record.base.gallery.length + 1,
@@ -265,6 +244,18 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(body.data.photo.src).toBe(`https://cdn.reptiles.ge/${ID}-ana-3.jpg`);
   });
 
+  it("reads every page of the CDN root before naming the photo", async () => {
+    bucket = memoryBucket(
+      [1, 2, 3].map((n) => `${ID}-ana-${n}.jpg`),
+      2,
+    );
+    env.CDN_BUCKET = bucket;
+    const { body, response } = await send();
+    expect(response.status).toBe(201);
+    expect(body.data.photo.src).toBe(`https://cdn.reptiles.ge/${ID}-ana-4.jpg`);
+    expect(bucket.listCalls()).toBe(2);
+  });
+
   it("adds no English overlay when the English credit is the same", async () => {
     const before = await record();
     const { response } = await send({});
@@ -306,7 +297,7 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(response.status).toBe(400);
     expect(body.error.code).toBe("invalid_request");
     expect(body.error.details).toStrictEqual({ missing: ["avif@320"] });
-    expect(storageFetch).not.toHaveBeenCalled();
+    expect(bucket.puts()).toStrictEqual([]);
   });
 
   it("rejects a derivative at a width the ladder does not have", async () => {
@@ -358,7 +349,7 @@ describe("POST /v1/admin/species/:id/photos", () => {
     });
     expect(response.status).toBe(400);
     expect(body.error.code).toBe("invalid_request");
-    expect(storageFetch).not.toHaveBeenCalled();
+    expect(bucket.puts()).toStrictEqual([]);
   });
 
   it("rejects an upload without the original", async () => {
@@ -403,21 +394,14 @@ describe("POST /v1/admin/species/:id/photos", () => {
   });
 
   it("answers 503 when photo storage is not configured", async () => {
-    delete env.BUNNY_STORAGE_ACCESS_KEY;
+    delete env.CDN_BUCKET;
     const { body, response } = await send();
     expect(response.status).toBe(503);
     expect(body.error.code).toBe("storage_unavailable");
   });
 
   it("answers 502 and leaves the gallery alone when storage fails", async () => {
-    storageFetch.mockImplementation(async (_url, init) =>
-      init.method === "GET"
-        ? Response.json([])
-        : Response.json(
-            { HttpCode: 401, Message: "Unauthorized" },
-            { status: 401 },
-          ),
-    );
+    bucket.failPut(new Error("put: Unauthorized (10002)"));
     const logged = vi.spyOn(console, "error").mockImplementation(() => {});
     const before = await record();
     const { body, response } = await send();
@@ -427,19 +411,15 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(logged).toHaveBeenCalledWith(
       "Photo storage request failed",
       expect.objectContaining({
-        body: '{"HttpCode":401,"Message":"Unauthorized"}',
-        key: `${ID}-ana-1.jpg`,
+        error: "put: Unauthorized (10002)",
+        key: `${ID}-ana-2.jpg`,
         operation: "put",
-        status: 401,
       }),
     );
-    expect(JSON.stringify(logged.mock.calls)).not.toContain("bunny-key");
   });
 
   it("logs the listing status when the storage listing fails", async () => {
-    storageFetch.mockImplementation(
-      async () => new Response("Forbidden", { status: 403 }),
-    );
+    bucket.failList(new Error("list: Forbidden"));
     const logged = vi.spyOn(console, "error").mockImplementation(() => {});
     const { body, response } = await send();
     expect(response.status).toBe(502);
@@ -447,10 +427,9 @@ describe("POST /v1/admin/species/:id/photos", () => {
     expect(logged).toHaveBeenCalledWith(
       "Photo storage request failed",
       expect.objectContaining({
-        body: "Forbidden",
+        error: "list: Forbidden",
         key: "/",
         operation: "list",
-        status: 403,
       }),
     );
   });
