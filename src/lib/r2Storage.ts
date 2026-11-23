@@ -7,7 +7,7 @@ import { AwsClient } from "aws4fetch";
 
 import { CDN_BASE } from "./site";
 
-export const CDN_BUCKET_NAME = "reptiles-cdn";
+const CDN_BUCKET_NAME = "reptiles-cdn";
 
 export type R2StorageEnv = {
   R2_ACCESS_KEY_ID?: string;
