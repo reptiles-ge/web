@@ -15,7 +15,7 @@ The API is a separate Cloudflare Worker, `reptiles-api`, served at `https://api.
 
 ```text
 src/api/
-├── index.ts          Worker entry. Exports { fetch: app.fetch } and the BackupWorkflow class.
+├── index.ts          Worker entry. Exports { fetch, scheduled } and the BackupWorkflow class.
 ├── app.ts            Global middleware, .route("/v1/…"), notFound, onError, AppType.
 ├── env.ts            ApiEnv / ApiBindings (every binding and secret, typed).
 ├── factory.ts        createFactory<ApiEnv>() for typed middleware.
@@ -207,6 +207,10 @@ There are two caches and one way to clear them. Keep it that way; per-tag and pe
 A whole run is one Worker invocation, so every R2 call counts toward `limits.subrequests` in `wrangler.api.jsonc` (200,000; the default 10,000 stops a full copy of the CDN). A first full copy of the CDN takes about 45 minutes; a weekly run that finds a few new files takes about a minute.
 
 Time Travel (30 days) stays the first way back; the dumps cover older states, a deleted database, and restoring single rows into a local D1 (`wrangler d1 execute reptiles-db --local --file <dump>`). Run a backup by hand with `pnpm exec wrangler workflows trigger reptiles-backup --config wrangler.api.jsonc`.
+
+## Daily cleanup
+
+The API Worker's `scheduled` handler (`src/api/index.ts`, logic in `lib/dailyCleanup.ts`) runs on the cron trigger in `wrangler.api.jsonc` (`5 0 * * *`, UTC: 04:05 Tbilisi time). It deletes expired `user_sessions` and forgets the view salts and visitor hashes of every day before the current Tbilisi day (`forgetViewVisitorsBefore`). The first view of a day and every sign-in still clean up as well, so the cleanup does not depend on the cron; the cron covers days without views and admins who never sign in again.
 
 ## Calling the API from the site
 
