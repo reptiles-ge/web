@@ -15,7 +15,7 @@ The API is a separate Cloudflare Worker, `reptiles-api`, served at `https://api.
 
 ```text
 src/api/
-├── index.ts          Worker entry. Exports { fetch: app.fetch } only.
+├── index.ts          Worker entry. Exports { fetch: app.fetch } and the BackupWorkflow class.
 ├── app.ts            Global middleware, .route("/v1/…"), notFound, onError, AppType.
 ├── env.ts            ApiEnv / ApiBindings (every binding and secret, typed).
 ├── factory.ts        createFactory<ApiEnv>() for typed middleware.
@@ -195,6 +195,18 @@ There are two caches and one way to clear them. Keep it that way; per-tag and pe
 - `clearCaches(env)` (`lib/revalidateSite.ts`) bumps the API generation first, waits `CACHE_GENERATION_TTL_MS` so no isolate still serves the old generation (otherwise the site would refill its pages from stale API entries), then posts to the site's `/api/revalidate` with `REVALIDATE_TOKEN` and no body. The site route calls `purgeSiteCache()` (`src/lib/responseStoreDataCache.ts`), which purges the whole store (`purge({ purgeEverything: true })`): every page and every fetch of the live version, with one Workers Cache purge call. It answers 503 when Cloudflare refuses that edge purge (Workers Cache purges are rate limited per account), so the admin sees the failure instead of a false success; press again a minute later.
 - Every clear empties everything. The next request to each page renders it again and stores it. Never add a page warm, a per-tag or per-path purge, or a second clear path.
 - A deploy starts a new Response Store version (keys include the Worker version id), so it starts cold too. Old versions' R2 bodies expire through the bucket lifecycle rule `expire-old-cache-versions` (14 days on `runtime-cache/`).
+
+## Backups
+
+`BackupWorkflow` (`src/api/index.ts`, logic in `lib/backups.ts`) is the Workflow `reptiles-backup`. Its `schedules` entry in `wrangler.api.jsonc` (`0 0 * * SUN`, UTC) runs it every Sunday at 04:00 Tbilisi time. Each run:
+
+1. Exports `reptiles-db` through the D1 export REST API (`BACKUP_ACCOUNT_ID`, `BACKUP_DATABASE_ID`, secret `D1_EXPORT_TOKEN`: an API token with D1 Edit on this account only) and streams the SQL dump to `reptiles-backups` as `d1/reptiles-db/{UTC stamp}.sql`, with the Time Travel bookmark in its metadata. A lifecycle rule on the bucket deletes dumps after 180 days.
+2. Copies `reptiles-cdn` into `reptiles-cdn-replica`, 500 files per step: every file that is missing or has a different size or ETag. It never deletes from the replica, so a photo deleted from the CDN stays there.
+3. Sends the result, or the reason it failed, to the Telegram chat.
+
+A whole run is one Worker invocation, so every R2 call counts toward `limits.subrequests` in `wrangler.api.jsonc` (200,000; the default 10,000 stops a full copy of the CDN). A first full copy of the CDN takes about 45 minutes; a weekly run that finds a few new files takes about a minute.
+
+Time Travel (30 days) stays the first way back; the dumps cover older states, a deleted database, and restoring single rows into a local D1 (`wrangler d1 execute reptiles-db --local --file <dump>`). Run a backup by hand with `pnpm exec wrangler workflows trigger reptiles-backup --config wrangler.api.jsonc`.
 
 ## Calling the API from the site
 
