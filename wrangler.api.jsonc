@@ -102,6 +102,9 @@
       "bucket_name": "reptiles-cdn-replica",
     },
   ],
+  "triggers": {
+    "crons": ["5 0 * * *"],
+  },
   "workflows": [
     {
       "name": "reptiles-backup",
