@@ -10,7 +10,7 @@ const EXPORT_POLL_DELAY = "20 seconds";
 const REQUEST_TIMEOUT_MS = 30_000;
 const D1_PREFIX = "d1/";
 
-export const BACKUP_STEP = {
+const BACKUP_STEP = {
   retries: { backoff: "exponential", delay: "30 seconds", limit: 3 },
   timeout: "15 minutes",
 } as const;
@@ -271,6 +271,14 @@ async function backupD1(
   );
 }
 
+function exportFailure(status: number, json: ExportResponse) {
+  const reason = json.errors
+    ?.map((error) => error.message)
+    .filter(Boolean)
+    .join("; ");
+  return `D1 export request failed (${status})${reason ? `: ${reason}` : ""}`;
+}
+
 async function exportRequest(
   config: BackupConfig,
   body: Record<string, string>,
@@ -287,15 +295,13 @@ async function exportRequest(
       signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     },
   );
+  if (!response.ok) {
+    const failed = (await response.json().catch(() => ({}))) as ExportResponse;
+    throw new Error(exportFailure(response.status, failed));
+  }
   const json = (await response.json().catch(() => ({}))) as ExportResponse;
-  if (!response.ok || !json.success) {
-    const reason = json.errors
-      ?.map((error) => error.message)
-      .filter(Boolean)
-      .join("; ");
-    throw new Error(
-      `D1 export request failed (${response.status})${reason ? `: ${reason}` : ""}`,
-    );
+  if (!json.success) {
+    throw new Error(exportFailure(response.status, json));
   }
   return json.result ?? {};
 }
