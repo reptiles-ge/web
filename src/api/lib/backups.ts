@@ -11,8 +11,8 @@ import type {
 const CDN_PAGE_SIZE = 500;
 const REPLICA_PAGE_SIZE = 1000;
 const COPY_CONCURRENCY = 10;
-const EXPORT_POLLS = 30;
-const EXPORT_POLL_DELAY = "20 seconds";
+const EXPORT_POLLS = 300;
+const EXPORT_POLL_MS = 2_000;
 const REQUEST_TIMEOUT_MS = 30_000;
 const D1_PREFIX = "d1/";
 const DUMP_PART_SIZE = 10 * 1024 * 1024;
@@ -37,7 +37,6 @@ export type BackupStep = {
     config: typeof BACKUP_STEP,
     run: () => Promise<T>,
   ) => Promise<T>;
-  sleep: (name: string, duration: string) => Promise<void>;
 };
 
 export type BackupSummary = {
@@ -134,14 +133,19 @@ export function formatBytes(bytes: number) {
   return `${unit === 0 ? value : value.toFixed(1)} ${units[unit]}`;
 }
 
-export async function runBackup(env: ApiBindings, step: BackupStep, at: Date) {
+export async function runBackup(
+  env: ApiBindings,
+  step: BackupStep,
+  at: Date,
+  pollDelayMs = EXPORT_POLL_MS,
+) {
   const telegram = {
     chatId: env.TELEGRAM_CHAT_ID,
     token: env.TELEGRAM_BOT_TOKEN,
   };
   try {
     const config = backupConfig(env);
-    const d1 = await backupD1(config, step, at);
+    const d1 = await backupD1(config, step, at, pollDelayMs);
     const cdn = await backupCdn(config, step);
     const summary = { cdn, d1 };
     await step.do("report success", BACKUP_STEP, () =>
@@ -270,24 +274,24 @@ async function backupD1(
   config: BackupConfig,
   step: BackupStep,
   at: Date,
+  pollDelayMs: number,
 ): Promise<BackupSummary["d1"]> {
-  const bookmark = await step.do("start D1 export", BACKUP_STEP, () =>
-    startD1Export(config),
+  const { bookmark, signedUrl } = await step.do("export D1", BACKUP_STEP, () =>
+    exportD1(config, pollDelayMs),
   );
-  let signedUrl: null | string = null;
-  for (let poll = 1; poll <= EXPORT_POLLS && !signedUrl; poll += 1) {
-    signedUrl = await step.do(`check D1 export ${poll}`, BACKUP_STEP, () =>
-      checkD1Export(config, bookmark),
-    );
-    if (!signedUrl) {
-      await step.sleep(`wait for D1 export ${poll}`, EXPORT_POLL_DELAY);
-    }
-  }
-  if (!signedUrl) throw new Error("D1 export did not finish in time");
-  const url = signedUrl;
   return step.do("store D1 dump", BACKUP_STEP, () =>
-    storeD1Dump(config, url, d1BackupKey("reptiles-db", at), bookmark),
+    storeD1Dump(config, signedUrl, d1BackupKey("reptiles-db", at), bookmark),
   );
+}
+
+async function exportD1(config: BackupConfig, pollDelayMs: number) {
+  const bookmark = await startD1Export(config);
+  for (let poll = 1; poll <= EXPORT_POLLS; poll += 1) {
+    const signedUrl = await checkD1Export(config, bookmark);
+    if (signedUrl) return { bookmark, signedUrl };
+    await new Promise((resolve) => setTimeout(resolve, pollDelayMs));
+  }
+  throw new Error("D1 export did not finish in time");
 }
 
 function exportFailure(status: number, json: ExportResponse) {
