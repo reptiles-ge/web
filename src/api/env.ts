@@ -36,6 +36,13 @@ export type ApiEnv = {
 };
 
 export type BackupBucket = {
+  createMultipartUpload: (
+    key: string,
+    options: {
+      customMetadata?: Record<string, string>;
+      httpMetadata?: Record<string, unknown>;
+    },
+  ) => Promise<BackupUpload>;
   get: (key: string) => Promise<BackupObjectBody | null>;
   list: (options: {
     cursor?: string;
@@ -63,6 +70,17 @@ export type BackupObjectBody = {
   httpMetadata?: Record<string, unknown>;
   size: number;
 };
+
+export type BackupUpload = {
+  abort: () => Promise<void>;
+  complete: (parts: BackupUploadedPart[]) => Promise<{ size: number }>;
+  uploadPart: (
+    partNumber: number,
+    value: Uint8Array,
+  ) => Promise<BackupUploadedPart>;
+};
+
+export type BackupUploadedPart = { etag: string; partNumber: number };
 
 export type CdnBucket = {
   list: (options: {

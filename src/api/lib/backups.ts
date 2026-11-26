@@ -1,6 +1,12 @@
 import { sendTelegramMessage } from "@/lib/telegram";
 
-import type { ApiBindings, BackupBucket, BackupObject } from "../env";
+import type {
+  ApiBindings,
+  BackupBucket,
+  BackupObject,
+  BackupUpload,
+  BackupUploadedPart,
+} from "../env";
 
 const CDN_PAGE_SIZE = 500;
 const REPLICA_PAGE_SIZE = 1000;
@@ -9,6 +15,7 @@ const EXPORT_POLLS = 30;
 const EXPORT_POLL_DELAY = "20 seconds";
 const REQUEST_TIMEOUT_MS = 30_000;
 const D1_PREFIX = "d1/";
+const DUMP_PART_SIZE = 10 * 1024 * 1024;
 
 const BACKUP_STEP = {
   retries: { backoff: "exponential", delay: "30 seconds", limit: 3 },
@@ -100,7 +107,7 @@ export function d1BackupKey(databaseName: string, at: Date) {
     .toISOString()
     .replace(/\.\d{3}Z$/, "Z")
     .replaceAll(":", "-");
-  return `${D1_PREFIX}${databaseName}/${stamp}.sql`;
+  return `${D1_PREFIX}${databaseName}/${stamp}.sql.gz`;
 }
 
 export function formatBackupFailure(error: unknown) {
@@ -162,16 +169,28 @@ export async function storeD1Dump(
   signedUrl: string,
   key: string,
   bookmark: string,
+  partSize = DUMP_PART_SIZE,
 ) {
   const response = await fetch(signedUrl);
   if (!response.ok || !response.body) {
     throw new Error(`D1 dump download failed (${response.status})`);
   }
-  const stored = await config.backups.put(key, response.body, {
+  const upload = await config.backups.createMultipartUpload(key, {
     customMetadata: { bookmark },
-    httpMetadata: { contentType: "application/sql" },
+    httpMetadata: { contentType: "application/gzip" },
   });
-  return { key, size: stored?.size ?? 0 };
+  try {
+    const parts = await uploadParts(
+      upload,
+      response.body.pipeThrough(new CompressionStream("gzip")),
+      partSize,
+    );
+    const stored = await upload.complete(parts);
+    return { key, size: stored.size };
+  } catch (error) {
+    await upload.abort().catch(() => undefined);
+    throw error;
+  }
 }
 
 export async function syncCdnPage(
@@ -332,4 +351,35 @@ function sameObject(source: BackupObject, copy: BackupObject) {
   if (source.size !== copy.size) return false;
   if (source.etag === copy.etag) return true;
   return source.etag.includes("-") || copy.etag.includes("-");
+}
+
+async function uploadParts(
+  upload: BackupUpload,
+  stream: ReadableStream<Uint8Array>,
+  partSize: number,
+) {
+  const parts: BackupUploadedPart[] = [];
+  const buffer = new Uint8Array(partSize);
+  let filled = 0;
+  const send = async () => {
+    parts.push(
+      await upload.uploadPart(parts.length + 1, buffer.slice(0, filled)),
+    );
+    filled = 0;
+  };
+  const reader = stream.getReader();
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    let offset = 0;
+    while (offset < value.byteLength) {
+      const take = Math.min(partSize - filled, value.byteLength - offset);
+      buffer.set(value.subarray(offset, offset + take), filled);
+      filled += take;
+      offset += take;
+      if (filled === partSize) await send();
+    }
+  }
+  if (filled > 0 || parts.length === 0) await send();
+  return parts;
 }

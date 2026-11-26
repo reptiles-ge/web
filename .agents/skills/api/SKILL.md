@@ -198,15 +198,15 @@ There are two caches and one way to clear them. Keep it that way; per-tag and pe
 
 ## Backups
 
-`BackupWorkflow` (`src/api/index.ts`, logic in `lib/backups.ts`) is the Workflow `reptiles-backup`. Its `schedules` entry in `wrangler.api.jsonc` (`0 0 * * SUN`, UTC) runs it every Sunday at 04:00 Tbilisi time. Each run:
+`BackupWorkflow` (`src/api/index.ts`, logic in `lib/backups.ts`) is the Workflow `reptiles-backup`. Its `schedules` entry in `wrangler.api.jsonc` (`0 0 * * *`, UTC) runs it every day at 04:00 Tbilisi time. Each run:
 
-1. Exports `reptiles-db` through the D1 export REST API (`BACKUP_ACCOUNT_ID`, `BACKUP_DATABASE_ID`, secret `D1_EXPORT_TOKEN`: an API token with D1 Edit on this account only) and streams the SQL dump to `reptiles-backups` as `d1/reptiles-db/{UTC stamp}.sql`, with the Time Travel bookmark in its metadata. A lifecycle rule on the bucket deletes dumps after 180 days.
+1. Exports `reptiles-db` through the D1 export REST API (`BACKUP_ACCOUNT_ID`, `BACKUP_DATABASE_ID`, secret `D1_EXPORT_TOKEN`: an API token with D1 Edit on this account only) gzips the SQL dump on the fly and stores it in `reptiles-backups` as `d1/reptiles-db/{UTC stamp}.sql.gz` (a multipart upload in 10 MB parts, so the dump is never held in memory; R2 cannot take a stream of unknown length), with the Time Travel bookmark in its metadata. The export blocks other queries on the database while it runs (about a minute), which is why it runs at night. A 300 MB dump becomes about 66 MB and takes about 3 seconds of CPU, well inside the 30-second default. A lifecycle rule on the bucket (`d1-dumps-90d`) deletes dumps after 90 days.
 2. Copies `reptiles-cdn` into `reptiles-cdn-replica`, 500 files per step: every file that is missing or has a different size or ETag. It never deletes from the replica, so a photo deleted from the CDN stays there.
 3. Sends the result, or the reason it failed, to the Telegram chat.
 
-A whole run is one Worker invocation, so every R2 call counts toward `limits.subrequests` in `wrangler.api.jsonc` (200,000; the default 10,000 stops a full copy of the CDN). A first full copy of the CDN takes about 45 minutes; a weekly run that finds a few new files takes about a minute.
+A whole run is one Worker invocation, so every R2 call counts toward `limits.subrequests` in `wrangler.api.jsonc` (200,000; the default 10,000 stops a full copy of the CDN). A first full copy of the CDN takes about 45 minutes; a daily run that finds a few new files takes about a minute.
 
-Time Travel (30 days) stays the first way back; the dumps cover older states, a deleted database, and restoring single rows into a local D1 (`wrangler d1 execute reptiles-db --local --file <dump>`). Run a backup by hand with `pnpm exec wrangler workflows trigger reptiles-backup --config wrangler.api.jsonc`.
+Time Travel (30 days) stays the first way back; the dumps cover older states, a deleted database, and restoring single rows into a local D1 (`gunzip -k <dump>.sql.gz`, then `wrangler d1 execute reptiles-db --local --file <dump>.sql`). Run a backup by hand with `pnpm exec wrangler workflows trigger reptiles-backup --config wrangler.api.jsonc`.
 
 ## Daily cleanup
 
