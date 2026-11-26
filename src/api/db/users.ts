@@ -39,6 +39,13 @@ export async function createSession(
   ]);
 }
 
+export async function deleteExpiredSessions(db: ApiDatabase, now: string) {
+  await db
+    .prepare("DELETE FROM user_sessions WHERE expires_at <= ?")
+    .bind(now)
+    .run();
+}
+
 export async function deleteSession(db: ApiDatabase, tokenHash: string) {
   await db
     .prepare("DELETE FROM user_sessions WHERE token_hash = ?")

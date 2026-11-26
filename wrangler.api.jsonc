@@ -5,6 +5,9 @@
   "compatibility_date": "2026-09-22",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,
+  "limits": {
+    "subrequests": 200000,
+  },
   "preview_urls": false,
   "routes": [
     {
@@ -15,6 +18,8 @@
   "vars": {
     "ALLOWED_ORIGINS": "https://reptiles.ge,https://admin.reptiles.ge",
     "API_KEY_MODE": "enforce",
+    "BACKUP_ACCOUNT_ID": "e6225e3f7b3c0912afab2448cac17915",
+    "BACKUP_DATABASE_ID": "70504a48-9615-4ec5-9e47-d02affda6e5a",
     "CACHE_GENERATION_TTL_MS": "5000",
   },
   "ratelimits": [
@@ -87,6 +92,25 @@
     {
       "binding": "CDN_BUCKET",
       "bucket_name": "reptiles-cdn",
+    },
+    {
+      "binding": "BACKUP_BUCKET",
+      "bucket_name": "reptiles-backups",
+    },
+    {
+      "binding": "CDN_REPLICA_BUCKET",
+      "bucket_name": "reptiles-cdn-replica",
+    },
+  ],
+  "triggers": {
+    "crons": ["5 0 * * *"],
+  },
+  "workflows": [
+    {
+      "name": "reptiles-backup",
+      "binding": "BACKUP_WORKFLOW",
+      "class_name": "BackupWorkflow",
+      "schedules": ["0 0 * * *"],
     },
   ],
   "observability": {
