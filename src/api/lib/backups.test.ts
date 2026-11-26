@@ -32,8 +32,11 @@ const TELEGRAM_URL = "https://api.telegram.org/botbot-token/sendMessage";
 const AT = new Date("2026-11-29T00:00:00.000Z");
 
 type FakeBucket = BackupBucket & {
+  aborted: string[];
   failGet: (key: string) => void;
+  failPart: (error: Error) => void;
   objects: Map<string, Stored>;
+  partSizes: number[];
   puts: string[];
 };
 
@@ -106,7 +109,10 @@ function fakeBucket(
     });
   }
   const puts: string[] = [];
+  const aborted: string[] = [];
+  const partSizes: number[] = [];
   const failing = new Set<string>();
+  let partError: Error | null = null;
   const describe = (key: string, stored: Stored): BackupObject => ({
     etag: stored.etag,
     key,
@@ -114,8 +120,46 @@ function fakeBucket(
   });
 
   return {
+    aborted,
+    createMultipartUpload(key, options) {
+      const parts = new Map<number, Uint8Array>();
+      return Promise.resolve({
+        abort: () => {
+          aborted.push(key);
+          return Promise.resolve();
+        },
+        complete: (uploaded) => {
+          const chunks = uploaded.map((part) => parts.get(part.partNumber)!);
+          const body = new Uint8Array(
+            chunks.reduce((total, chunk) => total + chunk.byteLength, 0),
+          );
+          let offset = 0;
+          for (const chunk of chunks) {
+            body.set(chunk, offset);
+            offset += chunk.byteLength;
+          }
+          objects.set(key, {
+            body,
+            customMetadata: options.customMetadata,
+            etag: `etag-${key}`,
+            httpMetadata: options.httpMetadata,
+          });
+          puts.push(key);
+          return Promise.resolve({ size: body.byteLength });
+        },
+        uploadPart: (partNumber, value) => {
+          if (partError) return Promise.reject(partError);
+          parts.set(partNumber, value.slice());
+          partSizes.push(value.byteLength);
+          return Promise.resolve({ etag: `part-${partNumber}`, partNumber });
+        },
+      });
+    },
     failGet: (key) => {
       failing.add(key);
+    },
+    failPart: (error) => {
+      partError = error;
     },
     get(key) {
       const stored = objects.get(key);
@@ -151,6 +195,7 @@ function fakeBucket(
       );
     },
     objects,
+    partSizes,
     async put(key, value, options) {
       const bytes =
         value instanceof ArrayBuffer
@@ -167,6 +212,13 @@ function fakeBucket(
     },
     puts,
   };
+}
+
+async function gunzip(bytes: Uint8Array) {
+  const stream = new Response(new Uint8Array(bytes)).body!.pipeThrough(
+    new DecompressionStream("gzip"),
+  );
+  return new Response(stream).text();
 }
 
 function recordingStep() {
@@ -219,7 +271,7 @@ describe("d1BackupKey", () => {
   it("files the dump under d1/ with a sortable UTC stamp", () => {
     expect(
       d1BackupKey("reptiles-db", new Date("2026-11-29T00:00:05.123Z")),
-    ).toBe("d1/reptiles-db/2026-11-29T00-00-05Z.sql");
+    ).toBe("d1/reptiles-db/2026-11-29T00-00-05Z.sql.gz");
   });
 });
 
@@ -306,20 +358,50 @@ describe("D1 export", () => {
     );
   });
 
-  it("streams the dump into the backup bucket with its bookmark", async () => {
+  it("gzips the dump into the backup bucket with its bookmark", async () => {
     exportApi([]);
     const backups = fakeBucket();
     const result = await storeD1Dump(
       config({ backups }),
       DUMP_URL,
-      "d1/reptiles-db/x.sql",
+      "d1/reptiles-db/x.sql.gz",
       "bookmark-1",
     );
-    expect(result).toEqual({ key: "d1/reptiles-db/x.sql", size: 21 });
-    const stored = backups.objects.get("d1/reptiles-db/x.sql")!;
-    expect(new TextDecoder().decode(stored.body)).toBe("CREATE TABLE species;");
+    const stored = backups.objects.get("d1/reptiles-db/x.sql.gz")!;
+    expect(result).toEqual({
+      key: "d1/reptiles-db/x.sql.gz",
+      size: stored.body.byteLength,
+    });
+    expect(await gunzip(stored.body)).toBe("CREATE TABLE species;");
     expect(stored.customMetadata).toEqual({ bookmark: "bookmark-1" });
-    expect(stored.httpMetadata).toEqual({ contentType: "application/sql" });
+    expect(stored.httpMetadata).toEqual({ contentType: "application/gzip" });
+  });
+
+  it("uploads a large dump in equal parts with a shorter last part", async () => {
+    const dump = Array.from(
+      { length: 4000 },
+      (_, index) =>
+        `INSERT INTO t VALUES (${index}, '${(index * 7919).toString(36)}');`,
+    ).join("\n");
+    server.use(http.get(DUMP_URL, () => new HttpResponse(dump)));
+    const backups = fakeBucket();
+    await storeD1Dump(config({ backups }), DUMP_URL, "d1/x.sql.gz", "b", 1024);
+    const sizes = backups.partSizes;
+    expect(sizes.length).toBeGreaterThan(2);
+    expect(sizes.slice(0, -1).every((size) => size === 1024)).toBe(true);
+    expect(sizes.at(-1)).toBeLessThanOrEqual(1024);
+    expect(await gunzip(backups.objects.get("d1/x.sql.gz")!.body)).toBe(dump);
+  });
+
+  it("aborts the upload when a part fails", async () => {
+    exportApi([]);
+    const backups = fakeBucket();
+    backups.failPart(new Error("R2 down"));
+    await expect(
+      storeD1Dump(config({ backups }), DUMP_URL, "d1/x.sql.gz", "b"),
+    ).rejects.toThrow("R2 down");
+    expect(backups.aborted).toEqual(["d1/x.sql.gz"]);
+    expect(backups.objects.has("d1/x.sql.gz")).toBe(false);
   });
 
   it("fails when the dump cannot be downloaded", async () => {
@@ -503,7 +585,11 @@ describe("runBackup", () => {
 
     expect(summary).toEqual({
       cdn: { bytes: 2, checked: 2, copied: 1 },
-      d1: { key: "d1/reptiles-db/2026-11-29T00-00-00Z.sql", size: 21 },
+      d1: {
+        key: "d1/reptiles-db/2026-11-29T00-00-00Z.sql.gz",
+        size: backups.objects.get("d1/reptiles-db/2026-11-29T00-00-00Z.sql.gz")!
+          .body.byteLength,
+      },
     });
     expect(names).toEqual([
       "start D1 export",
