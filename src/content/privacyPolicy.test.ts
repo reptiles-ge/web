@@ -24,7 +24,7 @@ describe("privacy policy", () => {
       expect(count(text, /^#{1,3} /gm), locale).toBe(count(ka, /^#{1,3} /gm));
       expect(count(text, /^- /gm), locale).toBe(count(ka, /^- /gm));
       expect(count(text, /^\|/gm), locale).toBe(count(ka, /^\|/gm));
-      expect(text, locale).toContain("2026-10-30");
+      expect(text, locale).toContain("2026-11-23");
       expect(text, locale).toContain(`\`${CONTACT_EMAIL}\``);
     }
     expect(legalDocuments.privacy).toBe(PRIVACY_POLICY);
@@ -34,7 +34,6 @@ describe("privacy policy", () => {
     for (const locale of routing.locales) {
       for (const name of [
         "Cloudflare",
-        "Bunny CDN/Storage",
         "Google Tag Manager",
         "Google Analytics 4",
         "Sentry",
@@ -43,6 +42,7 @@ describe("privacy policy", () => {
         expect(PRIVACY_POLICY[locale], `${locale} ${name}`).toContain(name);
       }
       expect(PRIVACY_POLICY[locale], locale).not.toContain("Vercel");
+      expect(PRIVACY_POLICY[locale], locale).not.toContain("Bunny");
     }
   });
 

@@ -6,7 +6,7 @@ const EMAIL = `\`${CONTACT_EMAIL}\``;
 
 const ka = `# კონფიდენციალურობის პოლიტიკა
 
-ბოლო განახლება: 2026-10-30
+ბოლო განახლება: 2026-11-23
 
 ეს კონფიდენციალურობის პოლიტიკა განმარტავს, როგორ მუშავდება პერსონალური მონაცემები ვებსაიტზე reptiles.ge („საიტი“). საიტი არის საქართველოს ცხოველთა ატლასი და საგანმანათლებლო რესურსი. მას არ აქვს მომხმარებლის ანგარიში, რეგისტრაცია, ფასიანი სერვისი, კალათა, newsletter ან საიტშივე ჩაშენებული საკონტაქტო ფორმა.
 
@@ -87,8 +87,7 @@ Google Tag Manager-ის მეშვეობით იტვირთებ�
 
 საიტის მუშაობისთვის გამოიყენება შემდეგი მესამე მხარეები:
 
-- Cloudflare — hosting, CDN, უსაფრთხოება და ტექნიკური მიწოდება;
-- Bunny CDN/Storage — media/CDN და admin upload workflow;
+- Cloudflare — hosting, CDN, უსაფრთხოება, ტექნიკური მიწოდება და ფოტო/აუდიო ფაილების შენახვა (R2, admin-იდან ატვირთვის ჩათვლით);
 - Google Tag Manager, Google Analytics 4 და შესაძლო Google Ads tags — analytics/conversion, GTM container-ის კონფიგურაციის მიხედვით;
 - Sentry — შეცდომებისა და საიტის სისწრაფის მონიტორინგი;
 - Telegram — საიტის შეფასებების მიწოდება საიტის ადმინისტრატორისთვის;
@@ -145,7 +144,7 @@ Google Tag Manager-ის მეშვეობით იტვირთებ�
 
 const en = `# Privacy Policy
 
-Last updated: 2026-10-30
+Last updated: 2026-11-23
 
 This privacy policy explains how personal data is processed on the reptiles.ge website (the "Site"). The Site is an atlas of the animals of Georgia and an educational resource. It has no user accounts, registration, paid services, shopping cart, newsletter or built-in contact form.
 
@@ -226,8 +225,7 @@ The Site does not show a cookie consent banner. Google Analytics 4 loads on ever
 
 The following third parties are used to run the Site:
 
-- Cloudflare: hosting, CDN, security and technical delivery;
-- Bunny CDN/Storage: media/CDN and the admin upload workflow;
+- Cloudflare: hosting, CDN, security, technical delivery and storage of photo and audio files (R2, including uploads from the admin);
 - Google Tag Manager, Google Analytics 4 and possible Google Ads tags: analytics/conversion, depending on the GTM container configuration;
 - Sentry: monitoring of errors and Site speed;
 - Telegram: delivering Site ratings to the Site administrator;
@@ -284,7 +282,7 @@ This policy may be updated from time to time. When it is updated, the "last upda
 
 const ru = `# Политика конфиденциальности
 
-Последнее обновление: 2026-10-30
+Последнее обновление: 2026-11-23
 
 Настоящая политика конфиденциальности объясняет, как обрабатываются персональные данные на сайте reptiles.ge («Сайт»). Сайт — атлас животных Грузии и образовательный ресурс. На нём нет учётных записей, регистрации, платных услуг, корзины, рассылки и встроенной контактной формы.
 
@@ -365,8 +363,7 @@ Google Tag Manager загружает Google Analytics 4. Он хранит на
 
 Для работы Сайта используются следующие третьи стороны:
 
-- Cloudflare — хостинг, CDN, безопасность и техническая доставка;
-- Bunny CDN/Storage — медиа/CDN и процесс загрузки через админку;
+- Cloudflare — хостинг, CDN, безопасность, техническая доставка и хранение фото- и аудиофайлов (R2, включая загрузку через админку);
 - Google Tag Manager, Google Analytics 4 и возможные теги Google Ads — аналитика/конверсии в зависимости от настроек контейнера GTM;
 - Sentry — мониторинг ошибок и скорости Сайта;
 - Telegram — доставка оценок Сайта администратору Сайта;
@@ -423,7 +420,7 @@ Google Tag Manager загружает Google Analytics 4. Он хранит на
 
 const tr = `# Gizlilik Politikası
 
-Son güncelleme: 2026-10-30
+Son güncelleme: 2026-11-23
 
 Bu gizlilik politikası, reptiles.ge web sitesinde ("Site") kişisel verilerin nasıl işlendiğini açıklar. Site, Gürcistan hayvanlarının atlası ve bir eğitim kaynağıdır. Sitede kullanıcı hesabı, kayıt, ücretli hizmet, alışveriş sepeti, bülten veya site içine yerleştirilmiş iletişim formu yoktur.
 
@@ -504,8 +501,7 @@ Site bir çerez onay penceresi göstermez. Google Analytics 4 her sayfada yükle
 
 Sitenin çalışması için aşağıdaki üçüncü taraflar kullanılır:
 
-- Cloudflare: barındırma, CDN, güvenlik ve teknik sunum;
-- Bunny CDN/Storage: medya/CDN ve yönetim panelinden yükleme süreci;
+- Cloudflare: barındırma, CDN, güvenlik, teknik sunum ve fotoğraf/ses dosyalarının depolanması (R2, yönetim panelinden yüklemeler dahil);
 - Google Tag Manager, Google Analytics 4 ve olası Google Ads etiketleri: GTM container yapılandırmasına göre analitik/dönüşüm;
 - Sentry: hataların ve Site hızının izlenmesi;
 - Telegram: Site değerlendirmelerinin Site yöneticisine iletilmesi;
