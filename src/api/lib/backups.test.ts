@@ -228,10 +228,6 @@ function recordingStep() {
       names.push(name);
       return run();
     },
-    sleep: (name) => {
-      names.push(name);
-      return Promise.resolve();
-    },
   };
   return { names, step };
 }
@@ -581,6 +577,7 @@ describe("runBackup", () => {
       }),
       step,
       AT,
+      0,
     );
 
     expect(summary).toEqual({
@@ -592,10 +589,7 @@ describe("runBackup", () => {
       },
     });
     expect(names).toEqual([
-      "start D1 export",
-      "check D1 export 1",
-      "wait for D1 export 1",
-      "check D1 export 2",
+      "export D1",
       "store D1 dump",
       "copy CDN page 1",
       "report success",
@@ -637,14 +631,14 @@ describe("runBackup", () => {
 
   it("gives up when the export never finishes and reports the failure", async () => {
     const messages = telegramMessages();
-    exportApi([]);
+    const bodies = exportApi([]) as Array<Record<string, string>>;
     const { names, step } = recordingStep();
-    await expect(runBackup(bindings(), step, AT)).rejects.toThrow(
+    await expect(runBackup(bindings(), step, AT, 0)).rejects.toThrow(
       "D1 export did not finish in time",
     );
-    expect(
-      names.filter((name) => name.startsWith("check D1 export")),
-    ).toHaveLength(30);
+    expect(bodies.filter((body) => "current_bookmark" in body)).toHaveLength(
+      300,
+    );
     expect(names.at(-1)).toBe("report failure");
     expect(messages).toEqual([
       "❌ reptiles.ge backup failed\nD1 export did not finish in time",
